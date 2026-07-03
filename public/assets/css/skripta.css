@@ -98,7 +98,7 @@
   --stin-akcent: 0 8px 24px rgba(67, 56, 202, 0.18);
 
   /* Rozvržení */
-  --sirka-textu: 72ch;          /* komfortní míra řádku pro prózu */
+  --sirka-textu: 100%;          /* obsah lekce využívá plnou šířku sloupce */
   --sirka-panelu: 288px;        /* šířka postranního panelu lekcí */
   --vyska-hlavicky: 60px;       /* výška horní lišty */
   --max-sirka-obsahu: 1680px;   /* strop šířky pro velmi široké monitory */
