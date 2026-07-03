@@ -355,7 +355,6 @@ code, kbd, samp { font-family: var(--font-mono); font-size: 0.9em; }
 .obsah > .definice,
 .obsah > .zkus-sam,
 .obsah > .otazky,
-.obsah > .lekce-hlavicka,
 .obsah > blockquote {
   max-width: var(--sirka-textu);
 }
@@ -363,6 +362,7 @@ code, kbd, samp { font-family: var(--font-mono); font-size: 0.9em; }
 .obsah > .tabulka-obal,
 .obsah > .viz,
 .obsah > .vzorec,
+.obsah > .lekce-hlavicka,
 .obsah > figure {
   max-width: 100%;
 }
