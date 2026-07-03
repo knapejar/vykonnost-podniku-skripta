@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8.2 Čistý pracovní kapitál – hotovostní cyklus a řízení zásob – Výkonnost podniku</title>
+  <meta name="description" content="Hotovostní cyklus jako propojení dob obratu zásob, pohledávek a závazků a řízení zásob včetně modelu optimální velikosti objednávky (EOQ).">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 8, aktuální 8.2 -->
+    <nav class="panel" data-panel data-aktivni-lekce="8.2" aria-label="Lekce tématu 8">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 8</div>
+      <div class="panel__nazev-tema">Investice a čistý pracovní kapitál</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="8.1" href="t8-l1-investicni-rozhodovani.html"><span class="panel__odkaz-cislo">8.1</span><span>Strategické investiční rozhodování</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="8.2" href="t8-l2-cpk-zasoby.html"><span class="panel__odkaz-cislo">8.2</span><span>ČPK – hotovostní cyklus a řízení zásob</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="8.3" href="t8-l3-pohledavky-penize.html"><span class="panel__odkaz-cislo">8.3</span><span>Řízení pohledávek a peněžních prostředků</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="8.4" href="t8-l4-kratkodobe-zdroje.html"><span class="panel__odkaz-cislo">8.4</span><span>Krátkodobé finanční zdroje a vliv ČPK na výkonnost</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-8">Téma 8 · Investice a ČPK</a></li>
+          <li><span aria-current="page">Lekce 8.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 8.2</span>
+        <h1>Čistý pracovní kapitál – hotovostní cyklus a řízení zásob</h1>
+        <p class="lekce-hlavicka__strany">Strany 144–149</p>
+      </header>
+
+      <p>
+        Investiční rozhodování z předchozí lekce ovlivňuje dlouhodobou stránku
+        podniku. Vedle ní ovšem o tvorbě hodnoty rozhoduje i každodenní hospodaření
+        s <strong>oběžným majetkem</strong> – se zásobami, pohledávkami a penězi.
+        Právě této krátkodobé, ale trvale přítomné oblasti se věnuje řízení
+        <strong><a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého pracovního kapitálu</a></strong>. V této lekci si ukážeme, jak
+        na sebe navazují doby obratu jednotlivých složek (tzv. <em>hotovostní
+        cyklus</em>) a jak lze finančně optimalizovat zásoby, včetně modelu
+        optimální velikosti objednávky.
+      </p>
+
+      <!-- NÁVĚŠTÍ: co už bylo zavedeno dříve -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Na co navazujeme</p>
+        <div class="callout__telo">
+          <p>
+            Pojem <strong>čistý pracovní kapitál (ČPK)</strong> jsme zavedli jako
+            rozdílový ukazatel v <strong>lekci 3.1</strong> a <strong><a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-zasob" target="_blank" rel="noopener">doby obratu
+            zásob</a>, pohledávek a závazků</strong> jako <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-ukazatele-aktivity" target="_blank" rel="noopener">ukazatele aktivity</a> v
+            <strong>lekci 3.3</strong>. Zde na ně nenavazujeme opakováním, ale
+            nadstavbou: propojíme je do hotovostního cyklu a doplníme nástroje
+            <em>aktivního řízení</em> zásob.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== 1. PRACOVNÍ KAPITÁL vs. ČPK ===================== -->
+      <h2>Pracovní kapitál a čistý pracovní kapitál</h2>
+
+      <p>
+        V praxi se někdy oba pojmy směšují, je ale užitečné je odlišit.
+        Zjednodušeně: o <em>pracovním kapitálu</em> hovoříme v souvislosti s celým
+        oběžným majetkem, zatímco <em>čistý pracovní kapitál</em> je jen ta jeho
+        část, kterou financuje dlouhodobý kapitál.
+      </p>
+
+      <section class="definice" id="pojem-pracovni-kapital">
+        <h3 class="definice__pojem">Pracovní kapitál</h3>
+        <div class="definice__telo">
+          <p>
+            Oběžný majetek podniku, tedy <strong>zásoby, pohledávky a krátkodobý
+            finanční majetek</strong>. Jde o prostředky, které se v provozu neustále
+            přeměňují: peníze → zásoby → pohledávky → peníze.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Čistý pracovní kapitál (ČPK)</p>
+        <div class="callout__telo">
+          <p>
+            Čistý pracovní kapitál je pracovní kapitál snížený o krátkodobé cizí
+            zdroje – tedy
+            <span class="math">ČPK<span class="op">=</span>oběžný majetek<span class="op">−</span>krátkodobé cizí zdroje</span>.
+            Je to ta část oběžného majetku, kterou už nekryjí krátkodobé závazky
+            a je proto nutné ji financovat dlouhodobým kapitálem. (Podrobně
+            zavedeno v lekci 3.1.)
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        <strong>Řízením čistého pracovního kapitálu</strong> pak rozumíme řízení
+        jeho jednotlivých složek – zásob, pohledávek, peněz a krátkodobých zdrojů.
+        Tato lekce se zaměří na hotovostní cyklus a na zásoby; pohledávkám a penězům
+        se věnuje lekce 8.3 a krátkodobým zdrojům lekce 8.4.
+      </p>
+
+      <!-- ===================== 2. HOTOVOSTNÍ CYKLUS ===================== -->
+      <h2>Hotovostní cyklus</h2>
+
+      <section class="definice" id="pojem-hotovostni-cyklus">
+        <h3 class="definice__pojem">Hotovostní cyklus</h3>
+        <div class="definice__telo">
+          <p>
+            Doba, která uplyne od <strong>zaplacení</strong> nakoupeného materiálu,
+            surovin či zboží až po <strong>obdržení hotovosti</strong> za prodaný
+            výrobek, službu nebo zboží. Vyjadřuje, jak dlouho jsou v provozu vázány
+            peníze, které musí podnik z něčeho financovat.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Délku hotovostního cyklu určuje součin (respektive rozdíl) tří dob obratu.
+        Z figur v knize plyne názorný vztah: dobu obratu zásob a pohledávek podnik
+        částečně „pokryje" tím, že sám platí své závazky později. Rozdíl mezi tím,
+        <em>jak dlouho jsou peníze vázány</em>, a tím, <em>jak dlouho může podnik
+        odkládat platby dodavatelům</em>, musí financovat z jiných zdrojů:
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Vztah plynoucí z časové osy</p>
+        <div class="callout__telo">
+          <p>
+            <span class="math">hotovostní cyklus<span class="op">=</span>doba obratu zásob<span class="op">+</span>doba obratu pohledávek<span class="op">−</span>doba splatnosti závazků</span>
+          </p>
+          <p>
+            Je-li výsledek <strong>kladný</strong>, podnik musí pracovní kapitál po
+            tuto dobu financovat („nutno financovat"). Je-li <strong>záporný</strong>,
+            podnik naopak drží cizí peníze déle, než potřebuje, a může je dočasně
+            investovat („možno investovat").
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Podívejme se na tři podniky s odlišnou povahou podnikání. Podnik
+        <strong>A</strong> je výrobce obuvi, podnik <strong>B</strong> šije pánské
+        oděvy na zakázku a podnik <strong>C</strong> je supermarket s potravinami
+        a drogistickým zbožím. Projděte jejich hotovostní cykly krok za krokem.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: hotovostní cyklus ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Hotovostní cyklus tří podniků na časové ose</p>
+          <p class="viz__popis">Horní osa: doba obratu zásob a pohledávek. Dolní osa: doba splatnosti závazků. Rozdíl mezi nimi buď „nutno financovat", nebo „možno investovat". Přepínejte tlačítky „Zpět / Další".</p>
+        </figcaption>
+        <div id="viz-hotovostni-cyklus"></div>
+      </figure>
+
+      <p>
+        Podnik <strong>A</strong> má dlouhý výrobní cyklus (typ výroby) i dlouhou
+        <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-pohledavek" target="_blank" rel="noopener">splatnost pohledávek</a> (silná konkurence v odvětví). Závazky splatné za
+        30 dní pokryjí jen část potřeby, takže zbylých <strong>50 dní</strong>
+        musí financovat z jiných zdrojů. Podnik <strong>B</strong> má krátké zásoby
+        i pohledávky a část zákazníků platí hotově; 30denní <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-zavazku" target="_blank" rel="noopener">splatnost závazků</a> přesně
+        pokryje celou potřebu – cyklus je prakticky nulový. Podnik <strong>C</strong>
+        těží ze svého tržního postavení: tlačí dodavatele k dlouhé splatnosti
+        (40 dní), zboží obrací rychle (20 dní) a prodává za hotové (nulové
+        pohledávky). Vzniká <strong>20denní přebytek</strong>, který lze investovat.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Délku cyklu lze řídit – ale jen v rámci povahy podniku</p>
+        <div class="callout__telo">
+          <p>
+            Z příkladů je zřejmé, jaké jsou možnosti i <em>omezení</em> řízení délky
+            hotovostního cyklu prostřednictvím jednotlivých složek ČPK. Část dob
+            obratu je dána typem výroby či odvětvím (dlouhý výrobní cyklus u obuvi),
+            část lze aktivně ovlivnit (vyjednání delší splatnosti závazků, kratší
+            splatnost pohledávek, nižší zásoby).
+          </p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 1: záporný hotovostní cyklus -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik C má <em>záporný</em> hotovostní cyklus. Proč je to pro něj
+          výhodné a odkud tato výhoda pramení?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Záporný hotovostní cyklus znamená, že podnik inkasuje hotovost za
+              prodané zboží <strong>dříve</strong>, než musí zaplatit svým
+              dodavatelům. Po dobu tohoto rozdílu (u podniku C 20 dní) hospodaří
+              fakticky s <strong>bezplatnými cizími zdroji</strong> – penězi
+              nezaplacených závazků. Nemusí pracovní kapitál financovat úvěrem;
+              naopak má dočasně volnou hotovost, kterou může krátkodobě investovat
+              a získat další výnos. Výhoda pramení ze silného postavení na trhu
+              (dlouhá splatnost závazků), rychlého obratu zboží a prodeje za hotové
+              (nulové pohledávky).
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== 3. ŘÍZENÍ ZÁSOB ===================== -->
+      <h2>Řízení zásob</h2>
+
+      <p>
+        U <strong>zásob</strong> hledáme rovnováhu: na jedné straně nechceme, aby
+        v nich zbytečně vázly peníze (nejen v materiálu, nedokončené výrobě a
+        hotových výrobcích, ale i v nadměrných skladech a jejich obsluze), na druhé
+        straně nesmí docházet k výpadkům výroby ani k nespokojenosti zákazníků.
+        Z pohledu finančního manažera nás zajímají hlavně <em>finanční dopady</em>
+        této oblasti.
+      </p>
+
+      <h3>Průměrná výše a doba vázanosti zásob</h3>
+
+      <p>
+        Výrobní zásoby jsou vázány od vstupu do podniku až po jejich spotřebu.
+        Průměrná výše zásob závisí na <strong>denní spotřebě</strong>, na
+        <strong>době vázanosti</strong> a na <strong>průběhu spotřeby</strong>.
+        Platí:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-11">
+        <div class="vzorec__telo">
+          <span class="math">průměrná výše zásob<span class="op">=</span>prům. denní spotřeba<span class="op">×</span>prům. doba vázanosti zásob</span>
+        </div>
+        <div class="vzorec__cislo">(4.11)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-4-12">
+        <div class="vzorec__telo">
+          <span class="math">prům. doba vázanosti zásob<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">dodávkový cyklus</span><span class="frac__jmen">2</span></span>
+            <span class="op">+</span>pojistná zásoba<span class="op">+</span>technologická zásoba</span>
+        </div>
+        <div class="vzorec__cislo">(4.12)</div>
+      </div>
+
+      <p>
+        Při <strong>rovnoměrné spotřebě</strong> lze průměrnou zásobu určit jako
+        průměr z <em>maximální</em> zásoby (bezprostředně po dodávce) a
+        <em>minimální</em> zásoby (těsně před novou dodávkou, resp. pojistné
+        zásoby) – proto ve vzorci (4.12) dělíme dodávkový cyklus dvěma.
+        <strong>Pojistná zásoba</strong> kryje výkyvy poptávky a dodávek,
+        <strong>technologická zásoba</strong> pak nutné skladování před spotřebou
+        (zrání, vysoušení apod.).
+      </p>
+
+      <h3>Zásobovací rovnice</h3>
+
+      <p>
+        Pro operativní řízení zásob slouží jednoduchá bilance stavů a toků –
+        <em>zásobovací rovnice</em>:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-13">
+        <div class="vzorec__telo">
+          <span class="math">KS<span class="op">=</span>PS<span class="op">+</span>Ná<span class="op">−</span>S</span>
+        </div>
+        <div class="vzorec__cislo">(4.13)</div>
+      </div>
+
+      <p>
+        kde <span class="math">KS</span> je konečný stav zásob,
+        <span class="math">PS</span> počáteční stav zásob,
+        <span class="math">Ná</span> nákup zásob a
+        <span class="math">S</span> spotřeba zásob za dané období.
+      </p>
+
+      <!-- ===================== 4. OPTIMÁLNÍ VELIKOST OBJEDNÁVKY ===================== -->
+      <h3>Optimální velikost objednávky (EOQ)</h3>
+
+      <p>
+        Kritériem optimální výše zásob může být <strong>minimalizace celkových
+        nákladů</strong> spojených s hospodařením se zásobami. Ty se skládají ze
+        dvou protichůdných částí:
+      </p>
+
+      <ul>
+        <li><strong>Pořizovací (objednací) náklady</strong> – náklady na jednu
+        objednávku. Čím větší objednávky, tím méně jich za rok potřebujeme, takže
+        tyto náklady <em>klesají</em>.</li>
+        <li><strong>Skladovací náklady</strong> – náklady na udržování zásoby. Čím
+        větší objednávky, tím vyšší průměrná zásoba, takže tyto náklady
+        <em>rostou</em>.</li>
+      </ul>
+
+      <p>
+        Optimalizace hledá minimum funkce celkových nákladů. Velikost objednávky,
+        při které jsou celkové náklady nejnižší (a v níž se obě složky vyrovnají),
+        udává vztah pro <em>optimální velikost objednávky</em>:
+      </p>
+
+      <section class="definice" id="pojem-optimalni-objednavka">
+        <h3 class="definice__pojem">Optimální velikost objednávky (EOQ)</h3>
+        <div class="definice__telo">
+          <p>
+            Množství, které je nejvýhodnější objednat najednou, protože
+            minimalizuje součet pořizovacích a skladovacích nákladů. Anglicky
+            <em>Economic Order Quantity</em> (EOQ), v knize značené
+            <span class="math">Q<sub>opt</sub></span>.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-4-14">
+        <div class="vzorec__telo">
+          <span class="math">Q<sub>opt</sub><span class="op">=</span>
+            <span class="odm"><span class="odm__radikand">
+              <span class="frac"><span class="frac__cit">2<span class="op">×</span>PN<span class="op">×</span>Ná</span>
+              <span class="frac__jmen">SN</span></span>
+            </span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.14)</div>
+      </div>
+
+      <p>
+        kde <span class="math">Q<sub>opt</sub></span> je optimální objednávka
+        v hmotných jednotkách, <span class="math">PN</span> pořizovací náklady na
+        jednu objednávku, <span class="math">SN</span> průměrné skladovací náklady
+        na jednu jednotku za období a <span class="math">Ná</span> plánovaný nákup
+        (spotřeba) za období.
+      </p>
+
+      <!-- STATICKÝ GRAF: průsečík nákladů (EOQ) -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Celkové náklady na zásoby v závislosti na velikosti objednávky</p>
+          <p class="viz__popis">Objednací náklady (klesají) a skladovací náklady (rostou) se protínají; v tomto bodě jsou celkové náklady minimální. Pro data z příkladu 4.7 leží optimum u zhruba 380 kusů.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-eoq"></div>
+      </figure>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 4.7 ================= -->
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Příklad 4.7 – objednávka s množstevní slevou</p>
+        <div class="callout__telo">
+          <p>
+            Roční potřeba materiálu je 18 000 kusů. Skladovací náklady činí
+            30 Kč/ks, náklady na objednání jedné dodávky 120 Kč, pořizovací cena
+            1 ks je 60 Kč. Dodavatel nabízí <strong>5% slevu</strong> při objednání
+            alespoň 1 000 ks. Vyplatí se slevu využít?
+          </p>
+          <p>
+            Nejprve určíme optimální objednávku podle vztahu (4.14):
+          </p>
+          <p>
+            <span class="math">Q<sub>opt</sub><span class="op">=</span>
+              <span class="odm"><span class="odm__radikand">
+                <span class="frac"><span class="frac__cit">2<span class="op">×</span>120<span class="op">×</span>18 000</span>
+                <span class="frac__jmen">30</span></span>
+              </span></span>
+              <span class="op">=</span>
+              <span class="odm"><span class="odm__radikand">144 000</span></span>
+              <span class="op">≈</span>380 ks</span>
+          </p>
+          <p>
+            Tuto „přirozeně optimální" objednávku (380 ks, bez slevy) porovnáme
+            s objednávkou 1 000 ks, u které dostaneme 5% slevu z pořizovací ceny.
+          </p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4.7 – Porovnání celkových nákladů: bez slevy (Q<sub>opt</sub> = 380) vs. se slevou (Q = 1 000), v Kč</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nákladová položka</th>
+              <th scope="col" class="cislo">bez slevy (380 ks)</th>
+              <th scope="col" class="cislo">se slevou (1 000 ks)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Skladovací náklady (Q/2 × SN)</th>
+              <td class="cislo">380/2 × 30 = 5 700</td>
+              <td class="cislo">1 000/2 × 30 = 15 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Objednací náklady (Ná/Q × PN)</th>
+              <td class="cislo">18 000/380 × 120 = 5 684</td>
+              <td class="cislo">18 000/1 000 × 120 = 2 160</td>
+            </tr>
+            <tr>
+              <th scope="row">Nákupní cena</th>
+              <td class="cislo">18 000 × 60 = 1 080 000</td>
+              <td class="cislo">18 000 × 60 × 0,95 = 1 026 000</td>
+            </tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Celkem</th>
+              <td class="cislo">1 091 384</td>
+              <td class="cislo hodnota-tvorba">1 043 160</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Přestože varianta se slevou má výrazně vyšší skladovací náklady, úspora na
+        nákupní ceně (54 000 Kč) i na objednacích nákladech ji více než vyrovná.
+        Celkové náklady jsou nižší o <strong>48 224 Kč</strong> – <strong>množstevní
+        sleva by měla být využita</strong>. Optimalizace tedy nekončí u vzorce
+        (4.14): nabídka slevy může výhodnou objednávku posunout nad rámec
+        vypočteného <span class="math">Q<sub>opt</sub></span>.
+      </p>
+
+      <!-- ZKUS SÁM 2: množstevní sleva -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jak vzorec (4.14) pro <span class="math">Q<sub>opt</sub></span>
+          zohledňuje množstevní slevu? A jak proto v praxi postupujeme, když ji
+          dodavatel nabídne?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Vzorec (4.14) slevu <strong>nezohledňuje vůbec</strong> – pracuje jen
+              s pořizovacími a skladovacími náklady, nikoli s cenou materiálu.
+              Optimální objednávka <span class="math">Q<sub>opt</sub></span> tak
+              minimalizuje pouze náklady na objednání a skladování. Když dodavatel
+              nabídne slevu vázanou na větší objednávku, musíme do rozhodování přidat
+              i <strong>úsporu na nákupní ceně</strong>. Postupujeme porovnáním:
+              spočítáme <em>celkové</em> náklady (skladovací + objednací + nákupní
+              cena) pro <span class="math">Q<sub>opt</sub></span> a zvlášť pro
+              objednávku se slevou a vybereme levnější variantu – přesně jako
+              v příkladu 4.7.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <h3>Měření využití zásob</h3>
+
+      <p>
+        Míru využití zásob lze měřit ukazateli obratu. Rychlost obratu udává, kolikrát
+        se zásoby za období „protočí", doba obratu pak průměrný počet dní, po které
+        jsou zásoby vázány:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-15">
+        <div class="vzorec__telo">
+          <span class="math">rychlost obratu zásob<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">náklady na prodané zásoby</span>
+            <span class="frac__jmen">průměrný stav zásob</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.15)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-4-16">
+        <div class="vzorec__telo">
+          <span class="math">doba obratu zásob<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">průměrný stav zásob</span>
+            <span class="frac__jmen">náklady na prodané zásoby</span></span>
+            <span class="op">×</span>360</span>
+        </div>
+        <div class="vzorec__cislo">(4.16)</div>
+      </div>
+
+      <p>
+        Obrat či dobu obratu zásob lze měřit také pomocí tržeb (viz vztah 2.19
+        z lekce 3.3). U podniků s širokým sortimentem obvykle vázanost kapitálu
+        v zásobách stoupá – je proto vhodné určit, kterými položkami se zabývat
+        podrobně, a zvážit prospěch ze širokého sortimentu proti nákladům spojeným
+        s prodlužováním doby cyklu (od objednávky po dodání zákazníkovi).
+      </p>
+
+      <h3>Metody minimalizace zásob</h3>
+
+      <p>
+        Kromě optimalizace velikosti objednávek existují i přístupy, které se snaží
+        zásoby minimalizovat úplně:
+      </p>
+
+      <section class="definice" id="pojem-just-in-time">
+        <h3 class="definice__pojem">Just-in-time (JIT)</h3>
+        <div class="definice__telo">
+          <p>
+            Ideální postup řízení zásob, kdy odběratel dostává materiál nebo výrobek
+            <strong>právě ve chvíli, kdy jej potřebuje</strong>, a nemusí tak vytvářet
+            zásoby. V praxi naráží na řadu omezení (pružnost dodavatele, dopravní
+            podmínky) a není využitelný v každém oboru.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-konsignacni-sklad">
+        <h3 class="definice__pojem">Konsignační sklad</h3>
+        <div class="definice__telo">
+          <p>
+            Sklad zřízený dodavatelem přímo <strong>u odběratele</strong>. Odběratel
+            má okamžitý přístup k zásobám, které jsou ale až do odběru vedeny
+            v účetnictví <strong>dodavatele</strong> – neváže tak v nich vlastní
+            kapitál.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Dohodami o dodávkách just-in-time a zřízením konsignačních skladů lze
+        dosáhnout výraznějších úspor zejména u kapitálově náročných systémů
+        a komponent.
+      </p>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaký je rozdíl mezi pracovním kapitálem a čistým pracovním kapitálem?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jeden pojem se váže na celý oběžný majetek, druhý je jen jeho „očištěná" část. Čím se liší?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Pracovní kapitál je celý oběžný majetek (zásoby, pohledávky, krátkodobý finanční majetek). Čistý pracovní kapitál je pracovní kapitál <strong>snížený o krátkodobé cizí zdroje</strong> – tedy ta část oběžného majetku, kterou je nutné financovat dlouhodobým kapitálem.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co znamená, že podnik A musí „50 dní financovat", a čím je tento údaj dán?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte celkovou dobu obratu zásob a pohledávek s dobou splatnosti závazků.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Zásoby (10 + 10 + 15 = 35 dní) a pohledávky (45 dní) vážou peníze celkem 80 dní, ale závazky vůči dodavatelům jsou splatné jen za 30 dní. Rozdíl <span class="math">80<span class="op">−</span>30<span class="op">=</span>50</span> dní musí podnik pokrýt jinými (obvykle úročenými) zdroji – to je jeho kladný hotovostní cyklus.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč se pořizovací a skladovací náklady chovají při změně velikosti objednávky protichůdně a co z toho plyne pro EOQ?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Přemýšlejte, jak se s větší objednávkou mění počet objednávek za rok a jak průměrná zásoba na skladě.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Při větší objednávce potřebujeme za rok méně objednávek, takže <strong>pořizovací náklady klesají</strong>, ale roste průměrná zásoba na skladě, takže <strong>skladovací náklady rostou</strong>. Součet obou má minimum v bodě, kde se vyrovnají – to je optimální velikost objednávky <span class="math">Q<sub>opt</sub></span> podle vztahu (4.14).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>V příkladu 4.7 vyšlo <span class="math">Q<sub>opt</sub></span> = 380 ks, přesto je výhodné objednat 1 000 ks. Proč?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co vzorec (4.14) do výpočtu nezahrnuje?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Vzorec (4.14) neuvažuje nákupní cenu, jen pořizovací a skladovací náklady. Množstevní sleva 5 % ale sníží nákupní cenu o 54 000 Kč, což převáží nárůst skladovacích nákladů. Celkové náklady se slevou (1 043 160 Kč) jsou nižší než bez slevy (1 091 384 Kč), proto se objednávka 1 000 ks vyplatí.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Čím se liší metoda just-in-time od konsignačního skladu z hlediska vázání kapitálu v zásobách?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>U koho jsou zásoby fyzicky a v čím účetnictví jsou vedeny?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Při just-in-time odběratel zásoby vůbec nevytváří – dostává materiál přesně ve chvíli potřeby. U konsignačního skladu zásoby fyzicky u odběratele jsou, ale až do odběru je vede v účetnictví a financuje <strong>dodavatel</strong>. V obou případech odběratel neváže v zásobách vlastní kapitál, čímž zkracuje hotovostní cyklus a snižuje potřebu financování ČPK.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t8-l1-investicni-rozhodovani.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">8.1 Strategické investiční rozhodování</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t8-l3-pohledavky-penize.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">8.3 Řízení pohledávek a peněžních prostředků</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // ================================================================
+      // A) KROKOVÁ VIZUALIZACE: hotovostní cyklus tří podniků A, B, C
+      // ================================================================
+      // Barvy jednotlivých kategorií na horní ose (zásoby + pohledávky)
+      var C_MAT = '#4338ca';   // materiál / zboží
+      var C_VYR = '#0891b2';   // nedokončená výroba
+      var C_HOT = '#7c3aed';   // hotové výrobky
+      var C_POH = '#d97706';   // pohledávky
+      var C_ZAV = '#64748b';   // závazky (dolní osa)
+      var C_FIN = '#dc2626';   // nutno financovat (červená)
+      var C_INV = '#16a34a';   // možno investovat (zelená)
+
+      // Stavy: každý podnik popisuje horní segmenty, závazek a případnou mezeru.
+      var stavy = [
+        { // Podnik A
+          nazev: 'Podnik A – výrobce obuvi',
+          top: [
+            { p: 'Materiál',   d: 10, barva: C_MAT },
+            { p: 'Nedok. výroba', d: 10, barva: C_VYR },
+            { p: 'Hotové výrobky', d: 15, barva: C_HOT },
+            { p: 'Pohledávky', d: 45, barva: C_POH }
+          ],
+          zavazek: 30,
+          gap: { od: 30, do: 80, radek: 'dole', barva: C_FIN, popisek: 'nutno financovat · 50 dní' }
+        },
+        { // Podnik B
+          nazev: 'Podnik B – oděvy na zakázku',
+          top: [
+            { p: 'Materiál',   d: 5,  barva: C_MAT },
+            { p: 'Nedok. výroba', d: 10, barva: C_VYR },
+            { p: 'Hotové výrobky', d: 5, barva: C_HOT },
+            { p: 'Pohledávky', d: 10, barva: C_POH }
+          ],
+          zavazek: 30,
+          gap: null,
+          pozn: 'Závazky (30 dní) přesně pokryjí zásoby i pohledávky → cyklus ≈ 0 dní.'
+        },
+        { // Podnik C
+          nazev: 'Podnik C – supermarket',
+          top: [
+            { p: 'Zboží', d: 20, barva: C_MAT }
+          ],
+          zavazek: 40,
+          gap: { od: 20, do: 40, radek: 'nahore', barva: C_INV, popisek: 'možno investovat · 20 dní' }
+        }
+      ];
+
+      var SIRKA = 760, VYSKA = 300;
+      var XL = 70, XR = 700, DNY_MAX = 90;      // časová osa 0..90 dní
+      function X(d) { return XL + d * (XR - XL) / DNY_MAX; }
+      var Y_TOP = 66, Y_BOT = 176, H = 30;      // řádky rectů
+
+      Skripta.stepper('viz-hotovostni-cyklus', {
+        sirka: SIRKA, vyska: VYSKA,
+        stavy: stavy,
+        popisky: [
+          'Podnik A: dlouhý výrobní cyklus i splatnost pohledávek. Závazky kryjí jen 30 dní, zbylých 50 dní musí podnik financovat z jiných zdrojů (kladný hotovostní cyklus).',
+          'Podnik B: krátké zásoby i pohledávky (30 dní). Splatnost závazků 30 dní přesně pokryje potřebu – hotovostní cyklus je prakticky nulový.',
+          'Podnik C: rychlý obrat zboží (20 dní), nulové pohledávky a dlouhá splatnost závazků (40 dní). Vzniká 20denní přebytek k investování – záporný hotovostní cyklus.'
+        ],
+        render: function (svg, stav, idx, u) {
+          // --- Název podniku ---
+          u.dej(svg, 'nazev', 'text', {
+            x: SIRKA / 2, y: 28, 'text-anchor': 'middle',
+            fill: '#1e293b', 'font-size': 16, 'font-weight': 700
+          }, stav.nazev);
+
+          // --- Popisky os ---
+          u.dej(svg, 'osaTop', 'text', {
+            x: XL, y: 54, fill: u.barvaText, 'font-size': 12, 'font-weight': 600
+          }, 'Zásoby a pohledávky (doba obratu)');
+          u.dej(svg, 'osaBot', 'text', {
+            x: XL, y: 164, fill: u.barvaText, 'font-size': 12, 'font-weight': 600
+          }, 'Závazky (doba splatnosti)');
+
+          // --- Horní segmenty (max 4) ---
+          var xcur = 0;
+          for (var s = 0; s < 4; s++) {
+            var seg = stav.top[s];
+            var w = seg ? (X(xcur + seg.d) - X(xcur)) : 0;
+            u.dej(svg, 'top' + s, 'rect', {
+              x: X(xcur), y: Y_TOP, width: Math.max(0, w), height: H, rx: 3,
+              fill: seg ? seg.barva : '#000', opacity: seg ? 1 : 0
+            });
+            u.dej(svg, 'topD' + s, 'text', {
+              x: seg ? (X(xcur) + w / 2) : 0, y: Y_TOP + 20, 'text-anchor': 'middle',
+              fill: '#fff', 'font-size': 13, 'font-weight': 700, opacity: seg ? 1 : 0
+            }, seg ? String(seg.d) : '');
+            if (seg) xcur += seg.d;
+          }
+          var topDny = xcur;
+
+          // --- Dolní segment: závazek ---
+          var wz = X(stav.zavazek) - X(0);
+          u.dej(svg, 'zav', 'rect', {
+            x: X(0), y: Y_BOT, width: wz, height: H, rx: 3, fill: C_ZAV
+          });
+          u.dej(svg, 'zavD', 'text', {
+            x: X(0) + wz / 2, y: Y_BOT + 20, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 13, 'font-weight': 700
+          }, String(stav.zavazek));
+
+          // --- Mezera: nutno financovat / možno investovat ---
+          var g = stav.gap;
+          var yGap = g ? (g.radek === 'nahore' ? Y_TOP : Y_BOT) : Y_TOP;
+          var xg0 = g ? X(g.od) : 0, xg1 = g ? X(g.do) : 0;
+          u.dej(svg, 'gapRect', 'rect', {
+            x: xg0, y: yGap, width: Math.max(0, xg1 - xg0), height: H, rx: 3,
+            fill: g ? g.barva : '#000', 'fill-opacity': 0.16,
+            stroke: g ? g.barva : '#000', 'stroke-width': 2, 'stroke-dasharray': '6 4',
+            opacity: g ? 1 : 0
+          });
+          // Popisek mezery (nahoru pro řádek dole, dolů pro řádek nahoře nekoliduje s popisky os)
+          var yGapLabel = g ? (g.radek === 'nahore' ? (Y_TOP + H + 20) : (Y_BOT + H + 20)) : 0;
+          u.dej(svg, 'gapLabel', 'text', {
+            x: g ? (xg0 + xg1) / 2 : 0, y: yGapLabel, 'text-anchor': 'middle',
+            fill: g ? g.barva : '#000', 'font-size': 12.5, 'font-weight': 700,
+            opacity: g ? 1 : 0
+          }, g ? g.popisek : '');
+
+          // --- Svislé tečkované spojnice na hranicích mezery ---
+          u.dej(svg, 'vLine1', 'line', {
+            x1: g ? X(g.od) : 0, y1: Y_TOP - 4, x2: g ? X(g.od) : 0, y2: Y_BOT + H + 4,
+            stroke: g ? g.barva : '#000', 'stroke-width': 1.2, 'stroke-dasharray': '3 3',
+            opacity: g ? 0.7 : 0
+          });
+          u.dej(svg, 'vLine2', 'line', {
+            x1: g ? X(g.do) : 0, y1: Y_TOP - 4, x2: g ? X(g.do) : 0, y2: Y_BOT + H + 4,
+            stroke: g ? g.barva : '#000', 'stroke-width': 1.2, 'stroke-dasharray': '3 3',
+            opacity: g ? 0.7 : 0
+          });
+
+          // --- Poznámka pro podnik B (bez mezery) ---
+          u.dej(svg, 'pozn', 'text', {
+            x: SIRKA / 2, y: Y_BOT + H + 22, 'text-anchor': 'middle',
+            fill: C_INV, 'font-size': 12.5, 'font-weight': 700,
+            opacity: stav.pozn ? 1 : 0
+          }, stav.pozn || '');
+
+          // --- Legenda kategorií (max 4 sloty) ---
+          var slotX = [XL, XL + 175, XL + 340, XL + 480];
+          for (var l = 0; l < 4; l++) {
+            var it = stav.top[l];
+            u.dej(svg, 'legS' + l, 'rect', {
+              x: slotX[l], y: 262, width: 13, height: 13, rx: 3,
+              fill: it ? it.barva : '#000', opacity: it ? 1 : 0
+            });
+            u.dej(svg, 'legT' + l, 'text', {
+              x: slotX[l] + 19, y: 273, fill: u.barvaText, 'font-size': 12,
+              opacity: it ? 1 : 0
+            }, it ? it.p : '');
+          }
+        }
+      });
+
+      // ================================================================
+      // B) STATICKÝ ČÁROVÝ GRAF: náklady na zásoby a EOQ (příklad 4.7)
+      // ================================================================
+      // PN = 120, Ná = 18 000, SN = 30 → Q_opt = 380.
+      // Objednací náklady = Ná/Q × PN ; skladovací = Q/2 × SN ; celkové = součet.
+      var Q = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+      function objednaci(q) { return 18000 / q * 120; }
+      function skladovaci(q) { return q / 2 * 30; }
+      Skripta.carovyGraf('viz-eoq', {
+        sirka: 680, vyska: 340, formatDesetin: 0,
+        serie: [
+          { nazev: 'Celkové náklady', barva: '#4338ca',
+            body: Q.map(function (q) { return { x: String(q), y: objednaci(q) + skladovaci(q) }; }) },
+          { nazev: 'Objednací náklady', barva: '#0891b2',
+            body: Q.map(function (q) { return { x: String(q), y: objednaci(q) }; }) },
+          { nazev: 'Skladovací náklady', barva: '#d97706',
+            body: Q.map(function (q) { return { x: String(q), y: skladovaci(q) }; }) }
+        ]
+      });
+
+    })();
+  </script>
+</body>
+</html>

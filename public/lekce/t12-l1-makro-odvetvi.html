@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.1 Makroekonomická a odvětvová analýza – Výkonnost podniku</title>
+  <meta name="description" content="Úvod případové studie PLAST, s.r.o.: makroekonomická analýza ČR a odvětvová analýza plastikářského průmyslu (OKEČ 25.2 / CZ-NACE, SWOT, produkční charakteristiky).">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12 -->
+    <nav class="panel" data-panel data-aktivni-lekce="12.1" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: účetní výkazy, leasing, funkcionální rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.1</span>
+        <h1>Makroekonomická a odvětvová analýza</h1>
+        <p class="lekce-hlavicka__strany">Strany 238–244</p>
+      </header>
+
+      <p>
+        Poslední téma skript je jedna velká <strong>případová studie</strong>: krok
+        za krokem na konkrétním podniku ukazuje, jak se všechno probrané –
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýza</a>, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>, <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a>, <a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard</a>, <a class="pojem" href="t11-l2-financni-plan-rizika.html?zvyraznit=pojem-financni-plan" target="_blank" rel="noopener">finanční
+        plán</a> a ocenění – používá v praxi. Podnik vystupuje pod pracovním názvem
+        <strong>PLAST, s.r.o.</strong> Jde o společnost s ručením omezeným
+        podnikající v oboru <em>výroba plastových obalů</em>.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nezaměňujte podniky</p>
+        <div class="callout__telo">
+          <p>
+            Hlavní případová studie zkoumá podnik <strong>PLAST, s.r.o.</strong>
+            Nezaměňujte jej s <em>ilustrativním</em> podnikem <strong>PLASTIKO</strong>
+            z lekce 5.4 – tam šlo jen o krátký příklad na výklad EVA. Zde jde o
+            reálný podnik, kterému se budeme věnovat po celé téma 12.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Celá studie je rozdělena do deseti navazujících částí, které kopírují
+        logiku hodnotového řízení – od vnějšího prostředí přes měření výkonnosti
+        až po ocenění:
+      </p>
+
+      <ol>
+        <li>Makroekonomická analýza</li>
+        <li>Analýza vývoje plastikářského průmyslu</li>
+        <li><a class="pojem" href="t12-l2-benchmarking-1.html?zvyraznit=pojem-benchmarkingova-studie" target="_blank" rel="noopener">Benchmarkingová studie</a> vybrané subsekce plastikářského průmyslu</li>
+        <li>Finanční analýza vybraného podniku</li>
+        <li>Využití ukazatele EVA jako moderního konceptu pro hodnocení výkonnosti</li>
+        <li>Identifikace generátorů hodnoty a <a class="pojem" href="t12-l9-generatory-citlivost.html?zvyraznit=pojem-citlivostni-analyza" target="_blank" rel="noopener">citlivostní analýza</a></li>
+        <li>Využití Balanced Scorecard pro definování a realizaci strategie</li>
+        <li>Finanční plán podniku</li>
+        <li><a class="pojem" href="t11-l4-oceneni-vynosove.html?zvyraznit=pojem-ocenovani-podniku" target="_blank" rel="noopener">Ocenění podniku</a></li>
+        <li>Simulace vlivu změn generátorů hodnoty na <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-hodnota-podniku" target="_blank" rel="noopener">hodnotu podniku</a></li>
+      </ol>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Období a zdroje dat</p>
+        <div class="callout__telo">
+          <p>
+            Studie pracuje s daty za období <strong>1999–2004</strong>. Novější data
+            nebyla pro benchmarkingovou studii dostupná a starší období navíc
+            umožňuje ochránit citlivé údaje reálného podniku. Cílem je
+            <em>metodicky</em> ukázat doporučené postupy na praktickém příkladu –
+            konkrétní čísla jsou tedy především učební látka, ne aktuální statistika.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Tato úvodní lekce se věnuje prvním dvěma částem studie: <strong>vnějšímu
+        prostředí</strong> podniku. Nejprve shrneme makroekonomický vývoj České
+        republiky, poté provedeme odvětvovou analýzu plastikářského průmyslu –
+        včetně jeho zařazení do klasifikace, SWOT analýzy a produkčních trendů.
+      </p>
+
+      <!-- ===================== 1. MAKROEKONOMICKÁ ANALÝZA ===================== -->
+      <h2>Makroekonomická analýza</h2>
+
+      <p>
+        Jedním z hledisek s významným vlivem na výkonnost podniku je
+        <strong>vnější prostředí</strong>. Růst hrubého domácího produktu, růst
+        spotřeby domácností, pokles úrokových sazeb i další makroveličiny působí
+        na výkonnost každého podniku. Makroekonomická analýza proto stojí na
+        začátku každé komplexní studie – vymezuje „počasí", ve kterém podnik
+        hospodaří a nad kterým nemá kontrolu.
+      </p>
+
+      <section class="definice" id="pojem-makroekonomicka-analyza">
+        <h3 class="definice__pojem">Makroekonomická analýza</h3>
+        <div class="definice__telo">
+          <p>
+            Rozbor vývoje nejdůležitějších veličin národního hospodářství (HDP,
+            inflace, nezaměstnanost, spotřeba, ceny surovin) a jejich předpokládaného
+            vývoje. V rámci hodnocení výkonnosti podniku slouží k pochopení
+            vnějších podmínek a příležitostí i hrozeb, které z okolí do podniku
+            vstupují a které podnik sám nemůže ovlivnit.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Vývoj hlavních makroekonomických indikátorů české ekonomiky za hodnocené
+        období a jejich predikci na roky 2005–2006 shrnuje tabulka 8–1.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–1 – Hlavní makroekonomické indikátory ČR (poslední dva sloupce jsou predikce)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col">Jednotka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">2005 P</th>
+              <th scope="col" class="cislo">2006 P</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Hrubý domácí produkt</th><td>růst v %, s.c.</td><td class="cislo">0,5</td><td class="cislo">3,3</td><td class="cislo">2,6</td><td class="cislo">1,5</td><td class="cislo">3,7</td><td class="cislo">4,0</td><td class="cislo">4,0</td><td class="cislo">4,1</td></tr>
+            <tr><th scope="row">Spotřeba domácností</th><td>růst v %, s.c.</td><td class="cislo">1,7</td><td class="cislo">2,5</td><td class="cislo">2,6</td><td class="cislo">2,8</td><td class="cislo">4,9</td><td class="cislo">2,5</td><td class="cislo">3,5</td><td class="cislo">3,5</td></tr>
+            <tr><th scope="row">Spotřeba vlády</th><td>růst v %, s.c.</td><td class="cislo">2,3</td><td class="cislo">−1,0</td><td class="cislo">3,8</td><td class="cislo">4,5</td><td class="cislo">4,2</td><td class="cislo">−3,2</td><td class="cislo">1,0</td><td class="cislo">−1,4</td></tr>
+            <tr><th scope="row">Hrubá tvorba fixního kapitálu</th><td>růst v %, s.c.</td><td class="cislo">−1,0</td><td class="cislo">5,3</td><td class="cislo">5,4</td><td class="cislo">3,4</td><td class="cislo">4,8</td><td class="cislo">9,1</td><td class="cislo">7,1</td><td class="cislo">7,1</td></tr>
+            <tr><th scope="row">Deflátor HDP</th><td>růst v %</td><td class="cislo">3,0</td><td class="cislo">1,1</td><td class="cislo">4,9</td><td class="cislo">2,8</td><td class="cislo">1,9</td><td class="cislo">3,7</td><td class="cislo">2,7</td><td class="cislo">3,1</td></tr>
+            <tr><th scope="row">Průměrná míra inflace</th><td>%</td><td class="cislo">2,1</td><td class="cislo">3,9</td><td class="cislo">4,7</td><td class="cislo">1,8</td><td class="cislo">0,1</td><td class="cislo">2,8</td><td class="cislo">1,8</td><td class="cislo">2,2</td></tr>
+            <tr><th scope="row">Zaměstnanost (VŠPS)</th><td>růst v %</td><td class="cislo">−2,1</td><td class="cislo">−0,7</td><td class="cislo">0,4</td><td class="cislo">−0,8</td><td class="cislo">−0,7</td><td class="cislo">−0,6</td><td class="cislo">0,2</td><td class="cislo">0,2</td></tr>
+            <tr><th scope="row">Míra reg. nezaměstnanosti (MPSV)</th><td>průměr v %</td><td class="cislo">8,5</td><td class="cislo">9,0</td><td class="cislo">8,5</td><td class="cislo">9,2</td><td class="cislo">9,9</td><td class="cislo">10,2</td><td class="cislo">10,0</td><td class="cislo">9,7</td></tr>
+            <tr><th scope="row">Objem mezd a platů</th><td>růst v %, b.c.</td><td class="cislo">3,5</td><td class="cislo">4,8</td><td class="cislo">6,9</td><td class="cislo">8,5</td><td class="cislo">5,6</td><td class="cislo">5,0</td><td class="cislo">6,3</td><td class="cislo">6,3</td></tr>
+            <tr><th scope="row">Podíl běžného účtu na HDP</th><td>%</td><td class="cislo">−2,7</td><td class="cislo">−5,3</td><td class="cislo">−5,4</td><td class="cislo">−5,6</td><td class="cislo">−6,3</td><td class="cislo">−5,2</td><td class="cislo">−5,0</td><td class="cislo">−3,9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabulka-popis"><small>Zdroje: OECD (Main Economic Indicators, Quarterly National Accounts), The Economist, IMF (Financial Statistics), odhady MF, Eurostat. Zkratka „s.c." = stálé ceny, „b.c." = běžné ceny, „P" = predikce.</small></p>
+
+      <p>
+        U české ekonomiky se očekávalo postupné vyrovnávání ekonomické úrovně se
+        sousedními vyspělými státy EU. Ekonomický růst měl být podpořen
+        navrhovaným poklesem daňové zátěže a v delším horizontu realizací vládní
+        strategie hospodářského růstu. Trvale rostoucí HDP a hrubá tvorba fixního
+        kapitálu (investice) jsou pro výrobní podnik dobrou zprávou; naopak
+        vysoká míra nezaměstnanosti okolo 10&nbsp;% a schodek běžného účtu
+        signalizují slabší místa hospodářství.
+      </p>
+
+      <section class="definice" id="pojem-deflator-hdp">
+        <h3 class="definice__pojem">Deflátor HDP</h3>
+        <div class="definice__telo">
+          <p>
+            Cenový index vyjadřující, o kolik vzrostla celková cenová hladina
+            hrubého domácího produktu mezi dvěma obdobími. Na rozdíl od míry
+            inflace (počítané z „koše" spotřebního zboží) zahrnuje ceny veškeré
+            produkce ekonomiky, a slouží proto k přepočtu HDP z běžných cen (b.c.)
+            na stálé ceny (s.c.), tedy k očištění růstu HDP o vliv cen.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🌍</span>
+        <p class="callout__nadpis">Obchodní partneři a cena ropy</p>
+        <div class="callout__telo">
+          <p>
+            Největším obchodním partnerem ČR v oblasti plastů bylo v hodnoceném
+            období <strong>Německo</strong> (výrazný růst exportu, ale nízká
+            spotřeba domácností kvůli stavu trhu práce), významným partnerem též
+            <strong>Slovensko</strong> (rychlý růst i vysoká strukturální
+            nezaměstnanost). Zásadní veličinou pro plastikáře je <strong>cena
+            ropy</strong> – očekávalo se dlouhodobé udržení vysoké dolarové ceny.
+            Ropa <strong>Brent</strong> dosáhla za rok 2004 ročního průměru
+            <strong>38,3&nbsp;USD/barel</strong>.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== 2. ODVĚTVOVÁ ANALÝZA ===================== -->
+      <h2>Analýza vývoje plastikářského průmyslu</h2>
+
+      <p>
+        Spotřeba základních velkotonážních plastů (včetně recyklovaného granulátu)
+        v <strong>západní Evropě</strong> v hodnoceném období rostla. Nejdůležitější
+        oblastí využití byla přitom právě výroba obalů – obor, ve kterém působí
+        podnik PLAST. Strukturu spotřeby plastů podle oblastí využití v roce 2003
+        (v&nbsp;% z celkové spotřeby) zachycuje následující graf.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Struktura spotřeby plastů v západní Evropě podle oblastí využití (2003)</p>
+          <p class="viz__popis">Výroba obalových materiálů je s odstupem největší oblastí – proto je právě výroba plastových obalů pro podnik PLAST klíčovým trhem.</p>
+        </figcaption>
+        <div id="viz-struktura-spotreby"></div>
+      </figure>
+
+      <p>
+        Ve výrobě obalů bylo v západní Evropě v roce 2003 spotřebováno celkem
+        <strong>14&nbsp;764&nbsp;tisíc tun</strong> plastů. Do plastových obalů se
+        v Evropě balilo více než <strong>50&nbsp;%</strong> veškerého zboží, ale ve
+        hmotě na ně připadlo jen <strong>17&nbsp;%</strong> všech obalových
+        materiálů – právě nízká hmotnost je hlavní předností plastů, protože šetří
+        surovinu i energii při přepravě.
+      </p>
+
+      <p>
+        Rozhodující část plastů se vyrábí <strong>na bázi ropy, resp. zemního
+        plynu</strong>. Jako surovina se přitom spotřebují jen zhruba <strong>4&nbsp;%</strong>
+        ve světě vytěžené ropy a jejich využití je natolik efektivní, že podle
+        některých odhadů plasty ušetří více ropy, než se jí spotřebuje na jejich
+        výrobu. Spotřeba plastů na obyvatele v nových členských zemích EU se
+        odhadovala na zhruba <strong>40&nbsp;kg za rok</strong> – méně než polovinu
+        objemu ve „staré" EU, což ukazovalo na mimořádně vysoký růstový potenciál.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">📈</span>
+        <p class="callout__nadpis">Plastikářský boom v ČR</p>
+        <div class="callout__telo">
+          <p>
+            Plastikářský průmysl v České republice prožíval v hodnocených letech
+            nebývalý <strong>boom</strong> a jeho postavení ve zpracovatelském
+            průmyslu stále posilovalo. Jeho specifikem bylo, že se jej téměř
+            nedotkly ani domácí hospodářské reformy, ani výkyvy světové ekonomiky.
+            Tempa růstu základních ukazatelů byla trvale <strong>nad průměrem
+            zpracovatelského průmyslu</strong> jako celku.
+          </p>
+        </div>
+      </aside>
+
+      <h3>Zařazení odvětví: OKEČ 25.2 a přechod na CZ-NACE</h3>
+
+      <p>
+        Aby bylo možné podnik i celé odvětví statisticky sledovat a srovnávat, je
+        třeba je zařadit do klasifikace ekonomických činností. Plastikářský průmysl
+        byl podle tradiční klasifikace <strong>OKEČ</strong> zařazen do oboru
+        <strong>25.2</strong> (desky, profily, hadice a fólie z plastů, plastové
+        obaly všeho druhu, výrobky pro stavebnictví, strojírenství, elektrotechniku).
+        Od 1.&nbsp;ledna 2008 OKEČ nahradila klasifikace <strong>CZ-NACE</strong>.
+      </p>
+
+      <section class="definice" id="pojem-okec">
+        <h3 class="definice__pojem">OKEČ</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Odvětvová klasifikace ekonomických činností</em> – původní česká
+            statistická klasifikace, která podnikům přiřazovala kód podle jejich
+            převažující ekonomické činnosti. Plastikářský průmysl v ní spadal do
+            oboru 25.2; výroba plastových obalů (obor podniku PLAST) měla kód 25.22.
+            OKEČ byla používána do konce roku 2007.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-cz-nace">
+        <h3 class="definice__pojem">CZ-NACE</h3>
+        <div class="definice__telo">
+          <p>
+            Novější <em>Klasifikace ekonomických činností</em>, kterou od
+            1.&nbsp;1.&nbsp;2008 nahradila OKEČ. „CZ" označuje českou verzi
+            mezinárodní klasifikace <strong>NACE</strong> (fr. <em>Nomenclature
+            générale des activités économiques dans les Communautés Européennes</em>),
+            kterou Evropská unie používá od roku 1970. Nová klasifikace lépe
+            zohledňuje technologický rozvoj a strukturální změny hospodářství a je
+            součástí systému statistických klasifikací pod záštitou Statistické
+            divize OSN.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Nová klasifikace odvětví plastů přeskupila – například výroba plastových
+        desek, fólií, hadic a obalů se z oddílu 25 přesunula do skupiny
+        <strong>22.2</strong>. Kompletní převodník OKEČ&nbsp;→&nbsp;CZ-NACE pro
+        plastikářský průmysl (tabulka 8–2) vydal Český statistický úřad; výběr
+        klíčových položek uvádí následující tabulka.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–2 – Převodník OKEČ → CZ-NACE pro plastikářský průmysl (výběr)</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="cislo">OKEČ – kód</th>
+              <th scope="col">OKEČ – název</th>
+              <th scope="col" class="cislo">CZ-NACE – kód</th>
+              <th scope="col">CZ-NACE – název</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" class="cislo">25.21</th><td>Výroba plastových desek, fólií, hadic, trubek a profilů</td><td class="cislo">22.21</td><td>Výroba plastových desek, fólií, hadic, trubek a profilů</td></tr>
+            <tr><th scope="row" class="cislo">25.22</th><td>Výroba plastových obalů</td><td class="cislo">22.22</td><td>Výroba plastových obalů</td></tr>
+            <tr><th scope="row" class="cislo">25.23</th><td>Výroba plastových výrobků pro stavebnictví</td><td class="cislo">22.23</td><td>Výroba plastových výrobků pro stavebnictví</td></tr>
+            <tr><th scope="row" class="cislo">25.24</th><td>Výroba ostatních plastových výrobků</td><td class="cislo">22.29</td><td>Výroba ostatních plastových výrobků</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabulka-popis"><small>Zdroj: Český statistický úřad (převodníky klasifikací). Některým položkám OKEČ odpovídá v CZ-NACE více kódů (např. opravy a instalace zařízení); v tabulce je uveden hlavní protějšek. Podnik PLAST vyrábí plastové obaly, tj. <strong>OKEČ 25.22 → CZ-NACE 22.22</strong>.</small></p>
+
+      <!-- ===================== SWOT ANALÝZA ===================== -->
+      <h3>SWOT analýza odvětví</h3>
+
+      <p>
+        <a class="pojem" href="#pojem-swot-analyza">SWOT analýza</a> přehledně
+        shrnuje vnitřní <strong>silné</strong> a <strong>slabé</strong> stránky
+        odvětví a vnější <strong>příležitosti</strong> a <strong>ohrožení</strong>
+        jeho dalšího vývoje. Následující čtyři kvadranty zachycují stav
+        plastikářského průmyslu ČR v hodnoceném období.
+      </p>
+
+      <section class="definice" id="pojem-swot-analyza">
+        <h3 class="definice__pojem">SWOT analýza</h3>
+        <div class="definice__telo">
+          <p>
+            Nástroj strategické analýzy, který třídí zjištění do čtyř skupin:
+            <strong>S</strong>trengths (silné stránky) a <strong>W</strong>eaknesses
+            (slabé stránky) popisují <em>vnitřní</em> prostředí, zatímco
+            <strong>O</strong>pportunities (příležitosti) a <strong>T</strong>hreats
+            (ohrožení) popisují <em>vnější</em> prostředí. Cílem je opřít strategii
+            o silné stránky a příležitosti a současně ošetřit slabiny a hrozby.
+          </p>
+        </div>
+      </section>
+
+      <!-- SWOT mřížka: responsivní grid ze čtyř calloutů (inline layout, sdílené CSS beze změny) -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:1rem; margin:1.5rem 0;">
+        <aside class="callout callout--priklad" style="margin:0;">
+          <span class="callout__ikona" aria-hidden="true">➕</span>
+          <p class="callout__nadpis">Silné stránky (S)</p>
+          <div class="callout__telo">
+            <ul>
+              <li>trvale vysoká dynamika produkce</li>
+              <li>ukončená privatizace a řada silných strategických partnerů</li>
+              <li>modernizace a restrukturalizace v posledních 10 letech</li>
+              <li>nízká ekologická zátěž</li>
+              <li>solidní domácí surovinová báze (velkotonážní plasty)</li>
+              <li>aktivní investiční činnost stimulovaná státními pobídkami</li>
+              <li>těsná vazba na automobilový a elektrotechnický průmysl</li>
+              <li>dynamický rozvoj malého a středního podnikání (subdodávky)</li>
+            </ul>
+          </div>
+        </aside>
+        <aside class="callout callout--pozor" style="margin:0;">
+          <span class="callout__ikona" aria-hidden="true">➖</span>
+          <p class="callout__nadpis">Slabé stránky (W)</p>
+          <div class="callout__telo">
+            <ul>
+              <li>nízký podíl sofistikovaných produktů</li>
+              <li>nízký stupeň specializace</li>
+              <li>vyrovnávání mzdových nákladů vůči EU</li>
+              <li>vysoká závislost na dovozu a světových cenách surovin (ropa)</li>
+              <li>možnost odchodu strategických partnerů</li>
+              <li>absence vlastního vývoje (probíhá v mateřských koncernech)</li>
+              <li>příliš vysoký podíl zušlechťovacího styku</li>
+              <li>rezervy v pohotové reakci na poptávku</li>
+            </ul>
+          </div>
+        </aside>
+        <aside class="callout callout--info" style="margin:0;">
+          <span class="callout__ikona" aria-hidden="true">🌱</span>
+          <p class="callout__nadpis">Příležitosti (O)</p>
+          <div class="callout__telo">
+            <ul>
+              <li>nové odbytové možnosti po vstupu do EU</li>
+              <li>aplikace plastových výrobků v nejrůznějších oblastech</li>
+              <li>rozvoj automobilového a elektronického průmyslu, bio- a nanotechnologií</li>
+              <li>růst životní úrovně a vyšší využití spotřebiteli</li>
+              <li>tlak na efektivnější přepravu snížením hmotnosti obalů</li>
+              <li>vznik nových látek s novými vlastnostmi</li>
+            </ul>
+          </div>
+        </aside>
+        <aside class="callout callout--pozor" style="margin:0;">
+          <span class="callout__ikona" aria-hidden="true">⚠️</span>
+          <p class="callout__nadpis">Ohrožení (T)</p>
+          <div class="callout__telo">
+            <ul>
+              <li>cenový vývoj na světovém trhu ropy</li>
+              <li>velmi nízký růst v západní části Evropy</li>
+              <li>finanční dopady harmonizace legislativy (nakládání s obaly a odpady)</li>
+              <li>primární orientace na EU</li>
+              <li>zaměření se na substituty</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <!-- ZKUS SÁM 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Vysoká cena ropy Brent (38,3&nbsp;USD/barel v roce 2004) se v SWOT
+            analýze objevuje hned dvakrát – jako slabá stránka i jako ohrožení.
+            Proč je závislost na ceně ropy pro plastikáře tak zásadní a kde ve
+            výkonnosti podniku se projeví?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Rozhodující část plastů se vyrábí <strong>na bázi ropy a zemního
+              plynu</strong>, takže cena ropy přímo určuje cenu základní suroviny
+              (granulátu). Když ropa zdraží, rostou podniku <strong>variabilní
+              náklady na materiál</strong>. Pokud tento růst nedokáže promítnout do
+              prodejních cen (silná konkurence, tlak odběratelů), <strong>klesá jeho
+              zisková marže i přidaná hodnota</strong>, a tedy i tvorba hodnoty
+              (EVA). Odtud dvojí zápis: je to vnitřní slabina (vysoká nákladová
+              závislost) i vnější hrozba (podnik cenu ropy neovlivní).
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== PRODUKČNÍ CHARAKTERISTIKY ===================== -->
+      <h3>Produkční charakteristiky odvětví</h3>
+
+      <p>
+        Vývoj hlavních produkčních charakteristik plastikářského průmyslu za období
+        1999–2004 (obrázek 8–1) potvrdil silný růst odvětví. Podrobnější analýza
+        vedla ke třem hlavním závěrům:
+      </p>
+
+      <ul>
+        <li><strong>Tržby</strong> za prodej vlastních výrobků a služeb (v běžných cenách) vykazovaly spíše rostoucí trend s mírným propadem v roce 2002.</li>
+        <li><strong>Přidaná hodnota</strong> z výkonů rostla každoročně.</li>
+        <li><strong>Počet zaměstnanců</strong> od roku 1999 trvale rostl – což byl v rámci zpracovatelského průmyslu výjimečný jev (většina odvětví naopak počet pracovníků snižovala).</li>
+      </ul>
+
+      <p>
+        Trvalý zájem o výrobky z plastů dokládá i vývoj tuzemské spotřeby
+        (tabulka 8–3). Spotřeba oboru OKEČ&nbsp;25.2 stoupala od roku 2002 zhruba
+        o 10&nbsp;% ročně a za celé sledované období se zvýšila o <strong>30&nbsp;%</strong>.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–3 – Tuzemská spotřeba výrobků oboru OKEČ 25.2 v běžných cenách (2000–2004)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Spotřeba OKEČ 25.2 (mil. Kč)</th><td class="cislo">72 700,5</td><td class="cislo">69 676,0</td><td class="cislo">73 986,3</td><td class="cislo">83 302,0</td><td class="cislo">95 143,6</td></tr>
+            <tr><th scope="row">Meziroční index (b.c.)</th><td class="cislo">—</td><td class="cislo">95,8</td><td class="cislo">106,2</td><td class="cislo">112,6</td><td class="cislo">114,2</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Kumulovaný index (b.c.)</th><td class="cislo">100,0</td><td class="cislo">95,8</td><td class="cislo">101,8</td><td class="cislo">114,6</td><td class="cislo">130,9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabulka-popis"><small>Zdroj: www.mpo.cz. Meziroční index = poměr k předchozímu roku (%); kumulovaný index = poměr k výchozímu roku 2000 (%). Základna 2000 = 100,0.</small></p>
+
+      <p>
+        Následující kroková vizualizace ukazuje růst tuzemské spotřeby rok po roce
+        – všimněte si jednorázového propadu v roce 2001 (index 95,8&nbsp;%) a
+        následného trvalého růstu.
+      </p>
+
+      <!-- ===================== KROKOVÁ VIZUALIZACE (stepper) ===================== -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj tuzemské spotřeby plastů (OKEČ 25.2), 2000–2004</p>
+          <p class="viz__popis">Projděte roky tlačítky „Zpět / Další". Sloupce ukazují tuzemskou spotřebu v mil. Kč; barva odlišuje meziroční pokles (červená) od růstu (zelená).</p>
+        </figcaption>
+        <div id="viz-spotreba-stepper"></div>
+      </figure>
+
+      <!-- ZKUS SÁM 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Představte si, že jste finanční manažer podniku PLAST. Které
+            <strong>silné stránky</strong> a <strong>příležitosti</strong> odvětví
+            byste využili při formulaci strategie a proč?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Odpovědí je více správných; klíčové je propojit vnější příležitost s
+              vnitřní silnou stránkou. Například:
+            </p>
+            <ul>
+              <li>Silná stránka <em>těsná vazba na automobilový a elektrotechnický
+              průmysl</em> + příležitost <em>rozvoj těchto odvětví</em> → orientace
+              na dodávky obalů a dílů právě těmto zákazníkům.</li>
+              <li>Silná stránka <em>solidní domácí surovinová báze</em> + příležitost
+              <em>nové odbytové možnosti po vstupu do EU</em> → expanze na trhy
+              nových členských zemí, kde je spotřeba plastů na obyvatele stále
+              hluboko pod průměrem EU (růstový potenciál).</li>
+              <li>Příležitost <em>tlak na snížení hmotnosti obalů</em> využívá hlavní
+              přednost plastů (nízká hmotnost) – prostor pro inovace a vyšší
+              přidanou hodnotu, což mírní slabinu „nízký podíl sofistikovaných
+              produktů".</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🧭</span>
+        <p class="callout__nadpis">Perspektivy odvětví (a co bude dál)</p>
+        <div class="callout__telo">
+          <p>
+            Rozvoj plastikářského průmyslu závisí zejména na <strong>vývoji
+            světových cen plastů</strong> a na <strong>konjunktuře navazujících
+            odvětví</strong> (automobilový a elektrotechnický průmysl, obaly).
+            Výhodou zůstává schopnost plastů nahradit těžší materiály (sklo, papír,
+            stavební hmoty) a otevřené trhy nových členů EU s podprůměrnou
+            spotřebou. Tím máme popsané vnější prostředí podniku PLAST. V další
+            lekci sestavíme <strong>benchmarkingovou studii</strong> jeho konkrétní
+            subsekce – výroby plastových obalů (OKEČ 25.22) – a najdeme podnik,
+            který v odvětví tvoří nejvíce hodnoty.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== ZÁVĚREČNÉ OTÁZKY ===================== -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč případová studie začíná makroekonomickou a odvětvovou analýzou, a ne rovnou finanční analýzou samotného podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, co všechno podnik neovlivní, ale co přesto určuje jeho výsledky.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Výkonnost podniku silně ovlivňuje <strong>vnější prostředí</strong> (růst HDP, spotřeba, cena ropy, stav odvětví), které podnik nemůže sám změnit. Aby šlo výsledky podniku správně interpretovat a srovnávat, je nutné nejdřív poznat „počasí", ve kterém hospodaří – tedy makroekonomické a odvětvové podmínky.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Do jakého oboru klasifikace OKEČ patří výroba plastových obalů a jaký kód jí odpovídá v CZ-NACE?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Celý plastikářský průmysl je OKEČ 25.2; obaly jsou jeho podskupina. Podívejte se do tabulky 8–2.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Výroba plastových obalů měla v OKEČ kód <strong>25.22</strong>; v nové klasifikaci CZ-NACE jí odpovídá kód <strong>22.22</strong>. Právě do této subsekce spadá podnik PLAST.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Který rys vývoje plastikářského průmyslu ČR byl v rámci zpracovatelského průmyslu výjimečný?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Souvisí s obrázkem 8–1 a se zaměstnaností.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Rostoucí počet zaměstnanců</strong> od roku 1999. Zatímco většina zpracovatelských odvětví počet pracovníků snižovala, plastikářský průmysl je díky trvalému růstu produkce naopak přijímal. Odvětví navíc rostlo trvale nad průměrem zpracovatelského průmyslu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co v SWOT analýze rozlišuje kvadranty S/W od kvadrantů O/T?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o to, kde daný faktor „bydlí" – uvnitř, nebo vně odvětví/podniku.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Silné a slabé stránky (S, W) popisují <strong>vnitřní</strong> prostředí – vlastnosti, které odvětví/podnik samo má a může ovlivnit. Příležitosti a ohrožení (O, T) popisují <strong>vnější</strong> prostředí – faktory okolí, na které lze jen reagovat (např. cena ropy, legislativa, vstup do EU).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>O kolik procent vzrostla tuzemská spotřeba výrobků oboru OKEČ 25.2 mezi roky 2000 a 2004 a jak se vyvíjela v roce 2001?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Použijte kumulovaný a meziroční index z tabulky 8–3 (základna 2000 = 100).</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Za celé období vzrostla o <strong>30&nbsp;%</strong> (kumulovaný index 2004 = 130,9). V roce 2001 přitom nejdřív mírně <strong>klesla</strong> na 95,8&nbsp;% úrovně roku 2000 (z 72&nbsp;700,5 na 69&nbsp;676,0 mil. Kč), a teprve od roku 2002 začala trvale růst.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PREV / NEXT NAVIGACE ===================== -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t11-l7-desatero.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">11.7 Desatero pro úspěšné zavedení systému řízení výkonnosti</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l2-benchmarking-1.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.2 Benchmarking I – metoda, výběr a benchmark</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: struktura spotřeby plastů v záp. Evropě 2003 (% z celkové spotřeby)
+      Skripta.sloupcovyGraf('viz-struktura-spotreby', {
+        sirka: 720, vyska: 340, formatDesetin: 1,
+        data: [
+          { popisek: 'Obaly',          hodnota: 37.2 },
+          { popisek: 'Bytový sektor',  hodnota: 20.1 },
+          { popisek: 'Stavebnictví',   hodnota: 18.5 },
+          { popisek: 'Elektro',        hodnota: 8.5 },
+          { popisek: 'Automobily',     hodnota: 8.0 },
+          { popisek: 'Ost. průmysl',   hodnota: 5.8 },
+          { popisek: 'Zemědělství',    hodnota: 1.9 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: tuzemská spotřeba plastů OKEČ 25.2 (2000–2004)
+      // Reálná data z tabulky 8–3 (mil. Kč); každý krok odkryje jeden rok.
+      var roky  = [2000, 2001, 2002, 2003, 2004];
+      var spot  = [72700.5, 69676.0, 73986.3, 83302.0, 95143.6]; // mil. Kč
+      // meziroční index: 2000 je základ; 2001 pokles (<100) → červená, jinak zelená
+      var index = [100.0, 95.8, 106.2, 112.6, 114.2];
+
+      Skripta.stepper('viz-spotreba-stepper', {
+        sirka: 720, vyska: 380,
+        stavy: [ {n:1}, {n:2}, {n:3}, {n:4}, {n:5} ],
+        popisky: [
+          'Rok 2000: výchozí tuzemská spotřeba 72 700,5 mil. Kč (základ srovnání, index 100,0).',
+          'Rok 2001: mírný pokles na 69 676,0 mil. Kč (meziroční index 95,8 %).',
+          'Rok 2002: oživení na 73 986,3 mil. Kč (index 106,2 %) – spotřeba překonala rok 2000.',
+          'Rok 2003: další růst na 83 302,0 mil. Kč (index 112,6 %).',
+          'Rok 2004: 95 143,6 mil. Kč (index 114,2 %); kumulovaně +30,9 % oproti roku 2000.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320, levy = 70, pravy = 700;
+          var maxV = 100000; // horní hranice svislé osy (mil. Kč)
+          var px = (base - 60) / maxV; // měřítko výšky
+
+          // Základna (osa X)
+          u.dej(svg, 'osa', 'line', { x1: levy, y1: base, x2: pravy, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          // Popisek svislé osy
+          u.dej(svg, 'osa-y', 'text', { x: levy, y: 40, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 12 }, 'mil. Kč');
+
+          var slot = (pravy - levy) / roky.length;
+          var barW = 74;
+
+          for (var k = 0; k < roky.length; k++) {
+            var cx = levy + slot * k + slot / 2;
+            var viditelny = (k < stav.n);
+            var h = viditelny ? spot[k] * px : 0;
+            // barva: 2000 = indigo (základ), pokles = červená, růst = zelená
+            var barva = (k === 0) ? '#4338ca' : (index[k] < 100 ? u.barvaNiceni : u.barvaTvorba);
+
+            u.dej(svg, 'bar-' + k, 'rect', {
+              x: cx - barW / 2, y: base - h, width: barW, height: h, rx: 5,
+              fill: barva, opacity: viditelny ? 1 : 0
+            });
+            // hodnota nad sloupcem
+            u.dej(svg, 'val-' + k, 'text', {
+              x: cx, y: base - h - 10, 'text-anchor': 'middle', fill: u.barvaText,
+              'font-size': 13, 'font-weight': 700, opacity: viditelny ? 1 : 0
+            }, u.formatCislo(spot[k], 0));
+            // popisek roku pod osou
+            u.dej(svg, 'lbl-' + k, 'text', {
+              x: cx, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText,
+              'font-size': 13, opacity: viditelny ? 1 : 0
+            }, String(roky[k]));
+            // meziroční index pod rokem (kromě roku 2000)
+            u.dej(svg, 'idx-' + k, 'text', {
+              x: cx, y: base + 40, 'text-anchor': 'middle',
+              fill: (index[k] < 100 ? u.barvaNiceni : u.barvaTvorba),
+              'font-size': 11, opacity: (viditelny && k > 0) ? 1 : 0
+            }, 'index ' + u.formatCislo(index[k], 1) + ' %');
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

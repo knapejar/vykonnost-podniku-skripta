@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.3 CFROI – oceňování, zhodnocení, TBR a CROGA – Výkonnost podniku</title>
+  <meta name="description" content="Ocenění podniku modelem CFROI, kritické zhodnocení ukazatele, Total Business Return (TBR) se čtyřmi generátory hodnoty a zjednodušený ukazatel CROGA.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 6 -->
+    <nav class="panel" data-panel data-aktivni-lekce="6.3" aria-label="Lekce tématu 6">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 6</div>
+      <div class="panel__nazev-tema">Měřítka na bázi cash flow a souhrnné srovnání</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="6.1" href="t6-l1-sva.html"><span class="panel__odkaz-cislo">6.1</span><span>Shareholder Value Added – SVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.2" href="t6-l2-cfroi.html"><span class="panel__odkaz-cislo">6.2</span><span>Cash Flow Return on Investment – CFROI</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.3" href="t6-l3-cfroi-tbr-croga.html"><span class="panel__odkaz-cislo">6.3</span><span>CFROI – oceňování, zhodnocení, TBR a CROGA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.4" href="t6-l4-souhrnne-srovnani.html"><span class="panel__odkaz-cislo">6.4</span><span>Souhrnné srovnání ukazatelů výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-6">Téma 6 · Cash flow měřítka</a></li>
+          <li><span aria-current="page">Lekce 6.3</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 6.3</span>
+        <h1>CFROI – oceňování, zhodnocení, TBR a CROGA</h1>
+        <p class="lekce-hlavicka__strany">Strany 98–101</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme si ukázali, jak se ukazatel <strong><a class="pojem" href="t6-l2-cfroi.html?zvyraznit=pojem-cfroi" target="_blank" rel="noopener">CFROI</a></strong>
+        (Cash Flow Return on Investment) počítá jako reálné <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-irr" target="_blank" rel="noopener">vnitřní výnosové
+        procento</a> všech aktiv podniku a jak se pomocí <em><a class="pojem" href="t6-l2-cfroi.html?zvyraznit=pojem-cfroi-spread" target="_blank" rel="noopener">CFROI spreadu</a></em> posuzuje,
+        zda podnik tvoří, či ničí hodnotu. Teď koncept dovedeme do konce: podíváme se,
+        jak lze modelem CFROI <strong>ocenit celý podnik</strong>, kriticky zvážíme
+        jeho přednosti i slabiny, a nakonec představíme dva navazující ukazatele –
+        do budoucna zaměřený <strong>TBR</strong> se čtyřmi <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a> a
+        zjednodušený <strong>CROGA</strong>.
+      </p>
+
+      <!-- ============================================================= -->
+      <h2>Oceňování podniku modelem CFROI</h2>
+
+      <p>
+        Koncept CFROI lze využít nejen k měření výkonnosti, ale i k <strong>ocenění
+        podniku</strong>. Vychází přitom z jednoduché myšlenky: hodnotu podniku je
+        potřeba rozdělit na dvě části a každou ocenit zvlášť – zvlášť <em>hodnotu
+        současných (existujících) aktiv</em> a zvlášť <em>hodnotu budoucích
+        investic</em>.
+      </p>
+
+      <div class="vzorec" id="vzorec-3-19">
+        <div class="vzorec__telo">
+          <span class="math"><span class="fn">Hodnota&nbsp;podniku</span><span class="op">=</span><span class="fn">hodnota&nbsp;existujících&nbsp;aktiv</span><span class="op">+</span><span class="fn">hodnota&nbsp;budoucích&nbsp;investic</span></span>
+        </div>
+        <div class="vzorec__cislo">(3.19)</div>
+      </div>
+
+      <p>
+        Z tohoto vztahu je zřejmé, že hodnota podniku se neodvíjí jen od dnešních
+        aktiv a jejich schopnosti produkovat <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a>, ale také od <strong>budoucího
+        vývoje</strong> – od dalších investic a jejich výnosnosti. Model tedy nutí
+        oceňovatele přemýšlet i o tom, kolik hodnoty podnik teprve vytvoří.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Odhad budoucích investic bez detailního plánu</p>
+        <div class="callout__telo">
+          <p>
+            Obhájci modelu tvrdí, že velkou výhodou je <strong>spolehlivost odhadu
+            budoucích investic</strong>. Ten lze odvodit z tzv. udržitelného
+            růstového poměru, aniž bychom potřebovali podrobnou prognózu tržeb.
+            Právě proto je přístup oblíbený u portfoliových manažerů, kteří musí
+            v krátkém čase odhadnout hodnotu velkého množství podniků.
+          </p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-udrzitelny-rustovy-pomer">
+        <h3 class="definice__pojem">Udržitelný růstový poměr</h3>
+        <div class="definice__telo">
+          <p>
+            Tempo, kterým podnik dokáže dlouhodobě zvyšovat objem investic z vlastních
+            zdrojů. V modelu CFROI slouží k odhadu výše budoucích investic. Společnost
+            HOLT Value Associates odvodila jeho dlouhodobou úroveň na
+            <strong>2,7&nbsp;%</strong>. Předmětem kritiky ale zůstává, že tento přístup
+            se odklání od prognóz budoucího vývoje tržeb a od dlouhodobého plánování.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Zhodnocení ukazatele CFROI</h2>
+
+      <p>
+        Než ukazatel opustíme, shrňme, čím je silný a kde má slabiny. Přehled je
+        důležitý: žádné měřítko výkonnosti není dokonalé a znát jeho meze je
+        podmínkou správného použití.
+      </p>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">✅</span>
+        <p class="callout__nadpis">Výhody CFROI</p>
+        <div class="callout__telo">
+          <ul>
+            <li>Umožňuje <strong>porovnávat podniky v čase</strong>, s různou skladbou
+              aktiv (různá odvětví) i v různých zemích.</li>
+            <li>Vyjádření <strong>v procentech</strong> bývá pro manažery příjemnější
+              než peněžní částka (jako u <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>), zejména při srovnávání podniků, divizí
+              nebo investic <em>různé velikosti</em>.</li>
+            <li>Je <strong>nejpřesnější</strong> z hlediska konstrukce a důslednosti,
+              s jakou odstraňuje účetní nedostatky; navíc <strong>zohledňuje inflaci</strong>.</li>
+            <li>Při oceňování těží z práce s <strong>cash flow</strong> a ze způsobu
+              výpočtu diskontní míry, který se snaží více respektovat tržní podmínky.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nevýhody CFROI</p>
+        <div class="callout__telo">
+          <ul>
+            <li><strong>Náročnost úprav</strong> vstupních dat; některé z nich nemusí
+              být srozumitelné, zejména nefinančním manažerům.</li>
+            <li>Pro <strong>externího uživatele</strong> je obtížné vyjádřit brutto
+              investice v běžných cenách – nezná totiž dobu nákupu jednotlivých
+              položek dlouhodobých aktiv.</li>
+            <li>Kvůli náročnosti úprav zůstává výpočet většinou jen na <strong>podnikové
+              úrovni</strong> a využití se často omezuje na rozhodování o alokaci zdrojů.</li>
+            <li>Sporný je předpoklad, že cash flow bude po celou dobu životnosti
+              dlouhodobého majetku <strong>konstantní</strong>.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <h3>Kritika Younga a O'Byrneho: když kladný spread maskuje ničení hodnoty</h3>
+
+      <p>
+        Obhájci CFROI vyzdvihují model „<a class="pojem" href="t6-l2-cfroi.html?zvyraznit=pojem-cfroi-fade" target="_blank" rel="noopener">CFROI fade</a>", který umožňuje odhadovat budoucí
+        výnosnost vložených prostředků. Tento model však autoři <strong>Young a
+        O'Byrne</strong> zpochybňují – dokonce tvrdí, že jeho použití může vést manažery
+        k investicím do projektů se <strong>zápornou <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-npv" target="_blank" rel="noopener">čistou současnou hodnotou</a></strong>.
+      </p>
+
+      <p>
+        Uvádějí příklad podniku s CFROI <strong>18&nbsp;%</strong>, investiční bází
+        <strong>1&nbsp;000&nbsp;USD</strong> a reálným <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a> <strong>6,3&nbsp;%</strong>
+        (odpovídá dlouhodobému průměru CFROI). Pro podnik se předpokládá 60% pokles
+        spreadu (CFROI&nbsp;−&nbsp;WACC) během následujících čtyř let a v každém roce
+        podnik reinvestuje své cash flow. Vývoj sledovaný třemi různými ukazateli
+        shrnuje tabulka 3–5.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3–5 – Vývoj ukazatelů výkonnosti vybraného podniku</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">0</th>
+              <th scope="col" class="cislo">1</th>
+              <th scope="col" class="cislo">2</th>
+              <th scope="col" class="cislo">3</th>
+              <th scope="col" class="cislo">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">CFROI</th><td class="cislo">18,0 %</td><td class="cislo">15,6 %</td><td class="cislo">13,7 %</td><td class="cislo">12,2 %</td><td class="cislo">11,0 %</td></tr>
+            <tr><th scope="row">CFROI − WACC (spread)</th><td class="cislo hodnota-tvorba">11,7 %</td><td class="cislo hodnota-tvorba">9,3 %</td><td class="cislo hodnota-tvorba">7,4 %</td><td class="cislo hodnota-tvorba">5,9 %</td><td class="cislo hodnota-tvorba">4,7 %</td></tr>
+            <tr><th scope="row">Investice</th><td class="cislo">1 000</td><td class="cislo">1 180</td><td class="cislo">1 364</td><td class="cislo">1 551</td><td class="cislo">1 740</td></tr>
+            <tr><th scope="row">CF</th><td class="cislo">180</td><td class="cislo">184</td><td class="cislo">187</td><td class="cislo">189</td><td class="cislo">191</td></tr>
+            <tr><th scope="row">Dodatečné CF</th><td class="cislo">—</td><td class="cislo">4</td><td class="cislo">3</td><td class="cislo">2</td><td class="cislo">2</td></tr>
+            <tr><th scope="row">Dodatečná investice</th><td class="cislo">—</td><td class="cislo">180</td><td class="cislo">184</td><td class="cislo">187</td><td class="cislo">189</td></tr>
+            <tr><th scope="row">ROI z dodatečné investice</th><td class="cislo">—</td><td class="cislo">2,3 %</td><td class="cislo">1,5 %</td><td class="cislo">1,1 %</td><td class="cislo">1,1 %</td></tr>
+            <tr><th scope="row">EVA</th><td class="cislo">117</td><td class="cislo">110</td><td class="cislo">101</td><td class="cislo">91</td><td class="cislo">81</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Změna EVA</th><td class="cislo">—</td><td class="cislo hodnota-niceni">−7</td><td class="cislo hodnota-niceni">−9</td><td class="cislo hodnota-niceni">−10</td><td class="cislo hodnota-niceni">−10</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Rozbor je odhalující. Rentabilita dodatečných investic (ROI) je po celé čtyři
+        roky <strong>nižší než 3&nbsp;%</strong>, což je při <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">nákladech na kapitál</a>
+        6,3&nbsp;% žalostně málo. Ukazatel <strong>EVA</strong> proto vykazuje
+        <strong>záporné přírůstky</strong> – podnik hodnotu <em>ničí</em>. Přesto
+        <strong>CFROI spread zůstává po celou dobu kladný</strong>, a tím signalizuje
+        tvorbu hodnoty. Kladný spread tak může ničení hodnoty <em>zamaskovat</em>.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Změny EVA v letech 1–4 (peněžní jednotky)</p>
+          <p class="viz__popis">Zatímco CFROI spread je celou dobu kladný, přírůstky EVA jsou záporné – podnik ničí hodnotu. To je jádro Youngovy a O'Byrneho kritiky.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-zmena-eva"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Jak je možné, že podnik z tabulky 3–5 má po celé čtyři roky
+            <strong>kladný CFROI spread</strong> (tvorba hodnoty), a přitom
+            <strong>záporné přírůstky EVA</strong> (ničení hodnoty)? Kde je zakopaný pes?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              CFROI spread hodnotí <em>průměrnou</em> výnosnost <strong>všech</strong>
+              aktiv podniku. Ta zůstává vysoká díky starým, dobře vydělávajícím
+              investicím. EVA a její přírůstky ovšem reagují na to, co se děje
+              <strong>na okraji</strong> – na <em>dodatečné</em> investice. A ty
+              vynášejí jen kolem 1–2&nbsp;%, hluboko pod náklady na kapitál 6,3&nbsp;%.
+              Podnik tedy stále reinvestuje do projektů, které samy o sobě hodnotu
+              ničí; průměr aktiv to ale ještě chvíli „utáhne". Kladný spread proto
+              může zakrýt, že nové peníze míří do ztrátových projektů se zápornou NPV.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Total Business Return (TBR)</h2>
+
+      <p>
+        Ukazatel CFROI má silnou koncepční vazbu na <strong><a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-tsr" target="_blank" rel="noopener">TSR</a></strong> (Total
+        Shareholder Return), který přímo měří změnu bohatství akcionářů. TSR však
+        lze použít jen u <strong>veřejně obchodovaných</strong> podniků – ne pro
+        neobchodované společnosti, divize nebo projekty. Řešením je ukazatel
+        odvozený z CFROI, ale zaměřený <strong>do budoucna</strong>: TBR.
+      </p>
+
+      <section class="definice" id="pojem-tbr">
+        <h3 class="definice__pojem">Total Business Return (TBR)</h3>
+        <div class="definice__telo">
+          <p>
+            Do budoucna zaměřená obdoba CFROI, kterou lze aplikovat na podnikatelskou
+            jednotku, strategii, projekt apod. TBR se rovná <strong>vnitřnímu
+            výnosovému procentu (IRR)</strong> peněžních toků v čase: počáteční
+            brutto investice, průběžných brutto cash flow a koncové zbytkové hodnoty.
+          </p>
+        </div>
+      </section>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Princip ukazatele TBR (obr. 3–14)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". TBR je vnitřní výnosové procento (IRR) peněžních toků: záporné počáteční investice, průběžných kladných toků a koncové zbytkové hodnoty.</p>
+        </figcaption>
+        <div id="viz-tbr"></div>
+      </figure>
+
+      <p>
+        TBR v sobě spojuje všechny <strong>čtyři důležité generátory hodnoty</strong>.
+        Efektivním řízením těchto oblastí podnik plní základní cíl podnikání –
+        zvyšovat hodnotu vlastnických vkladů:
+      </p>
+
+      <ul>
+        <li><strong>Výnosnost existujících aktiv</strong> – kolik vydělávají už
+          provozovaná aktiva.</li>
+        <li><strong>Růst</strong> – rozšiřování a nové investice.</li>
+        <li><strong>Náklady na kapitál</strong> – laťka, kterou musí výnosnost
+          překonat.</li>
+        <li><strong><a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-volne-cash-flow" target="_blank" rel="noopener">Volné cash flow</a></strong> – peníze, které podnik skutečně
+          generuje.</li>
+      </ul>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            V čem je TBR obohacením oproti „obyčejnému" CFROI? Zamyslete se nad tím,
+            co CFROI měří a co naopak přidávají čtyři generátory hodnoty TBR.
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              CFROI je v jádru <em>retrospektivní</em> – hodnotí reálnou výnosnost
+              <strong>již vložených</strong> aktiv v daném roce. TBR je naproti tomu
+              <strong>zaměřený do budoucna</strong>: jako IRR peněžních toků zahrnuje
+              vedle výnosnosti existujících aktiv i <strong>růst</strong> (budoucí
+              investice) a koncovou <strong>zbytkovou hodnotu</strong>, to vše
+              poměřené s <strong>náklady na kapitál</strong> a opřené o skutečné
+              <strong>volné cash flow</strong>. TBR tedy neříká jen „jak dobře
+              vyděláváme dnes", ale „jakou hodnotu vytvoříme za celé sledované období",
+              a lze jej použít i pro jednotky, které se na trhu neobchodují.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">CFROI v podmínkách české ekonomiky</p>
+        <div class="callout__telo">
+          <p>
+            V ČR se CFROI zatím příliš nepoužívá – s výjimkou některých podniků se
+            zahraničními vlastníky. Na vině je malé povědomí o konceptu, náročnost
+            výpočtu a menší srozumitelnost úprav vstupů. Ve větší míře jej využívají
+            portfoliový investoři a konzultantské společnosti pro měření výkonnosti
+            a zejména pro ocenění podniku.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ============================================================= -->
+      <h2>CROGA – zjednodušený ukazatel na bázi cash flow</h2>
+
+      <p>
+        Výpočet CFROI je pracný. Chceme-li jednoduše vyjádřit výkonnost podniku
+        <strong>v daném roce</strong>, můžeme sáhnout po zjednodušeném ukazateli
+        <strong>CROGA</strong>.
+      </p>
+
+      <section class="definice" id="pojem-croga">
+        <h3 class="definice__pojem">CROGA (Cash Return on Gross Assets)</h3>
+        <div class="definice__telo">
+          <p>
+            Hotovostní rentabilita hrubých (brutto) aktiv – zjednodušené měřítko
+            výkonnosti daného roku na bázi cash flow. Poměřuje provozní cash flow po
+            zdanění s hrubými aktivy podniku.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-3-20">
+        <div class="vzorec__telo">
+          <span class="math">CROGA<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">OATCF</span>
+              <span class="frac__jmen">GA</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(3.20)</div>
+      </div>
+
+      <p>Kde jednotlivé symboly znamenají:</p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Vysvětlení symbolů ve vzorci (3.20)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Symbol</th>
+              <th scope="col">Význam</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">CROGA</th><td>hotovostní rentabilita hrubých (brutto) aktiv (v&nbsp;%)</td></tr>
+            <tr><th scope="row">OATCF</th><td>provozní cash flow po zdanění (<em>Operating After-Tax Cash Flow</em>)</td></tr>
+            <tr><th scope="row">GA</th><td>hrubá (brutto) aktiva</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="definice" id="pojem-hruba-aktiva">
+        <h3 class="definice__pojem">Hrubá (brutto) aktiva – GA</h3>
+        <div class="definice__telo">
+          <p>
+            Jmenovatel ukazatele CROGA. Jde o <strong>sumu dlouhodobých provozních
+            aktiv v pořizovacích (brutto) hodnotách</strong> – tedy neupravených
+            o oprávky – <strong>zvětšenou o <a class="pojem" href="t8-l2-cpk-zasoby.html?zvyraznit=pojem-pracovni-kapital" target="_blank" rel="noopener">pracovní kapitál</a></strong>.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Kdy CROGA tvoří hodnotu</p>
+        <div class="callout__telo">
+          <p>
+            Stejně jako CFROI porovnáváme i CROGA s náklady na kapitál. Pro tvorbu
+            hodnoty musí platit <span class="math">CROGA<span class="op">&gt;</span>WACC</span>,
+            tedy <span class="math">(CROGA<span class="op">−</span>WACC)<span class="op">&gt;</span>0</span>.
+            Kladný rozdíl znamená, že podnik vydělává víc, než činí požadovaná
+            výnosnost jeho kapitálu.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Na jaké dvě části rozděluje model CFROI hodnotu podniku při jeho ocenění?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na vzorec (3.19) – jedna část se týká dneška, druhá budoucnosti.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na <strong>hodnotu existujících (současných) aktiv</strong> a <strong>hodnotu budoucích investic</strong>. Hodnota podniku je jejich součtem – závisí tedy nejen na dnešních aktivech a jejich schopnosti produkovat cash flow, ale i na výnosnosti dalších investic v budoucnu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč může kladný CFROI spread doprovázet záporné přírůstky EVA (tabulka 3–5)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte rozdíl mezi průměrnou výnosností všech aktiv a výnosností dodatečných investic.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>CFROI spread měří průměrnou výnosnost <strong>všech</strong> aktiv, kterou drží nahoře staré dobré investice. Přírůstky EVA však reagují na <strong>dodatečné</strong> investice, jejichž rentabilita (ROI) je jen 1–2&nbsp;% – hluboko pod náklady na kapitál 6,3&nbsp;%. Nové peníze tak míří do projektů se zápornou NPV, EVA klesá, ale kladný spread to zamaskuje. Podle Younga a O'Byrneho může model CFROI proto svádět k investicím ničícím hodnotu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Čím se TBR liší od CFROI a od ukazatele TSR?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zaměření (minulost/budoucnost) a okruh použití (obchodované vs. neobchodované jednotky).</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>TBR</strong> je jako IRR peněžních toků zaměřen <strong>do budoucna</strong> a lze jej použít i pro <strong>neobchodované</strong> jednotky, divize či projekty. <strong>TSR</strong> přímo měří změnu bohatství akcionářů, ale funguje jen u <strong>veřejně obchodovaných</strong> podniků. <strong>CFROI</strong> hodnotí reálnou výnosnost již vložených aktiv v daném roce. TBR navíc integruje čtyři generátory hodnoty.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Které čtyři generátory hodnoty v sobě TBR obsahuje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Dva se týkají aktiv a růstu, jeden „laťky" a jeden skutečně vygenerovaných peněz.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Výnosnost existujících aktiv</strong>, <strong>růst</strong>, <strong>náklady na kapitál</strong> a <strong>volné cash flow</strong>. Efektivní řízení všech čtyř oblastí vede k naplnění cíle podnikání – zvyšování hodnoty vlastnických vkladů.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jak se počítá CROGA a kdy podle něj podnik tvoří hodnotu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzorec (3.20) a srovnání výsledku s WACC.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><span class="math">CROGA<span class="op">=</span><span class="frac"><span class="frac__cit">OATCF</span><span class="frac__jmen">GA</span></span></span> – provozní cash flow po zdanění (OATCF) dělené hrubými (brutto) aktivy (GA). Podnik tvoří hodnotu, když <strong>CROGA&nbsp;&gt;&nbsp;WACC</strong>, tj. rozdíl (CROGA&nbsp;−&nbsp;WACC) je kladný.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t6-l2-cfroi.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">6.2 Cash Flow Return on Investment – CFROI</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t6-l4-souhrnne-srovnani.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">6.4 Souhrnné srovnání ukazatelů výkonnosti</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: záporné přírůstky EVA (tabulka 3–5)
+      Skripta.sloupcovyGraf('viz-zmena-eva', {
+        sirka: 640, vyska: 300, formatDesetin: 0,
+        data: [
+          { popisek: 'Rok 1', hodnota: -7 },
+          { popisek: 'Rok 2', hodnota: -9 },
+          { popisek: 'Rok 3', hodnota: -10 },
+          { popisek: 'Rok 4', hodnota: -10 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: princip TBR jako IRR (obr. 3–14)
+      Skripta.stepper('viz-tbr', {
+        sirka: 720, vyska: 400,
+        stavy: [
+          { inv: true,  cf: false, zb: false, tbr: false },
+          { inv: true,  cf: true,  zb: false, tbr: false },
+          { inv: true,  cf: true,  zb: true,  tbr: false },
+          { inv: true,  cf: true,  zb: true,  tbr: true  }
+        ],
+        popisky: [
+          'Na konci roku 2006 podnik vloží brutto investici – počáteční záporný peněžní tok (šipka dolů).',
+          'V průběhu let 2007–2009 plynou průběžné kladné toky brutto cash flow (šipky nahoru).',
+          'Na konci roku 2010 se přidává koncová zbytková hodnota podnikatelské jednotky.',
+          'TBR je vnitřní výnosové procento (IRR) všech těchto peněžních toků v čase.'
+        ],
+        render: function (svg, stav, i, u) {
+          var baseY = 220; // časová osa
+
+          // Časová osa se šipkou vpravo
+          u.dej(svg, 'osa', 'line', { x1: 55, y1: baseY, x2: 690, y2: baseY, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-hrot', 'path', { d: 'M690,' + baseY + ' l-10,-5 v10 z', fill: u.barvaOsa });
+
+          // Popisky let (2006 nese samotná investice, ostatní pod osou)
+          var roky = [['2007', 235], ['2008', 345], ['2009', 455], ['2010', 620]];
+          roky.forEach(function (r) {
+            u.dej(svg, 'rok-' + r[0], 'text', { x: r[1], y: baseY + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, r[0]);
+          });
+
+          // --- Brutto investice (dolů, červená) – vždy viditelná ---
+          u.dej(svg, 'inv', 'rect', { x: 73, y: baseY, width: 48, height: 95, rx: 5, fill: u.barvaNiceni });
+          u.dej(svg, 'inv-lbl1', 'text', { x: 97, y: baseY + 130, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, 'font-weight': 700 }, 'Brutto investice');
+          u.dej(svg, 'inv-lbl2', 'text', { x: 97, y: baseY + 148, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 11 }, '(konec 2006)');
+
+          // --- Průběžné brutto cash flow (nahoru, zelená) ---
+          var cfDef = [[235, 60], [345, 64], [455, 66]];
+          cfDef.forEach(function (c, idx) {
+            u.dej(svg, 'cf-' + idx, 'rect', {
+              x: c[0] - 22, y: baseY - c[1], width: 44, height: c[1], rx: 5,
+              fill: u.barvaTvorba, opacity: stav.cf ? 1 : 0
+            });
+          });
+          u.dej(svg, 'cf-lbl', 'text', {
+            x: 345, y: baseY - 82, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 12, 'font-weight': 700, opacity: stav.cf ? 1 : 0
+          }, 'Brutto cash flow');
+
+          // --- Zbytková hodnota (nahoru, indigo) ---
+          u.dej(svg, 'zb', 'rect', {
+            x: 594, y: baseY - 120, width: 52, height: stav.zb ? 120 : 0, rx: 5,
+            fill: '#4338ca', opacity: stav.zb ? 1 : 0
+          });
+          u.dej(svg, 'zb-lbl1', 'text', {
+            x: 620, y: baseY - 132, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 12, 'font-weight': 700, opacity: stav.zb ? 1 : 0
+          }, 'Zbytková hodnota (2010)');
+
+          // --- TBR = IRR (zvýraznění posledního kroku) ---
+          u.dej(svg, 'tbr-box', 'rect', {
+            x: 250, y: 40, width: 220, height: 42, rx: 10,
+            fill: 'rgba(67,56,202,0.10)', stroke: '#4338ca', 'stroke-width': 1.5,
+            opacity: stav.tbr ? 1 : 0
+          });
+          u.dej(svg, 'tbr-txt', 'text', {
+            x: 360, y: 67, 'text-anchor': 'middle', fill: '#4338ca',
+            'font-size': 18, 'font-weight': 700, opacity: stav.tbr ? 1 : 0
+          }, 'TBR = IRR');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

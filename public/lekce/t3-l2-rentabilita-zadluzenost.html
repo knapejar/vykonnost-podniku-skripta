@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.2 Analýza rentability a zadluženosti – Výkonnost podniku</title>
+  <meta name="description" content="Poměrové ukazatele rentability a zadluženosti: celková zadluženost, míra zadluženosti a finanční páka, rozklad ROE, úrokové krytí, doba splácení dluhů a krytí dlouhodobého majetku.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 3, aktivní 3.2 -->
+    <nav class="panel" data-panel data-aktivni-lekce="3.2" aria-label="Lekce tématu 3">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 3</div>
+      <div class="panel__nazev-tema">Finanční analýza v řízení výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="3.1" href="t3-l1-uvod-financni-analyza.html"><span class="panel__odkaz-cislo">3.1</span><span>Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.2" href="t3-l2-rentabilita-zadluzenost.html"><span class="panel__odkaz-cislo">3.2</span><span>Analýza rentability a zadluženosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.3" href="t3-l3-likvidita-aktivita.html"><span class="panel__odkaz-cislo">3.3</span><span>Analýza likvidity a aktivity</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.4" href="t3-l4-kapitalovy-trh.html"><span class="panel__odkaz-cislo">3.4</span><span>Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.5" href="t3-l5-souhrnne-ukazatele.html"><span class="panel__odkaz-cislo">3.5</span><span>Souhrnné ukazatele – bankrotní a bonitní modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.6" href="t3-l6-dupont-soustavy.html"><span class="panel__odkaz-cislo">3.6</span><span>Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-3">Téma 3 · Finanční analýza</a></li>
+          <li><span aria-current="page">Lekce 3.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 3.2</span>
+        <h1>Analýza rentability a zadluženosti</h1>
+        <p class="lekce-hlavicka__strany">Strany 28–30</p>
+      </header>
+
+      <p>
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-pomerove-ukazatele" target="_blank" rel="noopener">Poměrové ukazatele</a> se třídí do skupin podle jednotlivých <strong>oblastí
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzy</a></strong> – zadluženost, likvidita, rentabilita, aktivita
+        a ukazatele kapitálového trhu. V této lekci projdeme první dvě navzájem
+        provázané oblasti: <strong>rentabilitu</strong> (výnosnost vloženého
+        kapitálu) a <strong>zadluženost</strong> (strukturu financování a s ní
+        spojené riziko). Uvidíme, že tyto dvě oblasti nelze oddělit – zadluženost
+        totiž přes tzv. finanční páku přímo ovlivňuje rentabilitu vlastního
+        kapitálu.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Doporučené hodnoty jsou orientační</p>
+        <div class="callout__telo">
+          <p>Číselná pásma uvedená u vybraných ukazatelů (např. celková
+          zadluženost 30–60 %) vycházejí z běžné praxe finanční analýzy. Jsou
+          pouze orientační a vždy silně závisejí na odvětví, ve kterém podnik
+          působí.</p>
+        </div>
+      </aside>
+
+      <!-- ===================== ANALÝZA RENTABILITY ===================== -->
+      <h2>Analýza rentability</h2>
+
+      <p>
+        <strong>Rentabilita</strong>, resp. výnosnost vloženého kapitálu, je
+        měřítkem míry zisku, které v tržní ekonomice slouží jako hlavní ukazatel
+        pro alokaci kapitálu. Ukazatele rentability jsou proto tak důležité: samy
+        o sobě totiž zobrazují <em>kombinovaný</em> vliv <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidity</a>, řízení aktiv
+        i zadluženosti na výsledek hospodaření.
+      </p>
+
+      <section class="definice" id="pojem-analyza-rentability">
+        <h3 class="definice__pojem">Analýza rentability</h3>
+        <div class="definice__telo">
+          <p>
+            Skupina poměrových ukazatelů, které dávají do poměru dosažený zisk
+            s kapitálem (či jinou základnou) potřebnou k jeho dosažení. Ukazují
+            kombinovaný vliv likvidity, řízení aktiv a zadluženosti na výsledek
+            hospodaření.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Ukazatele rentability se konstruují jako zlomek. Podle sledovaného účelu
+        do nich dosazujeme různé veličiny:
+      </p>
+      <ul>
+        <li><strong>V čitateli</strong> může být <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-eat" target="_blank" rel="noopener">čistý zisk</a>, <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-ebt" target="_blank" rel="noopener">zisk před zdaněním</a>,
+        <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-ebit" target="_blank" rel="noopener">EBIT</a>, případně jiné formy zisku.</li>
+        <li><strong>Ve jmenovateli</strong> může být vlastní kapitál, celkový
+        vložený kapitál, dlouhodobý kapitál, tržby, náklady nebo přidaná hodnota.</li>
+      </ul>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde najdete konkrétní vzorce rentability</p>
+        <div class="callout__telo">
+          <p>Nejčastěji používané ukazatele rentability (ROS, ROA, ROI, ROE, EPS)
+          i jejich konstrukce byly zavedeny mezi klasickými ukazateli výkonnosti
+          – v lekci 2.2 (kapitola 2.1.3 zdroje). Zde s nimi pracujeme jako se
+          známými nástroji a soustředíme se na jejich vazbu na zadluženost.</p>
+        </div>
+      </aside>
+
+      <!-- ===================== ANALÝZA ZADLUŽENOSTI ===================== -->
+      <h2>Analýza zadluženosti a vztahu majetkové a finanční struktury</h2>
+
+      <p>
+        Ukazatele zadluženosti slouží jako <strong>indikátory výše rizika</strong>,
+        které podnik podstupuje při dané struktuře vlastního a cizího kapitálu.
+        Zadluženost sama o sobě přitom <em>nemusí</em> být negativní: určitá výše
+        dluhu je pro podnik obvykle užitečná, protože cizí kapitál bývá levnější
+        než vlastní. Každý podnik by měl usilovat o <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-financni-struktura" target="_blank" rel="noopener">finanční strukturu</a> s
+        <strong>minimálními náklady na kapitál</strong>, která zároveň odpovídá
+        struktuře jeho majetku.
+      </p>
+      <p>
+        Detailnější rozbor napoví, zda je <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálová struktura</a> vůči struktuře
+        majetku optimální, nebo zda je podnik <em>podkapitalizován</em> či
+        <em>překapitalizován</em>. Dobrá finanční struktura by měla pozitivně
+        ovlivňovat rentabilitu a současně neohrožovat likviditu. Analýza
+        zadluženosti tedy ukazuje, <strong>v jakém rozsahu a jakými zdroji</strong>
+        jsou financována podniková aktiva.
+      </p>
+
+      <h3>Celková zadluženost</h3>
+      <p>
+        Základní ukazatel poměřuje veškeré cizí zdroje s celkovými aktivy – tedy
+        jakou část majetku podniku financují věřitelé.
+      </p>
+
+      <section class="definice" id="pojem-celkova-zadluzenost">
+        <h3 class="definice__pojem">Celková zadluženost</h3>
+        <div class="definice__telo">
+          <p>
+            Podíl cizích zdrojů na celkových aktivech. Vyjadřuje, v jakém rozsahu
+            je majetek podniku financován dluhem. Doporučená (orientační) hodnota
+            se pohybuje mezi 30 a 60 %, silně však závisí na odvětví.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-6">
+        <div class="vzorec__telo">
+          <span class="math">Celková zadluženost<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Cizí zdroje</span>
+              <span class="frac__jmen">Aktiva celkem</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.6)</div>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pozor na leasing</p>
+        <div class="callout__telo">
+          <p>Pokud podnik výrazněji využívá leasing, měl by před výpočtem
+          korigovat vstupní data. Leasing je prakticky stejný dluh jako splátka
+          úvěru, ale v rozvaze nájemce není zachycen. Je proto vhodné
+          <strong>přičíst hodnotu leasingového závazku k dluhům</strong> a
+          současně stejně upravit stranu aktiv – majetek pořízený leasingem
+          započítat do majetku podniku.</p>
+        </div>
+      </aside>
+
+      <h3>Míra zadluženosti a finanční páka</h3>
+      <p>
+        Míra zadluženosti poměřuje cizí zdroje přímo s vlastním kapitálem. Bývá
+        také nazývána <strong>finanční pákou</strong> – a právě ona propojuje
+        zadluženost s rentabilitou.
+      </p>
+
+      <section class="definice" id="pojem-mira-zadluzenosti">
+        <h3 class="definice__pojem">Míra zadluženosti (finanční páka)</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr cizích zdrojů k vlastnímu kapitálu. Označuje se také jako
+            <strong>finanční páka</strong>, protože pomocí cizího kapitálu
+            „páčí" (zvětšuje) výnosnost vlastního kapitálu – kladně, nebo záporně
+            podle vztahu výnosnosti a úrokové ceny dluhu.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-7">
+        <div class="vzorec__telo">
+          <span class="math">Míra zadluženosti<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Cizí zdroje</span>
+              <span class="frac__jmen">Vlastní kapitál</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.7)</div>
+      </div>
+
+      <p>
+        Ve vztahu k rentabilitě platí jednoduché pravidlo:
+      </p>
+      <ul>
+        <li>Je-li výnosnost vloženého kapitálu <strong>vyšší</strong> než cena
+        úročených cizích zdrojů, <span class="hodnota-tvorba"><strong>finanční
+        páka působí pozitivně</strong></span> – použití cizího kapitálu přispívá
+        ke zhodnocení kapitálu vlastního.</li>
+        <li>Je-li průměrná úroková míra z cizích zdrojů <strong>vyšší</strong> než
+        rentabilita vloženého kapitálu, jde o
+        <span class="hodnota-niceni"><strong>negativní působení finanční
+        páky</strong></span> – dluh rentabilitu vlastního kapitálu naopak snižuje.</li>
+      </ul>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: finanční páka ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Působení finanční páky na ROE</p>
+          <p class="viz__popis">Ilustrace principu. Zelený sloupec je rentabilita vlastního kapitálu (ROE), plná modrá čára je výnosnost vloženého kapitálu (ROA), čárkovaná čára je úroková míra dluhu. Procházejte kroky tlačítky „Zpět / Další".</p>
+        </figcaption>
+        <div id="viz-financni-paka"></div>
+      </figure>
+
+      <h3>Rozklad ROE – proč páka působí protichůdně</h3>
+      <p>
+        Rentabilitu vlastního kapitálu ovlivňuje pochopitelně více činitelů.
+        Pro vysvětlení lze <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">ROE</a> rozložit na součin pěti faktorů:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-8">
+        <div class="vzorec__telo">
+          <span class="math">ROE<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">T</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">T</span><span class="frac__jmen">A</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">EBT</span><span class="frac__jmen">EBIT</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">A</span><span class="frac__jmen">VK</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">ČZ</span><span class="frac__jmen">EBT</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.8)</div>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Pět činitelů rozkladu ROE (2.8)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Činitel</th>
+              <th scope="col">Význam</th>
+              <th scope="col">Vazba na zadluženost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><span class="math">EBIT<span class="op">/</span>T</span></th><td>provozní ziskovost tržeb</td><td>—</td></tr>
+            <tr><th scope="row"><span class="math">T<span class="op">/</span>A</span></th><td>obrat celkových aktiv (z tržeb)</td><td>—</td></tr>
+            <tr><th scope="row"><span class="math">EBT<span class="op">/</span>EBIT</span></th><td>úroková redukce zisku</td><td class="hodnota-niceni">roste-li dluh, klesá (negativně)</td></tr>
+            <tr><th scope="row"><span class="math">A<span class="op">/</span>VK</span></th><td>finanční páka</td><td class="hodnota-tvorba">roste-li dluh, roste (pozitivně)</td></tr>
+            <tr><th scope="row"><span class="math">ČZ<span class="op">/</span>EBT</span></th><td>daňová redukce zisku</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Vliv zadluženosti na ROE nesou právě dva z těchto faktorů –
+        <strong>úroková redukce zisku</strong> a <strong>finanční páka</strong> –
+        a působí <em>protichůdně</em>:
+      </p>
+      <ul>
+        <li>Zvýšení zadluženosti zvedá finanční páku <span class="math">A<span class="op">/</span>VK</span>,
+        což má <span class="hodnota-tvorba">pozitivní</span> vliv na ROE.</li>
+        <li>Zvýšení zadlužení zároveň zvyšuje placené nákladové úroky, takže klesá
+        úroková redukce zisku <span class="math">EBT<span class="op">/</span>EBIT</span>,
+        což má na ROE <span class="hodnota-niceni">negativní</span> dopad.</li>
+      </ul>
+
+      <p>
+        Společný vliv obou faktorů lze vyjádřit jejich součinem, který se nazývá
+        <strong>ziskový účinek finanční páky</strong>, nebo též
+        <strong>multiplikátor jmění vlastníků</strong>.
+      </p>
+
+      <section class="definice" id="pojem-multiplikator-jmeni-vlastniku">
+        <h3 class="definice__pojem">Multiplikátor jmění vlastníků (ziskový účinek finanční páky)</h3>
+        <div class="definice__telo">
+          <p>
+            Součin úrokové redukce zisku a finanční páky. Udává, kolikrát je
+            kapitál vlastníků „zvětšen" použitím cizích zdrojů k financování.
+            Je-li větší než 1, má zvyšování podílu cizích zdrojů ve finanční
+            struktuře <strong>pozitivní</strong> vliv na rentabilitu vlastního
+            kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-9">
+        <div class="vzorec__telo">
+          <span class="math">
+            <span class="frac"><span class="frac__cit">EBT</span><span class="frac__jmen">EBIT</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">A</span><span class="frac__jmen">VK</span></span>
+            <span class="op">&gt;</span><span class="num">1</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.9)</div>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Jak číst podmínku (2.9)</p>
+        <div class="callout__telo">
+          <p>Dokud součin obou činitelů zůstává nad hodnotou 1, převažuje kladný
+          efekt páky nad úrokovou brzdou a další zadlužení ještě zvyšuje ROE.
+          Klesne-li pod 1, začne úroková redukce zisku převažovat a dluh
+          rentabilitu vlastního kapitálu ničí – to je právě ono negativní
+          působení finanční páky.</p>
+        </div>
+      </aside>
+
+      <h3>Ukazatele z výkazu zisku a ztráty</h3>
+      <p>
+        K zadluženosti patří i ukazatele, které obsahují položky výkazu zisku a
+        ztráty – posuzují schopnost dluh reálně obsluhovat.
+      </p>
+
+      <section class="definice" id="pojem-urokove-kryti">
+        <h3 class="definice__pojem">Úrokové krytí</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr zisku před úroky a zdaněním (EBIT) k nákladovým úrokům.
+            Charakterizuje zadluženost pomocí schopnosti podniku splácet úroky:
+            kolikrát zisk pokrývá úrokové náklady. Doporučená hodnota je
+            <strong>vyšší než 5</strong>.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-10">
+        <div class="vzorec__telo">
+          <span class="math">Úrokové krytí<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">EBIT</span>
+              <span class="frac__jmen">Nákladové úroky</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.10)</div>
+      </div>
+
+      <p>
+        Ukazatel je významný zejména při financování cizími úročenými zdroji;
+        pozornost si zaslouží hlavně při nerovnoměrném vývoji zisku v čase. Má-li
+        úrokové krytí hodnotu <strong>1</strong>, podnik sice ještě dokáže platit
+        úroky, ale <strong>čistý zisk se rovná nule</strong> – veškerý zisk padne
+        na úroky.
+      </p>
+
+      <section class="definice" id="pojem-doba-splaceni-dluhu">
+        <h3 class="definice__pojem">Doba splácení dluhů</h3>
+        <div class="definice__telo">
+          <p>
+            Doba, za kterou by byl podnik schopen vlastními silami (z <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-provozni-cash-flow" target="_blank" rel="noopener">provozního
+            cash flow</a>) splatit své dluhy. Optimální je <strong>klesající
+            trend</strong> ukazatele.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-11">
+        <div class="vzorec__telo">
+          <span class="math">Doba splácení dluhů<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Cizí zdroje<span class="op">−</span>rezervy</span>
+              <span class="frac__jmen">Provozní cash flow</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.11)</div>
+      </div>
+
+      <!-- ===================== KRYTÍ DLOUHODOBÉHO MAJETKU ===================== -->
+      <h3>Vztah majetkové a finanční struktury: krytí dlouhodobého majetku</h3>
+      <p>
+        Poslední dvojice ukazatelů srovnává dlouhodobý majetek s dlouhodobými
+        zdroji jeho krytí. Platí zlaté bilanční pravidlo: dlouhodobý majetek by
+        měl být financován dlouhodobým kapitálem.
+      </p>
+
+      <section class="definice" id="pojem-kryti-dlouhodobeho-majetku">
+        <h3 class="definice__pojem">Krytí dlouhodobého majetku</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatele poměřující dlouhodobý majetek s vlastním, resp. dlouhodobým
+            kapitálem, který jej financuje. Vypovídají o tom, zda je majetková a
+            finanční struktura podniku ve vzájemném souladu.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-12">
+        <div class="vzorec__telo">
+          <span class="math">Krytí DM vlastním kapitálem<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Vlastní kapitál</span>
+              <span class="frac__jmen">Dlouhodobý majetek</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.12)</div>
+      </div>
+
+      <p>
+        Poměr vlastního kapitálu k dlouhodobému majetku <strong>vyšší než 1</strong>
+        znamená, že podnik používá vlastní (dlouhodobý) kapitál i ke krytí
+        oběžných (krátkodobých) aktiv. Dává tak přednost <em>stabilitě před
+        výnosem</em>.
+      </p>
+
+      <div class="vzorec" id="vzorec-2-13">
+        <div class="vzorec__telo">
+          <span class="math">Krytí DM dlouhodobými zdroji<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Vlastní kapitál<span class="op">+</span>dlouh. cizí zdroje</span>
+              <span class="frac__jmen">Dlouhodobý majetek</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.13)</div>
+      </div>
+
+      <!-- STATICKÁ VIZUALIZACE: pod/překapitalizování -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Krytí dlouhodobého majetku dlouhodobými zdroji</p>
+          <p class="viz__popis">Porovnání dlouhodobého majetku (modrá) a dlouhodobých zdrojů (šedá) ve třech situacích podle vztahu (2.13).</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 720 320" width="100%" role="img" aria-label="Tři situace krytí dlouhodobého majetku: překapitalizování, vyváženo, podkapitalizování">
+            <!-- osa/základna -->
+            <line x1="30" y1="250" x2="690" y2="250" stroke="#94a3b8" stroke-width="1.5"></line>
+
+            <!-- Skupina A: překapitalizováno (zdroje > DM) -->
+            <rect x="70"  y="100" width="60" height="150" rx="4" fill="#4338ca"></rect>
+            <rect x="150" y="50"  width="60" height="200" rx="4" fill="#cbd5e1"></rect>
+            <text x="140" y="38"  text-anchor="middle" font-size="14" font-weight="700" fill="#15803d">&gt; 1</text>
+            <text x="100" y="270" text-anchor="middle" font-size="12" fill="#334155">DM</text>
+            <text x="180" y="270" text-anchor="middle" font-size="12" fill="#334155">zdroje</text>
+            <text x="140" y="292" text-anchor="middle" font-size="12.5" font-weight="700" fill="#334155">Překapitalizováno</text>
+            <text x="140" y="308" text-anchor="middle" font-size="11" fill="#64748b">stabilní, ale drahé</text>
+
+            <!-- Skupina B: vyváženo (zdroje ≈ DM) -->
+            <rect x="310" y="100" width="60" height="150" rx="4" fill="#4338ca"></rect>
+            <rect x="390" y="95"  width="60" height="155" rx="4" fill="#cbd5e1"></rect>
+            <text x="380" y="83"  text-anchor="middle" font-size="14" font-weight="700" fill="#334155">≈ 1</text>
+            <text x="340" y="270" text-anchor="middle" font-size="12" fill="#334155">DM</text>
+            <text x="420" y="270" text-anchor="middle" font-size="12" fill="#334155">zdroje</text>
+            <text x="380" y="292" text-anchor="middle" font-size="12.5" font-weight="700" fill="#334155">Vyváženo</text>
+            <text x="380" y="308" text-anchor="middle" font-size="11" fill="#64748b">soulad struktur</text>
+
+            <!-- Skupina C: podkapitalizováno (zdroje < DM) -->
+            <rect x="550" y="100" width="60" height="150" rx="4" fill="#4338ca"></rect>
+            <rect x="630" y="150" width="60" height="100" rx="4" fill="#cbd5e1"></rect>
+            <text x="620" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">&lt; 1</text>
+            <text x="580" y="270" text-anchor="middle" font-size="12" fill="#334155">DM</text>
+            <text x="660" y="270" text-anchor="middle" font-size="12" fill="#334155">zdroje</text>
+            <text x="620" y="292" text-anchor="middle" font-size="12.5" font-weight="700" fill="#334155">Podkapitalizováno</text>
+            <text x="620" y="308" text-anchor="middle" font-size="11" fill="#64748b">riziko úhrady závazků</text>
+          </svg>
+        </div>
+      </figure>
+
+      <p>
+        Je-li výsledek vztahu (2.13) <strong>nižší než 1</strong>, kryje podnik
+        část dlouhodobého majetku krátkodobými zdroji a může mít problémy s
+        úhradou závazků – je <strong>podkapitalizovaný</strong>. Naopak
+        <strong>příliš vysoký</strong> poměr sice znamená finanční stabilitu,
+        ale podnik drahými dlouhodobými zdroji financuje příliš velkou část
+        krátkodobého majetku – je <strong>překapitalizovaný</strong>.
+      </p>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Podkapitalizování vs. překapitalizování</p>
+        <div class="callout__telo">
+          <p id="pojem-podkapitalizovani"><strong>Podkapitalizování</strong> –
+          podnik kryje část dlouhodobého majetku krátkodobými zdroji (krytí DM
+          dlouhodobými zdroji &lt; 1); hrozí problémy s likviditou.</p>
+          <p id="pojem-prekapitalizovani"><strong>Překapitalizování</strong> –
+          podnik financuje i krátkodobý majetek drahými dlouhodobými zdroji
+          (poměr výrazně &gt; 1); je stabilní, ale neefektivní.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Za jakých podmínek zvýšení dluhu <strong>zvyšuje</strong> ROE a kdy
+          naopak škodí? Odpovězte pomocí vztahu mezi výnosností vloženého
+          kapitálu a úrokovou cenou dluhu.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Rozhoduje porovnání <strong>výnosnosti vloženého kapitálu</strong>
+            s <strong>úrokovou mírou</strong> cizích zdrojů. Je-li výnosnost
+            vyšší než úrok, působí finanční páka pozitivně – další dluh zvyšuje
+            ROE (multiplikátor jmění vlastníků &gt; 1). Jakmile úroková míra
+            výnosnost vloženého kapitálu převýší, začne převažovat úroková
+            redukce zisku, multiplikátor klesne pod 1 a další zadlužení ROE
+            snižuje (negativní působení páky).</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik má krytí dlouhodobého majetku dlouhodobými zdroji (2.13)
+          rovné 0,9. Je to v pořádku? Co to o podniku vypovídá?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Hodnota nižší než 1 znamená, že dlouhodobé zdroje nepokrývají celý
+            dlouhodobý majetek – podnik kryje jeho část <strong>krátkodobými
+            zdroji</strong>. Je <strong>podkapitalizovaný</strong> a může mít
+            problémy s úhradou svých závazků, protože krátkodobé zdroje je nutné
+            splatit dříve, než dlouhodobý majetek stihne vygenerovat peníze.
+            Nejde tedy o žádoucí stav.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Co vyjadřuje celková zadluženost a jaká je její orientační doporučená hodnota?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o poměr dvou rozvahových veličin – dluhu a majetku.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Celková zadluženost = cizí zdroje / aktiva celkem (vzorec 2.6). Ukazuje, v jakém rozsahu je majetek podniku financován dluhem. Orientační doporučená hodnota je 30–60 %, závisí ale na odvětví.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Kdy působí finanční páka pozitivně a kdy negativně?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte výnosnost vloženého kapitálu s cenou (úrokem) cizích zdrojů.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Pozitivně, když je výnosnost vloženého kapitálu vyšší než úroková cena cizích zdrojů – dluh pak zhodnocuje vlastní kapitál. Negativně, když je průměrná úroková míra vyšší než rentabilita vloženého kapitálu – dluh v tom případě ROE snižuje.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Které dva činitele rozkladu ROE (2.8) nesou vliv zadluženosti a proč působí protichůdně?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jeden z nich souvisí s placenými úroky, druhý s poměrem aktiv a vlastního kapitálu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Úroková redukce zisku (EBT/EBIT) a finanční páka (A/VK). Vyšší dluh zvyšuje finanční páku (kladný vliv na ROE), ale zároveň zvyšuje nákladové úroky, čímž snižuje úrokovou redukci zisku (záporný vliv). Jejich součin je multiplikátor jmění vlastníků – je-li &gt; 1, převažuje kladný efekt.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co znamená, když má ukazatel úrokového krytí hodnotu právě 1?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte, kolik zisku zbude po zaplacení úroků.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podnik je schopen zaplatit úroky, ale nezbude mu nic navíc – celý EBIT padne na úroky, takže čistý zisk je nulový. Doporučená hodnota je proto vyšší než 5.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jaký je rozdíl mezi podkapitalizovaným a překapitalizovaným podnikem podle krytí dlouhodobého majetku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Srovnejte hodnotu ukazatele (2.13) s jedničkou v obou směrech.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podkapitalizovaný podnik má krytí DM dlouhodobými zdroji &lt; 1 – část dlouhodobého majetku financuje krátkodobými zdroji a hrozí mu potíže s úhradou závazků. Překapitalizovaný podnik má poměr příliš vysoký – je stabilní, ale drahými dlouhodobými zdroji zbytečně financuje i část krátkodobého majetku (neefektivní).</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t3-l1-uvod-financni-analyza.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">3.1 Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t3-l3-likvidita-aktivita.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">3.3 Analýza likvidity a aktivity</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: působení finanční páky na ROE (ilustrace principu)
+      // ROA (výnosnost vloženého kapitálu) je pevná; mění se míra zadlužení a úrok.
+      var ROA = 12;               // % – výnosnost vloženého kapitálu (referenční)
+      var px = 12;                // pixelů na 1 procentní bod
+      var base = 280;             // základna sloupce
+
+      var stavy = [
+        { roe: 12, urok: null, dluh: 'bez dluhu' },
+        { roe: 14, urok: 8,    dluh: 'malý dluh' },
+        { roe: 17, urok: 8,    dluh: 'velký dluh' },
+        { roe: 9,  urok: 15,   dluh: 'drahý dluh' }
+      ];
+
+      Skripta.stepper('viz-financni-paka', {
+        sirka: 720, vyska: 340,
+        stavy: stavy,
+        popisky: [
+          'Bez cizího kapitálu: ROE = ROA = 12 %. Finanční páka zatím nepůsobí.',
+          'Přidáme malý dluh s úrokem 8 % (pod ROA). Páka působí pozitivně – ROE roste na 14 %.',
+          'Zvýšíme podíl dluhu (úrok stále 8 % < 12 %). Pozitivní páka dál zvedá ROE na 17 %.',
+          'Úrok vyskočí na 15 % (nad ROA = 12 %). Páka se láme – negativní působení stlačí ROE na 9 %.'
+        ],
+        render: function (svg, stav, i, u) {
+          var h = stav.roe * px;
+          var jeTvorba = stav.roe >= ROA;
+          var barvaBar = jeTvorba ? u.barvaTvorba : u.barvaNiceni;
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 70, y1: base, x2: 660, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Referenční čára ROA (plná modrá)
+          var yRoa = base - ROA * px;
+          u.dej(svg, 'roa-line', 'line', { x1: 70, y1: yRoa, x2: 660, y2: yRoa, stroke: '#4338ca', 'stroke-width': 2 });
+          u.dej(svg, 'roa-lbl', 'text', { x: 656, y: yRoa - 8, 'text-anchor': 'end', fill: '#4338ca', 'font-size': 13, 'font-weight': 700 }, 'ROA = 12 %');
+
+          // Referenční čára úroku (čárkovaná) – jen když je dluh
+          var jeUrok = stav.urok !== null;
+          var yUrok = jeUrok ? base - stav.urok * px : yRoa;
+          u.dej(svg, 'urok-line', 'line', {
+            x1: 70, y1: yUrok, x2: 660, y2: yUrok,
+            stroke: u.barvaText, 'stroke-width': 1.5, 'stroke-dasharray': '6 5',
+            opacity: jeUrok ? 1 : 0
+          });
+          u.dej(svg, 'urok-lbl', 'text', {
+            x: 74, y: yUrok - 8, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 13,
+            opacity: jeUrok ? 1 : 0
+          }, jeUrok ? ('úrok = ' + stav.urok + ' %') : '');
+
+          // Sloupec ROE
+          u.dej(svg, 'bar-roe', 'rect', { x: 300, y: base - h, width: 150, height: h, rx: 6, fill: barvaBar });
+          u.dej(svg, 'val-roe', 'text', { x: 375, y: base - h - 12, 'text-anchor': 'middle', fill: barvaBar, 'font-size': 17, 'font-weight': 700 }, u.formatCislo(stav.roe) + ' %');
+          u.dej(svg, 'lbl-roe', 'text', { x: 375, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14, 'font-weight': 600 }, 'ROE');
+          u.dej(svg, 'lbl-dluh', 'text', { x: 375, y: base + 40, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, stav.dluh);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

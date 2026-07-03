@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.2 Benchmarking I – metoda, výběr a benchmark – Výkonnost podniku</title>
+  <meta name="description" content="Sestavení benchmarkingové studie plastikářského odvětví: výběr podniků (OKEČ 25.22), volba EVA (účetní model MPO), rozdělení do skupin a identifikace benchmarku ALPLA pyramidovým rozkladem EVA.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="12.2" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: účetní výkazy, leasing, funkcionální rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.2</span>
+        <h1>Benchmarking I – metoda, výběr a benchmark</h1>
+        <p class="lekce-hlavicka__strany">Strany 244–251</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme podnik PLAST zasadili do makroekonomického prostředí
+        a odvětví plastikářského průmyslu. Nyní uděláme další krok: podíváme se, jak
+        si podnik vede <strong>ve srovnání s konkurencí</strong>. K tomu poslouží
+        <a class="pojem" href="#pojem-benchmarkingova-studie">benchmarkingová studie</a> –
+        systematické porovnání souboru podniků téhož oboru podle jednoho klíčového
+        měřítka výkonnosti. Cílem je najít nejlepší podnik (tzv.
+        <a class="pojem" href="#pojem-benchmark">benchmark</a>) a odhalit, čím své
+        nadprůměrné výkonnosti dosahuje.
+      </p>
+      <p>
+        Studie se zaměřuje na úzkou subsekci plastikářského průmyslu – <strong>výrobu
+        plastových obalů (<a class="pojem" href="t12-l1-makro-odvetvi.html?zvyraznit=pojem-okec" target="_blank" rel="noopener">OKEČ</a> 25.22)</strong>, ve které vybraný podnik působí.
+        V této lekci projdeme prvních pět kroků metodiky; statistické vyhodnocení
+        faktorů a závěry dokončíme v lekci&nbsp;12.3.
+      </p>
+
+      <!-- DEFINICE: benchmarkingová studie -->
+      <section class="definice" id="pojem-benchmarkingova-studie">
+        <h3 class="definice__pojem">Benchmarkingová studie</h3>
+        <div class="definice__telo">
+          <p>
+            Strukturované srovnání souboru podniků stejného oboru podle zvoleného
+            klíčového ukazatele výkonnosti. Umožňuje určit nejlepší podnik a pomocí
+            rozkladu tohoto ukazatele identifikovat <em>faktory (generátory) tvorby
+            hodnoty</em>, jimiž nejlepší podnik ostatní předstihuje.
+          </p>
+        </div>
+      </section>
+
+      <p>Benchmarkingová studie je rozdělena do <strong>osmi kroků</strong>:</p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Postup benchmarkingové studie</p>
+        <div class="callout__telo">
+          <ol>
+            <li>Výběr podniků, které tvoří základní soubor pro vyhodnocení.</li>
+            <li>Volba klíčového ukazatele finanční výkonnosti.</li>
+            <li>Výpočet klíčového ukazatele pro podniky ve vzorku.</li>
+            <li>Identifikace benchmarku na základě klíčového ukazatele.</li>
+            <li>Identifikace faktorů tvorby hodnoty (<a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátorů hodnoty</a>).</li>
+            <li>Analýza faktorů tvorby hodnoty. <em>(→ lekce 12.3)</em></li>
+            <li>Omezení studie. <em>(→ lekce 12.3)</em></li>
+            <li>Závěry studie. <em>(→ lekce 12.3)</em></li>
+          </ol>
+        </div>
+      </aside>
+
+      <!-- ===================== KROK 1: VÝBĚR PODNIKŮ ===================== -->
+      <h2>Krok 1 – Výběr podniků do vzorku</h2>
+      <p>
+        Vstupní data byla čerpána z databází <strong>Aspekt</strong> a
+        <strong>Albertina</strong>, z Obchodního věstníku a z výročních zpráv
+        jednotlivých společností. Aby byl podnik do studie zařazen, musel splnit
+        tři podmínky:
+      </p>
+      <ul>
+        <li>převažující ekonomická činnost <strong>OKEČ 25.22</strong> (výroba plastových obalů),</li>
+        <li>dostupná získaná účetní závěrka,</li>
+        <li>počet zaměstnanců <strong>vyšší než 10</strong>.</li>
+      </ul>
+      <p>
+        Těmto požadavkům vyhovělo pro rok 2003 celkem <strong>19 společností</strong>
+        (tabulka 8–4). Podniky označené hvězdičkou nesou pracovní název pouze pro
+        účely studie – patří mezi ně i sledovaný podnik <strong>PLAST, s.r.o.</strong>
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–4 – Vzorek podniků pro benchmarkingovou studii (OKEČ 25.22, rok 2003)</caption>
+          <thead>
+            <tr><th scope="col">Podnik</th><th scope="col">Podnik</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ACCUMALUX M.B. s.r.o.</td><td>Jan Kašník – DIXI</td></tr>
+            <tr><td>Alfa Plastik a. s.</td><td>KOH-I-NOOR Mladá Vožice a. s.</td></tr>
+            <tr><td>ALPLA s.r.o.</td><td>KYJOVAN trade, s.r.o.</td></tr>
+            <tr><td>BRISK, výrobní družstvo</td><td>LUCCO, s.r.o.</td></tr>
+            <tr><td>Czech plastic production, s.r.o.</td><td>PK Plast, s.r.o.</td></tr>
+            <tr><td>Eko Pet, a. s.</td><td>Polfin Ploština, s. r. o.</td></tr>
+            <tr><td>Eva Filsáková – VINAMET</td><td>PSP izoterm s. r. o.</td></tr>
+            <tr><td>OBALY a. s.*</td><td>Rexam Petainer Aš, s. r. o.</td></tr>
+            <tr><td>PLAST, s. r. o.*</td><td>SP METAL CZ s. r. o.</td></tr>
+            <tr><td>Invos s.r.o.</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabulka-popis"><small>* pracovní názvy pro účely studie</small></p>
+
+      <!-- ===================== KROK 2: VOLBA UKAZATELE ===================== -->
+      <h2>Krok 2 – Volba klíčového ukazatele výkonnosti</h2>
+      <p>
+        Jako klíčový ukazatel byla zvolena <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">ekonomická přidaná hodnota (EVA)</a></strong>.
+        Důvodem je její výhodnost pro měření a řízení výkonnosti a možnost poměrně
+        jednoduché identifikace generátorů hodnoty. Protože ale data pro řadu podniků
+        ve vzorku byla omezená, nebylo možné použít plný ekonomický model EVA
+        (s pracnými úpravami na <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">NOA</a> a <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>). Studie proto sáhla po
+        <a class="pojem" href="#pojem-eva-ucetni-model-mpo">účetním modelu EVA podle
+        metodiky MPO ČR</a>:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-9">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>(ROE<span class="op">−</span>r<sub>e</sub>)<span class="op">×</span>VK</span>
+        </div>
+        <div class="vzorec__cislo">(3.9)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">ROE</span> je rentabilita vlastního kapitálu
+        (čistý zisk&nbsp;/&nbsp;vlastní kapitál), <span class="math">r<sub>e</sub></span>
+        jsou <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-naklady-vlastni-kapital" target="_blank" rel="noopener">náklady na vlastní kapitál</a> (požadovaná výnosnost vlastníka) a
+        <span class="math">VK</span> je účetní hodnota vlastního kapitálu. Rozdíl
+        <span class="math">(ROE<span class="op">−</span>r<sub>e</sub>)</span> je
+        <strong>spread</strong> – přebytek dosažené výnosnosti nad požadovanou.
+        Je-li spread kladný, podnik tvoří hodnotu; je-li záporný, hodnotu ničí.
+      </p>
+
+      <section class="definice" id="pojem-eva-ucetni-model-mpo">
+        <h3 class="definice__pojem">Účetní model EVA podle MPO</h3>
+        <div class="definice__telo">
+          <p>
+            Zjednodušený výpočet EVA ve tvaru <span class="math">(ROE<span class="op">−</span>r<sub>e</sub>)<span class="op">×</span>VK</span>,
+            který používá Ministerstvo průmyslu a obchodu ČR. Vychází přímo z účetních
+            výkazů (nevyžaduje náročné úpravy na čistá operativní aktiva), takže je
+            použitelný i tam, kde nejsou dostupná podrobná interní data. Náklady na
+            vlastní kapitál <span class="math">r<sub>e</sub></span> se stanovují
+            stavebnicovým modelem MPO. Výsledky jsou proto <em>orientační</em>.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Proč zrovna účetní model?</p>
+        <div class="callout__telo">
+          <p>
+            Volba modelu je vždy kompromisem mezi přesností a dostupností dat.
+            Plný ekonomický model EVA je přesnější, ale vyžaduje data, která u cizích
+            podniků z veřejných zdrojů nezískáme. Účetní model MPO umožňuje spočítat
+            EVA pro <strong>všech 19 podniků jednotně</strong> – a právě srovnatelnost
+            napříč vzorkem je v <a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmarking" target="_blank" rel="noopener">benchmarkingu</a> klíčová.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== KROK 3: VÝPOČET A ROZDĚLENÍ ===================== -->
+      <h2>Krok 3 – Výpočet EVA a rozdělení podniků do skupin</h2>
+      <p>
+        Podniky byly podle tvorby či ničení hodnoty rozděleny do <strong>pěti
+        skupin</strong>. Rozhodujícím kritériem je vztah mezi rentabilitou vlastního
+        kapitálu <span class="math">ROE</span>, jeho náklady
+        <span class="math">r<sub>e</sub></span> a bezrizikovou sazbou
+        <span class="math">r<sub>f</sub></span> (pro rok 2003 činila 4,1&nbsp;%).
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–5 – Členění podniků podle tvorby EVA</caption>
+          <thead>
+            <tr>
+              <th scope="col">Skupina</th>
+              <th scope="col">Podmínka</th>
+              <th scope="col">Tvoří EVA?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">I.</th><td><span class="math">ROE<span class="op">&gt;</span>r<sub>e</sub></span> a <span class="math">VK<span class="op">&gt;</span>0</span></td><td class="hodnota-tvorba">ANO</td></tr>
+            <tr><th scope="row">II.</th><td><span class="math">r<sub>e</sub><span class="op">&gt;</span>ROE<span class="op">&gt;</span>r<sub>f</sub></span> a <span class="math">VK<span class="op">&gt;</span>0</span></td><td class="hodnota-niceni">NE</td></tr>
+            <tr><th scope="row">III.</th><td><span class="math">r<sub>f</sub><span class="op">&gt;</span>ROE<span class="op">&gt;</span>0</span> a <span class="math">VK<span class="op">&gt;</span>0</span></td><td class="hodnota-niceni">NE</td></tr>
+            <tr><th scope="row">IV.</th><td><span class="math">ROE<span class="op">&lt;</span>0</span> a <span class="math">VK<span class="op">&gt;</span>0</span></td><td class="hodnota-niceni">NE</td></tr>
+            <tr><th scope="row">V.</th><td><span class="math">VK<span class="op">&lt;</span>0</span></td><td class="hodnota-niceni">NE</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Skupiny II a III jsou jemné, ale důležité rozlišení: podnik ve
+        <strong>II. skupině</strong> vydělá víc než bezriziková sazba (umí tedy „lépe
+        než státní dluhopis“), ale <em>ne dost</em> na pokrytí nákladů vlastního
+        kapitálu – hodnotu proto neničí ještě dramaticky, ale netvoří ji. Podnik ve
+        <strong>V. skupině</strong> má záporný vlastní kapitál, takže EVA pro něj
+        vůbec nelze spočítat.
+      </p>
+
+      <p>Aplikace těchto podmínek na vzorek dává následující obraz odvětví:</p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–6 – Rozdělení podniků do skupin dle tvorby EVA (rok 2003)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Sk.</th>
+              <th scope="col">Podnik</th>
+              <th scope="col" class="cislo">ROE</th>
+              <th scope="col" class="cislo">r<sub>e</sub></th>
+              <th scope="col" class="cislo">VK (tis. Kč)</th>
+              <th scope="col" class="cislo">EVA (tis. Kč)</th>
+              <th scope="col" class="cislo">Spread</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">I.</th><td>Alfa Plastik a. s.</td><td class="cislo">21,2 %</td><td class="cislo">12,1 %</td><td class="cislo">123 743</td><td class="cislo hodnota-tvorba">11 261</td><td class="cislo hodnota-tvorba">9,1 %</td></tr>
+            <tr><th scope="row"></th><td>PSP izoterm s. r. o.</td><td class="cislo">31,6 %</td><td class="cislo">18,3 %</td><td class="cislo">12 347</td><td class="cislo hodnota-tvorba">1 642</td><td class="cislo hodnota-tvorba">13,3 %</td></tr>
+            <tr><th scope="row"></th><td><strong>ALPLA s.r.o.</strong></td><td class="cislo">58,3 %</td><td class="cislo">12,1 %</td><td class="cislo">210 079</td><td class="cislo hodnota-tvorba">97 056</td><td class="cislo hodnota-tvorba">46,2 %</td></tr>
+            <tr><th scope="row"></th><td>Eko Pet, a. s.</td><td class="cislo">24,0 %</td><td class="cislo">9,9 %</td><td class="cislo">212 313</td><td class="cislo hodnota-tvorba">29 936</td><td class="cislo hodnota-tvorba">14,1 %</td></tr>
+            <tr><th scope="row"></th><td>Eva Filsáková – VINAMET</td><td class="cislo">28,1 %</td><td class="cislo">9,5 %</td><td class="cislo">65 825</td><td class="cislo hodnota-tvorba">12 243</td><td class="cislo hodnota-tvorba">18,6 %</td></tr>
+            <tr><th scope="row"></th><td>PLAST, s.r.o.</td><td class="cislo">9,0 %</td><td class="cislo">7,7 %</td><td class="cislo">775 719</td><td class="cislo hodnota-tvorba">10 084</td><td class="cislo hodnota-tvorba">1,3 %</td></tr>
+            <tr><th scope="row"></th><td>BRISK, výrobní družstvo</td><td class="cislo">14,1 %</td><td class="cislo">9,4 %</td><td class="cislo">14 303</td><td class="cislo hodnota-tvorba">672</td><td class="cislo hodnota-tvorba">4,7 %</td></tr>
+            <tr><th scope="row"></th><td>Czech plastic production, s.r.o.</td><td class="cislo">19,0 %</td><td class="cislo">10,7 %</td><td class="cislo">27 788</td><td class="cislo hodnota-tvorba">2 306</td><td class="cislo hodnota-tvorba">8,3 %</td></tr>
+            <tr><th scope="row"></th><td>Rexam Petainer Aš, s. r. o.</td><td class="cislo">23,2 %</td><td class="cislo">12,8 %</td><td class="cislo">620 860</td><td class="cislo hodnota-tvorba">64 569</td><td class="cislo hodnota-tvorba">10,4 %</td></tr>
+            <tr><th scope="row">II.</th><td>Polfin Ploština, s. r. o.</td><td class="cislo">5,1 %</td><td class="cislo">23,1 %</td><td class="cislo">37 950</td><td class="cislo hodnota-niceni">−6 831</td><td class="cislo hodnota-niceni">−18,0 %</td></tr>
+            <tr><th scope="row"></th><td>KOH-I-NOOR Mladá Vožice a. s.</td><td class="cislo">5,1 %</td><td class="cislo">11,8 %</td><td class="cislo">128 069</td><td class="cislo hodnota-niceni">−8 581</td><td class="cislo hodnota-niceni">−6,7 %</td></tr>
+            <tr><th scope="row"></th><td>ACCUMALUX M.B. s.r.o.</td><td class="cislo">8,6 %</td><td class="cislo">14,0 %</td><td class="cislo">58 959</td><td class="cislo hodnota-niceni">−3 184</td><td class="cislo hodnota-niceni">−5,4 %</td></tr>
+            <tr><th scope="row"></th><td>OBALY a. s.</td><td class="cislo">14,1 %</td><td class="cislo">28,7 %</td><td class="cislo">252 086</td><td class="cislo hodnota-niceni">−36 805</td><td class="cislo hodnota-niceni">−14,6 %</td></tr>
+            <tr><th scope="row"></th><td>Jan Kašník – DIXI</td><td class="cislo">17,7 %</td><td class="cislo">27,5 %</td><td class="cislo">39 343</td><td class="cislo hodnota-niceni">−3 856</td><td class="cislo hodnota-niceni">−9,8 %</td></tr>
+            <tr><th scope="row"></th><td>LUCCO, s.r.o.</td><td class="cislo">19,1 %</td><td class="cislo">37,2 %</td><td class="cislo">8 170</td><td class="cislo hodnota-niceni">−1 479</td><td class="cislo hodnota-niceni">−18,1 %</td></tr>
+            <tr><th scope="row">III.</th><td>Invos s.r.o.</td><td class="cislo">1,4 %</td><td class="cislo">14,2 %</td><td class="cislo">192 187</td><td class="cislo hodnota-niceni">−24 600</td><td class="cislo hodnota-niceni">−12,8 %</td></tr>
+            <tr><th scope="row">IV.</th><td>SP METAL CZ s. r. o.</td><td class="cislo">−12,5 %</td><td class="cislo">49,8 %</td><td class="cislo">49 805</td><td class="cislo hodnota-niceni">−31 029</td><td class="cislo hodnota-niceni">−62,3 %</td></tr>
+            <tr><th scope="row">V.</th><td>KYJOVAN trade, s.r.o.</td><td class="cislo">−16,3 %</td><td class="cislo">–</td><td class="cislo">−8 803</td><td class="cislo">–</td><td class="cislo">–</td></tr>
+            <tr><th scope="row"></th><td>PK Plast, s.r.o.</td><td class="cislo">11,9 %</td><td class="cislo">–</td><td class="cislo">−992</td><td class="cislo">–</td><td class="cislo">–</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabulka-popis"><small>– výpočet není možný (záporný vlastní kapitál)</small></p>
+
+      <p>
+        Obraz odvětví je pestrý: z 19 podniků jich <strong>9 tvoří kladnou EVA</strong>
+        (skupina I). Dalších <strong>6 podniků</strong> (skupina II) zhodnotí prostředky
+        lépe než bezriziková sazba, ale hůř než náklady vlastního kapitálu.
+        Ve skupině III je 1 podnik s kladnou, ale podprůměrnou rentabilitou; ve
+        skupině IV jeden ztrátový podnik. Poslední <strong>2 podniky</strong> mají
+        záporný vlastní kapitál – EVA u nich nelze spočítat a z další analýzy byly
+        vyloučeny. Do navazujícího zkoumání tak vstupuje <strong>17 podniků</strong>.
+      </p>
+
+      <!-- STATICKÝ GRAF: spread podniků skupiny I -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Spread (ROE − r<sub>e</sub>) podniků tvořících hodnotu (skupina I, rok 2003)</p>
+          <p class="viz__popis">Čím vyšší spread, tím větší přebytek výnosnosti nad náklady kapitálu. Podnik ALPLA s cca 46 % ostatní výrazně převyšuje – proto se stává benchmarkem odvětví.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-spread-skupina1"></div>
+      </figure>
+
+      <!-- ===================== KROK 4: BENCHMARK ===================== -->
+      <h2>Krok 4 – Identifikace benchmarku</h2>
+      <p>
+        Za benchmark byl z testovaného vzorku vybrán podnik s <strong>nejvyšším
+        spreadem</strong> <span class="math">(ROE<span class="op">−</span>r<sub>e</sub>)</span>.
+        Tím je jednoznačně <strong>ALPLA s.r.o.</strong>, která v roce 2003 dosáhla
+        spreadu přibližně <strong>46&nbsp;%</strong> a EVA přes 97&nbsp;mil.&nbsp;Kč.
+        Abychom pochopili, <em>čím</em> takové výkonnosti dosahuje, rozložíme její
+        vrcholový ukazatel EVA pomocí <strong>pyramidového rozkladu</strong>
+        (obrázek 8–2) na dílčí analytické ukazatele.
+      </p>
+
+      <section class="definice" id="pojem-benchmark">
+        <h3 class="definice__pojem">Benchmark</h3>
+        <div class="definice__telo">
+          <p>
+            Referenční „nejlepší podnik“ v souboru – ten, který dosahuje nejvyšší
+            hodnoty klíčového ukazatele (zde nejvyššího spreadu <span class="math">ROE<span class="op">−</span>r<sub>e</sub></span>).
+            Slouží jako srovnávací standard: jeho rozklad ukáže, které faktory
+            tvorby hodnoty ostatní podniky mohou napodobit či se jimi inspirovat.
+          </p>
+        </div>
+      </section>
+
+      <!-- KROKOVÁ VIZUALIZACE: pyramidový rozklad EVA ALPLA -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 8–2: Pyramidový rozklad EVA benchmarku ALPLA (2002 → 2003)</p>
+          <p class="viz__popis">Postupujte tlačítky „Zpět / Další“ a sledujte, jak se vrcholová EVA rozkládá na dílčí ukazatele. U každého bloku vidíte hodnoty za roky 2002 a 2003 a jeho vliv na meziroční změnu EVA (v tis. Kč; zelená = kladný vliv, červená = záporný).</p>
+        </figcaption>
+        <div id="viz-pyramida-alpla"></div>
+      </figure>
+
+      <p>
+        Rozklad odpovídá vztahu <span class="math">EVA<span class="op">=</span>(ROE<span class="op">−</span>r<sub>e</sub>)<span class="op">×</span>VK</span>.
+        Spread <span class="math">(ROE<span class="op">−</span>r<sub>e</sub>)</span> se
+        dělí na <span class="math">ROE</span> a náklady vlastního kapitálu
+        <span class="math">r<sub>e</sub></span> (ty stavebnicová metoda MPO dále
+        skládá z rizikových přirážek <span class="math">r<sub>f</sub></span>,
+        <span class="math">r<sub>LA</sub></span>, <span class="math">r<sub>finstr</sub></span>,
+        <span class="math">r<sub>finstab</sub></span> a podnikatelského rizika).
+        <span class="math">ROE</span> se rozkládá na produkční sílu aktiv
+        <span class="math">ROA</span>, daňovou redukci zisku
+        <span class="math">ČZ/Zisk</span> a <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-financni-paka" target="_blank" rel="noopener">finanční páku</a> <span class="math">VK/Aktiva</span>.
+      </p>
+
+      <p>
+        Pozitivní a negativní vlivy jednotlivých faktorů na změnu EVA shrnují
+        tabulky 8–7 a 8–8. Pozor na jednotky: vliv je vyčíslen v tisících Kč jako
+        příspěvek k meziroční změně EVA (2002 → 2003).
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–7 – Faktory ovlivňující EVA <span class="hodnota-tvorba">pozitivně</span></caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">Vliv na EVA (tis. Kč)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EBIT / Tržby</th><td class="cislo">3,40 %</td><td class="cislo">14,60 %</td><td class="cislo hodnota-tvorba">236 140</td></tr>
+            <tr><th scope="row">ROA</th><td class="cislo">4,45 %</td><td class="cislo">18,10 %</td><td class="cislo hodnota-tvorba">227 295</td></tr>
+            <tr><th scope="row">(Ost. Vý a Ná) / Tržby</th><td class="cislo">−5,46 %</td><td class="cislo">5,09 %</td><td class="cislo hodnota-tvorba">222 526</td></tr>
+            <tr><th scope="row">Vlastní kapitál</th><td class="cislo">87 709</td><td class="cislo">210 079</td><td class="cislo hodnota-tvorba">61 441</td></tr>
+            <tr><th scope="row">Tržby za vlast. výr.</th><td class="cislo">1 029 845</td><td class="cislo">1 339 455</td><td class="cislo hodnota-tvorba">42 602</td></tr>
+            <tr><th scope="row">Úroky / (BÚ + OBL)</th><td class="cislo">0,11</td><td class="cislo">0,07</td><td class="cislo hodnota-tvorba">19 601</td></tr>
+            <tr><th scope="row">Úroky / Tržby</th><td class="cislo">2,35 %</td><td class="cislo">1,82 %</td><td class="cislo hodnota-tvorba">11 327</td></tr>
+            <tr><th scope="row">Odpisy / Tržby</th><td class="cislo">7,83 %</td><td class="cislo">7,36 %</td><td class="cislo hodnota-tvorba">9 887</td></tr>
+            <tr><th scope="row">Osobní náklady / Tržby</th><td class="cislo">3,52 %</td><td class="cislo">3,14 %</td><td class="cislo hodnota-tvorba">8 082</td></tr>
+            <tr><th scope="row">Krátk. fin. majetek</th><td class="cislo">29 455</td><td class="cislo">369</td><td class="cislo hodnota-tvorba">5 094</td></tr>
+            <tr><th scope="row">r<sub>e</sub></th><td class="cislo">14,31 %</td><td class="cislo">12,06 %</td><td class="cislo hodnota-tvorba">3 342</td></tr>
+            <tr><th scope="row">r<sub>f</sub></th><td class="cislo">5,10 %</td><td class="cislo">4,12 %</td><td class="cislo hodnota-tvorba">1 459</td></tr>
+            <tr><th scope="row">r<sub>LA</sub></th><td class="cislo">4,30 %</td><td class="cislo">3,58 %</td><td class="cislo hodnota-tvorba">1 074</td></tr>
+            <tr><th scope="row">r<sub>finstr</sub></th><td class="cislo">4,91 %</td><td class="cislo">4,37 %</td><td class="cislo hodnota-tvorba">809</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–8 – Faktory ovlivňující EVA <span class="hodnota-niceni">negativně</span></caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">Vliv na EVA (tis. Kč)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Čistý zisk / Zisk</th><td class="cislo">5,57</td><td class="cislo">0,71</td><td class="cislo hodnota-niceni">−193 370</td></tr>
+            <tr><th scope="row">VK / Aktiva</th><td class="cislo">0,11</td><td class="cislo">0,19</td><td class="cislo hodnota-niceni">−58 801</td></tr>
+            <tr><th scope="row">Aktiva</th><td class="cislo">786 340</td><td class="cislo">1 080 105</td><td class="cislo hodnota-niceni">−51 446</td></tr>
+            <tr><th scope="row">Zásoby</th><td class="cislo">101 215</td><td class="cislo">230 560</td><td class="cislo hodnota-niceni">−22 652</td></tr>
+            <tr><th scope="row">DHM + DNM</th><td class="cislo">377 389</td><td class="cislo">496 925</td><td class="cislo hodnota-niceni">−20 934</td></tr>
+            <tr><th scope="row">Přidaná hodnota / Tržby</th><td class="cislo">22,57 %</td><td class="cislo">21,83 %</td><td class="cislo hodnota-niceni">−15 682</td></tr>
+            <tr><th scope="row">ROE</th><td class="cislo">68,54 %</td><td class="cislo">58,25 %</td><td class="cislo hodnota-niceni">−15 325</td></tr>
+            <tr><th scope="row">Pohledávky</th><td class="cislo">278 281</td><td class="cislo">352 251</td><td class="cislo hodnota-niceni">−12 954</td></tr>
+            <tr><th scope="row">(BÚ + OBL) / (CZ + OP)</th><td class="cislo">0,32</td><td class="cislo">0,39</td><td class="cislo hodnota-niceni">−9 240</td></tr>
+            <tr><th scope="row">Tržby / Aktiva</th><td class="cislo">1,31</td><td class="cislo">1,24</td><td class="cislo hodnota-niceni">−8 844</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Co táhlo EVA podniku ALPLA nahoru</p>
+        <div class="callout__telo">
+          <p>
+            Hospodaření ALPLA se v roce 2003 zlepšilo a EVA vzrostla téměř o
+            <strong>50 mil. Kč</strong>. Nejsilnější pozitivní vliv měla
+            <strong>zvýšená zisková marže</strong> (EBIT/Tržby), která zvedla
+            produkční sílu aktiv (ROA) – a to hlavně díky růstu ostatních provozních
+            výnosů. Přispěl i pokles podílu nákladových úroků, osobních nákladů a
+            odpisů na tržbách, výrazný nárůst tržeb a pokles nákladů na vlastní kapitál.
+          </p>
+          <p>
+            Naopak <strong>záporně</strong> působil růst daňové povinnosti (ČZ/Zisk) –
+            v minulých letech podnik daň neplatil, protože uplatňoval ztrátu z minulých
+            let – a růst používaného majetku (DHM, DNM, zásoby, pohledávky). Zvláštní
+            je vliv kapitálové struktury (VK/Aktiva): snížení zadlužení sice snížilo EVA
+            (u ALPLA totiž finanční páka působila kladně), zároveň ale snížilo finanční
+            riziko podniku.
+          </p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Poučení: uvažujte v souvislostech</p>
+        <div class="callout__telo">
+          <p>
+            Pyramidový rozklad varuje před unáhlenými soudy. Tentýž jev (snížení
+            zadlužení) může být zároveň „negativní“ pro EVA i „pozitivní“ pro riziko.
+            Proto je třeba sledovat <strong>celý rozklad</strong> – jen tak vidíme
+            provázání jednotlivých vlivů a dokážeme vývoj podniku správně vyložit.
+          </p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Proč studie zvolila jako klíčový ukazatel <em>účetní</em> model EVA podle
+            MPO, a nikoli přesnější ekonomický model s úpravami na NOA a NOPAT?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Rozhodla <strong>dostupnost a srovnatelnost dat</strong>. Ekonomický
+              model vyžaduje řadu úprav (aktivace nákladů, leasing, goodwill…), na
+              které by u 19 cizích podniků nebyla z veřejných zdrojů potřebná data.
+              Účetní model MPO <span class="math">(ROE<span class="op">−</span>r<sub>e</sub>)<span class="op">×</span>VK</span>
+              vychází přímo z účetních výkazů, takže jej lze spočítat pro celý vzorek
+              jednotně. V benchmarkingu je jednotná srovnatelnost důležitější než
+              maximální přesnost u jednoho podniku – výsledky proto bereme jako
+              <em>orientační</em>.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== KROK 5: VÝBĚR GENERÁTORŮ ===================== -->
+      <h2>Krok 5 – Výběr testovaných generátorů hodnoty</h2>
+      <p>
+        Rozklad EVA benchmarku naznačil, které oblasti stojí za bližší zkoumání.
+        V dalším kroku proto studie vybrala sadu ukazatelů napříč pěti oblastmi
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzy</a>, u nichž bude v lekci 12.3 statisticky testovat vazbu na EVA
+        (v závorce je vždy konstrukce ukazatele):
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Ukazatele vybrané k testování jako generátory hodnoty</caption>
+          <thead>
+            <tr><th scope="col">Oblast</th><th scope="col">Ukazatele (konstrukce)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1. Rentabilita</th>
+              <td>ROE (čistý zisk / vlastní kapitál); ROA (EBIT / aktiva); ROS (čistý zisk / tržby)</td>
+            </tr>
+            <tr>
+              <th scope="row">2. Likvidita</th>
+              <td>BL – běžná (oběžný majetek / krátk. cizí zdroje); PL – pohotová ((pohledávky + KFM) / krátk. cizí zdroje); HL – hotovostní (KFM / krátk. cizí zdroje)</td>
+            </tr>
+            <tr>
+              <th scope="row">3. Zadluženost</th>
+              <td>CZ – celková zadluženost (cizí zdroje / aktiva); DK/DM (dlouhodobý kapitál / dlouhodobý majetek); VK/DM (vlastní kapitál / dlouhodobý majetek)</td>
+            </tr>
+            <tr>
+              <th scope="row">4. Aktivita</th>
+              <td>OA – obratovost aktiv (tržby / aktiva); DOPOHL – doba obratu pohledávek; DOZAV – doba obratu závazků; DOZAS – doba obratu zásob</td>
+            </tr>
+            <tr>
+              <th scope="row">5. Ostatní</th>
+              <td>PH/T (přidaná hodnota / tržby); VS/T (výkonová spotřeba / tržby); ON/T (osobní náklady / tržby); O/T (odpisy / tržby)</td>
+            </tr>
+            <tr>
+              <th scope="row">6. Náklady kapitálu</th>
+              <td>r<sub>e</sub> – náklady na vlastní kapitál (stavebnicový model MPO)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Tím je připravena půda pro <strong><a class="pojem" href="t12-l3-benchmarking-2.html?zvyraznit=pojem-analyza-faktoru-tvorby-hodnoty" target="_blank" rel="noopener">analýzu faktorů tvorby hodnoty</a></strong>:
+        v lekci 12.3 spočítáme tyto ukazatele pro 17 podniků, statisticky posoudíme
+        jejich <a class="pojem" href="t12-l3-benchmarking-2.html?zvyraznit=pojem-korelace-s-eva" target="_blank" rel="noopener">korelaci s EVA</a> a odhalíme, který faktor je nejsilnějším generátorem
+        hodnoty v odvětví. (Napovězme: půjde o ROE s korelací kolem 80&nbsp;%.)
+      </p>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Podle tabulky 8–6: proč se podnik <strong>PLAST</strong> ocitl ve skupině I
+            (tvoří hodnotu), přestože má nejnižší spread ze všech (1,3 %), a přitom
+            tvoří vysokou EVA (10 084 tis. Kč) – vyšší než třeba VINAMET se spreadem
+            18,6 %?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Rozhoduje součin <span class="math">EVA<span class="op">=</span>(ROE<span class="op">−</span>r<sub>e</sub>)<span class="op">×</span>VK</span>.
+              PLAST má sice malý spread, ale <strong>obrovský vlastní kapitál</strong>
+              (775 719 tis. Kč), takže i malé procento z velké základny dá slušnou
+              absolutní EVA. VINAMET má vysoký spread, ale malý vlastní kapitál
+              (65 825 tis. Kč), takže jeho EVA (12 243 tis. Kč) je jen mírně vyšší.
+              Ukazuje to rozdíl mezi <strong>relativním</strong> měřítkem (spread) a
+              <strong>absolutní</strong> tvorbou hodnoty (EVA): pro zařazení do skupiny I
+              stačí kladný spread, o velikosti EVA však rozhoduje i objem kapitálu.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== ZÁVĚREČNÉ OTÁZKY ===================== -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaké tři podmínky musel podnik splnit, aby byl zařazen do vzorku benchmarkingové studie?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Týkají se oboru činnosti, dostupnosti dat a velikosti podniku.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>(1) převažující ekonomická činnost OKEČ 25.22 – výroba plastových obalů, (2) dostupná získaná účetní závěrka a (3) počet zaměstnanců vyšší než 10. Podmínky splnilo 19 společností.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Podle jakého kritéria byl vybrán benchmark odvětví a který podnik jím je?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Rozhodl jeden ukazatel z výpočtu EVA – rozdíl výnosnosti a nákladů kapitálu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Benchmarkem se stal podnik s <strong>nejvyšším spreadem</strong> <span class="math">(ROE<span class="op">−</span>r<sub>e</sub>)</span> – tím je <strong>ALPLA s.r.o.</strong> se spreadem cca 46 % a EVA přes 97 mil. Kč v roce 2003.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Který faktor měl podle pyramidového rozkladu (tab. 8–7) největší pozitivní vliv na růst EVA podniku ALPLA a čím byl způsoben?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o ukazatel ziskové marže, který se promítl do produkční síly aktiv.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Největší pozitivní vliv (+236 140 tis. Kč) měla <strong>zisková marže EBIT/Tržby</strong>, která zvedla produkční sílu aktiv ROA (+227 295). Byla nejvíce ovlivněna růstem ostatních provozních výnosů, dále poklesem podílu úroků, osobních nákladů a odpisů na tržbách a nárůstem tržeb.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč byly z další analýzy vyloučeny 2 podniky (skupina V) a kolik podniků do ní tedy vstupuje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na podmínku skupiny V v tabulce 8–5 a co to znamená pro výpočet EVA.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podniky KYJOVAN trade a PK Plast mají <strong>záporný vlastní kapitál</strong> <span class="math">(VK<span class="op">&lt;</span>0)</span>, takže pro ně nelze náklady na vlastní kapitál ani EVA smysluplně spočítat. Do navazující analýzy proto vstupuje <strong>17 podniků</strong>.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PREV / NEXT ===================== -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l1-makro-odvetvi.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.1 Makroekonomická a odvětvová analýza</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l3-benchmarking-2.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.3 Benchmarking II – analýza faktorů a závěry</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ GRAF: spread podniků skupiny I (v %)
+      Skripta.sloupcovyGraf('viz-spread-skupina1', {
+        sirka: 720, vyska: 340, formatDesetin: 1,
+        data: [
+          { popisek: 'PLAST',   hodnota: 1.3 },
+          { popisek: 'BRISK',   hodnota: 4.7 },
+          { popisek: 'Czech pl.', hodnota: 8.3 },
+          { popisek: 'Alfa Pl.', hodnota: 9.1 },
+          { popisek: 'Rexam',   hodnota: 10.4 },
+          { popisek: 'PSP iz.', hodnota: 13.3 },
+          { popisek: 'Eko Pet', hodnota: 14.1 },
+          { popisek: 'VINAMET', hodnota: 18.6 },
+          { popisek: 'ALPLA',   hodnota: 46.2, barva: '#16a34a' }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: pyramidový rozklad EVA benchmarku ALPLA
+      // Postupné odkrývání úrovní pyramidy (opacity → plynulá animace).
+      Skripta.stepper('viz-pyramida-alpla', {
+        sirka: 760, vyska: 500,
+        stavy: [
+          { u: 0 }, { u: 1 }, { u: 2 }, { u: 3 }
+        ],
+        popisky: [
+          'Ve vrcholu stojí EVA. Účetním modelem MPO vzrostla ze 47,6 na 97,0 mil. Kč – meziroční přírůstek téměř 50 mil. Kč.',
+          'EVA = (ROE − rₑ) × VK. Rozklad na spread a vlastní kapitál: hlavní kladný tah dal růst vlastního kapitálu (+61 mil. Kč).',
+          'Spread rozložíme na rentabilitu vlastního kapitálu (ROE) a jeho náklady (rₑ). ROE sice kleslo, ale pokles nákladů rₑ působil kladně.',
+          'ROE dále rozkládáme na produkční sílu aktiv (ROA), daňovou redukci (ČZ/Zisk) a finanční páku (VK/Aktiva). Skokový růst ROA je hlavním motorem výkonnosti ALPLA.'
+        ],
+        render: function (svg, stav, i, u) {
+          var uroven = stav.u;
+
+          // Pomocník: vykreslí blok (obdélník + 3 řádky textu) s plynulou opacity.
+          function blok(id, x, y, w, h, nazev, pair, vliv, vlivBarva, viditelny, akcent) {
+            var op = viditelny ? 1 : 0;
+            var cx = x + w / 2;
+            u.dej(svg, id + '-r', 'rect', {
+              x: x, y: y, width: w, height: h, rx: 8,
+              fill: '#ffffff', stroke: akcent, 'stroke-width': 2, opacity: op
+            });
+            u.dej(svg, id + '-t', 'text', {
+              x: cx, y: y + 19, 'text-anchor': 'middle', fill: akcent,
+              'font-size': 14, 'font-weight': 700, opacity: op
+            }, nazev);
+            u.dej(svg, id + '-s', 'text', {
+              x: cx, y: y + 37, 'text-anchor': 'middle', fill: u.barvaText,
+              'font-size': 12, opacity: op
+            }, pair);
+            u.dej(svg, id + '-v', 'text', {
+              x: cx, y: y + 54, 'text-anchor': 'middle', fill: vlivBarva,
+              'font-size': 12, 'font-weight': 700, opacity: op
+            }, vliv);
+          }
+
+          // Pomocník: spojnice mezi bloky (pod bloky, kreslíme první).
+          function spoj(id, x1, y1, x2, y2, viditelny) {
+            u.dej(svg, id, 'line', {
+              x1: x1, y1: y1, x2: x2, y2: y2, stroke: u.barvaOsa,
+              'stroke-width': 1.5, opacity: viditelny ? 1 : 0
+            });
+          }
+
+          // Pomocník: operátor (× − ) v kroužku.
+          function operator(id, x, y, znak, viditelny) {
+            var op = viditelny ? 1 : 0;
+            u.dej(svg, id + '-c', 'circle', {
+              cx: x, cy: y, r: 13, fill: '#eef2ff', stroke: '#4338ca',
+              'stroke-width': 1.5, opacity: op
+            });
+            u.dej(svg, id + '-z', 'text', {
+              x: x, y: y + 6, 'text-anchor': 'middle', fill: '#4338ca',
+              'font-size': 17, 'font-weight': 700, opacity: op
+            }, znak);
+          }
+
+          var AKC = '#4338ca', ZEL = u.barvaTvorba, CERV = u.barvaNiceni;
+
+          // --- Spojnice (nejdřív, ať jsou pod bloky) ---
+          // EVA → (ROE−re), EVA → VK
+          spoj('c-eva-spread', 380, 78, 206, 158, uroven >= 1);
+          spoj('c-eva-vk',     380, 78, 560, 158, uroven >= 1);
+          // (ROE−re) → ROE, (ROE−re) → re
+          spoj('c-spread-roe', 206, 218, 116, 298, uroven >= 2);
+          spoj('c-spread-re',  206, 218, 256, 298, uroven >= 2);
+          // ROE → ROA, ROE → ČZ/Zisk, ROE → VK/Aktiva
+          spoj('c-roe-roa',  116, 352, 62, 418, uroven >= 3);
+          spoj('c-roe-cz',   116, 352, 182, 418, uroven >= 3);
+          spoj('c-roe-vka',  116, 352, 302, 418, uroven >= 3);
+
+          // --- Operátory ---
+          operator('op-x', 380, 120, '×', uroven >= 1);
+          operator('op-minus', 206, 258, '−', uroven >= 2);
+
+          // --- Bloky (vždy vykreslené, řízené opacity) ---
+          // Úroveň 0: EVA (vrchol)
+          blok('b-eva', 320, 18, 120, 60, 'EVA', '47 567 → 97 014', '+49 458', ZEL, true, AKC);
+          // Úroveň 1
+          blok('b-spread', 140, 158, 132, 60, 'ROE − rₑ', '54,2 % → 46,2 %', '−11 982', CERV, uroven >= 1, AKC);
+          blok('b-vk', 500, 158, 120, 60, 'Vlastní kapitál', '87 709 → 210 079', '+61 441', ZEL, uroven >= 1, AKC);
+          // Úroveň 2
+          blok('b-roe', 60, 298, 112, 56, 'ROE', '68,5 % → 58,3 %', '−15 325', CERV, uroven >= 2, AKC);
+          blok('b-re', 200, 298, 112, 56, 'rₑ (náklady VK)', '14,3 % → 12,1 %', '+3 342', ZEL, uroven >= 2, AKC);
+          // Úroveň 3
+          blok('b-roa', 8, 418, 108, 54, 'ROA', '4,5 % → 18,1 %', '+227 295', ZEL, uroven >= 3, AKC);
+          blok('b-cz', 128, 418, 108, 54, 'ČZ / Zisk', '5,57 → 0,71', '−193 370', CERV, uroven >= 3, AKC);
+          blok('b-vka', 248, 418, 108, 54, 'VK / Aktiva', '0,12 → 0,19', '−58 801', CERV, uroven >= 3, AKC);
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

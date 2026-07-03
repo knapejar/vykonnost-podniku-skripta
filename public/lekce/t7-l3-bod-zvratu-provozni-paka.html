@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7.3 Tržby a řízení nákladů – bod zvratu a provozní páka – Výkonnost podniku</title>
+  <meta name="description" content="Výnosy, náklady a zisk, tržby jako generátor hodnoty, fixní a variabilní náklady, bod zvratu, provozní páka a metody rozdělení nákladů.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 7, aktivní 7.3 -->
+    <nav class="panel" data-panel data-aktivni-lekce="7.3" aria-label="Lekce tématu 7">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 7</div>
+      <div class="panel__nazev-tema">Generátory hodnoty a řízení výnosů, nákladů a zisku</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="7.1" href="t7-l1-generatory-hodnoty.html"><span class="panel__odkaz-cislo">7.1</span><span>Generátory hodnoty</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.2" href="t7-l2-pyramidovy-rozklad-eva.html"><span class="panel__odkaz-cislo">7.2</span><span>Pyramidové soustavy ukazatelů – rozklad EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.3" href="t7-l3-bod-zvratu-provozni-paka.html"><span class="panel__odkaz-cislo">7.3</span><span>Tržby a řízení nákladů – bod zvratu a provozní páka</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.4" href="t7-l4-kryci-prispevek-abc.html"><span class="panel__odkaz-cislo">7.4</span><span>Krycí příspěvek a moderní kalkulace nákladů ABC</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.5" href="t7-l5-dividendova-politika.html"><span class="panel__odkaz-cislo">7.5</span><span>Konkurenceschopnost, rozdělování zisku a dividendová politika</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.6" href="t7-l6-vyuziti-majetku.html"><span class="panel__odkaz-cislo">7.6</span><span>Analýza využití majetku</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-7">Téma 7 · Generátory hodnoty</a></li>
+          <li><span aria-current="page">Lekce 7.3</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 7.3</span>
+        <h1>Tržby a řízení nákladů – bod zvratu a provozní páka</h1>
+        <p class="lekce-hlavicka__strany">Strany 116–122</p>
+      </header>
+
+      <p>
+        Pyramidové rozklady z předchozí lekce ukázaly, že o výkonnosti podniku
+        zásadně rozhoduje <a class="pojem" href="t7-l2-pyramidovy-rozklad-eva.html?zvyraznit=pojem-ziskova-marze" target="_blank" rel="noopener"><strong>zisková marže</strong></a> – tedy podíl zisku na
+        výnosech. Zisk přitom vzniká z prostého rozdílu mezi tím, co podnik získá,
+        a tím, co ho to stojí. V této lekci přejdeme od <em>měření</em> výkonnosti
+        k jejímu <em>řízení</em>: podíváme se, jak zvyšovat tržby, jak ovládat
+        náklady rozdělené na fixní a variabilní, a jak z jejich vzájemného poměru
+        vyplývá <a class="pojem" href="#pojem-bod-zvratu">bod zvratu</a> a
+        <a class="pojem" href="#pojem-provozni-paka">provozní páka</a>.
+      </p>
+
+      <!-- ================= 1) VÝNOSY, NÁKLADY A ZISK ================= -->
+      <h2>Výnosy, náklady a zisk</h2>
+
+      <p>
+        Výsledek hospodaření podniku (zisk, nebo ztráta) je rozdílem výnosů a
+        nákladů. Zisk roste vždy, když se zvýší výnosy, nebo když klesnou náklady:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-2">
+        <div class="vzorec__telo">
+          <span class="math">Výsledek hospodaření<span class="op">=</span>Výnosy<span class="op">−</span>Náklady</span>
+        </div>
+        <div class="vzorec__cislo">(4.2)</div>
+      </div>
+
+      <p>
+        Finanční účetnictví rozlišuje výnosy i náklady na <em>provozní</em>,
+        <em>finanční</em> a <em>mimořádné</em>. U nefinančních podniků hrají hlavní
+        roli výnosy provozní povahy – zejména <strong>tržby</strong> za prodané
+        výrobky, služby a zboží. Pro vnitřní řízení ovšem informace z finančního
+        účetnictví nestačí: to má závazná pravidla a slouží hlavně externím
+        uživatelům a daňovým účelům.
+      </p>
+
+      <section class="definice" id="pojem-manazerske-ucetnictvi">
+        <h3 class="definice__pojem">Manažerské účetnictví</h3>
+        <div class="definice__telo">
+          <p>
+            Systém informací uvnitř podniku, který nemá závazná pravidla a je
+            uzpůsoben potřebám manažerských rozhodnutí vedoucích k efektivní
+            činnosti podniku. Na rozdíl od finančního účetnictví neslouží externím
+            uživatelům, ale vnitřnímu řízení.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-controlling">
+        <h3 class="definice__pojem">Controlling</h3>
+        <div class="definice__telo">
+          <p>
+            Činnost, která v podniku zabezpečuje efektivní využívání informací
+            poskytovaných manažerským účetnictvím – tedy jejich provázání s
+            plánováním, kontrolou a řízením výkonnosti.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= 2) TRŽBY JAKO GENERÁTOR HODNOTY ================= -->
+      <h2>Tržby jako generátor hodnoty</h2>
+
+      <p>
+        Zvýšit tržby lze dvěma způsoby: prodat větší množství výrobků a služeb,
+        anebo zvýšit ceny. V silně konkurenčním prostředí je obojí obtížné.
+        Vyšší prodej souvisí se získáváním nových trhů, inovacemi, reklamou a
+        podporou prodeje – to však obvykle přináší i vyšší náklady na výzkum a
+        vývoj, marketing a reklamní akce. Prodej může zvýšit i zlevnění výrobku,
+        ale výsledek závisí na <strong>cenové elasticitě poptávky</strong>.
+      </p>
+
+      <section class="definice" id="pojem-cenova-elasticita-poptavky">
+        <h3 class="definice__pojem">Cenová elasticita poptávky</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr procentní změny objemu prodeje k procentní změně ceny. Vyjadřuje,
+            jak citlivě reaguje poptávka na změnu ceny:
+          </p>
+          <ul>
+            <li>Je-li elasticita <strong>větší než 1</strong>, snížení ceny vede ke
+              <em>zvýšení</em> tržeb (pokles ceny přebije nárůst objemu).</li>
+            <li>Je-li elasticita <strong>menší než 1</strong>, snížení ceny vede ke
+              <em>snížení</em> tržeb.</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Generické strategie a cena</p>
+        <div class="callout__telo">
+          <p>
+            Podnik může volit různé <strong>generické strategie</strong>: strategii
+            nízkých nákladů (<em>cost leadership</em>), strategii diferenciace
+            (jedinečnost výrobku či služby) nebo strategii zaměření na úzký segment
+            trhu (<em>focus</em>). S každou z nich úzce souvisí cenová politika.
+            Cena má přímý vliv na tržní výkonnost a je ovlivněna silou konkurence,
+            vnímáním hodnoty zákazníkem a cenovými strategiemi na jednotlivých
+            trzích. Zákazníka náklady výroby nezajímají – rozhoduje pro něj vztah
+            ceny a získané hodnoty.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Z hlediska strategie podnik zajímá především <strong>výše tržeb</strong>
+        (rozhoduje o jeho podílu na trhu) a <strong>stálost tržeb</strong> – menší
+        volatilita znamená menší riziko.
+      </p>
+
+      <!-- ================= 3) ŘÍZENÍ NÁKLADŮ ================= -->
+      <h2>Řízení nákladů: fixní a variabilní</h2>
+
+      <p>
+        Řízení nákladů – provozních i nákladů na kapitál – se při sílící konkurenci
+        stává jednou z hlavních cest k <a class="pojem" href="t1-l2-valka-ukazatelu.html?zvyraznit=pojem-ekonomicky-zisk" target="_blank" rel="noopener">ekonomickému zisku</a>. Pro účinné řízení je
+        užitečné rozdělit náklady podle jejich chování při změně objemu výkonů na
+        <strong>variabilní</strong> a <strong>fixní</strong>.
+      </p>
+
+      <section class="definice" id="pojem-variabilni-naklady">
+        <h3 class="definice__pojem">Variabilní náklady</h3>
+        <div class="definice__telo">
+          <p>
+            Náklady, které s růstem objemu výkonů rostou. Příkladem je spotřeba
+            surovin, materiálu, energie nebo úkolová mzda. Náklad připadající na
+            jednu jednotku produkce se označuje jako <em>průměrné variabilní
+            náklady</em> (AVC).
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-fixni-naklady">
+        <h3 class="definice__pojem">Fixní náklady</h3>
+        <div class="definice__telo">
+          <p>
+            Náklady, které se se změnou objemu výkonů (do určitého rozsahu) nemění
+            a jsou vynakládány jednorázově, tj. jsou spojeny s určitým časovým
+            obdobím. Příkladem jsou odpisy budov a strojů, náklady na vývoj výrobku
+            nebo náklady na řízení a správu podniku.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Průměrné vs. mezní náklady</p>
+        <div class="callout__telo">
+          <p>
+            <strong>Průměrné náklady</strong> jsou náklady potřebné na vyrobení
+            jedné jednotky produkce. <strong>Mezní náklady</strong> popisují
+            dodatečný náklad na výrobu <em>jedné další</em> jednotky výstupu – a
+            právě ty jsou klíčem k rozhodnutí, kolik podnik chce vyrábět: měly by se
+            poměřovat s dodatečnými výnosy z prodeje této jednotky.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= 4) BOD ZVRATU ================= -->
+      <h2>Bod zvratu</h2>
+
+      <p>
+        Vyrábí-li podnik právě tolik výrobků, aby tržby za jejich prodej přesně
+        pokryly všechny fixní i variabilní náklady, dosahuje nulového zisku. Tento
+        objem se nazývá bod zvratu.
+      </p>
+
+      <section class="definice" id="pojem-bod-zvratu">
+        <h3 class="definice__pojem">Bod zvratu (break-even point)</h3>
+        <div class="definice__telo">
+          <p>
+            Objem výroby (a prodeje), při němž se tržby rovnají celkovým nákladům a
+            zisk je nulový. Pod bodem zvratu podnik prodělává, nad ním tvoří zisk.
+          </p>
+        </div>
+      </section>
+
+      <!-- KROKOVÁ VIZUALIZACE 1: konstrukce bodu zvratu -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Jak vzniká bod zvratu (obr. 4–5)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se z fixních a variabilních nákladů skládají celkové náklady a jak jejich průsečík s přímkou tržeb určuje bod zvratu.</p>
+        </figcaption>
+        <div id="viz-bod-zvratu"></div>
+      </figure>
+
+      <p>
+        Objem výroby <span class="math">Q</span> v bodě zvratu odvodíme z podmínky,
+        že tržby <span class="math">p<span class="op">×</span>Q</span> se rovnají
+        celkovým nákladům <span class="math">FC<span class="op">+</span>Q<span class="op">×</span>AVC</span>:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-3">
+        <div class="vzorec__telo">
+          <span class="math">Q<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">FC</span>
+              <span class="frac__jmen">p<span class="op">−</span>AVC</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.3)</div>
+      </div>
+
+      <p>Kde:</p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Označení ve vzorci bodu zvratu (4.3)</caption>
+          <tbody>
+            <tr><th scope="row"><span class="math">p</span></th><td>cena výrobku</td></tr>
+            <tr><th scope="row"><span class="math">FC</span></th><td>fixní náklady (<em>fixed costs</em>)</td></tr>
+            <tr><th scope="row"><span class="math">VC</span></th><td>variabilní náklady (<em>variable costs</em>)</td></tr>
+            <tr><th scope="row"><span class="math">AVC</span></th><td>průměrné variabilní náklady (na jednotku)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Jmenovatel <span class="math">(p<span class="op">−</span>AVC)</span> je rozdíl
+        ceny a variabilního nákladu na jednotku – tzv. příspěvek jedné jednotky na
+        úhradu fixních nákladů. Čím je tento rozdíl menší, tím více kusů musí podnik
+        prodat, aby bod zvratu překročil.
+      </p>
+
+      <!-- ================= 5) PROVOZNÍ (OPERAČNÍ) PÁKA ================= -->
+      <h2>Provozní (operační) páka</h2>
+
+      <p>
+        Analýza bodu zvratu ukazuje, jak různá struktura nákladů ovlivňuje provozní
+        zisk při různých objemech tržeb. Míru této citlivosti vyjadřuje stupeň
+        provozní páky.
+      </p>
+
+      <section class="definice" id="pojem-provozni-paka">
+        <h3 class="definice__pojem">Provozní (operační) páka</h3>
+        <div class="definice__telo">
+          <p>
+            Míra citlivosti provozního zisku (<a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-ebit" target="_blank" rel="noopener">EBIT</a>) na změnu objemu tržeb. Je dána
+            poměrem procentní změny EBIT a procentní změny tržeb. Čím vyšší je podíl
+            fixních nákladů, tím silnější je páka – a tím prudčeji reaguje zisk na
+            výkyvy tržeb.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-4-4">
+        <div class="vzorec__telo">
+          <span class="math">Stupeň provozní páky<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">procentní změna EBIT</span>
+              <span class="frac__jmen">procentní změna tržeb</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.4)</div>
+      </div>
+
+      <p>
+        Má-li podnik provozní páku například <span class="math"><span class="num">2</span></span>,
+        znamená to, že zvýšení tržeb o <span class="math"><span class="num">1</span> %</span>
+        přinese zvýšení EBIT o <span class="math"><span class="num">2</span> %</span>.
+        Páka ovšem působí oběma směry – při poklesu tržeb klesá zisk stejně prudce.
+      </p>
+
+      <!-- KROKOVÁ VIZUALIZACE 2: slabá vs silná páka -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">„Slabá" vs. „silná" operační páka (obr. 4–6 a 4–7)</p>
+          <p class="viz__popis">Přepněte mezi oběma podniky a sledujte, jak se s růstem podílu fixních nákladů posouvá bod zvratu od počátku doprava – a jak roste provozní riziko.</p>
+        </figcaption>
+        <div id="viz-paka"></div>
+      </figure>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. – Porovnání nákladové struktury a provozní páky</caption>
+          <thead>
+            <tr>
+              <th scope="col">Znak</th>
+              <th scope="col">„Slabá" páka (obr. 4–6)</th>
+              <th scope="col">„Silná" páka (obr. 4–7)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Fixní náklady</th><td>nízké</td><td>vysoké</td></tr>
+            <tr><th scope="row">Variabilní náklady</th><td>vysoké</td><td>nízké</td></tr>
+            <tr><th scope="row">Typický obor</th><td>nízká technická náročnost</td><td>kapitálově náročná výroba</td></tr>
+            <tr><th scope="row">Bod zvratu</th><td>nízký, blízko počátku</td><td>vysoký, daleko od počátku</td></tr>
+            <tr><th scope="row">Provozní páka</th><td>nízká</td><td>silná</td></tr>
+            <tr><th scope="row">Provozní riziko</th><td class="hodnota-tvorba">nižší</td><td class="hodnota-niceni">vyšší</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Podniky s vysokým podílem fixních nákladů proto podstupují vyšší <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-provozni-riziko" target="_blank" rel="noopener">provozní
+        riziko</a> a musí klást důraz na vyšší ziskovost tržeb, aby dosáhly přiměřené
+        rentability vloženého kapitálu.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Kdy analýzu neberte doslova</p>
+        <div class="callout__telo">
+          <p>Model bodu zvratu předpokládá lineární průběh. V praxi jej komplikuje řada okolností:</p>
+          <ul>
+            <li>variabilní náklady nemusí mít lineární průběh,</li>
+            <li>fixní náklady zůstávají konstantní jen v určitém rozsahu produkce,</li>
+            <li>prodejní cena za jednotku se může měnit s objemem produkce,</li>
+            <li>jde o odhad budoucnosti – náklady i ceny se mohou měnit, navíc rozdílným tempem vlivem inflace.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik prodává výrobek za cenu <span class="math">p<span class="op">=</span><span class="num">100</span></span> Kč,
+          jeho průměrné variabilní náklady jsou <span class="math">AVC<span class="op">=</span><span class="num">60</span></span> Kč
+          a fixní náklady <span class="math">FC<span class="op">=</span><span class="num">3 000</span></span> Kč.
+          Kolik kusů musí prodat, aby dosáhl bodu zvratu? Jak se počet změní, když
+          se mu podaří snížit variabilní náklady na <span class="math">AVC<span class="op">=</span><span class="num">40</span></span> Kč?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Původně
+            <span class="math">Q<span class="op">=</span>
+              <span class="frac"><span class="frac__cit">3 000</span><span class="frac__jmen">100<span class="op">−</span>60</span></span>
+              <span class="op">=</span>
+              <span class="frac"><span class="frac__cit">3 000</span><span class="frac__jmen">40</span></span>
+              <span class="op">=</span><span class="num">75</span></span> ks.</p>
+            <p>Po snížení variabilních nákladů
+            <span class="math">Q<span class="op">=</span>
+              <span class="frac"><span class="frac__cit">3 000</span><span class="frac__jmen">100<span class="op">−</span>40</span></span>
+              <span class="op">=</span>
+              <span class="frac"><span class="frac__cit">3 000</span><span class="frac__jmen">60</span></span>
+              <span class="op">=</span><span class="num">50</span></span> ks.</p>
+            <p>Snížení variabilního nákladu na jednotku zvětšilo příspěvek
+            <span class="math">(p<span class="op">−</span>AVC)</span>, takže bod zvratu
+            se <strong>posunul dolů</strong> (blíže k počátku) – podnik začne
+            vydělávat už při nižším objemu prodeje.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= 6) ROZDĚLENÍ NÁKLADŮ NA FIXNÍ A VARIABILNÍ ================= -->
+      <h2>Jak rozdělit náklady na fixní a variabilní</h2>
+
+      <p>
+        Rozdělení nákladů na fixní a variabilní není snadné. V praxi se používá
+        několik postupů:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Klasifikační metoda</strong> – nákladové položky se roztřídí na
+          fixní a variabilní část podle charakteru jejich změn ve vazbě na objem
+          produkce, a to na základě zkušeností a odhadu.
+        </li>
+        <li>
+          <strong>Metoda dvou období</strong> – výpočtem nebo graficky; předpokládá
+          lineární závislost celkových nákladů na objemu produkce.
+        </li>
+        <li>
+          <strong>Regresní a korelační analýza</strong> – využívá údaje za více
+          období a proloží jimi přímku metodou nejmenších čtverců.
+        </li>
+      </ul>
+
+      <h3>Metoda dvou období</h3>
+      <p>
+        Máme-li celkové náklady a objem produkce za dvě různá období, sestavíme
+        dvě rovnice přímky celkových nákladů a z nich dopočítáme neznámé
+        <span class="math">FC</span> a <span class="math">AVC</span>:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-5">
+        <div class="vzorec__telo">
+          <div>
+            <span class="math">TC<sub>1</sub><span class="op">=</span>FC<span class="op">+</span>AVC<span class="op">×</span>Q<sub>1</sub></span>
+          </div>
+          <div style="margin-top:.4em">
+            <span class="math">TC<sub>2</sub><span class="op">=</span>FC<span class="op">+</span>AVC<span class="op">×</span>Q<sub>2</sub></span>
+          </div>
+        </div>
+        <div class="vzorec__cislo">(4.5)</div>
+      </div>
+
+      <p>Kde <span class="math">TC<sub>1</sub></span>, <span class="math">TC<sub>2</sub></span>
+      jsou celkové náklady a <span class="math">Q<sub>1</sub></span>,
+      <span class="math">Q<sub>2</sub></span> objem produkce ve dvou různých
+      obdobích.</p>
+
+      <h3>Regresní a korelační analýza</h3>
+      <p>
+        Při více obdobích se přímka celkových nákladů proloží daty. Směrnice přímky
+        odpovídá průměrným variabilním nákladům
+        (<span class="math">b<span class="op">=</span>AVC</span>):
+      </p>
+
+      <div class="vzorec" id="vzorec-4-6">
+        <div class="vzorec__telo">
+          <span class="math">b<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">n<span class="op">·</span>Σ<span class="op"> </span>XY<span class="op">−</span>Σ<span class="op"> </span>X<span class="op">·</span>Σ<span class="op"> </span>Y</span>
+              <span class="frac__jmen">n<span class="op">·</span>Σ<span class="op"> </span>X<sup>2</sup><span class="op">−</span>(Σ<span class="op"> </span>X)<sup>2</sup></span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.6)</div>
+      </div>
+
+      <p>
+        Úsek přímky na svislé ose odpovídá fixním nákladům
+        (<span class="math">a<span class="op">=</span>FC</span>):
+      </p>
+
+      <div class="vzorec" id="vzorec-4-7">
+        <div class="vzorec__telo">
+          <span class="math">a<span class="op">=</span>
+            <span style="text-decoration:overline">Y</span>
+            <span class="op">−</span>b<span class="op">·</span>
+            <span style="text-decoration:overline">X</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.7)</div>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Označení v regresních vztazích (4.6) a (4.7)</caption>
+          <tbody>
+            <tr><th scope="row"><span class="math">b</span></th><td>průměrné variabilní náklady (směrnice přímky)</td></tr>
+            <tr><th scope="row"><span class="math">a</span></th><td>fixní náklady (úsek na svislé ose)</td></tr>
+            <tr><th scope="row"><span class="math">X</span></th><td>objem produkce v jednotlivých obdobích</td></tr>
+            <tr><th scope="row"><span class="math">Y</span></th><td>celkové náklady v jednotlivých obdobích</td></tr>
+            <tr><th scope="row"><span class="math"><span style="text-decoration:overline">X</span></span></th><td>průměrný objem produkce</td></tr>
+            <tr><th scope="row"><span class="math"><span style="text-decoration:overline">Y</span></span></th><td>průměr celkových nákladů ze všech období</td></tr>
+            <tr><th scope="row"><span class="math">n</span></th><td>počet sledovaných období</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 4.1 ================= -->
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Řešený příklad 4.1 – rozdělení nákladů metodou dvou období</p>
+        <div class="callout__telo">
+          <p>Ve dvou po sobě jdoucích obdobích podnik dosáhl těchto nákladů a výkonů:</p>
+
+          <div class="tabulka-obal">
+            <table class="tabulka">
+              <thead>
+                <tr>
+                  <th scope="col">Období</th>
+                  <th scope="col" class="cislo">Výkony (ks)</th>
+                  <th scope="col" class="cislo">Náklady (Kč)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">1. rok</th><td class="cislo">500</td><td class="cislo">2 300 000</td></tr>
+                <tr><th scope="row">2. rok</th><td class="cislo">550</td><td class="cislo">2 400 000</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>a)</strong> Vypočítejte výši ročních fixních nákladů.<br>
+          <strong>b)</strong> Vypočítejte očekávaný objem nákladů pro další období
+          při výkonech 580 ks.</p>
+
+          <p><strong>Řešení a)</strong> Sestavíme dvě rovnice
+          <span class="math">TC<span class="op">=</span>FC<span class="op">+</span>AVC<span class="op">×</span>Q</span>:</p>
+          <p>
+            <span class="math"><span class="num">2 300 000</span><span class="op">=</span>FC<span class="op">+</span><span class="num">500</span><span class="op">×</span>AVC</span><br>
+            <span class="math"><span class="num">2 400 000</span><span class="op">=</span>FC<span class="op">+</span><span class="num">550</span><span class="op">×</span>AVC</span>
+          </p>
+          <p>Odečtením rovnic:
+          <span class="math"><span class="num">100 000</span><span class="op">=</span><span class="num">50</span><span class="op">×</span>AVC</span>,
+          tedy <span class="math">AVC<span class="op">=</span><span class="num">2 000</span></span> Kč/ks.
+          Dosazením zpět: <strong><span class="math">FC<span class="op">=</span><span class="num">1 300 000</span></span> Kč.</strong>
+          Podnik má fixní náklady 1,3 mil. Kč.</p>
+
+          <p><strong>Řešení b)</strong>
+          <span class="math">TC<span class="op">=</span><span class="num">1 300 000</span><span class="op">+</span><span class="num">2 000</span><span class="op">×</span><span class="num">580</span><span class="op">=</span><span class="num">2 460 000</span></span> Kč.
+          Očekávaný objem nákladů je <strong>2,46 mil. Kč</strong>.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Dva podniky vykazují stejný zisk, ale liší se strukturou nákladů: jeden
+          má „slabou", druhý „silnou" provozní páku. Který z nich je citlivější na
+          pokles tržeb o 10 % a proč?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Citlivější je podnik se <strong>silnou provozní pákou</strong> (vysoký
+            podíl fixních nákladů). Fixní náklady se s poklesem objemu nesníží, takže
+            se pokles tržeb promítne do provozního zisku (EBIT) mnohem prudčeji – páka
+            zvětšuje procentní změnu EBIT oproti procentní změně tržeb. Podnik se
+            slabou pákou má naopak většinu nákladů variabilních, ty s tržbami klesají,
+            a proto zisk reaguje mírněji. Silná páka tedy znamená vyšší provozní
+            riziko.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Čím se manažerské účetnictví liší od finančního a jakou roli hraje controlling?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, komu která informační základna slouží a zda má závazná pravidla.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Finanční účetnictví má závazná pravidla a slouží externím uživatelům a daňovým účelům. Manažerské účetnictví nemá závazná pravidla, je uzpůsobeno vnitřním potřebám podniku a poskytuje informace pro manažerská rozhodnutí. Controlling zabezpečuje jejich efektivní využívání – propojuje je s plánováním, kontrolou a řízením výkonnosti.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Podnik prodává za 200 Kč/ks, průměrné variabilní náklady jsou 120 Kč/ks a fixní náklady 400 000 Kč. Kolik kusů je bodem zvratu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Použijte vzorec (4.3): <span class="math">Q<span class="op">=</span>FC<span class="op">/</span>(p<span class="op">−</span>AVC)</span>.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><span class="math">Q<span class="op">=</span><span class="frac"><span class="frac__cit">400 000</span><span class="frac__jmen">200<span class="op">−</span>120</span></span><span class="op">=</span><span class="frac"><span class="frac__cit">400 000</span><span class="frac__jmen">80</span></span><span class="op">=</span><span class="num">5 000</span></span> ks. Podnik musí prodat 5 000 kusů, aby pokryl všechny náklady a dosáhl nulového zisku.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Jak se posune bod zvratu, když podnik sníží variabilní náklady na jednotku (při nezměněné ceně a fixních nákladech)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Sledujte jmenovatel <span class="math">(p<span class="op">−</span>AVC)</span> ve vzorci (4.3).</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Snížením AVC vzroste rozdíl <span class="math">(p<span class="op">−</span>AVC)</span> ve jmenovateli, takže výsledné <span class="math">Q</span> klesne. Bod zvratu se posune <strong>níže / blíže k počátku</strong> – podnik začne tvořit zisk už při menším objemu prodeje.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč je podnik se „silnou" provozní pákou citlivější na pokles tržeb?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co se stane s fixními náklady, když objem prodeje klesne?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Silná páka znamená vysoký podíl fixních nákladů, které se s poklesem objemu nesníží. Pokles tržeb se proto do EBIT promítne prudčeji (procentní změna EBIT je násobkem procentní změny tržeb). Takový podnik má vyšší bod zvratu i vyšší provozní riziko a musí klást důraz na vyšší ziskovost tržeb.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Kdy vede snížení ceny ke zvýšení tržeb?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Rozhoduje hodnota cenové elasticity poptávky vzhledem k 1.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Tehdy, je-li cenová elasticita poptávky <strong>větší než 1</strong> – tj. procentní nárůst prodaného množství převáží procentní pokles ceny. Je-li elasticita menší než 1, snížení ceny naopak tržby sníží.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t7-l2-pyramidovy-rozklad-eva.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">7.2 Pyramidové soustavy ukazatelů – rozklad EVA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t7-l4-kryci-prispevek-abc.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">7.4 Krycí příspěvek a moderní kalkulace nákladů ABC</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // Společný souřadnicový systém obou grafů bodu zvratu.
+      var X0 = 92, X1 = 706, YB = 356, YT = 54;   // plocha grafu
+      var QMAX = 100, VMAX = 10000;               // rozsahy os
+      function sx(q) { return X0 + q / QMAX * (X1 - X0); }
+      function sy(v) { return YB - v / VMAX * (YB - YT); }
+
+      // Nakreslí osy a jejich popisky (společné pro oba grafy).
+      function osy(svg, u) {
+        u.dej(svg, 'osa-x', 'line', { x1: X0, y1: YB, x2: X1 + 6, y2: YB, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+        u.dej(svg, 'osa-y', 'line', { x1: X0, y1: YB, x2: X0, y2: YT - 6, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+        u.dej(svg, 'sipka-x', 'path', { d: 'M' + (X1 + 6) + ',' + YB + ' l-7,-4 v8 z', fill: u.barvaOsa });
+        u.dej(svg, 'sipka-y', 'path', { d: 'M' + X0 + ',' + (YT - 6) + ' l-4,7 h8 z', fill: u.barvaOsa });
+        u.dej(svg, 'titul-y', 'text', { x: X0 - 8, y: YT - 16, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 12, 'font-weight': 600 }, 'Tržby / Náklady (Kč)');
+        u.dej(svg, 'titul-x', 'text', { x: X1, y: YB + 34, 'text-anchor': 'end', fill: u.barvaText, 'font-size': 12, 'font-weight': 600 }, 'Počet prodaných jednotek (ks)');
+      }
+
+      // =====================================================================
+      // A) KROKOVÁ VIZUALIZACE: konstrukce bodu zvratu (obr. 4–5)
+      // =====================================================================
+      var FC = 3000, AVC = 40, P = 100;           // parametry modelu
+      var Qbe = FC / (P - AVC);                    // = 50
+      var Vbe = P * Qbe;                           // = 5000
+
+      Skripta.stepper('viz-bod-zvratu', {
+        sirka: 760, vyska: 400,
+        stavy: [
+          { vc: false, tc: false, rev: false, be: false },
+          { vc: true,  tc: false, rev: false, be: false },
+          { vc: true,  tc: true,  rev: false, be: false },
+          { vc: true,  tc: true,  rev: true,  be: false },
+          { vc: true,  tc: true,  rev: true,  be: true  }
+        ],
+        popisky: [
+          'Fixní náklady (FC) se s objemem výroby nemění – jsou vodorovnou přímkou.',
+          'Variabilní náklady rostou přímo úměrně počtu jednotek – vycházejí z počátku.',
+          'Celkové náklady = fixní + variabilní; přímka startuje ve výši FC.',
+          'Tržby rostou s cenou p za každou prodanou jednotku – nejstrmější přímka z počátku.',
+          'V bodě zvratu se tržby rovnají celkovým nákladům: zisk = 0. Vlevo ztráta, vpravo zisk.'
+        ],
+        render: function (svg, stav, i, u) {
+          osy(svg, u);
+
+          // Plochy ztráty/zisku (jen v posledním kroku) – kreslíme jako první (pod čarami)
+          u.dej(svg, 'plocha-ztrata', 'polygon', {
+            points: sx(0) + ',' + sy(0) + ' ' + sx(Qbe) + ',' + sy(Vbe) + ' ' + sx(0) + ',' + sy(FC),
+            fill: u.barvaNiceni, opacity: stav.be ? 0.10 : 0
+          });
+          u.dej(svg, 'plocha-zisk', 'polygon', {
+            points: sx(Qbe) + ',' + sy(Vbe) + ' ' + sx(QMAX) + ',' + sy(P * QMAX) + ' ' + sx(QMAX) + ',' + sy(FC + AVC * QMAX),
+            fill: u.barvaTvorba, opacity: stav.be ? 0.14 : 0
+          });
+
+          // Fixní náklady (vodorovná)
+          u.dej(svg, 'car-fc', 'line', { x1: sx(0), y1: sy(FC), x2: sx(QMAX), y2: sy(FC), stroke: '#d97706', 'stroke-width': 2 });
+          u.dej(svg, 'lbl-fc', 'text', { x: sx(4), y: sy(FC) - 8, fill: '#b45309', 'font-size': 12, 'font-weight': 600 }, 'Fixní náklady');
+
+          // Variabilní náklady (čárkovaná, z počátku)
+          u.dej(svg, 'car-vc', 'line', {
+            x1: sx(0), y1: sy(0), x2: sx(QMAX), y2: sy(AVC * QMAX),
+            stroke: '#0891b2', 'stroke-width': 2, 'stroke-dasharray': '6 5',
+            opacity: stav.vc ? 1 : 0
+          });
+          u.dej(svg, 'lbl-vc', 'text', {
+            x: sx(QMAX) - 4, y: sy(AVC * QMAX) - 8, 'text-anchor': 'end',
+            fill: '#0e7490', 'font-size': 12, 'font-weight': 600, opacity: stav.vc ? 1 : 0
+          }, 'Variabilní náklady');
+
+          // Celkové náklady (FC + VC)
+          u.dej(svg, 'car-tc', 'line', {
+            x1: sx(0), y1: sy(FC), x2: sx(QMAX), y2: sy(FC + AVC * QMAX),
+            stroke: '#dc2626', 'stroke-width': 2.5, opacity: stav.tc ? 1 : 0
+          });
+          u.dej(svg, 'lbl-tc', 'text', {
+            x: sx(QMAX) - 4, y: sy(FC + AVC * QMAX) - 8, 'text-anchor': 'end',
+            fill: '#b91c1c', 'font-size': 12, 'font-weight': 600, opacity: stav.tc ? 1 : 0
+          }, 'Celkové náklady');
+
+          // Tržby (z počátku, nejstrmější)
+          u.dej(svg, 'car-rev', 'line', {
+            x1: sx(0), y1: sy(0), x2: sx(QMAX), y2: sy(P * QMAX),
+            stroke: '#4338ca', 'stroke-width': 2.5, opacity: stav.rev ? 1 : 0
+          });
+          u.dej(svg, 'lbl-rev', 'text', {
+            x: sx(QMAX) - 4, y: sy(P * QMAX) + 16, 'text-anchor': 'end',
+            fill: '#3730a3', 'font-size': 12, 'font-weight': 600, opacity: stav.rev ? 1 : 0
+          }, 'Tržby');
+
+          // Bod zvratu – vodicí čáry, bod, popisek
+          u.dej(svg, 'be-v', 'line', {
+            x1: sx(Qbe), y1: sy(Vbe), x2: sx(Qbe), y2: YB,
+            stroke: u.barvaText, 'stroke-width': 1, 'stroke-dasharray': '4 4', opacity: stav.be ? 1 : 0
+          });
+          u.dej(svg, 'be-h', 'line', {
+            x1: X0, y1: sy(Vbe), x2: sx(Qbe), y2: sy(Vbe),
+            stroke: u.barvaText, 'stroke-width': 1, 'stroke-dasharray': '4 4', opacity: stav.be ? 1 : 0
+          });
+          u.dej(svg, 'be-bod', 'circle', {
+            cx: sx(Qbe), cy: sy(Vbe), r: 6, fill: '#fff', stroke: '#111827', 'stroke-width': 2.5,
+            opacity: stav.be ? 1 : 0
+          });
+          u.dej(svg, 'be-lbl', 'text', {
+            x: sx(Qbe) + 12, y: sy(Vbe) - 12, fill: '#111827', 'font-size': 13, 'font-weight': 700,
+            opacity: stav.be ? 1 : 0
+          }, 'Bod zvratu');
+          u.dej(svg, 'be-ztrata', 'text', {
+            x: sx(Qbe / 2) - 10, y: sy(FC) + 26, 'text-anchor': 'middle',
+            fill: '#b91c1c', 'font-size': 12, 'font-weight': 600, opacity: stav.be ? 1 : 0
+          }, 'ztráta');
+          u.dej(svg, 'be-zisk', 'text', {
+            x: sx((Qbe + QMAX) / 2), y: sy((P * QMAX + FC + AVC * QMAX) / 2), 'text-anchor': 'middle',
+            fill: '#15803d', 'font-size': 12, 'font-weight': 600, opacity: stav.be ? 1 : 0
+          }, 'zisk');
+        }
+      });
+
+      // =====================================================================
+      // B) KROKOVÁ VIZUALIZACE: „slabá" vs. „silná" operační páka (obr. 4–6/4–7)
+      // =====================================================================
+      // Stejná cena p=100 v obou případech; mění se FC a AVC (a tím bod zvratu).
+      var PP = 100;
+      var stavyPaka = [
+        { fc: 1000, avc: 60, nazev: 'slabá' },   // nízké FC, vysoké VC → nízký bod zvratu
+        { fc: 5000, avc: 20, nazev: 'silná' }    // vysoké FC, nízké VC → vysoký bod zvratu
+      ];
+
+      Skripta.stepper('viz-paka', {
+        sirka: 760, vyska: 400,
+        stavy: stavyPaka,
+        popisky: [
+          '„Slabá" páka: nízké fixní a vysoké variabilní náklady. Bod zvratu leží blízko počátku a provozní riziko je nízké.',
+          '„Silná" páka: vysoké fixní a nízké variabilní náklady. Bod zvratu se posouvá daleko od počátku – vyšší provozní riziko.'
+        ],
+        render: function (svg, stav, i, u) {
+          osy(svg, u);
+
+          var fc = stav.fc, avc = stav.avc;
+          var qbe = fc / (PP - avc);
+          var vbe = PP * qbe;
+
+          // Fixní náklady (vodorovná, animuje se výška)
+          u.dej(svg, 'p-fc', 'line', { x1: sx(0), y1: sy(fc), x2: sx(QMAX), y2: sy(fc), stroke: '#d97706', 'stroke-width': 2 });
+          u.dej(svg, 'p-fc-lbl', 'text', { x: sx(4), y: sy(fc) - 8, fill: '#b45309', 'font-size': 12, 'font-weight': 600 }, 'Fixní náklady');
+
+          // Variabilní náklady (čárkovaná z počátku, animuje se sklon)
+          u.dej(svg, 'p-vc', 'line', {
+            x1: sx(0), y1: sy(0), x2: sx(QMAX), y2: sy(avc * QMAX),
+            stroke: '#0891b2', 'stroke-width': 2, 'stroke-dasharray': '6 5'
+          });
+          u.dej(svg, 'p-vc-lbl', 'text', {
+            x: sx(QMAX) - 4, y: sy(avc * QMAX) - 8, 'text-anchor': 'end',
+            fill: '#0e7490', 'font-size': 12, 'font-weight': 600
+          }, 'Variabilní náklady');
+
+          // Celkové náklady (FC + VC)
+          u.dej(svg, 'p-tc', 'line', {
+            x1: sx(0), y1: sy(fc), x2: sx(QMAX), y2: sy(fc + avc * QMAX),
+            stroke: '#dc2626', 'stroke-width': 2.5
+          });
+          u.dej(svg, 'p-tc-lbl', 'text', {
+            x: sx(QMAX) - 4, y: sy(fc + avc * QMAX) - 10, 'text-anchor': 'end',
+            fill: '#b91c1c', 'font-size': 12, 'font-weight': 600
+          }, 'Celkové náklady');
+
+          // Tržby (stejné v obou stavech)
+          u.dej(svg, 'p-rev', 'line', {
+            x1: sx(0), y1: sy(0), x2: sx(QMAX), y2: sy(PP * QMAX),
+            stroke: '#4338ca', 'stroke-width': 2.5
+          });
+          u.dej(svg, 'p-rev-lbl', 'text', {
+            x: sx(QMAX) - 4, y: sy(PP * QMAX) + 16, 'text-anchor': 'end',
+            fill: '#3730a3', 'font-size': 12, 'font-weight': 600
+          }, 'Tržby');
+
+          // Bod zvratu – posouvá se
+          u.dej(svg, 'p-be-v', 'line', {
+            x1: sx(qbe), y1: sy(vbe), x2: sx(qbe), y2: YB,
+            stroke: u.barvaText, 'stroke-width': 1, 'stroke-dasharray': '4 4'
+          });
+          u.dej(svg, 'p-be-bod', 'circle', {
+            cx: sx(qbe), cy: sy(vbe), r: 6, fill: '#fff', stroke: '#111827', 'stroke-width': 2.5
+          });
+          u.dej(svg, 'p-be-lbl', 'text', {
+            x: sx(qbe) + 12, y: sy(vbe) - 12, fill: '#111827', 'font-size': 13, 'font-weight': 700
+          }, 'Bod zvratu');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

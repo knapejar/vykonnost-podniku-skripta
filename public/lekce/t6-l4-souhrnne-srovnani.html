@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.4 Souhrnné srovnání ukazatelů výkonnosti – Výkonnost podniku</title>
+  <meta name="description" content="Souhrnné porovnání tradičních i hodnotových ukazatelů výkonnosti na případové studii TECHPLAST a doporučení pro volbu měřítka podle účelu.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 6 -->
+    <nav class="panel" data-panel data-aktivni-lekce="6.4" aria-label="Lekce tématu 6">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 6</div>
+      <div class="panel__nazev-tema">Měřítka na bázi cash flow a souhrnné srovnání</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="6.1" href="t6-l1-sva.html"><span class="panel__odkaz-cislo">6.1</span><span>Shareholder Value Added – SVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.2" href="t6-l2-cfroi.html"><span class="panel__odkaz-cislo">6.2</span><span>Cash Flow Return on Investment – CFROI</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.3" href="t6-l3-cfroi-tbr-croga.html"><span class="panel__odkaz-cislo">6.3</span><span>CFROI – oceňování, zhodnocení, TBR a CROGA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.4" href="t6-l4-souhrnne-srovnani.html"><span class="panel__odkaz-cislo">6.4</span><span>Souhrnné srovnání ukazatelů výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-6">Téma 6 · Cash flow měřítka</a></li>
+          <li><span aria-current="page">Lekce 6.4</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 6.4</span>
+        <h1>Souhrnné srovnání ukazatelů výkonnosti</h1>
+        <p class="lekce-hlavicka__strany">Strany 101–105</p>
+      </header>
+
+      <p>
+        Za sebou máme celou paletu měřítek výkonnosti: tradiční ukazatele zisku
+        a rentability, tržní měřítka (<a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">MVA</a>, <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-tsr" target="_blank" rel="noopener">TSR</a>, <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-excess-return" target="_blank" rel="noopener">Excess Return</a>), <a class="pojem" href="t1-l2-valka-ukazatelu.html?zvyraznit=pojem-ekonomicky-zisk" target="_blank" rel="noopener">ekonomický zisk</a> (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>)
+        i měřítka na bázi cash flow (<a class="pojem" href="t6-l1-sva.html?zvyraznit=pojem-sva" target="_blank" rel="noopener">SVA</a>, <a class="pojem" href="t6-l2-cfroi.html?zvyraznit=pojem-cfroi" target="_blank" rel="noopener">CFROI</a>, <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-cva" target="_blank" rel="noopener">CVA</a>, <a class="pojem" href="t6-l3-cfroi-tbr-croga.html?zvyraznit=pojem-tbr" target="_blank" rel="noopener">TBR</a>). Každé z nich se dívá na podnik
+        z trochu jiného úhlu. Přirozeně se nabízí otázka: <strong>které měřítko je
+        „to správné"?</strong> Tato závěrečná lekce tématu ukáže, že univerzální odpověď
+        neexistuje – a proč se v praxi vyplatí několik měřítek kombinovat.
+      </p>
+      <p>
+        Nejprve porovnáme hodnocení jednoho konkrétního podniku (případová studie
+        <strong>TECHPLAST</strong>) podle mnoha ukazatelů najednou a uvidíme, jak
+        rozdílné obrazy poskytují. Poté shrneme silné a slabé stránky měřítek do jedné
+        přehledné tabulky a nakonec odvodíme doporučení, jak měřítko volit podle účelu
+        a časového horizontu řízení.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde se v knize nacházíme</p>
+        <div class="callout__telo">
+          <p>Jde o závěr kapitoly 3 (sekce 3.9), který uzavírá celý blok moderních
+          měřítek výkonnosti. Navazuje přímo na zjednodušený ukazatel
+          <strong>CROGA</strong> (hotovostní rentabilita hrubých aktiv,
+          <span class="math">CROGA<span class="op">=</span>OATCF<span class="op">/</span>GA</span>),
+          kterým jsme uzavřeli předchozí lekci.</p>
+        </div>
+      </aside>
+
+      <!-- ================= CASE STUDY TECHPLAST ================= -->
+      <h2>Případová studie TECHPLAST: jeden podnik, mnoho pohledů</h2>
+      <p>
+        TECHPLAST je akciová společnost působící v plastikářském průmyslu –
+        středně velký podnik (cca 160 zaměstnanců) zaměřený na výrobu velkých
+        plastových dílů ve středních sériích a konstrukčních dílů z plastů.
+        Podnik <strong>není obchodován na veřejných trzích</strong> (to je důležité:
+        čistě tržní měřítka jako MVA či TSR pro něj nejde přímo použít).
+      </p>
+      <p>
+        Ve sledovaných třech letech podnik postupně výrazně zvýšil ziskovost tržeb
+        i kapitálu. V posledních dvou letech je rentabilita úplatného kapitálu vyšší
+        než úroková míra cizích zdrojů – podnik tedy těží z <strong>pozitivního <a class="pojem" href="t12-l5-financni-analyza-2.html?zvyraznit=pojem-efekt-financni-paky" target="_blank" rel="noopener">efektu
+        finanční páky</a></strong> při rostoucím zadlužení, aniž by přišel o likviditu
+        (ta je i ve srovnání s podobnými podniky vysoká, vysoké je i <a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-urokove-kryti" target="_blank" rel="noopener">úrokové krytí</a>).
+        Rostou tržby i přidaná hodnota na zaměstnance, přitom klesá podíl odpisů na
+        tržbách – a to i přesto, že v posledním roce podnik zvýšil investice o třetinu.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3–6 – Vývoj vybraných hodnotových ukazatelů a ukazatelů finanční analýzy v podniku TECHPLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. rok</th>
+              <th scope="col" class="cislo">2. rok</th>
+              <th scope="col" class="cislo">3. rok</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Tržby (tis. Kč)</th><td class="cislo">142 501</td><td class="cislo">148 853</td><td class="cislo">175 602</td></tr>
+            <tr><th scope="row">Přidaná hodnota (tis. Kč)</th><td class="cislo">56 024</td><td class="cislo">61 383</td><td class="cislo">73 362</td></tr>
+            <tr><th scope="row">Tržby / zaměstnance (tis. Kč)</th><td class="cislo">850</td><td class="cislo">957</td><td class="cislo">1 084</td></tr>
+            <tr><th scope="row">Přidaná hodnota / zaměstnance (tis. Kč)</th><td class="cislo">333</td><td class="cislo">393</td><td class="cislo">453</td></tr>
+            <tr><th scope="row">Výkonová spotřeba / tržby</th><td class="cislo">61,5 %</td><td class="cislo">58,4 %</td><td class="cislo">58,0 %</td></tr>
+            <tr><th scope="row">Osobní náklady / tržby</th><td class="cislo">31,7 %</td><td class="cislo">31,8 %</td><td class="cislo">31,3 %</td></tr>
+            <tr><th scope="row">Osobní náklady / přidaná hodnota</th><td class="cislo">80,6 %</td><td class="cislo">77,2 %</td><td class="cislo">74,9 %</td></tr>
+            <tr><th scope="row">Odpisy / tržby</th><td class="cislo">7,1 %</td><td class="cislo">5,5 %</td><td class="cislo">5,4 %</td></tr>
+            <tr><th scope="row">Odpisy / přidaná hodnota</th><td class="cislo">18,1 %</td><td class="cislo">13,3 %</td><td class="cislo">13,2 %</td></tr>
+            <tr><th scope="row">Běžná likvidita</th><td class="cislo">2,6</td><td class="cislo">2,7</td><td class="cislo">2,7</td></tr>
+            <tr><th scope="row">Celková zadluženost</th><td class="cislo">30,1 %</td><td class="cislo">39,6 %</td><td class="cislo">45,7 %</td></tr>
+            <tr><th scope="row">Úrokové krytí</th><td class="cislo">1,9</td><td class="cislo">15,2</td><td class="cislo">19,7</td></tr>
+            <tr><th scope="row">EBIT (tis. Kč)</th><td class="cislo">1 349</td><td class="cislo">4 992</td><td class="cislo">12 371</td></tr>
+            <tr><th scope="row">EBITDA (tis. Kč)</th><td class="cislo">11 479</td><td class="cislo">13 152</td><td class="cislo">22 134</td></tr>
+            <tr><th scope="row">NOPAT (tis. Kč)</th><td class="cislo">618</td><td class="cislo">3 141</td><td class="cislo">8 370</td></tr>
+            <tr><th scope="row">NOA (tis. Kč)</th><td class="cislo">56 719</td><td class="cislo">57 109</td><td class="cislo">76 412</td></tr>
+            <tr><th scope="row">Čistý zisk / akcii (tis. Kč)</th><td class="cislo">0,002</td><td class="cislo">0,021</td><td class="cislo">0,054</td></tr>
+            <tr><th scope="row">ROS</th><td class="cislo">0,2 %</td><td class="cislo">2,1 %</td><td class="cislo">4,5 %</td></tr>
+            <tr><th scope="row">ROE</th><td class="cislo">0,4 %</td><td class="cislo">5,4 %</td><td class="cislo">12,4 %</td></tr>
+            <tr><th scope="row">ROA</th><td class="cislo">1,6 %</td><td class="cislo">5,3 %</td><td class="cislo">10,4 %</td></tr>
+            <tr><th scope="row">RONA</th><td class="cislo">1,1 %</td><td class="cislo">5,5 %</td><td class="cislo">11,0 %</td></tr>
+            <tr><th scope="row">Rentabilita úplatných zdrojů</th><td class="cislo">2,2 %</td><td class="cislo">7,4 %</td><td class="cislo">14,9 %</td></tr>
+            <tr><th scope="row">WACC</th><td class="cislo">12,3 %</td><td class="cislo">10,5 %</td><td class="cislo">10,4 %</td></tr>
+            <tr><th scope="row">RONA − WACC (spread)</th><td class="cislo hodnota-niceni">−11,2 %</td><td class="cislo hodnota-niceni">−5,0 %</td><td class="cislo hodnota-tvorba">0,6 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">EVA = (RONA − WACC) × NOA (tis. Kč)</th><td class="cislo hodnota-niceni">−6 352</td><td class="cislo hodnota-niceni">−2 855</td><td class="cislo hodnota-tvorba">458</td></tr>
+            <tr><th scope="row">CFROI</th><td class="cislo">−2,1 %</td><td class="cislo">3,9 %</td><td class="cislo">0,5 %</td></tr>
+            <tr><th scope="row">CFROI − WACC<sub>reál</sub></th><td class="cislo hodnota-niceni">−14,4 %</td><td class="cislo hodnota-niceni">−6,6 %</td><td class="cislo hodnota-niceni">−9,9 %</td></tr>
+            <tr><th scope="row">CVA (tis. Kč)</th><td class="cislo hodnota-niceni">−15 476</td><td class="cislo hodnota-niceni">−8 944</td><td class="cislo hodnota-niceni">−866</td></tr>
+            <tr><th scope="row">Hodnota VK na základě DCF (tis. Kč)</th><td class="cislo">19 515</td><td class="cislo">21 871</td><td class="cislo">20 929</td></tr>
+            <tr><th scope="row">SVA (tis. Kč)</th><td class="cislo hodnota-tvorba">10 698</td><td class="cislo hodnota-tvorba">2 356</td><td class="cislo hodnota-niceni">−942</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Přečteme-li tabulku „napříč", zjistíme, že jednotlivá měřítka
+        <strong>nevyprávějí stejný příběh</strong>:
+      </p>
+      <ul>
+        <li><strong>Tradiční ukazatele (ROE, ROA, ROS, <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-eps" target="_blank" rel="noopener">EPS</a>)</strong> rostou po celou dobu –
+        podle nich se podniku daří stále lépe.</li>
+        <li><strong>EVA</strong> je v 1. a 2. roce záporná (zisky nestačí pokrýt náklady na kapitál),
+        teprve ve 3. roce se láme do plusu (458 tis. Kč) díky rostoucí ziskovosti a mírnému poklesu <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>.
+        Trend je pozitivní, ale úroveň dlouho signalizovala <em>ničení hodnoty</em>.</li>
+        <li><strong>CFROI</strong> (na bázi hotovostních toků) se ve 2. roce zlepší, ve 3. roce však opět
+        klesne; spread <span class="math">CFROI<span class="op">−</span>WACC<sub>reál</sub></span>
+        je ve všech letech záporný a upozorňuje na nevýhodné umístění kapitálu.</li>
+        <li><strong>SVA</strong> se naopak postupně <em>snižuje</em> (z 10 698 na −942 tis. Kč): zvýšená
+        investiční činnost ve 3. roce není adekvátní růstu výkonů a odhad budoucího vývoje (z diskontovaného
+        volného cash flow) není optimistický.</li>
+        <li><strong>CVA</strong> je záporná po celou dobu (byť se díky vyšším odpisům zlepšuje).</li>
+      </ul>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj EVA podniku TECHPLAST (tis. Kč)</p>
+          <p class="viz__popis">Záporná EVA (červená) = ničení hodnoty, kladná (zelená) = tvorba hodnoty. Trend je zřetelně pozitivní, kladné hodnoty dosahuje podnik až ve 3. roce.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-eva-techplast"></div>
+      </figure>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Poučení: různá měřítka, různé závěry</p>
+        <div class="callout__telo">
+          <p>EVA (ekonomický zisk) více odráží <strong>aktuální a nedávný</strong> vývoj hospodaření,
+          zatímco CFROI a SVA silněji zohledňují <strong>budoucí vývoj</strong> odvozený z dnešních
+          rozhodnutí a investic. Proto může EVA růst, zatímco SVA klesá. U strategických rozhodnutí
+          (zejména podpory investic) může ukazatel EVA <em>selhávat</em> – proto se doporučuje ho doplnit
+          o měřítko na bázi cash flow.</p>
+        </div>
+      </aside>
+
+      <!-- Poznámka k pojmu generátory hodnoty -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Pojem „generátory hodnoty" – zatím jen intuitivně</p>
+        <div class="callout__telo">
+          <p>V následujícím výkladu narazíte na pojem <strong><a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a></strong>
+          (<em>value drivers</em>) – faktory, které významně ovlivňují tvorbu hodnoty
+          (např. snížení podílu osobních nákladů, rychlejší růst výkonů než výkonové spotřeby,
+          vyšší podíl krátkodobých neúročených zdrojů). Zde jej berte pouze intuitivně; <strong>formálně
+          a systematicky se generátory hodnoty zavádějí až v lekci 7.1</strong> (kap. 4.1). V knize jde
+          o závěr kap. 3, takže pořadí kopírujeme podle zdroje.</p>
+        </div>
+      </aside>
+
+      <p>
+        EVA má oproti ostatním jednu praktickou výhodu: je to nástroj pro <strong>řízení
+        konkrétních činností</strong> na všech úrovních podniku – prostřednictvím identifikace,
+        měření a ovlivňování generátorů hodnoty. Konkrétně u TECHPLASTu ke zlepšení výsledku
+        hospodaření ve 2. i 3. roce vedlo snížení podílu osobních nákladů na tržbách i přidané
+        hodnotě, rychlejší růst výkonů než výkonové spotřeby, vyšší podíl krátkodobých neúročených
+        zdrojů (při zachované likviditě) i nižší odpisy a tvorba rezerv.
+      </p>
+
+      <!-- ================= VELKÁ POROVNÁVACÍ TABULKA 3-7 ================= -->
+      <h2>Silné a slabé stránky měřítek: velká srovnávací tabulka</h2>
+      <p>
+        Tabulka 3–7 shrnuje vybraná měřítka pro měření a řízení výkonnosti. U každého
+        je uvedeno, v jakých <strong>jednotkách</strong> jej lze vykázat, zda v sobě zahrnuje
+        náklady na cizí kapitál (<span class="math">N<sub>CK</sub></span>) a náklady na vlastní
+        kapitál (<span class="math">N<sub>VK</sub></span>), zda je <strong>upraveno o inflaci</strong>,
+        a jak se hodí pro různé oblasti řízení (plánování, ocenění, portfolio management, odměňování).
+        Atributy lze doplnit a jsou samozřejmě předmětem diskuse.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3–7 – Porovnání výkonnostních měřítek</caption>
+          <thead>
+            <tr>
+              <th scope="col">Atribut</th>
+              <th scope="col" class="cislo">EBIT</th>
+              <th scope="col" class="cislo">NOPAT</th>
+              <th scope="col" class="cislo">ČZ</th>
+              <th scope="col" class="cislo">RONA</th>
+              <th scope="col" class="cislo">EPS</th>
+              <th scope="col" class="cislo">EVA</th>
+              <th scope="col" class="cislo">RI</th>
+              <th scope="col" class="cislo">CVA</th>
+              <th scope="col" class="cislo">MVA</th>
+              <th scope="col" class="cislo">TSR</th>
+              <th scope="col" class="cislo">Excess Return</th>
+              <th scope="col" class="cislo">Volné CF</th>
+              <th scope="col" class="cislo">DCF/SVA</th>
+              <th scope="col" class="cislo">CFROI</th>
+              <th scope="col" class="cislo">TBR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Jednotka</th><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">%</td><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">%</td><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">Kč</td><td class="cislo">%</td><td class="cislo">%</td></tr>
+            <tr><th scope="row">Náklady na CK (N<sub>CK</sub>)</th><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">*</td><td class="cislo">*</td><td class="cislo">ano</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ne**</td><td class="cislo">ano</td></tr>
+            <tr><th scope="row">Náklady na VK (N<sub>VK</sub>)</th><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">*</td><td class="cislo">*</td><td class="cislo">ano</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ne**</td><td class="cislo">ano</td></tr>
+            <tr><th scope="row">Úprava o inflaci</th><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ano</td></tr>
+            <tr><th scope="row">Měřitelné na divizní úrovni</th><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td></tr>
+            <tr><th scope="row">Obsahuje hodnotu růstových příležitostí</th><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ano</td><td class="cislo">ne</td><td class="cislo">ano</td><td class="cislo">ne</td><td class="cislo">ano</td></tr>
+            <tr><th scope="row">Podnikové plánování</th><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">0</td><td class="cislo">++</td></tr>
+            <tr><th scope="row">Ocenění podniku</th><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">++</td><td class="cislo">+</td><td class="cislo">++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+</td><td class="cislo">+++</td><td class="cislo">+</td><td class="cislo">+</td></tr>
+            <tr><th scope="row">Portfolio management</th><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+</td><td class="cislo">+++</td><td class="cislo">++</td><td class="cislo">+</td></tr>
+            <tr><th scope="row">Odměňování</th><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+++</td><td class="cislo">++</td><td class="cislo">++</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">+</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">Jednoduchost řízení a komunikace</th><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">+++</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">+++</td><td class="cislo">++</td><td class="cislo">0</td><td class="cislo">+</td></tr>
+            <tr><th scope="row">Náročnost výpočtu***</th><td class="cislo">1</td><td class="cislo">2</td><td class="cislo">1</td><td class="cislo">2</td><td class="cislo">1</td><td class="cislo">4</td><td class="cislo">3</td><td class="cislo">3</td><td class="cislo">1</td><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">1</td><td class="cislo">4</td><td class="cislo">5</td><td class="cislo">5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tabulka-obal">
+        <p class="tabulka-popis"><strong>Vysvětlivky:</strong> +++ vysoká možnost využití, ++ střední,
+        + nízká, 0 nelze využít.
+        <br>* Náklady na kapitál nejsou u tržních ukazatelů explicitně vyjádřeny, jsou však reflektovány
+        v diskontní sazbě převodu budoucích CF nebo EVA na současnou hodnotu.
+        <br>** U CFROI jsou náklady na kapitál obsaženy až ve spreadu
+        <span class="math">CFROI<span class="op">−</span>WACC<sub>reál</sub></span> a při ocenění podniku.
+        <br>*** Náročnost výpočtu: 1 – jednoduchý, 2 – jednoduchý s nutností úprav, 3 – mírně náročný,
+        4 – průměrně náročný, 5 – náročný.</p>
+      </div>
+
+      <p>
+        Z tabulky je dobře čitelné, proč žádné jediné měřítko nevyhrává ve všech řádcích.
+        Například <strong>EVA</strong> vede v odměňování a je snadno komunikovatelná, ale sama
+        nezahrnuje hodnotu růstových příležitostí. <strong>Tržní měřítka (MVA, TSR, Excess Return)</strong>
+        jsou skvělá pro ocenění a portfolio management, ale nejdou měřit na divizní úrovni a předpokládají
+        veřejně obchodovaný podnik. <strong>CFROI a TBR</strong> jako jediná upravují data o inflaci,
+        zato jsou výpočetně nejnáročnější.
+      </p>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Které jediné dva ukazatele v tabulce 3–7 mají v řádku „Úprava o inflaci" hodnotu
+          „ano"? A proč je právě tato vlastnost jejich hlavní devízou při srovnávání podniků?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Jsou to <strong>CFROI</strong> a <strong>TBR</strong>. Oba pracují s reálnými
+            (inflačně očištěnými) hodnotami brutto investiční základny i cash flow. Díky tomu
+            umožňují smysluplně porovnávat výkonnost podniků s <em>různě starým</em> majetkem,
+            v různých odvětvích i v různých zemích – tam, kde by nominální (účetní) hodnoty
+            zkreslené inflací srovnání znemožnily.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= NEW ECONOMY + ŘETĚZEC ================= -->
+      <h2>„New Economy" a řetězec zvyšování hodnoty</h2>
+      <p>
+        Poslední řádky tabulky napovídají, kam směřuje vývoj. V podmínkách tzv.
+        <strong>„New Economy"</strong> je stále důležitější umět používat měřítka, která
+        zahrnují <strong>budoucí růstové příležitosti</strong>.
+      </p>
+
+      <section class="definice" id="pojem-new-economy">
+        <h3 class="definice__pojem">„New Economy"</h3>
+        <div class="definice__telo">
+          <p>Podniky „nové ekonomiky" vznikly zpravidla nedávno, nemají téměř žádnou historii
+          a vyznačují se nízkým stavem hmotného majetku. Velkou část kapitálu mají v podobě
+          <strong>lidského kapitálu s vysokým know-how</strong>, kapacit výzkumu a vývoje apod.
+          Ze začátku obvykle vykazují vysoké ztráty, ale slibují vysoké budoucí růstové příležitosti.
+          Nesprávný odhad těchto příležitostí (jejich přecenění i podcenění) může vést
+          k fatálním chybám při rozhodování o investicích.</p>
+        </div>
+      </section>
+
+      <p>
+        Pro účinné řízení výkonnosti proto autoři doporučují <strong>kombinovat</strong> hodnotové
+        ukazatele na bázi ekonomického zisku (např. EVA) i na bázi cash flow (např. SVA, <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">DCF</a>, CFROI).
+        Každá skupina má totiž jinou roli v čase:
+      </p>
+      <ul>
+        <li><strong>EVA</strong> umožňuje ovlivňovat hospodaření na <em>všech úrovních</em> podniku
+        a zapojit i motivovat všechny pracovníky pomocí vhodně nastavených dílčích měřítek – to měřítka
+        koncipovaná jen na bázi celopodnikových výkonů neumí.</li>
+        <li><strong>CFROI, DCF, SVA</strong> jsou naopak výhodné pro <em>rozhodování o investicích</em>
+        a pro portfolio management, protože obsahují odhad budoucího vývoje.</li>
+      </ul>
+
+      <section class="definice" id="pojem-retezec-zvysovani-hodnoty">
+        <h3 class="definice__pojem">Řetězec zvyšování hodnoty</h3>
+        <div class="definice__telo">
+          <p>Uspořádání nástrojů řízení výkonnosti do tří provázaných úrovní podle časového horizontu:
+          <strong>(1) klíčové provozní ukazatele – generátory hodnoty</strong> (použitelné na všech
+          úrovních řízení, operativně) → <strong>(2) ekonomický zisk (např. EVA)</strong> pro hodnocení
+          s krátkodobým až střednědobým výhledem → <strong>(3) cash flow (např. CFROI, DCF, SVA)</strong>
+          jako dlouhodobá hodnota obsahující odhad budoucího vývoje. Cílem je současně uplatnit
+          <strong>operativní i strategický</strong> aspekt řízení hodnoty podniku.</p>
+        </div>
+      </section>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Řetězec zvyšování hodnoty (tři úrovně horizontu)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další": řetězec se buduje odspodu –
+          od operativních generátorů hodnoty přes ekonomický zisk až po dlouhodobá měřítka na bázi cash flow.</p>
+        </figcaption>
+        <div id="viz-retezec"></div>
+      </figure>
+
+      <p>
+        Předchozí případová studie TECHPLAST tento princip potvrzuje: různé přístupy měření dávají
+        <strong>rozdílné pohledy</strong> na tentýž podnik, a proto je nezbytné při hodnocení úspěšnosti
+        použít <strong>více hledisek</strong> současně. Volba měřítka se tak řídí především <strong>účelem</strong>
+        (plánování, ocenění, portfolio management, odměňování) a <strong>horizontem</strong> řízení.
+      </p>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Volba měřítka podle účelu – ve zkratce</p>
+        <div class="callout__telo">
+          <p><strong>Odměňování a řízení na všech úrovních:</strong> EVA (příp. <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-rezidualni-zisk" target="_blank" rel="noopener">RI</a>, CVA) – snadno
+          se rozkládá na dílčí generátory a dobře se komunikuje.<br>
+          <strong>Ocenění podniku:</strong> tržní měřítka (MVA, TSR, Excess Return) a DCF/SVA.<br>
+          <strong>Portfolio management:</strong> TSR, Excess Return, DCF/SVA, CFROI.<br>
+          <strong>Srovnání napříč odvětvími a zeměmi:</strong> CFROI a TBR (úprava o inflaci).</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik TECHPLAST vykázal ve 3. roce kladnou EVA (+458 tis. Kč), ale zápornou SVA
+          (−942 tis. Kč). Jak je možné, že jedno „hodnotové" měřítko říká, že podnik hodnotu tvoří,
+          a druhé, že ji ničí?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Obě měřítka mají jiný časový horizont. <strong>EVA</strong> hodnotí ekonomický zisk
+            <em>daného roku</em> – a ten se díky rostoucí ziskovosti a mírnému poklesu WACC dostal
+            do plusu. <strong>SVA</strong> naproti tomu zohledňuje <em>budoucí</em> vývoj: podnik ve
+            3. roce zvýšil investice o třetinu, ale tento nárůst není adekvátní růstu výkonů, takže
+            odhad budoucího volného cash flow není optimistický. EVA tedy může u strategických
+            rozhodnutí (podpory investic) selhávat – proto se doplňuje měřítkem na bázi cash flow.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč nelze u podniku TECHPLAST použít čistě tržní měřítka jako MVA nebo TSR?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co tato měřítka potřebují ke svému výpočtu a čím je TECHPLAST specifický?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>TECHPLAST <strong>není obchodován na veřejných trzích</strong>, takže nemá tržní cenu akcií. Tržní měřítka (MVA, TSR, Excess Return) přitom vycházejí z tržní hodnoty podniku, resp. z ceny akcií a výnosu akcionáře – bez veřejného obchodování je nelze přímo změřit (v tabulce 3–7 mají „ne" v řádku měřitelnosti na divizní úrovni).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Které dvě vlastnosti odlišují CFROI a TBR od většiny ostatních měřítek v tabulce 3–7?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na řádky „Úprava o inflaci" a „Náročnost výpočtu".</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Jako jediná měřítka jsou <strong>upravena o inflaci</strong> (pracují s reálnými hodnotami), což umožňuje srovnávat podniky napříč odvětvími i zeměmi. Zároveň jsou <strong>výpočetně nejnáročnější</strong> (stupeň 5). CFROI navíc obsahuje náklady na kapitál až ve spreadu <span class="math">CFROI<span class="op">−</span>WACC<sub>reál</sub></span>.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Popište tři úrovně řetězce zvyšování hodnoty a jejich časový horizont.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Řetězec jde od operativních ukazatelů po dlouhodobou hodnotu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>(1) <strong>Generátory hodnoty</strong> – klíčové provozní ukazatele použitelné na všech úrovních řízení (operativní horizont). (2) <strong>Ekonomický zisk</strong> (např. EVA) – hodnocení s krátkodobým až střednědobým výhledem. (3) <strong>Cash flow</strong> (CFROI, DCF, SVA) – dlouhodobá hodnota obsahující odhad budoucího vývoje. Cílem je propojit operativní i strategický aspekt řízení hodnoty.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč je u podniků „New Economy" zvlášť důležité používat měřítka zahrnující růstové příležitosti?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kde mají tyto podniky uloženou hodnotu a jak vypadají jejich současné výsledky?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podniky „New Economy" mají málo hmotného majetku, hodnota je uložena v lidském kapitálu, know-how a kapacitách výzkumu a vývoje. Zpočátku často vykazují ztráty, ale slibují vysoký budoucí růst. Měřítka orientovaná jen na současné výsledky by je podhodnotila; hodnota se skrývá v budoucích růstových příležitostech, jejichž nesprávný odhad může vést k fatálním investičním chybám.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Které měřítko byste doporučili pro odměňování manažerů a proč?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se do tabulky 3–7 na řádek „Odměňování" a zvažte, které měřítko lze rozložit na dílčí úrovně řízení.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>EVA</strong> (v řádku „Odměňování" má nejvyšší hodnocení +++). Umožňuje ovlivňovat hospodaření na všech úrovních podniku a rozložit se na dílčí generátory hodnoty, na které lze navázat motivaci konkrétních manažerů (např. výrobní manažer na dobu obratu zásob). Je také snadno komunikovatelná.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t6-l3-cfroi-tbr-croga.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">6.3 CFROI – oceňování, zhodnocení, TBR a CROGA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t7-l1-generatory-hodnoty.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">7.1 Generátory hodnoty</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: vývoj EVA podniku TECHPLAST (tis. Kč)
+      Skripta.sloupcovyGraf('viz-eva-techplast', {
+        sirka: 640, vyska: 300, formatDesetin: 0,
+        data: [
+          { popisek: '1. rok', hodnota: -6352 },
+          { popisek: '2. rok', hodnota: -2855 },
+          { popisek: '3. rok', hodnota: 458 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: řetězec zvyšování hodnoty (tři úrovně)
+      // Tři pásy se odkrývají zdola nahoru; roste časový horizont řízení.
+      var pasy = [
+        // y, výška, barva, titul, podtitul, popisek horizontu (vpravo)
+        { id: 'gen', y: 246, fill: '#6366f1', titul: 'Generátory hodnoty',
+          podtitul: 'klíčové provozní ukazatele', horizont: 'operativní řízení', min: 1 },
+        { id: 'eva', y: 154, fill: '#0ea5e9', titul: 'Ekonomický zisk (EVA)',
+          podtitul: 'ekonomický zisk po nákladech na kapitál', horizont: 'krátkodobě–střednědobě', min: 2 },
+        { id: 'cf',  y: 62,  fill: '#10b981', titul: 'Cash flow (CFROI, DCF, SVA)',
+          podtitul: 'obsahuje odhad budoucího vývoje', horizont: 'dlouhodobě / strategicky', min: 3 }
+      ];
+
+      Skripta.stepper('viz-retezec', {
+        sirka: 760, vyska: 360,
+        stavy: [ { krok: 1 }, { krok: 2 }, { krok: 3 } ],
+        popisky: [
+          'Základ řetězce: klíčové provozní ukazatele – generátory hodnoty. Řídí se na všech úrovních podniku, operativně.',
+          'Nad nimi stojí ekonomický zisk (např. EVA) – hodnocení s krátkodobým až střednědobým výhledem.',
+          'Nejvýše cash flow (CFROI, DCF, SVA) – dlouhodobá hodnota obsahující odhad budoucího vývoje.'
+        ],
+        render: function (svg, stav, i, u) {
+          var bx = 70, bw = 500, bh = 74;
+
+          // Svislá šipka horizontu vlevo (roste zdola nahoru)
+          u.dej(svg, 'osa-horizont', 'line', {
+            x1: 40, y1: 322, x2: 40, y2: 52,
+            stroke: u.barvaOsa, 'stroke-width': 2
+          });
+          u.dej(svg, 'osa-sipka', 'polygon', {
+            points: '40,44 34,58 46,58', fill: u.barvaOsa
+          });
+          u.dej(svg, 'osa-popis-d', 'text', {
+            x: 24, y: 318, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 11
+          }, 'dnes');
+          u.dej(svg, 'osa-popis-h', 'text', {
+            x: 24, y: 40, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 11
+          }, 'budoucnost');
+
+          pasy.forEach(function (p) {
+            var viditelny = stav.krok >= p.min;
+            var op = viditelny ? 1 : 0.12;
+
+            // Pás (zaoblený obdélník)
+            u.dej(svg, 'pas-' + p.id, 'rect', {
+              x: bx, y: p.y, width: bw, height: bh, rx: 10,
+              fill: p.fill, opacity: op
+            });
+            // Titul pásu (bílý)
+            u.dej(svg, 'titul-' + p.id, 'text', {
+              x: bx + 20, y: p.y + 32, 'text-anchor': 'start',
+              fill: '#ffffff', 'font-size': 17, 'font-weight': 700, opacity: op
+            }, p.titul);
+            // Podtitul pásu
+            u.dej(svg, 'pod-' + p.id, 'text', {
+              x: bx + 20, y: p.y + 54, 'text-anchor': 'start',
+              fill: '#eef2ff', 'font-size': 12.5, opacity: op
+            }, p.podtitul);
+            // Popisek horizontu vpravo od pásu
+            u.dej(svg, 'hor-' + p.id, 'text', {
+              x: bx + bw + 16, y: p.y + 42, 'text-anchor': 'start',
+              fill: u.barvaText, 'font-size': 12.5, 'font-weight': 600, opacity: viditelny ? 1 : 0.2
+            }, p.horizont);
+          });
+
+          // Spojovací šipky mezi pásy (objeví se s horním pásem)
+          u.dej(svg, 'spoj-eva', 'line', {
+            x1: bx + bw / 2, y1: 246, x2: bx + bw / 2, y2: 228,
+            stroke: u.barvaOsa, 'stroke-width': 2, 'stroke-dasharray': '4 4',
+            opacity: stav.krok >= 2 ? 1 : 0
+          });
+          u.dej(svg, 'spoj-cf', 'line', {
+            x1: bx + bw / 2, y1: 154, x2: bx + bw / 2, y2: 136,
+            stroke: u.barvaOsa, 'stroke-width': 2, 'stroke-dasharray': '4 4',
+            opacity: stav.krok >= 3 ? 1 : 0
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

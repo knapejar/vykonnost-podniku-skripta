@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7.4 Krycí příspěvek a moderní kalkulace nákladů (ABC) – Výkonnost podniku</title>
+  <meta name="description" content="Příspěvek na úhradu (krycí příspěvek) jako nástroj sortimentního rozhodování, problém režijních nákladů a metoda Activity-Based Costing (ABC/ABM).">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="7.4" aria-label="Lekce tématu 7">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 7</div>
+      <div class="panel__nazev-tema">Generátory hodnoty a řízení výnosů, nákladů a zisku</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="7.1" href="t7-l1-generatory-hodnoty.html"><span class="panel__odkaz-cislo">7.1</span><span>Generátory hodnoty</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.2" href="t7-l2-pyramidovy-rozklad-eva.html"><span class="panel__odkaz-cislo">7.2</span><span>Pyramidové soustavy ukazatelů – rozklad EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.3" href="t7-l3-bod-zvratu-provozni-paka.html"><span class="panel__odkaz-cislo">7.3</span><span>Tržby a řízení nákladů – bod zvratu a provozní páka</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.4" href="t7-l4-kryci-prispevek-abc.html"><span class="panel__odkaz-cislo">7.4</span><span>Krycí příspěvek a moderní kalkulace nákladů (ABC)</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.5" href="t7-l5-dividendova-politika.html"><span class="panel__odkaz-cislo">7.5</span><span>Konkurenceschopnost, rozdělování zisku a dividendová politika</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.6" href="t7-l6-vyuziti-majetku.html"><span class="panel__odkaz-cislo">7.6</span><span>Analýza využití majetku</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-7">Téma 7 · Generátory hodnoty</a></li>
+          <li><span aria-current="page">Lekce 7.4</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 7.4</span>
+        <h1>Krycí příspěvek a moderní kalkulace nákladů (ABC)</h1>
+        <p class="lekce-hlavicka__strany">Strany 122–127</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme náklady rozdělili na fixní a variabilní a pomocí <a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-bod-zvratu" target="_blank" rel="noopener">bodu
+        zvratu</a> i <a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-provozni-paka" target="_blank" rel="noopener">provozní páky</a> jsme sledovali, jak zisk reaguje na změnu objemu. Teď
+        se posuneme od <em>objemu</em> k <em>sortimentu</em>: podnik obvykle vyrábí
+        celou řadu výrobků, každý s jiným individuálním ziskem, a celkový výsledek se
+        mění tím, jak roste či klesá podíl více nebo méně ziskových výrobků. Klíčovou
+        otázkou pak je, <strong>které výrobky ponechat v nabídce a které vyřadit</strong>.
+      </p>
+      <p>
+        Ukážeme si, že odpověď „vyřaď každý ztrátový výrobek" bývá chybná. Nástrojem,
+        který vede k lepšímu rozhodnutí, je
+        <a class="pojem" href="#pojem-prispevek-na-uhradu">příspěvek na úhradu</a>.
+        V druhé části lekce se pak podíváme, proč vůbec bývá „zisk na výrobek"
+        zavádějící – problém tkví v <a class="pojem" href="#pojem-rezie">režijních
+        nákladech</a> – a jak jej řeší moderní metoda
+        <a class="pojem" href="#pojem-abc">Activity-Based Costing (ABC)</a>.
+      </p>
+
+      <!-- =================================================================== -->
+      <h2>Příspěvek na úhradu (krycí příspěvek)</h2>
+
+      <p>
+        Zisk připadající na jednotlivý výrobek je silně ovlivněn tím, jak se na
+        výrobky rozpouštějí <strong><a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-fixni-naklady" target="_blank" rel="noopener">fixní náklady</a></strong>. Protože jejich podíl
+        v nákladech neustále roste, může se stát, že se výrobek jeví jako ztrátový
+        jen kvůli způsobu rozpočítání fixní režie – ačkoli ve skutečnosti přispívá
+        na její úhradu. Proto se pro výběr sortimentu doporučuje pracovat spíše
+        s příspěvkem na úhradu fixních nákladů a zisku, tzv. <em>krycím příspěvkem</em>.
+      </p>
+
+      <section class="definice" id="pojem-prispevek-na-uhradu">
+        <h3 class="definice__pojem">Příspěvek na úhradu (krycí příspěvek)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi tržbami výrobku a jeho <a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-variabilni-naklady" target="_blank" rel="noopener">variabilními náklady</a>. Vyjadřuje,
+            <strong>kolik daný výrobek „přispívá" na úhradu společných fixních
+            nákladů a na tvorbu zisku</strong>. Dokud je příspěvek na úhradu kladný,
+            výrobek pomáhá pokrýt fixní náklady – i kdyby byl po plném rozpočítání
+            režie účetně ztrátový.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-4-8">
+        <div class="vzorec__telo">
+          <span class="math">Příspěvek na úhradu<span class="op">=</span>Tržby<span class="op">−</span>Variabilní náklady</span>
+        </div>
+        <div class="vzorec__cislo">(4.8)</div>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč právě příspěvek na úhradu</p>
+        <div class="callout__telo">
+          <p>
+            Variabilní náklady výrobek „utrpí" jen tehdy, když se skutečně vyrábí.
+            Fixní náklady naopak vzniknou tak jako tak. V okamžiku rozhodování o tom,
+            zda výrobek ponechat, jsou tedy fixní náklady většinou <strong>neovlivnitelné
+            (utopené)</strong> – proto je pro rozhodnutí rozhodující, zda výrobek pokryje
+            aspoň své variabilní náklady a něco navíc přispěje na fixní režii.
+          </p>
+        </div>
+      </aside>
+
+      <!-- =================================================================== -->
+      <h2>Řešené příklady 4.2: rozhodování o sortimentu</h2>
+
+      <p>
+        Podnik nabízí tři výrobky – <strong>A, B a C</strong>. Fixní náklady ve výši
+        <span class="math">3 000</span> Kč se na jednotlivé výrobky rozpočítávají
+        podle výše variabilních nákladů, které na ně byly vynaloženy. Následující
+        příklady 4.2a–4.2d postupně zkoumají, jak se různá rozhodnutí projeví na
+        výsledku hospodaření.
+      </p>
+
+      <!-- Příklad 4.2a -->
+      <h3>Příklad 4.2a – Vyplatí se ztrátový výrobek C ponechat?</h3>
+      <p>
+        Rozhodněte o pokračování v nabídce produktů A, B a C, nebo o zastavení jejich
+        výroby, na základě těchto podnikových údajů.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4.2a – Výchozí sortiment (v Kč, fixní náklady rozpočítány podle variabilních nákladů)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">A</th>
+              <th scope="col" class="cislo">B</th>
+              <th scope="col" class="cislo">C</th>
+              <th scope="col" class="cislo">Σ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Počet ks</th><td class="cislo">50</td><td class="cislo">40</td><td class="cislo">30</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Cena za 1 ks</th><td class="cislo">30</td><td class="cislo">50</td><td class="cislo">25</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Variabilní náklady</th><td class="cislo">250</td><td class="cislo">480</td><td class="cislo">270</td><td class="cislo">1 000</td></tr>
+            <tr><th scope="row">Fixní náklady</th><td class="cislo">750</td><td class="cislo">1 440</td><td class="cislo">810</td><td class="cislo">3 000</td></tr>
+            <tr><th scope="row">Celkové výnosy</th><td class="cislo">1 500</td><td class="cislo">2 000</td><td class="cislo">750</td><td class="cislo">4 250</td></tr>
+            <tr><th scope="row">Celkové náklady</th><td class="cislo">1 000</td><td class="cislo">1 920</td><td class="cislo">1 080</td><td class="cislo">4 000</td></tr>
+            <tr><th scope="row">Výsledek hospodaření</th><td class="cislo hodnota-tvorba">500</td><td class="cislo hodnota-tvorba">80</td><td class="cislo hodnota-niceni">−330</td><td class="cislo hodnota-tvorba">250</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Příspěvek na úhradu</th><td class="cislo">1 250</td><td class="cislo">1 520</td><td class="cislo">480</td><td class="cislo hodnota-tvorba">3 250</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Výrobek C vykazuje účetní ztrátu −330 Kč (po rozpočítání 810 Kč fixních
+        nákladů). Přesto jeho příspěvek na úhradu činí
+        <span class="math">750<span class="op">−</span>270<span class="op">=</span>480</span> Kč –
+        tolik peněz přispívá na společné fixní náklady. <strong>Neměl by být vyřazen</strong>
+        v době, kdy je nutné již vynaložené fixní náklady uhradit.
+      </p>
+
+      <!-- Krokový stepper -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Sortimentní rozhodnutí a příspěvek na úhradu</p>
+          <p class="viz__popis">Projděte tlačítky „Zpět / Další" čtyři varianty (příklady 4.2a–4.2d) a sledujte, jak se celkový příspěvek na úhradu láme o hranici fixních nákladů (3 000 Kč) a rozhoduje o zisku či ztrátě.</p>
+        </figcaption>
+        <div id="viz-sortiment"></div>
+      </figure>
+
+      <!-- Příklad 4.2b -->
+      <h3>Příklad 4.2b – Zdvojnásobení produkce výrobku C</h3>
+      <p>
+        Jak by se na výsledku hospodaření projevilo rozhodnutí zdvojnásobit produkci
+        výrobku C (z 30 na 60 ks)? Výchozí údaje platí ze zadání 4.2a.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4.2b – Zdvojnásobení produkce C (v Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">A</th>
+              <th scope="col" class="cislo">B</th>
+              <th scope="col" class="cislo">C</th>
+              <th scope="col" class="cislo">Σ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Počet ks</th><td class="cislo">50</td><td class="cislo">40</td><td class="cislo">60</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Cena za 1 ks</th><td class="cislo">30</td><td class="cislo">50</td><td class="cislo">25</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Variabilní náklady</th><td class="cislo">250</td><td class="cislo">480</td><td class="cislo">540</td><td class="cislo">1 270</td></tr>
+            <tr><th scope="row">Fixní náklady</th><td class="cislo">591</td><td class="cislo">1 134</td><td class="cislo">1 276</td><td class="cislo">3 000</td></tr>
+            <tr><th scope="row">Celkové výnosy</th><td class="cislo">1 500</td><td class="cislo">2 000</td><td class="cislo">1 500</td><td class="cislo">5 000</td></tr>
+            <tr><th scope="row">Celkové náklady</th><td class="cislo">841</td><td class="cislo">1 614</td><td class="cislo">1 816</td><td class="cislo">4 270</td></tr>
+            <tr><th scope="row">Výsledek hospodaření</th><td class="cislo hodnota-tvorba">659</td><td class="cislo hodnota-tvorba">386</td><td class="cislo hodnota-niceni">−316</td><td class="cislo hodnota-tvorba">730</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Příspěvek na úhradu</th><td class="cislo">1 250</td><td class="cislo">1 520</td><td class="cislo">960</td><td class="cislo hodnota-tvorba">3 730</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        I když výrobek C zůstává „ztrátový" (−316 Kč), zdvojnásobení jeho produkce
+        <strong>zvýší zisk podniku</strong> z 250 na 730 Kč: kryje totiž stále větší
+        část fixních nákladů (jeho příspěvek vzrostl z 480 na 960 Kč).
+      </p>
+
+      <!-- Příklad 4.2c -->
+      <h3>Příklad 4.2c – Zrušení nabídky výrobku C</h3>
+      <p>
+        Jak by dopadlo rozhodnutí výrobek C ze sortimentu úplně vyřadit?
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4.2c – Zrušení výrobku C (v Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">A</th>
+              <th scope="col" class="cislo">B</th>
+              <th scope="col" class="cislo">C</th>
+              <th scope="col" class="cislo">Σ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Počet ks</th><td class="cislo">50</td><td class="cislo">40</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Cena za 1 ks</th><td class="cislo">30</td><td class="cislo">50</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Variabilní náklady</th><td class="cislo">250</td><td class="cislo">480</td><td class="cislo">—</td><td class="cislo">730</td></tr>
+            <tr><th scope="row">Fixní náklady</th><td class="cislo">1 027</td><td class="cislo">1 973</td><td class="cislo">—</td><td class="cislo">3 000</td></tr>
+            <tr><th scope="row">Celkové výnosy</th><td class="cislo">1 500</td><td class="cislo">2 000</td><td class="cislo">—</td><td class="cislo">3 500</td></tr>
+            <tr><th scope="row">Celkové náklady</th><td class="cislo">1 277</td><td class="cislo">2 453</td><td class="cislo">—</td><td class="cislo">3 730</td></tr>
+            <tr><th scope="row">Výsledek hospodaření</th><td class="cislo hodnota-tvorba">223</td><td class="cislo hodnota-niceni">−453</td><td class="cislo">—</td><td class="cislo hodnota-niceni">−230</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Příspěvek na úhradu</th><td class="cislo">1 250</td><td class="cislo">1 520</td><td class="cislo">—</td><td class="cislo hodnota-niceni">2 770</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Vyřazení C přinese podniku <strong>ztrátu −230 Kč</strong>. O jeho podíl na
+        fixních nákladech se totiž musí podělit výrobky A a B – a výrobek B se tím
+        sám stane ztrátovým. Celkový příspěvek na úhradu klesl na 2 770 Kč, což už
+        nepokryje fixní náklady 3 000 Kč.
+      </p>
+
+      <!-- Příklad 4.2d -->
+      <h3>Příklad 4.2d – Snížení ceny výrobku C na 9 Kč/ks</h3>
+      <p>
+        A co když výrobek C ponecháme, ale srazíme jeho cenu na 9 Kč/ks?
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4.2d – Snížení ceny C na 9 Kč/ks (v Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">A</th>
+              <th scope="col" class="cislo">B</th>
+              <th scope="col" class="cislo">C</th>
+              <th scope="col" class="cislo">Σ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Počet ks</th><td class="cislo">50</td><td class="cislo">40</td><td class="cislo">30</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Cena za 1 ks</th><td class="cislo">30</td><td class="cislo">50</td><td class="cislo">9</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Variabilní náklady</th><td class="cislo">250</td><td class="cislo">480</td><td class="cislo">270</td><td class="cislo">1 000</td></tr>
+            <tr><th scope="row">Fixní náklady</th><td class="cislo">750</td><td class="cislo">1 440</td><td class="cislo">810</td><td class="cislo">3 000</td></tr>
+            <tr><th scope="row">Celkové výnosy</th><td class="cislo">1 500</td><td class="cislo">2 000</td><td class="cislo">270</td><td class="cislo">3 770</td></tr>
+            <tr><th scope="row">Celkové náklady</th><td class="cislo">1 000</td><td class="cislo">1 920</td><td class="cislo">1 080</td><td class="cislo">4 000</td></tr>
+            <tr><th scope="row">Výsledek hospodaření</th><td class="cislo hodnota-tvorba">500</td><td class="cislo hodnota-tvorba">80</td><td class="cislo hodnota-niceni">−810</td><td class="cislo hodnota-niceni">−230</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Příspěvek na úhradu</th><td class="cislo">1 250</td><td class="cislo">1 520</td><td class="cislo">0</td><td class="cislo hodnota-niceni">2 770</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Cena 9 Kč/ks je hranicí výhodnosti</p>
+        <div class="callout__telo">
+          <p>
+            Při ceně 9 Kč/ks je tržba výrobku C přesně rovna jeho variabilním nákladům
+            (30 ks × 9 Kč = 270 Kč = variabilní náklady). Příspěvek na úhradu je tedy
+            <strong>nulový</strong> – výrobek nepřispěje na fixní náklady ani korunou.
+            Výsledek je stejný jako při jeho úplném zrušení (ztráta −230 Kč). Cena
+            9 Kč/ks proto představuje <strong>dolní hranici výhodnosti</strong>: pokryje
+            už jen variabilní náklady spojené s výrobou C.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Zkus sám 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Vraťte se k výchozímu zadání 4.2a. Výrobek C má tržby 750 Kč a variabilní
+            náklady 270 Kč, po rozpočítání fixních nákladů však vykazuje účetní ztrátu
+            −330 Kč. Proč přesto může být chybou ho vyřadit? Podpořte odpověď výpočtem.
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Příspěvek na úhradu výrobku C je
+              <span class="math">750<span class="op">−</span>270<span class="op">=</span>480</span> Kč.
+              O těchto 480 Kč by při vyřazení C přišla úhrada fixních nákladů – a tyto
+              fixní náklady (celkem 3 000 Kč) by nezmizely, jen by se přesunuly na
+              výrobky A a B. Celkový příspěvek podniku by klesl z 3 250 na 2 770 Kč,
+              což už nepokryje fixní náklady, a podnik by se propadl ze zisku 250 Kč do
+              ztráty −230 Kč (viz příklad 4.2c). Rozhodující tedy není účetní ztráta
+              výrobku, ale jeho <strong>kladný příspěvek na úhradu</strong>.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- =================================================================== -->
+      <h2>Problém režijních nákladů a tradiční kalkulace</h2>
+
+      <p>
+        Příklady 4.2 ukázaly, jak citlivé je rozhodování na tom, jak přesně umíme
+        přiřadit náklady jednotlivým výrobkům. Variabilní náklady problém nečiní –
+        lze je určit jako <strong>přímé náklady</strong> na jednotku produkce (přímý
+        materiál, přímé mzdy a další). Potíž nastává u <strong>režie</strong>: při
+        výrobě více druhů výrobků není jednoduché rozhodnout, kolik nepřímých nákladů
+        každému z nich přiřadit.
+      </p>
+
+      <section class="definice" id="pojem-rezie">
+        <h3 class="definice__pojem">Režie (režijní náklady)</h3>
+        <div class="definice__telo">
+          <p>
+            Nepřímé náklady, které nelze jednoznačně přiřadit jednomu výrobku –
+            například odpisy, pronájmy, opravy nebo platy. Podle oblasti vzniku se
+            člení na režii <strong>výrobní, správní, zásobovací a odbytovou</strong>.
+            Protože jejich podíl na celkových nákladech roste, je způsob jejich
+            rozdělení mezi výrobky pro správné rozhodování zásadní.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Tradičním řešením je <strong>kalkulace pomocí režijních přirážek</strong>:
+        každému výrobku se přiřadí část režie na základě tzv.
+        <a class="pojem" href="#pojem-rozvrhova-zaklada">rozvrhové základny</a>. Tou
+        bývají obvykle přímé náklady (nejčastěji přímé mzdy nebo součet všech přímých
+        nákladů – jako v příkladu 4.2), případně strojohodiny, ks, kg apod. Postup je
+        jednoduchý a podniky ho hojně využívají.
+      </p>
+
+      <section class="definice" id="pojem-rozvrhova-zaklada">
+        <h3 class="definice__pojem">Rozvrhová základna</h3>
+        <div class="definice__telo">
+          <p>
+            Veličina, podle níž se v tradiční kalkulaci rozděluje režie mezi výrobky
+            (např. přímé mzdy, přímé náklady celkem, strojohodiny, ks). Poměr výrobku
+            na této základně určuje i jeho podíl na společných režijních nákladech.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Háček tradiční kalkulace</p>
+        <div class="callout__telo">
+          <p>
+            Rozvrhová základna, od níž se odvíjí podíl na režii, s tímto podílem může
+            mít <strong>málo společného</strong>. Jsou-li režijní náklady jen hrubě
+            odhadnuty, dojde k <strong>nadcenění nebo podcenění</strong> nákladovosti
+            výrobků – a tím i k chybnému určení jejich ziskovosti. Podnik se pak může
+            zaměřovat na výrobky ziskové jen „opticky" a naopak vyřadit výrobky, které
+            se z titulu špatně kalkulovaných nákladů jeví jako ztrátové, ačkoli ve
+            skutečnosti přinášejí zisk.
+          </p>
+        </div>
+      </aside>
+
+      <!-- =================================================================== -->
+      <h2>Activity-Based Costing (ABC) – kalkulace podle aktivit</h2>
+
+      <p>
+        Reakcí na tuto slabinu byla metoda <strong>Activity-Based Costing (ABC)</strong>,
+        která se ve světě začala používat od začátku 80. let 20. století. Poskytuje
+        cenné informace o nákladech využitelné pro řízení podniku, restrukturalizaci
+        procesů, plánování i kontrolu. Na její využití v řízení navazuje
+        <a class="pojem" href="#pojem-abm">Activity-Based Management (ABM)</a>; pro
+        celou metodu se používá i označení <strong>ABC/M</strong> nebo český ekvivalent
+        <em>procesní řízení nákladů</em>.
+      </p>
+
+      <section class="definice" id="pojem-abc">
+        <h3 class="definice__pojem">Activity-Based Costing (ABC)</h3>
+        <div class="definice__telo">
+          <p>
+            Kalkulace nákladů na základě aktivit. Opouští předpoklad tradičních
+            systémů, že jedinou příčinou vzniku a velikosti nákladů je objem (např.
+            přímé práce). Do vztahu <em>náklady–produkty</em> vkládá klíčový mezičlánek –
+            <strong>aktivitu</strong> (činnost), která je příčinou spotřeby zdrojů.
+            Platí řetězec: <strong>nákladové objekty spotřebovávají aktivity a aktivity
+            spotřebovávají zdroje</strong>.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Nákladovým objektem může být produkt, zákazník, středisko apod. Na základě
+        analýzy podnikových procesů se definují vztahové veličiny, tzv.
+        <a class="pojem" href="#pojem-cost-drivers">cost drivers</a>, které umožňují
+        změřit spotřebu zdrojů aktivitami na jedné straně a spotřebu aktivit
+        nákladovými objekty na straně druhé. Jde tak o vyjádření <strong>příčinné
+        souvislosti</strong> mezi spotřebovávanými zdroji a nákladovými objekty.
+      </p>
+
+      <section class="definice" id="pojem-cost-drivers">
+        <h3 class="definice__pojem">Cost drivers (vztahové veličiny)</h3>
+        <div class="definice__telo">
+          <p>
+            Vztahové veličiny vyjadřující příčinnou souvislost mezi náklady a jejich
+            nositelem. <strong>Vztahová veličina nákladů</strong> přiřazuje nepřímé
+            náklady aktivitám; <strong>vztahová veličina aktivity</strong> (activity
+            cost driver) přiřazuje náklady aktivit nákladovým objektům. Umožňují měřit,
+            kolik které aktivity daný výrobek či zákazník skutečně spotřebovává.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-abm">
+        <h3 class="definice__pojem">Activity-Based Management (ABM)</h3>
+        <div class="definice__telo">
+          <p>
+            Řízení na základě aktivit – využívá informace získané metodou ABC k
+            dosažení cílů podniku. Znalost nákladů jednotlivých aktivit umožňuje
+            rozhodnout, zda aktivitu <strong>vyřadit, provádět účinněji, nebo nahradit
+            <a class="pojem" href="t7-l5-dividendova-politika.html?zvyraznit=pojem-outsourcing" target="_blank" rel="noopener">outsourcingem</a></strong> (nákupem zvenčí), a to při co nejmenší spotřebě
+            zdrojů na uspokojení zákazníka.
+          </p>
+        </div>
+      </section>
+
+      <h3>Postup kalkulace ABC ve třech krocích</h3>
+      <ol>
+        <li><strong>Přiřazení nepřímých nákladů aktivitám.</strong> Vynaložený nepřímý
+          náklad se přiřadí jednotlivým aktivitám podle vztahové veličiny nákladů.</li>
+        <li><strong>Náklady na jednotku aktivity.</strong> Zjistí se celkové náklady
+          každé aktivity, vymezí se vztahová veličina aktivity (activity cost driver)
+          a stanoví se náklad na jednotku aktivity.</li>
+        <li><strong>Náklady na nákladový objekt.</strong> Náklady výrobku, služby či
+          zákazníka se určí z nákladu na jednotku aktivity a objemu vyžadované aktivity.</li>
+      </ol>
+
+      <!-- Porovnání toku nákladů: tradiční -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 4–8: Tok nákladů v tradičním nákladovém systému</p>
+          <p class="viz__popis">Kalkulační položky se rozdělí do nákladových středisek a odtud přes rozvrhovou základnu přímo na produkt.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 760 420" width="100%" height="auto" role="img" aria-label="Schéma toku nákladů v tradičním systému: tři kalkulační položky vedou do dvou nákladových středisek, z nich přes rozvrhovou základnu do produktu." style="max-width:760px;display:block;margin:0 auto;font-family:inherit">
+            <defs>
+              <marker id="sipka-trad" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#64748b"></path>
+              </marker>
+            </defs>
+            <!-- spojnice kalk -> střediska (křížení) -->
+            <g stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#sipka-trad)">
+              <line x1="120" y1="61" x2="230" y2="138"></line>
+              <line x1="120" y1="61" x2="530" y2="138"></line>
+              <line x1="380" y1="61" x2="230" y2="138"></line>
+              <line x1="380" y1="61" x2="530" y2="138"></line>
+              <line x1="640" y1="61" x2="230" y2="138"></line>
+              <line x1="640" y1="61" x2="530" y2="138"></line>
+            </g>
+            <!-- střediska -> rozvrhová základna -->
+            <g stroke="#64748b" stroke-width="1.8" fill="none" marker-end="url(#sipka-trad)">
+              <line x1="230" y1="186" x2="230" y2="248"></line>
+              <line x1="530" y1="186" x2="530" y2="248"></line>
+            </g>
+            <!-- rozvrhová základna -> produkt -->
+            <g stroke="#64748b" stroke-width="1.8" fill="none" marker-end="url(#sipka-trad)">
+              <line x1="230" y1="290" x2="360" y2="348"></line>
+              <line x1="530" y1="290" x2="400" y2="348"></line>
+            </g>
+            <!-- úroveň 1: kalkulační položky -->
+            <g font-size="13" text-anchor="middle">
+              <rect x="15" y="15" width="210" height="46" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="120" y="35" fill="#312e81" font-weight="700">Kalkulační položka 1</text>
+              <text x="120" y="52" fill="#4338ca">osobní náklady</text>
+              <rect x="275" y="15" width="210" height="46" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="380" y="35" fill="#312e81" font-weight="700">Kalkulační položka 2</text>
+              <text x="380" y="52" fill="#4338ca">spotřeba energie</text>
+              <rect x="535" y="15" width="210" height="46" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="640" y="35" fill="#312e81" font-weight="700">Kalkulační položka 3</text>
+              <text x="640" y="52" fill="#4338ca">náklady na vybavení</text>
+            </g>
+            <!-- úroveň 2: nákladová střediska -->
+            <g font-size="13" text-anchor="middle">
+              <rect x="130" y="140" width="200" height="46" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"></rect>
+              <text x="230" y="168" fill="#1e293b" font-weight="700">Nákladové středisko 1</text>
+              <rect x="430" y="140" width="200" height="46" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"></rect>
+              <text x="530" y="168" fill="#1e293b" font-weight="700">Nákladové středisko 2</text>
+            </g>
+            <!-- úroveň 3: rozvrhová základna -->
+            <g font-size="12.5" text-anchor="middle">
+              <rect x="135" y="250" width="190" height="40" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"></rect>
+              <text x="230" y="275" fill="#9a3412" font-weight="600">Rozvrhová základna</text>
+              <rect x="435" y="250" width="190" height="40" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"></rect>
+              <text x="530" y="275" fill="#9a3412" font-weight="600">Rozvrhová základna</text>
+            </g>
+            <!-- úroveň 4: produkt -->
+            <g text-anchor="middle">
+              <rect x="270" y="350" width="220" height="50" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2"></rect>
+              <text x="380" y="380" fill="#14532d" font-weight="700" font-size="16">PRODUKT</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <!-- Porovnání toku nákladů: ABC -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 4–9: Tok nákladů v systému ABC</p>
+          <p class="viz__popis">Každá kalkulační položka se rozdělí mezi všechny aktivity; odtud přes vztahové veličiny na produkt či službu. Přibývá mezičlánek aktivit, který zpřesňuje příčinnou vazbu.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 760 460" width="100%" height="auto" role="img" aria-label="Schéma toku nákladů v systému ABC: tři kalkulační položky se rozdělují mezi pět aktivit, každá má svou vztahovou veličinu a odtud náklady tečou na produkt či službu." style="max-width:760px;display:block;margin:0 auto;font-family:inherit">
+            <defs>
+              <marker id="sipka-abc" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#64748b"></path>
+              </marker>
+            </defs>
+            <!-- kalk -> 5 aktivit (15 tenkých spojnic, odlišené stylem podle položky) -->
+            <g fill="none" stroke-width="1.2" opacity="0.85">
+              <!-- z K1 (cx=120) plné -->
+              <g stroke="#4338ca">
+                <line x1="120" y1="66" x2="80" y2="150"></line>
+                <line x1="120" y1="66" x2="228" y2="150"></line>
+                <line x1="120" y1="66" x2="376" y2="150"></line>
+                <line x1="120" y1="66" x2="524" y2="150"></line>
+                <line x1="120" y1="66" x2="672" y2="150"></line>
+              </g>
+              <!-- z K2 (cx=380) čárkované -->
+              <g stroke="#0d9488" stroke-dasharray="6 4">
+                <line x1="380" y1="66" x2="80" y2="150"></line>
+                <line x1="380" y1="66" x2="228" y2="150"></line>
+                <line x1="380" y1="66" x2="376" y2="150"></line>
+                <line x1="380" y1="66" x2="524" y2="150"></line>
+                <line x1="380" y1="66" x2="672" y2="150"></line>
+              </g>
+              <!-- z K3 (cx=640) tečkované -->
+              <g stroke="#c2410c" stroke-dasharray="2 4">
+                <line x1="640" y1="66" x2="80" y2="150"></line>
+                <line x1="640" y1="66" x2="228" y2="150"></line>
+                <line x1="640" y1="66" x2="376" y2="150"></line>
+                <line x1="640" y1="66" x2="524" y2="150"></line>
+                <line x1="640" y1="66" x2="672" y2="150"></line>
+              </g>
+            </g>
+            <!-- aktivity -> vztahové veličiny (5 svislých) -->
+            <g stroke="#64748b" stroke-width="1.6" fill="none" marker-end="url(#sipka-abc)">
+              <line x1="80" y1="210" x2="80" y2="258"></line>
+              <line x1="228" y1="210" x2="228" y2="258"></line>
+              <line x1="376" y1="210" x2="376" y2="258"></line>
+              <line x1="524" y1="210" x2="524" y2="258"></line>
+              <line x1="672" y1="210" x2="672" y2="258"></line>
+            </g>
+            <!-- vztahové veličiny -> produkt (konvergence do cx=380) -->
+            <g stroke="#64748b" stroke-width="1.6" fill="none" marker-end="url(#sipka-abc)">
+              <line x1="80" y1="300" x2="300" y2="388"></line>
+              <line x1="228" y1="300" x2="345" y2="388"></line>
+              <line x1="376" y1="300" x2="380" y2="388"></line>
+              <line x1="524" y1="300" x2="415" y2="388"></line>
+              <line x1="672" y1="300" x2="460" y2="388"></line>
+            </g>
+            <!-- úroveň 1: kalkulační položky -->
+            <g font-size="13" text-anchor="middle">
+              <rect x="15" y="20" width="210" height="46" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="120" y="40" fill="#312e81" font-weight="700">Kalkulační položka 1</text>
+              <text x="120" y="57" fill="#4338ca">osobní náklady</text>
+              <rect x="275" y="20" width="210" height="46" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="380" y="40" fill="#312e81" font-weight="700">Kalkulační položka 2</text>
+              <text x="380" y="57" fill="#4338ca">spotřeba energie</text>
+              <rect x="535" y="20" width="210" height="46" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="640" y="40" fill="#312e81" font-weight="700">Kalkulační položka 3</text>
+              <text x="640" y="57" fill="#4338ca">náklady na vybavení</text>
+            </g>
+            <!-- úroveň 2: pět aktivit -->
+            <g font-size="12" text-anchor="middle">
+              <rect x="15"  y="150" width="130" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"></rect>
+              <text x="80"  y="176" fill="#1e293b" font-weight="700">Aktivita 1</text>
+              <text x="80"  y="194" fill="#475569">Nastavování</text>
+              <rect x="163" y="150" width="130" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"></rect>
+              <text x="228" y="176" fill="#1e293b" font-weight="700">Aktivita 2</text>
+              <text x="228" y="194" fill="#475569">Zpracování</text>
+              <rect x="311" y="150" width="130" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"></rect>
+              <text x="376" y="176" fill="#1e293b" font-weight="700">Aktivita 3</text>
+              <text x="376" y="194" fill="#475569">Doprava</text>
+              <rect x="459" y="150" width="130" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"></rect>
+              <text x="524" y="176" fill="#1e293b" font-weight="700">Aktivita 4</text>
+              <text x="524" y="194" fill="#475569">Nakupování</text>
+              <rect x="607" y="150" width="130" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"></rect>
+              <text x="672" y="176" fill="#1e293b" font-weight="700">Aktivita 5</text>
+              <text x="672" y="194" fill="#475569">Zabalení</text>
+            </g>
+            <!-- úroveň 3: vztahové veličiny -->
+            <g font-size="11" text-anchor="middle">
+              <rect x="20"  y="258" width="120" height="42" rx="7" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"></rect>
+              <text x="80"  y="277" fill="#9a3412" font-weight="600">Vztahová</text>
+              <text x="80"  y="291" fill="#9a3412" font-weight="600">veličina</text>
+              <rect x="168" y="258" width="120" height="42" rx="7" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"></rect>
+              <text x="228" y="277" fill="#9a3412" font-weight="600">Vztahová</text>
+              <text x="228" y="291" fill="#9a3412" font-weight="600">veličina</text>
+              <rect x="316" y="258" width="120" height="42" rx="7" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"></rect>
+              <text x="376" y="277" fill="#9a3412" font-weight="600">Vztahová</text>
+              <text x="376" y="291" fill="#9a3412" font-weight="600">veličina</text>
+              <rect x="464" y="258" width="120" height="42" rx="7" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"></rect>
+              <text x="524" y="277" fill="#9a3412" font-weight="600">Vztahová</text>
+              <text x="524" y="291" fill="#9a3412" font-weight="600">veličina</text>
+              <rect x="612" y="258" width="120" height="42" rx="7" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"></rect>
+              <text x="672" y="277" fill="#9a3412" font-weight="600">Vztahová</text>
+              <text x="672" y="291" fill="#9a3412" font-weight="600">veličina</text>
+            </g>
+            <!-- úroveň 4: produkt/služba -->
+            <g text-anchor="middle">
+              <rect x="270" y="390" width="220" height="52" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2"></rect>
+              <text x="380" y="422" fill="#14532d" font-weight="700" font-size="15">Produkt, služba</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Aktivity přidávající a nepřidávající hodnotu</p>
+        <div class="callout__telo">
+          <p>
+            Aktivity lze rozdělit na <strong>přidávající hodnotu</strong> (přidávají
+            výrobku či službě něco, za co je zákazník ochoten zaplatit) a
+            <strong>nepřidávající hodnotu</strong> (přinášejí náklady a časové ztráty,
+            ale z pohledu zákazníka žádnou hodnotu). Nepřidávající (podpůrné,
+            sekundární) aktivity slouží k podpoře primárních aktivit. Není proto vhodné
+            alokovat je přímo na nákladový objekt – chybí u nich příčinná souvislost –
+            ale <strong>přiřadit je k primárním aktivitám</strong>, které je spotřebovávají.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Metoda ABC a její řídicí nadstavba ABM (ABC/M) by měly být aplikovány zejména
+        v podnicích s <strong>širokým sortimentem a mnoha zákazníky</strong>. V kombinaci
+        s hodnotově orientovanými koncepty, jako je <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> nebo <a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard</a>, se
+        z nich stávají užitečné nástroje řízení výkonnosti podniku.
+      </p>
+
+      <!-- Zkus sám 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Čím metoda ABC zpřesňuje přiřazení režijních nákladů oproti tradiční
+            kalkulaci pomocí režijních přirážek? Uveďte, který „mezičlánek" je pro to
+            klíčový.
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Tradiční kalkulace rozpouští režii jedinou rozvrhovou základnou (např.
+              přímými mzdami), která ale se skutečnou spotřebou režie souvisí často jen
+              volně. ABC vkládá do vztahu náklady–produkt <strong>mezičlánek aktivit</strong>:
+              nejdřív přiřadí náklady jednotlivým aktivitám a teprve přes vztahové
+              veličiny (cost drivers) je přenese na výrobek podle toho, kolik které
+              aktivity výrobek skutečně spotřebuje. Vazba tak vyjadřuje
+              <strong>příčinnou souvislost</strong> (výrobek spotřebovává aktivity,
+              aktivity spotřebovávají zdroje), a přiřazení režie je proto přesnější.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- ZÁVĚREČNÉ OTÁZKY -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jak se vypočítá příspěvek na úhradu a co vyjadřuje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzorec (4.8) pracuje s tržbami a jen jedním druhem nákladů.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Příspěvek na úhradu = tržby − variabilní náklady (vzorec 4.8). Vyjadřuje, kolik daný výrobek přispívá na úhradu společných fixních nákladů a na tvorbu zisku. Dokud je kladný, výrobek pomáhá krýt fixní náklady – i kdyby byl po rozpočítání režie účetně ztrátový.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč nebylo výhodné vyřadit „ztrátový" výrobek C ze sortimentu (příklad 4.2c)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co se stane s fixními náklady 3 000 Kč po vyřazení výrobku? Zmizí, nebo se přesunou?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Výrobek C přispíval 480 Kč na úhradu fixních nákladů. Po jeho vyřazení tyto fixní náklady nezmizely, jen se přesunuly na A a B (výrobek B se tím sám stal ztrátovým). Celkový příspěvek klesl z 3 250 na 2 770 Kč – pod úroveň fixních nákladů 3 000 Kč – a podnik se propadl ze zisku 250 Kč do ztráty −230 Kč.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč cena 9 Kč/ks u výrobku C představuje dolní hranici výhodnosti (příklad 4.2d)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Spočítejte příspěvek na úhradu C při tržbě 30 × 9 Kč a variabilních nákladech 270 Kč.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Při ceně 9 Kč/ks činí tržba C přesně 270 Kč, což se rovná jeho variabilním nákladům. Příspěvek na úhradu je tedy nulový – výrobek nepřispěje na fixní náklady ani korunou (výsledek je stejný jako při jeho zrušení). Jakákoli nižší cena by už nepokryla ani variabilní náklady, proto je 9 Kč/ks dolní hranicí výhodnosti.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>V čem spočívá „háček" tradiční kalkulace pomocí režijních přirážek?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se nad vztahem mezi rozvrhovou základnou a skutečnou spotřebou režie.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Rozvrhová základna (např. přímé mzdy) může se skutečným podílem výrobku na režii souviset jen volně. Hrubě odhadnutá režie pak vede k nadcenění nebo podcenění nákladovosti výrobků, a tím k chybnému určení jejich ziskovosti – podnik se může zaměřovat na „opticky" ziskové výrobky a vyřazovat ty, které ve skutečnosti zisk přinášejí.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jaký je základní princip metody ABC a k čemu slouží cost drivers?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Doplňte řetězec: nákladové objekty spotřebovávají … a … spotřebovávají zdroje.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>ABC vkládá mezi náklady a produkty mezičlánek aktivit: nákladové objekty spotřebovávají aktivity a aktivity spotřebovávají zdroje. Cost drivers (vztahové veličiny) měří tuto spotřebu – vztahová veličina nákladů přiřazuje náklady aktivitám, vztahová veličina aktivity přiřazuje náklady aktivit nákladovým objektům. Přiřazení režie tak vyjadřuje příčinnou souvislost a je přesnější než u tradiční kalkulace.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- PREV / NEXT -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t7-l3-bod-zvratu-provozni-paka.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">7.3 Tržby a řízení nákladů – bod zvratu a provozní páka</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t7-l5-dividendova-politika.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">7.5 Konkurenceschopnost, rozdělování zisku a dividendová politika</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: sortimentní rozhodnutí (příklady 4.2a–4.2d)
+      // Sledujeme celkový příspěvek na úhradu vůči fixním nákladům (FC = 3 000).
+      var FC = 3000;
+      // scénáře: příspěvek na úhradu celkem a výsledný VH (= příspěvek − FC)
+      var scen = [
+        { prisp: 3250, vh:  250, jmeno: '4.2a — výchozí sortiment' },
+        { prisp: 3730, vh:  730, jmeno: '4.2b — zdvojnásobení C'  },
+        { prisp: 2770, vh: -230, jmeno: '4.2c — zrušení C'        },
+        { prisp: 2770, vh: -230, jmeno: '4.2d — cena C = 9 Kč'    }
+      ];
+
+      Skripta.stepper('viz-sortiment', {
+        sirka: 720, vyska: 380,
+        stavy: scen,
+        popisky: [
+          'Výchozí sortiment A, B, C. Celkový příspěvek 3 250 Kč přesahuje fixní náklady 3 000 Kč → zisk 250 Kč. Výrobek C je účetně ztrátový, ale přispívá 480 Kč na úhradu fixních nákladů.',
+          'Zdvojnásobíme výrobu C. Příspěvek roste na 3 730 Kč a zisk stoupá na 730 Kč – i „ztrátový" výrobek zvyšuje zisk, protože kryje čím dál větší část fixních nákladů.',
+          'Zrušíme výrobek C. Příspěvek klesne na 2 770 Kč, což už nepokryje fixní náklady 3 000 Kč → ztráta −230 Kč.',
+          'Ponecháme C, ale srazíme cenu na 9 Kč/ks. Příspěvek C klesne na nulu, celkem 2 770 Kč → opět ztráta −230 Kč. Cena 9 Kč je hranicí výhodnosti (pokryje jen variabilní náklady).'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320, px = 0.075;
+          var cx = 360, barW = 170, barX = cx - barW / 2;
+          var fcY = base - FC * px;
+          var barTopY = base - stav.prisp * px;
+          var kladny = stav.vh >= 0;
+
+          // Osa (základna)
+          u.dej(svg, 'osa', 'line', { x1: 80, y1: base, x2: 650, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Krytá část (do výše fixních nákladů) – indigo
+          var krytoV = Math.min(stav.prisp, FC) * px;
+          u.dej(svg, 'bar-kryto', 'rect', { x: barX, y: base - krytoV, width: barW, height: krytoV, rx: 5, fill: '#4338ca' });
+
+          // Zisk nad hranicí FC – zelená (jen když příspěvek > FC)
+          var ziskV = Math.max(0, stav.prisp - FC) * px;
+          u.dej(svg, 'bar-zisk', 'rect', {
+            x: barX, y: barTopY, width: barW, height: ziskV, rx: 5,
+            fill: u.barvaTvorba, opacity: (stav.prisp > FC) ? 1 : 0
+          });
+
+          // Nekrytá část (schodek pod FC) – červená (jen když příspěvek < FC)
+          var schodekV = Math.max(0, FC - stav.prisp) * px;
+          u.dej(svg, 'bar-schodek', 'rect', {
+            x: barX, y: fcY, width: barW, height: schodekV, rx: 5,
+            fill: u.barvaNiceni, opacity: (stav.prisp < FC) ? 0.35 : 0,
+            'stroke-dasharray': '5 4', stroke: u.barvaNiceni, 'stroke-width': 1.5
+          });
+
+          // Popisek příspěvku nad sloupcem
+          u.dej(svg, 'val-prisp', 'text', {
+            x: cx, y: barTopY - 12, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 15, 'font-weight': 700
+          }, 'Příspěvek na úhradu = ' + u.formatCislo(stav.prisp) + ' Kč');
+
+          // Referenční čára fixních nákladů
+          u.dej(svg, 'fc-line', 'line', {
+            x1: 90, y1: fcY, x2: 640, y2: fcY, stroke: u.barvaNiceni,
+            'stroke-width': 1.6, 'stroke-dasharray': '7 5'
+          });
+          u.dej(svg, 'fc-lbl', 'text', {
+            x: 96, y: fcY - 8, 'text-anchor': 'start', fill: u.barvaNiceni,
+            'font-size': 12.5, 'font-weight': 600
+          }, 'Fixní náklady = 3 000 Kč');
+
+          // Popisek osy X
+          u.dej(svg, 'x-lbl', 'text', {
+            x: cx, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+          }, stav.jmeno);
+
+          // Výsledek hospodaření (velký odečet)
+          u.dej(svg, 'vh-lbl', 'text', {
+            x: cx, y: base + 48, 'text-anchor': 'middle',
+            fill: kladny ? u.barvaTvorba : u.barvaNiceni, 'font-size': 17, 'font-weight': 700
+          }, 'Výsledek hospodaření = ' + (kladny ? '+' : '−') + u.formatCislo(Math.abs(stav.vh)) + ' Kč');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

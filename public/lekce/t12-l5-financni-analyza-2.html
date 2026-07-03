@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.5 Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita – Výkonnost podniku</title>
+  <meta name="description" content="Poměrová finanční analýza podniku PLAST – zadluženost, likvidita, rentabilita, aktivita a produktivita ve srovnání s benchmarkem ALPLA a odvětvím OKEČ.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="12.5" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: výkazy, leasing, rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.5</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.5</span>
+        <h1>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</h1>
+        <p class="lekce-hlavicka__strany">Strany 262–267</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme prošli majetkovou a finanční strukturu podniku PLAST,
+        vývoj zisku, <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a> i <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistý pracovní kapitál</a>. Nyní na tyto absolutní pohledy
+        navážeme <strong>poměrovou analýzou</strong>: čtyřmi klíčovými skupinami ukazatelů –
+        zadlužeností, likviditou, rentabilitou a aktivitou. Sílu poměrové analýzy odhalí
+        až srovnání. Každý ukazatel proto budeme dávat do kontextu <strong>odvětví</strong>
+        (subsekce plastových obalů <a class="pojem" href="t12-l1-makro-odvetvi.html?zvyraznit=pojem-okec" target="_blank" rel="noopener">OKEČ</a> 25.220 a širší OKEČ 25) a <strong><a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmark" target="_blank" rel="noopener">benchmarku</a></strong> –
+        nejvýkonnějšího podniku vzorku ALPLA, případně největšího konkurenta OBALY, a.&nbsp;s.
+      </p>
+      <p>
+        Analýza vychází z účetních výkazů podniku za období 1999–2004. Na závěr lekce
+        doplníme ukazatele produktivity práce a strukturu přidané hodnoty, které dokreslují
+        obraz finančního zdraví podniku.
+      </p>
+
+      <!-- BRIDGE: ČPK (Tab 8-14) -->
+      <h2>Připomenutí: čistý pracovní kapitál</h2>
+      <p>
+        Podnik PLAST udržoval po celé období dostatečný „finanční polštář“ pro krytí
+        neočekávaných závazků v podobě kladného <strong>čistého pracovního kapitálu (ČPK)</strong>.
+        Podíl ČPK na oběžných aktivech dosahoval každoročně více než 18&nbsp;%. Tento kladný
+        polštář je vstupní branou k analýze likvidity, které se budeme věnovat níže.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–14 – Vývoj čistého pracovního kapitálu podniku PLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">ČPK (tis. Kč)</th><td class="cislo">82 399</td><td class="cislo">274 068</td><td class="cislo">101 957</td><td class="cislo">86 341</td><td class="cislo">136 804</td><td class="cislo">136 186</td></tr>
+            <tr><th scope="row">ČPK / OA</th><td class="cislo">22,5 %</td><td class="cislo">51,9 %</td><td class="cislo">22,0 %</td><td class="cislo">18,0 %</td><td class="cislo">26,3 %</td><td class="cislo">24,4 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ============ ZADLUŽENOST ============ -->
+      <h2>Analýza zadluženosti a vztahu majetkové a finanční struktury</h2>
+      <p>
+        Zadlužení podniku PLAST (přibližně 35&nbsp;%) můžeme hodnotit jako <strong>přiměřené</strong>.
+        Bylo nižší než v odvětví (kolem 50&nbsp;%). Největší konkurent OBALY, a.&nbsp;s. vykazoval
+        zadluženost vyšší (i když se ji v posledních letech snažil snižovat) a výrazně nejvyšší
+        zadluženost měl benchmark ALPLA, který svá aktiva financoval z 80&nbsp;% cizími zdroji.
+      </p>
+
+      <section class="definice" id="pojem-celkova-zadluzenost">
+        <h3 class="definice__pojem">Celková zadluženost</h3>
+        <div class="definice__telo">
+          <p>
+            Podíl cizích zdrojů na celkovém kapitálu (bilanční sumě):
+            <span class="math">
+              <span class="frac"><span class="frac__cit">cizí zdroje</span><span class="frac__jmen">celková aktiva</span></span>
+            </span>.
+            Vyšší hodnota znamená vyšší finanční riziko, ale i vyšší prostor pro působení
+            finanční páky. Nízká hodnota svědčí o konzervativním, stabilním financování.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-zlate-pravidlo-financovani">
+        <h3 class="definice__pojem">Zlaté pravidlo financování</h3>
+        <div class="definice__telo">
+          <p>
+            Požadavek, aby <strong>dlouhodobá aktiva byla kryta dlouhodobým kapitálem</strong>
+            (poměr <span class="math">
+              <span class="frac"><span class="frac__cit">dlouhodobé zdroje</span><span class="frac__jmen">dlouhodobý majetek</span></span>
+            </span> ≥ 1). PLAST toto pravidlo každoročně plnil s rezervou 1,1–1,2. Dokázal dokonce
+            pokrýt dlouhodobá aktiva samotným vlastním kapitálem, což je znak <strong>konzervativní
+            strategie financování</strong> a vysoké finanční stability. OBALY naopak volily agresivní
+            strategii a část dlouhodobého majetku kryly krátkodobými zdroji (poměr klesl pod 1).
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-urokove-kryti">
+        <h3 class="definice__pojem">Úrokové krytí</h3>
+        <div class="definice__telo">
+          <p>
+            Kolikrát provozní zisk pokrývá nákladové úroky:
+            <span class="math">
+              <span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">nákladové úroky</span></span>
+            </span>.
+            U podniku PLAST vytvořený zisk každoročně několikanásobně převyšoval úroky
+            (v roce 2004 více než desetkrát). To znamená, že podnik neměl problém generovat
+            zisky pro krytí úroků a měl <strong>dostatečnou kapacitu k přijetí dalších
+            bankovních úvěrů</strong>. Ještě lepší úrokové krytí vykazovalo odvětví.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–15 – Vybrané ukazatele zadluženosti (PLAST vs. konkurence a odvětví)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Subjekt</th>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" rowspan="3">PLAST</th><td>Celková zadluženost</td><td class="cislo">47,2 %</td><td class="cislo">45,3 %</td><td class="cislo">42,0 %</td><td class="cislo">39,4 %</td><td class="cislo">34,3 %</td><td class="cislo">35,7 %</td></tr>
+            <tr><td>Dl. zdroje / dl. maj.</td><td class="cislo">1,11</td><td class="cislo">1,46</td><td class="cislo">1,12</td><td class="cislo">1,10</td><td class="cislo">1,18</td><td class="cislo">1,18</td></tr>
+            <tr><td>Úrokové krytí</td><td class="cislo">6,68</td><td class="cislo">5,51</td><td class="cislo">4,17</td><td class="cislo">7,52</td><td class="cislo">10,20</td><td class="cislo">10,54</td></tr>
+            <tr><th scope="row" rowspan="3">ALPLA</th><td>Celková zadluženost</td><td class="cislo">101,0 %</td><td class="cislo">97,2 %</td><td class="cislo">—</td><td class="cislo">88,9 %</td><td class="cislo">80,6 %</td><td class="cislo">—</td></tr>
+            <tr><td>Dl. zdroje / dl. maj.</td><td class="cislo">1,14</td><td class="cislo">1,27</td><td class="cislo">—</td><td class="cislo">1,32</td><td class="cislo">1,52</td><td class="cislo">—</td></tr>
+            <tr><td>Úrokové krytí</td><td class="cislo">2,03</td><td class="cislo">1,59</td><td class="cislo">—</td><td class="cislo">1,44</td><td class="cislo">8,04</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="3">OBALY</th><td>Celková zadluženost</td><td class="cislo">71,2 %</td><td class="cislo">66,0 %</td><td class="cislo">54,6 %</td><td class="cislo">51,1 %</td><td class="cislo">54,3 %</td><td class="cislo">54,0 %</td></tr>
+            <tr><td>Dl. zdroje / dl. maj.</td><td class="cislo">1,04</td><td class="cislo">1,09</td><td class="cislo">1,05</td><td class="cislo">0,94</td><td class="cislo">0,90</td><td class="cislo">0,92</td></tr>
+            <tr><td>Úrokové krytí</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="2">OKEČ 25.220</th><td>Celková zadluženost</td><td class="cislo">56,5 %</td><td class="cislo">63,6 %</td><td class="cislo">57,1 %</td><td class="cislo">51,7 %</td><td class="cislo">50,0 %</td><td class="cislo">—</td></tr>
+            <tr><td>Dl. zdroje / dl. maj.</td><td class="cislo">1,14</td><td class="cislo">1,14</td><td class="cislo">1,47</td><td class="cislo">1,17</td><td class="cislo">1,38</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="3">OKEČ 25</th><td>Celková zadluženost</td><td class="cislo">44,7 %</td><td class="cislo">46,2 %</td><td class="cislo">45,3 %</td><td class="cislo">40,7 %</td><td class="cislo">40,1 %</td><td class="cislo">41,6 %</td></tr>
+            <tr><td>Dl. zdroje / dl. maj.</td><td class="cislo">1,02</td><td class="cislo">1,07</td><td class="cislo">1,22</td><td class="cislo">1,29</td><td class="cislo">1,34</td><td class="cislo">1,55</td></tr>
+            <tr><td>Úrokové krytí</td><td class="cislo">7,63</td><td class="cislo">6,71</td><td class="cislo">5,49</td><td class="cislo">8,65</td><td class="cislo">16,29</td><td class="cislo">12,08</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Hodnota <a class="pojem" href="#pojem-multiplikator-vlastniho-kapitalu">multiplikátoru vlastního kapitálu</a>
+        u podniku PLAST poukazovala na možnost zvyšovat podíl cizích zdrojů v kapitálové
+        struktuře <strong>s pozitivním vlivem na <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">rentabilitu vlastního kapitálu</a></strong> ve všech
+        analyzovaných letech. Vzhledem k nízkému zadlužení a dostatečnému úrokovému krytí bylo
+        možné vyšší zadluženost podniku doporučit.
+      </p>
+
+      <section class="definice" id="pojem-multiplikator-vlastniho-kapitalu">
+        <h3 class="definice__pojem">Multiplikátor vlastního kapitálu</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatel, který spojuje dva protichůdné dopady zadlužení a signalizuje, zda další
+            zadlužení <em>zvýší</em> rentabilitu vlastního kapitálu. Je součinem úrokové redukce
+            zisku a finanční páky:
+          </p>
+          <p style="text-align:center">
+            <span class="math">multiplikátor VK<span class="op">=</span>
+              <span class="frac"><span class="frac__cit">EBT</span><span class="frac__jmen">EBIT</span></span>
+              <span class="op">×</span>
+              <span class="frac"><span class="frac__cit">aktiva</span><span class="frac__jmen">vlastní kapitál</span></span>
+            </span>
+          </p>
+          <p>
+            Je-li výsledek <strong>větší než 1</strong>, převažuje kladný efekt finanční páky
+            (přírůstek majetkové výnosnosti díky páce převáží úbytek zisku odčerpaný úroky) a
+            další zadlužení se vyplatí. U PLAST byl multiplikátor po celé období nad 1.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–16 – Multiplikátor vlastního kapitálu podniku PLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Složka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EBT / EBIT (úroková redukce)</th><td class="cislo">0,85</td><td class="cislo">0,82</td><td class="cislo">0,76</td><td class="cislo">0,87</td><td class="cislo">0,90</td><td class="cislo">0,91</td></tr>
+            <tr><th scope="row">A / VK (finanční páka)</th><td class="cislo">1,90</td><td class="cislo">1,84</td><td class="cislo">1,77</td><td class="cislo">1,65</td><td class="cislo">1,52</td><td class="cislo">1,55</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Multiplikátor VK</th><td class="cislo hodnota-tvorba">1,61</td><td class="cislo hodnota-tvorba">1,51</td><td class="cislo hodnota-tvorba">1,34</td><td class="cislo hodnota-tvorba">1,43</td><td class="cislo hodnota-tvorba">1,37</td><td class="cislo hodnota-tvorba">1,41</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Konzervativní podnik s rezervou v dluhu</p>
+        <div class="callout__telo">
+          <p>Kombinace nízké zadluženosti (35&nbsp;%), splněného zlatého pravidla a vysokého
+          úrokového krytí (10×) je pro finančního manažera signálem: podnik má <strong>nevyužitou
+          kapacitu k dalšímu zadlužení</strong>, které by mohlo díky finanční páce zvýšit
+          rentabilitu vlastního kapitálu.</p>
+        </div>
+      </aside>
+
+      <!-- ============ LIKVIDITA ============ -->
+      <h2>Analýza likvidity</h2>
+      <p>
+        Ukazatele likvidity dosahovaly u podniku PLAST hodnot na <strong>spodní hranici</strong>
+        doporučených pásem. Pozitivně bylo hodnoceno jejich podstatné zlepšení v letech 2003 a 2004.
+        Situace v odvětví byla lepší; naopak konkurent OBALY, a.&nbsp;s. dosahoval hodnot tak nízkých,
+        že by ani přeměnou veškerého oběžného majetku na peníze nedokázal uhradit své krátkodobé závazky.
+      </p>
+
+      <section class="definice" id="pojem-likvidita">
+        <h3 class="definice__pojem">Likvidita (běžná, pohotová, hotovostní)</h3>
+        <div class="definice__telo">
+          <p>Schopnost podniku hradit své krátkodobé závazky. Tři stupně podle „tvrdosti“
+          zdrojů krytí:</p>
+          <ul>
+            <li><strong>Běžná likvidita</strong> = oběžná aktiva / krátkodobé závazky (celý oběžný majetek).</li>
+            <li><strong>Pohotová likvidita</strong> = (oběžná aktiva − zásoby) / krátkodobé závazky (bez zásob).</li>
+            <li><strong>Hotovostní likvidita</strong> = krátkodobý finanční majetek / krátkodobé závazky (jen peníze).</li>
+          </ul>
+          <p>Nízkou hotovostní likviditu je u finančně silného podniku třeba interpretovat opatrně:
+          PLAST měl s bankou sjednaný <a class="pojem" href="t8-l4-kratkodobe-zdroje.html?zvyraznit=pojem-kratkodoby-bankovni-uver" target="_blank" rel="noopener">krátkodobý úvěr</a> za výhodných podmínek, takže nízké hotovostní
+          rezervy pro něj nebyly negativním jevem.</p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–17 – Vybrané ukazatele likvidity</caption>
+          <thead>
+            <tr>
+              <th scope="col">Subjekt</th>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" rowspan="3">PLAST</th><td>Běžná likvidita</td><td class="cislo">1,29</td><td class="cislo">2,08</td><td class="cislo">1,28</td><td class="cislo">1,22</td><td class="cislo">1,36</td><td class="cislo">1,32</td></tr>
+            <tr><td>Pohotová likvidita</td><td class="cislo">0,82</td><td class="cislo">1,50</td><td class="cislo">0,83</td><td class="cislo">0,78</td><td class="cislo">0,94</td><td class="cislo">0,86</td></tr>
+            <tr><td>Hotovostní likvidita</td><td class="cislo">0,06</td><td class="cislo">0,08</td><td class="cislo">0,05</td><td class="cislo">0,10</td><td class="cislo">0,15</td><td class="cislo">0,20</td></tr>
+            <tr><th scope="row" rowspan="3">ALPLA</th><td>Běžná likvidita</td><td class="cislo">1,31</td><td class="cislo">1,63</td><td class="cislo">—</td><td class="cislo">1,42</td><td class="cislo">1,81</td><td class="cislo">—</td></tr>
+            <tr><td>Pohotová likvidita</td><td class="cislo">1,09</td><td class="cislo">1,25</td><td class="cislo">—</td><td class="cislo">1,07</td><td class="cislo">1,09</td><td class="cislo">—</td></tr>
+            <tr><td>Hotovostní likvidita</td><td class="cislo">0,02</td><td class="cislo">0,10</td><td class="cislo">—</td><td class="cislo">0,10</td><td class="cislo">0,00</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="3">OBALY</th><td>Běžná likvidita</td><td class="cislo">1,04</td><td class="cislo">1,11</td><td class="cislo">1,11</td><td class="cislo">0,97</td><td class="cislo">0,87</td><td class="cislo">0,90</td></tr>
+            <tr><td>Pohotová likvidita</td><td class="cislo">0,69</td><td class="cislo">0,71</td><td class="cislo">0,63</td><td class="cislo">0,53</td><td class="cislo">0,56</td><td class="cislo">0,63</td></tr>
+            <tr><td>Hotovostní likvidita</td><td class="cislo">0,04</td><td class="cislo">0,05</td><td class="cislo">0,12</td><td class="cislo">0,09</td><td class="cislo">0,05</td><td class="cislo">0,02</td></tr>
+            <tr><th scope="row" rowspan="3">OKEČ 25.2</th><td>Běžná likvidita</td><td class="cislo">1,91</td><td class="cislo">1,95</td><td class="cislo">1,87</td><td class="cislo">1,80</td><td class="cislo">1,65</td><td class="cislo">—</td></tr>
+            <tr><td>Pohotová likvidita</td><td class="cislo">1,34</td><td class="cislo">1,36</td><td class="cislo">1,22</td><td class="cislo">1,27</td><td class="cislo">1,10</td><td class="cislo">—</td></tr>
+            <tr><td>Hotovostní likvidita</td><td class="cislo">0,36</td><td class="cislo">0,38</td><td class="cislo">0,40</td><td class="cislo">0,33</td><td class="cislo">0,28</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="3">OKEČ 25</th><td>Běžná likvidita</td><td class="cislo">1,16</td><td class="cislo">1,27</td><td class="cislo">1,31</td><td class="cislo">1,61</td><td class="cislo">1,72</td><td class="cislo">2,36</td></tr>
+            <tr><td>Pohotová likvidita</td><td class="cislo">0,75</td><td class="cislo">0,84</td><td class="cislo">0,86</td><td class="cislo">1,14</td><td class="cislo">1,29</td><td class="cislo">1,79</td></tr>
+            <tr><td>Hotovostní likvidita</td><td class="cislo">0,11</td><td class="cislo">0,16</td><td class="cislo">0,13</td><td class="cislo">0,18</td><td class="cislo">0,17</td><td class="cislo">0,23</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Likviditu nelze číst mechanicky</p>
+        <div class="callout__telo">
+          <p>Na likviditu je nutné pohlížet jinak u malého podniku a jinak u podniku s velkou
+          finanční silou. Silný podnik má obvykle snadný přístup ke kontokorentu za výhodných
+          podmínek, takže nízké hotovostní rezervy nemusí znamenat riziko. To byl přesně případ PLAST.</p>
+        </div>
+      </aside>
+
+      <!-- ============ RENTABILITA + FINANČNÍ PÁKA ============ -->
+      <h2>Analýza rentability</h2>
+      <p>
+        Ukazatele rentability signalizovaly, že podnik byl v celém období <strong>trvale ziskový</strong>
+        s mírně kolísající ziskovou marží, která však byla každoročně vyšší než průměr odvětví.
+        Podnik efektivně využíval cizí úročený kapitál: dokázal jej zhodnotit více, než kolik
+        činily placené úroky. Vzhledem k nabízené úrokové sazbě úvěru kolem 2,75&nbsp;% (PRIBOR
+        1,75&nbsp;% + přibližně 1&nbsp;% přirážka) bylo zhodnocení cizích zdrojů velmi vysoké.
+      </p>
+      <p>
+        V <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roa" target="_blank" rel="noopener">rentabilitě aktiv</a> i vlastního kapitálu dosahovalo odvětví v průměru ještě lepších
+        výsledků než PLAST. Výrazně nejlepší rentabilitu vlastního kapitálu vykazoval benchmark
+        ALPLA, který s úspěchem využíval <a class="pojem" href="#pojem-efekt-financni-paky">efektu
+        finanční páky</a>.
+      </p>
+
+      <section class="definice" id="pojem-efekt-financni-paky">
+        <h3 class="definice__pojem">Efekt finanční páky</h3>
+        <div class="definice__telo">
+          <p>
+            Jev, kdy financování cizím (úročeným) kapitálem <strong>zvyšuje rentabilitu vlastního
+            kapitálu (ROE)</strong>. Nastává tehdy, když je rentabilita celkového kapitálu vyšší
+            než úroková míra cizího kapitálu – rozdíl zůstává vlastníkům a čím vyšší je zadlužení,
+            tím výrazněji ROE roste nad ROA. Ilustrací je právě benchmark ALPLA: při zadluženosti
+            80&nbsp;% dosahoval v roce 2003 rentability aktiv 18,1&nbsp;%, ale rentability vlastního
+            kapitálu úctyhodných 58,2&nbsp;%. PLAST měl páku téměř neutrální (nízký dluh), a jeho
+            ROE proto zůstávalo blízko ROA.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–18 – Vybrané ukazatele rentability</caption>
+          <thead>
+            <tr>
+              <th scope="col">Subjekt</th>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" rowspan="3">PLAST</th><td>Rentabilita tržeb (ROS)</td><td class="cislo">11,0 %</td><td class="cislo">8,7 %</td><td class="cislo">5,6 %</td><td class="cislo">7,4 %</td><td class="cislo">6,6 %</td><td class="cislo">6,6 %</td></tr>
+            <tr><td>Rentabilita aktiv (ROA)</td><td class="cislo">12,2 %</td><td class="cislo">10,6 %</td><td class="cislo">8,6 %</td><td class="cislo">10,4 %</td><td class="cislo">9,5 %</td><td class="cislo">8,4 %</td></tr>
+            <tr><td>Rentabilita VK (ROE)</td><td class="cislo">18,3 %</td><td class="cislo">13,1 %</td><td class="cislo">9,1 %</td><td class="cislo">10,5 %</td><td class="cislo">9,0 %</td><td class="cislo">8,4 %</td></tr>
+            <tr><th scope="row" rowspan="3">ALPLA</th><td>Rentabilita tržeb (ROS)</td><td class="cislo">4,8 %</td><td class="cislo">1,7 %</td><td class="cislo">—</td><td class="cislo">5,8 %</td><td class="cislo">9,1 %</td><td class="cislo">—</td></tr>
+            <tr><td>Rentabilita aktiv (ROA)</td><td class="cislo">12,3 %</td><td class="cislo">5,9 %</td><td class="cislo">—</td><td class="cislo">4,5 %</td><td class="cislo">18,1 %</td><td class="cislo">—</td></tr>
+            <tr><td>Rentabilita VK (ROE)</td><td class="cislo hodnota-niceni">−211 %</td><td class="cislo">1 330 %</td><td class="cislo">—</td><td class="cislo">68,4 %</td><td class="cislo hodnota-tvorba">58,2 %</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="3">OBALY</th><td>Rentabilita tržeb (ROS)</td><td class="cislo hodnota-niceni">−6,7 %</td><td class="cislo">1,9 %</td><td class="cislo">5,8 %</td><td class="cislo">10,5 %</td><td class="cislo">8,9 %</td><td class="cislo">2,6 %</td></tr>
+            <tr><td>Rentabilita aktiv (ROA)</td><td class="cislo">9,4 %</td><td class="cislo">5,8 %</td><td class="cislo">13,5 %</td><td class="cislo">9,3 %</td><td class="cislo">7,9 %</td><td class="cislo">4,7 %</td></tr>
+            <tr><td>Rentabilita VK (ROE)</td><td class="cislo hodnota-niceni">−21,9 %</td><td class="cislo">5,9 %</td><td class="cislo">14,8 %</td><td class="cislo">16,6 %</td><td class="cislo">14,1 %</td><td class="cislo">4,2 %</td></tr>
+            <tr><th scope="row" rowspan="3">OKEČ 25.2</th><td>Rentabilita tržeb (ROS)</td><td class="cislo">2,35 %</td><td class="cislo">1,16 %</td><td class="cislo">5,75 %</td><td class="cislo">7,5 %</td><td class="cislo">7,0 %</td><td class="cislo">—</td></tr>
+            <tr><td>Rentabilita aktiv (ROA)</td><td class="cislo">7,5 %</td><td class="cislo">7,0 %</td><td class="cislo">12,4 %</td><td class="cislo">13,0 %</td><td class="cislo">10,7 %</td><td class="cislo">—</td></tr>
+            <tr><td>Rentabilita VK (ROE)</td><td class="cislo">2,8 %</td><td class="cislo">85,7 %</td><td class="cislo">22,6 %</td><td class="cislo">24,5 %</td><td class="cislo">16,9 %</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="3">OKEČ 25</th><td>Rentabilita tržeb (ROS)</td><td class="cislo">6,1 %</td><td class="cislo">5,5 %</td><td class="cislo">4,1 %</td><td class="cislo">4,8 %</td><td class="cislo">6,4 %</td><td class="cislo">5,5 %</td></tr>
+            <tr><td>Rentabilita aktiv (ROA)</td><td class="cislo">12,7 %</td><td class="cislo">10,9 %</td><td class="cislo">9,7 %</td><td class="cislo">10,7 %</td><td class="cislo">14,8 %</td><td class="cislo">12,4 %</td></tr>
+            <tr><td>Rentabilita VK (ROE)</td><td class="cislo">12,7 %</td><td class="cislo">12,0 %</td><td class="cislo">10,2 %</td><td class="cislo">11,0 %</td><td class="cislo">16,2 %</td><td class="cislo">14,9 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- KROKOVÁ VIZUALIZACE: efekt finanční páky -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Efekt finanční páky: jak zadlužení „páčí“ ROE nad ROA (rok 2003)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další“ a sledujte, jak s rostoucím zadlužením roste rozdíl mezi rentabilitou aktiv (ROA) a rentabilitou vlastního kapitálu (ROE).</p>
+        </figcaption>
+        <div id="viz-paka"></div>
+      </figure>
+
+      <!-- STATICKÝ ČÁROVÝ GRAF: vývoj rentability PLAST -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj rentability podniku PLAST 1999–2004 (%)</p>
+          <p class="viz__popis">Trvale zisková, ale mírně klesající rentabilita. ROE se postupně přibližuje k ROA, jak klesá zadlužení a slábne efekt páky.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-rentabilita"></div>
+      </figure>
+
+      <!-- ============ AKTIVITA ============ -->
+      <h2>Analýza aktivity</h2>
+      <p>
+        Z hlediska efektivního využívání aktiv byl <strong><a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-obrat-aktiv" target="_blank" rel="noopener">obrat celkových aktiv</a></strong> podniku
+        PLAST nižší než požadované minimum 1 (z 1&nbsp;Kč majetku by měla plynout alespoň 1&nbsp;Kč
+        tržeb) a nižší než v odvětví. Významné je ale složení aktiv: přibližně 20&nbsp;% tvořil
+        dlouhodobý finanční majetek, jehož nákup si „vynutila“ mateřská společnost a který nepřinášel
+        výnosy. Po očištění o něj vypadá obratovost lépe, přesto zůstávala pod odvětvovým průměrem.
+        Nízká obratovost může též znamenat, že podnik <strong>investuje</strong> a tyto investice
+        zatím nezvýšily tržby.
+      </p>
+      <p>
+        <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-zasob" target="_blank" rel="noopener">Doba obratu zásob</a> i pohledávek byla vyšší než v odvětví. Své pohledávky dostával PLAST
+        zaplaceny později (v roce 2003 za více než 100 dnů) – vědomě vycházel vstříc odběratelům
+        vysokou dobou splatnosti, rychlou reakcí ve výrobě i vlastní dopravou. Srovnáme-li <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-zavazku" target="_blank" rel="noopener">dobu
+        obratu závazků</a> s <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-pohledavek" target="_blank" rel="noopener">dobou obratu pohledávek</a>, zjistíme, že PLAST <strong>platil své závazky
+        dříve, než sám dostával zaplaceno</strong> – byl tedy v postavení věřitele a úvěroval své
+        odběratele, stejně jako odvětví, benchmark ALPLA i konkurent OBALY.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–19 – Vybrané ukazatele aktivity (DO = doba obratu)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Subjekt</th>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" rowspan="4">PLAST</th><td>Obrat aktiv</td><td class="cislo">0,88</td><td class="cislo">0,81</td><td class="cislo">0,92</td><td class="cislo">0,86</td><td class="cislo">0,89</td><td class="cislo">0,82</td></tr>
+            <tr><td>DO zásob (dny)</td><td class="cislo">52,5</td><td class="cislo">58,6</td><td class="cislo">55,0</td><td class="cislo">58,3</td><td class="cislo">52,7</td><td class="cislo">62,8</td></tr>
+            <tr><td>DO pohledávek (dny)</td><td class="cislo">90,3</td><td class="cislo">145,1</td><td class="cislo">94,3</td><td class="cislo">94,4</td><td class="cislo">103,1</td><td class="cislo">91,8</td></tr>
+            <tr><td>DO závazků (dny)</td><td class="cislo">53,8</td><td class="cislo">32,9</td><td class="cislo">30,5</td><td class="cislo">31,8</td><td class="cislo">35,2</td><td class="cislo">44,0</td></tr>
+            <tr><th scope="row" rowspan="4">ALPLA</th><td>Obrat aktiv</td><td class="cislo">1,12</td><td class="cislo">1,24</td><td class="cislo">—</td><td class="cislo">1,31</td><td class="cislo">1,24</td><td class="cislo">—</td></tr>
+            <tr><td>DO zásob (dny)</td><td class="cislo">22,6</td><td class="cislo">30,4</td><td class="cislo">—</td><td class="cislo">35,4</td><td class="cislo">62,0</td><td class="cislo">—</td></tr>
+            <tr><td>DO pohledávek (dny)</td><td class="cislo">107,7</td><td class="cislo">92,6</td><td class="cislo">—</td><td class="cislo">97,3</td><td class="cislo">94,7</td><td class="cislo">—</td></tr>
+            <tr><td>DO závazků (dny)</td><td class="cislo">87,9</td><td class="cislo">55,8</td><td class="cislo">—</td><td class="cislo">73,1</td><td class="cislo">64,1</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="4">OBALY</th><td>Obrat aktiv</td><td class="cislo">0,94</td><td class="cislo">1,04</td><td class="cislo">1,11</td><td class="cislo">0,77</td><td class="cislo">0,72</td><td class="cislo">0,75</td></tr>
+            <tr><td>DO zásob (dny)</td><td class="cislo">54,7</td><td class="cislo">58,0</td><td class="cislo">56,4</td><td class="cislo">87,1</td><td class="cislo">71,2</td><td class="cislo">64,6</td></tr>
+            <tr><td>DO pohledávek (dny)</td><td class="cislo">100,2</td><td class="cislo">99,2</td><td class="cislo">61,2</td><td class="cislo">87,2</td><td class="cislo">118,7</td><td class="cislo">142,1</td></tr>
+            <tr><td>DO závazků (dny)</td><td class="cislo">94,2</td><td class="cislo">67,7</td><td class="cislo">59,8</td><td class="cislo">111,8</td><td class="cislo">85,4</td><td class="cislo">72,5</td></tr>
+            <tr><th scope="row" rowspan="4">OKEČ 25.2</th><td>Obrat aktiv</td><td class="cislo">1,09</td><td class="cislo">1,27</td><td class="cislo">1,45</td><td class="cislo">1,18</td><td class="cislo">1,18</td><td class="cislo">—</td></tr>
+            <tr><td>DO zásob (dny)</td><td class="cislo">47,1</td><td class="cislo">52,9</td><td class="cislo">43,6</td><td class="cislo">44,4</td><td class="cislo">47,3</td><td class="cislo">—</td></tr>
+            <tr><td>DO pohledávek (dny)</td><td class="cislo">85,4</td><td class="cislo">79,1</td><td class="cislo">73,6</td><td class="cislo">72,4</td><td class="cislo">83,8</td><td class="cislo">—</td></tr>
+            <tr><td>DO závazků (dny)</td><td class="cislo">90,6</td><td class="cislo">116,2</td><td class="cislo">102,7</td><td class="cislo">83,0</td><td class="cislo">74,0</td><td class="cislo">—</td></tr>
+            <tr><th scope="row" rowspan="4">OKEČ 25</th><td>Obrat aktiv</td><td class="cislo">1,09</td><td class="cislo">1,13</td><td class="cislo">1,25</td><td class="cislo">1,31</td><td class="cislo">1,47</td><td class="cislo">1,48</td></tr>
+            <tr><td>DO zásob (dny)</td><td class="cislo">50,1</td><td class="cislo">47,2</td><td class="cislo">41,4</td><td class="cislo">37,9</td><td class="cislo">38,7</td><td class="cislo">31,0</td></tr>
+            <tr><td>DO pohledávek (dny)</td><td class="cislo">75,1</td><td class="cislo">75,2</td><td class="cislo">66,8</td><td class="cislo">71,4</td><td class="cislo">93,3</td><td class="cislo">85,3</td></tr>
+            <tr><td>DO závazků (dny)</td><td class="cislo">85,3</td><td class="cislo">70,6</td><td class="cislo">61,6</td><td class="cislo">53,9</td><td class="cislo">56,8</td><td class="cislo">43,2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik PLAST měl v roce 2003 dobu obratu pohledávek 103,1 dne a dobu obratu závazků
+          35,2 dne. Kdo koho v tomto vztahu úvěruje a proč to představuje tlak na provozní financování?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>PLAST platí své závazky mnohem dříve (za 35 dnů), než sám inkasuje pohledávky
+            (za 103 dnů). Po dobu rozdílu přibližně 68 dnů tedy <strong>financuje své odběratele</strong> –
+            je v postavení věřitele. Tento rozdíl musí pokrýt z vlastního pracovního kapitálu nebo
+            krátkodobých zdrojů, což vysvětluje potřebu udržovat kladný ČPK a rezervu v likviditě.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============ OSTATNÍ UKAZATELE / PRODUKTIVITA ============ -->
+      <h2>Ostatní ukazatele – produktivita a struktura přidané hodnoty</h2>
+      <p>
+        Obraz finančního zdraví dokreslují ukazatele produktivity práce a podílové ukazatele
+        nákladů. <a class="pojem" href="t3-l4-kapitalovy-trh.html?zvyraznit=pojem-pridana-hodnota" target="_blank" rel="noopener">Přidaná hodnota</a> i tržby na zaměstnance u podniku PLAST postupně rostly, rostly
+        však i osobní náklady.
+      </p>
+
+      <section class="definice" id="pojem-produktivita-prace">
+        <h3 class="definice__pojem">Produktivita práce</h3>
+        <div class="definice__telo">
+          <p>
+            Výkon připadající na jednoho pracovníka. Nejčastěji se měří jako
+            <span class="math">
+              <span class="frac"><span class="frac__cit">přidaná hodnota</span><span class="frac__jmen">počet zaměstnanců</span></span>
+            </span>
+            nebo jako tržby na zaměstnance. <strong>Přidaná hodnota</strong> je rozdíl mezi
+            výkony (tržbami) a výkonovou spotřebou – vyjadřuje hodnotu, kterou podnik vlastní
+            činností „přidal“ ke spotřebovaným vstupům. U PLAST vzrostla přidaná hodnota na
+            zaměstnance ze 700,9 tis. Kč (2001) na 789,2 tis. Kč (2004).
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–20 – Další ukazatele u podniku PLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Přidaná hodnota / počet zam. (tis. Kč)</th><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">700,9</td><td class="cislo">680,0</td><td class="cislo">709,3</td><td class="cislo">789,2</td></tr>
+            <tr><th scope="row">Tržby / počet zam. (tis. Kč)</th><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">2 284,1</td><td class="cislo">2 094,7</td><td class="cislo">2 171,9</td><td class="cislo">2 696,7</td></tr>
+            <tr><th scope="row">Osobní náklady / počet zam. (tis. Kč)</th><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">279,2</td><td class="cislo">297,8</td><td class="cislo">330,2</td><td class="cislo">350,9</td></tr>
+            <tr><th scope="row">Výkonová spotřeba / výnosy</th><td class="cislo">48,6 %</td><td class="cislo">49,2 %</td><td class="cislo">55,1 %</td><td class="cislo">53,6 %</td><td class="cislo">57,5 %</td><td class="cislo">57,3 %</td></tr>
+            <tr><th scope="row">Osobní náklady / výnosy</th><td class="cislo">9,7 %</td><td class="cislo">9,9 %</td><td class="cislo">9,6 %</td><td class="cislo">11,0 %</td><td class="cislo">13,1 %</td><td class="cislo">10,5 %</td></tr>
+            <tr><th scope="row">Odpisy / výnosy</th><td class="cislo">12,4 %</td><td class="cislo">10,6 %</td><td class="cislo">8,5 %</td><td class="cislo">7,4 %</td><td class="cislo">7,4 %</td><td class="cislo">5,4 %</td></tr>
+            <tr><th scope="row">Nákladové úroky / výnosy</th><td class="cislo">1,7 %</td><td class="cislo">1,8 %</td><td class="cislo">1,8 %</td><td class="cislo">1,3 %</td><td class="cislo">0,9 %</td><td class="cislo">0,8 %</td></tr>
+            <tr><th scope="row">Přidaná hodnota / výnosy</th><td class="cislo">32,7 %</td><td class="cislo">27,2 %</td><td class="cislo">24,1 %</td><td class="cislo">25,1 %</td><td class="cislo">28,2 %</td><td class="cislo">23,6 %</td></tr>
+            <tr><th scope="row">Osobní náklady / PH</th><td class="cislo">29,7 %</td><td class="cislo">36,5 %</td><td class="cislo">39,8 %</td><td class="cislo">43,8 %</td><td class="cislo">46,6 %</td><td class="cislo">44,5 %</td></tr>
+            <tr><th scope="row">Odpisy / PH</th><td class="cislo">37,8 %</td><td class="cislo">39,1 %</td><td class="cislo">35,1 %</td><td class="cislo">29,5 %</td><td class="cislo">26,4 %</td><td class="cislo">23,1 %</td></tr>
+            <tr><th scope="row">Nákladové úroky / PH</th><td class="cislo">5,0 %</td><td class="cislo">6,6 %</td><td class="cislo">7,3 %</td><td class="cislo">5,0 %</td><td class="cislo">3,2 %</td><td class="cislo">3,3 %</td></tr>
+            <tr><th scope="row">HV před zdaněním / PH</th><td class="cislo">28,7 %</td><td class="cislo">29,9 %</td><td class="cislo">23,2 %</td><td class="cislo">32,5 %</td><td class="cislo">29,4 %</td><td class="cislo">31,8 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- STATICKÝ SLOUPCOVÝ GRAF: produktivita -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Přidaná hodnota na zaměstnance v podniku PLAST (tis. Kč)</p>
+          <p class="viz__popis">Produktivita práce měřená přidanou hodnotou na pracovníka po drobném poklesu v roce 2002 dále rostla až na 789,2 tis. Kč v roce 2004.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-produktivita"></div>
+      </figure>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–21 – Další ukazatele u odvětví (pro srovnání)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Výkonová spotřeba / výnosy</th><td class="cislo">50,7 %</td><td class="cislo">55,6 %</td><td class="cislo">57,8 %</td><td class="cislo">59,8 %</td><td class="cislo">62,4 %</td><td class="cislo">61,4 %</td></tr>
+            <tr><th scope="row">Osobní náklady / výnosy</th><td class="cislo">11,9 %</td><td class="cislo">11,5 %</td><td class="cislo">10,8 %</td><td class="cislo">10,9 %</td><td class="cislo">10,3 %</td><td class="cislo">9,6 %</td></tr>
+            <tr><th scope="row">Odpisy / výnosy</th><td class="cislo">4,8 %</td><td class="cislo">4,6 %</td><td class="cislo">4,1 %</td><td class="cislo">4,0 %</td><td class="cislo">3,9 %</td><td class="cislo">3,4 %</td></tr>
+            <tr><th scope="row">Nákladové úroky / výnosy</th><td class="cislo">1,2 %</td><td class="cislo">1,1 %</td><td class="cislo">1,0 %</td><td class="cislo">0,8 %</td><td class="cislo">0,6 %</td><td class="cislo">0,6 %</td></tr>
+            <tr><th scope="row">Přidaná hodnota / výnosy</th><td class="cislo">25,8 %</td><td class="cislo">23,5 %</td><td class="cislo">21,0 %</td><td class="cislo">21,6 %</td><td class="cislo">23,1 %</td><td class="cislo">21,3 %</td></tr>
+            <tr><th scope="row">Osobní náklady / PH</th><td class="cislo">45,5 %</td><td class="cislo">48,9 %</td><td class="cislo">51,7 %</td><td class="cislo">50,2 %</td><td class="cislo">44,5 %</td><td class="cislo">45,0 %</td></tr>
+            <tr><th scope="row">Odpisy / PH</th><td class="cislo">18,5 %</td><td class="cislo">19,5 %</td><td class="cislo">19,7 %</td><td class="cislo">18,3 %</td><td class="cislo">16,6 %</td><td class="cislo">15,7 %</td></tr>
+            <tr><th scope="row">Nákladové úroky / PH</th><td class="cislo">4,5 %</td><td class="cislo">4,6 %</td><td class="cislo">4,6 %</td><td class="cislo">3,5 %</td><td class="cislo">2,4 %</td><td class="cislo">2,9 %</td></tr>
+            <tr><th scope="row">HV před zdaněním / PH</th><td class="cislo">30,8 %</td><td class="cislo">26,5 %</td><td class="cislo">20,2 %</td><td class="cislo">26,2 %</td><td class="cislo">37,0 %</td><td class="cislo">32,3 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Porovnání podílu významných nákladových položek na výnosech vychází u PLAST a odvětví
+        podobně. PLAST vykazoval jen o něco vyšší podíl <strong>odpisů</strong> a osobních
+        nákladů na výnosech a mírně nižší podíl výkonové spotřeby. I <strong>struktura přidané
+        hodnoty</strong> byla v posledních letech podobná odvětví – podnik měl pouze o něco
+        vyšší podíl odpisů.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Celkový obraz čtyř oblastí</p>
+        <div class="callout__telo">
+          <p>Poměrová analýza skládá dohromady jeden příběh: PLAST je <strong>finančně stabilní,
+          konzervativně financovaný a trvale ziskový</strong> podnik s rezervou v dluhu i likviditě,
+          jehož slabším místem je nižší obratovost aktiv (částečně kvůli neoperativnímu finančnímu
+          majetku) a nevyužitý potenciál finanční páky. V lekci 12.6 tyto dílčí pohledy shrneme
+          souhrnnými modely a paprskovou SPIDER analýzou.</p>
+        </div>
+      </aside>
+
+      <!-- ============ ZKUS SÁM 2 ============ -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Využíval podnik PLAST plně pozitivní efekt finanční páky? Opřete se o multiplikátor
+          vlastního kapitálu, úrokové krytí a srovnání s benchmarkem ALPLA.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Ne zcela. Multiplikátor VK byl sice po celé období nad 1 (tj. další zadlužení by
+            ROE zvyšovalo) a úrokové krytí 10× i nízká zadluženost 35&nbsp;% dávaly velký prostor
+            k přijetí úvěrů. Reálně však díky nízkému dluhu působila páka jen slabě – ROE PLAST
+            (9,0&nbsp;% v roce 2003) zůstávalo blízko ROA (9,5&nbsp;%). Naproti tomu ALPLA se
+            zadlužeností 80&nbsp;% dosáhla ROE 58,2&nbsp;% při ROA 18,1&nbsp;%. PLAST tedy měl
+            <strong>nevyužitou kapacitu</strong> zvýšit zadlužení a s ním i rentabilitu vlastního
+            kapitálu.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============ ZÁVĚREČNÉ OTÁZKY ============ -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč byla nízká hotovostní likvidita podniku PLAST hodnocena spíše neutrálně, a ne jako riziko?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se nad finanční silou podniku a jeho přístupem k bankovnímu financování.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>PLAST byl finančně stabilní podnik s dohodnutým krátkodobým (kontokorentním) úvěrem za výhodných podmínek. U takto silného podniku není nutné držet vysoké hotovostní rezervy – v případě potřeby má snadný přístup k levnému úvěru. Likviditu proto nelze číst mechanicky stejně jako u malého podniku bez takového zázemí.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co znamená, že multiplikátor vlastního kapitálu podniku PLAST byl ve všech letech větší než 1?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Multiplikátor VK spojuje úrokovou redukci zisku (EBT/EBIT) a finanční páku (A/VK).</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Znamená to, že kladný efekt finanční páky (přírůstek výnosnosti díky poměru A/VK) převažoval nad úbytkem zisku odčerpaným úroky (EBT/EBIT). Další zadlužení by tedy mělo pozitivní vliv na rentabilitu vlastního kapitálu – podniku bylo možné zvýšení zadluženosti doporučit.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Vysvětlete na datech roku 2003, proč měla ALPLA výrazně vyšší ROE než PLAST, ačkoli jejich rentabilita aktiv nebyla propastně odlišná svým významem.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte jejich zadluženost (podíl cizích zdrojů) a princip finanční páky.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>ALPLA financovala aktiva z 80&nbsp;% cizími zdroji, takže její malý vlastní kapitál byl „pákován“ – ROA 18,1&nbsp;% se přetavilo v ROE 58,2&nbsp;%. PLAST měl zadluženost jen 35&nbsp;%, páka byla téměř neutrální, a proto jeho ROE (9,0&nbsp;%) zůstalo blízko ROA (9,5&nbsp;%). Vysoké zadlužení ALPLA ovšem znamenalo i vysoké finanční riziko, na které studie upozornila.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč nemusí být nízký obrat aktiv podniku PLAST tak negativní, jak se na první pohled zdá?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzpomeňte si na strukturu aktiv (dlouhodobý finanční majetek) a na investiční aktivitu podniku.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Přibližně 20&nbsp;% aktiv tvořil dlouhodobý finanční majetek (nakoupené podíly), který si vynutila mateřská společnost a jenž nepřinášel výnosy ani tržby. Po jeho odečtení obratovost vypadá lépe. Nízká obratovost navíc může odrážet právě probíhající investice, které se do tržeb promítnou až později.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Splňoval podnik PLAST zlaté pravidlo financování a co to vypovídalo o jeho strategii?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na poměr dlouhodobé zdroje / dlouhodobý majetek v tabulce 8–15 a porovnejte se strategií OBALY.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Ano, plnil je s rezervou (poměr 1,1–1,2) a dlouhodobý majetek dokázal pokrýt dokonce jen vlastním kapitálem – to je znak konzervativní strategie financování a vysoké finanční stability. Naopak OBALY volily agresivní strategii a část dlouhodobého majetku kryly krátkodobými zdroji (poměr pod 1).</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PREV / NEXT ============ -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l4-financni-analyza-1.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.4 Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l6-financni-analyza-3.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.6 Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) KROKOVÁ VIZUALIZACE: efekt finanční páky (rok 2003)
+      // Tři subjekty s rostoucí zadlužeností → roste rozdíl mezi ROA a ROE.
+      var stavyPaka = [
+        { podnik: 'PLAST',    zadluzenost: '35 %', roa: 9.5,  roe: 9.0  },
+        { podnik: 'OKEČ 25',  zadluzenost: '40 %', roa: 14.8, roe: 16.2 },
+        { podnik: 'ALPLA',    zadluzenost: '80 %', roa: 18.1, roe: 58.2 }
+      ];
+
+      Skripta.stepper('viz-paka', {
+        sirka: 720, vyska: 400,
+        stavy: stavyPaka,
+        popisky: [
+          'PLAST: nízké zadlužení 35 %. ROA 9,5 % a ROE 9,0 % jsou téměř stejné – finanční páka působí jen slabě.',
+          'Odvětví OKEČ 25: zadlužení kolem 40 %. ROE (16,2 %) už mírně převyšuje ROA (14,8 %) – páka začíná pracovat.',
+          'Benchmark ALPLA: zadlužení 80 %. Malý vlastní kapitál je silně „pákován“ – ROA 18,1 % se přetaví v ROE 58,2 %.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 330, top = 70;
+          // Škála: 0 % dole (base) … 60 % nahoře (top). ALPLA ROE 58,2 % se vejde.
+          var px = (base - top) / 60;
+
+          // Osa (základna)
+          u.dej(svg, 'osa', 'line', { x1: 90, y1: base, x2: 690, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Vodicí čára ROA (přerušovaná) – aby byl vidět rozdíl ROE nad ROA
+          var yRoa = base - stav.roa * px;
+          u.dej(svg, 'vodic-roa', 'line', {
+            x1: 90, y1: yRoa, x2: 690, y2: yRoa,
+            stroke: u.barvaMrizka, 'stroke-width': 1.2, 'stroke-dasharray': '5 5'
+          });
+
+          // Sloupec ROA (indigo)
+          var roaH = stav.roa * px;
+          u.dej(svg, 'bar-roa', 'rect', {
+            x: 230, y: base - roaH, width: 110, height: roaH, rx: 5, fill: '#4338ca'
+          });
+          u.dej(svg, 'val-roa', 'text', {
+            x: 285, y: base - roaH - 12, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 15, 'font-weight': 700
+          }, u.formatCislo(stav.roa, 1) + ' %');
+          u.dej(svg, 'lbl-roa', 'text', {
+            x: 285, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+          }, 'ROA (rent. aktiv)');
+
+          // Sloupec ROE (zelená, když ROE ≥ ROA → tvorba; jinak by byl červený)
+          var roeH = stav.roe * px;
+          var roeBarva = stav.roe >= stav.roa ? u.barvaTvorba : u.barvaNiceni;
+          u.dej(svg, 'bar-roe', 'rect', {
+            x: 400, y: base - roeH, width: 110, height: roeH, rx: 5, fill: roeBarva
+          });
+          u.dej(svg, 'val-roe', 'text', {
+            x: 455, y: base - roeH - 12, 'text-anchor': 'middle',
+            fill: roeBarva, 'font-size': 15, 'font-weight': 700
+          }, u.formatCislo(stav.roe, 1) + ' %');
+          u.dej(svg, 'lbl-roe', 'text', {
+            x: 455, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+          }, 'ROE (rent. VK)');
+
+          // Nadpis: podnik + zadluženost
+          u.dej(svg, 'titul', 'text', {
+            x: 390, y: 34, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 18, 'font-weight': 700
+          }, stav.podnik);
+          u.dej(svg, 'titul-sub', 'text', {
+            x: 390, y: 54, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+          }, 'zadluženost ' + stav.zadluzenost);
+        }
+      });
+
+      // B) STATICKÝ ČÁROVÝ GRAF: vývoj rentability PLAST 1999–2004
+      Skripta.carovyGraf('viz-rentabilita', {
+        sirka: 720, vyska: 340, formatDesetin: 1,
+        serie: [
+          { nazev: 'ROE (rent. VK)', body: [
+            { x: '1999', y: 18.3 }, { x: '2000', y: 13.1 }, { x: '2001', y: 9.1 },
+            { x: '2002', y: 10.5 }, { x: '2003', y: 9.0 }, { x: '2004', y: 8.4 } ] },
+          { nazev: 'ROA (rent. aktiv)', body: [
+            { x: '1999', y: 12.2 }, { x: '2000', y: 10.6 }, { x: '2001', y: 8.6 },
+            { x: '2002', y: 10.4 }, { x: '2003', y: 9.5 }, { x: '2004', y: 8.4 } ] },
+          { nazev: 'ROS (rent. tržeb)', body: [
+            { x: '1999', y: 11.0 }, { x: '2000', y: 8.7 }, { x: '2001', y: 5.6 },
+            { x: '2002', y: 7.4 }, { x: '2003', y: 6.6 }, { x: '2004', y: 6.6 } ] }
+        ]
+      });
+
+      // C) STATICKÝ SLOUPCOVÝ GRAF: produktivita (PH na zaměstnance)
+      Skripta.sloupcovyGraf('viz-produktivita', {
+        sirka: 640, vyska: 300, formatDesetin: 1,
+        data: [
+          { popisek: '2001', hodnota: 700.9 },
+          { popisek: '2002', hodnota: 680.0 },
+          { popisek: '2003', hodnota: 709.3 },
+          { popisek: '2004', hodnota: 789.2 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

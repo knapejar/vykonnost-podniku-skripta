@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="cs">
+<!--
+  ==========================================================================
+  VZOROVÁ ŠABLONA LEKCE
+  --------------------------------------------------------------------------
+  Toto je PLNĚ FUNKČNÍ vzor jedné lekce. Zkopírujte tento soubor do
+  public/lekce/ pod správným názvem (viz data/lekce-index.json) a naplňte
+  vlastním obsahem. Demonstruje VŠECHNY sdílené komponenty.
+
+  DŮLEŽITÉ:
+  - Soubor patří do public/lekce/, proto všechny cesty k assetům vedou
+    relativně přes ../assets/... a odkaz na rozcestník přes ../index.html.
+  - Nikdy neupravujte skripta.css – používejte pouze existující třídy.
+  - Ukázkový obsah níže je ilustrativní (téma EVA); nahraďte ho reálným.
+  ==========================================================================
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TITULEK: „<id> <název lekce> – Výkonnost podniku" -->
+  <title>5.1 Podstata a výpočet EVA – Výkonnost podniku</title>
+  <meta name="description" content="Podstata ekonomické přidané hodnoty (EVA) a její základní výpočet.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <!-- Tlačítko pro sbalení panelu na mobilech (na desktopu skryté přes CSS) -->
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: staticky vypsané lekce AKTUÁLNÍHO tématu.
+         data-panel + data-aktivni-lekce="5.1" → JS zvýrazní aktuální lekci.
+         Robustní varianta: seznam je v HTML (funguje i bez JS/sítě). -->
+    <nav class="panel" data-panel data-aktivni-lekce="5.1" aria-label="Lekce tématu 5">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 5</div>
+      <div class="panel__nazev-tema">Ekonomická přidaná hodnota (EVA)</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="5.1" href="t5-l1-podstata-eva.html"><span class="panel__odkaz-cislo">5.1</span><span>Podstata a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.2" href="t5-l2-noa.html"><span class="panel__odkaz-cislo">5.2</span><span>Účetní úpravy rozvahy – vymezení NOA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.3" href="t5-l3-nopat-naklady-kapital.html"><span class="panel__odkaz-cislo">5.3</span><span>NOPAT, náklady na kapitál a zjednodušené verze EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.4" href="t5-l4-eva-v-praxi.html"><span class="panel__odkaz-cislo">5.4</span><span>EVA v praxi</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.5" href="t5-l5-eva-investice-oceneni.html"><span class="panel__odkaz-cislo">5.5</span><span>EVA pro investiční rozhodování a ocenění</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.6" href="t5-l6-eva-odmenovani.html"><span class="panel__odkaz-cislo">5.6</span><span>EVA a odměňování</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.7" href="t5-l7-zhodnoceni-eva.html"><span class="panel__odkaz-cislo">5.7</span><span>Zhodnocení EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-5">Téma 5 · EVA</a></li>
+          <li><span aria-current="page">Lekce 5.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 5.1</span>
+        <h1>Podstata a výpočet EVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 52–56</p>
+      </header>
+
+      <!-- PROZAICKÝ TEXT (komfortní míra řádku ~72ch) -->
+      <p>
+        Klasické účetní ukazatele zisku pomíjejí jednu zásadní věc: <em>kolik stojí
+        kapitál</em>, který podnik používá. Ekonomická přidaná hodnota, zkráceně
+        <a class="pojem" href="#pojem-eva">EVA</a>, tuto mezeru odstraňuje. Měří,
+        zda podnik vydělal víc, než činí náklady na veškerý investovaný kapitál –
+        tedy zda skutečně <strong>vytvořil hodnotu</strong> pro vlastníky.
+      </p>
+      <p>
+        V této lekci si ukážeme základní myšlenku EVA, její nejjednodušší výpočet
+        a to, proč se kladná EVA označuje za tvorbu hodnoty a záporná za její ničení.
+      </p>
+
+      <!-- CALLOUT: info -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Odkud pojem pochází</p>
+        <div class="callout__telo">
+          <p>Koncept EVA zpopularizovala poradenská firma Stern Stewart &amp; Co.
+          v 90. letech 20. století jako registrovanou obchodní značku.</p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE POJMU (kotva id="pojem-<slug>") -->
+      <section class="definice" id="pojem-eva">
+        <h3 class="definice__pojem">Ekonomická přidaná hodnota (EVA)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi provozním ziskem po zdanění (<a class="pojem" href="#pojem-nopat">NOPAT</a>)
+            a náklady na investovaný kapitál. Vyjadřuje ekonomický (nikoli účetní)
+            zisk – tedy hodnotu vytvořenou nad rámec požadované výnosnosti kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <!-- Druhá definice, na kterou odkazuje .pojem výše -->
+      <section class="definice" id="pojem-nopat">
+        <h3 class="definice__pojem">NOPAT</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Net Operating Profit After Taxes</em> – provozní výsledek hospodaření
+            po zdanění, tj. zisk z hlavní činnosti podniku očištěný o daň, ještě
+            před odečtením nákladů na kapitál.
+          </p>
+        </div>
+      </section>
+
+      <!-- VZOREC (vycentrovaný, s číslem a kotvou) -->
+      <div class="vzorec" id="vzorec-eva">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>
+        </div>
+        <div class="vzorec__cislo">(5.1)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">C</span> je investovaný kapitál (NOA) a
+        <span class="math">WACC</span> jsou průměrné vážené náklady kapitálu.
+        Součin <span class="math">WACC<span class="op">×</span>C</span> se nazývá
+        <em>kapitálový náklad</em> – kolik musí podnik minimálně vydělat, aby
+        „zaplatil" investorům za použití jejich peněz.
+      </p>
+
+      <!-- CALLOUT: definice varianta -->
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">EVA spread (relativní zápis)</p>
+        <div class="callout__telo">
+          <p>EVA lze zapsat i pomocí rozdílu výnosnosti a nákladů kapitálu:
+          <span class="math">EVA<span class="op">=</span>(RONA<span class="op">−</span>WACC)<span class="op">×</span>C</span>.
+          Výraz <span class="math">(RONA<span class="op">−</span>WACC)</span> je tzv.
+          <strong>spread</strong>.</p>
+        </div>
+      </aside>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE (stepper) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Jak vzniká EVA: vodopád od NOPAT k EVA</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se z provozního zisku po odečtení nákladů na kapitál stává ekonomická přidaná hodnota.</p>
+        </figcaption>
+        <!-- Prázdný kontejner – naplní viz.js (Skripta.stepper) -->
+        <div id="viz-eva-vodopad"></div>
+      </figure>
+
+      <!-- CALLOUT: příklad -->
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Příklad</p>
+        <div class="callout__telo">
+          <p>Podnik má NOPAT 100 mil. Kč, investovaný kapitál 700 mil. Kč a WACC 10 %.
+          Kapitálový náklad je 0,10 × 700 = 70 mil. Kč, takže
+          <span class="math">EVA<span class="op">=</span>100<span class="op">−</span>70<span class="op">=</span>30</span> mil. Kč. Podnik tvoří hodnotu.</p>
+        </div>
+      </aside>
+
+      <!-- ================= KRÁSNÁ TABULKA ================= -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 5.1 – Výpočet EVA ve třech letech (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">2005</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">NOPAT</th><td class="cislo">88</td><td class="cislo">100</td><td class="cislo">115</td></tr>
+            <tr><th scope="row">Investovaný kapitál (C)</th><td class="cislo">720</td><td class="cislo">700</td><td class="cislo">690</td></tr>
+            <tr><th scope="row">WACC</th><td class="cislo">10,0 %</td><td class="cislo">10,0 %</td><td class="cislo">9,5 %</td></tr>
+            <tr><th scope="row">Kapitálový náklad</th><td class="cislo">72,0</td><td class="cislo">70,0</td><td class="cislo">65,6</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">EVA</th>
+              <td class="cislo hodnota-niceni">−16,0</td>
+              <td class="cislo hodnota-tvorba">30,0</td>
+              <td class="cislo hodnota-tvorba">49,4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- STATICKÝ GRAF (volitelně – generovaný z viz.js) -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj EVA (mil. Kč)</p>
+          <p class="viz__popis">Záporná EVA (červená) znamená ničení hodnoty, kladná (zelená) její tvorbu.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-eva-sloupce"></div>
+      </figure>
+
+      <!-- ================= ZKUS SÁM ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik má NOPAT 60 mil. Kč, investovaný kapitál 500 mil. Kč a WACC 12 %.
+          Vytváří, nebo ničí hodnotu? Spočítejte EVA.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Kapitálový náklad = 0,12 × 500 = 60 mil. Kč.
+            <span class="math">EVA<span class="op">=</span>60<span class="op">−</span>60<span class="op">=</span>0</span>.
+            Podnik přesně pokrývá náklady kapitálu – hodnotu ani netvoří, ani neničí
+            (nachází se na hranici).</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Čím se EVA zásadně liší od účetního zisku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, jaký druh nákladů účetní zisk nezohledňuje.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>EVA navíc odečítá <strong>náklady na vlastní kapitál</strong> (resp. celkový kapitálový náklad). Účetní zisk počítá pouze s náklady na cizí kapitál (úroky), a proto může být kladný i tehdy, když podnik ve skutečnosti ničí hodnotu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co znamená, když je EVA záporná?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte dosaženou výnosnost s WACC.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podnik nevydělal ani na náklady svého kapitálu – výnosnost je nižší než WACC, a podnik tak <strong>ničí hodnotu</strong> pro vlastníky, i kdyby vykazoval kladný účetní zisk.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <!-- První lekce tématu → předchozí je prázdné (ponechte pro zarovnání) -->
+        <span class="lekce-navigace__odkaz lekce-navigace__odkaz--prazdny" aria-hidden="true"></span>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l2-noa.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.2 Účetní úpravy rozvahy – vymezení NOA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <!-- Pořadí skriptů: nejdřív sdílené chování, pak framework vizualizací, pak inicializace lekce -->
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // A) KROKOVÁ VIZUALIZACE: vodopád EVA
+      // Sdílené hodnoty pro všechny kroky; mění se pouze viditelnost prvků.
+      var NOPAT = 100, CHARGE = 70; // mil. Kč
+
+      Skripta.stepper('viz-eva-vodopad', {
+        sirka: 720, vyska: 360,
+        stavy: [
+          { showCharge: false, showEva: false },
+          { showCharge: true,  showEva: false },
+          { showCharge: true,  showEva: true  }
+        ],
+        popisky: [
+          'Začínáme provozním ziskem po zdanění: NOPAT = 100 mil. Kč.',
+          'Odečteme náklady na kapitál: WACC × C = 70 mil. Kč (klesá z vrcholu NOPAT).',
+          'Co zbude, je EVA = 30 mil. Kč. Kladná hodnota → podnik tvoří hodnotu.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 300, px = 2.2;
+          var nopatH = NOPAT * px;
+          var chargeH = CHARGE * px;
+          var evaH = (NOPAT - CHARGE) * px;
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 70, y1: base, x2: 690, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Sloupec NOPAT (indigo) – vždy viditelný
+          u.dej(svg, 'bar-nopat', 'rect', { x: 130, y: base - nopatH, width: 110, height: nopatH, rx: 5, fill: '#4338ca' });
+          u.dej(svg, 'val-nopat', 'text', { x: 185, y: base - nopatH - 12, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 15, 'font-weight': 700 }, u.formatCislo(NOPAT));
+          u.dej(svg, 'lbl-nopat', 'text', { x: 185, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, 'NOPAT');
+
+          // Sloupec kapitálového nákladu (červená) – „odečet" shora
+          u.dej(svg, 'bar-charge', 'rect', {
+            x: 345, y: base - nopatH,
+            width: 110, height: stav.showCharge ? chargeH : 0,
+            rx: 5, fill: u.barvaNiceni, opacity: stav.showCharge ? 1 : 0
+          });
+          u.dej(svg, 'val-charge', 'text', {
+            x: 400, y: base - nopatH + (chargeH / 2) + 5, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 15, 'font-weight': 700, opacity: stav.showCharge ? 1 : 0
+          }, '−' + u.formatCislo(CHARGE));
+          u.dej(svg, 'lbl-charge', 'text', {
+            x: 400, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 13, opacity: stav.showCharge ? 1 : 0
+          }, 'WACC × C');
+
+          // Spojnice: vrchol NOPAT → vrchol odečtu
+          u.dej(svg, 'spoj1', 'line', {
+            x1: 240, y1: base - nopatH, x2: 345, y2: base - nopatH,
+            stroke: u.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '4 4',
+            opacity: stav.showCharge ? 1 : 0
+          });
+
+          // Sloupec EVA (zelená) – výsledek
+          u.dej(svg, 'bar-eva', 'rect', {
+            x: 560, y: base - evaH,
+            width: 110, height: stav.showEva ? evaH : 0,
+            rx: 5, fill: u.barvaTvorba, opacity: stav.showEva ? 1 : 0
+          });
+          u.dej(svg, 'val-eva', 'text', {
+            x: 615, y: base - evaH - 12, 'text-anchor': 'middle', fill: u.barvaTvorba,
+            'font-size': 15, 'font-weight': 700, opacity: stav.showEva ? 1 : 0
+          }, u.formatCislo(NOPAT - CHARGE));
+          u.dej(svg, 'lbl-eva', 'text', {
+            x: 615, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 13, opacity: stav.showEva ? 1 : 0
+          }, 'EVA');
+
+          // Spojnice: spodek odečtu → vrchol EVA
+          u.dej(svg, 'spoj2', 'line', {
+            x1: 455, y1: base - evaH, x2: 560, y2: base - evaH,
+            stroke: u.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '4 4',
+            opacity: stav.showEva ? 1 : 0
+          });
+        }
+      });
+
+      // B) STATICKÝ SLOUPCOVÝ GRAF: vývoj EVA
+      Skripta.sloupcovyGraf('viz-eva-sloupce', {
+        sirka: 640, vyska: 300, formatDesetin: 1,
+        data: [
+          { popisek: '2003', hodnota: -16.0 },
+          { popisek: '2004', hodnota: 30.0 },
+          { popisek: '2005', hodnota: 49.4 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

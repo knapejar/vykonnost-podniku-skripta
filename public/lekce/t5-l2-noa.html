@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.2 Účetní úpravy rozvahy – vymezení NOA – Výkonnost podniku</title>
+  <meta name="description" content="Proč a jak se účetní rozvaha upravuje na čistá operativní aktiva (NOA): aktivace nevykázaných aktiv, leasing, goodwill, oceňovací rozdíly, vyloučení neoperativních aktiv a neúročených pasiv.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="5.2" aria-label="Lekce tématu 5">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 5</div>
+      <div class="panel__nazev-tema">Ekonomická přidaná hodnota (EVA)</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="5.1" href="t5-l1-podstata-eva.html"><span class="panel__odkaz-cislo">5.1</span><span>Podstata a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.2" href="t5-l2-noa.html"><span class="panel__odkaz-cislo">5.2</span><span>Účetní úpravy rozvahy – vymezení NOA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.3" href="t5-l3-nopat-naklady-kapital.html"><span class="panel__odkaz-cislo">5.3</span><span>NOPAT, náklady na kapitál a zjednodušené verze EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.4" href="t5-l4-eva-v-praxi.html"><span class="panel__odkaz-cislo">5.4</span><span>EVA v praxi</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.5" href="t5-l5-eva-investice-oceneni.html"><span class="panel__odkaz-cislo">5.5</span><span>EVA pro investiční rozhodování a ocenění</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.6" href="t5-l6-eva-odmenovani.html"><span class="panel__odkaz-cislo">5.6</span><span>EVA a odměňování</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.7" href="t5-l7-zhodnoceni-eva.html"><span class="panel__odkaz-cislo">5.7</span><span>Zhodnocení EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-5">Téma 5 · EVA</a></li>
+          <li><span aria-current="page">Lekce 5.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 5.2</span>
+        <h1>Účetní úpravy rozvahy – vymezení čistých operativních aktiv (NOA)</h1>
+        <p class="lekce-hlavicka__strany">Strany 56–62</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> vypočítali jako
+        <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>.
+        Vzorec vypadá jednoduše – potíž je ale v tom, <em>odkud vzít vstupní čísla</em>.
+        Kapitál <span class="math">C</span> ani provozní zisk <span class="math">NOPAT</span>
+        nelze prostě opsat z účetní rozvahy a výkazu zisku a ztráty. Účetní výkazy je
+        nejprve nutné převést z <strong>účetního modelu na model ekonomický</strong>.
+        Tato lekce se věnuje první polovině tohoto převodu – úpravě rozvahy na
+        <a class="pojem" href="#pojem-noa">čistá operativní aktiva (NOA)</a>.
+      </p>
+
+      <!-- ===== 1. PROČ VŮBEC UPRAVOVAT ===== -->
+      <h2>Proč účetní data upravovat</h2>
+
+      <p>
+        Výpočet EVA je snadný – <em>pokud</em> máme vyčísleny vstupní údaje. A právě to
+        tak jednoduché není. Účetnictví, přes veškerou snahu domácích i mezinárodních
+        institucí, neodráží ekonomickou výkonnost podniku a obvykle se nezaměřuje na
+        kritéria relevantní pro vlastníky. Účetní systémy stojí na <strong>zásadě
+        opatrnosti</strong> a jsou historicky orientovány spíše na pohled věřitelů,
+        kapitálových trhů a daňových zákonů než na pohled vlastníka.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Věřitel versus vlastník</p>
+        <div class="callout__telo">
+          <p>Věřitele nezajímá tolik ziskovost a dlouhodobá životnost podniku jako spíše
+          jeho <strong>schopnost splácet závazky</strong>. Účetnictví psané „očima
+          věřitele" proto podává jiný obraz, než jaký potřebuje vlastník a manažer řídící
+          podnik k růstu hodnoty. Manažer potřebuje ukazatele, které mu dávají reálné
+          signály o správnosti rozhodnutí a o tvorbě další hodnoty.</p>
+        </div>
+      </aside>
+
+      <p>
+        Další nesoulad mezi účetními postupy a ekonomickou realitou vzniká vývojem
+        samotného podnikání v posledních desetiletích – jde zejména o výdaje na reklamu,
+        marketing, kvalifikační růst zaměstnanců, výdaje na výzkum a vývoj,
+        restrukturalizaci, amortizaci goodwillu a řadu dalších. Pro interní rozhodování
+        proto podnik přijímá řadu úprav, které účetní data převedou na základnu sloužící
+        pohledu vlastníků a manažerů.
+      </p>
+
+      <section class="definice" id="pojem-konverze-ucetniho-modelu">
+        <h3 class="definice__pojem">Konverze účetního modelu na ekonomický</h3>
+        <div class="definice__telo">
+          <p>
+            Soubor úprav vstupních účetních dat (rozvahy a výkazu zisku a ztráty) tak, aby
+            co nejvěrněji odpovídala ekonomické realitě podniku. Cílem není jen přesnější
+            výpočet EVA, ale především vytvoření <strong>ekonomického modelu pro řízení
+            podniku</strong> zaměřeného na tvorbu <a class="pojem" href="t1-l2-valka-ukazatelu.html?zvyraznit=pojem-ekonomicky-zisk" target="_blank" rel="noopener">ekonomického zisku</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== 2. KOLIK ÚPRAV ===== -->
+      <h2>Kolik úprav dělat? Méně je někdy více</h2>
+
+      <p>
+        Pro vyčíslení čistého operativního zisku a výše investovaného kapitálu uvádí
+        Stewart potřebu až <strong>164 úprav</strong>. To je jeden extrém – snažit se
+        provést všechny relevantní úpravy. Druhým extrémem je použít neupravené výkazy,
+        jak to pro statistické přehledy dělá např. Ministerstvo průmyslu a obchodu ČR nebo
+        externí analytici bez interních informací. I to má své opodstatnění: minimálně se
+        do hodnocení dostanou <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklady na kapitál</a> – nejen na cizí, ale i na vlastní.
+      </p>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Kolik úprav v praxi</p>
+        <div class="callout__telo">
+          <p>Zkušenosti ze světa ukazují, že podnikům obvykle stačí <strong>méně než 15</strong>
+          úprav – a často jen kolem <strong>pěti</strong>. Sám Joel M. Stern ze společnosti
+          Stern Stewart &amp; Co. doporučuje <strong>5–6 úprav</strong>, aby účetní data byla
+          ekonomicky smysluplná. Další úpravy jsou možné, ale z hlediska hodnocení výkonnosti
+          nevýznamné.</p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Stabilita sady úprav</p>
+        <div class="callout__telo">
+          <p>Prvním krokem v každém podniku je <strong>výběr sady konkrétních úprav</strong>.
+          Ta by měla zůstat v podstatě neměnná <strong>minimálně po dobu tří let</strong> –
+          jinak by meziroční srovnání EVA ztratila vypovídací hodnotu. Zahltit výpočet
+          přílišným počtem úprav navíc ničí hlavní přednost EVA: jednoduchost a
+          srozumitelnost pro manažery a zaměstnance.</p>
+        </div>
+      </aside>
+
+      <h3>Pravidla pro výběr úprav</h3>
+      <p>Úpravy by měly být vybírány podle následujících pravidel. Dobrá úprava je taková, že:</p>
+      <ul>
+        <li>je <strong>důležitá</strong> vzhledem k rozhodovacímu procesu a schopná ovlivnit hodnotu vlastnických podílů,</li>
+        <li>jsou pro ni <strong>k dispozici potřebná data</strong>,</li>
+        <li>je <strong>srozumitelná manažerům</strong>,</li>
+        <li>lze ji <strong>vysvětlit</strong> zaměstnancům a vlastníkům podniku,</li>
+        <li>bude <strong>stabilně používaná</strong> alespoň po dobu tří let,</li>
+        <li>podstatně <strong>ovlivní schopnost EVA</strong> vysvětlit výnosnost a tržní hodnotu podniku,</li>
+        <li>zahrnuje položky, které mohou být manažery <strong>ovlivnitelné</strong>.</li>
+      </ul>
+
+      <h3>Tři směry úprav</h3>
+      <p>Při identifikaci nutných úprav se zaměřujeme na tři oblasti:</p>
+      <ol>
+        <li><strong>Přičíst</strong> aktiva, která v rozvaze nejsou uvedena, ale představují majetek (kapitál) potřebný k podnikání a k produkci operativního zisku.</li>
+        <li><strong>Odečíst</strong> aktiva, která v rozvaze uvedena jsou, ale na produkci operativního zisku se nepodílejí.</li>
+        <li><strong>Upravit výsledek hospodaření</strong> na operativní zisk vztažený k hlavní činnosti tak, aby vznikla <strong>symetrie</strong> mezi upravenou rozvahou a výkazem zisku a ztráty.</li>
+      </ol>
+      <p>
+        První dva směry se týkají <strong>rozvahy</strong> a vedou k NOA – jim se věnuje
+        tato lekce. Třetí směr se týká <strong>výkazu zisku a ztráty</strong> a vede k
+        <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>; ten rozebereme v následující lekci 5.3.
+      </p>
+
+      <!-- ===== 3. DEFINICE NOA ===== -->
+      <h2>Čistá operativní aktiva (NOA)</h2>
+
+      <p>
+        Východiskem pro vyčíslení vloženého kapitálu je rozvaha. Je třeba z ní vymezit
+        aktiva, která produkují operativní zisk a jsou kryta vlastním a cizím
+        <strong>úročeným</strong> kapitálem.
+      </p>
+
+      <section class="definice" id="pojem-noa">
+        <h3 class="definice__pojem">Čistá operativní aktiva (NOA – Net Operating Assets)</h3>
+        <div class="definice__telo">
+          <p>
+            Aktiva produkující operativní (provozní) zisk, krytá vlastním kapitálem a cizím
+            <strong>úročeným</strong> kapitálem. Vznikají z účetní rozvahy sérií úprav:
+            <em>přičtením</em> chybějících operativních aktiv, <em>odečtením</em> neoperativních
+            aktiv a <em>snížením</em> o pasiva, která nenesou náklad. NOA tvoří investovaný
+            kapitál <span class="math">C</span> ve výpočtu EVA.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">NOA jako upravená bilanční rovnost</p>
+        <div class="callout__telo">
+          <p>Zjednodušeně lze celý postup shrnout do vztahu
+          <span class="math">NOA<span class="op">=</span>upravená operativní aktiva<span class="op">−</span>neúročená pasiva</span>.
+          Do NOA tedy patří jen ten majetek, který je financován kapitálem <em>nesoucím
+          náklad</em> (vlastním a úročeným cizím).</p>
+        </div>
+      </aside>
+
+      <!-- ===== 4. ÚPRAVY AKTIV – PŘIČTENÍ ===== -->
+      <h2>Úpravy aktiv I: přičtení chybějícího majetku</h2>
+
+      <h3>Aktivace nevykázaných nákladů</h3>
+      <p>
+        Roste význam forem kapitálu, které „nelze vidět ani uchopit" – investice do nových
+        technologií, značky, vzdělávání pracovníků či zákaznické loajality. Tradiční
+        účetnictví zahrnuje výdaje na tyto činnosti bezprostředně do nákladů a nepočítá s
+        nimi jako s investicemi, takže nejsou součástí aktiv v rozvaze – přestože jde o
+        majetek, který v budoucnu přinese užitek. (Tento problém částečně řeší standard
+        IAS 38 pro nehmotná aktiva, řadu nemateriálních položek však z aktivace vylučuje.)
+      </p>
+
+      <section class="definice" id="pojem-aktivace-nakladu">
+        <h3 class="definice__pojem">Aktivace nákladů</h3>
+        <div class="definice__telo">
+          <p>
+            Zahrnutí výdajů s dlouhodobým budoucím užitkem (např. reklama, logistika,
+            vzdělávání pracovníků, restrukturalizace, výzkum a vývoj) mezi aktiva a jejich
+            <strong>postupné odepisování</strong> podle toho, jak přinášejí výnosy – místo
+            jednorázového zaúčtování do nákladů. Bez aktivace tyto položky zkreslují výši
+            EVA: jednorázový náklad neúměrně snižuje EVA v běžném roce.
+          </p>
+        </div>
+      </section>
+
+      <h3>Leasing a najatý majetek</h3>
+      <p>
+        Hospodaří-li podnik s majetkem pořízeným formou leasingu nebo v nájmu, doporučuje
+        se toto aktivum do NOA <strong>započítat</strong> – podle českých účetních standardů
+        se totiž majetek na leasing v aktivech nájemce nenachází. Zvláště u podniků, které
+        pracují s velkým objemem takto financovaného majetku, by jinak hrozilo
+        <strong>nadcenění výkonnosti</strong>, protože <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-investovany-kapital" target="_blank" rel="noopener">investovaný kapitál</a> by byl podhodnocen.
+      </p>
+
+      <h3>Goodwill</h3>
+      <section class="definice" id="pojem-goodwill">
+        <h3 class="definice__pojem">Goodwill</h3>
+        <div class="definice__telo">
+          <p>
+            Kladný nebo záporný rozdíl mezi tržní (kupní) cenou podniku či jeho části a cenou
+            jeho individuálně přeceněných složek majetku snížených o převzaté závazky. Vzniká
+            např. z dobrého jména podniku – vybudovaných dodavatelsko-odběratelských sítí,
+            kvalifikované pracovní síly, výkonného managementu či perspektivního výrobního
+            programu.
+          </p>
+        </div>
+      </section>
+      <p>
+        V českém účetnictví (pojem se používá od roku 2003) se goodwill vykazuje v
+        dlouhodobém nehmotném majetku a odepisuje rovnoměrně po dobu 60 měsíců – kladný do
+        nákladů, záporný do výnosů. Pokud však nedošlo k žádné transakci (koupě, vklad,
+        ocenění při přeměně společnosti), goodwill se vůbec nevykazuje a v aktivech chybí.
+      </p>
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Goodwill v brutto hodnotě</p>
+        <div class="callout__telo">
+          <p>Pro výpočet EVA by měl být goodwill zahrnut do NOA v <strong>brutto hodnotě</strong>
+          (tj. neponížený o oprávky), pokud je předpoklad, že se jeho hodnota postupně
+          nesnižuje.</p>
+        </div>
+      </aside>
+
+      <h3>Oceňovací rozdíly a tiché rezervy</h3>
+      <p>
+        Účetnictví oceňuje řadu položek historickými cenami, které neodpovídají jejich
+        současné ekonomické hodnotě. Proto zvažujeme tyto úpravy:
+      </p>
+      <ul>
+        <li><strong>Dlouhodobý majetek:</strong> historické ceny upravit na <strong>reprodukční ceny</strong> snížené o reálné opotřebení; u dlouhodobého finančního majetku použít <strong>tržní ocenění</strong>.</li>
+        <li><strong>Zásoby:</strong> použít tržní ceny, jsou-li dostupné. Používá-li podnik metodu LIFO (v ČR i dle IFRS od r. 2005 nepovolenou) a podcenil tím zásoby, vzniklou <strong>tichou rezervu je nutné k NOA přičíst</strong>.</li>
+        <li><strong>Pohledávky:</strong> posoudit, zda nejsou nad- či podhodnoceny tvorbou opravných položek podle daňových předpisů – nadhodnocení od NOA <strong>odečíst</strong>, podhodnocení <strong>přičíst</strong>.</li>
+      </ul>
+
+      <section class="definice" id="pojem-tiche-rezervy">
+        <h3 class="definice__pojem">Tiché rezervy</h3>
+        <div class="definice__telo">
+          <p>
+            Skrytý rozdíl mezi účetní a ekonomickou hodnotou majetku, který vzniká např.
+            zvolenou odpisovou politikou (majetek odepsán více, než odpovídá opotřebení) nebo
+            tvorbou nadbytečných rezerv. Výši aktiv je třeba upravit tak, aby odpovídala
+            ekonomickému, a nikoli účetnímu pohledu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== 5. ÚPRAVY AKTIV – ODEČTENÍ ===== -->
+      <h2>Úpravy aktiv II: vyloučení neoperativního majetku</h2>
+
+      <section class="definice" id="pojem-neoperativni-aktiva">
+        <h3 class="definice__pojem">Neoperativní aktiva</h3>
+        <div class="definice__telo">
+          <p>
+            Aktiva, která nejsou nezbytná pro vykonávání hlavní činnosti a zabezpečení chodu
+            podniku, a proto se <strong>z NOA vylučují</strong>. Které položky sem patří,
+            závisí na konkrétní činnosti podniku a může se podnik od podniku lišit.
+          </p>
+        </div>
+      </section>
+
+      <p>Zvažovat bychom měli zejména:</p>
+      <ul>
+        <li>
+          <strong>Dlouhodobý finanční majetek</strong> (dlouhodobé cenné papíry, podíly,
+          půjčky): má-li charakter <a class="pojem" href="#pojem-portfoliove-investice">portfoliových
+          investic</a>, z operativních aktiv jej <strong>vyloučíme</strong>. Jde-li o
+          propojení s hlavní činností, investice (oceněné tržní cenou) v NOA
+          <strong>ponecháme</strong>.
+        </li>
+        <li><strong>Nedokončené investice:</strong> jde sice obvykle o provozně potřebný majetek, ten však zatím není k dispozici pro tvorbu současných výsledků – proto se z NOA <strong>vyčlení</strong>.</li>
+        <li><strong>Strategické investice</strong> přinášející zisk až v budoucnu (viz callout níže).</li>
+        <li><strong>Přebytečné peněžní prostředky:</strong> část krátkodobého finančního majetku nad rámec provozně nutné likvidity <strong>vyloučíme</strong> (nezbytnou úroveň odhadneme z minulosti nebo z žádoucí <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-hotovostni-likvidita" target="_blank" rel="noopener">hotovostní likvidity</a>). Neoperativní <strong>krátkodobé cenné papíry a podíly</strong> rovněž vyloučíme.</li>
+        <li><strong>Ostatní nepotřebný majetek:</strong> nevyužité pozemky a budovy, pohledávky nesouvisející s hlavní činností, nepotřebné zásoby, nedobytné (ale stále vykazované) pohledávky a další provozně málo využitelný majetek.</li>
+      </ul>
+
+      <section class="definice" id="pojem-portfoliove-investice">
+        <h3 class="definice__pojem">Portfoliové investice</h3>
+        <div class="definice__telo">
+          <p>
+            Finanční investice, u nichž finanční investování <strong>není hlavní činností</strong>
+            podniku – jsou pouze výsledkem řízení přebytků likvidity. Z NOA se vylučují.
+            Naproti tomu finanční majetek propojený s hlavní činností se v NOA ponechává.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Past strategických investic</p>
+        <div class="callout__telo">
+          <p>Strategické investice přinášejí zisk až v budoucích obdobích. Jejich zahrnutí do
+          NOA (a tím do kapitálu <span class="math">C</span>) snižuje EVA už v období, kdy
+          ještě nevydělávají. Management zainteresovaný na běžné EVA nebo na jejích meziročních
+          přírůstcích je pak <strong>pokoušen se takovým investicím vyhýbat</strong>. Řešením je
+          zahrnout je do NOA až v době, kdy měly začít produkovat zisk – a to ve výši investice
+          zvýšené o kumulovaný úrok.</p>
+        </div>
+      </aside>
+
+      <!-- ===== 6. NEÚROČENÁ PASIVA ===== -->
+      <h2>Snížení o pasiva, která nenesou náklad</h2>
+
+      <p>
+        Upravená aktiva je nakonec nutné snížit o tu část pasiv, která podnik nic nestojí.
+        Patří sem především:
+      </p>
+      <ul>
+        <li>krátkodobé závazky,</li>
+        <li>pasivní položky časového rozlišení,</li>
+        <li>nezpoplatněné dlouhodobé závazky.</li>
+      </ul>
+
+      <section class="definice" id="pojem-pasiva-nenesouci-naklad">
+        <h3 class="definice__pojem">Pasiva nenesoucí náklad</h3>
+        <div class="definice__telo">
+          <p>
+            Zdroje financování, za které podnik neplatí explicitní náklad na kapitál
+            (neúročené závazky, časové rozlišení). O jejich hodnotu se upravená aktiva
+            <strong>snižují</strong>, protože ve výpočtu EVA se náklady na kapitál počítají jen
+            z kapitálu, který náklad skutečně nese (vlastní a úročený cizí).
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Proč zrovna tyto položky odečítáme</p>
+        <div class="callout__telo">
+          <p>EVA odečítá od operativního zisku náklady na kapitál. Uvedená pasiva ovšem žádný
+          náklad na kapitál nenesou – například u dodavatelských úvěrů jsou náklady z opoždění
+          plateb zahrnuty už do nákupních cen; při dřívější platbě podnik naopak dostává <a class="pojem" href="t8-l3-pohledavky-penize.html?zvyraznit=pojem-skonto" target="_blank" rel="noopener">skonto</a>,
+          které cenu dodávek o finanční náklad snižuje. Ponechat tato pasiva v kapitálu
+          <span class="math">C</span> by proto výpočet zkreslilo.</p>
+        </div>
+      </aside>
+
+      <!-- ===== 7. KROKOVÁ VIZUALIZACE ===== -->
+      <h2>Jak se rozvaha „skládá" na NOA</h2>
+      <p>
+        Následující schéma projděte tlačítky „Zpět / Další". Ukazuje, jak se z účetních
+        aktiv postupně stanou čistá operativní aktiva: nejprve se <span style="color:var(--barva-tvorba);font-weight:700">přičte</span>
+        chybějící majetek, poté se <span style="color:var(--barva-niceni);font-weight:700">odečtou</span>
+        neoperativní aktiva a neúročená pasiva. (Výšky bloků jsou pouze schematické – ilustrují
+        směr úprav, nikoli konkrétní částky.)
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Transformace účetních aktiv na NOA (vodopád úprav)</p>
+          <p class="viz__popis">Zelené sloupce představují přičtení, červené odečtení. Poslední sloupec je výsledné NOA – investovaný kapitál pro výpočet EVA.</p>
+        </figcaption>
+        <div id="viz-noa-vodopad"></div>
+      </figure>
+
+      <!-- ===== 8. SOUHRNNÁ TABULKA ===== -->
+      <h2>Přehled hlavních úprav</h2>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 5.2 – Nejčastější úpravy rozvahy při vymezení NOA</caption>
+          <thead>
+            <tr>
+              <th scope="col">Úprava</th>
+              <th scope="col">Směr</th>
+              <th scope="col">Důvod</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Aktivace nákladů (reklama, VaV, vzdělávání…)</th>
+              <td class="hodnota-tvorba">přičíst</td>
+              <td>Majetek s dlouhodobým užitkem chybí v rozvaze; odepisuje se postupně.</td>
+            </tr>
+            <tr>
+              <th scope="row">Leasingový a najatý majetek</th>
+              <td class="hodnota-tvorba">přičíst</td>
+              <td>Dle ČÚS není u nájemce v aktivech; jinak podhodnocený kapitál.</td>
+            </tr>
+            <tr>
+              <th scope="row">Goodwill (brutto)</th>
+              <td class="hodnota-tvorba">přičíst</td>
+              <td>Bez transakce se nevykazuje, přitom jde o reálné aktivum.</td>
+            </tr>
+            <tr>
+              <th scope="row">Oceňovací rozdíly a tiché rezervy</th>
+              <td>upravit (±)</td>
+              <td>Historické ceny nahradit reprodukčními/tržními; skryté rozdíly srovnat.</td>
+            </tr>
+            <tr>
+              <th scope="row">Portfoliové a nedokončené investice, přebytek peněz</th>
+              <td class="hodnota-niceni">odečíst</td>
+              <td>Neúčastní se tvorby operativního zisku hlavní činnosti.</td>
+            </tr>
+            <tr>
+              <th scope="row">Ostatní nepotřebný majetek</th>
+              <td class="hodnota-niceni">odečíst</td>
+              <td>Nevyužité pozemky/budovy, nedobytné pohledávky, nepotřebné zásoby.</td>
+            </tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Pasiva nenesoucí náklad</th>
+              <td class="hodnota-niceni">odečíst</td>
+              <td>Nenesou náklad na kapitál → nepatří do investovaného kapitálu C.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===== 9. MOST K NOPAT ===== -->
+      <h2>Co dál: symetrie NOA a NOPAT</h2>
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Návaznost na lekci 5.3</p>
+        <div class="callout__telo">
+          <p>Tím není konverze hotová. Aby výpočet EVA „seděl", musí být <strong>NOPAT
+          symetrický k NOA</strong>: operativní zisk je nutné počítat právě z těch aktiv,
+          která jsme do NOA zahrnuli. Odečteme-li například portfoliové investice z aktiv,
+          musíme z výsledku hospodaření vyloučit i výnosy a náklady, které tyto investice
+          přinášejí. Úpravou výkazu zisku a ztráty na NOPAT se detailně zabývá
+          <strong>lekce 5.3</strong>. Kompletní postup výpočtu EVA včetně těchto úprav je pak
+          předveden v případové studii v Tématu 12.</p>
+        </div>
+      </aside>
+
+      <!-- ===== ZKUS SÁM ===== -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik loni jednorázově zaúčtoval do nákladů velkou kampaň na vybudování značky,
+          která ponese výnosy několik let. Proč je vhodnější tento náklad aktivovat a jak by
+          se to projevilo na EVA běžného a příštích roků?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Kampaň je fakticky <strong>investicí</strong> do aktiva (značky) s dlouhodobým
+            užitkem. Jednorázový náklad ale plně sníží zisk – a tím i EVA – hned v běžném roce,
+            přestože výnosy teprve přijdou. Aktivací se výdaj přesune do NOA a rozloží do
+            odpisů podle období, v nichž značka vydělává. Výsledek: EVA běžného roku
+            <strong>nebude uměle podhodnocena</strong> a v dalších letech se náklad
+            (přes odpisy) spravedlivě přiřadí k výnosům, které aktivum přináší. Zároveň se
+            zvětší kapitál <span class="math">C</span>, z něhož se počítá kapitálový náklad.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik drží na účtech mnohem víc peněz, než potřebuje k provozu, a k tomu balík
+          akcií jiné firmy koupený čistě jako uložení volných prostředků. Jak s těmito
+          položkami naložíte při vymezení NOA a proč?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Obě položky jsou <strong>neoperativní</strong> – neúčastní se tvorby operativního
+            zisku z hlavní činnosti. <strong>Přebytek peněz</strong> nad provozně nutnou úroveň
+            (odhadnutou z minulosti nebo z hotovostní likvidity) z NOA <strong>vyloučíme</strong>.
+            Akcie mají charakter <strong>portfoliové investice</strong>, takže je z NOA rovněž
+            <strong>vyloučíme</strong> (kdyby šlo o kapitálové propojení s hlavní činností,
+            ponechali bychom je v tržní ceně). Symetricky pak z NOPAT vyřadíme i výnosy a náklady
+            spojené s těmito aktivy.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===== ZÁVĚREČNÉ OTÁZKY ===== -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Co jsou čistá operativní aktiva (NOA) a jakým kapitálem jsou kryta?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Rozlište kapitál, který nese náklad, a kapitál, který ho nenese.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>NOA jsou aktiva produkující operativní zisk, krytá <strong>vlastním kapitálem a cizím úročeným kapitálem</strong>. Vznikají z účetní rozvahy přičtením chybějících operativních aktiv, odečtením neoperativních aktiv a snížením o pasiva nenesoucí náklad. Tvoří investovaný kapitál <span class="math">C</span> ve výpočtu EVA.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč se doporučuje omezit počet úprav na několik málo a udržet je stabilní?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se nad srozumitelností EVA a nad srovnatelností v čase.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>V praxi obvykle stačí méně než 15 (často kolem 5) úprav; Stern doporučuje 5–6. Přílišný počet úprav ničí hlavní přednost EVA – <strong>jednoduchost a srozumitelnost</strong>. Sada úprav by měla zůstat neměnná <strong>alespoň tři roky</strong>, jinak by meziroční srovnání EVA ztratila vypovídací hodnotu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč je nutné do NOA zahrnout majetek pořízený na leasing?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kde se podle českých standardů leasingový majetek v rozvaze objeví (nebo neobjeví)?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podle českých účetních standardů se majetek na leasing v aktivech nájemce nevykazuje. Kdybychom jej do NOA nezahrnuli, byl by <strong>investovaný kapitál podhodnocen</strong> a výkonnost podniku (EVA) by byla <strong>nadhodnocena</strong> – zvláště u podniků s velkým objemem takto financovaného majetku.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Které pasivní položky se od upravených aktiv odečítají a proč právě ony?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co má společného dodavatelský úvěr a časové rozlišení z hlediska nákladu na kapitál?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Odečítají se <strong>pasiva nenesoucí náklad</strong>: krátkodobé závazky, pasivní časové rozlišení a nezpoplatněné dlouhodobé závazky. EVA odečítá od zisku náklady na kapitál, tyto zdroje ale žádný náklad na kapitál nenesou (u dodavatelských úvěrů je cena zahrnuta už v nákupních cenách). Jejich ponechání v kapitálu <span class="math">C</span> by výpočet zkreslilo.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč může zahrnutí strategické investice do NOA odrazovat management od jejího uskutečnění?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kdy investice zvětší kapitál C a kdy začne přinášet zisk?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Strategická investice zvětší kapitál <span class="math">C</span> (a tím kapitálový náklad) hned, ale zisk přinese až později. EVA běžného období proto klesne, přestože investice je z dlouhodobého hlediska dobrá. Management placený podle běžné EVA se jí pak vyhýbá. Řešením je zahrnout investici do NOA <strong>až v okamžiku, kdy měla začít vydělávat</strong>, a to ve výši zvýšené o kumulovaný úrok.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PREV / NEXT ===== -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t5-l1-podstata-eva.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">5.1 Podstata a výpočet EVA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l3-nopat-naklady-kapital.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.3 NOPAT, náklady na kapitál a zjednodušené verze EVA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: vodopád úprav rozvahy na NOA.
+      // Hodnoty jsou SCHEMATICKÉ (poměrné jednotky) – ilustrují jen směr a
+      // relativní velikost úprav, nikoli konkrétní částky z knihy.
+      var u = Skripta.viz;
+
+      // Definice sloupců vodopádu. „od"/„do" je běžící součet (kumulativní výška).
+      //  - full  = plný sloupec od nuly (výchozí aktiva, výsledné NOA)
+      //  - delta = plovoucí přírůstek/úbytek mezi předchozím a novým součtem
+      var COLS = [
+        { id:'ucetni', typ:'full',  od:0,   do:120, barva:'#4338ca', l1:'Účetní',      l2:'aktiva' },
+        { id:'akt',    typ:'delta', od:120, do:148, barva:null,      l1:'+ Aktivace',  l2:'' },
+        { id:'lea',    typ:'delta', od:148, do:170, barva:null,      l1:'+ Leasing',   l2:'' },
+        { id:'gw',     typ:'delta', od:170, do:188, barva:null,      l1:'+ Goodwill',  l2:'' },
+        { id:'neo',    typ:'delta', od:188, do:158, barva:null,      l1:'− Neoper.',   l2:'aktiva' },
+        { id:'pas',    typ:'delta', od:158, do:112, barva:null,      l1:'− Neúročená', l2:'pasiva' },
+        { id:'noa',    typ:'full',  od:0,   do:112, barva:'#0891b2', l1:'NOA',         l2:'' }
+      ];
+
+      var POPISKY = [
+        'Východisko: aktiva tak, jak je vykazuje účetní rozvaha.',
+        'Přičteme aktivované náklady (reklama, výzkum a vývoj, vzdělávání…), které v rozvaze chybějí.',
+        'Přičteme majetek pořízený na leasing – u nájemce se dle ČÚS v aktivech nevykazuje.',
+        'Přičteme goodwill v brutto hodnotě, pokud se jeho hodnota nesnižuje.',
+        'Odečteme neoperativní aktiva (portfoliové a nedokončené investice, přebytek peněz…).',
+        'Odečteme pasiva nenesoucí náklad (krátkodobé závazky, časové rozlišení, neúročené dl. závazky).',
+        'Výsledkem jsou čistá operativní aktiva (NOA) = investovaný kapitál C pro výpočet EVA.'
+      ];
+
+      var SIRKA = 760, VYSKA = 380;
+      var BASE = 322;          // y základní osy
+      var PX = 1.5;            // pixelů na jednotku
+      var X0 = 70, KROK = 100, COLW = 66;
+
+      // Stavy: kolik sloupců je odhaleno (1…7)
+      var stavy = COLS.map(function (_, i) { return { odhaleno: i + 1 }; });
+
+      Skripta.stepper('viz-noa-vodopad', {
+        sirka: SIRKA, vyska: VYSKA, stavy: stavy, popisky: POPISKY,
+        render: function (svg, stav, index, util) {
+          // Základní osa
+          util.dej(svg, 'osa', 'line', { x1: 40, y1: BASE, x2: SIRKA - 20, y2: BASE, stroke: util.barvaOsa, 'stroke-width': 1.5 });
+
+          COLS.forEach(function (c, i) {
+            var viditelny = i < stav.odhaleno;
+            var op = viditelny ? 1 : 0;
+            var cx = X0 + i * KROK + COLW / 2;
+
+            var horni = Math.max(c.od, c.do);      // vyšší hranice sloupce
+            var yTop = BASE - horni * PX;
+            var h = Math.abs(c.do - c.od) * PX;
+
+            var barva = c.barva;
+            if (!barva) { barva = (c.do >= c.od) ? util.barvaTvorba : util.barvaNiceni; }
+
+            // Spojnice běžícího součtu (z předchozího sloupce k tomuto)
+            if (i > 0) {
+              var yLevel = BASE - c.od * PX;
+              var prevRight = X0 + (i - 1) * KROK + COLW / 2 + COLW / 2;
+              util.dej(svg, 'spoj-' + c.id, 'line', {
+                x1: prevRight,
+                y1: yLevel,
+                x2: cx - COLW / 2,
+                y2: yLevel,
+                stroke: util.barvaOsa, 'stroke-width': 1.25, 'stroke-dasharray': '4 4',
+                opacity: op
+              });
+            }
+
+            // Sloupec
+            util.dej(svg, 'bar-' + c.id, 'rect', {
+              x: cx - COLW / 2, y: yTop, width: COLW, height: h,
+              rx: 4, fill: barva, opacity: op
+            });
+
+            // Popisky pod osou (dva řádky)
+            util.dej(svg, 'l1-' + c.id, 'text', {
+              x: cx, y: BASE + 22, 'text-anchor': 'middle', fill: util.barvaText,
+              'font-size': 12, 'font-weight': (c.typ === 'full' ? 700 : 500), opacity: op
+            }, c.l1);
+            util.dej(svg, 'l2-' + c.id, 'text', {
+              x: cx, y: BASE + 38, 'text-anchor': 'middle', fill: util.barvaText,
+              'font-size': 12, opacity: op
+            }, c.l2);
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

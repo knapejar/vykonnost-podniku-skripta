@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.3 Analýza likvidity a aktivity – Výkonnost podniku</title>
+  <meta name="description" content="Tři stupně likvidity, podíl ČPK na oběžných aktivech a ukazatele aktivity (obrat a doba obratu) včetně časového nesouladu pohledávek a závazků.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 3, aktuální 3.3 -->
+    <nav class="panel" data-panel data-aktivni-lekce="3.3" aria-label="Lekce tématu 3">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 3</div>
+      <div class="panel__nazev-tema">Finanční analýza v řízení výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="3.1" href="t3-l1-uvod-financni-analyza.html"><span class="panel__odkaz-cislo">3.1</span><span>Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.2" href="t3-l2-rentabilita-zadluzenost.html"><span class="panel__odkaz-cislo">3.2</span><span>Analýza rentability a zadluženosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.3" href="t3-l3-likvidita-aktivita.html"><span class="panel__odkaz-cislo">3.3</span><span>Analýza likvidity a aktivity</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.4" href="t3-l4-kapitalovy-trh.html"><span class="panel__odkaz-cislo">3.4</span><span>Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.5" href="t3-l5-souhrnne-ukazatele.html"><span class="panel__odkaz-cislo">3.5</span><span>Souhrnné ukazatele – bankrotní a bonitní modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.6" href="t3-l6-dupont-soustavy.html"><span class="panel__odkaz-cislo">3.6</span><span>Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-3">Téma 3 · Finanční analýza</a></li>
+          <li><span aria-current="page">Lekce 3.3</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 3.3</span>
+        <h1>Analýza likvidity a aktivity</h1>
+        <p class="lekce-hlavicka__strany">Strany 31–34</p>
+      </header>
+
+      <p>
+        Předchozí lekce ukázala, jak se z rozvahy a výsledovky čtou rentabilita
+        a zadluženost. Nyní přidáme dvě další oblasti poměrových ukazatelů, které
+        spolu úzce souvisejí: <strong>likviditu</strong> (schopnost hradit závazky)
+        a <strong>aktivitu</strong> (schopnost efektivně využívat majetek). Uvidíme,
+        že obě oblasti jsou provázané mezi sebou i s rentabilitou – a že správné
+        finanční řízení je vždy hledáním kompromisu.
+      </p>
+
+      <h2>Analýza likvidity</h2>
+
+      <p>
+        <a class="pojem" href="#pojem-likvidita">Likvidita</a> vyjadřuje schopnost
+        podniku hradit své závazky. Ukazatele likvidity v podstatě poměřují to,
+        <em>čím je možno platit</em> (čitatel), s tím, <em>co je nutno zaplatit</em>
+        (jmenovatel). Podle toho, jakou míru jistoty od měření požadujeme, dosazujeme
+        do čitatele majetkové složky s různou dobou <em>likvidnosti</em>, tj.
+        přeměnitelnosti na peníze.
+      </p>
+
+      <section class="definice" id="pojem-likvidita">
+        <h3 class="definice__pojem">Likvidita a likvidnost</h3>
+        <div class="definice__telo">
+          <p>
+            <strong>Likvidita</strong> je schopnost podniku uhradit své splatné
+            závazky. <strong>Likvidnost</strong> je vlastnost konkrétní majetkové
+            složky – jak rychle a bez ztráty hodnoty ji lze přeměnit na peníze.
+            Nejlikvidnější jsou samy peníze v hotovosti a na běžných účtech,
+            nejméně likvidní je dlouhodobý majetek. Právě proto se s dlouhodobým
+            majetkem v ukazatelích likvidity vůbec neuvažuje a všechny základní
+            ukazatele se odvozují od <strong>oběžných aktiv</strong>.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Likvidita versus rentabilita</p>
+        <div class="callout__telo">
+          <p>
+            Je-li v podniku mnoho prostředků umrtveno v zásobách, pohledávkách
+            a krátkodobém finančním majetku, výnosnost podniku klesá. Vysoká
+            likvidita a velký <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistý pracovní kapitál</a> tedy mohou <strong>snižovat
+            rentabilitu</strong> podnikání. Cílem není likviditu maximalizovat,
+            ale udržet ji na rozumné úrovni.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Základní myšlenka je jednoduchá: ve jmenovateli vždy stojí <strong>krátkodobé
+        cizí zdroje</strong>, do čitatele postupně bereme stále „přísnější" (likvidnější)
+        část oběžných aktiv. Tím vznikají tři stupně likvidity, které se liší mírou
+        opatrnosti.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: tři stupně likvidity ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Tři stupně likvidity: co postupně ubývá z čitatele</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Sloupec představuje oběžná aktiva; s každým stupněm z čitatele vypadává méně likvidní složka. Přerušovaná čára je laťka krátkodobých cizích zdrojů (jmenovatel).</p>
+        </figcaption>
+        <div id="viz-stupne-likvidity"></div>
+      </figure>
+
+      <h3>Běžná likvidita (III. stupně)</h3>
+
+      <section class="definice" id="pojem-bezna-likvidita">
+        <h3 class="definice__pojem">Běžná likvidita (likvidita III. stupně)</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr celkových oběžných aktiv ke krátkodobým cizím zdrojům. Udává,
+            kolikrát pokrývají oběžná aktiva krátkodobé cizí zdroje – tedy kolikrát
+            by byl podnik schopen uspokojit věřitele, kdyby v daném okamžiku proměnil
+            veškerá oběžná aktiva v hotovost.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-14">
+        <div class="vzorec__telo">
+          <span class="math">Běžná likvidita<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Oběžná aktiva</span>
+              <span class="frac__jmen">Krátkodobé cizí zdroje</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.14)</div>
+      </div>
+
+      <p>
+        Krátkodobými cizími zdroji rozumíme krátkodobé závazky, krátkodobé půjčky
+        a anuity dlouhodobých bankovních úvěrů. Oběžná aktiva by měla být přeměněna
+        v hotovost přibližně ve stejné době, v jaké jsou krátkodobé závazky splatné.
+        Ukazatel je citlivý na velikost, strukturu a likvidnost jednotlivých položek
+        aktiv – zejména na <strong>realistické ocenění zásob</strong> vzhledem k jejich
+        prodejnosti a na <strong>strukturu pohledávek</strong> (pohledávky po splatnosti,
+        nedobytné pohledávky).
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Doporučené hodnoty</p>
+        <div class="callout__telo">
+          <p>
+            Běžná likvidita by měla nabývat hodnot <strong>1,5–2,5</strong>. Při
+            rovnosti oběžného majetku a krátkodobých cizích zdrojů (hodnota rovna 1)
+            je likvidita značně riziková – obrat krátkodobých závazků totiž může být
+            vyšší než obrat oběžných aktiv. Ještě rizikovější je stav, kdy podnik
+            financuje část dlouhodobého majetku krátkodobými závazky.
+          </p>
+        </div>
+      </aside>
+
+      <h3>Pohotová likvidita (II. stupně)</h3>
+
+      <section class="definice" id="pojem-pohotova-likvidita">
+        <h3 class="definice__pojem">Pohotová likvidita (likvidita II. stupně)</h3>
+        <div class="definice__telo">
+          <p>
+            Z čitatele vylučuje nejméně likvidní složku oběžných aktiv – <strong>zásoby</strong>.
+            Poměřuje tak krátkodobé pohledávky a krátkodobý finanční majetek
+            ke krátkodobým cizím zdrojům.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-15">
+        <div class="vzorec__telo">
+          <span class="math">Pohotová likvidita<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Krátkodobé pohledávky<span class="op">+</span>Krátk. finanční majetek</span>
+              <span class="frac__jmen">Krátkodobé cizí zdroje</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.15)</div>
+      </div>
+
+      <p>
+        Ukazatel by měl nabývat hodnot v rozmezí <strong>1 až 1,5</strong>. Vyloučením
+        zásob se odstraní nejistota spojená s jejich prodejností a oceněním.
+      </p>
+
+      <h3>Okamžitá (hotovostní) likvidita (I. stupně)</h3>
+
+      <section class="definice" id="pojem-hotovostni-likvidita">
+        <h3 class="definice__pojem">Okamžitá / hotovostní likvidita (likvidita I. stupně)</h3>
+        <div class="definice__telo">
+          <p>
+            Nejpřísnější stupeň: do čitatele bere pouze <strong>krátkodobý finanční
+            majetek</strong> (peníze v hotovosti, na účtech, snadno zpeněžitelné cenné
+            papíry). Měří, jakou část krátkodobých cizích zdrojů je podnik schopen
+            uhradit okamžitě.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-16">
+        <div class="vzorec__telo">
+          <span class="math">Hotovostní likvidita<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Krátkodobý finanční majetek</span>
+              <span class="frac__jmen">Krátkodobé cizí zdroje</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.16)</div>
+      </div>
+
+      <p>
+        Ukazatel by měl nabývat hodnot <strong>0,2 až 0,5</strong>. Příliš vysoké
+        hodnoty svědčí o neefektivním využití finančních prostředků s dopadem
+        do rentability podniku.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Statický pohled a jeho meze</p>
+        <div class="callout__telo">
+          <p>
+            Všechny tři ukazatele hodnotí budoucí likviditu <strong>staticky
+            a odvozeně</strong> – jsou to jen orientační charakteristiky.
+            Skutečnou budoucí schopnost hradit závazky je třeba analyzovat
+            pomocí <strong>plánu příjmů a výdajů</strong> a prognózy peněžních
+            toků. Samotný zisk totiž ještě není zárukou, že podnik dokáže platit;
+            proto se jako nástroj analýzy likvidity využívá <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a>. Význam
+            řízení likvidity navíc vzrostl v době krize, kdy se dostupnost hotovosti
+            stala pro řadu jinak zdravých podniků otázkou přežití.
+          </p>
+        </div>
+      </aside>
+
+      <h3>Podíl ČPK na oběžných aktivech</h3>
+
+      <section class="definice" id="pojem-podil-cpk-na-oa">
+        <h3 class="definice__pojem">Podíl čistého pracovního kapitálu na oběžných aktivech</h3>
+        <div class="definice__telo">
+          <p>
+            Charakterizuje krátkodobou finanční stabilitu podniku. Vyjadřuje,
+            jakou část oběžných aktiv tvoří čistý pracovní kapitál (ČPK), tedy
+            část oběžných aktiv krytá dlouhodobými zdroji.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-17">
+        <div class="vzorec__telo">
+          <span class="math">Podíl ČPK na OA<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Oběžná aktiva<span class="op">−</span>Krátkodobé cizí zdroje</span>
+              <span class="frac__jmen">Oběžná aktiva</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.17)</div>
+      </div>
+
+      <p>
+        Doporučená hodnota podílu čistého pracovního kapitálu na oběžném majetku
+        je <strong>30–50 %</strong>.
+      </p>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč může <strong>vysoká likvidita</strong> paradoxně snižovat rentabilitu podniku?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Vysoká likvidita znamená, že podnik drží mnoho prostředků v zásobách,
+              pohledávkách a krátkodobém finančním majetku. Tyto prostředky jsou zde
+              „umrtveny" – neváží se na výnosnou činnost a nesou jen malý (nebo žádný)
+              výnos. Velký čistý pracovní kapitál je tak sice polštářem pro platební
+              schopnost, ale zároveň váže kapitál, který by jinak mohl vydělávat.
+              Proto je nutné hledat kompromis mezi jistotou (likviditou) a výnosem
+              (rentabilitou).
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Řízení aktiv</h2>
+
+      <p>
+        <a class="pojem" href="#pojem-ukazatele-aktivity">Ukazatele aktivity</a>
+        měří schopnost podniku využívat vložené prostředky. Pomáhají zjistit, zda je
+        velikost jednotlivých druhů aktiv přiměřená hospodářským aktivitám podniku.
+        Vysoký obrat majetku přispívá k rentabilitě – pro dosažení stejných tržeb
+        totiž není nutná tak vysoká úroveň majetku, a tedy ani zdrojů financování.
+      </p>
+
+      <section class="definice" id="pojem-ukazatele-aktivity">
+        <h3 class="definice__pojem">Ukazatele aktivity</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatele měřící efektivnost využití majetku. Mají většinou dvě formy:
+            <strong>obrat</strong> („kolikrát za rok se daná položka využije při
+            podnikání") a <strong>doba obratu</strong> („počet dní, za které se
+            položka obrátí").
+          </p>
+        </div>
+      </section>
+
+      <h3>Obrat aktiv</h3>
+
+      <section class="definice" id="pojem-obrat-aktiv">
+        <h3 class="definice__pojem">Obrat aktiv</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr tržeb k celkovým aktivům. Udává, kolikrát se celková aktiva
+            „obrátí" v tržbách za rok, tedy jak intenzivně podnik využívá svůj
+            majetek k tvorbě tržeb.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-18">
+        <div class="vzorec__telo">
+          <span class="math">Obrat aktiv<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Tržby</span>
+              <span class="frac__jmen">Aktiva</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.18)</div>
+      </div>
+
+      <p>
+        Minimální doporučovaná hodnota je <strong>1</strong>, silně ji však ovlivňuje
+        příslušnost k odvětví. Nízká hodnota znamená neúměrnou majetkovou vybavenost
+        a neefektivní využití majetku. Obecně platí „čím vyšší, tím lépe", ale
+        posuzovat je nutné obezřetně: nízká hodnota může znamenat i to, že podnik
+        <strong>investuje do budoucna</strong> a investice zatím nepřinášejí efekt
+        (vysoká hodnota dlouhodobého majetku).
+      </p>
+
+      <h3>Doba obratu zásob, pohledávek a závazků</h3>
+
+      <p>
+        Doba obratu vyjadřuje počet dní, po které je kapitál vázán v dané položce.
+        Ve všech třech případech se poměřuje průměrný stav položky vůči tržbám
+        a násobí 360 dny.
+      </p>
+
+      <section class="definice" id="pojem-doba-obratu-zasob">
+        <h3 class="definice__pojem">Doba obratu zásob</h3>
+        <div class="definice__telo">
+          <p>
+            Udává, jak dlouho trvá jeden obrat zásob – doba nutná k tomu, aby
+            peněžní prostředky přešly přes výrobní a zbožní formy znovu do peněžní
+            formy. Rozhodující je vývoj ukazatele v časové řadě.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-19">
+        <div class="vzorec__telo">
+          <span class="math">Doba obratu zásob<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Průměrný stav zásob</span>
+              <span class="frac__jmen">Tržby</span>
+            </span>
+            <span class="op">×</span><span class="num">360</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.19)</div>
+      </div>
+
+      <section class="definice" id="pojem-doba-obratu-pohledavek">
+        <h3 class="definice__pojem">Doba obratu (splatnosti) pohledávek</h3>
+        <div class="definice__telo">
+          <p>
+            Doba existence kapitálu ve formě pohledávek. Vyjadřuje období od prodeje
+            na <a class="pojem" href="t8-l4-kratkodobe-zdroje.html?zvyraznit=pojem-obchodni-uver" target="_blank" rel="noopener">obchodní úvěr</a>, po které musí podnik v průměru čekat, než obdrží platby
+            od odběratelů. Srovnává se s dobou splatnosti faktur a odvětvovým průměrem.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-20">
+        <div class="vzorec__telo">
+          <span class="math">Doba obratu pohledávek<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Průměrný stav pohledávek</span>
+              <span class="frac__jmen">Tržby</span>
+            </span>
+            <span class="op">×</span><span class="num">360</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.20)</div>
+      </div>
+
+      <p>
+        Delší průměrná doba inkasa pohledávek znamená větší potřebu úvěrů, a tím
+        i vyšší náklady.
+      </p>
+
+      <section class="definice" id="pojem-doba-obratu-zavazku">
+        <h3 class="definice__pojem">Doba obratu závazků</h3>
+        <div class="definice__telo">
+          <p>
+            Vyjadřuje dobu od vzniku závazku do jeho úhrady. Měla by dosáhnout
+            alespoň hodnoty doby obratu pohledávek, aby podnik nefinancoval provoz
+            dříve, než sám inkasuje.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-21">
+        <div class="vzorec__telo">
+          <span class="math">Doba obratu závazků<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Krátkodobé závazky</span>
+              <span class="frac__jmen">Tržby</span>
+            </span>
+            <span class="op">×</span><span class="num">360</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.21)</div>
+      </div>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: časový nesoulad ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Časový nesoulad: obchodní cyklus versus doba obratu závazků</p>
+          <p class="viz__popis">Sledujte na časové ose, jak na sebe navazuje doba obratu zásob a pohledávek (obchodní cyklus) a jak proti nim stojí doba obratu závazků. Krok po kroku uvidíte, kdy dodavatelské úvěry financují zásoby i pohledávky.</p>
+        </figcaption>
+        <div id="viz-casovy-nesoulad"></div>
+      </figure>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Vztah doby obratu závazků a obchodního cyklu</p>
+        <div class="callout__telo">
+          <p>
+            Doba obratu pohledávek a doba obratu závazků jsou klíčové pro posouzení
+            <strong>časového nesouladu</strong> mezi vznikem pohledávky a jejím
+            inkasem a mezi vznikem závazku a jeho úhradou. Tento nesoulad přímo
+            ovlivňuje likviditu. Je-li doba obratu závazků <strong>větší</strong> než
+            součet doby obratu zásob a pohledávek, dodavatelské úvěry financují
+            pohledávky i zásoby (může to však signalizovat i špatnou likviditu –
+            podnik neplatí včas).
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Mezi likviditou a aktivitou je úzká vazba a je třeba hledat kompromis.
+        Významný je i vztah k rentabilitě: krátkodobé závazky jsou <strong>levným
+        zdrojem financování</strong> a jejich využívání zvyšuje rentabilitu vlastního
+        i úplatného kapitálu. Pokud jimi ale podnik financuje dlouhodobý majetek nebo
+        trvale přítomnou část oběžného majetku (nemá k dispozici čistý pracovní kapitál),
+        roste riziko platební neschopnosti.
+      </p>
+
+      <!-- ================= TABULKA 2-1 ================= -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 2–1 – Vývoj vybraných poměrových ukazatelů za průmysl ČR</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">ROE</th><td class="cislo">11,19 %</td><td class="cislo">13,94 %</td></tr>
+            <tr><th scope="row">ROA</th><td class="cislo">9,01 %</td><td class="cislo">10,95 %</td></tr>
+            <tr><th scope="row">Cizí zdroje / Aktiva</th><td class="cislo">45,62 %</td><td class="cislo">45,81 %</td></tr>
+            <tr><th scope="row">Běžná likvidita</th><td class="cislo">1,48</td><td class="cislo">1,35</td></tr>
+            <tr><th scope="row">Pohotová likvidita</th><td class="cislo">1,09</td><td class="cislo">0,99</td></tr>
+            <tr><th scope="row">Hotovostní likvidita</th><td class="cislo">0,24</td><td class="cislo">0,21</td></tr>
+            <tr><th scope="row">Výnosy / Aktiva</th><td class="cislo">1,20</td><td class="cislo">1,24</td></tr>
+          </tbody>
+        </table>
+        <p class="tabulka-popis">Zdroj: www.mpo.cz</p>
+      </div>
+
+      <!-- ================= STATICKÝ GRAF: tři stupně likvidity 2007 ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Tři stupně likvidity za průmysl ČR (2007)</p>
+          <p class="viz__popis">Hodnoty klesají od běžné k hotovostní likviditě přesně proto, že z čitatele postupně ubývají méně likvidní složky oběžných aktiv (data z tabulky 2–1).</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-likvidita-sloupce"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Čtení hodnot z tabulky 2–1</p>
+        <div class="callout__telo">
+          <p>
+            Běžná likvidita průmyslu (1,48 a 1,35) se pohybuje pod doporučeným pásmem
+            1,5–2,5, pohotová (1,09 a 0,99) je v rozmezí 1–1,5 a hotovostní (0,24 a 0,21)
+            v doporučeném pásmu 0,2–0,5. Obrat aktiv (řádek Výnosy / Aktiva, 1,20 a 1,24)
+            převyšuje doporučené minimum 1.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Co znamená, když je <strong>doba obratu závazků delší</strong> než součet doby obratu zásob a doby obratu pohledávek?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Součet doby obratu zásob a pohledávek je „obchodní cyklus" – doba, po
+              kterou má podnik peníze vázané v provozu, než je inkasuje zpět. Je-li
+              doba obratu závazků delší, znamená to, že podnik platí své dodavatele
+              až <strong>poté</strong>, co sám inkasuje od odběratelů. Dodavatelské
+              úvěry tak fakticky financují zásoby i pohledávky, což šetří vlastní
+              zdroje a je to levné financování. Zároveň to ale <strong>může
+              signalizovat špatnou likviditu</strong> – podnik možná neplatí včas,
+              protože nemá čím. Interpretace proto vyžaduje opatrnost.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Čím se liší tři stupně likvidity a proč mají hodnoty klesat od běžné přes pohotovou k hotovostní?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Všímejte si, co se postupně vyřazuje z čitatele. Jmenovatel zůstává stejný.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Liší se čitatelem – jmenovatel (krátkodobé cizí zdroje) je stejný. Běžná likvidita bere celá oběžná aktiva, pohotová z nich vyřazuje zásoby a hotovostní ponechává jen krátkodobý finanční majetek. Protože se čitatel s každým stupněm zmenšuje, klesá i hodnota ukazatele. Doporučená pásma: běžná 1,5–2,5, pohotová 1–1,5, hotovostní 0,2–0,5.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč se do ukazatelů likvidity nezahrnuje dlouhodobý majetek?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte pojem likvidnost – rychlost přeměny na peníze.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Dlouhodobý majetek je nejméně likvidní – nelze jej rychle a bez ztráty hodnoty přeměnit na peníze, kterými by se hradily krátkodobé závazky. Ukazatele likvidity proto vycházejí pouze z oběžných aktiv.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Jaký je rozdíl mezi formou „obrat" a „doba obratu" u ukazatelů aktivity?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jedna forma udává četnost za rok, druhá počet dní.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>„Obrat" udává, kolikrát za rok se daná položka využije při podnikání (např. obrat aktiv = tržby / aktiva). „Doba obratu" udává počet dní, za které se položka obrátí (poměr průměrného stavu položky k tržbám násobený 360). Jsou to dva pohledy na tutéž skutečnost.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč je vhodné, aby doba obratu závazků dosahovala alespoň doby obratu pohledávek?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte okamžik, kdy podnik platí, s okamžikem, kdy inkasuje.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Pokud podnik platí své závazky později, než inkasuje své pohledávky, financuje svůj provoz z dodavatelských úvěrů místo z vlastních zdrojů. Časový nesoulad tak nezatěžuje jeho likviditu. Krátkodobé závazky jsou navíc levným zdrojem, takže to zvyšuje i rentabilitu. Naopak kratší doba obratu závazků nutí podnik hradit dříve, než sám dostane zaplaceno.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Nízký obrat aktiv bývá varovným signálem. Kdy nemusí znamenat problém?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se nad podnikem, který právě dokončil velkou investici.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Nízký obrat aktiv obvykle značí neúměrnou majetkovou vybavenost a neefektivní využití majetku. Nemusí to však být problém, pokud podnik <strong>investuje do budoucna</strong> – nově pořízený dlouhodobý majetek zvyšuje aktiva, ale zatím ještě negeneruje odpovídající tržby. Ukazatel je proto nutné posuzovat obezřetně a v čase.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t3-l2-rentabilita-zadluzenost.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">3.2 Analýza rentability a zadluženosti</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t3-l4-kapitalovy-trh.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">3.4 Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) KROKOVÁ VIZUALIZACE: tři stupně likvidity
+      // Sloupec = oběžná aktiva složená ze tří segmentů (odspodu nejméně likvidní):
+      // zásoby, krátkodobé pohledávky, krátkodobý finanční majetek.
+      // Jde o konceptuální poměry výšek (bez konkrétních čísel z knihy).
+      Skripta.stepper('viz-stupne-likvidity', {
+        sirka: 720, vyska: 380,
+        stavy: [
+          { zasoby: true,  pohl: true,  kfm: true },
+          { zasoby: false, pohl: true,  kfm: true },
+          { zasoby: false, pohl: false, kfm: true }
+        ],
+        popisky: [
+          'Běžná likvidita (III. stupně): do čitatele bereme celá oběžná aktiva – zásoby, pohledávky i krátkodobý finanční majetek.',
+          'Pohotová likvidita (II. stupně): z čitatele vypadnou zásoby (nejméně likvidní a nejistá složka).',
+          'Okamžitá / hotovostní likvidita (I. stupně): zůstává jen krátkodobý finanční majetek – to, čím lze platit okamžitě.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320, x = 250, w = 150;
+          // Výšky jednotlivých segmentů (konceptuální poměry)
+          var hZasoby = 120, hPohl = 90, hKfm = 60;
+          var yKfm = base - hKfm;
+          var yPohl = yKfm - hPohl;
+          var yZasoby = yPohl - hZasoby;
+          var barvaMimo = '#d1d5db'; // šedá pro vyřazený segment
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 60, y1: base, x2: 660, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Segment: zásoby (nejméně likvidní, dole)
+          u.dej(svg, 'seg-zasoby', 'rect', {
+            x: x, y: yZasoby, width: w, height: hZasoby, rx: 4,
+            fill: stav.zasoby ? '#6366f1' : barvaMimo, opacity: stav.zasoby ? 1 : 0.45
+          });
+          u.dej(svg, 'txt-zasoby', 'text', {
+            x: x + w / 2, y: yZasoby + hZasoby / 2 + 5, 'text-anchor': 'middle',
+            fill: stav.zasoby ? '#fff' : '#6b7280', 'font-size': 14, 'font-weight': 600
+          }, 'Zásoby');
+
+          // Segment: krátkodobé pohledávky (uprostřed)
+          u.dej(svg, 'seg-pohl', 'rect', {
+            x: x, y: yPohl, width: w, height: hPohl, rx: 4,
+            fill: stav.pohl ? '#4338ca' : barvaMimo, opacity: stav.pohl ? 1 : 0.45
+          });
+          u.dej(svg, 'txt-pohl', 'text', {
+            x: x + w / 2, y: yPohl + hPohl / 2 + 5, 'text-anchor': 'middle',
+            fill: stav.pohl ? '#fff' : '#6b7280', 'font-size': 13, 'font-weight': 600
+          }, 'Pohledávky');
+
+          // Segment: krátkodobý finanční majetek (nejlikvidnější, nahoře)
+          u.dej(svg, 'seg-kfm', 'rect', {
+            x: x, y: yKfm, width: w, height: hKfm, rx: 4,
+            fill: u.barvaTvorba, opacity: 1
+          });
+          u.dej(svg, 'txt-kfm', 'text', {
+            x: x + w / 2, y: yKfm + hKfm / 2 + 5, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 12, 'font-weight': 600
+          }, 'Fin. majetek');
+
+          // Popisek sloupce
+          u.dej(svg, 'lbl-oa', 'text', {
+            x: x + w / 2, y: base + 26, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+          }, 'Čitatel (co lze platit)');
+
+          // Přerušovaná čára = krátkodobé cizí zdroje (jmenovatel)
+          var yLat = base - 150;
+          u.dej(svg, 'lat', 'line', {
+            x1: 90, y1: yLat, x2: 630, y2: yLat, stroke: u.barvaNiceni,
+            'stroke-width': 2, 'stroke-dasharray': '6 5'
+          });
+          u.dej(svg, 'lbl-lat', 'text', {
+            x: 96, y: yLat - 10, 'text-anchor': 'start', fill: u.barvaNiceni,
+            'font-size': 13, 'font-weight': 600
+          }, 'Krátkodobé cizí zdroje (jmenovatel)');
+        }
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: časový nesoulad (obchodní cyklus vs. doba obratu závazků)
+      // Konceptuální délky úseků na časové ose (bez konkrétních čísel z knihy).
+      Skripta.stepper('viz-casovy-nesoulad', {
+        sirka: 720, vyska: 320,
+        stavy: [
+          { zasoby: true, pohl: false, zav: false },
+          { zasoby: true, pohl: true,  zav: false },
+          { zasoby: true, pohl: true,  zav: true }
+        ],
+        popisky: [
+          'Doba obratu zásob: kapitál je vázán v zásobách, než se prodají.',
+          'Přičteme dobu obratu pohledávek – vzniká obchodní cyklus, po který podnik čeká na peníze.',
+          'Doba obratu závazků: přesahuje-li obchodní cyklus, dodavatelské úvěry financují zásoby i pohledávky (může však značit i slabou likviditu).'
+        ],
+        render: function (svg, stav, i, u) {
+          var x0 = 70, yZas = 90, yZav = 190, h = 46;
+          var wZasoby = 150, wPohl = 170, wZav = 360;
+
+          // Časová osa
+          u.dej(svg, 'osa', 'line', { x1: x0, y1: 250, x2: 660, y2: 250, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-sip', 'text', { x: 668, y: 255, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 14 }, '→');
+          u.dej(svg, 'osa-lbl', 'text', { x: x0, y: 278, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 12 }, 'čas (dny)');
+
+          // Úsek: doba obratu zásob
+          u.dej(svg, 'bar-zasoby', 'rect', {
+            x: x0, y: yZas, width: wZasoby, height: h, rx: 5, fill: '#6366f1',
+            opacity: stav.zasoby ? 1 : 0
+          });
+          u.dej(svg, 'txt-zasoby', 'text', {
+            x: x0 + wZasoby / 2, y: yZas + h / 2 + 5, 'text-anchor': 'middle', fill: '#fff',
+            'font-size': 12, 'font-weight': 600, opacity: stav.zasoby ? 1 : 0
+          }, 'DO zásob');
+
+          // Úsek: doba obratu pohledávek (navazuje)
+          u.dej(svg, 'bar-pohl', 'rect', {
+            x: x0 + wZasoby, y: yZas, width: stav.pohl ? wPohl : 0, height: h, rx: 5,
+            fill: '#4338ca', opacity: stav.pohl ? 1 : 0
+          });
+          u.dej(svg, 'txt-pohl', 'text', {
+            x: x0 + wZasoby + wPohl / 2, y: yZas + h / 2 + 5, 'text-anchor': 'middle', fill: '#fff',
+            'font-size': 12, 'font-weight': 600, opacity: stav.pohl ? 1 : 0
+          }, 'DO pohledávek');
+
+          // Popisek obchodního cyklu (závorka nad zásoby+pohledávky)
+          var cyklusKonec = x0 + wZasoby + (stav.pohl ? wPohl : 0);
+          u.dej(svg, 'cyklus-cara', 'line', {
+            x1: x0, y1: yZas - 16, x2: cyklusKonec, y2: yZas - 16,
+            stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: stav.pohl ? 1 : 0
+          });
+          u.dej(svg, 'cyklus-lbl', 'text', {
+            x: (x0 + cyklusKonec) / 2, y: yZas - 22, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 12, 'font-weight': 600, opacity: stav.pohl ? 1 : 0
+          }, 'obchodní cyklus');
+
+          // Úsek: doba obratu závazků (spodní řada, delší)
+          u.dej(svg, 'bar-zav', 'rect', {
+            x: x0, y: yZav, width: stav.zav ? wZav : 0, height: h, rx: 5,
+            fill: u.barvaTvorba, opacity: stav.zav ? 1 : 0
+          });
+          u.dej(svg, 'txt-zav', 'text', {
+            x: x0 + wZav / 2, y: yZav + h / 2 + 5, 'text-anchor': 'middle', fill: '#fff',
+            'font-size': 12, 'font-weight': 600, opacity: stav.zav ? 1 : 0
+          }, 'DO závazků (podnik platí dodavatelům)');
+        }
+      });
+
+      // C) STATICKÝ SLOUPCOVÝ GRAF: tři stupně likvidity za rok 2007 (data z tab. 2-1)
+      Skripta.sloupcovyGraf('viz-likvidita-sloupce', {
+        sirka: 640, vyska: 300, formatDesetin: 2,
+        data: [
+          { popisek: 'Běžná', hodnota: 1.35 },
+          { popisek: 'Pohotová', hodnota: 0.99 },
+          { popisek: 'Hotovostní', hodnota: 0.21 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

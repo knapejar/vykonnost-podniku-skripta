@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11.3 ABC/ABB a Beyond Budgeting – Výkonnost podniku</title>
+  <meta name="description" content="Rozpočtování na základě aktivit (ABB), analýza nevyužité kapacity a koncept Beyond Budgeting s rolujícími prognózami.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 11 -->
+    <nav class="panel" data-panel data-aktivni-lekce="11.3" aria-label="Lekce tématu 11">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 11</div>
+      <div class="panel__nazev-tema">Nástroje hodnotového řízení</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="11.1" href="t11-l1-benchmarking.html"><span class="panel__odkaz-cislo">11.1</span><span>Benchmarking v řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.2" href="t11-l2-financni-plan-rizika.html"><span class="panel__odkaz-cislo">11.2</span><span>Finanční plán a řízení rizik</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.3" href="t11-l3-abc-abb-beyond-budgeting.html"><span class="panel__odkaz-cislo">11.3</span><span>ABC/ABB a Beyond Budgeting</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.4" href="t11-l4-oceneni-vynosove.html"><span class="panel__odkaz-cislo">11.4</span><span>Oceňování podniku – výnosové metody</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.5" href="t11-l5-trzni-majetkove-metody.html"><span class="panel__odkaz-cislo">11.5</span><span>Tržní a majetkové metody; růstové příležitosti a hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.6" href="t11-l6-is-ict.html"><span class="panel__odkaz-cislo">11.6</span><span>IS/ICT pro řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.7" href="t11-l7-desatero.html"><span class="panel__odkaz-cislo">11.7</span><span>Desatero pro úspěšné zavedení systému řízení výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-11">Téma 11 · Nástroje hodnotového řízení</a></li>
+          <li><span aria-current="page">Lekce 11.3</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 11.3</span>
+        <h1>ABC/ABB a Beyond Budgeting</h1>
+        <p class="lekce-hlavicka__strany">Strany 214–218</p>
+      </header>
+
+      <p>
+        Tradiční finanční plánování sestavuje rozpočty tak, že vezme minulá čísla,
+        upraví je o inflaci a jede dál. Podpůrné náklady pak vypadají jako stálé
+        a s výrobou nijak nesouvisejí. Moderní řízení nabízí přesnější cestu:
+        naplánovat <strong>jen tolik zdrojů, kolik si vyžádají skutečně potřebné
+        aktivity</strong>. Tomu slouží rozpočtování na základě aktivit (ABB), které
+        navazuje na metodu kalkulace <a class="pojem" href="#pojem-abb">ABC</a>.
+        V druhé části lekce si představíme radikálnější odpověď na strnulost rozpočtů –
+        koncept <a class="pojem" href="#pojem-beyond-budgeting">Beyond Budgeting</a>.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Návaznost na metodu ABC</p>
+        <div class="callout__telo">
+          <p>Metoda <em>Activity-Based Costing</em> (<a class="pojem" href="t7-l4-kryci-prispevek-abc.html?zvyraznit=pojem-abc" target="_blank" rel="noopener">ABC</a>) – kalkulace nákladů podle
+          aktivit – byla podrobně vyložena v tématu 7 (kap. 4.3). Zde ji využijeme
+          opačným směrem: nikoli k <em>rozvržení</em> minulých nákladů na výrobky,
+          ale k <em>plánování</em> budoucích zdrojů podle plánovaného objemu výroby
+          a prodeje.</p>
+        </div>
+      </aside>
+
+      <!-- ================= SEKCE 1: ABB ================= -->
+      <h2>Activity-Based Budgeting (ABB)</h2>
+
+      <p>
+        Plánujeme-li sortiment a množství výrobků, které chceme na trhu umístit,
+        potřebujeme vědět, <em>kolik a jakých aktivit</em> budeme potřebovat a jaká
+        bude skutečná potřeba jednotlivých zdrojů. Model ABC promítnutý do plánování
+        se nazývá <strong>Activity-Based Budgeting</strong> a umožňuje <a class="pojem" href="t11-l2-financni-plan-rizika.html?zvyraznit=pojem-financni-plan" target="_blank" rel="noopener">finanční plán</a>
+        výrazně zpřesnit.
+      </p>
+
+      <section class="definice" id="pojem-abb">
+        <h3 class="definice__pojem">Activity-Based Budgeting (ABB)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozpočtování na základě aktivit – aplikace modelu <em>Activity-Based
+            Costing</em> (ABC) v plánovacím procesu. Cílem ABB je plánovat jen takovou
+            výši zdrojů, která opravdu souvisí s plánovaným objemem výroby a prodeje
+            výrobků. Tím odhaluje případnou přebytečnou (nevyužitou) kapacitu.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Postup ABB má pět kroků. První z nich odpovídá tradičnímu rozpočtování;
+        teprve kroky 2 až 5 dodávají „aktivitní" pohled – od odhadu poptávky po
+        aktivitách až po přizpůsobení kapacit zdrojů.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: pět kroků ABB ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Pět kroků metody ABB</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Zvýrazněný krok se právě provádí; první krok odpovídá klasickému rozpočtu, kroky 2–5 přidávají pohled přes aktivity a kapacity.</p>
+        </figcaption>
+        <div id="viz-abb-kroky"></div>
+      </figure>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 6.1 ================= -->
+      <h2>Řešený příklad 6.1 – kapacita zaměstnanců na vyřizování objednávek</h2>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Zadání (kroky 1–5 ABB v akci)</p>
+        <div class="callout__telo">
+          <p>První dva kroky ABB vedou k odhadu roční poptávky <strong>4 400 objednávek</strong>,
+          které zákazníci zadají při běžné poptávkové činnosti. Jeden zaměstnanec zvládne
+          vyřídit <strong>100 objednávek měsíčně</strong>, tj. 1 200 ročně.</p>
+        </div>
+      </aside>
+
+      <p>
+        Postupujme podle kroků 3 až 5. Potřeba zaměstnanců je
+        <span class="math"><span class="frac"><span class="frac__cit"><span class="num">4 400</span></span><span class="frac__jmen"><span class="num">1 200</span></span></span><span class="op">=</span><span class="num">3,67</span></span>
+        osoby (<strong>krok 3</strong> – určení zdrojů pro aktivitu). Pracovní kapacitu
+        proto zajistíme <strong>4 zaměstnanci</strong> (<strong>krok 4</strong> – celková
+        potřeba zdroje). Současný stav je však <strong>5 osob</strong>, tj. osobní náklady
+        <span class="math"><span class="num">5</span><span class="op">×</span><span class="num">250</span></span>
+        tis. = <strong>1,25 mil. Kč</strong> ročně. Vedení proto může kapacitu snížit –
+        přeřazením či propuštěním jednoho zaměstnance klesnou osobní náklady o
+        <strong>250 tis. Kč</strong> ročně (<strong>krok 5</strong> – přizpůsobení kapacit).
+      </p>
+
+      <section class="definice" id="pojem-flexibilni-zdroje">
+        <h3 class="definice__pojem">Flexibilní zdroje</h3>
+        <div class="definice__telo">
+          <p>
+            Zdroje nákladů, které v krátkém období kolísají s měnícím se počtem
+            zpracovávaných aktivit (např. kancelářská spotřeba nebo výdaje na telefon
+            při vyřizování objednávek). Klesne-li rozpočet nadcházejícího období např.
+            na 80 % předchozí produkce, lze tyto flexibilní výdaje snížit až o 20 %.
+            Tím se liší od kapacit fixovaných v krátkém období (mzdy).
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Rozdíl oproti tradičnímu rozpočtu</p>
+        <div class="callout__telo">
+          <p>Při tradiční tvorbě rozpočtů se výdaje podpůrných aktivit odvozují
+          z minulého rozpočtu a upraví se pouze o inflaci – proto se jeví jako stálé
+          a na výrobní aktivitě „nezávislé". ABB naopak porovnává objem
+          <em>potřebných</em> a <em>přítomných</em> kapacit, takže lze plán upravovat
+          směrem nahoru i dolů už v průběhu jeho tvorby.</p>
+        </div>
+      </aside>
+
+      <!-- ================= POKRAČOVÁNÍ PŘÍKLADU 6.1: NEVYUŽITÁ KAPACITA ================= -->
+      <h3>Pokračování příkladu 6.1 – analýza nevyužité kapacity</h3>
+
+      <p>
+        Placená kapacita 4 pracovníků činí
+        <span class="math"><span class="num">4</span><span class="op">×</span><span class="num">1 200</span><span class="op">=</span><span class="num">4 800</span></span>
+        objednávek. Plánovaný výkon byl ale jen <strong>4 400</strong> objednávek
+        a skutečně jich bylo splněno <strong>4 100</strong>. Současné nároky na mzdy
+        jsou <strong>1 mil. Kč</strong> (fixní v krátkém období). Náklad na jednu
+        objednávku tak vychází
+        <span class="math"><span class="frac"><span class="frac__cit"><span class="num">1 000 000</span></span><span class="frac__jmen"><span class="num">4 800</span></span></span><span class="op">=</span><span class="num">208,333</span></span> Kč.
+      </p>
+
+      <section class="definice" id="pojem-nevyuzita-kapacita">
+        <h3 class="definice__pojem">Plánovaná a neplánovaná nevyužitá kapacita</h3>
+        <div class="definice__telo">
+          <p>
+            <strong>Plánovaná nevyužitá kapacita</strong> je rozdíl mezi placenou
+            kapacitou a plánovaným výkonem (podnik dopředu ví, že ji nevyužije).
+            <strong>Neplánovaná (současná) nevyužitá kapacita</strong> je rozdíl mezi
+            plánovaným a skutečně dosaženým výkonem (výpadek oproti plánu). Obojí se
+            ocení nákladem na jednotku aktivity a upozorní vedení na možnost snížit
+            potřebu zdrojů, případně kapacitu využít pro jiné činnosti.
+          </p>
+        </div>
+      </section>
+
+      <!-- KROKOVÁ VIZUALIZACE: rozklad placené kapacity -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Rozklad placené kapacity (4 800 objednávek = 1 000 000 Kč)</p>
+          <p class="viz__popis">Krok za krokem sledujte, jak se z celkové placené kapacity oddělí plánovaná a neplánovaná nevyužitá kapacita a kolik zbude na skutečně zpracované objednávky.</p>
+        </figcaption>
+        <div id="viz-kapacita-rozklad"></div>
+      </figure>
+
+      <p>
+        Analýzu lze přehledně zapsat do tabulky. Náklady na objednávku (208,333 Kč)
+        vynásobíme počtem objednávek v každé kategorii; součet dá celý rozpočet mezd
+        1 000 000 Kč.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 6.1 – Rozklad rozpočtu mezd podle využití kapacity (Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Kategorie</th>
+              <th scope="col" class="cislo">Objednávky</th>
+              <th scope="col" class="cislo">× 208,333 Kč</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Rozpočet dle zpracovaných objednávek</th>
+              <td class="cislo">4 100</td>
+              <td class="cislo hodnota-tvorba">854 167</td>
+            </tr>
+            <tr>
+              <th scope="row">Plánovaná nevyužitá kapacita (4 800 − 4 400)</th>
+              <td class="cislo">400</td>
+              <td class="cislo hodnota-niceni">83 333</td>
+            </tr>
+            <tr>
+              <th scope="row">Neplánovaná nevyužitá kapacita (4 400 − 4 100)</th>
+              <td class="cislo">300</td>
+              <td class="cislo hodnota-niceni">62 500</td>
+            </tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Celkem (rozpočet mezd)</th>
+              <td class="cislo">4 800</td>
+              <td class="cislo">1 000 000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Analýza tak nasměruje pozornost vedení na potenciální snížení potřeby zdrojů
+        o <strong>145 833 Kč</strong> (83 333 Kč očekávaných a 62 500 Kč neočekávaných),
+        případně na využití přebytečné pracovní kapacity pro jiné obchodní činnosti.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Co říká praxe (Innes a Mitchell)</p>
+        <div class="callout__telo">
+          <p>Průzkum britských podniků zjistil, že <strong>20 %</strong> dotázaných
+          používá plánování na základě kapacit a <strong>76 %</strong> těchto uživatelů
+          vidí hlavní výhodu ABB v tom, že umožňuje vytvořit <strong>reálnější plán</strong>.
+          K dalším přínosům patří lepší identifikace potřeb zdrojů a rozpoznání
+          rozpočtových mezer.</p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jak konkrétně ABB odhalí náklady nevyužité kapacity, které tradiční
+          rozpočet skryje? U příkladu 6.1 uveďte, o kolik korun a v jakých dvou
+          složkách by mohla firma ušetřit.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>ABB oceňuje každou objednávku nákladem 208,333 Kč a porovnává placenou
+            kapacitu (4 800) s plánem (4 400) a skutečností (4 100). Vzniknou dvě
+            složky nevyužití: <strong>plánovaná nevyužitá kapacita 83 333 Kč</strong>
+            (400 objednávek) a <strong>neplánovaná nevyužitá kapacita 62 500 Kč</strong>
+            (300 objednávek), dohromady <strong>145 833 Kč</strong>. Tradiční rozpočet
+            by celý 1 000 000 Kč zaúčtoval jako „stálý" náklad a tuto rezervu by vůbec
+            nezviditelnil.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= SEKCE 2: BEYOND BUDGETING ================= -->
+      <h2>Beyond Budgeting</h2>
+
+      <p>
+        I zpřesněný rozpočet zůstává rozpočtem – pevně stanoveným cílem na rok dopředu.
+        Finančnímu plánu se vyčítá, že je <strong>strnulým, statickým nástrojem</strong>,
+        který uzavírá myšlení a rozhodování manažerů do minulosti. V rychle se měnícím
+        světě nových výrobků, technologií, inovací, silné konkurence i ekonomických
+        krizí omezují tradiční přístupy k plánování pružné přizpůsobení podniku
+        požadavkům zákazníků.
+      </p>
+
+      <p>
+        Příprava plánů a rozpočtů je navíc časově náročná. Po mnoha iteracích stanoví
+        přesné, kvantifikované cíle s vazbou na odměňování. To vede manažery k tomu,
+        aby se soustředili na splnění ukazatelů plánu, který už dávno nemusí respektovat
+        vnější ani vnitřní podmínky. Pevné rozpočty tak mohou omezovat flexibilitu,
+        posilovat direktivní řízení, odrazovat od kreativity – a kvůli nim mohou zůstat
+        nevyužity nové růstové příležitosti.
+      </p>
+
+      <section class="definice" id="pojem-beyond-budgeting">
+        <h3 class="definice__pojem">Beyond Budgeting</h3>
+        <div class="definice__telo">
+          <p>
+            Koncept řízení „za hranicí rozpočtu", který nahrazuje pevné roční rozpočty
+            <a class="pojem" href="#pojem-rolujici-prognozy">rolujícími prognózami</a>
+            finančních i nefinančních <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátorů hodnoty</a> (např. měsíčními). Zaměřuje
+            pozornost manažerů na budoucí příležitosti a rizika namísto striktního
+            plnění plánovaných hodnot. Rozpočty jako takové neodmítá – pojem „rozpočet"
+            spíše ztotožňuje se samotným systémem řízení.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-rolujici-prognozy">
+        <h3 class="definice__pojem">Rolující (klouzavé) prognózy</h3>
+        <div class="definice__telo">
+          <p>
+            Průběžně aktualizované předpovědi (např. měsíční), které nahrazují tradiční
+            roční cyklus rozpočtování. Pomáhají manažerům oprostit se od pevného ročního
+            plánu a přijímat rozhodnutí na základě aktuálních podmínek a požadavků
+            zákazníků. Jsou jádrem aplikace modelu Beyond Budgeting podle Frasera a Hopeho.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Rozpočty jsou nástrojem alokace omezených zdrojů, a proto musí být v souladu
+        s podnikovou strategií i aktuálními podmínkami podnikání. Strategie by neměla
+        být strnulá, ale chápaná jako <strong>kontinuální proces</strong>, který se
+        přizpůsobuje měnícímu se prostředí.
+      </p>
+
+      <!-- POROVNÁNÍ tradiční rozpočet vs. Beyond Budgeting -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 6.2 – Tradiční rozpočet vs. Beyond Budgeting</caption>
+          <thead>
+            <tr>
+              <th scope="col">Hledisko</th>
+              <th scope="col">Tradiční roční rozpočet</th>
+              <th scope="col">Beyond Budgeting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Časový horizont</th>
+              <td>Pevný roční cyklus</td>
+              <td>Rolující (např. měsíční) prognózy</td>
+            </tr>
+            <tr>
+              <th scope="row">Měřítko úspěchu</th>
+              <td>Splnění plánovaných hodnot</td>
+              <td>Relativní výkonnost vůči konkurenci (benchmark)</td>
+            </tr>
+            <tr>
+              <th scope="row">Orientace</th>
+              <td>Na minulost, na plán</td>
+              <td>Na budoucí příležitosti a rizika</td>
+            </tr>
+            <tr>
+              <th scope="row">Styl řízení</th>
+              <td>Direktivní, centralizovaný</td>
+              <td>Decentralizace, odpovědnost blíže zákazníkovi</td>
+            </tr>
+            <tr>
+              <th scope="row">Riziko</th>
+              <td>Manipulace s daty, nižší cíle, strnulost</td>
+              <td>Pružná reakce, motivace k tvorbě hodnoty</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Šest vnějších faktorů dle BBRT</h3>
+
+      <p>
+        Skupina expertů <strong>Beyond Budgeting Round Table (BBRT)</strong> uvádí šest
+        vnějších faktorů, jež nutí podniky opustit tradiční plánování a přijmout model
+        Beyond Budgeting:
+      </p>
+
+      <ol>
+        <li><strong>Vlastníci</strong> požadují adekvátní výnosnost a hodnotí spíše
+          <em>relativní</em> výkonnost vůči konkurentům než absolutní čísla.</li>
+        <li><strong>Talentovaní lidé</strong> chtějí svobodu rozhodování, příležitosti
+          a zodpovědnost.</li>
+        <li><strong>Zkracují se výrobkové cykly</strong> a zrychlují inovace – udržet
+          konkurenceschopnost vyžaduje nová řešení a strategie.</li>
+        <li><strong>Ceny klesají a kvalita roste</strong> – nutnost efektivně řídit
+          interní procesy.</li>
+        <li><strong>Zákazníci</strong> při neuspokojení odcházejí ke konkurenci – podnik
+          musí být flexibilní a reagovat rychle.</li>
+        <li>Roste tlak na <strong>etickou a sociální odpovědnost</strong> – investoři
+          a regulátoři chtějí otevřený a poctivý reporting.</li>
+      </ol>
+
+      <h3>Doporučení pro uplatnění modelu</h3>
+
+      <p>Pro zavedení Beyond Budgeting do systému řízení je vhodné:</p>
+
+      <ul>
+        <li>posuzovat výkonnost (finanční i nefinanční) <strong>porovnáním s konkurencí</strong>
+          (<a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmark" target="_blank" rel="noopener">benchmarkem</a>); relativní měření je objektivnější a méně svádí k manipulaci s údaji
+          či nastavování nižších cílů;</li>
+        <li><strong>motivovat zaměstnance</strong> nabídkou příležitostí, zodpovědnosti,
+          jasných hodnot a podílu na úspěchu a sledovat týmovou úspěšnost;</li>
+        <li>dát <strong>manažerům blízko zákazníkovi</strong> možnost rozhodovat a konat –
+          mají nejvíce informací o jeho požadavcích;</li>
+        <li>vytvořit prostor pro rozhodnutí <strong>odstraněním zdrojových omezení</strong>
+          (při zachování určitých limitujících parametrů);</li>
+        <li>uvnitř podniku využívat <strong>tržní mechanismus</strong> nabídky a poptávky
+          zdrojů a podporovat odpovědnost relativně samostatných jednotek;</li>
+        <li>mít <strong>transparentní a otevřený informační systém</strong> pro řízení
+          a kontrolu na všech úrovních.</li>
+      </ul>
+
+      <!-- ZKUS SÁM 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč může být strnulý roční rozpočet v turbulentním prostředí
+          kontraproduktivní? Uveďte alespoň dva mechanismy, kterými škodí, a čím je
+          nahrazuje Beyond Budgeting.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Pevné cíle navázané na odměny svádějí manažery k plnění „papírového"
+            plánu, který už neodpovídá realitě – vede to k <strong>manipulaci s daty</strong>,
+            <strong>nastavování záměrně nízkých cílů</strong> a k tomu, že se
+            <strong>zmeškají růstové příležitosti</strong>, protože nebyly v rozpočtu.
+            Rozpočet také posiluje direktivní řízení a dusí kreativitu. Beyond Budgeting
+            to nahrazuje <strong>rolujícími prognózami</strong>, <strong>relativním
+            měřením vůči konkurenci</strong> a <strong>decentralizací rozhodování</strong>
+            blíže k zákazníkovi.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= PROVÁZANOST S DALŠÍMI NÁSTROJI ================= -->
+      <h2>Provázanost s dalšími nástroji řízení</h2>
+
+      <p>
+        Podle Frasera a Hopeho se Beyond Budgeting neobejde bez podpory dalších nástrojů
+        řízení, které dohromady tvoří konzistentní systém. Úspěšná implementace navíc
+        vyžaduje adekvátní a efektivně využívaný informační systém.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 6.3 – Nástroje podporující Beyond Budgeting a jejich role</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nástroj</th>
+              <th scope="col">Přínos pro Beyond Budgeting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Balanced Scorecard (BSC)</th>
+              <td>Strategický rámec pro manažery na všech úrovních; propojuje cíle,
+                strategie, měřítka a odměňování.</td>
+            </tr>
+            <tr>
+              <th scope="row">Hodnotové řízení (např. EVA)</th>
+              <td>Pomáhá přijímat rozhodnutí v souladu s tvorbou hodnoty pro vlastníky
+                jako základního cíle.</td>
+            </tr>
+            <tr>
+              <th scope="row">ABC/M</th>
+              <td>Nástroje pro měření a řízení ziskovosti zákazníků a nákladů procesů.</td>
+            </tr>
+            <tr>
+              <th scope="row">Benchmarking</th>
+              <td>Porovnání s jinými subjekty; přispívá k procesu zlepšování výkonnosti.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🔗</span>
+        <p class="callout__nadpis">Kruh se uzavírá</p>
+        <div class="callout__telo">
+          <p>Beyond Budgeting tak spojuje témata celých skript dohromady:
+          <strong><a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard</a></strong> (téma 10) dodává strategický rámec,
+          <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a></strong> (téma 5) filtr tvorby hodnoty, <strong><a class="pojem" href="t10-l3-vyuziti-bsc.html?zvyraznit=pojem-abc-m" target="_blank" rel="noopener">ABC/M</a></strong>
+          (téma 7 a tato lekce) měření nákladů aktivit a <strong><a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmarking" target="_blank" rel="noopener">benchmarking</a></strong>
+          (lekce 11.1) relativní srovnání s okolím.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jmenujte pět kroků metody ABB a řekněte, který z nich odpovídá tradičnímu rozpočtování.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Začíná se rozpočtem výroby a prodeje a končí přizpůsobením kapacit. „Tradiční" je hned první krok.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>(1) rozpočet výroby a prodeje jednotlivých výrobků a zákazníků, (2) odhad poptávky po podnikových aktivitách, (3) určení zdrojů potřebných pro jednotlivé aktivity, (4) určení celkové potřeby jednotlivých zdrojů, (5) přizpůsobení kapacit zdrojů danému objemu výroby a prodeje. <strong>Tradičnímu postupu odpovídá krok 1.</strong></p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>V příkladu 6.1 spočítejte náklad na jednu objednávku a vysvětlete, z jaké kapacity vychází.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podělte rozpočtovaný mzdový náklad placenou kapacitou (ne plánem ani skutečností).</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Náklad na objednávku = 1 000 000 Kč / <strong>4 800</strong> objednávek = <strong>208,333 Kč</strong>. Vychází z <em>placené</em> kapacity 4 zaměstnanců (4 × 1 200), nikoli z plánu (4 400) ani skutečnosti (4 100) – právě proto se pak nevyužitá kapacita projeví jako samostatné položky.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Jaký je rozdíl mezi plánovanou a neplánovanou nevyužitou kapacitou?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte tři čísla: placená kapacita, plán, skutečnost.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Plánovaná</strong> nevyužitá kapacita = placená kapacita − plán (4 800 − 4 400 = 400 obj. → 83 333 Kč); podnik dopředu ví, že ji nevyužije. <strong>Neplánovaná</strong> = plán − skutečnost (4 400 − 4 100 = 300 obj. → 62 500 Kč); jde o výpadek oproti plánu. Dohromady 145 833 Kč potenciální úspory.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co je Beyond Budgeting a čím nahrazuje pevné roční rozpočty?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Klíčové slovo je „rolující". Rozpočet se přitom zcela nezavrhuje.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Koncept řízení „za hranicí rozpočtu", který nahrazuje pevné roční rozpočty <strong>rolujícími (např. měsíčními) prognózami</strong> finančních i nefinančních generátorů hodnoty. Zaměřuje pozornost na budoucí příležitosti a rizika. Rozpočet zcela neodmítá – pojem „rozpočet" spíše ztotožňuje se samotným systémem řízení.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Které čtyři nástroje řízení podle Frasera a Hopeho podporují Beyond Budgeting a jakou roli hraje každý z nich?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jeden dodává strategický rámec, jeden filtr tvorby hodnoty, jeden měření nákladů aktivit a jeden srovnání s okolím.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>BSC</strong> – strategický rámec propojující cíle, strategie, měřítka a odměňování; <strong>hodnotové řízení / EVA</strong> – rozhodování v souladu s tvorbou hodnoty pro vlastníky; <strong>ABC/M</strong> – měření a řízení ziskovosti zákazníků a nákladů procesů; <strong>benchmarking</strong> – porovnání s jinými subjekty a zlepšování výkonnosti. Vše na podkladě efektivního informačního systému.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t11-l2-financni-plan-rizika.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">11.2 Finanční plán a řízení rizik</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t11-l4-oceneni-vynosove.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">11.4 Oceňování podniku – výnosové metody</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      var AMBER = '#d97706'; // barva pro neplánovanou nevyužitou kapacitu
+
+      // A) KROKOVÁ VIZUALIZACE: pět kroků ABB (zvýrazní se právě prováděný krok)
+      var KROKY = [
+        '1. Rozpočet výroby a prodeje',
+        '2. Odhad poptávky po aktivitách',
+        '3. Určení zdrojů pro aktivity',
+        '4. Určení celkové potřeby zdrojů',
+        '5. Přizpůsobení kapacit zdrojů'
+      ];
+      Skripta.stepper('viz-abb-kroky', {
+        sirka: 720, vyska: 340,
+        stavy: [ {}, {}, {}, {}, {} ],
+        popisky: [
+          'Krok 1: Sestavíme rozpočet výroby a prodeje jednotlivých výrobků a u jednotlivých zákazníků – tento krok odpovídá tradičnímu rozpočtování.',
+          'Krok 2: Odhadneme poptávku po jednotlivých podnikových aktivitách (např. počet objednávek, které bude třeba vyřídit).',
+          'Krok 3: Určíme zdroje potřebné pro provádění jednotlivých aktivit (v příkladu 3,67 zaměstnance).',
+          'Krok 4: Určíme celkovou potřebu jednotlivých zdrojů (kapacitu zajistíme 4 zaměstnanci).',
+          'Krok 5: Přizpůsobíme kapacity zdrojů danému objemu výroby a prodeje (snížení z 5 na 4 osoby, úspora 250 tis. Kč).'
+        ],
+        render: function (svg, stav, i, u) {
+          var x = 60, w = 600, h = 44, mezera = 14, y0 = 24;
+          for (var k = 0; k < KROKY.length; k++) {
+            var y = y0 + k * (h + mezera);
+            var aktivni = (k === i);
+            var hotovo = (k < i);
+            var fill = aktivni ? '#4338ca' : (hotovo ? '#e0e7ff' : '#f1f5f9');
+            var stroke = aktivni ? '#4338ca' : (hotovo ? '#a5b4fc' : '#cbd5e1');
+            var textColor = aktivni ? '#ffffff' : u.barvaText;
+            u.dej(svg, 'box-' + k, 'rect', {
+              x: x, y: y, width: w, height: h, rx: 10,
+              fill: fill, stroke: stroke, 'stroke-width': aktivni ? 2.5 : 1.5
+            });
+            // Číselný odznak vlevo
+            u.dej(svg, 'badge-' + k, 'circle', {
+              cx: x + 26, cy: y + h / 2, r: 15,
+              fill: aktivni ? '#ffffff' : (hotovo ? '#4338ca' : '#cbd5e1')
+            });
+            u.dej(svg, 'badge-txt-' + k, 'text', {
+              x: x + 26, y: y + h / 2 + 5, 'text-anchor': 'middle',
+              fill: aktivni ? '#4338ca' : '#ffffff', 'font-size': 15, 'font-weight': 700
+            }, String(k + 1));
+            // Popisek kroku
+            u.dej(svg, 'lbl-' + k, 'text', {
+              x: x + 56, y: y + h / 2 + 5, 'text-anchor': 'start',
+              fill: textColor, 'font-size': 16, 'font-weight': aktivni ? 700 : 500
+            }, KROKY[k].replace(/^\d+\.\s*/, ''));
+          }
+        }
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: rozklad placené kapacity 4 800 objednávek
+      // Horizontální pás; postupně se oddělují nevyužité kapacity.
+      var CENA = 208.333; // Kč na objednávku
+      Skripta.stepper('viz-kapacita-rozklad', {
+        sirka: 720, vyska: 300,
+        stavy: [
+          { faze: 0 },
+          { faze: 1 },
+          { faze: 2 }
+        ],
+        popisky: [
+          'Placená kapacita = 4 zaměstnanci × 1 200 = 4 800 objednávek, tj. rozpočet mezd 1 000 000 Kč (208,333 Kč na objednávku).',
+          'Plán byl jen 4 400 objednávek. Rozdíl 400 objednávek je plánovaná nevyužitá kapacita: (4 800 − 4 400) × 208,333 = 83 333 Kč.',
+          'Skutečně splněno 4 100 objednávek. Rozdíl 300 objednávek je neplánovaná nevyužitá kapacita (62 500 Kč); na zpracované objednávky připadá 854 167 Kč.'
+        ],
+        render: function (svg, stav, i, u) {
+          var f = stav.faze;
+          var sx = u.skala(0, 4800, 80, 660); // objednávky → x
+          var by = 110, bh = 64;              // pás
+          var x0 = sx(0), x41 = sx(4100), x44 = sx(4400), x48 = sx(4800);
+
+          // Rám celé kapacity (vždy)
+          u.dej(svg, 'ramec', 'rect', {
+            x: x0, y: by, width: x48 - x0, height: bh, rx: 8,
+            fill: 'none', stroke: u.barvaOsa, 'stroke-width': 1.5
+          });
+
+          // Celý pás jako placená kapacita (jen ve fázi 0)
+          u.dej(svg, 'seg-full', 'rect', {
+            x: x0, y: by, width: x48 - x0, height: bh, rx: 8,
+            fill: '#4338ca', opacity: f === 0 ? 1 : 0
+          });
+          // Zbytek 0–4400 indigo (jen ve fázi 1)
+          u.dej(svg, 'seg-remainder', 'rect', {
+            x: x0, y: by, width: x44 - x0, height: bh, rx: 8,
+            fill: '#4338ca', opacity: f === 1 ? 1 : 0
+          });
+
+          // Skutečné objednávky 0–4100 (zelená, fáze 2)
+          u.dej(svg, 'seg-skut', 'rect', {
+            x: x0, y: by, width: x41 - x0, height: bh, rx: 8,
+            fill: u.barvaTvorba, opacity: f >= 2 ? 1 : 0
+          });
+          // Neplánovaná nevyužitá 4100–4400 (amber, fáze 2)
+          u.dej(svg, 'seg-neplan', 'rect', {
+            x: x41, y: by, width: x44 - x41, height: bh,
+            fill: AMBER, opacity: f >= 2 ? 1 : 0
+          });
+          // Plánovaná nevyužitá 4400–4800 (červená, fáze 1+)
+          u.dej(svg, 'seg-plan', 'rect', {
+            x: x44, y: by, width: x48 - x44, height: bh, rx: 8,
+            fill: u.barvaNiceni, opacity: f >= 1 ? 1 : 0
+          });
+
+          // --- Svislé značky a čísla objednávek pod pásem ---
+          function znacka(id, xx, popis, show) {
+            u.dej(svg, 'tick-' + id, 'line', {
+              x1: xx, y1: by - 8, x2: xx, y2: by + bh + 10,
+              stroke: u.barvaOsa, 'stroke-width': 1, 'stroke-dasharray': '3 3',
+              opacity: show ? 0.8 : 0
+            });
+            u.dej(svg, 'ticklbl-' + id, 'text', {
+              x: xx, y: by + bh + 26, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 12, opacity: show ? 1 : 0
+            }, popis);
+          }
+          znacka('48', x48, '4 800', true);
+          znacka('44', x44, '4 400', f >= 1);
+          znacka('41', x41, '4 100', f >= 2);
+
+          // --- Hodnotové popisky nad segmenty ---
+          // Placená kapacita (fáze 0)
+          u.dej(svg, 'val-full', 'text', {
+            x: (x0 + x48) / 2, y: by - 20, 'text-anchor': 'middle',
+            fill: '#4338ca', 'font-size': 15, 'font-weight': 700, opacity: f === 0 ? 1 : 0
+          }, 'Placená kapacita → 1 000 000 Kč');
+          // Plánovaná nevyužitá
+          u.dej(svg, 'val-plan', 'text', {
+            x: (x44 + x48) / 2, y: by - 20, 'text-anchor': 'middle',
+            fill: u.barvaNiceni, 'font-size': 13, 'font-weight': 700, opacity: f >= 1 ? 1 : 0
+          }, '83 333 Kč');
+          u.dej(svg, 'lbl-plan', 'text', {
+            x: (x44 + x48) / 2, y: by + bh + 44, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 11, opacity: f >= 1 ? 1 : 0
+          }, 'plánovaná nevyužitá');
+          // Neplánovaná nevyužitá
+          u.dej(svg, 'val-neplan', 'text', {
+            x: (x41 + x44) / 2, y: by - 20, 'text-anchor': 'middle',
+            fill: AMBER, 'font-size': 13, 'font-weight': 700, opacity: f >= 2 ? 1 : 0
+          }, '62 500 Kč');
+          u.dej(svg, 'lbl-neplan', 'text', {
+            x: (x41 + x44) / 2, y: by + bh + 44, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 11, opacity: f >= 2 ? 1 : 0
+          }, 'neplánovaná');
+          // Zpracované objednávky
+          u.dej(svg, 'val-skut', 'text', {
+            x: (x0 + x41) / 2, y: by + bh / 2 + 5, 'text-anchor': 'middle',
+            fill: '#ffffff', 'font-size': 14, 'font-weight': 700, opacity: f >= 2 ? 1 : 0
+          }, '854 167 Kč (4 100 obj.)');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

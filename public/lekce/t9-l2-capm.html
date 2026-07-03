@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9.2 Náklady na vlastní kapitál – CAPM a další modely – Výkonnost podniku</title>
+  <meta name="description" content="Odhad nákladů na vlastní kapitál: model CAPM, koeficient β a přímka SML, APT, P/E, stavebnicový a dividendový (Gordonův) model.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="9.2" aria-label="Lekce tématu 9">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 9</div>
+      <div class="panel__nazev-tema">Náklady na kapitál a kapitálová struktura</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="9.1" href="t9-l1-naklady-cizi-kapital.html"><span class="panel__odkaz-cislo">9.1</span><span>Náklady na kapitál – podstata, riziko a cizí kapitál</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.2" href="t9-l2-capm.html"><span class="panel__odkaz-cislo">9.2</span><span>Náklady na vlastní kapitál – CAPM a další modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.3" href="t9-l3-wacc.html"><span class="panel__odkaz-cislo">9.3</span><span>WACC, mezinárodní kontext a vliv na výkonnost</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.4" href="t9-l4-kapitalova-struktura.html"><span class="panel__odkaz-cislo">9.4</span><span>Kapitálová struktura – teorie a bod indiference</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.5" href="t9-l5-zdroje-financovani.html"><span class="panel__odkaz-cislo">9.5</span><span>Zdroje financování a jejich vliv na výkonnost</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== HLAVNÍ OBSAH ===================== -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-9">Téma 9 · Náklady na kapitál</a></li>
+          <li><span aria-current="page">Lekce 9.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 9.2</span>
+        <h1>Náklady na vlastní kapitál – CAPM a další modely</h1>
+        <p class="lekce-hlavicka__strany">Strany 168–175</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme zvládli <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-naklady-cizi-kapital" target="_blank" rel="noopener">náklady na cizí kapitál</a> – u těch máme
+        smluvní úrok a stačí je snížit o <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-danovy-stit" target="_blank" rel="noopener">daňový štít</a>. Náklady na vlastní kapitál
+        jsou ovšem oříškem: nikde není napsáno, kolik vlastník „chce". Přesto
+        vlastní kapitál <strong>zdarma není</strong>. Řada českých podniků se přitom
+        chová, jako by tomu tak bylo. V této lekci si ukážeme hlavní modely, jimiž
+        se náklady na vlastní kapitál odhadují – od dominantního modelu CAPM přes
+        arbitrážní teorii APT, poměr P/E a stavebnicový model až po model dividendový.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč vlastní kapitál není zdarma</p>
+        <div class="callout__telo">
+          <p>Náklady na vlastní kapitál jsou dány <strong>výnosovým očekáváním
+          investorů</strong>. Požadovaný výnos je určen alternativním výnosem
+          stejně rizikové investice – tedy tím, co by investor vydělal, kdyby
+          své peníze vložil do jiného aktiva se stejným rizikem. Určit tento
+          náklad patří k nejsložitějším úkolům finančního řízení a přístupů
+          k jeho řešení je celá řada.</p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-naklady-vlastni-kapital">
+        <h3 class="definice__pojem">Náklady na vlastní kapitál</h3>
+        <div class="definice__telo">
+          <p>
+            Požadovaná (očekávaná) výnosnost investorů poskytujících podniku
+            vlastní kapitál. Odpovídá alternativnímu výnosu stejně rizikové
+            investice – tedy nákladu obětované příležitosti vlastníka. Jsou
+            zpravidla <strong>vyšší než náklady na cizí kapitál</strong>, protože
+            vlastník nese větší riziko než věřitel.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= CAPM ================= -->
+      <h2>Model oceňování kapitálových aktiv (CAPM)</h2>
+
+      <p>
+        Model CAPM (<em>Capital Asset Pricing Model</em>) je nejrozšířenější
+        přístup, používaný především na vyspělých kapitálových trzích. Vychází
+        z rozdělení celkového rizika akcie na riziko <strong><a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-systematicke-riziko" target="_blank" rel="noopener">systematické</a></strong>
+        (tržní, nediverzifikovatelné) a <strong><a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-nesystematicke-riziko" target="_blank" rel="noopener">nesystematické</a></strong> (specifické).
+        Pro odhad očekávaného výnosu vlastního kapitálu je podle CAPM významné
+        pouze systematické tržní riziko – to, které nelze rozložit diverzifikací.
+      </p>
+
+      <section class="definice" id="pojem-capm">
+        <h3 class="definice__pojem">Model oceňování kapitálových aktiv (CAPM)</h3>
+        <div class="definice__telo">
+          <p>
+            Model, který odvozuje požadovaný výnos vlastního kapitálu z bezrizikové
+            úrokové míry a přirážky za systematické tržní riziko. Rizikovost dané
+            akcie vůči trhu měří koeficientem <span class="math">β</span>; ten
+            určuje, jak velký díl tržní rizikové prémie investor za danou akcii
+            požaduje.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-4-30">
+        <div class="vzorec__telo">
+          <span class="math">r<sub>e</sub><span class="op">=</span>r<sub>f</sub><span class="op">+</span>β<span class="op">×</span>(r<sub>m</sub><span class="op">−</span>r<sub>f</sub>)</span>
+        </div>
+        <div class="vzorec__cislo">(4.30)</div>
+      </div>
+
+      <p>Kde:</p>
+      <ul>
+        <li><span class="math">r<sub>e</sub></span> – náklady vlastního kapitálu (v %),</li>
+        <li><span class="math">r<sub>f</sub></span> – bezriziková úroková míra,</li>
+        <li><span class="math">β</span> – koeficient vyjadřující relativní rizikovost podniku vůči průměrné rizikovosti trhu,</li>
+        <li><span class="math">r<sub>m</sub></span> – průměrná výnosnost kapitálového trhu,</li>
+        <li><span class="math">(r<sub>m</sub><span class="op">−</span>r<sub>f</sub>)</span> – <strong>riziková prémie kapitálového trhu</strong>.</li>
+      </ul>
+
+      <p>
+        Abychom model použili, musíme umět určit tři vstupy: bezrizikovou úrokovou
+        míru, rizikovou prémii trhu a koeficient <span class="math">β</span>.
+        Postupně si je projdeme.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: SML ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Přímka trhu cenných papírů (SML): jak β určuje požadovaný výnos</p>
+          <p class="viz__popis">Tlačítky „Zpět / Další" projděte akcie s rostoucím koeficientem β a sledujte, jak po přímce SML roste náklad na vlastní kapitál rₑ. Použita je bezriziková míra r<sub>f</sub> = 4,5 % a riziková prémie trhu 5 %.</p>
+        </figcaption>
+        <div id="viz-sml"></div>
+      </figure>
+
+      <!-- ================= Bezriziková míra ================= -->
+      <section class="definice" id="pojem-bezrizikova-urokova-mira">
+        <h3 class="definice__pojem">Bezriziková úroková míra (r<sub>f</sub>)</h3>
+        <div class="definice__telo">
+          <p>
+            Výnos aktiva, které nese zanedbatelné riziko. Ačkoli žádné zcela
+            bezrizikové aktivum neexistuje, za velmi málo riziková se považují
+            státní pokladniční poukázky a státní dluhopisy. Nejčastěji se
+            doporučuje použít výnos <strong>desetiletých státních dluhopisů</strong>.
+            I tento „bezrizikový" výnos v sobě obsahuje složku za inflaci a přirážku
+            za sníženou likviditu.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde vzít r<sub>f</sub> v ČR</p>
+        <div class="callout__telo">
+          <p>Podle tabulky vývoje úrokových sazeb v ČR (tab. 4–3 ve zdroji) se výnos
+          do doby splatnosti desetiletých státních dluhopisů pohyboval kolem
+          <strong>4,3–4,5 %</strong> (predikce 2009–2010). Tuto hodnotu bereme jako
+          bezrizikovou úrokovou míru r<sub>f</sub>. K nejvýraznějším pohybům sazeb
+          přitom došlo během krize roku 2008.</p>
+        </div>
+      </aside>
+
+      <!-- ================= Riziková prémie ================= -->
+      <h3>Riziková prémie trhu</h3>
+
+      <section class="definice" id="pojem-rizikova-premie-trhu">
+        <h3 class="definice__pojem">Riziková prémie trhu</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi očekávanou výnosností trhu <span class="math">r<sub>m</sub></span>
+            a bezrizikovou mírou <span class="math">r<sub>f</sub></span>. Výnosnost
+            trhu jako celku se měří globálním akciovým indexem (v ČR např. indexem
+            PX50). Prémii lze odvodit i z <strong>ratingu země</strong> vyhlašovaného
+            agenturami Moody's nebo Standard &amp; Poor's, který určuje přirážku
+            nad základní riziko odpovídající nejlepšímu ratingu (Aaa / AAA).
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Tabulka 4–4 uvádí rizikové prémie vybraných zemí ve dvou obdobích. Prémie
+        země představuje dodatečné riziko investora v daném teritoriu; celková
+        riziková prémie pak vstupuje do výpočtu nákladů na vlastní kapitál podle
+        CAPM. Z porovnání je patrné, že k lednu 2009 byly prémie zpravidla vyšší
+        než v říjnu 2005 – dopad probíhající ekonomické krize. Zajímavé je, že
+        u Japonska, Ruska či Slovenska se dlouhodobý rating dokonce zlepšil, a přesto
+        je jejich riziková prémie vyšší, právě vlivem zvýšeného rizika z krize.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4–4 – Rizikové prémie pro vybrané země (podle Damodarana)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Země</th>
+              <th scope="col">Rating<br>(říjen 2005)</th>
+              <th scope="col" class="cislo">Celková<br>prémie 2005</th>
+              <th scope="col" class="cislo">Prémie<br>země 2005</th>
+              <th scope="col">Rating<br>(leden 2009)</th>
+              <th scope="col" class="cislo">Celková<br>prémie 2009</th>
+              <th scope="col" class="cislo">Prémie<br>země 2009</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Rakousko</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">ČR</th><td>A1</td><td class="cislo">6,04 %</td><td class="cislo">1,20 %</td><td>A1</td><td class="cislo">7,10 %</td><td class="cislo">2,10 %</td></tr>
+            <tr><th scope="row">Dánsko</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">Finsko</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">Francie</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">Německo</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">Řecko</th><td>A1</td><td class="cislo">6,04 %</td><td class="cislo">1,20 %</td><td>A1</td><td class="cislo">7,10 %</td><td class="cislo">2,10 %</td></tr>
+            <tr><th scope="row">Indie</th><td>Ba2</td><td class="cislo">9,34 %</td><td class="cislo">4,50 %</td><td>Ba2</td><td class="cislo">11,00 %</td><td class="cislo">6,00 %</td></tr>
+            <tr><th scope="row">Itálie</th><td>Aa2</td><td class="cislo">5,82 %</td><td class="cislo">0,98 %</td><td>Aa2</td><td class="cislo">6,50 %</td><td class="cislo">1,50 %</td></tr>
+            <tr><th scope="row">Japonsko</th><td>A2</td><td class="cislo">6,19 %</td><td class="cislo">1,35 %</td><td>Aa3</td><td class="cislo">6,80 %</td><td class="cislo">1,80 %</td></tr>
+            <tr><th scope="row">Mexiko</th><td>Baa1</td><td class="cislo">6,64 %</td><td class="cislo">1,80 %</td><td>Baa1</td><td class="cislo">8,00 %</td><td class="cislo">3,00 %</td></tr>
+            <tr><th scope="row">Nizozemí</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">Polsko</th><td>A2</td><td class="cislo">6,19 %</td><td class="cislo">1,35 %</td><td>A2</td><td class="cislo">7,40 %</td><td class="cislo">2,40 %</td></tr>
+            <tr><th scope="row">Rusko</th><td>Baa3</td><td class="cislo">7,02 %</td><td class="cislo">2,18 %</td><td>Baa1</td><td class="cislo">8,00 %</td><td class="cislo">3,00 %</td></tr>
+            <tr><th scope="row">Slovensko</th><td>A3</td><td class="cislo">6,27 %</td><td class="cislo">1,43 %</td><td>A1</td><td class="cislo">7,10 %</td><td class="cislo">2,10 %</td></tr>
+            <tr><th scope="row">Švýcarsko</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">Velká Británie</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">USA</th><td>Aaa</td><td class="cislo">4,84 %</td><td class="cislo">0,00 %</td><td>Aaa</td><td class="cislo">5,00 %</td><td class="cislo">0,00 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Přísné předpoklady CAPM</p>
+        <div class="callout__telo">
+          <p>Použití CAPM v praxi komplikují jeho předpoklady: existuje bezriziková
+          výpůjční i zápůjční sazba, všechna aktiva lze obchodovat a mají stanovenou
+          cenu a kapitálové trhy jsou dokonalé. Některé z těchto předpokladů nejsou
+          splněny ani v nejvyspělejších zemích – tím spíše na málo likvidním českém
+          trhu.</p>
+        </div>
+      </aside>
+
+      <!-- ================= Koeficient beta ================= -->
+      <h3>Koeficient β</h3>
+
+      <section class="definice" id="pojem-beta">
+        <h3 class="definice__pojem">Koeficient β</h3>
+        <div class="definice__telo">
+          <p>
+            Míra citlivosti akcie vůči trhu. Udává, o kolik procent se v průměru
+            změní cena akcie, změní-li se trh o 1 %. Měří tak <strong>systematické
+            (tržní) riziko</strong>: čím vyšší β, tím rizikovější investice do dané akcie.
+          </p>
+          <ul>
+            <li><span class="math">β<span class="op">&gt;</span>1</span> – akcie má vyšší než průměrné systematické riziko,</li>
+            <li><span class="math">β<span class="op">=</span>1</span> – akcie je neutrální, mění se souběžně s trhem,</li>
+            <li><span class="math">β<span class="op">&lt;</span>1</span> – akcie má nižší systematické riziko než trh.</li>
+          </ul>
+        </div>
+      </section>
+
+      <p>
+        Vlastní hodnotu <span class="math">β</span> lze vypočítat z historických
+        cen akcie a historické hodnoty globálního indexu pomocí <strong>metody
+        nejmenších čtverců</strong>:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-31">
+        <div class="vzorec__telo">
+          <span class="math">β<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">n<span class="op">·</span>Σv<sub>i</sub>v<sub>t</sub><span class="op">−</span>Σv<sub>i</sub><span class="op">·</span>Σv<sub>t</sub></span>
+              <span class="frac__jmen">n<span class="op">·</span>Σ(v<sub>t</sub>)<sup>2</sup><span class="op">−</span>(Σv<sub>t</sub>)<sup>2</sup></span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.31)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">v<sub>i</sub></span> je výnosnost individuálních akcií
+        podniku, <span class="math">v<sub>t</sub></span> výnosnost akcií na trhu
+        a <span class="math">n</span> počet sledovaných let.
+      </p>
+
+      <p>
+        Pokud vlastní <span class="math">β</span> určit neumíme (např. podnik není
+        obchodován na burze), použijeme náhradní odhady. První možností je
+        <strong>metoda analogie</strong> – převezmeme β podobných podniků nebo
+        průměrné β za odvětví (tab. 4–5). Přitom je nutné zohlednit vliv <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálové
+        struktury</a>: zadlužení zvyšuje β vlastního kapitálu podle vztahu
+      </p>
+
+      <div class="vzorec" id="vzorec-4-32">
+        <div class="vzorec__telo">
+          <span class="math">β<sub>Z</sub><span class="op">=</span>β<sub>N</sub><span class="op">×</span>(1<span class="op">+</span>(1<span class="op">−</span>T)<span class="op">×</span>
+            <span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">VK</span></span>)</span>
+        </div>
+        <div class="vzorec__cislo">(4.32)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">β<sub>Z</sub></span> je β vlastního kapitálu
+        u zadluženého podniku, <span class="math">β<sub>N</sub></span> β při nulovém
+        zadlužení, <span class="math">T</span> sazba daně z příjmů, a
+        <span class="math">CK</span>, <span class="math">VK</span> cizí, resp.
+        vlastní kapitál. Nezadlužená <span class="math">β<sub>N</sub></span> by měla
+        záviset na odvětví a <a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-provozni-paka" target="_blank" rel="noopener">provozní páce</a>. Druhou možností je
+        <strong>nezávislá prognóza β</strong> na základě fundamentálních faktorů
+        a analýzy provozního a finančního rizika.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4–5 – Průměrné β koeficienty odvětví (podle Damodarana)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Odvětví</th>
+              <th scope="col" class="cislo">Počet firem<br>(2005)</th>
+              <th scope="col" class="cislo">Beta<br>(2005)</th>
+              <th scope="col" class="cislo">Počet firem<br>(2009)</th>
+              <th scope="col" class="cislo">Beta<br>(2009)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Bankovnictví</th><td class="cislo">504</td><td class="cislo">0,62</td><td class="cislo">477</td><td class="cislo">0,71</td></tr>
+            <tr><th scope="row">Biotechnologie</th><td class="cislo">84</td><td class="cislo">1,20</td><td class="cislo">108</td><td class="cislo">1,25</td></tr>
+            <tr><th scope="row">Chemie</th><td class="cislo">16</td><td class="cislo">0,88</td><td class="cislo">19</td><td class="cislo">1,26</td></tr>
+            <tr><th scope="row">E-Komerce</th><td class="cislo">41</td><td class="cislo">2,89</td><td class="cislo">54</td><td class="cislo">1,50</td></tr>
+            <tr><th scope="row">Internet</th><td class="cislo">289</td><td class="cislo">2,72</td><td class="cislo">208</td><td class="cislo">1,41</td></tr>
+            <tr><th scope="row">Investiční společnosti</th><td class="cislo">22</td><td class="cislo">0,66</td><td class="cislo">17</td><td class="cislo">0,83</td></tr>
+            <tr><th scope="row">Kosmetika</th><td class="cislo">21</td><td class="cislo">0,74</td><td class="cislo">23</td><td class="cislo">0,95</td></tr>
+            <tr><th scope="row">Obuv</th><td class="cislo">24</td><td class="cislo">0,82</td><td class="cislo">19</td><td class="cislo">1,12</td></tr>
+            <tr><th scope="row">Polovodiče</th><td class="cislo">113</td><td class="cislo">2,59</td><td class="cislo">122</td><td class="cislo">1,81</td></tr>
+            <tr><th scope="row">Potravinářský průmysl</th><td class="cislo">104</td><td class="cislo">0,64</td><td class="cislo">109</td><td class="cislo">0,80</td></tr>
+            <tr><th scope="row">Reklama</th><td class="cislo">34</td><td class="cislo">1,19</td><td class="cislo">30</td><td class="cislo">1,43</td></tr>
+            <tr><th scope="row">Restaurace</th><td class="cislo">85</td><td class="cislo">0,74</td><td class="cislo">68</td><td class="cislo">1,26</td></tr>
+            <tr><th scope="row">Stavební materiály</th><td class="cislo">48</td><td class="cislo">0,80</td><td class="cislo">52</td><td class="cislo">1,39</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Trh celkem</th><td class="cislo">6 958</td><td class="cislo">0,91</td><td class="cislo">6 870</td><td class="cislo">1,19</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Je β opravdu to hlavní riziko?</p>
+        <div class="callout__telo">
+          <p>Nejnovější empirické výzkumy naznačují, že pro kapitálové náklady jsou
+          rozhodující i jiná rizika než kolísání výnosů v čase (ztotožňované s β).
+          Zejména jde o <strong>velikost podniku</strong> (menší a méně likvidní
+          podniky by měly mít rizikovou přirážku) a o podniky, jejichž tržní hodnota
+          nepřevyšuje účetní (podnik netvoří hodnotu).</p>
+        </div>
+      </aside>
+
+      <!-- ================= Zkus sám 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Akcie potravinářského podniku má β = 0,80. Bezriziková míra je
+          r<sub>f</sub> = 4,5 % a riziková prémie trhu 5 %. Jaké jsou podle CAPM
+          náklady na jeho vlastní kapitál? A jak se výsledek změní, kdyby β vzrostlo
+          na 1,20?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Dosadíme do vztahu (4.30):
+            <span class="math">r<sub>e</sub><span class="op">=</span>4,5<span class="op">+</span>0,80<span class="op">×</span>5<span class="op">=</span>8,5 <span class="op">%</span></span>.
+            Při β = 1,20 by náklady vzrostly na
+            <span class="math">r<sub>e</sub><span class="op">=</span>4,5<span class="op">+</span>1,20<span class="op">×</span>5<span class="op">=</span>10,5 <span class="op">%</span></span>.
+            Vyšší systematické riziko (vyšší β) tedy investor „účtuje" formou vyššího
+            požadovaného výnosu – po přímce SML se posuneme výš.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= APT ================= -->
+      <h2>Další modely pro odhad nákladů na vlastní kapitál</h2>
+
+      <h3>Model arbitrážního oceňování (APT)</h3>
+
+      <section class="definice" id="pojem-apt">
+        <h3 class="definice__pojem">Model arbitrážního oceňování (APT)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Arbitrage Pricing Theory.</em> Stejně jako CAPM stojí na myšlence,
+            že očekávaný výnos závisí na riziku z obecných ekonomických vlivů,
+            nikoli na jedinečném specifickém riziku. Na rozdíl od CAPM ovšem prémie
+            za riziko nezávisí jen na jednom faktoru (β), ale na <strong>více
+            makroekonomických faktorech</strong> (např. úrovni ekonomické aktivity
+            v odvětví, míře inflace, rozpětí mezi krátkodobým a dlouhodobým rizikem).
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Nevýhodou APT je, že vyžaduje rozsáhlou informační základnu a je oproti
+        CAPM pracnější. U podniků neobchodovaných na veřejných trzích se proto
+        náklady na vlastní kapitál odhadují ještě jinými cestami: modelem CAPM
+        s náhradními odhady β, stavebnicovým modelem, dividendovým modelem, na
+        základě průměrné rentability nebo odvozením z nákladů na cizí kapitál.
+      </p>
+
+      <!-- ================= P/E ================= -->
+      <h3>Přístup přes poměr P/E</h3>
+
+      <p>
+        Jednoduchou alternativu nabízí poměr <span class="math">P/E</span>
+        (<em>Price-Earnings Ratio</em>), tedy tržní cena akcie dělená čistým ziskem
+        na akcii. Náklady na vlastní kapitál pak spočítáme jako převrácenou hodnotu:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-33">
+        <div class="vzorec__telo">
+          <span class="math">r<sub>e</sub><span class="op">=</span>
+            <span class="frac"><span class="frac__cit"><span class="num">1</span></span><span class="frac__jmen">P/E</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.33)</div>
+      </div>
+
+      <p>
+        Model předpokládá nulový růst zisků a stoprocentní dividendový výplatní
+        poměr. Na rozdíl od CAPM však klade důraz na <strong>celkové</strong>
+        (systematické i nesystematické) riziko podniku.
+      </p>
+
+      <!-- ================= Stavebnicový model ================= -->
+      <h3>Stavebnicový model</h3>
+
+      <section class="definice" id="pojem-stavebnicovy-model">
+        <h3 class="definice__pojem">Stavebnicový model</h3>
+        <div class="definice__telo">
+          <p>
+            Model, který k bezrizikové úrokové míře <strong>přičítá přirážky za
+            riziko</strong>. Přirážka se tvoří buď jako celek podle charakteristiky
+            podniku, nebo jako souhrn dílčích položek (rizika trhu a oboru, výrobní
+            rizika, stupeň diverzifikace, pružnost nákladů, finanční rizika, rizika
+            managementu apod.). Na rozdíl od CAPM zohledňuje i <strong>nesystematické
+            riziko</strong>.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Příkladem je <strong>model INFA</strong> manželů Neumaierových, který pro
+        výpočet nákladů na kapitál pro statistické účely využívá i Ministerstvo
+        průmyslu a obchodu ČR.
+      </p>
+
+      <!-- ================= Dividendový model ================= -->
+      <h3>Dividendový a Gordonův růstový model</h3>
+
+      <section class="definice" id="pojem-dividendovy-model">
+        <h3 class="definice__pojem">Dividendový model</h3>
+        <div class="definice__telo">
+          <p>
+            Vychází z teze, že hodnota akcie je dána současnou hodnotou příjmů,
+            které z ní lze očekávat – tedy budoucích <strong>dividend</strong>
+            a <strong>prodejní ceny</strong>. Požadovaná výnosnost akcie
+            <span class="math">i</span> je pak nákladem na vlastní kapitál.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-4-34">
+        <div class="vzorec__telo">
+          <span class="math">SH<span class="op">=</span>
+            <span style="font-size:1.3em">Σ</span>
+            <span class="frac"><span class="frac__cit">D<sub>t</sub></span><span class="frac__jmen">(1<span class="op">+</span>i)<sup>t</sup></span></span>
+            <span class="op">+</span>
+            <span class="frac"><span class="frac__cit">P<sub>n</sub></span><span class="frac__jmen">(1<span class="op">+</span>i)<sup>n</sup></span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.34)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">SH</span> je současná hodnota akcie,
+        <span class="math">D<sub>t</sub></span> dividenda v jednotlivých letech,
+        <span class="math">P<sub>n</sub></span> očekávaná prodejní cena za „n" let
+        a <span class="math">i</span> požadovaná výnosnost. Čím déle akcii držíme,
+        tím menší roli hraje současná hodnota budoucí prodejní ceny – ta je navíc
+        opět dána především očekávanými dividendami. Při teoreticky nekonečné době
+        držení je proto hodnota akcie určena jen současnou hodnotou dividend.
+        Předpokládáme-li, že příští rok bude dividenda <span class="math">D</span>
+        a poté poroste tempem <span class="math">g</span>, přejde vztah na
+        <strong>Gordonův růstový model</strong>:
+      </p>
+
+      <section class="definice" id="pojem-gordonuv-model">
+        <h3 class="definice__pojem">Gordonův růstový model</h3>
+        <div class="definice__telo">
+          <p>
+            Zjednodušení dividendového modelu pro nekonečně drženou akcii
+            s dividendou rostoucí konstantním tempem <span class="math">g</span>.
+            Hodnota akcie je pak podílem první dividendy a rozdílu požadované
+            výnosnosti a tempa růstu.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-4-35">
+        <div class="vzorec__telo">
+          <span class="math">SH<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">D</span><span class="frac__jmen">i<span class="op">−</span>g</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.35)</div>
+      </div>
+
+      <p>
+        Dividendový model je jednoduchý a nenáročný na informace – ovšem jen tehdy,
+        pokud podnik dividendy vyplácí a drží stabilní dividendovou politiku.
+      </p>
+
+      <!-- ================= Zbývající dvě metody ================= -->
+      <h3>Odhad z průměrné rentability a odvození z nákladů cizího kapitálu</h3>
+
+      <p>
+        Poslední dvě cesty jsou spíše pomocné. <strong>Odhad z průměrné rentability
+        vlastního kapitálu v odvětví</strong> těží z dostupnosti dat o rentabilitě,
+        naráží ale na možnost regulovat účetní rentabilitu tvorbou a rozpouštěním
+        tichých rezerv; v podmínkách české ekonomiky s častou „daňovou optimalizací"
+        proto není příliš vhodný. <strong>Odvození z nákladů na cizí kapitál</strong>
+        vychází z toho, že vlastník nese větší riziko než věřitel, a požaduje tedy
+        vyšší výnos – k nákladům na cizí kapitál se jednoduše přiráží několik
+        procentních bodů.
+      </p>
+
+      <!-- ================= Přehledová tabulka metod ================= -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Přehled metod odhadu nákladů na vlastní kapitál – princip a hlavní omezení</caption>
+          <thead>
+            <tr>
+              <th scope="col">Metoda</th>
+              <th scope="col">Princip</th>
+              <th scope="col">Hlavní omezení</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">CAPM</th><td>r<sub>f</sub> + β × riziková prémie trhu; jen systematické riziko.</td><td>Přísné předpoklady (dokonalý trh); potřeba spolehlivého β.</td></tr>
+            <tr><th scope="row">APT</th><td>Prémie závislá na více makroekonomických faktorech.</td><td>Náročná informační základna, pracnější než CAPM.</td></tr>
+            <tr><th scope="row">P/E</th><td>r<sub>e</sub> = 1 / (P/E); zahrnuje i nesystematické riziko.</td><td>Předpokládá nulový růst zisku a 100% výplatu dividend.</td></tr>
+            <tr><th scope="row">Stavebnicový (INFA)</th><td>Bezriziková míra + přirážky za dílčí rizika.</td><td>Subjektivita při stanovení jednotlivých přirážek.</td></tr>
+            <tr><th scope="row">Dividendový / Gordon</th><td>Výnosnost i z proudu očekávaných dividend a ceny.</td><td>Jen u stabilně vyplácejících podniků.</td></tr>
+            <tr><th scope="row">Průměrná rentabilita</th><td>Vychází z ROE v odvětví.</td><td>Zkreslení účetní rentability (tiché rezervy, daň. optimalizace).</td></tr>
+            <tr><th scope="row">Odvození z N<sub>CK</sub></th><td>Náklady cizího kapitálu + přirážka za vyšší riziko vlastníka.</td><td>Přirážka je jen hrubým odhadem.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ================= Zkus sám 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč v českých podmínkách naráží model CAPM i dividendový model na
+          praktické problémy? Zamyslete se, jaká data oba modely potřebují.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>CAPM potřebuje spolehlivý koeficient β z historických cen akcií a
+            globálního indexu a předpokládá dokonalý, likvidní kapitálový trh –
+            v ČR je ale burza malá a málo likvidní, takže spolehlivé β pro většinu
+            podniků neexistuje. Dividendový model zase vyžaduje, aby podnik pravidelně
+            vyplácel dividendy a měl stabilní dividendovou politiku, což řada českých
+            podniků nesplňuje. Proto se v praxi často sahá po stavebnicovém modelu
+            (INFA / MPO), který nevyžaduje tržní data.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= Řešený příklad 4.14 ================= -->
+      <h2>Řešený příklad 4.14: různé metody, různá EVA</h2>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Zadání</p>
+        <div class="callout__telo">
+          <p>Porovnejte výsledky hodnocení výkonnosti vybraného podniku podle
+          ukazatele <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> při použití různých postupů pro výpočet nákladů na vlastní
+          kapitál (N<sub>VK</sub>).</p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Příklad 4.14 – Vliv metody odhadu N<sub>VK</sub> na WACC a EVA</caption>
+          <thead>
+            <tr>
+              <th scope="col">Metoda výpočtu N<sub>VK</sub></th>
+              <th scope="col" class="cislo">N<sub>VK</sub></th>
+              <th scope="col" class="cislo">N<sub>CK</sub></th>
+              <th scope="col" class="cislo">WACC</th>
+              <th scope="col" class="cislo">EVA (tis. Kč)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">CAPM s β odvětví</th><td class="cislo">11,38 %</td><td class="cislo">7,46 %</td><td class="cislo">10,40 %</td><td class="cislo hodnota-niceni">−32 067</td></tr>
+            <tr><th scope="row">Nezávislá prognóza β</th><td class="cislo">14,30 %</td><td class="cislo">7,46 %</td><td class="cislo">12,60 %</td><td class="cislo hodnota-niceni">−42 008</td></tr>
+            <tr><th scope="row">Stavebnicová metoda</th><td class="cislo">14,45 %</td><td class="cislo">7,46 %</td><td class="cislo">12,71 %</td><td class="cislo hodnota-niceni">−42 505</td></tr>
+            <tr><th scope="row">Průměrná výnosnost</th><td class="cislo">8,55 %</td><td class="cislo">7,46 %</td><td class="cislo">8,28 %</td><td class="cislo hodnota-niceni">−22 487</td></tr>
+            <tr><th scope="row">Odvození z N<sub>CK</sub></th><td class="cislo">13,31 %</td><td class="cislo">7,46 %</td><td class="cislo">11,85 %</td><td class="cislo hodnota-niceni">−38 619</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">✅</span>
+        <p class="callout__nadpis">Řešení</p>
+        <div class="callout__telo">
+          <p>Výsledky se výrazně liší – od EVA −22 487 tis. Kč po −42 505 tis. Kč,
+          přestože jde o tentýž podnik. Vhodné je vyloučit extrémní hodnotu
+          z metody průměrné výnosnosti. Z ostatních metod lze spočítat vážený
+          aritmetický průměr (s vahou 1 u každé): výsledkem je
+          <span class="math">N<sub>VK</sub><span class="op">=</span>13,4 <span class="op">%</span></span>,
+          <span class="math">WACC<span class="op">=</span>11,9 <span class="op">%</span></span> a
+          <span class="math">EVA<span class="op">=</span><span class="op">−</span>38 800</span> tis. Kč.
+          Podnik tedy tak či tak <strong>ničí hodnotu</strong> – volba metody mění
+          jen míru, nikoli závěr. Váhy metod by přitom měly odrážet jejich
+          vypovídací schopnost pro daný podnik.</p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Ponaučení</p>
+        <div class="callout__telo">
+          <p>Náklady na vlastní kapitál nejsou jedno „správné" číslo. Různé modely
+          dávají různé výsledky, a protože N<sub>VK</sub> vstupuje do <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a> a přes něj
+          do EVA, ovlivní volba metody i konečné hodnocení výkonnosti. Je proto nutné
+          rozhodnout, která metoda je pro daný podnik nejvhodnější (podle typu podniku
+          a dostupnosti informací), případně kombinovat více metod váženým průměrem.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Ze kterých tří vstupů se skládá odhad nákladů na vlastní kapitál podle modelu CAPM?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na vztah (4.30) a jeho tři neznámé.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Bezriziková úroková míra r<sub>f</sub>, riziková prémie trhu (r<sub>m</sub> − r<sub>f</sub>) a koeficient β dané akcie. Platí r<sub>e</sub> = r<sub>f</sub> + β × (r<sub>m</sub> − r<sub>f</sub>).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co vyjadřuje koeficient β a jak jej ovlivní zvýšení zadlužení podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>β měří citlivost na trh; pro vliv zadlužení použijte vztah (4.32).</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>β udává, o kolik procent se v průměru změní cena akcie při změně trhu o 1 % – měří tedy systematické (tržní) riziko. Vyšší zadlužení β zvyšuje: podle vztahu (4.32) je β<sub>Z</sub> = β<sub>N</sub> × (1 + (1 − T) × CK/VK), takže s rostoucím poměrem CK/VK roste i β vlastního kapitálu, a s ním požadovaný výnos.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Čím se model APT liší od modelu CAPM?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kolik faktorů určuje rizikovou prémii u každého z modelů?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>CAPM odvozuje rizikovou prémii z jediného faktoru (koeficientu β), zatímco APT ji staví na více makroekonomických faktorech (ekonomická aktivita v odvětví, inflace, rozpětí mezi krátko- a dlouhodobým rizikem). APT je proto obecnější, ale náročnější na data a pracnější.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Za jakých podmínek lze použít Gordonův růstový model a jak zní jeho vzorec?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o zjednodušení dividendového modelu pro nekonečné držení akcie.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Model předpokládá nekonečně drženou akcii, jejíž dividenda příští rok činí D a poté roste stálým tempem g. Hodnota akcie je pak SH = D / (i − g). V praxi jej lze použít jen u podniků, které dividendy skutečně vyplácejí a mají stabilní dividendovou politiku.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč se v příkladu 4.14 liší vypočtená EVA podle použité metody, a co z toho plyne?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Sledujte řetězec N<sub>VK</sub> → WACC → EVA.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Každá metoda dává jiné náklady na vlastní kapitál (N<sub>VK</sub> od 8,55 % do 14,45 %), které přes WACC vstupují do EVA. Proto se EVA pohybuje od −22 487 do −42 505 tis. Kč. Volba metody tedy ovlivňuje míru výsledku, ne však závěr – podnik ničí hodnotu ve všech variantách. Doporučuje se vyloučit extrémy a případně metody kombinovat váženým průměrem podle jejich vypovídací schopnosti.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t9-l1-naklady-cizi-kapital.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">9.1 Náklady na kapitál – podstata, riziko a cizí kapitál</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t9-l3-wacc.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">9.3 WACC, mezinárodní kontext a vliv na výkonnost</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizace TÉTO lekce: přímka SML (CAPM) ----
+    (function () {
+      var rf = 4.5, prem = 5.0; // bezriziková míra a riziková prémie trhu (%)
+
+      Skripta.stepper('viz-sml', {
+        sirka: 760, vyska: 420,
+        stavy: [
+          { beta: 0 },
+          { beta: 0.7 },
+          { beta: 1.0 },
+          { beta: 1.5 }
+        ],
+        popisky: [
+          'Bezrizikové aktivum (β = 0): investor požaduje jen bezrizikový výnos rₑ = r_f = 4,5 %.',
+          'Akcie s podprůměrným rizikem (β = 0,7, např. banky): rₑ = 4,5 + 0,7 × 5 = 8,0 %.',
+          'Průměrná akcie trhu (β = 1): rₑ = r_f + celá riziková prémie = 4,5 + 5 = 9,5 %.',
+          'Riziková akcie (β = 1,5): vyšší systematické riziko zvedá požadovaný výnos na rₑ = 12,0 %.'
+        ],
+        render: function (svg, stav, i, u) {
+          // Plocha grafu
+          var L = 95, R = 705, B = 350, T = 45;
+          var bMax = 2, reMax = 15;
+          function sx(b) { return L + (b / bMax) * (R - L); }
+          function sy(re) { return B - (re / reMax) * (B - T); }
+
+          // Vodorovná mřížka + popisky osy y (rₑ v %)
+          [0, 3, 6, 9, 12, 15].forEach(function (v) {
+            var y = sy(v);
+            u.dej(svg, 'gy-' + v, 'line', { x1: L, y1: y, x2: R, y2: y, stroke: u.barvaMrizka, 'stroke-width': 1 });
+            u.dej(svg, 'ty-' + v, 'text', { x: L - 10, y: y + 4, 'text-anchor': 'end', fill: u.barvaText, 'font-size': 12 }, v + ' %');
+          });
+
+          // Osy
+          u.dej(svg, 'osa-x', 'line', { x1: L, y1: B, x2: R, y2: B, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-y', 'line', { x1: L, y1: B, x2: L, y2: T, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Popisky osy x (β)
+          [0, 0.5, 1, 1.5, 2].forEach(function (v) {
+            u.dej(svg, 'tx-' + v, 'text', { x: sx(v), y: B + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, u.formatCislo(v, 1));
+          });
+          u.dej(svg, 'lbl-x', 'text', { x: (L + R) / 2, y: B + 46, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 600 }, 'koeficient β');
+          u.dej(svg, 'lbl-y', 'text', { x: L - 4, y: T - 18, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 13, 'font-weight': 600 }, 'náklady na vlastní kapitál rₑ (%)');
+
+          // Přímka SML: od β=0 (rₑ=r_f) po β=2 (rₑ=r_f+2·prem)
+          u.dej(svg, 'sml', 'line', { x1: sx(0), y1: sy(rf), x2: sx(2), y2: sy(rf + 2 * prem), stroke: '#4338ca', 'stroke-width': 2.5 });
+          u.dej(svg, 'sml-lbl', 'text', { x: sx(2) - 6, y: sy(rf + 2 * prem) - 10, 'text-anchor': 'end', fill: '#4338ca', 'font-size': 13, 'font-weight': 700 }, 'SML');
+
+          // Úroveň bezrizikové míry
+          u.dej(svg, 'rf-line', 'line', { x1: L, y1: sy(rf), x2: R, y2: sy(rf), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '5 4' });
+          u.dej(svg, 'rf-lbl', 'text', { x: R - 6, y: sy(rf) - 7, 'text-anchor': 'end', fill: u.barvaText, 'font-size': 12 }, 'r_f = 4,5 %');
+
+          // Aktuální bod na přímce
+          var b = stav.beta, re = rf + b * prem;
+          var px = sx(b), py = sy(re);
+          u.dej(svg, 'guide-v', 'line', { x1: px, y1: B, x2: px, y2: py, stroke: u.barvaTvorba, 'stroke-width': 1.3, 'stroke-dasharray': '4 4' });
+          u.dej(svg, 'guide-h', 'line', { x1: L, y1: py, x2: px, y2: py, stroke: u.barvaTvorba, 'stroke-width': 1.3, 'stroke-dasharray': '4 4' });
+          u.dej(svg, 'bod', 'circle', { cx: px, cy: py, r: 8, fill: u.barvaTvorba, stroke: '#fff', 'stroke-width': 2 });
+          u.dej(svg, 'bod-lbl', 'text', { x: px, y: py - 16, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14, 'font-weight': 700 }, 'rₑ = ' + u.formatCislo(re, 1) + ' %');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

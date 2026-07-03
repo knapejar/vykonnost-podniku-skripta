@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.4 Ukazatele kapitálového trhu, cash flow a přidaná hodnota – Výkonnost podniku</title>
+  <meta name="description" content="Ukazatele kapitálového trhu (P/E, P/BV, dividendový výnos), ukazatele na bázi cash flow a přidaná hodnota jako nástroje finanční analýzy.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 3 -->
+    <nav class="panel" data-panel data-aktivni-lekce="3.4" aria-label="Lekce tématu 3">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 3</div>
+      <div class="panel__nazev-tema">Finanční analýza v řízení výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="3.1" href="t3-l1-uvod-financni-analyza.html"><span class="panel__odkaz-cislo">3.1</span><span>Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.2" href="t3-l2-rentabilita-zadluzenost.html"><span class="panel__odkaz-cislo">3.2</span><span>Analýza rentability a zadluženosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.3" href="t3-l3-likvidita-aktivita.html"><span class="panel__odkaz-cislo">3.3</span><span>Analýza likvidity a aktivity</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.4" href="t3-l4-kapitalovy-trh.html"><span class="panel__odkaz-cislo">3.4</span><span>Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.5" href="t3-l5-souhrnne-ukazatele.html"><span class="panel__odkaz-cislo">3.5</span><span>Souhrnné ukazatele – bankrotní a bonitní modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.6" href="t3-l6-dupont-soustavy.html"><span class="panel__odkaz-cislo">3.6</span><span>Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-3">Téma 3 · Finanční analýza</a></li>
+          <li><span aria-current="page">Lekce 3.4</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 3.4</span>
+        <h1>Ukazatele kapitálového trhu, cash flow a přidaná hodnota</h1>
+        <p class="lekce-hlavicka__strany">Strany 34–38</p>
+      </header>
+
+      <p>
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-pomerove-ukazatele" target="_blank" rel="noopener">Poměrové ukazatele</a>, které jsme poznali dosud (rentabilita, zadluženost,
+        <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidita</a>, aktivita), vycházejí výhradně z účetních výkazů – tedy
+        z <em>minulosti</em>. Tato lekce doplní tři skupiny ukazatelů, které tento
+        pohled rozšiřují: <a class="pojem" href="#pojem-ukazatele-kapitaloveho-trhu">ukazatele
+        kapitálového trhu</a> přidávají očekávání investorů, <a class="pojem" href="#pojem-ukazatele-cash-flow">ukazatele
+        na bázi cash flow</a> tlumí vliv účetních metod a <a class="pojem" href="#pojem-pridana-hodnota">přidaná
+        hodnota</a> nabízí oblíbený pohled na hospodaření podniku.
+      </p>
+
+      <!-- ============================================================= -->
+      <h2>Ukazatele kapitálového trhu</h2>
+
+      <p>
+        Ukazatele tržní hodnoty zaujímají mezi ostatními ukazateli zvláštní
+        postavení: jako <strong>jediná skupina</strong> kombinují účetní údaje
+        podniku (současnost) s očekáváním investorů (budoucnost). Názor investorů
+        na budoucnost podniku se přitom odráží v tržní ceně akcie. Tyto ukazatele
+        proto sledují především akcionáři a potenciální investoři, kteří zvažují
+        nákup či prodej akcie.
+      </p>
+
+      <section class="definice" id="pojem-ukazatele-kapitaloveho-trhu">
+        <h3 class="definice__pojem">Ukazatele kapitálového trhu</h3>
+        <div class="definice__telo">
+          <p>
+            Skupina ukazatelů tržní hodnoty, které spojují účetní údaje podniku
+            (současnost) s očekáváním investorů promítnutým do tržní ceny akcie
+            (budoucnost). Umožňují posoudit, jak trh oceňuje podnik a jeho
+            perspektivu.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Co jsou „blue chips“</p>
+        <div class="callout__telo">
+          <p>
+            Pojmem <a class="pojem" href="#pojem-blue-chips">blue chips</a> se
+            označují akcie nejkvalitnějších, nejlikvidnějších společností daného
+            kapitálového trhu. Na Burze cenných papírů Praha (BCPP) mezi ně patří
+            například ČEZ, Komerční banka nebo Telefónica O2.
+          </p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-blue-chips">
+        <h3 class="definice__pojem">Blue chips</h3>
+        <div class="definice__telo">
+          <p>
+            Akcie nejkvalitnějších společností na daném kapitálovém trhu –
+            zpravidla velkých, stabilních a likvidních titulů. Slouží jako
+            referenční skupina pro sledování vývoje tržních ukazatelů.
+          </p>
+        </div>
+      </section>
+
+      <h3>P/E ratio (Price-Earnings ratio)</h3>
+
+      <p>
+        Nejznámějším ukazatelem využívajícím údaje z finančního trhu je poměr
+        tržní ceny akcie a zisku na akcii.
+      </p>
+
+      <div class="vzorec" id="vzorec-2-22">
+        <div class="vzorec__telo">
+          <span class="math">P/E<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">tržní cena akcie</span>
+              <span class="frac__jmen">zisk na akcii</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.22)</div>
+      </div>
+
+      <section class="definice" id="pojem-pe-ratio">
+        <h3 class="definice__pojem">P/E ratio</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr tržní ceny akcie a zisku na akcii. Ukazuje, <strong>kolik jsou
+            akcionáři ochotni zaplatit za 1 Kč zisku</strong> na akcii, případně
+            (za předpokladu konstantní výše zisku i ceny) počet let potřebných ke
+            splacení ceny akcie jejím ziskem.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        P/E je nedílnou součástí burzovních zpráv a promítá se v něm zejména
+        <strong>budoucí očekávání</strong> investorů ohledně tempa růstu podniku,
+        míry zisku a podílu dividend na zisku. Nízká hodnota může signalizovat
+        vyšší rizikovost akcie nebo nízký růstový potenciál firmy; někdy však může
+        jít o podhodnocenou akcii, která by mohla být vhodná ke koupi. Vývoj
+        a predikci P/E u vybraných „blue chips“ na BCPP shrnuje tabulka 2–2.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 2–2 – Vývoj a predikce ukazatele P/E u „blue chips“ na BCPP</caption>
+          <thead>
+            <tr>
+              <th scope="col">Titul</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009 odhad</th>
+              <th scope="col" class="cislo">2010 odhad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">AAA Auto Group</th><td class="cislo">−4,8</td><td class="cislo">−0,8</td><td class="cislo">79,1</td><td class="cislo">8,8</td></tr>
+            <tr><th scope="row">Erste Bank</th><td class="cislo">4,7</td><td class="cislo">6,5</td><td class="cislo">9,1</td><td class="cislo">7,4</td></tr>
+            <tr><th scope="row">ECM Real Estate</th><td class="cislo">2,2</td><td class="cislo">1,7</td><td class="cislo">n/a</td><td class="cislo">134,3</td></tr>
+            <tr><th scope="row">Central Europ. Med. Ent.</th><td class="cislo">34,3</td><td class="cislo">8,4</td><td class="cislo">15,3</td><td class="cislo">10,7</td></tr>
+            <tr><th scope="row">ČEZ</th><td class="cislo">11,0</td><td class="cislo">9,9</td><td class="cislo">9,0</td><td class="cislo">9,2</td></tr>
+            <tr><th scope="row">Komerční banka</th><td class="cislo">9,2</td><td class="cislo">7,8</td><td class="cislo">9,3</td><td class="cislo">8,7</td></tr>
+            <tr><th scope="row">Telefónica O2</th><td class="cislo">13,6</td><td class="cislo">12,1</td><td class="cislo">10,7</td><td class="cislo">10,0</td></tr>
+            <tr><th scope="row">New World Resources</th><td class="cislo">8,3</td><td class="cislo">2,4</td><td class="cislo">6,7</td><td class="cislo">5,4</td></tr>
+            <tr><th scope="row">Pegas</th><td class="cislo">6,1</td><td class="cislo">8,3</td><td class="cislo">7,7</td><td class="cislo">8,8</td></tr>
+            <tr><th scope="row">Philip Morris ČR</th><td class="cislo">7,4</td><td class="cislo">11,7</td><td class="cislo">8,9</td><td class="cislo">8,2</td></tr>
+            <tr><th scope="row">Vienna Insurance Group</th><td class="cislo">9,9</td><td class="cislo">8,4</td><td class="cislo">10,3</td><td class="cislo">8,7</td></tr>
+            <tr><th scope="row">Unipetrol</th><td class="cislo">16,2</td><td class="cislo">303,6</td><td class="cislo">13,2</td><td class="cislo">11,3</td></tr>
+            <tr><th scope="row">Orco Property Group</th><td class="cislo">0,6</td><td class="cislo">−0,2</td><td class="cislo">n/a</td><td class="cislo">3,9</td></tr>
+          </tbody>
+        </table>
+        <p class="tabulka-popis">Poznámka: n/a – ukazatel není možno spočítat. Zdroj: atlantik.cz, patria.cz.</p>
+      </div>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Akcie má nízké P/E. Znamená to automaticky, že jde o výhodnou koupi?
+          Uveďte alespoň tři možné důvody, proč může být P/E nízké.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Nízké P/E samo o sobě neříká, zda je akcie „levná“. Může znamenat:</p>
+            <p>1) <strong>vyšší rizikovost</strong> akcie – trh požaduje nižší cenu
+            za 1 Kč zisku, protože očekává nestabilní budoucnost;
+            2) <strong>nízký růstový potenciál</strong> firmy – investoři nečekají
+            růst zisku, a proto nejsou ochotni platit vysokou cenu;
+            3) <strong>podhodnocení</strong> – trh zatím nedocenil perspektivu
+            podniku, a akcie by pak mohla být vhodná ke koupi.
+            Rozlišit tyto varianty vyžaduje hlubší analýzu, ne jen pohled na P/E.</p>
+          </div>
+        </details>
+      </section>
+
+      <h3>P/BV (Price-Book Value ratio)</h3>
+
+      <p>Druhým poměrem tržní hodnoty je vztah tržní ceny akcie a účetní hodnoty
+      vlastního kapitálu připadající na jednu akcii.</p>
+
+      <div class="vzorec" id="vzorec-2-23">
+        <div class="vzorec__telo">
+          <span class="math">P/BV<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">tržní cena akcie</span>
+              <span class="frac__jmen">účetní hodnota vlastního kapitálu na akcii</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.23)</div>
+      </div>
+
+      <section class="definice" id="pojem-pbv">
+        <h3 class="definice__pojem">P/BV ratio</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr tržní ceny akcie a účetní hodnoty vlastního kapitálu na akcii.
+            Ukazuje, jak trh oceňuje hodnotu vlastního kapitálu podniku. Je-li
+            tržní cena pod účetní hodnotou (P/BV &lt; 1), je to signál, že trh
+            nevidí perspektivy podniku dobře, nebo že je akcie podhodnocena.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Když je P/BV pod jedničkou</p>
+        <div class="callout__telo">
+          <p>
+            Pokud tržní cena akcie <strong>není nad</strong> účetní hodnotou
+            vlastního kapitálu (nebo je dokonce pod ní), vytváří to špatné výchozí
+            podmínky pro případné získání kapitálu emisí nových akcií – trh
+            perspektivu podniku neoceňuje příznivě.
+          </p>
+        </div>
+      </aside>
+
+      <h3>Dividendový výnos</h3>
+
+      <p>Zatímco P/E a P/BV pracují s cenou akcie a účetními veličinami,
+      dividendový výnos vyjadřuje běžný <em>peněžní</em> výnos plynoucí akcionáři
+      z držení akcie.</p>
+
+      <div class="vzorec" id="vzorec-2-24">
+        <div class="vzorec__telo">
+          <span class="math">dividendový výnos<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">dividenda na akcii</span>
+              <span class="frac__jmen">tržní kurz akcie</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.24)</div>
+      </div>
+
+      <section class="definice" id="pojem-dividendovy-vynos">
+        <h3 class="definice__pojem">Dividendový výnos</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr dividendy na akcii a tržního kurzu akcie. Umožňuje investorovi
+            porovnat z hlediska výnosnosti různé možnosti investování peněžních
+            prostředků. Příznivý vývoj tohoto ukazatele může přilákat investory
+            k nákupu nově vydávaných akcií jako zdroje dlouhodobého kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <p>Vývoj a predikci dividendového výnosu u „blue chips“ shrnuje tabulka 2–3;
+      hodnoty predikce pro rok 2010 pak přehledně srovnává následující graf.</p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 2–3 – Vývoj a predikce dividendového výnosu (v %) u „blue chips“ na BCPP</caption>
+          <thead>
+            <tr>
+              <th scope="col">Titul</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009 odhad</th>
+              <th scope="col" class="cislo">2010 odhad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">AAA Auto Group</th><td class="cislo">0,0</td><td class="cislo">0,0</td><td class="cislo">0,0</td><td class="cislo">0,0</td></tr>
+            <tr><th scope="row">Erste Bank</th><td class="cislo">4,3</td><td class="cislo">3,7</td><td class="cislo">0,8</td><td class="cislo">3,0</td></tr>
+            <tr><th scope="row">ECM Real Estate</th><td class="cislo">0,0</td><td class="cislo">0,0</td><td class="cislo">0,0</td><td class="cislo">0,0</td></tr>
+            <tr><th scope="row">Central Europ. Med. Ent.</th><td class="cislo">0,0</td><td class="cislo">0,0</td><td class="cislo">0,0</td><td class="cislo">0,0</td></tr>
+            <tr><th scope="row">ČEZ</th><td class="cislo">4,7</td><td class="cislo">5,9</td><td class="cislo">4,3</td><td class="cislo">4,8</td></tr>
+            <tr><th scope="row">Komerční banka</th><td class="cislo">6,6</td><td class="cislo">6,6</td><td class="cislo">6,7</td><td class="cislo">6,7</td></tr>
+            <tr><th scope="row">Telefónica O2</th><td class="cislo">11,4</td><td class="cislo">11,4</td><td class="cislo">11,2</td><td class="cislo">11,2</td></tr>
+            <tr><th scope="row">New World Resources</th><td class="cislo">0,0</td><td class="cislo">14,5</td><td class="cislo">7,5</td><td class="cislo">9,3</td></tr>
+            <tr><th scope="row">Pegas</th><td class="cislo">5,7</td><td class="cislo">6,5</td><td class="cislo">6,7</td><td class="cislo">6,9</td></tr>
+            <tr><th scope="row">Philip Morris ČR</th><td class="cislo">13,5</td><td class="cislo">8,6</td><td class="cislo">11,0</td><td class="cislo">11,1</td></tr>
+            <tr><th scope="row">Vienna Insurance Group</th><td class="cislo">3,7</td><td class="cislo">6,8</td><td class="cislo">3,7</td><td class="cislo">4,1</td></tr>
+            <tr><th scope="row">Unipetrol</th><td class="cislo">16,2</td><td class="cislo">0,0</td><td class="cislo">1,5</td><td class="cislo">2,6</td></tr>
+            <tr><th scope="row">Orco Property Group</th><td class="cislo">25,4</td><td class="cislo">0,0</td><td class="cislo">0,0</td><td class="cislo">0,0</td></tr>
+          </tbody>
+        </table>
+        <p class="tabulka-popis">Zdroj: atlantik.cz, patria.cz.</p>
+      </div>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Predikce dividendového výnosu 2010 u vybraných „blue chips“ (%)</p>
+          <p class="viz__popis">Srovnání očekávaného dividendového výnosu pro rok 2010 podle tabulky 2–3.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-dividendovy-vynos"></div>
+      </figure>
+
+      <h3>Podíl dividendy k zisku na 1 akcii</h3>
+
+      <p>Posledním ukazatelem této skupiny je podíl vyplacené dividendy na zisku
+      připadajícím na jednu akcii.</p>
+
+      <div class="vzorec" id="vzorec-2-25">
+        <div class="vzorec__telo">
+          <span class="math">podíl dividendy k zisku na 1 akcii<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">dividenda na 1 akcii</span>
+              <span class="frac__jmen">zisk na 1 akcii</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.25)</div>
+      </div>
+
+      <p>Ukazatel vyjadřuje, jaká část zisku byla ve formě dividend vyplacena
+      akcionářům (zbytek zůstává v podniku jako <a class="pojem" href="t9-l5-zdroje-financovani.html?zvyraznit=pojem-nerozdeleny-zisk" target="_blank" rel="noopener">nerozdělený zisk</a>).</p>
+
+      <!-- ============================================================= -->
+      <h2>Ukazatele na bázi cash flow</h2>
+
+      <p>
+        Druhá skupina staví místo účetního zisku na <strong>peněžních tocích</strong>
+        (<a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a>). Cash flow zde vystupuje jako rozdíl příjmů a výdajů podniku
+        (celkové CF za období), nebo jako cash flow z provozní činnosti, případně
+        volné cash flow. V ukazatelích se často používá i zjednodušená podoba
+        cash flow jako <strong>součet čistého zisku a odpisů</strong>.
+      </p>
+
+      <section class="definice" id="pojem-ukazatele-cash-flow">
+        <h3 class="definice__pojem">Ukazatele na bázi cash flow</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatele využívající peněžní toky (celkové, provozní nebo volné cash
+            flow) namísto účetního zisku. V rámci <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzy</a> slouží zejména
+            k hodnocení <strong>finanční stability</strong> – schopnosti podniku
+            vytvářet finanční přebytky, splácet závazky a vyplácet dividendy.
+          </p>
+        </div>
+      </section>
+
+      <p>Mezi typické ukazatele této skupiny patří likvidita z cash flow a doba
+      návratnosti úvěru.</p>
+
+      <div class="vzorec" id="vzorec-2-26">
+        <div class="vzorec__telo">
+          <span class="math">likvidita z cash flow<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">CF z provozní činnosti</span>
+              <span class="frac__jmen">krátkodobé cizí zdroje</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.26)</div>
+      </div>
+
+      <section class="definice" id="pojem-likvidita-z-cash-flow">
+        <h3 class="definice__pojem">Likvidita z cash flow</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr mezi hotovostními toky vyprodukovanými provozem a krátkodobými
+            závazky, které musí podnik v krátké době platit. Vyjadřuje schopnost
+            uhradit krátkodobé cizí zdroje z <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-provozni-cash-flow" target="_blank" rel="noopener">provozního cash flow</a>.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-27">
+        <div class="vzorec__telo">
+          <span class="math">doba návratnosti úvěru<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">bankovní úvěr</span>
+              <span class="frac__jmen">CF z provozní činnosti</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.27)</div>
+      </div>
+
+      <section class="definice" id="pojem-doba-navratnosti-uveru">
+        <h3 class="definice__pojem">Doba návratnosti úvěru</h3>
+        <div class="definice__telo">
+          <p>
+            Poměr bankovního úvěru a provozního cash flow. Ukazuje, za jaké období
+            je podnik schopen splatit bankovní úvěr vlastními peněžními toky
+            vyprodukovanými provozní činností.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč vůbec cash flow místo zisku</p>
+        <div class="callout__telo">
+          <p>
+            Cash flow (zejména provozní) se používá také v ukazatelích rentability
+            namísto zisku. Oproti zisku má výhodu <strong>menšího vlivu účetních
+            postupů</strong> – například metod odpisování, tvorby rezerv či časového
+            rozlišení. Peněžní tok je tak „tvrdší“, hůře manipulovatelná veličina.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ============================================================= -->
+      <h2>Přidaná hodnota a další ukazatele</h2>
+
+      <p>
+        Zejména v souvislosti s <a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-analyza-rentability" target="_blank" rel="noopener">analýzou rentability</a> lze zkoumat i další ukazatele:
+        <a class="pojem" href="#pojem-produktivita-prace">produktivitu práce</a>
+        (měřenou např. podílem výkonů na zaměstnance),
+        <a class="pojem" href="#pojem-nakladovost">nákladovost</a>, podíl přidané
+        hodnoty na aktivech, podíl přidané hodnoty na tržbách a další. Klíčovou roli
+        mezi nimi hraje samotná přidaná hodnota.
+      </p>
+
+      <section class="definice" id="pojem-produktivita-prace">
+        <h3 class="definice__pojem">Produktivita práce</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatel měřící výkon připadající na jednoho zaměstnance, například
+            podílem výkonů na počet zaměstnanců. Používá se zejména při rozboru
+            rentability a efektivity využití lidských zdrojů.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-nakladovost">
+        <h3 class="definice__pojem">Nákladovost</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatel vyjadřující objem nákladů vztažený k výnosům (tržbám). Doplňuje
+            analýzu rentability o pohled na hospodárnost – tedy kolik nákladů podnik
+            spotřebuje na jednotku výnosu.
+          </p>
+        </div>
+      </section>
+
+      <p>Přidaná hodnota je významným a oblíbeným ukazatelem analýzy hospodaření
+      podniku. Platí pro ni:</p>
+
+      <div class="vzorec" id="vzorec-2-28">
+        <div class="vzorec__telo">
+          <span class="math">přidaná hodnota<span class="op">=</span>obchodní marže<span class="op">+</span>výkony<span class="op">−</span>výkonová spotřeba</span>
+        </div>
+        <div class="vzorec__cislo">(2.28)</div>
+      </div>
+
+      <section class="definice" id="pojem-pridana-hodnota">
+        <h3 class="definice__pojem">Přidaná hodnota</h3>
+        <div class="definice__telo">
+          <p>
+            Součet obchodní marže a výkonů snížený o výkonovou spotřebu.
+            V ekonomickém pojetí představuje ocenění výrobních faktorů podniku –
+            <strong>odpisů, osobních nákladů a nákladových úroků</strong> – a nově
+            <strong>vytvořeného zisku</strong>. Lze analyzovat podíly jednotlivých
+            složek a porovnat je s podobným podnikem.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Na přidanou hodnotu se lze dívat i z druhé strany – jako na „balík“, který
+        se rozděluje mezi výrobní faktory a zisk. Následující kroková vizualizace
+        ukazuje, jak se přidaná hodnota postupně skládá z těchto složek.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE (stepper) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Z čeho se skládá přidaná hodnota</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další“ a sledujte, jak se přidaná hodnota postupně skládá z ocenění výrobních faktorů (odpisy, osobní náklady, nákladové úroky) a z vytvořeného zisku. Výška segmentů je pouze ilustrativní schéma, nikoli konkrétní data.</p>
+        </figcaption>
+        <div id="viz-pridana-hodnota"></div>
+      </figure>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pozor na interpretaci: outsourcing</p>
+        <div class="callout__telo">
+          <p>
+            Pokud se podnik rozhodne pro <strong><a class="pojem" href="t7-l5-dividendova-politika.html?zvyraznit=pojem-outsourcing" target="_blank" rel="noopener">outsourcing</a></strong> některých
+            činností, přidaná hodnota se snižuje, <em>aniž je ohrožena výkonnost</em>
+            podniku (naopak, může být zvýšena). Dosažené výsledky v podobě přidané
+            hodnoty je proto nutné uvážlivě interpretovat na základě pečlivé analýzy
+            vstupních veličin.
+          </p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik dosud sám vyráběl komponenty. Nově je začne odebírat od
+          dodavatele (outsourcing). Proč jeho vykázaná přidaná hodnota klesne,
+          přestože výkonnost podniku se nezhoršila?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Nakupované komponenty vstupují do <strong>výkonové spotřeby</strong>,
+            která se ve vzorci (2.28) odečítá. Podnik nyní kupuje hotový vstup místo
+            toho, aby jej sám „přidal“ vlastní prací, odpisy a náklady – část
+            hodnoty tedy vytváří dodavatel, ne on. Přidaná hodnota proto klesá,
+            i když celková výkonnost (např. zisk či tržby) může zůstat stejná nebo
+            se dokonce zlepšit. Ukazatel je tak nutné interpretovat s ohledem na
+            strukturu činností podniku.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Čím jsou ukazatele kapitálového trhu mezi ostatními ukazateli výjimečné?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, které dva časové pohledy (a odkud pocházející data) tyto ukazatele spojují.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Jako <strong>jediná skupina</strong> kombinují účetní údaje podniku (současnost) s očekáváním investorů promítnutým do tržní ceny akcie (budoucnost). Ostatní ukazatele vycházejí pouze z účetních výkazů, tedy z minulosti.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co vyjadřuje ukazatel P/E a jak lze jeho hodnotu slovně interpretovat?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o poměr ceny a zisku. Napadají vás dvě interpretace – jedna v korunách, druhá v letech?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>P/E je poměr tržní ceny akcie a zisku na akcii. Ukazuje, kolik jsou akcionáři ochotni zaplatit za <strong>1 Kč zisku</strong> na akcii, nebo alternativně počet <strong>let potřebných ke splacení ceny akcie</strong> jejím ziskem (při konstantní ceně i zisku).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>O čem svědčí P/BV nižší než 1?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte tržní cenu akcie s účetní hodnotou vlastního kapitálu na akcii.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Tržní cena akcie je pod účetní hodnotou vlastního kapitálu. To je známka, že kapitálový trh <strong>nevidí perspektivy podniku dobře</strong>, nebo je akcie podhodnocena. Vzniká tak nepříznivá situace pro získání kapitálu emisí nových akcií.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Jakou výhodu má cash flow oproti zisku při konstrukci ukazatelů?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte, jak snadno lze účetní zisk ovlivnit volbou účetních metod.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Cash flow (zejména provozní) je <strong>méně ovlivněno účetními postupy</strong> – například metodami odpisování, tvorbou rezerv či časovým rozlišením. Poskytuje proto „tvrdší“, hůře manipulovatelný obraz o schopnosti podniku vytvářet peněžní přebytky.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Z jakých složek se v ekonomickém pojetí skládá přidaná hodnota?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o ocenění výrobních faktorů plus jednu výslednou veličinu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Přidaná hodnota představuje ocenění výrobních faktorů podniku – <strong>odpisů, osobních nákladů a nákladových úroků</strong> – a <strong>vytvořeného zisku</strong>. Vypočte se jako obchodní marže + výkony − výkonová spotřeba (vzorec 2.28).</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t3-l3-likvidita-aktivita.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">3.3 Analýza likvidity a aktivity</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t3-l5-souhrnne-ukazatele.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">3.5 Souhrnné ukazatele – bankrotní a bonitní modely</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: predikce dividendového výnosu 2010 (data z tab. 2–3)
+      Skripta.sloupcovyGraf('viz-dividendovy-vynos', {
+        sirka: 680, vyska: 320, formatDesetin: 1,
+        data: [
+          { popisek: 'Telefónica O2', hodnota: 11.2 },
+          { popisek: 'Philip Morris', hodnota: 11.1 },
+          { popisek: 'NWR',           hodnota: 9.3 },
+          { popisek: 'Pegas',         hodnota: 6.9 },
+          { popisek: 'Kom. banka',    hodnota: 6.7 },
+          { popisek: 'ČEZ',           hodnota: 4.8 },
+          { popisek: 'VIG',           hodnota: 4.1 },
+          { popisek: 'Erste',         hodnota: 3.0 },
+          { popisek: 'Unipetrol',     hodnota: 2.6 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: postupné skládání přidané hodnoty ze složek
+      // Ilustrativní (schematické) výšky segmentů – nejde o konkrétní data z knihy.
+      var slozky = [
+        { id: 'odpisy',  nazev: 'Odpisy',            h: 40, barva: '#6366f1' },
+        { id: 'osobni',  nazev: 'Osobní náklady',    h: 90, barva: '#4338ca' },
+        { id: 'uroky',   nazev: 'Nákladové úroky',   h: 30, barva: '#8b5cf6' },
+        { id: 'zisk',    nazev: 'Vytvořený zisk',    h: 55, barva: '#10b981' }
+      ];
+
+      Skripta.stepper('viz-pridana-hodnota', {
+        sirka: 720, vyska: 380,
+        stavy: [
+          { pocet: 0 },
+          { pocet: 1 },
+          { pocet: 2 },
+          { pocet: 3 },
+          { pocet: 4 }
+        ],
+        popisky: [
+          'Přidaná hodnota je „balík“, který podnik rozděluje mezi výrobní faktory a zisk. Postupně jej složíme.',
+          'Nejprve ocenění opotřebení majetku – odpisy.',
+          'Přidáme osobní náklady, tedy ocenění práce zaměstnanců.',
+          'Dále nákladové úroky – ocenění cizího kapitálu.',
+          'Nakonec vytvořený zisk. Celý sloupec = přidaná hodnota (schematicky).'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320;          // spodní osa
+          var barX = 300, barW = 150;
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 90, y1: base, x2: 630, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Postupně skládané segmenty (zdola nahoru)
+          var y = base;
+          for (var k = 0; k < slozky.length; k++) {
+            var s = slozky[k];
+            var viditelny = stav.pocet > k;
+            var segH = viditelny ? s.h : 0;
+            var segY = y - segH;
+
+            u.dej(svg, 'seg-' + s.id, 'rect', {
+              x: barX, y: segY, width: barW, height: segH,
+              fill: s.barva, opacity: viditelny ? 1 : 0,
+              stroke: '#fff', 'stroke-width': viditelny ? 1 : 0
+            });
+
+            // Popisek segmentu vpravo od sloupce
+            u.dej(svg, 'lbl-' + s.id, 'text', {
+              x: barX + barW + 16, y: segY + (s.h / 2) + 4,
+              'text-anchor': 'start', fill: u.barvaText,
+              'font-size': 14, 'font-weight': 600,
+              opacity: viditelny ? 1 : 0
+            }, s.nazev);
+
+            // Spojnice od segmentu k popisku
+            u.dej(svg, 'con-' + s.id, 'line', {
+              x1: barX + barW, y1: segY + s.h / 2,
+              x2: barX + barW + 12, y2: segY + s.h / 2,
+              stroke: u.barvaMrizka, 'stroke-width': 1,
+              opacity: viditelny ? 1 : 0
+            });
+
+            if (viditelny) y = segY;
+          }
+
+          // Souhrnný popisek nad hotovým sloupcem
+          var hotovo = stav.pocet >= slozky.length;
+          u.dej(svg, 'lbl-celkem', 'text', {
+            x: barX + barW / 2, y: y - 14,
+            'text-anchor': 'middle', fill: u.barvaTvorba,
+            'font-size': 15, 'font-weight': 700,
+            opacity: hotovo ? 1 : 0
+          }, 'Přidaná hodnota');
+
+          // Popisek osy vlevo
+          u.dej(svg, 'lbl-osa', 'text', {
+            x: 90, y: base + 26, 'text-anchor': 'start',
+            fill: u.barvaText, 'font-size': 13
+          }, 'Skladba přidané hodnoty (schéma)');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

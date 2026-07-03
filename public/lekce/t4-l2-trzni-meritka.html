@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.2 Tržní měřítka – MVA, Excess Return a TSR – Výkonnost podniku</title>
+  <meta name="description" content="Tržní přidaná hodnota (MVA), Excess Return a Total Shareholder Return (TSR) jako měřítka výkonnosti opřená o tržní hodnotu podniku.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 4 -->
+    <nav class="panel" data-panel data-aktivni-lekce="4.2" aria-label="Lekce tématu 4">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 4</div>
+      <div class="panel__nazev-tema">Moderní měřítka výkonnosti I – DCF a tržní měřítka</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="4.1" href="t4-l1-dcf-npv-irr.html"><span class="panel__odkaz-cislo">4.1</span><span>Proč moderní ukazatele; DCF, NPV a IRR</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="4.2" href="t4-l2-trzni-meritka.html"><span class="panel__odkaz-cislo">4.2</span><span>Tržní měřítka – MVA, Excess Return a TSR</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-4">Téma 4 · DCF a tržní měřítka</a></li>
+          <li><span aria-current="page">Lekce 4.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 4.2</span>
+        <h1>Tržní měřítka – MVA, Excess Return a TSR</h1>
+        <p class="lekce-hlavicka__strany">Strany 46–52</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme podnik hodnotili „zevnitř" – z prognózovaných
+        volných peněžních toků metodou <strong><a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">DCF</a></strong> a kritérii <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-npv" target="_blank" rel="noopener">NPV</a> a <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-irr" target="_blank" rel="noopener">IRR</a>.
+        Hodnocení výkonnosti by ovšem mělo být <strong>konzistentní i s oceněním,
+        které nabízí vnější prostředí – kapitálový trh</strong>. Právě na tržní
+        hodnotě podniku stojí trojice měřítek této lekce: tržní přidaná hodnota
+        (<a class="pojem" href="#pojem-mva">MVA</a>), <a class="pojem" href="#pojem-excess-return">Excess
+        Return</a> a <a class="pojem" href="#pojem-tsr">TSR</a>. Postupně uvidíme,
+        že každé z nich vypovídá o něco víc než to předchozí – a že všechna sdílejí
+        jedno zásadní omezení.
+      </p>
+
+      <!-- ============================================================ -->
+      <!-- SEKCE 1: MVA                                                  -->
+      <!-- ============================================================ -->
+      <h2>Tržní přidaná hodnota – MVA (Market Value Added)</h2>
+
+      <p>
+        Ukazatel měří rozdíl mezi <strong>tržní hodnotou podniku</strong> a
+        <strong>kapitálem, který do něj vlastníci a věřitelé vložili</strong>.
+        Je to tedy „prémie", kterou trh přisuzuje podniku nad rámec zaúčtovaných
+        vkladů.
+      </p>
+
+      <section class="definice" id="pojem-mva">
+        <h3 class="definice__pojem">Tržní přidaná hodnota (MVA)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Market Value Added</em> – rozdíl mezi tržní hodnotou podniku a
+            kapitálem do něj investovaným. Vyjadřuje, o kolik tržní hodnota
+            převyšuje účetní hodnotu vloženého kapitálu, tj. kolik hodnoty podnik
+            svým vlastníkům „navíc" vytvořil.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-3-3">
+        <div class="vzorec__telo">
+          <span class="math">MVA<span class="op">=</span>tržní hodnota<span class="op">−</span>investovaný kapitál</span>
+        </div>
+        <div class="vzorec__cislo">(3.3)</div>
+      </div>
+
+      <p>
+        Cílem je dosáhnout co <strong>nejvyšší MVA</strong>. Pozor ale: tohoto cíle
+        <strong>nelze dosáhnout pouhým navýšením vloženého kapitálu</strong>. Tím
+        sice vzroste absolutní hodnota podniku, ale MVA se zvýší jen tehdy, když
+        nově vložený kapitál <strong>vydělá více, než kolik činí <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklady na kapitál</a></strong>.
+        Kniha uvádí tři cesty, jak MVA zvýšit (obrázky 3–1 až 3–3):
+      </p>
+
+      <ol>
+        <li><strong>Efektivní (zisková) investice</strong> – vložený kapitál
+          vydělá víc než náklady na kapitál; roste účetní hodnota VK i tržní
+          přidaná hodnota.</li>
+        <li><strong>Snížení investovaného kapitálu</strong> – uvolnění kapitálu
+          vázaného v nepotřebném majetku při zachování tržní hodnoty podniku.</li>
+        <li><strong>Zvýšení tržní hodnoty</strong> – vyšší efektivnost hospodaření
+          při stejné výši investovaného kapitálu.</li>
+      </ol>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: tři cesty zvýšení MVA ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Tři cesty ke zvýšení MVA</p>
+          <p class="viz__popis">Levý sloupec je stále výchozí stav; pravý se mění podle zvolené „páky". Tlačítky „Zpět / Další" projděte všechny tři způsoby. Přerušovaná čára značí výchozí tržní hodnotu (140).</p>
+        </figcaption>
+        <div id="viz-mva-cesty"></div>
+      </figure>
+
+      <p>
+        MVA má i své <strong>slabiny</strong>. Není vždy zřejmé, co je výsledkem
+        práce manažerů a co okolností, které ovlivnit nemohou. Především ale
+        <strong>MVA neukazuje, zda dosažená hodnota odpovídá očekávání investorů</strong>.
+        Ukazatel navíc měří výkonnost celého podniku – nelze jej rozložit na
+        jednotlivé činnosti a použít pro vnitropodnikové řízení – a je použitelný
+        pouze u <strong>veřejně obchodovaných podniků</strong>. Jeho <strong>výhodou</strong>
+        je, že hodnotu uznává trh a jsou v ní zahrnuty i odhady budoucího vývoje.
+      </p>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 3.2 – MVA versus očekávání investorů</p>
+        <div class="callout__telo">
+          <p>
+            Podnik byl založen koncem roku 2003 s investovaným kapitálem 20 mil. Kč.
+            Ke konci roku 2008 dosáhl tržní hodnoty 25 mil. Kč. Jaké MVA podnik
+            dosáhl a naplnil očekávání investorů, kteří počítali s 10% roční
+            návratností?
+          </p>
+          <p>
+            <span class="math">MVA<span class="op">=</span>25<span class="op">−</span>20<span class="op">=</span><strong>5 mil. Kč</strong></span>
+            (kladná – zdánlivě dobrá zpráva). Očekávaná hodnota po 5 letech ale
+            činí <span class="math">20<span class="op">×</span>1,1<sup>5</sup><span class="op">=</span><strong>32,2 mil. Kč</strong></span>.
+          </p>
+          <p>
+            Investoři čekali nárůst o 12,2 mil. Kč, podnik jim ale přinesl jen
+            5 mil. Kč. <strong>Přestože je MVA kladná, podnik pro své vlastníky
+            hodnotu ve skutečnosti netvořil.</strong> MVA navíc nebere v úvahu, že
+            investoři mohli být odměněni i jinak – vyplacenými podíly na zisku nebo
+            zpětným odkupem akcií.
+          </p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Lze zvýšit MVA jednoduše tím, že vlastníci do podniku vloží víc kapitálu?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Ne. Vyšším vkladem sice vzroste tržní hodnota podniku, ale
+              o stejnou (nebo větší) částku vzroste i investovaný kapitál – rozdíl
+              MVA se sám o sobě nezvětší. MVA se zvýší <strong>pouze tehdy</strong>,
+              když nově vložený kapitál vydělá víc, než činí náklady na kapitál
+              (tj. jde o <em>efektivní, ziskovou investici</em> – první ze tří cest
+              výše).
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SEKCE 2: EXCESS RETURN                                        -->
+      <!-- ============================================================ -->
+      <h2>Excess Return</h2>
+
+      <p>
+        Excess Return staví na téže myšlence jako MVA, ale odstraňuje její hlavní
+        slabinu – <strong>bere v úvahu výnosnost, kterou investor požadoval</strong>.
+        Porovnává skutečné bohatství vlastníka s tím, jaké bohatství měl podle
+        svého očekávání získat.
+      </p>
+
+      <section class="definice" id="pojem-excess-return">
+        <h3 class="definice__pojem">Excess Return</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatel vycházející z tržní hodnoty, který měří rozdíl mezi
+            <strong>skutečnou</strong> a <strong>očekávanou hodnotou bohatství</strong>
+            vlastníka za sledované období. Na rozdíl od MVA zohledňuje investorem
+            požadovanou výnosnost i všechny přínosy z držby investice (dividendy,
+            zpětné odkupy akcií).
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-3-4">
+        <div class="vzorec__telo">
+          <span class="math">Excess Return<sub>n</sub><span class="op">=</span>skutečná hodnota bohatství<span class="op">−</span>očekávaná hodnota bohatství</span>
+        </div>
+        <div class="vzorec__cislo">(3.4)</div>
+      </div>
+
+      <section class="definice" id="pojem-hodnota-bohatstvi">
+        <h3 class="definice__pojem">Skutečná a očekávaná hodnota bohatství</h3>
+        <div class="definice__telo">
+          <p>
+            <strong>Skutečná hodnota bohatství</strong> odpovídá budoucí hodnotě
+            všech přínosů pro vlastníky – vyplacených dividend, odkoupených akcií
+            a tržní ceny podílu ke konci období.
+          </p>
+          <p>
+            <strong>Očekávaná hodnota bohatství</strong> vyjadřuje hodnotu, kterou
+            by investovaný kapitál na konci období měl mít, kdyby se zhodnocoval
+            investorem požadovanou výnosností.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Příklad 3.3 – dva podniky se stejnou MVA</p>
+        <div class="callout__telo">
+          <p>
+            Investor koupil na začátku období akcie podniků A a B, do každého vložil
+            10 mil. Kč. Za 3 roky vzrostla tržní cena obou podílů na 12 mil. Kč.
+            Podnik A po celou dobu nevyplácel dividendy ani neodkupoval akcie.
+            Podnik B vyplácel na konci každého roku dividendu 2 mil. Kč. Požadovaná
+            výnosnost je u obou 10 % (daně pro jednoduchost neuvažujeme).
+          </p>
+          <p>
+            <strong>Skutečné bohatství se skládá z budoucích hodnot všech přínosů
+            k závěru 3. roku.</strong> U podniku B:
+          </p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Rozklad skutečného bohatství podniku B (budoucí hodnota k závěru 3. roku, mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col">Výpočet</th>
+              <th scope="col" class="cislo">Budoucí hodnota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Dividenda (1. rok)</th><td>2 × 1,1<sup>2</sup></td><td class="cislo">2,42</td></tr>
+            <tr><th scope="row">Dividenda (2. rok)</th><td>2 × 1,1<sup>1</sup></td><td class="cislo">2,20</td></tr>
+            <tr><th scope="row">Dividenda (3. rok)</th><td>2</td><td class="cislo">2,00</td></tr>
+            <tr><th scope="row">Tržní cena (3. rok)</th><td>—</td><td class="cislo">12,00</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Skutečné bohatství</th><td>—</td><td class="cislo">18,62</td></tr>
+            <tr><th scope="row">Očekávané bohatství</th><td>10 × 1,1<sup>3</sup></td><td class="cislo">13,31</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Excess Return pak vyjde jako rozdíl skutečného a očekávaného bohatství.
+        Podnik A žádné dividendy nevyplácel, jeho skutečné bohatství je tedy jen
+        tržní cena 12 mil. Kč:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Excess Return podniků A a B za sledované období (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Podnik</th>
+              <th scope="col">Výpočet</th>
+              <th scope="col" class="cislo">Excess Return</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">A</th><td>12 − 10 × 1,1<sup>3</sup></td><td class="cislo hodnota-niceni">−1,31</td></tr>
+            <tr><th scope="row">B</th><td>18,62 − 13,31</td><td class="cislo hodnota-tvorba">5,31</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Excess Return: podnik A vs. podnik B (mil. Kč)</p>
+          <p class="viz__popis">Záporná hodnota (červená) znamená, že podnik nenaplnil očekávání investora; kladná (zelená) je jeho překonala.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-excess-sloupce"></div>
+      </figure>
+
+      <p>
+        Podle Excess Return se výsledky obou podniků <strong>rozcházejí</strong> –
+        podnik B tvoří hodnotu, podnik A nikoli. Přitom podle MVA by oba dopadly
+        <strong>naprosto stejně</strong>:
+      </p>
+
+      <div class="vzorec" id="vzorec-mva-ab">
+        <div class="vzorec__telo">
+          <span class="math">MVA<sub>A</sub><span class="op">=</span>MVA<sub>B</sub><span class="op">=</span>12<span class="op">−</span>10<span class="op">=</span>2 mil. Kč</span>
+        </div>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Vysoká korelace MVA a Excess Return</p>
+        <div class="callout__telo">
+          <p>
+            Excess Return jde v hodnocení dál než MVA – bere v úvahu požadavky
+            investora i všechny přínosy z držby investice. Young a O'Byrne přesto
+            na základě empirického výzkumu zjistili mezi MVA a Excess Return
+            <strong>vysokou korelaci (0,9)</strong>. Pro orientační výpočty proto
+            může jednodušší MVA složitější Excess Return nahradit.
+          </p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč mohou mít dva podniky stejnou MVA, a přesto zcela odlišný Excess Return?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              MVA porovnává jen dnešní tržní hodnotu s vloženým kapitálem – oba
+              podniky z příkladu mají 12 − 10 = 2 mil. Kč. <strong>Nezajímá ji ale,
+              jakou výnosnost investor požadoval, ani co všechno mu držba přinesla.</strong>
+              Excess Return oproti tomu zohledňuje požadovanou výnosnost (očekávané
+              bohatství 13,31 mil. Kč) a započítá i vyplacené dividendy. Podnik B
+              díky dividendám dosáhne skutečného bohatství 18,62 mil. Kč a hodnotu
+              tvoří (+5,31), zatímco podnik A zaostává za očekáváním (−1,31).
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SEKCE 3: TSR                                                  -->
+      <!-- ============================================================ -->
+      <h2>Total Shareholder Return – TSR</h2>
+
+      <p>
+        TSR měří přímo <strong>změnu bohatství akcionářů</strong> za dané období.
+        Je funkcí vyplacených dividend (případně zpětných odkupů akcií) a změny
+        ceny akcie mezi začátkem a koncem období. V procentuálním vyjádření je
+        <strong>obdobou ukazatele Excess Return</strong> (ten dává výsledek
+        v absolutní částce) a svou podstatou odpovídá <strong>vnitřnímu výnosovému
+        procentu (IRR)</strong> peněžních toků z držby akcie.
+      </p>
+
+      <section class="definice" id="pojem-tsr">
+        <h3 class="definice__pojem">Total Shareholder Return (TSR)</h3>
+        <div class="definice__telo">
+          <p>
+            Celkový výnos akcionáře – ukazatel měřící změnu bohatství akcionáře za
+            období jako výnosnost peněžních toků z držby akcie (počáteční cena,
+            průběžné dividendy a odkupy, konečná cena). Vyjadřuje se v procentech
+            a odpovídá vnitřnímu výnosovému procentu (IRR) těchto toků.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-tsr">
+        <div class="vzorec__telo">
+          <span class="math">investovaný kapitál<span class="op">=</span>
+            <span style="font-size:1.3em">Σ</span>
+            <span class="frac">
+              <span class="frac__cit">CF<sub>t</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>TSR)<sup>t</sup></span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(TSR = IRR)</div>
+      </div>
+
+      <p>
+        TSR je tedy taková diskontní míra, při níž se současná hodnota všech
+        peněžních toků z držby akcie rovná původní investici. Princip názorně
+        zachycuje „vanový" diagram:
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Princip TSR jako vnitřního výnosového procenta (obrázek 3–4)</p>
+          <p class="viz__popis">Šipka dolů je počáteční nákup akcie, průběžné šipky nahoru jsou dividendy, koncová šipka nahoru je prodejní cena. TSR je výnosnost, která tyto toky spojuje.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 720 260" width="100%" style="height:auto" role="img"
+               aria-label="Časová osa: počáteční cena akcie na konci 2005 jako odliv, tři průběžné dividendy a konečná cena akcie na konci 2008. TSR je vnitřní výnosové procento těchto toků.">
+            <!-- základní časová osa -->
+            <line x1="90" y1="180" x2="640" y2="180" stroke="#94a3b8" stroke-width="2"/>
+            <text x="365" y="212" text-anchor="middle" font-size="15" font-weight="700" fill="#4338ca">TSR = IRR</text>
+            <!-- počáteční investice: šipka dolů (červená) -->
+            <line x1="110" y1="82" x2="110" y2="176" stroke="#b91c1c" stroke-width="3"/>
+            <polygon points="110,186 103,170 117,170" fill="#b91c1c"/>
+            <text x="110" y="64" text-anchor="middle" font-size="12" fill="#334155">Tržní cena akcie</text>
+            <text x="110" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">konec 2005</text>
+            <!-- dividendy: tři šipky nahoru (zelené) -->
+            <line x1="260" y1="180" x2="260" y2="134" stroke="#15803d" stroke-width="3"/>
+            <polygon points="260,124 253,140 267,140" fill="#15803d"/>
+            <line x1="360" y1="180" x2="360" y2="134" stroke="#15803d" stroke-width="3"/>
+            <polygon points="360,124 353,140 367,140" fill="#15803d"/>
+            <line x1="460" y1="180" x2="460" y2="134" stroke="#15803d" stroke-width="3"/>
+            <polygon points="460,124 453,140 467,140" fill="#15803d"/>
+            <text x="360" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">Dividendy (a odkupy)</text>
+            <!-- konečná cena: šipka nahoru (indigo) -->
+            <line x1="610" y1="180" x2="610" y2="66" stroke="#4338ca" stroke-width="3"/>
+            <polygon points="610,56 603,72 617,72" fill="#4338ca"/>
+            <text x="610" y="44" text-anchor="middle" font-size="12" fill="#334155">Tržní cena akcie</text>
+            <text x="610" y="28" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">konec 2008</text>
+          </svg>
+        </div>
+      </figure>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 3.4 – TSR podniků A a B</p>
+        <div class="callout__telo">
+          <p>
+            Vyjdeme ze zadání příkladu 3.3. TSR spočítáme stejně jako IRR – hledáme
+            výnosnost, při níž se současná hodnota toků rovná investici 10 mil. Kč.
+          </p>
+          <p>
+            <strong>Podnik A</strong> (jen konečná cena):
+            <span class="math">10<span class="op">=</span>
+              <span class="frac"><span class="frac__cit">12</span><span class="frac__jmen">(1<span class="op">+</span>TSR)<sup>3</sup></span></span></span>.
+            Interpolací mezi 5 % a 10 %:
+            <span class="math">TSR<sub>A</sub><span class="op">=</span>5<span class="op">+</span>
+              <span class="frac"><span class="frac__cit">0,366</span><span class="frac__jmen">0,366<span class="op">+</span>0,984</span></span>
+              <span class="op">×</span>(10<span class="op">−</span>5)<span class="op">=</span><strong>6,4 %</strong></span>.
+          </p>
+          <p>
+            <strong>Podnik B</strong> (dividendy 2 mil. Kč ročně + konečná cena 12):
+            interpolací mezi 20 % a 30 % vyjde
+            <span class="math">TSR<sub>B</sub><span class="op">=</span>20<span class="op">+</span>
+              <span class="frac"><span class="frac__cit">1,157</span><span class="frac__jmen">1,157<span class="op">+</span>0,906</span></span>
+              <span class="op">×</span>(30<span class="op">−</span>20)<span class="op">=</span><strong>25,6 %</strong></span>.
+          </p>
+          <p>
+            Závěr je jednoznačný: podnik A s výnosností 6,4 % <strong>nenaplnil</strong>
+            požadovaných 10 %, podnik B s téměř 25,6 % je výrazně <strong>překonal</strong>.
+          </p>
+        </div>
+      </aside>
+
+      <!-- SOUHRNNÁ TABULKA A vs B -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Souhrn: jak tři měřítka hodnotí podniky A a B</caption>
+          <thead>
+            <tr>
+              <th scope="col">Měřítko</th>
+              <th scope="col" class="cislo">Podnik A</th>
+              <th scope="col" class="cislo">Podnik B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">MVA (mil. Kč)</th><td class="cislo hodnota-tvorba">2,00</td><td class="cislo hodnota-tvorba">2,00</td></tr>
+            <tr><th scope="row">Excess Return (mil. Kč)</th><td class="cislo hodnota-niceni">−1,31</td><td class="cislo hodnota-tvorba">5,31</td></tr>
+            <tr><th scope="row">TSR (%)</th><td class="cislo hodnota-niceni">6,4</td><td class="cislo hodnota-tvorba">25,6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Tabulka pěkně shrnuje pointu celé lekce: <strong>MVA oba podniky nerozliší</strong>
+        (2 = 2), zatímco Excess Return a TSR jasně ukážou, že jen podnik B skutečně
+        tvoří hodnotu. TSR přitom uvnitř podniku ovlivňují čtyři činitelé:
+      </p>
+
+      <ul>
+        <li>rentabilita existujících aktiv,</li>
+        <li>růst,</li>
+        <li>náklady na kapitál (nižší náklady = vyšší současná hodnota budoucích CF),</li>
+        <li><a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-volne-cash-flow" target="_blank" rel="noopener">volné cash flow</a> (zdroj pro dividendy a odkupy).</li>
+      </ul>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Společné omezení všech tří měřítek</p>
+        <div class="callout__telo">
+          <p>
+            MVA, Excess Return i TSR vycházejí z tržní ceny akcie. Lze je proto
+            použít <strong>pouze u veřejně obchodovaných podniků</strong> – nikoli
+            pro neobchodované společnosti ani pro jednotlivé divize. Toto omezení
+            odstraňuje až ekonomická přidaná hodnota (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>), které se věnuje
+            následující téma.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jak je definována MVA a co znamená její kladná hodnota?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte ze vztahu (3.3) a rozdílu dvou hodnot.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>MVA = tržní hodnota − investovaný kapitál. Kladná MVA znamená, že trh oceňuje podnik výše, než kolik do něj bylo vloženo kapitálu – podnik tak (zdánlivě) vytvořil pro vlastníky hodnotu navíc.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč MVA sama o sobě neříká, zda podnik naplnil očekávání investorů?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Připomeňte si příklad 3.2: MVA = 5 mil. Kč, ale očekávaná hodnota 32,2 mil. Kč.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>MVA porovnává tržní hodnotu jen s účetně vloženým kapitálem, nikoli s výnosností, kterou investor požadoval. Podnik z příkladu 3.2 měl kladnou MVA 5 mil. Kč, ale investoři při 10% požadované výnosnosti očekávali hodnotu 32,2 mil. Kč. Podnik tedy jejich očekávání nenaplnil, ačkoli MVA byla kladná.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Čím Excess Return překonává MVA?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co všechno Excess Return zahrnuje navíc oproti pouhému rozdílu tržní a účetní hodnoty?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Excess Return zohledňuje investorem požadovanou výnosnost (očekávanou hodnotu bohatství) a započítává všechny přínosy z držby – dividendy i zpětné odkupy akcií. Rozliší proto podniky, které mají stejnou MVA, ale různě naplnily očekávání vlastníků (podnik A −1,31 vs. podnik B +5,31 mil. Kč).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co vyjadřuje TSR a které čtyři vnitropodnikové činitele jej ovlivňují?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>TSR je procentní obdobou Excess Return odpovídající IRR toků z akcie.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>TSR (celkový výnos akcionáře) je výnosnost peněžních toků z držby akcie – dividend, odkupů a změny ceny akcie – vyjádřená jako vnitřní výnosové procento. Ovlivňují jej: rentabilita existujících aktiv, růst, náklady na kapitál a volné cash flow.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jaké je společné zásadní omezení MVA, Excess Return i TSR?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Z čeho všechna tři měřítka vycházejí a jaký typ podniků to vyžaduje?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Všechna vycházejí z tržní ceny (hodnoty) podniku, a jsou proto použitelná pouze u veřejně obchodovaných podniků – nelze je uplatnit u neobchodovaných společností ani na úrovni jednotlivých divizí. Toto omezení řeší až ukazatel EVA.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t4-l1-dcf-npv-irr.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">4.1 Proč moderní ukazatele; DCF, NPV a IRR</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l1-podstata-eva.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.1 Podstata a výpočet EVA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // Pomocná funkce: nakreslí jeden stohovaný sloupec (účetní VK + MVA).
+      function kresliBar(u, svg, p, cx, uc, mva, base, px, indigo, green, caption) {
+        var w = 130, x = cx - w / 2;
+        var total = uc + mva;
+        var ucH = uc * px, mvaH = mva * px;
+        // Účetní hodnota VK (spodní, indigo)
+        u.dej(svg, p + '-uc', 'rect', { x: x, y: base - ucH, width: w, height: ucH, fill: indigo });
+        // MVA (horní, zelená = tvorba hodnoty)
+        u.dej(svg, p + '-mva', 'rect', { x: x, y: base - total * px, width: w, height: mvaH, fill: green });
+        // Číselné hodnoty uvnitř segmentů
+        u.dej(svg, p + '-ucv', 'text', { x: cx, y: base - ucH / 2 + 5, 'text-anchor': 'middle', fill: '#fff', 'font-size': 15, 'font-weight': 700 }, u.formatCislo(uc));
+        u.dej(svg, p + '-mvav', 'text', { x: cx, y: base - total * px + mvaH / 2 + 5, 'text-anchor': 'middle', fill: '#0f172a', 'font-size': 15, 'font-weight': 700 }, u.formatCislo(mva));
+        // Tržní hodnota nad sloupcem
+        u.dej(svg, p + '-tot', 'text', { x: cx, y: base - total * px - 12, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700 }, 'Tržní hodnota ' + u.formatCislo(total));
+        // Popisek pod sloupcem
+        u.dej(svg, p + '-cap', 'text', { x: cx, y: base + 30, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, caption);
+      }
+
+      // A) KROKOVÁ VIZUALIZACE: tři cesty ke zvýšení MVA (obrázky 3–1 až 3–3)
+      Skripta.stepper('viz-mva-cesty', {
+        sirka: 720, vyska: 380,
+        stavy: [
+          { uc: 100, mva: 40, popisBar: 'Výchozí stav' },
+          { uc: 130, mva: 60, popisBar: 'Efektivní investice' },
+          { uc: 70,  mva: 70, popisBar: 'Nižší kapitál' },
+          { uc: 100, mva: 70, popisBar: 'Vyšší efektivnost' }
+        ],
+        popisky: [
+          'Výchozí stav: účetní hodnota vlastního kapitálu 100, MVA 40, tržní hodnota VK = 140.',
+          'Efektivní (zisková) investice: nově vložený kapitál vydělá víc než náklady na kapitál – roste účetní VK i MVA, tržní hodnota stoupá na 190.',
+          'Snížení investovaného kapitálu: uvolněním kapitálu z nepotřebného majetku klesne účetní VK při zachované tržní hodnotě 140 – mezera MVA se rozšíří na 70.',
+          'Zvýšení tržní hodnoty: vyšší efektivnost hospodaření zvedne tržní hodnotu na 170 beze změny účetního VK – MVA roste na 70.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320, px = 1.3;
+          var INDIGO = '#4338ca', GREEN = u.barvaTvorba;
+
+          // Osa
+          u.dej(svg, 'osa', 'line', { x1: 120, y1: base, x2: 660, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          // Referenční čára výchozí tržní hodnoty (140)
+          u.dej(svg, 'ref', 'line', { x1: 140, y1: base - 140 * px, x2: 640, y2: base - 140 * px, stroke: u.barvaMrizka, 'stroke-width': 1, 'stroke-dasharray': '5 5' });
+          u.dej(svg, 'ref-t', 'text', { x: 636, y: base - 140 * px - 6, 'text-anchor': 'end', fill: u.barvaMrizka, 'font-size': 11 }, 'výchozí tržní hodnota');
+
+          // Legenda
+          u.dej(svg, 'leg1r', 'rect', { x: 150, y: 14, width: 14, height: 14, rx: 3, fill: INDIGO });
+          u.dej(svg, 'leg1t', 'text', { x: 170, y: 26, fill: u.barvaText, 'font-size': 13 }, 'Účetní hodnota VK');
+          u.dej(svg, 'leg2r', 'rect', { x: 360, y: 14, width: 14, height: 14, rx: 3, fill: GREEN });
+          u.dej(svg, 'leg2t', 'text', { x: 380, y: 26, fill: u.barvaText, 'font-size': 13 }, 'MVA (tržní přidaná hodnota)');
+
+          // Levý sloupec (stále výchozí – referenční)
+          kresliBar(u, svg, 'L', 225, 100, 40, base, px, INDIGO, GREEN, 'Výchozí stav');
+          // Pravý sloupec (mění se dle zvolené páky)
+          kresliBar(u, svg, 'R', 525, stav.uc, stav.mva, base, px, INDIGO, GREEN, stav.popisBar);
+
+          // Šipka mezi sloupci
+          u.dej(svg, 'sip', 'line', { x1: 315, y1: base - 70, x2: 445, y2: base - 70, stroke: u.barvaOsa, 'stroke-width': 2 });
+          u.dej(svg, 'sip-h', 'polygon', { points: '452,' + (base - 70) + ' 440,' + (base - 76) + ' 440,' + (base - 64), fill: u.barvaOsa });
+        }
+      });
+
+      // B) STATICKÝ SLOUPCOVÝ GRAF: Excess Return A vs B
+      Skripta.sloupcovyGraf('viz-excess-sloupce', {
+        sirka: 640, vyska: 300, formatDesetin: 2,
+        data: [
+          { popisek: 'Podnik A', hodnota: -1.31 },
+          { popisek: 'Podnik B', hodnota: 5.31 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

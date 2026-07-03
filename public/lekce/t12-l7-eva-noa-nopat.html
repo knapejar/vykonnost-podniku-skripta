@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.7 EVA v podniku PLAST – vymezení NOA a NOPAT – Výkonnost podniku</title>
+  <meta name="description" content="Přechod od účetních výkazů podniku PLAST k ekonomickému modelu EVA: krok za krokem vymezení čistých operativních aktiv (NOA) a operativního zisku po zdanění (NOPAT).">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="12.7" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: účetní výkazy, leasing, rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.7</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.7</span>
+        <h1>EVA v podniku PLAST – vymezení NOA a NOPAT</h1>
+        <p class="lekce-hlavicka__strany">Strany 271–277</p>
+      </header>
+
+      <p>
+        Případová studie se od klasických ukazatelů výkonnosti (téma 12.4–12.6)
+        posouvá k modernímu měřítku hodnotového řízení – <strong>ekonomické přidané
+        hodnotě (EVA)</strong>. <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> byla vybrána proto, že umožňuje identifikovat
+        a řídit oblasti provozních, finančních a investičních činností, které
+        rozhodují o výkonnosti a konkurenceschopnosti podniku, a nutí hledat
+        skutečné <em><a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a></em>.
+      </p>
+      <p>
+        Vzhledem k dostupnosti interních dat používá studie <strong>ekonomický
+        model</strong> výpočtu EVA. Ten vychází ze vztahu odvozeného ve 3. kapitole:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-5">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>
+        </div>
+        <div class="vzorec__cislo">(3.5)</div>
+      </div>
+
+      <p>
+        V této lekci úpravami účetních údajů získáme dvě ze tří vstupních veličin:
+        <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-investovany-kapital" target="_blank" rel="noopener">investovaný kapitál</a> <span class="math">C</span> (v majetkovém pojetí značený
+        <a class="pojem" href="#pojem-noa">NOA</a>) a operativní zisk po zdanění
+        <a class="pojem" href="#pojem-nopat">NOPAT</a>. Třetí veličinu – průměrné
+        vážené náklady kapitálu <span class="math">WACC</span> – dopočítáme
+        v navazující lekci&nbsp;12.8.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Účetní data nestačí</p>
+        <div class="callout__telo">
+          <p>
+            Účetní výkazy sledují jiné cíle (daně, opatrnost) než měření tvorby
+            hodnoty. Než je dosadíme do vztahu&nbsp;(3.5), musíme je převést na
+            <em>ekonomický pohled</em>: aktivovat majetek, který v rozvaze chybí,
+            přecenit ho, vyloučit neprovozní položky a symetricky upravit i zisk.
+            Právě tyto úpravy jsou jádrem této lekce.
+          </p>
+        </div>
+      </aside>
+
+      <h2>Vymezení C (NOA)</h2>
+
+      <p>
+        Velikost investovaného kapitálu lze určit dvěma pohledy na rozvahu:
+        z <strong>pasiv</strong> – tzv. finanční přístup (Capital, <span class="math">C</span>),
+        nebo z <strong>aktiv</strong> – tzv. majetkový přístup (Net Operating Assets,
+        NOA). Pro podnik PLAST je vhodnější vyjít z aktivní strany rozvahy
+        (Příloha&nbsp;A). Úprava aktiv na NOA má tři kroky:
+      </p>
+
+      <ol>
+        <li><strong>Aktivace</strong> položek, které nejsou v aktivech vykázány.</li>
+        <li><strong>Vyčlenění</strong> neoperativních aktiv.</li>
+        <li><strong>Snížení</strong> aktiv o neúročený cizí kapitál.</li>
+      </ol>
+
+      <section class="definice" id="pojem-noa">
+        <h3 class="definice__pojem">Čistá operativní aktiva (NOA)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Net Operating Assets</em> – kapitál skutečně vázaný v hlavní
+            (operativní) činnosti podniku. Vzniká z účetních aktiv jejich
+            aktivací a přeceněním, vyloučením neprovozních položek a snížením
+            o neúročený cizí kapitál. NOA je majetkovým protějškem investovaného
+            kapitálu <span class="math">C</span> ve vztahu&nbsp;(3.5).
+          </p>
+        </div>
+      </section>
+
+      <h3>ad 1 · Aktivace položek</h3>
+
+      <p>
+        Nejprve do aktiv doplníme majetek, který podnik ke své výdělečné činnosti
+        používá, ale rozvaha ho nezachycuje.
+      </p>
+
+      <h4>Leasing</h4>
+      <p>
+        Podnik PLAST pořizoval formou leasingu výhradně dopravní prostředky (DHM).
+        Pro <a class="pojem" href="#pojem-aktivace-leasingu">aktivaci leasingu</a>
+        je zvolena metoda <strong>současné hodnoty leasingových splátek</strong>:
+        budoucí splátky se převedou na současnou hodnotu diskontní mírou stanovenou
+        z tržních dat (viz tab.&nbsp;8–40 v lekci&nbsp;12.8). Pro převod byla
+        diskontní míra dalšího období odhadnuta ve výši&nbsp;5&nbsp;%. Současná
+        hodnota leasingových plateb se aktivuje současně do <strong>dlouhodobého
+        majetku</strong> (aktiva) i do <strong>závazků</strong> (pasiva).
+      </p>
+
+      <section class="definice" id="pojem-aktivace-leasingu">
+        <h3 class="definice__pojem">Aktivace leasingu</h3>
+        <div class="definice__telo">
+          <p>
+            Zahrnutí majetku užívaného na leasing do rozvahy v <strong>současné
+            hodnotě budoucích splátek</strong>. Zjištěná částka se přičte zároveň
+            k dlouhodobému majetku (aktiva) i k cizím zdrojům (závazky), takže
+            rozvaha zůstane vyrovnaná. Tím se leasing zobrazí ekonomicky stejně
+            jako pořízení majetku na úvěr.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–26 – Současná hodnota leasingových splátek (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Aktivace leasingu</th>
+              <td class="cislo">17 263</td>
+              <td class="cislo">2 787</td>
+              <td class="cislo">3 735</td>
+              <td class="cislo">70 442</td>
+              <td class="cislo">52 929</td>
+              <td class="cislo">40 881</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Pro názornost tab.&nbsp;8–27 ukazuje výpočet aktivace k 31.&nbsp;12.&nbsp;2004:
+        každá budoucí splátka se vydělí <span class="math">(1<span class="op">+</span>i)<sup>t</sup></span>
+        a součet současných hodnot dá aktivovaných <strong>40&nbsp;881&nbsp;tis.&nbsp;Kč</strong>.
+        Splátkový kalendář pro majetek na leasing je uveden v
+        <a href="t12-R-prilohy.html">referenční příloze R</a>.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–27 – Výpočet SH leasingových splátek v roce 2004 (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009</th>
+              <th scope="col" class="cislo">Celkem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Budoucí leasingové splátky</th>
+              <td class="cislo">17 620</td>
+              <td class="cislo">16 248</td>
+              <td class="cislo">4 276</td>
+              <td class="cislo">3 620</td>
+              <td class="cislo">3 434</td>
+              <td class="cislo">—</td>
+            </tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">SH leasingových splátek</th>
+              <td class="cislo">16 781</td>
+              <td class="cislo">14 737</td>
+              <td class="cislo">3 694</td>
+              <td class="cislo">2 978</td>
+              <td class="cislo">2 691</td>
+              <td class="cislo">40 881</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- KROKOVÁ VIZUALIZACE A: diskontování leasingových splátek -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Aktivace leasingu: od budoucích splátek k současné hodnotě</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Nejprve vidíte budoucí leasingové splátky 2005–2009, poté se každá diskontuje na svou současnou hodnotu (5 %) a jejich součet 40 881 tis. Kč se aktivuje do rozvahy.</p>
+        </figcaption>
+        <div id="viz-leasing"></div>
+      </figure>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Obě strany rozvahy zároveň</p>
+        <div class="callout__telo">
+          <p>
+            Aktivovaných 40&nbsp;881&nbsp;tis.&nbsp;Kč (rok 2004) se přičte
+            <strong>do aktiv</strong> (dlouhodobý majetek) i <strong>do pasiv</strong>
+            (cizí zdroje – leasing, viz tab.&nbsp;8–35). Rozvaha proto zůstane
+            vyrovnaná. Kdybyste zvýšili jen jednu stranu, přestala by platit
+            bilanční rovnost.
+          </p>
+        </div>
+      </aside>
+
+      <h4>Oceňovací rozdíly u dlouhodobého majetku</h4>
+      <p>
+        Účetnictví oceňuje dlouhodobý majetek historickými cenami; ekonomicky
+        by měl být přeceněn na <strong>reprodukční ceny</strong> snížené o reálné
+        opotřebení. Kladný <a class="pojem" href="#pojem-ocenovaci-rozdily">oceňovací
+        rozdíl</a> u DHM zvyšuje aktiva, ale zároveň vyvolává <strong>dodatečné
+        odpisy</strong> z vyšší ceny. Aktiva proto upravíme o oceňovací rozdíl
+        <em>snížený</em> o tyto odpisy. U dlouhodobého nehmotného majetku významné
+        rozdíly nevznikají, použijí se hodnoty z rozvahy.
+      </p>
+
+      <section class="definice" id="pojem-ocenovaci-rozdily">
+        <h3 class="definice__pojem">Oceňovací rozdíly a dodatečné odpisy</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi ekonomicky správným oceněním dlouhodobého majetku
+            (reprodukční cena snížená o opotřebení) a jeho účetní historickou cenou.
+            Kladný oceňovací rozdíl zvyšuje aktiva; vyšší cena však znamená
+            <strong>dodatečné odpisy</strong>, které se promítnou do sníženého
+            výsledku hospodaření (a tím i do NOPAT). Do NOA vstupuje rozdíl
+            <em>po odečtení</em> dodatečných odpisů.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–28 – Výše oceňovacích rozdílů u DHM (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Oceňovací rozdíl</th><td class="cislo">3 473</td><td class="cislo">4 796</td><td class="cislo">11 556</td><td class="cislo">4 497</td><td class="cislo">1 153</td><td class="cislo">925</td></tr>
+            <tr><th scope="row">Dodatečné odpisy</th><td class="cislo">453</td><td class="cislo">626</td><td class="cislo">1 507</td><td class="cislo">587</td><td class="cislo">150</td><td class="cislo">121</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Oceňovací rozdíl − odpisy</th><td class="cislo">3 020</td><td class="cislo">4 170</td><td class="cislo">10 049</td><td class="cislo">3 910</td><td class="cislo">1 003</td><td class="cislo">804</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Co PLAST neaktivoval</p>
+        <div class="callout__telo">
+          <p>
+            Další typicky aktivované položky nebyly u PLASTu shledány významnými:
+            <strong>náklady na výzkum a vývoj</strong> (podnik se jimi sám nezabýval,
+            do budoucna však plánuje vlastní vývojový tým), <strong><a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-goodwill" target="_blank" rel="noopener">goodwill</a></strong>
+            ani úmyslně vytvořené <strong>tiché rezervy</strong>. Ukazuje to, že
+            rozsah úprav vždy závisí na konkrétním podniku.
+          </p>
+        </div>
+      </aside>
+
+      <h3>ad 2 · Vyčlenění neoperativních aktiv</h3>
+      <p>
+        Nyní z aktiv odstraníme majetek, který se nepodílí na hlavní výdělečné
+        činnosti – tedy <a class="pojem" href="#pojem-neoperativni-aktiva">neoperativní
+        aktiva</a>.
+      </p>
+
+      <ul>
+        <li><strong>Krátkodobý finanční majetek</strong> – vyloučí se, má-li charakter
+          strategické rezervy nebo je nadbytečný (orientačně hotovostní likvidita
+          nad 0,5). U PLASTu byla likvidita nižší, <em>úprava se neprovádí</em>.</li>
+        <li><strong>Dlouhodobý finanční majetek (DFM)</strong> – rozhoduje účel investice.
+          <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-portfoliove-investice" target="_blank" rel="noopener">Portfoliové investice</a> se vyčlení; provozně propojené se ponechají. Investice
+          PLASTu do DFM (od r.&nbsp;2000 do skupiny PLASTIKO) žádné výnosy nepřinášely
+          a fakticky nahrazovaly výplatu podílů na zisku – <em>hodnotu DFM proto
+          od aktiv odečteme</em>.</li>
+        <li><strong>Nedokončené investice</strong> – bývají provozně potřebné, ale
+          na současných výsledcích se ještě nepodílejí; u PLASTu <em>byly vyčleněny</em>
+          (tab.&nbsp;8–29).</li>
+        <li><strong>Jiná neprovozní aktiva</strong> (nevyužité pozemky, budovy,
+          nadbytečné zásoby) – management žádná neoznačil, <em>bez úpravy</em>.</li>
+      </ul>
+
+      <section class="definice" id="pojem-neoperativni-aktiva">
+        <h3 class="definice__pojem">Neoperativní aktiva</h3>
+        <div class="definice__telo">
+          <p>
+            Majetek, který se nepodílí na hlavní (operativní) činnosti podniku –
+            portfoliový dlouhodobý finanční majetek, nadbytečný krátkodobý finanční
+            majetek, nedokončené investice či nevyužité pozemky a budovy. Z aktiv
+            se <strong>vyčleňuje</strong>, protože nemá vytvářet operativní zisk
+            (NOPAT); jinak by uměle zvyšoval základnu kapitálu ve vztahu&nbsp;(3.5).
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–29 – Vývoj nedokončených investic (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Nedokončený DNM</th><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">15 170</td></tr>
+            <tr><th scope="row">Nedokončený DHM</th><td class="cislo">6 658</td><td class="cislo">6 388</td><td class="cislo">20 204</td><td class="cislo">39 074</td><td class="cislo">21 474</td><td class="cislo">16 364</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Celkem nedokončené investice</th><td class="cislo">6 658</td><td class="cislo">6 388</td><td class="cislo">20 204</td><td class="cislo">39 074</td><td class="cislo">21 474</td><td class="cislo">31 534</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>ad 3 · Neúročený cizí kapitál</h3>
+      <p>
+        Aktiva jsou financována jednak zpoplatněným (úročeným) kapitálem, jednak
+        zdroji, za které podnik neplatí úrok. Protože náklady kapitálu
+        (<span class="math">WACC</span>) počítáme jen ze zpoplatněných zdrojů,
+        musíme upravená aktiva snížit o <a class="pojem" href="#pojem-neuroceny-cizi-kapital">neúročený
+        cizí kapitál</a>: krátkodobé závazky, pasivní časové rozlišení,
+        nezpoplatněné dlouhodobé závazky a rezervy s charakterem skutečných závazků.
+      </p>
+
+      <section class="definice" id="pojem-neuroceny-cizi-kapital">
+        <h3 class="definice__pojem">Neúročený cizí kapitál</h3>
+        <div class="definice__telo">
+          <p>
+            Cizí zdroje, za které podnik neplatí úrok – zejména krátkodobé závazky
+            (z obchodního styku), pasivní časové rozlišení, nezpoplatněné dlouhodobé
+            závazky a rezervy povahy závazku. O jejich objem se <strong>snižují
+            aktiva</strong> při výpočtu NOA, protože do vážených nákladů kapitálu
+            (WACC) vstupuje jen zpoplatněný kapitál.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–30 – Vývoj neúročených cizích zdrojů (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Rezervy</th><td class="cislo">19 491</td><td class="cislo">12 537</td><td class="cislo">15 359</td><td class="cislo">19 845</td><td class="cislo">20 364</td><td class="cislo">660</td></tr>
+            <tr><th scope="row">Dlouhodobé závazky neúročené</th><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">2 118</td><td class="cislo">407</td><td class="cislo">4 593</td></tr>
+            <tr><th scope="row">Krátkodobé závazky</th><td class="cislo">129 127</td><td class="cislo">81 532</td><td class="cislo">90 208</td><td class="cislo">90 269</td><td class="cislo">103 217</td><td class="cislo">133 451</td></tr>
+            <tr><th scope="row">Časové rozlišení pasiv</th><td class="cislo">941</td><td class="cislo">4 109</td><td class="cislo">16 912</td><td class="cislo">516</td><td class="cislo">418</td><td class="cislo">0</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Celkem</th><td class="cislo">149 559</td><td class="cislo">98 178</td><td class="cislo">122 479</td><td class="cislo">112 748</td><td class="cislo">124 406</td><td class="cislo">138 704</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Výsledek: vymezení NOA</h3>
+      <p>
+        Souhrn všech tří kroků do aktivní strany rozvahy dává tab.&nbsp;8–31.
+        Dlouhodobý majetek je upraven o oceňovací rozdíl snížený o odpisy, o&nbsp;aktivovaný
+        leasing a o odečtený nedokončený majetek; DFM je zcela vyloučen; oběžná
+        aktiva (zásoby, pohledávky, krátkodobý FM, časové rozlišení) zůstávají beze
+        změny a od nich se odečtou neúročené závazky. Součet dlouhodobého majetku
+        a <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého pracovního kapitálu (ČPK)</a> tvoří NOA.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–31 – Vymezení NOA v jednotlivých letech, aktivní část rozvahy (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">Dlouhodobý majetek</th><td class="cislo">623 250</td><td class="cislo">523 310</td><td class="cislo">488 278</td><td class="cislo">540 930</td><td class="cislo">517 543</td><td class="cislo">506 267</td></tr>
+            <tr><th scope="row">DNM</th><td class="cislo">164</td><td class="cislo">73</td><td class="cislo">993</td><td class="cislo">2 657</td><td class="cislo">2 979</td><td class="cislo">1 596</td></tr>
+            <tr><th scope="row">DHM</th><td class="cislo">623 086</td><td class="cislo">523 237</td><td class="cislo">487 285</td><td class="cislo">538 273</td><td class="cislo">514 564</td><td class="cislo">504 671</td></tr>
+            <tr><th scope="row">DFM</th><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">ČPK</th><td class="cislo">223 111</td><td class="cislo">432 666</td><td class="cislo">351 237</td><td class="cislo">370 273</td><td class="cislo">398 147</td><td class="cislo">422 286</td></tr>
+            <tr><th scope="row">Zásoby</th><td class="cislo">126 005</td><td class="cislo">145 303</td><td class="cislo">162 758</td><td class="cislo">165 637</td><td class="cislo">154 729</td><td class="cislo">190 491</td></tr>
+            <tr><th scope="row">Pohledávky</th><td class="cislo">223 547</td><td class="cislo">362 191</td><td class="cislo">281 348</td><td class="cislo">275 883</td><td class="cislo">308 169</td><td class="cislo">282 030</td></tr>
+            <tr><th scope="row">Krátkodobý FM</th><td class="cislo">16 666</td><td class="cislo">20 655</td><td class="cislo">19 363</td><td class="cislo">38 901</td><td class="cislo">57 048</td><td class="cislo">86 130</td></tr>
+            <tr><th scope="row">Časové rozlišení</th><td class="cislo">6 452</td><td class="cislo">2 695</td><td class="cislo">10 247</td><td class="cislo">2 600</td><td class="cislo">2 607</td><td class="cislo">2 339</td></tr>
+            <tr><th scope="row">(−) Neúročené závazky</th><td class="cislo">149 559</td><td class="cislo">98 178</td><td class="cislo">122 479</td><td class="cislo">112 748</td><td class="cislo">124 406</td><td class="cislo">138 704</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">NOA</th><td class="cislo">846 361</td><td class="cislo">955 976</td><td class="cislo">839 515</td><td class="cislo">911 203</td><td class="cislo">915 690</td><td class="cislo">928 553</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj NOA podniku PLAST (tis. Kč)</p>
+          <p class="viz__popis">Čistá operativní aktiva po všech úpravách; hodnoty z tab. 8–31.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-noa"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik pořídil vozidlo na leasing. Jak a kam se tento majetek promítne
+          do NOA a proč zůstane rozvaha vyrovnaná?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Leasing se aktivuje v <strong>současné hodnotě budoucích splátek</strong>.
+              Tato částka se přičte zároveň do <strong>aktiv</strong> (dlouhodobý
+              hmotný majetek), čímž zvyšuje NOA, i do <strong>pasiv</strong>
+              (cizí zdroje – leasingový závazek). Protože rostou obě strany rozvahy
+              o stejnou částku, bilanční rovnost zůstává zachována. U PLASTu v roce
+              2004 šlo o 40&nbsp;881&nbsp;tis.&nbsp;Kč. Ekonomicky se tak leasing
+              zobrazí stejně jako pořízení majetku na úvěr.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Vymezení NOPAT</h2>
+      <p>
+        Nejdůležitější zásadou je <strong>symetrie mezi NOA a NOPAT</strong>: každá
+        úprava aktiv se musí projevit i v zisku, aby obě veličiny popisovaly tentýž
+        okruh operativní činnosti. Vyjdeme z <strong>výsledku hospodaření z běžné
+        činnosti před zdaněním</strong> a provedeme čtyři úpravy.
+      </p>
+
+      <section class="definice" id="pojem-nopat">
+        <h3 class="definice__pojem">NOPAT</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Net Operating Profit After Taxes</em> – operativní výsledek
+            hospodaření po zdanění. Vzniká z účetního VH z běžné činnosti před
+            zdaněním jeho úpravou tak, aby odpovídal okruhu aktiv zahrnutých v NOA
+            (symetrie). Je čitatelem výnosnosti operativního kapitálu a čerpá se
+            do vztahu&nbsp;(3.5).
+          </p>
+        </div>
+      </section>
+
+      <p><strong>1. Placené úroky přičteme zpět k VH.</strong> NOPAT má být ziskem
+        <em>před</em> odměnou pro věřitele (tu zohledňuje až <span class="math">WACC</span>).
+        Přičteme proto nákladové úroky z bankovních úvěrů i <strong>implicitní úroky
+        v leasingových platbách</strong> – leasingová splátka totiž zahrnuje i úrok
+        za zapůjčení kapitálu, stejně jako koupě na úvěr. Implicitní úrok získáme
+        vynásobením odhadnuté alternativní úrokové míry (tab.&nbsp;8–40) a leasingového
+        závazku na počátku období.</p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–32 – Vývoj nákladových úroků (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Nákladové úroky – úvěry</th><td class="cislo">21 099</td><td class="cislo">23 891</td><td class="cislo">16 548</td><td class="cislo">11 013</td><td class="cislo">10 632</td></tr>
+            <tr><th scope="row">Nákladové úroky – leasing</th><td class="cislo">1 269</td><td class="cislo">203</td><td class="cislo">217</td><td class="cislo">3 240</td><td class="cislo">2 805</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>2. Vyloučíme mimořádné položky.</strong> Jde o položky, které se
+        svou výší nebudou opakovat (prodej dlouhodobého majetku, odstupné pro větší
+        počet zaměstnanců, rozpouštění rezerv, mimořádné odpisy…). U PLASTu byl
+        vyloučen výsledek hospodaření z <strong>prodeje dlouhodobého hmotného
+        majetku</strong> (rozdíl mezi tržbou a zůstatkovou cenou).</p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–33 – Vývoj VH z prodeje dlouhodobého majetku (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">VH – prodej dlouhodobého majetku</th><td class="cislo">4 785</td><td class="cislo">3 002</td><td class="cislo">2 922</td><td class="cislo">4 472</td><td class="cislo">8 178</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>3. Zohledníme změny vlastního kapitálu z úprav NOA.</strong>
+        Do NOPAT musí vstoupit dopady úprav, které při vymezení NOA ovlivnily zisk.
+        U PLASTu šlo o <strong>dodatečné odpisy</strong> z vyšších reprodukčních
+        cen (tab.&nbsp;8–28) a o vyloučení výnosů z vyčleněného DFM – ten však žádné
+        výnosy nepřinášel, takže se úprava neprovedla.</p>
+
+      <p><strong>4. Upravíme daň.</strong> Potřebujeme <a class="pojem" href="#pojem-uprava-dane">upravenou
+        daň</a> – teoretickou daň z operativního zisku. Vyjdeme z původně splatné
+        daně a upravíme ji o daňovou povinnost, resp. úsporu z položek, o které se
+        NOPAT liší od účetního VH.</p>
+
+      <section class="definice" id="pojem-uprava-dane">
+        <h3 class="definice__pojem">Upravená (teoretická) daň</h3>
+        <div class="definice__telo">
+          <p>
+            Daň, kterou by podnik zaplatil z operativního zisku, kdyby jej danil
+            přímo. Vychází ze splatné daně za daný rok, upravené o daňový dopad
+            položek, o které se NOPAT liší od účetního výsledku hospodaření.
+            V PLASTu se rozdíl mezi upraveným a původním VH zdaňuje platnou sazbou
+            (31&nbsp;% pro roky 2000–2003, 28&nbsp;% pro rok 2004) a připočte se
+            k původně placené dani.
+          </p>
+        </div>
+      </section>
+
+      <!-- KROKOVÁ VIZUALIZACE B: vodopád VH → NOPAT (2004) -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vodopád úprav: od VH k NOPAT (rok 2004, tis. Kč)</p>
+          <p class="viz__popis">Krok za krokem: k výsledku hospodaření před zdaněním přičteme úroky, odečteme mimořádné položky a dodatečné odpisy a nakonec upravenou daň. Zbude NOPAT.</p>
+        </figcaption>
+        <div id="viz-nopat"></div>
+      </figure>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–34 – Vymezení NOPAT v jednotlivých letech (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">VH z běžné činnosti před zdaněním – původní</th><td class="cislo">96 271</td><td class="cislo">75 680</td><td class="cislo">107 868</td><td class="cislo">101 340</td><td class="cislo">101 388</td></tr>
+            <tr><th scope="row">VH z běžné činnosti před zdaněním – po úpravách</th><td class="cislo">113 228</td><td class="cislo">95 265</td><td class="cislo">121 124</td><td class="cislo">110 971</td><td class="cislo">106 527</td></tr>
+            <tr><th scope="row">Rozdíl (po úpravách − původní)</th><td class="cislo">16 957</td><td class="cislo">19 585</td><td class="cislo">13 256</td><td class="cislo">9 631</td><td class="cislo">5 139</td></tr>
+            <tr><th scope="row">Původně placená daň</th><td class="cislo">17 791</td><td class="cislo">15 709</td><td class="cislo">32 318</td><td class="cislo">31 164</td><td class="cislo">29 073</td></tr>
+            <tr><th scope="row">Dodatečně vypočtená daň</th><td class="cislo">5 257</td><td class="cislo">6 071</td><td class="cislo">4 109</td><td class="cislo">2 986</td><td class="cislo">1 439</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">NOPAT</th><td class="cislo">90 180</td><td class="cislo">73 485</td><td class="cislo">84 697</td><td class="cislo">76 821</td><td class="cislo">76 015</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Kontrolní výpočet NOPAT 2004</p>
+        <div class="callout__telo">
+          <p>
+            Upravený VH před zdaněním
+            <span class="math">106<span class="num"> </span>527</span>
+            = 101&nbsp;388 + úroky (10&nbsp;632 + 2&nbsp;805) − dodatečné odpisy 121
+            − VH z prodeje DM 8&nbsp;178. NOPAT pak dostaneme odečtením celkové daně:
+            <span class="math">106<span class="num"> </span>527<span class="op">−</span>29<span class="num"> </span>073<span class="op">−</span>1<span class="num"> </span>439<span class="op">=</span>76<span class="num"> </span>015</span>.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Po úpravách je nutné dopočítat i <strong>pasivní stranu</strong> rozvahy –
+        ta určuje <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálovou strukturu</a>, a tím i budoucí <span class="math">WACC</span>.
+        Nejvýznamnější změnou je nová položka <strong>ekvivalenty vlastního
+        kapitálu</strong>, která slouží jako vyrovnávací (dorovnává dopady úprav
+        aktiv). Do cizích zdrojů se navíc zařazuje aktivovaný leasing a vyřazuje
+        se neúročený cizí kapitál.
+      </p>
+
+      <section class="definice" id="pojem-ekvivalenty-vlastniho-kapitalu">
+        <h3 class="definice__pojem">Ekvivalenty vlastního kapitálu</h3>
+        <div class="definice__telo">
+          <p>
+            Doplňková položka vlastního kapitálu, do níž se promítnou úpravy provedené
+            při vymezení NOA (aktivace, přecenění, tiché rezervy, vyčlenění
+            neoperativních aktiv). Funguje jako <strong>vyrovnávací položka</strong>,
+            aby upravená pasiva odpovídala upraveným aktivům (NOA). V tab.&nbsp;8–35
+            nabývá u PLASTu záporných hodnot.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–35 – Vymezení C v jednotlivých letech, pasivní část rozvahy (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">Vlastní kapitál</th><td class="cislo">514 220</td><td class="cislo">550 966</td><td class="cislo">454 462</td><td class="cislo">482 162</td><td class="cislo">580 996</td><td class="cislo">551 158</td></tr>
+            <tr><th scope="row">Základní kapitál</th><td class="cislo">399 770</td><td class="cislo">399 770</td><td class="cislo">399 770</td><td class="cislo">399 870</td><td class="cislo">399 870</td><td class="cislo">399 870</td></tr>
+            <tr><th scope="row">Kapitálové fondy</th><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo hodnota-niceni">−7 334</td><td class="cislo hodnota-niceni">−24 254</td><td class="cislo hodnota-niceni">−14 369</td></tr>
+            <tr><th scope="row">Rezervní fondy aj.</th><td class="cislo">23 200</td><td class="cislo">27 922</td><td class="cislo">31 787</td><td class="cislo">34 774</td><td class="cislo">38 498</td><td class="cislo">42 887</td></tr>
+            <tr><th scope="row">VH minulých let</th><td class="cislo">45</td><td class="cislo">89 869</td><td class="cislo">163 538</td><td class="cislo">220 105</td><td class="cislo">291 429</td><td class="cislo">356 703</td></tr>
+            <tr><th scope="row">VH účetního období</th><td class="cislo">94 843</td><td class="cislo">77 731</td><td class="cislo">59 930</td><td class="cislo">75 550</td><td class="cislo">70 176</td><td class="cislo">72 315</td></tr>
+            <tr><th scope="row">Ekvivalenty VK</th><td class="cislo hodnota-niceni">−3 638</td><td class="cislo hodnota-niceni">−44 326</td><td class="cislo hodnota-niceni">−200 563</td><td class="cislo hodnota-niceni">−240 803</td><td class="cislo hodnota-niceni">−194 723</td><td class="cislo hodnota-niceni">−306 248</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Cizí zdroje</th><td class="cislo">332 141</td><td class="cislo">405 010</td><td class="cislo">385 053</td><td class="cislo">429 041</td><td class="cislo">334 694</td><td class="cislo">377 395</td></tr>
+            <tr><th scope="row">Bankovní úvěry</th><td class="cislo">314 878</td><td class="cislo">402 223</td><td class="cislo">381 318</td><td class="cislo">358 599</td><td class="cislo">281 765</td><td class="cislo">336 514</td></tr>
+            <tr><th scope="row">Leasing</th><td class="cislo">17 263</td><td class="cislo">2 787</td><td class="cislo">3 735</td><td class="cislo">70 442</td><td class="cislo">52 929</td><td class="cislo">40 881</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Kapitál celkem</th><td class="cislo">846 361</td><td class="cislo">955 976</td><td class="cislo">839 515</td><td class="cislo">911 203</td><td class="cislo">915 690</td><td class="cislo">928 553</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Řádek „Kapitál celkem" v tab.&nbsp;8–35 se přesně shoduje s NOA v tab.&nbsp;8–31
+        – potvrzuje se tak <strong>symetrie</strong> majetkového a finančního pohledu.
+        Vývoj výsledného NOPAT za roky 2000–2004 shrnuje graf níže; NOPAT lze
+        z dostupných dat určit až od roku 2000.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj NOPAT podniku PLAST (tis. Kč)</p>
+          <p class="viz__popis">Operativní zisk po zdanění po všech úpravách; hodnoty z tab. 8–34.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-nopat-vyvoj"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč se při výpočtu NOPAT přičítají zpět úroky – včetně implicitních
+          úroků obsažených v leasingových splátkách?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              NOPAT má vyjadřovat zisk z operativní činnosti <strong>před</strong>
+              odměnou poskytovatelům kapitálu. Odměna za veškerý zpoplatněný kapitál
+              (vlastní i cizí) se do EVA promítá až členem <span class="math">WACC<span class="op">×</span>C</span>.
+              Kdybychom úroky ponechali v nákladech, byly by náklady cizího kapitálu
+              započítány <em>dvakrát</em>. Protože leasingová splátka v sobě rovněž
+              skrývá úrok (implicitní úrok za zapůjčení kapitálu), musíme jej dopočítat
+              a přičíst také – jinak by nebyla dodržena symetrie s aktivovaným
+              leasingem v NOA.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Co dál</p>
+        <div class="callout__telo">
+          <p>
+            Máme dvě ze tří vstupních veličin: <strong>C&nbsp;(NOA)</strong>
+            a <strong>NOPAT</strong>. V lekci&nbsp;12.8 dopočítáme <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a></strong>
+            z upravené kapitálové struktury (tab.&nbsp;8–35) a dosazením do
+            vztahu&nbsp;(3.5) konečně vyčíslíme EVA podniku PLAST.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaké tři kroky vedou od účetních aktiv k NOA?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jeden krok aktiva doplňuje, jeden je zmenšuje o neprovozní majetek a jeden o určitý typ pasiv.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>(1) <strong>Aktivace</strong> položek, které rozvaha nezachycuje (leasing v SH, oceňovací rozdíly u DHM). (2) <strong>Vyčlenění</strong> neoperativních aktiv (portfoliový DFM, nedokončené investice). (3) <strong>Snížení</strong> aktiv o neúročený cizí kapitál (krátkodobé závazky, časové rozlišení pasiv, rezervy povahy závazku, nezpoplatněné dlouhodobé závazky).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Jak byl aktivován leasing v podniku PLAST a kolik činila jeho hodnota v roce 2004?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na tab. 8–26 a 8–27 a na použitou diskontní míru.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Metodou <strong>současné hodnoty leasingových splátek</strong>: budoucí splátky 2005–2009 se diskontovaly mírou 5&nbsp;% a jejich součet <strong>40&nbsp;881&nbsp;tis.&nbsp;Kč</strong> se aktivoval jak do dlouhodobého majetku (aktiva), tak do závazků (pasiva).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč se do NOPAT přičítají zpět placené úroky?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kde jinde ve vztahu (3.5) je odměna za cizí kapitál už zohledněna?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Aby nebyla odměna za cizí kapitál započítána dvakrát. NOPAT je zisk před odměnou poskytovatelům kapitálu; náklady veškerého zpoplatněného kapitálu zohledňuje až člen <span class="math">WACC<span class="op">×</span>C</span>. Proto se přičítají úroky z úvěrů i implicitní úroky z leasingu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co znamená požadavek symetrie mezi NOA a NOPAT? Uveďte příklad.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Každá úprava jedné veličiny by měla mít protějšek v druhé. Zamyslete se nad oceňovacím rozdílem.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Obě veličiny musí popisovat tentýž okruh operativní činnosti. Když do NOA aktivujeme oceňovací rozdíl u DHM (vyšší cena majetku), musíme do NOPAT promítnout i <strong>dodatečné odpisy</strong> z této vyšší ceny. Podobně aktivaci leasingu v NOA odpovídá přičtení implicitních leasingových úroků do NOPAT. Bez symetrie by výnosnost operativního kapitálu byla zkreslená.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>K čemu slouží položka „ekvivalenty vlastního kapitálu" v tab. 8–35?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Aktiva byla upravena na NOA – co musí platit pro pasivní stranu?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Je to <strong>vyrovnávací položka</strong>. Protože úpravy aktiv (aktivace, přecenění, vyčlenění neoperativních aktiv) změnily jejich výši, musí se dopad promítnout i do pasiv, aby upravená pasiva odpovídala NOA. Ekvivalenty VK tento rozdíl dorovnávají – u PLASTu nabývají záporných hodnot a řádek „Kapitál celkem" se rovná NOA.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l6-financni-analyza-3.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.6 Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l8-eva-wacc.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.8 EVA v podniku PLAST – WACC a výpočet EVA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // =====================================================================
+      // A) KROKOVÁ VIZUALIZACE: diskontování leasingových splátek (rok 2004)
+      //    Stav 0: budoucí splátky → Stav 1: současné hodnoty → Stav 2: aktivace
+      // =====================================================================
+      var LEAS = [
+        { rok: '2005', bud: 17620, sh: 16781 },
+        { rok: '2006', bud: 16248, sh: 14737 },
+        { rok: '2007', bud: 4276,  sh: 3694  },
+        { rok: '2008', bud: 3620,  sh: 2978  },
+        { rok: '2009', bud: 3434,  sh: 2691  }
+      ];
+      var SH_CELKEM = 40881;
+
+      Skripta.stepper('viz-leasing', {
+        sirka: 720, vyska: 380,
+        stavy: [ {}, {}, {} ],
+        popisky: [
+          'Budoucí leasingové splátky 2005–2009, jak je předepisuje splátkový kalendář (příloha R).',
+          'Každou splátku diskontujeme mírou 5 % na současnou hodnotu k 31. 12. 2004 – sloupce se zkracují.',
+          'Součet současných hodnot = 40 881 tis. Kč. Tato částka se aktivuje do dlouhodobého majetku i do závazků.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 300, px = 0.01135;
+          var stred = [90, 220, 350, 480, 610], bw = 76;
+
+          LEAS.forEach(function (d, k) {
+            var cx = stred[k], x = cx - bw / 2;
+            var hodnota = i >= 1 ? d.sh : d.bud;
+            var h = hodnota * px;
+            // Sloupec – výška plynule přechází mezi budoucí splátkou a SH
+            u.dej(svg, 'bar-' + k, 'rect', {
+              x: x, y: base - h, width: bw, height: h, rx: 4,
+              fill: i >= 1 ? '#4338ca' : '#94a3b8'
+            });
+            // Hodnota nad sloupcem
+            u.dej(svg, 'val-' + k, 'text', {
+              x: cx, y: base - h - 8, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 12, 'font-weight': 700
+            }, u.formatCislo(hodnota));
+            // Popisek roku pod osou
+            u.dej(svg, 'rok-' + k, 'text', {
+              x: cx, y: base + 20, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 12
+            }, d.rok);
+          });
+
+          // Osa
+          u.dej(svg, 'osa', 'line', {
+            x1: 40, y1: base, x2: 680, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5
+          });
+
+          // Souhrnný štítek aktivace (stav 2)
+          u.dej(svg, 'sum-box', 'rect', {
+            x: 250, y: 40, width: 300, height: 40, rx: 8,
+            fill: u.barvaTvorba, opacity: i >= 2 ? 0.15 : 0
+          });
+          u.dej(svg, 'sum-text', 'text', {
+            x: 400, y: 65, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 14, 'font-weight': 700,
+            opacity: i >= 2 ? 1 : 0
+          }, 'SH celkem = 40 881 → aktivace do rozvahy');
+        }
+      });
+
+      // =====================================================================
+      // B) KROKOVÁ VIZUALIZACE: vodopád úprav VH → NOPAT (rok 2004)
+      // =====================================================================
+      var VH0    = 101388;              // VH z běžné činnosti před zdaněním
+      var UROKY  = 13437;               // 10 632 (úvěry) + 2 805 (leasing)
+      var UPRAVY = 8299;                // odpisy 121 + prodej DM 8 178 (odečet)
+      var DAN    = 30512;               // 29 073 + 1 439 (odečet)
+      var VH_UPR = VH0 + UROKY - UPRAVY; // 106 526 ≈ 106 527 (zaokrouhlení zdroje)
+      var NOPAT  = VH_UPR - DAN;         // 76 015
+
+      Skripta.stepper('viz-nopat', {
+        sirka: 780, vyska: 400,
+        stavy: [ {}, {}, {}, {}, {} ],
+        popisky: [
+          'Výchozí bod: VH z běžné činnosti před zdaněním = 101 388.',
+          'Přičteme placené úroky (úvěry + leasing) = +13 437 → 114 825.',
+          'Odečteme mimořádné položky a dodatečné odpisy = −8 299 → 106 527 (upravený VH před zdaněním).',
+          'Odečteme upravenou daň (29 073 + 1 439) = −30 512.',
+          'Zbývá NOPAT = 76 015 (operativní zisk po zdanění).'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 340, px = 0.0022;
+          var Y = function (v) { return base - v * px; };
+          // Běžící mezisoučty
+          var t0 = VH0;                 // 101 388
+          var t1 = VH0 + UROKY;         // 114 825
+          var t2 = t1 - UPRAVY;         // 106 526 (~106 527)
+          var t3 = t2 - DAN;            // 76 014 (~76 015)
+          var cx = [128, 264, 400, 536, 672], bw = 90;
+
+          // Osa
+          u.dej(svg, 'osa', 'line', {
+            x1: 50, y1: base, x2: 740, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5
+          });
+
+          // 1) VH původní (indigo)
+          u.dej(svg, 'b-vh', 'rect', {
+            x: cx[0] - bw / 2, y: Y(t0), width: bw, height: base - Y(t0), rx: 5, fill: '#4338ca'
+          });
+          u.dej(svg, 'v-vh', 'text', { x: cx[0], y: Y(t0) - 10, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700 }, '101 388');
+
+          // 2) + Úroky (zelený přírůstek, plovoucí)
+          u.dej(svg, 'b-ur', 'rect', {
+            x: cx[1] - bw / 2, y: Y(t1), width: bw, height: Y(t0) - Y(t1), rx: 5,
+            fill: u.barvaTvorba, opacity: i >= 1 ? 1 : 0
+          });
+          u.dej(svg, 'v-ur', 'text', { x: cx[1], y: Y(t1) - 10, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 700, opacity: i >= 1 ? 1 : 0 }, '+13 437');
+          u.dej(svg, 'c-1', 'line', { x1: cx[0] + bw / 2, y1: Y(t0), x2: cx[1] - bw / 2, y2: Y(t0), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: i >= 1 ? 1 : 0 });
+
+          // 3) − Úpravy (červený úbytek, plovoucí)
+          u.dej(svg, 'b-up', 'rect', {
+            x: cx[2] - bw / 2, y: Y(t1), width: bw, height: Y(t2) - Y(t1), rx: 5,
+            fill: u.barvaNiceni, opacity: i >= 2 ? 1 : 0
+          });
+          u.dej(svg, 'v-up', 'text', { x: cx[2], y: Y(t1) - 10, 'text-anchor': 'middle', fill: u.barvaNiceni, 'font-size': 13, 'font-weight': 700, opacity: i >= 2 ? 1 : 0 }, '−8 299');
+          u.dej(svg, 'c-2', 'line', { x1: cx[1] + bw / 2, y1: Y(t1), x2: cx[2] - bw / 2, y2: Y(t1), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: i >= 2 ? 1 : 0 });
+
+          // 4) − Daň (červený úbytek, plovoucí)
+          u.dej(svg, 'b-dan', 'rect', {
+            x: cx[3] - bw / 2, y: Y(t2), width: bw, height: Y(t3) - Y(t2), rx: 5,
+            fill: u.barvaNiceni, opacity: i >= 3 ? 1 : 0
+          });
+          u.dej(svg, 'v-dan', 'text', { x: cx[3], y: Y(t2) - 10, 'text-anchor': 'middle', fill: u.barvaNiceni, 'font-size': 13, 'font-weight': 700, opacity: i >= 3 ? 1 : 0 }, '−30 512');
+          u.dej(svg, 'c-3', 'line', { x1: cx[2] + bw / 2, y1: Y(t2), x2: cx[3] - bw / 2, y2: Y(t2), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: i >= 3 ? 1 : 0 });
+
+          // 5) NOPAT (zelený výsledek)
+          u.dej(svg, 'b-np', 'rect', {
+            x: cx[4] - bw / 2, y: Y(t3), width: bw, height: base - Y(t3), rx: 5,
+            fill: u.barvaTvorba, opacity: i >= 4 ? 1 : 0
+          });
+          u.dej(svg, 'v-np', 'text', { x: cx[4], y: Y(t3) - 10, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 700, opacity: i >= 4 ? 1 : 0 }, '76 015');
+          u.dej(svg, 'c-4', 'line', { x1: cx[3] + bw / 2, y1: Y(t3), x2: cx[4] - bw / 2, y2: Y(t3), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: i >= 4 ? 1 : 0 });
+
+          // Popisky pod osou
+          var lbl = ['VH původní', '+ Úroky', '− Úpravy', '− Daň', 'NOPAT'];
+          lbl.forEach(function (t, k) {
+            u.dej(svg, 'l-' + k, 'text', {
+              x: cx[k], y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12,
+              opacity: (k === 0 || i >= k) ? 1 : 0.25
+            }, t);
+          });
+        }
+      });
+
+      // =====================================================================
+      // C) STATICKÉ SLOUPCOVÉ GRAFY: vývoj NOA a NOPAT
+      // =====================================================================
+      Skripta.sloupcovyGraf('viz-noa', {
+        sirka: 680, vyska: 300, formatDesetin: 0,
+        data: [
+          { popisek: '1999', hodnota: 846361 },
+          { popisek: '2000', hodnota: 955976 },
+          { popisek: '2001', hodnota: 839515 },
+          { popisek: '2002', hodnota: 911203 },
+          { popisek: '2003', hodnota: 915690 },
+          { popisek: '2004', hodnota: 928553 }
+        ]
+      });
+
+      Skripta.sloupcovyGraf('viz-nopat-vyvoj', {
+        sirka: 620, vyska: 300, formatDesetin: 0,
+        data: [
+          { popisek: '2000', hodnota: 90180 },
+          { popisek: '2001', hodnota: 73485 },
+          { popisek: '2002', hodnota: 84697 },
+          { popisek: '2003', hodnota: 76821 },
+          { popisek: '2004', hodnota: 76015 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

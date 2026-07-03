@@ -1,0 +1,2783 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rejstřík pojmů – Výkonnost podniku</title>
+  <meta name="description" content="Abecední rejstřík pojmů interaktivních skript Výkonnost podniku z pohledu finančního manažera.">
+  <link rel="stylesheet" href="assets/css/skripta.css">
+  <style>
+    /* ---- Stránkově specifické styly rejstříku (skládají se z tokenů design systému) ---- */
+
+    /* Úvodní hlavička stránky */
+    .stranka-hlavicka { margin-bottom: var(--mezera-6); }
+    .stranka-hlavicka .lekce-hlavicka__stitek { margin-bottom: var(--mezera-3); }
+    .stranka-hlavicka p {
+      color: var(--barva-text-tlumeny);
+      max-width: 70ch;
+      margin-bottom: 0;
+    }
+    .stranka-hlavicka__pocet { font-weight: 700; color: var(--barva-akcent); }
+
+    /* Ovládací lišta – vyhledávání + abeceda (lepivá pod horní lištou) */
+    .rejstrik-ovladani {
+      position: sticky;
+      top: var(--vyska-hlavicky);
+      z-index: 40;
+      background: color-mix(in srgb, var(--barva-pozadi) 92%, transparent);
+      backdrop-filter: saturate(160%) blur(8px);
+      -webkit-backdrop-filter: saturate(160%) blur(8px);
+      border-bottom: 1px solid var(--barva-ram);
+      padding: var(--mezera-4) 0 var(--mezera-3);
+      margin-bottom: var(--mezera-5);
+    }
+    .filtr {
+      position: relative;
+      max-width: 460px;
+      margin-bottom: var(--mezera-3);
+    }
+    .filtr__ikona {
+      position: absolute;
+      left: var(--mezera-4);
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--barva-text-slaby);
+      pointer-events: none;
+      font-size: 1.05rem;
+    }
+    .filtr__pole {
+      width: 100%;
+      font-family: inherit;
+      font-size: var(--text-base);
+      color: var(--barva-text);
+      background: var(--barva-plocha);
+      border: 1px solid var(--barva-ram-vyrazny);
+      border-radius: var(--radius-full);
+      padding: var(--mezera-3) var(--mezera-5) var(--mezera-3) var(--mezera-7);
+      transition: border-color var(--prechod-rychly), box-shadow var(--prechod-rychly);
+    }
+    .filtr__pole:focus {
+      outline: none;
+      border-color: var(--barva-akcent-stredni);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--barva-akcent-stredni) 30%, transparent);
+    }
+    .filtr__pole::placeholder { color: var(--barva-text-slaby); }
+
+    /* Abecední navigace */
+    .abeceda {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--mezera-1);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .abeceda a {
+      display: inline-grid;
+      place-items: center;
+      min-width: 2em;
+      padding: var(--mezera-1) var(--mezera-2);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      color: var(--barva-akcent);
+      background: var(--barva-plocha);
+      border: 1px solid var(--barva-ram);
+      border-radius: var(--radius-sm);
+      transition: background var(--prechod-rychly), color var(--prechod-rychly), border-color var(--prechod-rychly);
+    }
+    .abeceda a:hover {
+      background: var(--barva-akcent-svetla);
+      border-color: var(--barva-akcent-stredni);
+      text-decoration: none;
+    }
+    .abeceda .abeceda--prazdne {
+      color: var(--barva-text-slaby);
+      background: transparent;
+      border-color: transparent;
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* Sekce jednoho písmene */
+    .rejstrik-sekce {
+      margin-bottom: var(--mezera-6);
+      scroll-margin-top: calc(var(--vyska-hlavicky) + 130px);
+    }
+    .rejstrik-sekce__nadpis {
+      display: flex;
+      align-items: center;
+      gap: var(--mezera-3);
+      font-size: var(--text-xl);
+      margin: 0 0 var(--mezera-4);
+      padding-bottom: var(--mezera-2);
+      border-bottom: 2px solid var(--barva-ram);
+    }
+    .rejstrik-sekce__pismeno {
+      display: inline-grid;
+      place-items: center;
+      width: 1.9em; height: 1.9em;
+      background: linear-gradient(135deg, var(--barva-akcent), var(--barva-akcent-stredni));
+      color: #fff;
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
+      font-weight: 800;
+      box-shadow: var(--stin-akcent);
+    }
+    .rejstrik-sekce__pocet {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--barva-text-slaby);
+    }
+
+    /* Mřížka pojmů – více sloupců přes celou šířku */
+    .pojmy-mrizka {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--mezera-2) var(--mezera-5);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .pojem-radek {
+      margin: 0;
+      padding: var(--mezera-2) var(--mezera-3);
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      transition: background var(--prechod-rychly), border-color var(--prechod-rychly);
+    }
+    .pojem-radek:hover {
+      background: var(--barva-plocha);
+      border-color: var(--barva-ram);
+    }
+    .pojem-odkaz {
+      font-weight: 600;
+      color: var(--barva-text);
+      border-bottom: 2px dotted var(--barva-akcent-stredni);
+    }
+    .pojem-odkaz::after {
+      content: "↗";
+      font-size: 0.7em;
+      vertical-align: super;
+      margin-left: 2px;
+      opacity: 0.6;
+      color: var(--barva-akcent);
+    }
+    .pojem-radek:hover .pojem-odkaz { color: var(--barva-akcent); text-decoration: none; }
+    .pojem-lekce {
+      display: block;
+      font-size: var(--text-xs);
+      color: var(--barva-text-tlumeny);
+      margin-top: 1px;
+    }
+
+    /* Stav „nic nenalezeno" */
+    .rejstrik-prazdno {
+      display: none;
+      padding: var(--mezera-6);
+      text-align: center;
+      color: var(--barva-text-tlumeny);
+      background: var(--barva-plocha);
+      border: 1px dashed var(--barva-ram-vyrazny);
+      border-radius: var(--radius-lg);
+    }
+    .rejstrik-prazdno strong { color: var(--barva-text); }
+
+    /* Nenápadné sdělení pro prohlížeče bez JS */
+    .rejstrik-nojs {
+      padding: var(--mezera-5);
+      background: var(--barva-pozor-svetla);
+      border: 1px solid color-mix(in srgb, var(--barva-pozor) 30%, transparent);
+      border-radius: var(--radius-md);
+      color: var(--barva-text);
+    }
+
+    @media (max-width: 640px) {
+      .rejstrik-ovladani { padding-top: var(--mezera-3); }
+      .pojmy-mrizka { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="index.html">Rozcestník</a>
+        <a href="rejstrik.html" aria-current="page">Rejstřík</a>
+        <a href="vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="obsah" class="obal">
+
+    <header class="stranka-hlavicka">
+      <span class="lekce-hlavicka__stitek">Rejstřík</span>
+      <h1>Rejstřík pojmů</h1>
+      <p>
+        Abecední přehled <span class="stranka-hlavicka__pocet" id="pocet-pojmu">všech</span>
+        klíčových pojmů ze skript. Kliknutím na pojem se v <strong>novém panelu</strong>
+        otevře příslušná lekce, odscroluje na jeho definici a na 10 sekund ji zvýrazní.
+        Pro rychlé hledání použijte pole níže nebo skoky podle abecedy.
+      </p>
+    </header>
+
+    <div class="rejstrik-ovladani">
+      <div class="filtr">
+        <span class="filtr__ikona" aria-hidden="true">🔍</span>
+        <input
+          type="search"
+          id="filtr-pole"
+          class="filtr__pole"
+          placeholder="Hledat pojem… (např. EVA, WACC, bod zvratu)"
+          aria-label="Filtrovat pojmy podle názvu"
+          autocomplete="off">
+      </div>
+      <nav aria-label="Abecední navigace">
+        <ul class="abeceda" id="abeceda"></ul>
+      </nav>
+    </div>
+
+    <noscript>
+      <p class="rejstrik-nojs">
+        Interaktivní rejstřík (vyhledávání a abecední skoky) vyžaduje zapnutý
+        JavaScript. Úplný seznam pojmů najdete přímo v jednotlivých lekcích.
+      </p>
+    </noscript>
+
+    <div id="rejstrik-seznam" aria-live="polite"></div>
+
+    <div class="rejstrik-prazdno" id="rejstrik-prazdno">
+      <p>Pro dotaz „<strong id="prazdno-dotaz"></strong>" nebyl nalezen žádný pojem.</p>
+      <p>Zkuste kratší nebo obecnější výraz.</p>
+    </div>
+
+  </main>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <!-- Vestavěná záložní data (fallback), aby stránka fungovala i bez serveru / přes file:// -->
+  <script id="data-rejstrik" type="application/json">[
+  {
+    "slug": "pojem-new-economy",
+    "nazev": "„New Economy\"",
+    "soubor": "t6-l4-souhrnne-srovnani.html",
+    "lekce": "6.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-abc-m",
+    "nazev": "ABC/M (Activity Based Cost/Management)",
+    "soubor": "t10-l3-vyuziti-bsc.html",
+    "lekce": "10.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-absolutni-ukazatele",
+    "nazev": "Absolutní ukazatele",
+    "soubor": "t3-l1-uvod-financni-analyza.html",
+    "lekce": "3.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-abb",
+    "nazev": "Activity-Based Budgeting (ABB)",
+    "soubor": "t11-l3-abc-abb-beyond-budgeting.html",
+    "lekce": "11.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-abc",
+    "nazev": "Activity-Based Costing (ABC)",
+    "soubor": "t7-l4-kryci-prispevek-abc.html",
+    "lekce": "7.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-abm",
+    "nazev": "Activity-Based Management (ABM)",
+    "soubor": "t7-l4-kryci-prispevek-abc.html",
+    "lekce": "7.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-aktivace-leasingu",
+    "nazev": "Aktivace leasingu",
+    "soubor": "t12-l7-eva-noa-nopat.html",
+    "lekce": "12.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-aktivace-nakladu",
+    "nazev": "Aktivace nákladů",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-alternativni-naklady-kapitalu",
+    "nazev": "Alternativní náklady kapitálu (náklad obětované příležitosti)",
+    "soubor": "t1-l2-valka-ukazatelu.html",
+    "lekce": "1.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-altmanuv-index",
+    "nazev": "Altmanův index důvěryhodnosti (Z-skóre)",
+    "soubor": "t12-l6-financni-analyza-3.html",
+    "lekce": "12.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vyuziti-majetku",
+    "nazev": "Analýza efektivnosti využití majetku",
+    "soubor": "t7-l6-vyuziti-majetku.html",
+    "lekce": "7.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-analyza-faktoru-tvorby-hodnoty",
+    "nazev": "Analýza faktorů tvorby hodnoty",
+    "soubor": "t12-l3-benchmarking-2.html",
+    "lekce": "12.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-analyza-rentability",
+    "nazev": "Analýza rentability",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-analyza-potencialu",
+    "nazev": "Analýza vnitřního a vnějšího potenciálu vývoje",
+    "soubor": "t11-l2-financni-plan-rizika.html",
+    "lekce": "11.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-balanced-scorecard",
+    "nazev": "Balanced Scorecard (BSC)",
+    "soubor": "t10-l1-bsc-perspektivy.html",
+    "lekce": "10.1",
+    "dalsi": [
+      "12.10"
+    ]
+  },
+  {
+    "slug": "pojem-bankrotni-model",
+    "nazev": "Bankrotní model",
+    "soubor": "t3-l5-souhrnne-ukazatele.html",
+    "lekce": "3.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-benchmark",
+    "nazev": "Benchmark",
+    "soubor": "t11-l1-benchmarking.html",
+    "lekce": "11.1",
+    "dalsi": [
+      "12.2"
+    ]
+  },
+  {
+    "slug": "pojem-benchmarking",
+    "nazev": "Benchmarking",
+    "soubor": "t11-l1-benchmarking.html",
+    "lekce": "11.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-benchmarkingova-studie",
+    "nazev": "Benchmarkingová studie",
+    "soubor": "t12-l2-benchmarking-1.html",
+    "lekce": "12.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-beyond-budgeting",
+    "nazev": "Beyond Budgeting",
+    "soubor": "t11-l3-abc-abb-beyond-budgeting.html",
+    "lekce": "11.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bezrizikova-urokova-mira",
+    "nazev": "Bezriziková úroková míra (rf",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bezrizikova-vynosnost",
+    "nazev": "Bezriziková výnosnost",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bezna-likvidita",
+    "nazev": "Běžná likvidita (likvidita III. stupně)",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-blue-chips",
+    "nazev": "Blue chips",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bod-indiference",
+    "nazev": "Bod indiference kapitálové struktury",
+    "soubor": "t9-l4-kapitalova-struktura.html",
+    "lekce": "9.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bod-zvratu",
+    "nazev": "Bod zvratu (break-even point)",
+    "soubor": "t7-l3-bod-zvratu-provozni-paka.html",
+    "lekce": "7.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bonitni-model",
+    "nazev": "Bonitní model",
+    "soubor": "t3-l5-souhrnne-ukazatele.html",
+    "lekce": "3.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bonusova-banka",
+    "nazev": "Bonusová banka (bonus bank)",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-eva-bonusovy-system",
+    "nazev": "Bonusový systém EVA",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-brutto-cash-flow",
+    "nazev": "Brutto cash flow (BCF)",
+    "soubor": "t6-l2-cfroi.html",
+    "lekce": "6.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-brutto-investice",
+    "nazev": "Brutto investice",
+    "soubor": "t6-l2-cfroi.html",
+    "lekce": "6.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-bsc-strategicky-system",
+    "nazev": "BSC jako strategický systém řízení",
+    "soubor": "t10-l3-vyuziti-bsc.html",
+    "lekce": "10.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-business-intelligence",
+    "nazev": "Business Intelligence (BI)",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-business-navigation",
+    "nazev": "Business Navigation",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-capm",
+    "nazev": "CAPM (model oceňování kapitálových aktiv)",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": [
+      "12.8"
+    ]
+  },
+  {
+    "slug": "pojem-cash-flow",
+    "nazev": "Cash flow",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-celkova-zadluzenost",
+    "nazev": "Celková zadluženost",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": [
+      "12.5"
+    ]
+  },
+  {
+    "slug": "pojem-cenova-elasticita-poptavky",
+    "nazev": "Cenová elasticita poptávky",
+    "soubor": "t7-l3-bod-zvratu-provozni-paka.html",
+    "lekce": "7.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cfroi-fade",
+    "nazev": "CFROI fade (konkurenční životní cyklus)",
+    "soubor": "t6-l2-cfroi.html",
+    "lekce": "6.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cfroi-spread",
+    "nazev": "CFROI spread",
+    "soubor": "t6-l2-cfroi.html",
+    "lekce": "6.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-citlivostni-analyza",
+    "nazev": "Citlivostní analýza",
+    "soubor": "t12-l9-generatory-citlivost.html",
+    "lekce": "12.9",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-controlling",
+    "nazev": "Controlling",
+    "soubor": "t7-l3-bod-zvratu-provozni-paka.html",
+    "lekce": "7.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cost-drivers",
+    "nazev": "Cost drivers (vztahové veličiny)",
+    "soubor": "t7-l4-kryci-prispevek-abc.html",
+    "lekce": "7.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cpm",
+    "nazev": "CPM (Corporate Performance Management)",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-crm",
+    "nazev": "CRM (Customer Relationship Management)",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-croga",
+    "nazev": "CROGA (Cash Return on Gross Assets)",
+    "soubor": "t6-l3-cfroi-tbr-croga.html",
+    "lekce": "6.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cva",
+    "nazev": "CVA (Cash Value Added)",
+    "soubor": "t5-l3-nopat-naklady-kapital.html",
+    "lekce": "5.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cz-nace",
+    "nazev": "CZ-NACE",
+    "soubor": "t12-l1-makro-odvetvi.html",
+    "lekce": "12.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-casova-hodnota-penez",
+    "nazev": "Časová hodnota peněz",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cista-monetarni-aktiva",
+    "nazev": "Čistá monetární aktiva",
+    "soubor": "t6-l2-cfroi.html",
+    "lekce": "6.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-noa",
+    "nazev": "Čistá operativní aktiva (NOA)",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": [
+      "12.7"
+    ]
+  },
+  {
+    "slug": "pojem-cista-soucasna-hodnota",
+    "nazev": "Čistá současná hodnota (NPV)",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-npv",
+    "nazev": "Čistá současná hodnota (NPV)",
+    "soubor": "t4-l1-dcf-npv-irr.html",
+    "lekce": "4.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ciste-investice",
+    "nazev": "Čisté investice",
+    "soubor": "t6-l1-sva.html",
+    "lekce": "6.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-cisty-pracovni-kapital",
+    "nazev": "Čistý pracovní kapitál (ČPK)",
+    "soubor": "t3-l1-uvod-financni-analyza.html",
+    "lekce": "3.1",
+    "dalsi": [
+      "12.4"
+    ]
+  },
+  {
+    "slug": "pojem-eat",
+    "nazev": "Čistý zisk – EAT (Earnings After Taxes)",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-danovy-stit",
+    "nazev": "Daňový štít",
+    "soubor": "t5-l3-nopat-naklady-kapital.html",
+    "lekce": "5.3",
+    "dalsi": [
+      "9.1",
+      "12.8"
+    ]
+  },
+  {
+    "slug": "pojem-deflator-hdp",
+    "nazev": "Deflátor HDP",
+    "soubor": "t12-l1-makro-odvetvi.html",
+    "lekce": "12.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-diagnosticka-meritka",
+    "nazev": "Diagnostická (nestrategická) měřítka",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-dcf",
+    "nazev": "Diskontované cash flow (DCF)",
+    "soubor": "t4-l1-dcf-npv-irr.html",
+    "lekce": "4.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-diskontovani",
+    "nazev": "Diskontování",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-dividendova-politika",
+    "nazev": "Dividendová politika",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-dividendovy-model",
+    "nazev": "Dividendový model",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-dividendovy-vynos",
+    "nazev": "Dividendový výnos",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-dluhopisy",
+    "nazev": "Dluhopisy (včetně zerobondů a věčné renty)",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-doba-ekonomicke-zivotnosti",
+    "nazev": "Doba ekonomické životnosti",
+    "soubor": "t6-l2-cfroi.html",
+    "lekce": "6.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-doba-navratnosti",
+    "nazev": "Doba návratnosti",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-doba-navratnosti-uveru",
+    "nazev": "Doba návratnosti úvěru",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-doba-obratu-pohledavek",
+    "nazev": "Doba obratu (splatnosti) pohledávek",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-doba-obratu-zasob",
+    "nazev": "Doba obratu zásob",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-doba-obratu-zavazku",
+    "nazev": "Doba obratu závazků",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-doba-splaceni-dluhu",
+    "nazev": "Doba splácení dluhů",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-druhotna-platebni-neschopnost",
+    "nazev": "Druhotná platební neschopnost",
+    "soubor": "t8-l3-pohledavky-penize.html",
+    "lekce": "8.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-dupontuv-rozklad",
+    "nazev": "DuPontův rozklad",
+    "soubor": "t3-l6-dupont-soustavy.html",
+    "lekce": "3.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-dvoufazova-metoda",
+    "nazev": "Dvoufázová metoda",
+    "soubor": "t12-l12-oceneni-eva.html",
+    "lekce": "12.12",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-efekt-financni-paky",
+    "nazev": "Efekt finanční páky",
+    "soubor": "t12-l5-financni-analyza-2.html",
+    "lekce": "12.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-efektivni-urok-skonta",
+    "nazev": "Efektivní úrok skonta",
+    "soubor": "t8-l3-pohledavky-penize.html",
+    "lekce": "8.3",
+    "dalsi": [
+      "8.4"
+    ]
+  },
+  {
+    "slug": "pojem-efqm-excellence-model",
+    "nazev": "EFQM Excellence Model",
+    "soubor": "t10-l3-vyuziti-bsc.html",
+    "lekce": "10.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-eva",
+    "nazev": "Ekonomická přidaná hodnota (EVA)",
+    "soubor": "t5-l1-podstata-eva.html",
+    "lekce": "5.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ekonomicky-zisk",
+    "nazev": "Ekonomický zisk (mimořádný zisk, nadzisk)",
+    "soubor": "t1-l2-valka-ukazatelu.html",
+    "lekce": "1.2",
+    "dalsi": [
+      "5.1"
+    ]
+  },
+  {
+    "slug": "pojem-ekvivalenty-vlastniho-kapitalu",
+    "nazev": "Ekvivalenty vlastního kapitálu",
+    "soubor": "t12-l7-eva-noa-nopat.html",
+    "lekce": "12.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-erp",
+    "nazev": "ERP (Enterprise Resource Planning)",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-excess-return",
+    "nazev": "Excess Return",
+    "soubor": "t4-l2-trzni-meritka.html",
+    "lekce": "4.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-faktoring",
+    "nazev": "Faktoring",
+    "soubor": "t8-l4-kratkodobe-zdroje.html",
+    "lekce": "8.4",
+    "dalsi": [
+      "9.5"
+    ]
+  },
+  {
+    "slug": "pojem-financni-nefinancni-generatory",
+    "nazev": "Finanční a nefinanční generátory",
+    "soubor": "t7-l1-generatory-hodnoty.html",
+    "lekce": "7.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-financni-analyza",
+    "nazev": "Finanční analýza",
+    "soubor": "t3-l1-uvod-financni-analyza.html",
+    "lekce": "3.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-financni-leasing",
+    "nazev": "Finanční leasing",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-financni-paka",
+    "nazev": "Finanční páka",
+    "soubor": "t9-l4-kapitalova-struktura.html",
+    "lekce": "9.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-financni-perspektiva",
+    "nazev": "Finanční perspektiva",
+    "soubor": "t10-l1-bsc-perspektivy.html",
+    "lekce": "10.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-financni-plan",
+    "nazev": "Finanční plán",
+    "soubor": "t11-l2-financni-plan-rizika.html",
+    "lekce": "11.2",
+    "dalsi": [
+      "12.11"
+    ]
+  },
+  {
+    "slug": "pojem-financni-riziko",
+    "nazev": "Finanční riziko",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-financni-struktura",
+    "nazev": "Finanční struktura",
+    "soubor": "t9-l4-kapitalova-struktura.html",
+    "lekce": "9.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-fixni-naklady",
+    "nazev": "Fixní náklady",
+    "soubor": "t7-l3-bod-zvratu-provozni-paka.html",
+    "lekce": "7.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-flexibilni-zdroje",
+    "nazev": "Flexibilní zdroje",
+    "soubor": "t11-l3-abc-abb-beyond-budgeting.html",
+    "lekce": "11.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-forfaiting",
+    "nazev": "Forfaiting",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-funkcionalni-metoda",
+    "nazev": "Funkcionální metoda rozkladu",
+    "soubor": "t12-l9-generatory-citlivost.html",
+    "lekce": "12.9",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-generatory-hodnoty",
+    "nazev": "Generátory hodnoty (value drivers)",
+    "soubor": "t7-l1-generatory-hodnoty.html",
+    "lekce": "7.1",
+    "dalsi": [
+      "12.9"
+    ]
+  },
+  {
+    "slug": "pojem-going-concern",
+    "nazev": "Going concern",
+    "soubor": "t11-l5-trzni-majetkove-metody.html",
+    "lekce": "11.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-goodwill",
+    "nazev": "Goodwill",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-gordonuv-model",
+    "nazev": "Gordonův růstový model",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-hodnota-podniku",
+    "nazev": "Hodnota podniku",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rustove-prilezitosti",
+    "nazev": "Hodnota současných obchodů a budoucího růstu",
+    "soubor": "t5-l5-eva-investice-oceneni.html",
+    "lekce": "5.5",
+    "dalsi": [
+      "7.1",
+      "11.5"
+    ]
+  },
+  {
+    "slug": "pojem-hodnota-vlastniho-kapitalu",
+    "nazev": "Hodnota vlastního kapitálu (VK)",
+    "soubor": "t12-l12-oceneni-eva.html",
+    "lekce": "12.12",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-hodnotova-rezerva",
+    "nazev": "Hodnotová rezerva",
+    "soubor": "t11-l1-benchmarking.html",
+    "lekce": "11.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-hotovostni-cyklus",
+    "nazev": "Hotovostní cyklus",
+    "soubor": "t8-l2-cpk-zasoby.html",
+    "lekce": "8.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-hruba-aktiva",
+    "nazev": "Hrubá (brutto) aktiva – GA",
+    "soubor": "t6-l3-cfroi-tbr-croga.html",
+    "lekce": "6.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-hybne-sily",
+    "nazev": "Hybné síly (hybatelé)",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-in01",
+    "nazev": "Index IN01",
+    "soubor": "t12-l6-financni-analyza-3.html",
+    "lekce": "12.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-index-ziskovosti",
+    "nazev": "Index ziskovosti (IZ",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-indexy-in",
+    "nazev": "Indexy IN",
+    "soubor": "t3-l5-souhrnne-ukazatele.html",
+    "lekce": "3.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-interni-externi-zdroje",
+    "nazev": "Interní a externí zdroje financování",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-interni-hodnotovy-retezec",
+    "nazev": "Interní hodnotový řetězec",
+    "soubor": "t10-l1-bsc-perspektivy.html",
+    "lekce": "10.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-investicni-kalkulace-eva",
+    "nazev": "Investiční kalkulace na bázi EVA",
+    "soubor": "t5-l5-eva-investice-oceneni.html",
+    "lekce": "5.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-investovany-kapital",
+    "nazev": "Investovaný kapitál C (NOA)",
+    "soubor": "t5-l1-podstata-eva.html",
+    "lekce": "5.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-is-ict",
+    "nazev": "IS/ICT",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-iteracni-postup",
+    "nazev": "Iterační postup určení struktury kapitálu",
+    "soubor": "t9-l3-wacc.html",
+    "lekce": "9.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-just-in-time",
+    "nazev": "Just-in-time (JIT)",
+    "soubor": "t8-l2-cpk-zasoby.html",
+    "lekce": "8.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kapitalova-struktura",
+    "nazev": "Kapitálová struktura",
+    "soubor": "t9-l4-kapitalova-struktura.html",
+    "lekce": "9.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kapitalove-fondy",
+    "nazev": "Kapitálové fondy (emisní ážio a ostatní)",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kapitalovy-vydaj",
+    "nazev": "Kapitálový výdaj",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kaskadovani-bsc",
+    "nazev": "Kaskádování BSC",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kaskadovani-meritek",
+    "nazev": "Kaskádování měřítek",
+    "soubor": "t11-l7-desatero.html",
+    "lekce": "11.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kategorie-zisku",
+    "nazev": "Kategorie zisku (ČZ, EBT, EBIT, EBITDA)",
+    "soubor": "t12-l4-financni-analyza-1.html",
+    "lekce": "12.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-klasicka-meritka-vykonnosti",
+    "nazev": "Klasická měřítka výkonnosti",
+    "soubor": "t12-l6-financni-analyza-3.html",
+    "lekce": "12.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-klasicke-ukazatele",
+    "nazev": "Klasické (tradiční) ukazatele",
+    "soubor": "t1-l2-valka-ukazatelu.html",
+    "lekce": "1.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-klastr",
+    "nazev": "Klastr (Porter)",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-klicova-diagnosticka-meritka",
+    "nazev": "Klíčová a diagnostická měřítka",
+    "soubor": "t11-l7-desatero.html",
+    "lekce": "11.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-klouzavy-princip",
+    "nazev": "Klouzavý princip plánování",
+    "soubor": "t11-l2-financni-plan-rizika.html",
+    "lekce": "11.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-druhy-akcii",
+    "nazev": "Kmenové, preferenční a zaměstnanecké akcie",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-beta",
+    "nazev": "Koeficient β",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-6-m",
+    "nazev": "Koncept 6 M",
+    "soubor": "t5-l7-zhodnoceni-eva.html",
+    "lekce": "5.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-konkurenceschopnost-v-cenach",
+    "nazev": "Konkurenceschopnost v cenách",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-konkurenceschopnost-v-nakladech",
+    "nazev": "Konkurenceschopnost v nákladech",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-konkurencni-vyhoda",
+    "nazev": "Konkurenční výhoda",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-konsignacni-sklad",
+    "nazev": "Konsignační sklad",
+    "soubor": "t8-l2-cpk-zasoby.html",
+    "lekce": "8.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-konverze-ucetniho-modelu",
+    "nazev": "Konverze účetního modelu na ekonomický",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-korelace-s-eva",
+    "nazev": "Korelace ukazatele s EVA",
+    "soubor": "t12-l3-benchmarking-2.html",
+    "lekce": "12.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kpi",
+    "nazev": "KPI (Key Performance Indicators)",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kratkodoby-bankovni-uver",
+    "nazev": "Krátkodobý bankovní úvěr",
+    "soubor": "t8-l4-kratkodobe-zdroje.html",
+    "lekce": "8.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kriticke-faktory-uspechu",
+    "nazev": "Kritické faktory úspěchu",
+    "soubor": "t7-l1-generatory-hodnoty.html",
+    "lekce": "7.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kriticke-parametry-kvality",
+    "nazev": "Kritické parametry kvality (CTQ)",
+    "soubor": "t10-l3-vyuziti-bsc.html",
+    "lekce": "10.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-kryti-dlouhodobeho-majetku",
+    "nazev": "Krytí dlouhodobého majetku",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-likvidita",
+    "nazev": "Likvidita (běžná, pohotová, hotovostní)",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": [
+      "12.5"
+    ]
+  },
+  {
+    "slug": "pojem-likvidita-z-cash-flow",
+    "nazev": "Likvidita z cash flow",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-linearni-interpolace",
+    "nazev": "Lineární interpolace (výpočet IRR)",
+    "soubor": "t4-l1-dcf-npv-irr.html",
+    "lekce": "4.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-makroekonomicka-analyza",
+    "nazev": "Makroekonomická analýza",
+    "soubor": "t12-l1-makro-odvetvi.html",
+    "lekce": "12.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-manazerske-opce",
+    "nazev": "Manažerské opce",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-manazerske-ucetnictvi",
+    "nazev": "Manažerské účetnictví",
+    "soubor": "t7-l3-bod-zvratu-provozni-paka.html",
+    "lekce": "7.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-maximalizace-hodnoty",
+    "nazev": "Maximalizace hodnoty",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-meritko",
+    "nazev": "Měřítko (v BSC)",
+    "soubor": "t12-l10-bsc-strategicka-mapa.html",
+    "lekce": "12.10",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-entity-equity",
+    "nazev": "Metoda „entity\" a „equity\"",
+    "soubor": "t11-l4-oceneni-vynosove.html",
+    "lekce": "11.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-metody-trzniho-porovnani",
+    "nazev": "Metody tržního porovnání",
+    "soubor": "t11-l5-trzni-majetkove-metody.html",
+    "lekce": "11.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-mezni-naklady-kapitalu",
+    "nazev": "Mezní průměrné náklady kapitálu",
+    "soubor": "t9-l3-wacc.html",
+    "lekce": "9.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-mira-zadluzenosti",
+    "nazev": "Míra zadluženosti (finanční páka)",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-mis",
+    "nazev": "MIS (Management Information Systems)",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-apt",
+    "nazev": "Model arbitrážního oceňování (APT)",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-porterovych-pet-sil",
+    "nazev": "Model Porterových pěti sil",
+    "soubor": "t11-l2-financni-plan-rizika.html",
+    "lekce": "11.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-moderni-ukazatele",
+    "nazev": "Moderní ukazatele",
+    "soubor": "t1-l2-valka-ukazatelu.html",
+    "lekce": "1.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-motivy-drzby-penez",
+    "nazev": "Motivy držby peněz",
+    "soubor": "t8-l3-pohledavky-penize.html",
+    "lekce": "8.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-multinacionalni-spolecnost",
+    "nazev": "Multinacionální společnost (MNS)",
+    "soubor": "t9-l3-wacc.html",
+    "lekce": "9.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-multiplikator",
+    "nazev": "Multiplikátor (tržní faktor), P/E",
+    "soubor": "t11-l5-trzni-majetkove-metody.html",
+    "lekce": "11.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-multiplikator-jmeni-vlastniku",
+    "nazev": "Multiplikátor jmění vlastníků (ziskový účinek finanční páky)",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-multiplikator-vlastniho-kapitalu",
+    "nazev": "Multiplikátor vlastního kapitálu",
+    "soubor": "t12-l5-financni-analyza-2.html",
+    "lekce": "12.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-mva-soucasna-hodnota-eva",
+    "nazev": "MVA jako současná hodnota budoucích EVA",
+    "soubor": "t5-l4-eva-v-praxi.html",
+    "lekce": "5.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-naklad-obetovane-prilezitosti",
+    "nazev": "Náklad obětované příležitosti",
+    "soubor": "t2-l2-rentabilita-kritika.html",
+    "lekce": "2.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-nakladovost",
+    "nazev": "Nákladovost",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-naklady-financni-tisne",
+    "nazev": "Náklady finanční tísně",
+    "soubor": "t9-l3-wacc.html",
+    "lekce": "9.3",
+    "dalsi": [
+      "9.4"
+    ]
+  },
+  {
+    "slug": "pojem-naklady-cizi-kapital",
+    "nazev": "Náklady na cizí kapitál (NCK",
+    "soubor": "t5-l3-nopat-naklady-kapital.html",
+    "lekce": "5.3",
+    "dalsi": [
+      "9.1",
+      "12.8"
+    ]
+  },
+  {
+    "slug": "pojem-naklady-na-kapital",
+    "nazev": "Náklady na kapitál",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-naklady-vlastni-kapital",
+    "nazev": "Náklady na vlastní kapitál (re",
+    "soubor": "t5-l3-nopat-naklady-kapital.html",
+    "lekce": "5.3",
+    "dalsi": [
+      "9.2",
+      "12.8"
+    ]
+  },
+  {
+    "slug": "pojem-neoperativni-aktiva",
+    "nazev": "Neoperativní aktiva",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": [
+      "6.1",
+      "12.7"
+    ]
+  },
+  {
+    "slug": "pojem-neprima-metoda",
+    "nazev": "Nepřímá metoda",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-nerozdeleny-zisk",
+    "nazev": "Nerozdělený zisk a další interní zdroje",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-nesystematicke-riziko",
+    "nazev": "Nesystematické (specifické, jedinečné) riziko",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-neuroceny-cizi-kapital",
+    "nazev": "Neúročený cizí kapitál",
+    "soubor": "t12-l7-eva-noa-nopat.html",
+    "lekce": "12.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-nopat",
+    "nazev": "NOPAT",
+    "soubor": "t5-l1-podstata-eva.html",
+    "lekce": "5.1",
+    "dalsi": [
+      "5.3",
+      "12.7"
+    ]
+  },
+  {
+    "slug": "pojem-obchodni-uver",
+    "nazev": "Obchodní úvěr",
+    "soubor": "t8-l4-kratkodobe-zdroje.html",
+    "lekce": "8.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-obrat-aktiv",
+    "nazev": "Obrat aktiv",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": [
+      "7.2"
+    ]
+  },
+  {
+    "slug": "pojem-cfroi",
+    "nazev": "Ocenění na bázi CFROI",
+    "soubor": "t6-l2-cfroi.html",
+    "lekce": "6.2",
+    "dalsi": [
+      "11.4"
+    ]
+  },
+  {
+    "slug": "pojem-oceneni-eva",
+    "nazev": "Ocenění na bázi EVA",
+    "soubor": "t11-l4-oceneni-vynosove.html",
+    "lekce": "11.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-oceneni-vynosova-metoda-eva",
+    "nazev": "Ocenění podniku výnosovou metodou na bázi EVA",
+    "soubor": "t12-l12-oceneni-eva.html",
+    "lekce": "12.12",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ocenovaci-rozdily",
+    "nazev": "Oceňovací rozdíly a dodatečné odpisy",
+    "soubor": "t12-l7-eva-noa-nopat.html",
+    "lekce": "12.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ocenovani-podniku",
+    "nazev": "Oceňování podniku",
+    "soubor": "t11-l4-oceneni-vynosove.html",
+    "lekce": "11.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-oze",
+    "nazev": "Očekávané zlepšení EVA (OZE)",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-odepsanost-aktiv",
+    "nazev": "Odepsanost (opotřebení) aktiv",
+    "soubor": "t7-l6-vyuziti-majetku.html",
+    "lekce": "7.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-odmenovani-bsc",
+    "nazev": "Odměňování a BSC",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-hotovostni-likvidita",
+    "nazev": "Okamžitá / hotovostní likvidita (likvidita I. stupně)",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-okec",
+    "nazev": "OKEČ",
+    "soubor": "t12-l1-makro-odvetvi.html",
+    "lekce": "12.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-olap",
+    "nazev": "OLAP",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-operativni-leasing",
+    "nazev": "Operativní leasing",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-optimalni-kapitalova-struktura",
+    "nazev": "Optimální kapitálová struktura",
+    "soubor": "t9-l4-kapitalova-struktura.html",
+    "lekce": "9.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-optimalni-objednavka",
+    "nazev": "Optimální velikost objednávky (EOQ)",
+    "soubor": "t8-l2-cpk-zasoby.html",
+    "lekce": "8.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-osobni-scorecard",
+    "nazev": "Osobní scorecard",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-outsourcing",
+    "nazev": "Outsourcing",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pbv",
+    "nazev": "P/BV ratio",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pe-ratio",
+    "nazev": "P/E ratio",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pasiva-nenesouci-naklad",
+    "nazev": "Pasiva nenesoucí náklad",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-perspektiva-internich-procesu",
+    "nazev": "Perspektiva interních procesů",
+    "soubor": "t10-l1-bsc-perspektivy.html",
+    "lekce": "10.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-perspektiva-uceni-a-rustu",
+    "nazev": "Perspektiva učení se a růstu",
+    "soubor": "t10-l1-bsc-perspektivy.html",
+    "lekce": "10.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-perspektivy-bsc",
+    "nazev": "Perspektivy BSC",
+    "soubor": "t12-l10-bsc-strategicka-mapa.html",
+    "lekce": "12.10",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pest-analyza",
+    "nazev": "PEST analýza",
+    "soubor": "t11-l2-financni-plan-rizika.html",
+    "lekce": "11.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-plan-cash-flow",
+    "nazev": "Plán cash flow (peněžních toků)",
+    "soubor": "t12-l11-financni-plan.html",
+    "lekce": "12.11",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-planova-rozvaha",
+    "nazev": "Plánová rozvaha",
+    "soubor": "t12-l11-financni-plan.html",
+    "lekce": "12.11",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-nevyuzita-kapacita",
+    "nazev": "Plánovaná a neplánovaná nevyužitá kapacita",
+    "soubor": "t11-l3-abc-abb-beyond-budgeting.html",
+    "lekce": "11.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-planovy-vykaz-zisku-ztraty",
+    "nazev": "Plánový výkaz zisku a ztráty",
+    "soubor": "t12-l11-financni-plan.html",
+    "lekce": "12.11",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-platebni-kalendar",
+    "nazev": "Platební kalendář",
+    "soubor": "t8-l3-pohledavky-penize.html",
+    "lekce": "8.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pobidkovy-system",
+    "nazev": "Pobídkový systém",
+    "soubor": "t11-l7-desatero.html",
+    "lekce": "11.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-podil-cpk-na-oa",
+    "nazev": "Podíl čistého pracovního kapitálu na oběžných aktivech",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-podkapitalizovani",
+    "nazev": "Podkapitalizování",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-podnik-plast",
+    "nazev": "Podnik PLAST, s.r.o. (skupina PLASTIKO)",
+    "soubor": "t12-l4-financni-analyza-1.html",
+    "lekce": "12.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pohotova-likvidita",
+    "nazev": "Pohotová likvidita (likvidita II. stupně)",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pokracujici-hodnota",
+    "nazev": "Pokračující hodnota",
+    "soubor": "t11-l4-oceneni-vynosove.html",
+    "lekce": "11.4",
+    "dalsi": [
+      "11.5",
+      "12.12"
+    ]
+  },
+  {
+    "slug": "pojem-pomerove-ukazatele",
+    "nazev": "Poměrové ukazatele",
+    "soubor": "t3-l1-uvod-financni-analyza.html",
+    "lekce": "3.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-poradenske-firmy",
+    "nazev": "Poradenské (konzultační) firmy",
+    "soubor": "t1-l2-valka-ukazatelu.html",
+    "lekce": "1.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-portfoliove-investice",
+    "nazev": "Portfoliové investice",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pozicni-graf",
+    "nazev": "Poziční (bublinový) graf podniků",
+    "soubor": "t12-l3-benchmarking-2.html",
+    "lekce": "12.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pracovni-kapital",
+    "nazev": "Pracovní kapitál",
+    "soubor": "t8-l2-cpk-zasoby.html",
+    "lekce": "8.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-prodej-zpetny-pronajem",
+    "nazev": "Prodej a zpětný pronájem",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-produktivita-prace",
+    "nazev": "Produktivita práce",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": [
+      "12.5"
+    ]
+  },
+  {
+    "slug": "pojem-provazanost-vykazu",
+    "nazev": "Provázanost plánových výkazů",
+    "soubor": "t12-l11-financni-plan.html",
+    "lekce": "12.11",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-provozni-paka",
+    "nazev": "Provozní (operační) páka",
+    "soubor": "t7-l3-bod-zvratu-provozni-paka.html",
+    "lekce": "7.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-provozni-cash-flow",
+    "nazev": "Provozní cash flow",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-provozni-riziko",
+    "nazev": "Provozní riziko",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-prekapitalizovani",
+    "nazev": "Překapitalizování",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pridana-hodnota",
+    "nazev": "Přidaná hodnota",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-prima-metoda",
+    "nazev": "Přímá metoda",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-prirustek-eva",
+    "nazev": "Přírůstek EVA (ΔEVA)",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pristkove-penezni-toky",
+    "nazev": "Přírůstkový peněžní tok",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-prispevek-na-uhradu",
+    "nazev": "Příspěvek na úhradu (krycí příspěvek)",
+    "soubor": "t7-l4-kryci-prispevek-abc.html",
+    "lekce": "7.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pyramidova-soustava",
+    "nazev": "Pyramidová soustava ukazatelů",
+    "soubor": "t3-l6-dupont-soustavy.html",
+    "lekce": "3.6",
+    "dalsi": [
+      "7.2"
+    ]
+  },
+  {
+    "slug": "pojem-pyramidovy-rozklad-eva",
+    "nazev": "Pyramidový rozklad EVA",
+    "soubor": "t12-l9-generatory-citlivost.html",
+    "lekce": "12.9",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rating",
+    "nazev": "Rating (riziková třída)",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-realne-opce",
+    "nazev": "Reálné opce",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-roa",
+    "nazev": "Rentabilita aktiv – ROA (Return on Assets)",
+    "soubor": "t2-l2-rentabilita-kritika.html",
+    "lekce": "2.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-roi",
+    "nazev": "Rentabilita investovaného kapitálu – ROI (Return on Investment)",
+    "soubor": "t2-l2-rentabilita-kritika.html",
+    "lekce": "2.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ros",
+    "nazev": "Rentabilita tržeb – ROS (Return on Sales)",
+    "soubor": "t2-l2-rentabilita-kritika.html",
+    "lekce": "2.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-roe",
+    "nazev": "Rentabilita vlastního kapitálu – ROE (Return on Equity)",
+    "soubor": "t2-l2-rentabilita-kritika.html",
+    "lekce": "2.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-reva",
+    "nazev": "REVA (Refined EVA)",
+    "soubor": "t5-l3-nopat-naklady-kapital.html",
+    "lekce": "5.3",
+    "dalsi": [
+      "5.4"
+    ]
+  },
+  {
+    "slug": "pojem-rezidualni-hodnota",
+    "nazev": "Reziduální (zbytková) hodnota podniku",
+    "soubor": "t6-l1-sva.html",
+    "lekce": "6.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rezidualni-zisk",
+    "nazev": "Reziduální zisk (RI – Residual Income)",
+    "soubor": "t5-l3-nopat-naklady-kapital.html",
+    "lekce": "5.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rezie",
+    "nazev": "Režie (režijní náklady)",
+    "soubor": "t7-l4-kryci-prispevek-abc.html",
+    "lekce": "7.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-riziko",
+    "nazev": "Riziko",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rizikova-premie",
+    "nazev": "Riziková prémie",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rizikova-premie-trhu",
+    "nazev": "Riziková prémie trhu",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-venture-kapital",
+    "nazev": "Rizikový (venture) kapitál",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rolujici-prognozy",
+    "nazev": "Rolující (klouzavé) prognózy",
+    "soubor": "t11-l3-abc-abb-beyond-budgeting.html",
+    "lekce": "11.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rona",
+    "nazev": "RONA",
+    "soubor": "t5-l1-podstata-eva.html",
+    "lekce": "5.1",
+    "dalsi": [
+      "7.2"
+    ]
+  },
+  {
+    "slug": "pojem-rozdilove-ukazatele",
+    "nazev": "Rozdílové ukazatele",
+    "soubor": "t3-l1-uvod-financni-analyza.html",
+    "lekce": "3.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rozvrhova-zaklada",
+    "nazev": "Rozvrhová základna",
+    "soubor": "t7-l4-kryci-prispevek-abc.html",
+    "lekce": "7.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-pricinne-vazby",
+    "nazev": "Řetězec příčinných vazeb",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-retezec-zvysovani-hodnoty",
+    "nazev": "Řetězec zvyšování hodnoty",
+    "soubor": "t6-l4-souhrnne-srovnani.html",
+    "lekce": "6.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ridici-skupina",
+    "nazev": "Řídicí skupina",
+    "soubor": "t5-l7-zhodnoceni-eva.html",
+    "lekce": "5.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rizeni-hodnoty",
+    "nazev": "Řízení hodnoty (Value Based Management, VBM)",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rizeni-pohledavek",
+    "nazev": "Řízení pohledávek",
+    "soubor": "t8-l3-pohledavky-penize.html",
+    "lekce": "8.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rizeni-rizik",
+    "nazev": "Řízení rizik",
+    "soubor": "t11-l2-financni-plan-rizika.html",
+    "lekce": "11.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-scm",
+    "nazev": "SCM (Supply Chain Management)",
+    "soubor": "t11-l6-is-ict.html",
+    "lekce": "11.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-selection-bias",
+    "nazev": "Selection bias (chyba výběru)",
+    "soubor": "t11-l1-benchmarking.html",
+    "lekce": "11.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-shareholder-value",
+    "nazev": "Shareholder value (hodnota pro akcionáře)",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": [
+      "6.1"
+    ]
+  },
+  {
+    "slug": "pojem-sva",
+    "nazev": "Shareholder Value Added (SVA)",
+    "soubor": "t6-l1-sva.html",
+    "lekce": "6.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-signalni-teorie",
+    "nazev": "Signální teorie",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-simulace-generatoru-hodnoty",
+    "nazev": "Simulace generátorů hodnoty",
+    "soubor": "t12-l12-oceneni-eva.html",
+    "lekce": "12.12",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-six-sigma",
+    "nazev": "Six Sigma",
+    "soubor": "t10-l3-vyuziti-bsc.html",
+    "lekce": "10.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-skonto",
+    "nazev": "Skonto",
+    "soubor": "t8-l3-pohledavky-penize.html",
+    "lekce": "8.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-hodnota-bohatstvi",
+    "nazev": "Skutečná a očekávaná hodnota bohatství",
+    "soubor": "t4-l2-trzni-meritka.html",
+    "lekce": "4.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-sladeni-cilu",
+    "nazev": "Sladění cílů vlastníků a manažerů",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-soucasna-hodnota",
+    "nazev": "Současná hodnota (PV)",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-souhrnne-ukazatele",
+    "nazev": "Souhrnné ukazatele",
+    "soubor": "t3-l5-souhrnne-ukazatele.html",
+    "lekce": "3.5",
+    "dalsi": [
+      "12.6"
+    ]
+  },
+  {
+    "slug": "pojem-soustavy-pomerovych-ukazatelu",
+    "nazev": "Soustavy poměrových ukazatelů",
+    "soubor": "t3-l6-dupont-soustavy.html",
+    "lekce": "3.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-spider-analyza",
+    "nazev": "SPIDER analýza (paprskový graf)",
+    "soubor": "t12-l6-financni-analyza-3.html",
+    "lekce": "12.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-spread",
+    "nazev": "Spread (RONA − WACC)",
+    "soubor": "t5-l1-podstata-eva.html",
+    "lekce": "5.1",
+    "dalsi": [
+      "7.2"
+    ]
+  },
+  {
+    "slug": "pojem-stakeholder-value",
+    "nazev": "Stakeholder value (hodnota pro zainteresované strany)",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-stavebnicovy-model",
+    "nazev": "Stavebnicový model",
+    "soubor": "t9-l2-capm.html",
+    "lekce": "9.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-stavebnicovy-model-mpo",
+    "nazev": "Stavebnicový model MPO (náklady na vlastní kapitál)",
+    "soubor": "t12-l3-benchmarking-2.html",
+    "lekce": "12.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-strategicka-mapa",
+    "nazev": "Strategická mapa",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": [
+      "12.10"
+    ]
+  },
+  {
+    "slug": "pojem-sbu",
+    "nazev": "Strategické podnikatelské jednotky (SBU)",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-strategicke-tema",
+    "nazev": "Strategické téma",
+    "soubor": "t12-l10-bsc-strategicka-mapa.html",
+    "lekce": "12.10",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-substancni-hodnota",
+    "nazev": "Substanční hodnota",
+    "soubor": "t11-l5-trzni-majetkove-metody.html",
+    "lekce": "11.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-swot-analyza",
+    "nazev": "SWOT analýza",
+    "soubor": "t11-l2-financni-plan-rizika.html",
+    "lekce": "11.2",
+    "dalsi": [
+      "12.1"
+    ]
+  },
+  {
+    "slug": "pojem-system-bata",
+    "nazev": "Systém Baťa (účast na zisku i ztrátě)",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-systematicke-riziko",
+    "nazev": "Systematické riziko",
+    "soubor": "t9-l1-naklady-cizi-kapital.html",
+    "lekce": "9.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-seda-zona",
+    "nazev": "Šedá zóna",
+    "soubor": "t3-l5-souhrnne-ukazatele.html",
+    "lekce": "3.5",
+    "dalsi": [
+      "12.6"
+    ]
+  },
+  {
+    "slug": "pojem-ekonomicka-zivotnost",
+    "nazev": "Technická vs. ekonomická životnost",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vrabec-v-hrsti",
+    "nazev": "Teorie „vrabce v hrsti\" (Gordon)",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-irelevance-dividend",
+    "nazev": "Teorie irelevance dividend (Modigliani–Miller)",
+    "soubor": "t7-l5-dividendova-politika.html",
+    "lekce": "7.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-tiche-rezervy",
+    "nazev": "Tiché rezervy",
+    "soubor": "t5-l2-noa.html",
+    "lekce": "5.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-tbr",
+    "nazev": "Total Business Return (TBR)",
+    "soubor": "t6-l3-cfroi-tbr-croga.html",
+    "lekce": "6.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-tsr",
+    "nazev": "Total Shareholder Return (TSR)",
+    "soubor": "t4-l2-trzni-meritka.html",
+    "lekce": "4.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-tradicni-bonusovy-model",
+    "nazev": "Tradiční (klasický) bonusový model",
+    "soubor": "t5-l6-eva-odmenovani.html",
+    "lekce": "5.6",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-trvaly-zisk",
+    "nazev": "Trvalý zisk",
+    "soubor": "t11-l4-oceneni-vynosove.html",
+    "lekce": "11.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-trvani-konkurencni-vyhody",
+    "nazev": "Trvání konkurenční výhody",
+    "soubor": "t6-l1-sva.html",
+    "lekce": "6.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-trzni-hodnota-podniku",
+    "nazev": "Tržní hodnota podniku (dle EVA)",
+    "soubor": "t5-l5-eva-investice-oceneni.html",
+    "lekce": "5.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-mva",
+    "nazev": "Tržní přidaná hodnota (MVA)",
+    "soubor": "t4-l2-trzni-meritka.html",
+    "lekce": "4.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-u-krivka-wacc",
+    "nazev": "U-křivka WACC",
+    "soubor": "t9-l3-wacc.html",
+    "lekce": "9.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-eva-ucetni-model-mpo",
+    "nazev": "Účetní model EVA podle MPO",
+    "soubor": "t12-l2-benchmarking-1.html",
+    "lekce": "12.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-udrzitelny-rustovy-pomer",
+    "nazev": "Udržitelný růstový poměr",
+    "soubor": "t6-l3-cfroi-tbr-croga.html",
+    "lekce": "6.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ukazatele-aktivity",
+    "nazev": "Ukazatele aktivity",
+    "soubor": "t3-l3-likvidita-aktivita.html",
+    "lekce": "3.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ukazatele-kapitaloveho-trhu",
+    "nazev": "Ukazatele kapitálového trhu",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ukazatele-cash-flow",
+    "nazev": "Ukazatele na bázi cash flow",
+    "soubor": "t3-l4-kapitalovy-trh.html",
+    "lekce": "3.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-rentabilita",
+    "nazev": "Ukazatele rentability",
+    "soubor": "t2-l2-rentabilita-kritika.html",
+    "lekce": "2.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-uplatny-kapital",
+    "nazev": "Úplatný kapitál C (NOA)",
+    "soubor": "t7-l2-pyramidovy-rozklad-eva.html",
+    "lekce": "7.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-uprava-dane",
+    "nazev": "Upravená (teoretická) daň",
+    "soubor": "t12-l7-eva-noa-nopat.html",
+    "lekce": "12.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-upravena-npv",
+    "nazev": "Upravená NPV (NPV*",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-urokove-kryti",
+    "nazev": "Úrokové krytí",
+    "soubor": "t3-l2-rentabilita-zadluzenost.html",
+    "lekce": "3.2",
+    "dalsi": [
+      "12.5"
+    ]
+  },
+  {
+    "slug": "pojem-utopene-naklady",
+    "nazev": "Utopené náklady",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-variabilni-naklady",
+    "nazev": "Variabilní náklady",
+    "soubor": "t7-l3-bod-zvratu-provozni-paka.html",
+    "lekce": "7.3",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vazby-pricina-dusledek",
+    "nazev": "Vazby příčina–důsledek",
+    "soubor": "t12-l10-bsc-strategicka-mapa.html",
+    "lekce": "12.10",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vlastni-cizi-zdroje",
+    "nazev": "Vlastní a cizí zdroje financování",
+    "soubor": "t9-l5-zdroje-financovani.html",
+    "lekce": "9.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vlastnik-meritka",
+    "nazev": "Vlastník měřítka",
+    "soubor": "t11-l7-desatero.html",
+    "lekce": "11.7",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-irr",
+    "nazev": "Vnitřní výnosové procento (IRR)",
+    "soubor": "t4-l1-dcf-npv-irr.html",
+    "lekce": "4.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vnitrni-vynosove-procento",
+    "nazev": "Vnitřní výnosové procento (IRR)",
+    "soubor": "t8-l1-investicni-rozhodovani.html",
+    "lekce": "8.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-volne-cash-flow",
+    "nazev": "Volné cash flow (FCF)",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": [
+      "11.4",
+      "12.4"
+    ]
+  },
+  {
+    "slug": "pojem-vykonnost-podniku",
+    "nazev": "Výkonnost podniku",
+    "soubor": "t1-l1-co-je-vykonnost.html",
+    "lekce": "1.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vynosove-metody",
+    "nazev": "Výnosové metody oceňování",
+    "soubor": "t11-l4-oceneni-vynosove.html",
+    "lekce": "11.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-vystupni-meritka",
+    "nazev": "Výstupní měřítka",
+    "soubor": "t10-l2-strategicka-mapa.html",
+    "lekce": "10.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-wacc",
+    "nazev": "WACC (průměrné vážené náklady na kapitál)",
+    "soubor": "t5-l1-podstata-eva.html",
+    "lekce": "5.1",
+    "dalsi": [
+      "5.3",
+      "12.8"
+    ]
+  },
+  {
+    "slug": "pojem-z-skore",
+    "nazev": "Z-skóre (Altmanův model)",
+    "soubor": "t3-l5-souhrnne-ukazatele.html",
+    "lekce": "3.5",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-zakaznicka-perspektiva",
+    "nazev": "Zákaznická perspektiva",
+    "soubor": "t10-l1-bsc-perspektivy.html",
+    "lekce": "10.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-zalohy",
+    "nazev": "Zálohy",
+    "soubor": "t8-l4-kratkodobe-zdroje.html",
+    "lekce": "8.4",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-eps",
+    "nazev": "Zisk na akcii – EPS (Earnings per Share)",
+    "soubor": "t2-l2-rentabilita-kritika.html",
+    "lekce": "2.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ebit",
+    "nazev": "Zisk před úroky a zdaněním – EBIT (Earnings Before Interest and Taxes)",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ebitda",
+    "nazev": "Zisk před úroky, zdaněním a odpisy – EBITDA",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ebt",
+    "nazev": "Zisk před zdaněním – EBT (Earnings Before Taxes)",
+    "soubor": "t2-l1-zisk-cash-flow.html",
+    "lekce": "2.1",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-ziskova-marze",
+    "nazev": "Zisková marže (NOPAT / tržby)",
+    "soubor": "t7-l2-pyramidovy-rozklad-eva.html",
+    "lekce": "7.2",
+    "dalsi": []
+  },
+  {
+    "slug": "pojem-zlate-pravidlo-financovani",
+    "nazev": "Zlaté pravidlo financování",
+    "soubor": "t9-l4-kapitalova-struktura.html",
+    "lekce": "9.4",
+    "dalsi": [
+      "12.5"
+    ]
+  }
+]</script>
+
+  <script src="assets/js/skripta.js"></script>
+  <script>
+  /* =====================================================================
+     REJSTŘÍK POJMŮ – vykreslení, abecední seskupení a filtrování
+     ---------------------------------------------------------------------
+     Data se přednostně načtou fetchem z data/rejstrik.json (přes server),
+     při selhání (např. otevření přes file://) se použijí vestavěná data.
+     ===================================================================== */
+  (function () {
+    'use strict';
+
+    // Bezpečné vložení textu do HTML
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // Odstranění diakritiky pro tolerantní hledání i seskupení
+    function bezDiakritiky(s) {
+      return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    // Klíč sekce = první písmeno názvu bez diakritiky, velké (# pro ostatní)
+    function pismenoSekce(nazev) {
+      var ocisteno = bezDiakritiky(nazev).replace(/^[^A-Za-z]+/, '');
+      var znak = ocisteno.charAt(0).toUpperCase();
+      return /[A-Z]/.test(znak) ? znak : '#';
+    }
+
+    var ABECEDA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+    function vykresli(data) {
+      // Seskupení podle písmene
+      var skupiny = {};
+      data.forEach(function (p) {
+        var k = pismenoSekce(p.nazev);
+        (skupiny[k] = skupiny[k] || []).push(p);
+      });
+
+      // Seřazení uvnitř skupiny podle názvu (české řazení)
+      Object.keys(skupiny).forEach(function (k) {
+        skupiny[k].sort(function (a, b) { return a.nazev.localeCompare(b.nazev, 'cs'); });
+      });
+
+      // Pořadí sekcí: A–Z, případné „#" na konec
+      var sekce = ABECEDA.filter(function (p) { return skupiny[p]; });
+      if (skupiny['#']) sekce.push('#');
+
+      // Počet pojmů do úvodu
+      var pocet = document.getElementById('pocet-pojmu');
+      pocet.textContent = 'všech ' + data.length;
+
+      // Abecední navigace (i prázdná písmena kvůli konzistentnímu vzhledu)
+      var abecedaEl = document.getElementById('abeceda');
+      abecedaEl.innerHTML = ABECEDA.map(function (p) {
+        if (skupiny[p]) {
+          return '<li><a href="#pismeno-' + p + '" data-skok="' + p + '">' + p + '</a></li>';
+        }
+        return '<li><a class="abeceda--prazdne" aria-disabled="true" tabindex="-1">' + p + '</a></li>';
+      }).join('');
+
+      // Seznam sekcí + pojmů
+      var seznamEl = document.getElementById('rejstrik-seznam');
+      seznamEl.innerHTML = sekce.map(function (p) {
+        var polozky = skupiny[p].map(function (item) {
+          var href = 'lekce/' + item.soubor + '?zvyraznit=' + encodeURIComponent(item.slug);
+          // Výskyt v lekcích: hlavní + případné další
+          var lekce = [item.lekce].concat(item.dalsi || []);
+          var lekceText = (lekce.length > 1 ? 'lekce ' : 'lekce ') + lekce.join(', ');
+          var hledaci = bezDiakritiky(item.nazev).toLowerCase();
+          return '' +
+            '<li class="pojem-radek" data-hledaci="' + esc(hledaci) + '">' +
+              '<a class="pojem-odkaz" href="' + esc(href) + '" target="_blank" rel="noopener">' +
+                esc(item.nazev) +
+              '</a>' +
+              '<span class="pojem-lekce">' + esc(lekceText) + '</span>' +
+            '</li>';
+        }).join('');
+        return '' +
+          '<section class="rejstrik-sekce" id="pismeno-' + p + '" data-sekce="' + p + '">' +
+            '<h2 class="rejstrik-sekce__nadpis">' +
+              '<span class="rejstrik-sekce__pismeno">' + p + '</span>' +
+              '<span class="rejstrik-sekce__pocet">' + skupiny[p].length + ' pojmů</span>' +
+            '</h2>' +
+            '<ul class="pojmy-mrizka">' + polozky + '</ul>' +
+          '</section>';
+      }).join('');
+
+      nastavFiltr();
+    }
+
+    // Filtrování podle názvu (tolerantní k diakritice)
+    function nastavFiltr() {
+      var pole = document.getElementById('filtr-pole');
+      var prazdno = document.getElementById('rejstrik-prazdno');
+      var prazdnoDotaz = document.getElementById('prazdno-dotaz');
+      var sekceEls = Array.prototype.slice.call(document.querySelectorAll('.rejstrik-sekce'));
+
+      function filtruj() {
+        var dotaz = bezDiakritiky(pole.value).toLowerCase().trim();
+        var celkemVidno = 0;
+
+        sekceEls.forEach(function (sekce) {
+          var vidnoVSekci = 0;
+          var radky = sekce.querySelectorAll('.pojem-radek');
+          radky.forEach(function (r) {
+            var shoda = !dotaz || r.getAttribute('data-hledaci').indexOf(dotaz) !== -1;
+            r.style.display = shoda ? '' : 'none';
+            if (shoda) vidnoVSekci++;
+          });
+          sekce.style.display = vidnoVSekci ? '' : 'none';
+          celkemVidno += vidnoVSekci;
+        });
+
+        if (celkemVidno === 0 && dotaz) {
+          prazdnoDotaz.textContent = pole.value.trim();
+          prazdno.style.display = 'block';
+        } else {
+          prazdno.style.display = 'none';
+        }
+      }
+
+      pole.addEventListener('input', filtruj);
+      // Klávesa Esc vymaže filtr
+      pole.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { pole.value = ''; filtruj(); }
+      });
+    }
+
+    // Načtení dat: fetch, s fallbackem na vestavěná data
+    function nactiData() {
+      var zaloha = function () {
+        try {
+          var el = document.getElementById('data-rejstrik');
+          return JSON.parse(el.textContent);
+        } catch (e) { return []; }
+      };
+
+      if (window.fetch && location.protocol !== 'file:') {
+        fetch('data/rejstrik.json')
+          .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+          .then(function (data) { vykresli(data); })
+          .catch(function () { vykresli(zaloha()); });
+      } else {
+        vykresli(zaloha());
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', nactiData);
+    } else {
+      nactiData();
+    }
+  })();
+  </script>
+</body>
+</html>

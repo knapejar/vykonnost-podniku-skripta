@@ -1,0 +1,15 @@
+{
+  "name": "vykonnost-podniku-skripta",
+  "version": "1.0.0",
+  "description": "Interaktivní studentská skripta – Výkonnost podniku z pohledu finančního manažera (Pavelková, Knápková)",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}

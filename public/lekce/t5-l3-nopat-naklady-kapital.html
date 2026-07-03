@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.3 NOPAT, náklady na kapitál a zjednodušené verze EVA – Výkonnost podniku</title>
+  <meta name="description" content="Vymezení čistého operativního zisku (NOPAT), vážené průměrné náklady na kapitál (WACC) a zjednodušené verze EVA – model MPO (reziduální zisk), REVA a CVA.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: staticky vypsané lekce tématu 5, aktuální 5.3 -->
+    <nav class="panel" data-panel data-aktivni-lekce="5.3" aria-label="Lekce tématu 5">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 5</div>
+      <div class="panel__nazev-tema">Ekonomická přidaná hodnota (EVA)</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="5.1" href="t5-l1-podstata-eva.html"><span class="panel__odkaz-cislo">5.1</span><span>Podstata a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.2" href="t5-l2-noa.html"><span class="panel__odkaz-cislo">5.2</span><span>Účetní úpravy rozvahy – vymezení NOA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.3" href="t5-l3-nopat-naklady-kapital.html"><span class="panel__odkaz-cislo">5.3</span><span>NOPAT, náklady na kapitál a zjednodušené verze EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.4" href="t5-l4-eva-v-praxi.html"><span class="panel__odkaz-cislo">5.4</span><span>EVA v praxi</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.5" href="t5-l5-eva-investice-oceneni.html"><span class="panel__odkaz-cislo">5.5</span><span>EVA pro investiční rozhodování a ocenění</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.6" href="t5-l6-eva-odmenovani.html"><span class="panel__odkaz-cislo">5.6</span><span>EVA a odměňování</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.7" href="t5-l7-zhodnoceni-eva.html"><span class="panel__odkaz-cislo">5.7</span><span>Zhodnocení EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-5">Téma 5 · EVA</a></li>
+          <li><span aria-current="page">Lekce 5.3</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 5.3</span>
+        <h1>NOPAT, náklady na kapitál a zjednodušené verze EVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 62–69</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme upravili rozvahu a vymezili investovaný kapitál – <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">čistá
+        operativní aktiva (NOA)</a>. Základní vztah
+        <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>
+        (vzorec&nbsp;3.5 z lekce 5.1) má ale dvě další neznámé: čistý operativní zisk
+        <strong>NOPAT</strong> a náklady na kapitál <strong>WACC</strong>. Tato lekce
+        obě doplní, a tím <em>dokončí</em> výpočet <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>. Na závěr si ukážeme, jak si
+        poradit, když nemáme dost dat na plné úpravy – pomocí zjednodušeného modelu
+        Ministerstva průmyslu a obchodu (MPO) a modifikací REVA a CVA.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kam tato lekce patří</p>
+        <div class="callout__telo">
+          <p>Uzavíráme trojici „vstupů“ do vzorce EVA: <strong>NOA</strong> (lekce 5.2)
+          → <strong>NOPAT</strong> a <strong>WACC</strong> (tato lekce). Náklady na
+          kapitál zde zavádíme jen v minimálním rozsahu nutném pro výpočet EVA; jejich
+          podrobný výklad následuje v Tématu 9.</p>
+        </div>
+      </aside>
+
+      <!-- ================================================================= -->
+      <h2>1. NOPAT – čistý operativní zisk</h2>
+
+      <p>
+        Operativní zisk vzniká tím, že do činnosti podniku zapojíme <strong>čistá
+        operativní aktiva</strong> (NOA). Aby byl výpočet EVA vnitřně konzistentní,
+        musí být <strong>NOPAT symetrický k NOA</strong>: co jsme zahrnuli (nebo
+        vyloučili) na straně aktiv, se musí odpovídajícím způsobem promítnout i do
+        zisku. Do NOPAT proto započítáváme jen výnosy a náklady spojené s těmi aktivy,
+        která tvoří NOA.
+      </p>
+
+      <section class="definice" id="pojem-nopat">
+        <h3 class="definice__pojem">NOPAT (čistý operativní zisk)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Net Operating Profit After Taxes</em> – zdaněný zisk z operativní
+            (hlavní) činnosti podniku, tj. zisk plynoucí z aktiv zahrnutých do NOA,
+            očištěný o daň a o vlivy, které do operativní činnosti nepatří.
+            NOPAT je <strong>symetrický</strong> k NOA: obojí se vztahuje k témuž
+            provozně nutnému kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Výchozím bodem bývá <strong>výsledek hospodaření z běžné činnosti</strong>,
+        který postupně upravíme. Nejdůležitější úpravy:
+      </p>
+
+      <ul>
+        <li><strong>Placené úroky vyloučíme</strong> – přičteme je zpět k výsledku
+        hospodaření. Kdybychom je ponechali, projevily by se ve výpočtu EVA
+        <em>dvakrát</em>: jednou by snížily NOPAT a podruhé by se objevily v nákladech
+        na kapitál (<span class="math">WACC<span class="op">×</span>C</span>).</li>
+        <li><strong>Neopakující se položky vyloučíme</strong> – odstupné pro větší
+        počet zaměstnanců, zisk/ztrátu z prodeje dlouhodobého majetku, rozpouštění
+        nevyužitých rezerv, mimořádné odpisy apod.</li>
+        <li><strong>Výnosy z <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-neoperativni-aktiva" target="_blank" rel="noopener">neoperativních aktiv</a> vyloučíme</strong> – nesouvisí-li
+        aktivum s hlavní činností (bylo vyloučeno z NOA), musí zmizet i jeho výnos.</li>
+        <li><a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-aktivace-nakladu" target="_blank" rel="noopener"><strong>Aktivované náklady</strong></a> – vyloučíme náklady na výzkum a vývoj,
+        vzdělávání, reklamu apod. a naopak započítáme odhadnuté <em>odpisy</em>
+        aktivovaných nákladů (symetrie s NOA).</li>
+        <li><strong>Tiché rezervy</strong> – při přecenění majetku odpovídajícím
+        způsobem upravíme i výši odpisů.</li>
+        <li><strong>Úprava daně</strong> – NOPAT je zisk po zdanění, proto opravíme
+        daň: ze splatné daně za rok upravíme daňovou povinnost/úsporu z položek, o
+        které se NOPAT liší od účetního výsledku, nebo původním procentem daňového
+        zatížení zdaníme rozdíl upravených výnosů a nákladů.</li>
+      </ul>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nejčastější chyba: dvojí počítání úroků</p>
+        <div class="callout__telo">
+          <p>Placené úroky jsou odměnou za cizí kapitál. Ta je už obsažena v nákladech
+          na kapitál <span class="math">WACC<span class="op">×</span>C</span>. Pokud
+          bychom je nechali snižovat i NOPAT, penalizovali bychom podnik za totéž
+          dvakrát. Proto úroky do NOPAT <strong>vracíme zpět</strong>.</p>
+        </div>
+      </aside>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: stavba NOPAT ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Od výsledku hospodaření k NOPAT</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další“ a sledujte, jak z výsledku hospodaření vznikne po úpravách a zdanění čistý operativní zisk. Čísla odpovídají podniku A z řešeného příkladu 3.6 (v tis. Kč).</p>
+        </figcaption>
+        <div id="viz-nopat"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Dvě cesty ke stejnému NOPAT</p>
+        <div class="callout__telo">
+          <p>Ve vizualizaci vycházíme z <em>provozního</em> výsledku hospodaření, který
+          úroky vůbec neobsahuje. Kdybychom místo toho vyšli z výsledku hospodaření
+          <em>z běžné činnosti</em>, museli bychom placené úroky nejprve přičíst zpět –
+          jak popisuje seznam úprav výše. Obě cesty vedou ke stejnému NOPAT.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč je nutné vyloučit z NOPAT placené úroky? Co by se stalo s hodnotou
+          EVA, kdybychom je ve výpočtu ponechali?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Úroky jsou nákladem na <strong>cizí kapitál</strong>. Ten je už plně
+            zohledněn v členu nákladů na kapitál
+            <span class="math">WACC<span class="op">×</span>C</span> (WACC obsahuje
+            náklady cizího i vlastního kapitálu). Kdybychom úroky ponechali i v NOPAT,
+            snížily by ho a náklady na cizí kapitál by se do EVA promítly
+            <strong>dvakrát</strong>. Výsledná EVA by pak byla neoprávněně
+            <em>podhodnocena</em>. Proto úroky do NOPAT přičítáme zpět.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================================================================= -->
+      <h2>2. Náklady na kapitál – WACC</h2>
+
+      <p>
+        Aby podnik <em>tvořil</em> hodnotu, musí vydělat víc, než kolik stojí kapitál,
+        který používá. Touto „laťkou“ jsou <strong>vážené průměrné náklady na
+        kapitál</strong> (WACC) – minimální výnosnost požadovaná investory
+        (vlastníky i věřiteli). Určíme je jako vážený průměr nákladů vlastního a
+        úročeného cizího kapitálu.
+      </p>
+
+      <section class="definice" id="pojem-wacc">
+        <h3 class="definice__pojem">WACC (vážené průměrné náklady na kapitál)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Weighted Average Cost of Capital</em> – vážený průměr nákladů na
+            vlastní a úročený cizí kapitál, kde vahami jsou podíly jednotlivých druhů
+            kapitálu na celkovém kapitálu (v tržních hodnotách). Vyjadřuje minimální
+            požadovanou výnosnost investovaného kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-3-7">
+        <div class="vzorec__telo">
+          <span class="math">WACC<span class="op">=</span>N<sub>CK</sub><span class="op">×</span><span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">C</span></span><span class="op">+</span>N<sub>VK</sub><span class="op">×</span><span class="frac"><span class="frac__cit">VK</span><span class="frac__jmen">C</span></span></span>
+        </div>
+        <div class="vzorec__cislo">(3.7)</div>
+      </div>
+
+      <p>Kde:</p>
+      <ul>
+        <li><span class="math">CK</span> – tržní hodnota úročeného cizího kapitálu,</li>
+        <li><span class="math">VK</span> – tržní hodnota vlastního kapitálu,</li>
+        <li><span class="math">C</span> – tržní hodnota celkového kapitálu
+        (<span class="math">VK<span class="op">+</span></span> úročené cizí zdroje),</li>
+        <li><span class="math">N<sub>CK</sub></span> – náklady na cizí kapitál,</li>
+        <li><span class="math">N<sub>VK</sub></span> – náklady na vlastní kapitál
+        (v literatuře často <span class="math">r<sub>e</sub></span>).</li>
+      </ul>
+
+      <p>
+        Podíly <span class="math"><span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">C</span></span></span>
+        a <span class="math"><span class="frac"><span class="frac__cit">VK</span><span class="frac__jmen">C</span></span></span>
+        jsou <strong>váhy</strong> – vyjadřují <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálovou strukturu</a>. Lze použít
+        současnou, cílovou, nebo strukturu obvyklou u srovnatelných podniků. Pozor:
+        úpravy provedené při výpočtu NOA (zařazení leasingu, ekvivalenty vlastního
+        kapitálu) mění nejen výši, ale i strukturu kapitálu – váhy je proto třeba
+        upravit stejně jako aktiva.
+      </p>
+
+      <section class="definice" id="pojem-naklady-cizi-kapital">
+        <h3 class="definice__pojem">Náklady na cizí kapitál</h3>
+        <div class="definice__telo">
+          <p>
+            Cenou cizího (úročeného) kapitálu je úrok, který podnik platí věřiteli,
+            snížený o <a class="pojem" href="#pojem-danovy-stit">daňový štít</a>
+            (úroky jsou daňově uznatelným nákladem):
+            <span class="math">N<sub>CK</sub><span class="op">=</span>i<span class="op">×</span>(1<span class="op">−</span>T)</span>,
+            kde <span class="math">i</span> je úroková sazba cizích zdrojů a
+            <span class="math">T</span> daňová sazba. Jejich odhad je poměrně snadný
+            (u proměnlivého úroku je třeba znát rating podniku a výhled sazeb).
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-danovy-stit">
+        <h3 class="definice__pojem">Daňový štít</h3>
+        <div class="definice__telo">
+          <p>
+            Úspora na dani z příjmu díky tomu, že placené úroky jsou daňově uznatelným
+            nákladem, a snižují tak základ daně. Skutečná cena cizího kapitálu proto
+            není celý úrok <span class="math">i</span>, ale jen jeho zdaněná část
+            <span class="math">i<span class="op">×</span>(1<span class="op">−</span>T)</span>.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-naklady-vlastni-kapital">
+        <h3 class="definice__pojem">Náklady na vlastní kapitál</h3>
+        <div class="definice__telo">
+          <p>
+            Výnosové očekávání vlastníků, odvozené z možného <strong>alternativního
+            výnosu</strong> kapitálu při srovnatelném riziku (<a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-naklad-obetovane-prilezitosti" target="_blank" rel="noopener">náklad obětované
+            příležitosti</a>). Jejich odhad patří k <em>nejobtížnějším</em> úkolům
+            finančního řízení – používá se <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-capm" target="_blank" rel="noopener">model oceňování kapitálových aktiv (CAPM)</a>,
+            model diskontovaných dividend, stavebnicová metoda (bezriziková sazba +
+            rizikové přirážky), nebo průměrná rentabilita vlastního kapitálu v odvětví.
+            Každý přístup naráží na praktické problémy.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🔗</span>
+        <p class="callout__nadpis">Dopředná reference: náklady na kapitál v Tématu 9</p>
+        <div class="callout__telo">
+          <p>Vzorec WACC (3.7) zde zavádíme jako <strong>minimální samonosný
+          aparát</strong> potřebný pro výpočet EVA. Náklady na vlastní kapitál zde
+          stačí chápat jako „požadovanou výnosnost vlastníka“ a WACC jako danou laťku.
+          <strong>Podrobný výklad</strong> – model CAPM, <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-beta" target="_blank" rel="noopener">koeficient β</a>, daňový štít v
+          souvislostech a tvar U-křivky WACC při optimalizaci kapitálové struktury –
+          najdete v <strong>Tématu 9 (kap. 4.7, str. 161–182)</strong>.</p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nejde o přesnost, jde o princip</p>
+        <div class="callout__telo">
+          <p>I když výpočet nákladů na kapitál nikdy nebude zcela přesný, podstatně
+          důležitější je uvědomit si, že <strong>kapitál něco stojí – že není
+          zadarmo</strong>. Právě tím se EVA liší od účetního zisku.</p>
+        </div>
+      </aside>
+
+      <!-- ================================================================= -->
+      <h2>3. Zjednodušená EVA – model MPO a reziduální zisk</h2>
+
+      <p>
+        Plné úpravy účetního modelu na ekonomický (NOA a NOPAT) jsou náročné a externí
+        analytik k nim často nemá data. Pro takové případy používá např. <strong>
+        Ministerstvo průmyslu a obchodu ČR</strong> zjednodušený výpočet EVA přímo
+        z účetních dat:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-8">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>ČZ<span class="op">−</span>r<sub>e</sub><span class="op">×</span>VK</span>
+        </div>
+        <div class="vzorec__cislo">(3.8)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">ČZ</span> je <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-eat" target="_blank" rel="noopener">čistý zisk</a>,
+        <span class="math">r<sub>e</sub></span> náklady na vlastní kapitál a
+        <span class="math">VK</span> vlastní kapitál. Tento vztah v podstatě odpovídá
+        ukazateli <strong>reziduálního zisku</strong>. Lze jej zapsat i relativně, přes
+        rozdíl rentability vlastního kapitálu a jeho nákladů:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-9">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>(ROE<span class="op">−</span>r<sub>e</sub>)<span class="op">×</span>VK</span>
+        </div>
+        <div class="vzorec__cislo">(3.9)</div>
+      </div>
+
+      <p>
+        Pro srovnávání v čase nebo mezi podniky lze použít i samotný
+        <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-spread" target="_blank" rel="noopener"><strong>spread</strong></a> <span class="math">(ROE<span class="op">−</span>r<sub>e</sub>)</span>.
+      </p>
+
+      <section class="definice" id="pojem-rezidualni-zisk">
+        <h3 class="definice__pojem">Reziduální zisk (RI – Residual Income)</h3>
+        <div class="definice__telo">
+          <p>
+            Zisk, který zbývá po odečtení nákladů na vlastní kapitál od účetního
+            čistého zisku. Vychází z <strong>neupravených</strong> účetních veličin
+            (čistý zisk a vlastní kapitál), a proto jsou jeho výsledky jen
+            <em>orientační</em>. Používá se tam, kde nejsou k dispozici data pro
+            transformaci účetního modelu na ekonomický.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        MPO ČR podle výsledné EVA (resp. vztahu rentability vlastního kapitálu a jeho
+        alternativního nákladu) rozděluje podniky do čtyř kategorií:
+      </p>
+
+      <ol>
+        <li><strong>Tvoří EVA</strong> – rentabilita vlastního kapitálu je vyšší než
+        alternativní náklad na kapitál <span class="math">r<sub>e</sub></span>.</li>
+        <li><strong>Netvoří EVA</strong>, ale rentabilita vlastního kapitálu je vyšší
+        než bezriziková sazba.</li>
+        <li>Rentabilita vlastního kapitálu je kladná, ale <strong>nižší než
+        bezriziková sazba</strong>.</li>
+        <li><strong>Ztrátové</strong> podniky – rentabilita vlastního kapitálu je
+        záporná.</li>
+      </ol>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3–1 – Podíly kategorií podniků podle EVA na celkových výnosech průmyslu ČR (v %)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Kategorie</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1. kategorie (tvoří EVA)</th><td class="cislo hodnota-tvorba">34,6</td><td class="cislo hodnota-tvorba">40,6</td><td class="cislo hodnota-tvorba">50,0</td><td class="cislo hodnota-tvorba">56,8</td><td class="cislo hodnota-tvorba">64,73</td><td class="cislo hodnota-tvorba">68,44</td><td class="cislo hodnota-tvorba">58,98</td></tr>
+            <tr><th scope="row">2. kategorie</th><td class="cislo">20,7</td><td class="cislo">21,0</td><td class="cislo">20,4</td><td class="cislo">21,7</td><td class="cislo">14,52</td><td class="cislo">14,06</td><td class="cislo">19,33</td></tr>
+            <tr><th scope="row">3. kategorie</th><td class="cislo">27,4</td><td class="cislo">18,9</td><td class="cislo">14,2</td><td class="cislo">10,7</td><td class="cislo">7,70</td><td class="cislo">6,96</td><td class="cislo">7,08</td></tr>
+            <tr><th scope="row">4. kategorie (ztrátové)</th><td class="cislo hodnota-niceni">17,3</td><td class="cislo hodnota-niceni">19,5</td><td class="cislo hodnota-niceni">15,3</td><td class="cislo hodnota-niceni">10,8</td><td class="cislo hodnota-niceni">13,06</td><td class="cislo hodnota-niceni">10,54</td><td class="cislo hodnota-niceni">14,61</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em;color:var(--barva-text-slaby,#666);margin-top:-.4rem">Zdroj: www.mpo.cz</p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj kategorií podniků podle EVA (podíl na výnosech průmyslu ČR, %)</p>
+          <p class="viz__popis">Rostoucí podíl 1. kategorie (tvoří hodnotu) vrcholí v roce 2006; v roce 2007 se s „přehříváním“ ekonomiky obrací a roste podíl ztrátové 4. kategorie.</p>
+        </figcaption>
+        <div id="viz-mpo-kategorie"></div>
+      </figure>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Jen orientační výsledek</p>
+        <div class="callout__telo">
+          <p>Zjednodušený model MPO počítá s neupravenými účetními daty. Nezachycuje
+          skryté ekonomické skutečnosti (aktivace nákladů, leasing, neoperativní
+          aktiva). Výsledky proto berte jako orientační a používejte je jen tam, kde
+          data pro plné úpravy nemáte.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Kdy má smysl použít zjednodušený model MPO (reziduální zisk) místo plné
+          EVA s úpravami na NOA a NOPAT? A jaké je hlavní riziko takového zjednodušení?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Model MPO je vhodný, když <strong>nemáme přístup k interním datům</strong>
+            potřebným pro transformaci účetního modelu na ekonomický – typicky u
+            externího analytika, který pracuje jen s veřejnými účetními výkazy, nebo
+            pro rychlé plošné srovnání mnoha podniků (jako to dělá MPO pro celý průmysl).
+            Hlavní riziko: vychází z <strong>neupravených</strong> účetních veličin,
+            takže ignoruje ekonomické úpravy (aktivace, leasing, neoperativní aktiva) a
+            může dát <em>zkreslený</em> obraz o tvorbě hodnoty. Proto jen orientačně.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================================================================= -->
+      <h2>4. Další verze – REVA a CVA</h2>
+
+      <p>
+        Ve světě se objevují i další modifikace ukazatele EVA, které mění buď základnu
+        kapitálu, nebo výchozí veličinu zisku.
+      </p>
+
+      <section class="definice" id="pojem-reva">
+        <h3 class="definice__pojem">REVA (Refined EVA)</h3>
+        <div class="definice__telo">
+          <p>
+            Verze EVA, kde je investovaný kapitál počítán z <strong>tržní hodnoty</strong>
+            podniku (nikoli z účetní rozvahy); NOPAT i WACC zůstávají z původní verze.
+            Cílem je posílit vazbu ukazatele na tržní cenu, protože tržní hodnota
+            zahrnuje i budoucí investiční příležitosti. Použitelná je ale jen na úrovni
+            <em>celého podniku</em> (tržní hodnotu má jen podnik jako celek) a je
+            problematická tím, že mísí tržní hodnotu (obsahující očekávaný dlouhodobý
+            vývoj) s provozní výkonností jednoho období.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-cva">
+        <h3 class="definice__pojem">CVA (Cash Value Added)</h3>
+        <div class="definice__telo">
+          <p>
+            Obdoba EVA, v níž místo zisku vystupuje <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener"><strong>cash flow</strong></a>. Stejně
+            jako EVA se hodí zejména pro hodnocení výkonnosti celého podniku a lze na ni
+            navázat odměňování manažerů, kteří mají dostatečnou pravomoc hodnotu
+            ovlivnit.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <h2>5. Řešený příklad: účetní vs. ekonomický model</h2>
+
+      <p>
+        Nejlépe se rozdíl mezi „účetním“ a „ekonomickým“ pohledem ukáže na srovnání dvou
+        podniků. Nejprve ale menší varování, proč vůbec plné úpravy děláme.
+      </p>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 3.5 – ROI umí zklamat</p>
+        <div class="callout__telo">
+          <p>Podnik má vložený kapitál 250, NOPAT = 50, WACC = 10 %. Potom
+          <span class="math">ROI<span class="op">=</span>50<span class="op">/</span>250<span class="op">=</span>20&nbsp;%</span>,
+          <span class="math">EVA<span class="op">=</span>50<span class="op">−</span>0,10<span class="op">×</span>250<span class="op">=</span>25</span>.</p>
+          <p>Přijme-li investici s výnosností 15 %, která vyžaduje kapitál 50: zisk
+          vzroste o <span class="math">50<span class="op">×</span>0,15<span class="op">=</span>7,5</span>
+          (NOPAT = 57,5), kapitál na 300. Pak
+          <span class="math">ROI<span class="op">=</span>57,5<span class="op">/</span>300<span class="op">=</span>19,2&nbsp;%</span>
+          (klesl!), ale
+          <span class="math">EVA<span class="op">=</span>57,5<span class="op">−</span>0,10<span class="op">×</span>300<span class="op">=</span>27,5</span>
+          (vzrostla). Podnik řízený podle <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roi" target="_blank" rel="noopener">ROI</a> by výhodný projekt <strong>odmítl</strong>.
+          Stačí, aby výnosnost investice převýšila WACC – pak tvoří hodnotu, i když má
+          nižší rentabilitu než podnik.</p>
+        </div>
+      </aside>
+
+      <h3>Příklad 3.6 – dva podniky, dvě různá hodnocení</h3>
+      <p>
+        Pro podniky A a B kvantifikujeme <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">ROE</a>, reziduální zisk (RI, účetní model MPO),
+        <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-rona" target="_blank" rel="noopener">RONA</a> a EVA (ekonomický model). Vstupní data:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Vstupní údaje podniků A a B (v tis. Kč)</caption>
+          <thead>
+            <tr><th scope="col">Položka</th><th scope="col" class="cislo">Podnik A</th><th scope="col" class="cislo">Podnik B</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Dlouhodobý majetek</th><td class="cislo">20 000</td><td class="cislo">25 000</td></tr>
+            <tr><th scope="row">Oběžná aktiva</th><td class="cislo">6 000</td><td class="cislo">10 000</td></tr>
+            <tr><th scope="row">Vlastní kapitál</th><td class="cislo">18 000</td><td class="cislo">20 000</td></tr>
+            <tr><th scope="row">Cizí zdroje</th><td class="cislo">8 000</td><td class="cislo">15 000</td></tr>
+            <tr><th scope="row">VH z provozní činnosti</th><td class="cislo">3 000</td><td class="cislo">4 000</td></tr>
+            <tr><th scope="row">– z toho VH z prodeje dlouh. majetku</th><td class="cislo">−150</td><td class="cislo">460</td></tr>
+            <tr><th scope="row">VH za účetní období (čistý zisk)</th><td class="cislo">2 080</td><td class="cislo">3 600</td></tr>
+            <tr><th scope="row">Aktiva pořízená formou leasingu</th><td class="cislo">2 000</td><td class="cislo">1 500</td></tr>
+            <tr><th scope="row">Změna do NOPAT z aktivace leasingu</th><td class="cislo">+150</td><td class="cislo">+60</td></tr>
+            <tr><th scope="row">Neoperativní aktiva</th><td class="cislo">5 000</td><td class="cislo">6 000</td></tr>
+            <tr><th scope="row">Neúročené závazky</th><td class="cislo">4 000</td><td class="cislo">4 500</td></tr>
+            <tr><th scope="row">Úroková sazba bankovního úvěru</th><td class="cislo">7 %</td><td class="cislo">9 %</td></tr>
+            <tr><th scope="row">Náklady na vlastní kapitál (r<sub>e</sub>)</th><td class="cislo">12 %</td><td class="cislo">15 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em">Daňová sazba <span class="math">T<span class="op">=</span>20&nbsp;%</span>.</p>
+
+      <p><strong>Účetní model</strong> (ROE a reziduální zisk):</p>
+      <p style="text-align:center">
+        <span class="math">ROE<sub>A</sub><span class="op">=</span>2 080<span class="op">/</span>18 000<span class="op">=</span>11,6&nbsp;%</span>,
+        &nbsp; <span class="math">ROE<sub>B</sub><span class="op">=</span>3 600<span class="op">/</span>20 000<span class="op">=</span>18&nbsp;%</span>
+      </p>
+      <p style="text-align:center">
+        <span class="math">RI<sub>A</sub><span class="op">=</span>2 080<span class="op">−</span>0,12<span class="op">×</span>18 000<span class="op">=</span><span class="op">−</span>80</span>,
+        &nbsp; <span class="math">RI<sub>B</sub><span class="op">=</span>3 600<span class="op">−</span>0,15<span class="op">×</span>20 000<span class="op">=</span>600</span>
+      </p>
+
+      <p><strong>Ekonomický model</strong> – nejprve NOPAT a NOA:</p>
+      <p style="text-align:center">
+        <span class="math">NOPAT<sub>A</sub><span class="op">=</span>(3 000<span class="op">−</span>(<span class="op">−</span>150)<span class="op">+</span>150)<span class="op">×</span>(1<span class="op">−</span>0,2)<span class="op">=</span>2 640</span>
+      </p>
+      <p style="text-align:center">
+        <span class="math">NOPAT<sub>B</sub><span class="op">=</span>(4 000<span class="op">−</span>460<span class="op">+</span>60)<span class="op">×</span>0,8<span class="op">=</span>2 880</span>
+      </p>
+      <p style="text-align:center">
+        <span class="math">NOA<sub>A</sub><span class="op">=</span>26 000<span class="op">+</span>2 000<span class="op">−</span>5 000<span class="op">−</span>4 000<span class="op">=</span>19 000</span>
+      </p>
+      <p style="text-align:center">
+        <span class="math">NOA<sub>B</sub><span class="op">=</span>35 000<span class="op">+</span>1 500<span class="op">−</span>6 000<span class="op">−</span>4 500<span class="op">=</span>26 000</span>
+      </p>
+      <p style="text-align:center">
+        <span class="math">RONA<sub>A</sub><span class="op">=</span>2 640<span class="op">/</span>19 000<span class="op">=</span>13,9&nbsp;%</span>,
+        &nbsp; <span class="math">RONA<sub>B</sub><span class="op">=</span>2 880<span class="op">/</span>26 000<span class="op">=</span>11,1&nbsp;%</span>
+      </p>
+
+      <p>
+        Po úpravě aktiv upravíme i pasiva (vlastní kapitál snížíme o ekvivalenty –
+        neoperativní aktiva, cizí kapitál zvýšíme o závazky z leasingu a snížíme o
+        neúročené závazky) a dosadíme do WACC (3.7):
+      </p>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">WACC<sub>A</sub><span class="op">=</span>7<span class="op">×</span>(1<span class="op">−</span>0,2)<span class="op">×</span>0,32<span class="op">+</span>12<span class="op">×</span>0,68<span class="op">=</span>9,95<span class="op">≈</span>10&nbsp;%</span>
+        </div>
+      </div>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">WACC<sub>B</sub><span class="op">=</span>9<span class="op">×</span>(1<span class="op">−</span>0,2)<span class="op">×</span>0,46<span class="op">+</span>15<span class="op">×</span>0,54<span class="op">=</span>11,4&nbsp;%</span>
+        </div>
+      </div>
+      <p style="text-align:center">
+        <span class="math">EVA<sub>A</sub><span class="op">=</span>2 640<span class="op">−</span>0,10<span class="op">×</span>19 000<span class="op">=</span>740</span>,
+        &nbsp; <span class="math">EVA<sub>B</sub><span class="op">=</span>2 880<span class="op">−</span>0,114<span class="op">×</span>26 000<span class="op">=</span><span class="op">−</span>84</span>
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Souhrn – účetní vs. ekonomický pohled na podniky A a B</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">Podnik A</th>
+              <th scope="col" class="cislo">Podnik B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">ROE (účetní)</th><td class="cislo">11,6 %</td><td class="cislo">18,0 %</td></tr>
+            <tr><th scope="row">RI – reziduální zisk (model MPO)</th><td class="cislo hodnota-niceni">−80</td><td class="cislo hodnota-tvorba">600</td></tr>
+            <tr><th scope="row">RONA (ekonomický)</th><td class="cislo">13,9 %</td><td class="cislo">11,1 %</td></tr>
+            <tr><th scope="row">WACC</th><td class="cislo">10,0 %</td><td class="cislo">11,4 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">EVA (ekonomický model)</th><td class="cislo hodnota-tvorba">740</td><td class="cislo hodnota-niceni">−84</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">💡</span>
+        <p class="callout__nadpis">Přesně opačný závěr</p>
+        <div class="callout__telo">
+          <p>Účetní model (ROE, RI) hodnotí lépe podnik <strong>B</strong>. Ekonomický
+          model (RONA, EVA) ukazuje pravý opak: podnik B sice vydělává, ale jeho
+          rentabilita operativních aktiv (11,1 %) je <em>nižší</em> než jeho náklady na
+          kapitál (11,4 %), takže hodnotu <strong>ničí</strong> (EVA = −84). Naopak
+          podnik A hodnotu <strong>tvoří</strong> (EVA = 740). To je jádro celé EVA:
+          teprve zahrnutí <em>všech</em> nákladů na kapitál odhalí skutečnou tvorbu
+          hodnoty.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Co znamená, že NOPAT je „symetrický“ k NOA, a proč je to důležité?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, k jakému kapitálu se vztahuje zisk v členu NOPAT a k jakému kapitál C.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Do NOPAT musíme započítat jen výnosy a náklady spojené s aktivy, která tvoří NOA – co jsme na straně aktiv zahrnuli či vyloučili (leasing, aktivace nákladů, neoperativní aktiva), se musí projevit i v zisku. Bez této symetrie by se v čitateli a jmenovateli EVA počítalo s různým vymezením kapitálu a výsledek by byl vnitřně nekonzistentní.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Z jakých dvou složek se skládá WACC a jak do nákladů na cizí kapitál vstupuje daňový štít?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzorec (3.7) a vztah <span class="math">N<sub>CK</sub><span class="op">=</span>i<span class="op">×</span>(1<span class="op">−</span>T)</span>.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>WACC je vážený průměr nákladů na cizí kapitál <span class="math">N<sub>CK</sub></span> a na vlastní kapitál <span class="math">N<sub>VK</sub></span>, vážený podíly <span class="math">CK<span class="op">/</span>C</span> a <span class="math">VK<span class="op">/</span>C</span>. Náklady na cizí kapitál nejsou celý úrok, ale úrok snížený o daňový štít: <span class="math">N<sub>CK</sub><span class="op">=</span>i<span class="op">×</span>(1<span class="op">−</span>T)</span>, protože úroky snižují základ daně, a tím i skutečnou cenu dluhu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Kdy použijeme zjednodušený vztah <span class="math">EVA<span class="op">=</span>ČZ<span class="op">−</span>r<sub>e</sub><span class="op">×</span>VK</span> a jaké má omezení?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Model MPO, reziduální zisk, dostupnost dat.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Použijeme jej, když nemáme data pro transformaci účetního modelu na ekonomický (typicky externí analytik nebo plošné srovnání mnoha podniků). Odpovídá reziduálnímu zisku (RI). Omezení: vychází z neupravených účetních veličin (čistý zisk, vlastní kapitál), ignoruje ekonomické úpravy, a proto dává jen orientační výsledek.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Podnik B v příkladu 3.6 má vyšší ROE než podnik A. Proč přesto ničí hodnotu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte RONA s WACC u obou podniků.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>ROE je účetní ukazatel, který nezohledňuje náklady na kapitál. Ekonomicky rozhoduje vztah RONA a WACC: podnik B má RONA = 11,1 %, ale WACC = 11,4 %, takže vydělává <em>méně</em>, než kolik stojí jeho kapitál – EVA = −84. Podnik A naopak RONA (13,9 %) > WACC (10 %), a proto tvoří hodnotu (EVA = 740).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Čím se od klasické EVA liší REVA a CVA?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jedna mění základnu kapitálu, druhá výchozí veličinu zisku.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>REVA</strong> počítá investovaný kapitál z tržní hodnoty podniku (ne z účetní rozvahy), aby lépe odrážel budoucí příležitosti; použitelná je jen na úrovni celého podniku a mísí tržní hodnotu s výkonností jednoho období. <strong>CVA</strong> místo zisku používá cash flow; slouží k hodnocení celého podniku a k navázání odměňování manažerů.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t5-l2-noa.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">5.2 Účetní úpravy rozvahy – vymezení NOA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l4-eva-v-praxi.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.4 EVA v praxi – případové studie a srovnání s tržními měřítky</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // A) KROKOVÁ VIZUALIZACE: stavba NOPAT (receipt-style reveal)
+      // Čísla dle podniku A z příkladu 3.6 (tis. Kč).
+      var kroky = [
+        { total: 3000, popisTotal: 'VH provozní' },
+        { total: 3150, popisTotal: 'mezisoučet' },
+        { total: 3300, popisTotal: 'před zdaněním' },
+        { total: 2640, popisTotal: 'NOPAT' }
+      ];
+      // Řádky operací: vis = od kterého kroku je řádek vidět (0 = vždy)
+      var radky = [
+        { y: 92,  label: 'VH z provozní činnosti',            delta: '3 000', vis: 0 },
+        { y: 140, label: '+ vyloučení neopakujících se položek', delta: '+150', vis: 1 },
+        { y: 188, label: '+ aktivace leasingu (do NOPAT)',    delta: '+150', vis: 2 },
+        { y: 236, label: '− daň 20 %  (× (1 − 0,20))',        delta: '−660', vis: 3 }
+      ];
+
+      Skripta.stepper('viz-nopat', {
+        sirka: 720, vyska: 320,
+        stavy: [{}, {}, {}, {}],
+        popisky: [
+          'Vyjdeme z provozního výsledku hospodaření: VH z provozní činnosti = 3 000 tis. Kč.',
+          'Vyloučíme neopakující se položky – zde ztrátu z prodeje dlouhodobého majetku (−150), tj. přičteme +150. Mezisoučet 3 150.',
+          'Přičteme úpravu o aktivaci majetku pořízeného na leasing (+150). Operativní zisk před zdaněním = 3 300.',
+          'Zdaníme sazbou 20 % (× (1 − 0,20)): 3 300 × 0,80 = NOPAT = 2 640 tis. Kč.'
+        ],
+        render: function (svg, stav, i, u) {
+          var xLabel = 40, xDelta = 470, xBox = 528, boxW = 168;
+
+          // Řádky operací
+          radky.forEach(function (r, idx) {
+            var aktivni = (r.vis === i);
+            var viditelny = (i >= r.vis);
+            u.dej(svg, 'lbl-' + idx, 'text', {
+              x: xLabel, y: r.y, 'text-anchor': 'start',
+              fill: aktivni ? u.barvaText : (viditelny ? u.barvaText : u.barvaMrizka),
+              'font-size': 15, 'font-weight': aktivni ? 700 : 400,
+              opacity: viditelny ? 1 : 0.18
+            }, r.label);
+            u.dej(svg, 'del-' + idx, 'text', {
+              x: xDelta, y: r.y, 'text-anchor': 'end',
+              fill: (idx === 3) ? u.barvaNiceni : (idx === 0 ? u.barvaText : u.barvaTvorba),
+              'font-size': 15, 'font-weight': 700,
+              opacity: viditelny ? 1 : 0.18
+            }, r.delta);
+            // podtržítko aktivního řádku
+            u.dej(svg, 'line-' + idx, 'line', {
+              x1: xLabel, y1: r.y + 12, x2: xDelta, y2: r.y + 12,
+              stroke: u.barvaMrizka, 'stroke-width': 1,
+              opacity: viditelny ? 0.6 : 0
+            });
+          });
+
+          // Pravý „display“ s běžným součtem
+          var k = kroky[i];
+          var finalni = (i === 3);
+          u.dej(svg, 'box', 'rect', {
+            x: xBox, y: 84, width: boxW, height: 150, rx: 12,
+            fill: finalni ? '#dcfce7' : '#eef2ff',
+            stroke: finalni ? u.barvaTvorba : '#4338ca', 'stroke-width': 2
+          });
+          u.dej(svg, 'box-caption', 'text', {
+            x: xBox + boxW / 2, y: 112, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 12
+          }, finalni ? 'Výsledek' : 'Průběžně');
+          u.dej(svg, 'box-value', 'text', {
+            x: xBox + boxW / 2, y: 168, 'text-anchor': 'middle',
+            fill: finalni ? '#15803d' : '#4338ca', 'font-size': 34, 'font-weight': 800
+          }, u.formatCislo(k.total));
+          u.dej(svg, 'box-label', 'text', {
+            x: xBox + boxW / 2, y: 206, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 14, 'font-weight': 700
+          }, k.popisTotal);
+          u.dej(svg, 'box-unit', 'text', {
+            x: xBox + boxW / 2, y: 224, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 11, opacity: 0.7
+          }, 'tis. Kč');
+        }
+      });
+
+      // B) STATICKÝ ČÁROVÝ GRAF: vývoj kategorií MPO (tab. 3–1)
+      var roky = ['2001', '2002', '2003', '2004', '2005', '2006', '2007'];
+      function serie(nazev, hodnoty, barva) {
+        return { nazev: nazev, barva: barva, body: hodnoty.map(function (h, k) { return { x: roky[k], y: h }; }) };
+      }
+      Skripta.carovyGraf('viz-mpo-kategorie', {
+        sirka: 680, vyska: 360, formatDesetin: 0,
+        serie: [
+          serie('1. kat.', [34.6, 40.6, 50.0, 56.8, 64.73, 68.44, 58.98], '#16a34a'),
+          serie('2. kat.', [20.7, 21.0, 20.4, 21.7, 14.52, 14.06, 19.33], '#4338ca'),
+          serie('3. kat.', [27.4, 18.9, 14.2, 10.7, 7.70, 6.96, 7.08], '#d97706'),
+          serie('4. kat.', [17.3, 19.5, 15.3, 10.8, 13.06, 10.54, 14.61], '#dc2626')
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

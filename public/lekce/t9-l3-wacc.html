@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9.3 WACC, mezinárodní kontext a vliv na výkonnost – Výkonnost podniku</title>
+  <meta name="description" content="Vážené průměrné náklady na kapitál (WACC), U-křivka, iterační postup, mezní náklady kapitálu, náklady na kapitál na mezinárodních trzích a jejich vliv na výkonnost podniku.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 9 -->
+    <nav class="panel" data-panel data-aktivni-lekce="9.3" aria-label="Lekce tématu 9">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 9</div>
+      <div class="panel__nazev-tema">Náklady na kapitál a kapitálová struktura</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="9.1" href="t9-l1-naklady-cizi-kapital.html"><span class="panel__odkaz-cislo">9.1</span><span>Náklady na kapitál – podstata, riziko a cizí kapitál</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.2" href="t9-l2-capm.html"><span class="panel__odkaz-cislo">9.2</span><span>Náklady na vlastní kapitál – CAPM a další modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.3" href="t9-l3-wacc.html"><span class="panel__odkaz-cislo">9.3</span><span>WACC, mezinárodní kontext a vliv na výkonnost</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.4" href="t9-l4-kapitalova-struktura.html"><span class="panel__odkaz-cislo">9.4</span><span>Kapitálová struktura – teorie a bod indiference</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.5" href="t9-l5-zdroje-financovani.html"><span class="panel__odkaz-cislo">9.5</span><span>Zdroje financování a jejich vliv na výkonnost</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-9">Téma 9 · Náklady na kapitál</a></li>
+          <li><span aria-current="page">Lekce 9.3</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 9.3</span>
+        <h1>WACC, mezinárodní kontext a vliv na výkonnost</h1>
+        <p class="lekce-hlavicka__strany">Strany 175–182</p>
+      </header>
+
+      <p>
+        V předchozích lekcích jsme se naučili odhadovat <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-naklady-cizi-kapital" target="_blank" rel="noopener">náklady na cizí kapitál</a>
+        (lekce&nbsp;9.1) a <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-naklady-vlastni-kapital" target="_blank" rel="noopener">náklady na vlastní kapitál</a> pomocí modelu <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-capm" target="_blank" rel="noopener">CAPM</a> i dalších
+        metod (lekce&nbsp;9.2). Teď je spojíme dohromady. <strong>Vážené průměrné
+        náklady na kapitál (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>)</strong> vyjadřují jednou hodnotou, kolik podnik
+        v&nbsp;průměru „platí" za veškerý úplatně získaný kapitál – a&nbsp;tvoří tak
+        onu laťku, kterou musí výnosnost podniku překonat, aby vznikala hodnota.
+      </p>
+      <p>
+        V&nbsp;této lekci ukážeme, proč se WACC s&nbsp;rostoucím zadlužením chová jako
+        křivka ve tvaru&nbsp;U, jak se řeší „začarovaný kruh" tržního ocenění kapitálu
+        pomocí iteračního postupu, co jsou mezní náklady kapitálu, jaká specifika
+        přináší mezinárodní prostředí a&nbsp;jak náklady na kapitál v&nbsp;konečném
+        důsledku ovlivňují výkonnost celého podniku i&nbsp;ekonomiky.
+      </p>
+
+      <!-- CALLOUT: recap WACC (odkaz na vztah 3.7) -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Připomenutí: co je WACC (vztah 3.7)</p>
+        <div class="callout__telo">
+          <p>
+            WACC jsme zavedli již v&nbsp;tématu&nbsp;5 (kap.&nbsp;3.5) jako
+            <em>vážený průměr</em> nákladů na vlastní a&nbsp;cizí kapitál, kde vahami
+            jsou podíly jednotlivých zdrojů na celkovém investovaném kapitálu:
+          </p>
+          <p style="text-align:center">
+            <span class="math">WACC<span class="op">=</span>N<sub>CK</sub><span class="op">×</span>
+              <span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">C</span></span>
+              <span class="op">+</span>N<sub>VK</sub><span class="op">×</span>
+              <span class="frac"><span class="frac__cit">VK</span><span class="frac__jmen">C</span></span>
+            </span>
+            &nbsp;&nbsp;(vztah&nbsp;3.7)
+          </p>
+          <p>
+            kde <span class="math">N<sub>CK</sub></span> jsou náklady na cizí kapitál
+            <em>po zdanění</em> (<span class="math">N<sub>CK</sub><span class="op">=</span><em>i</em><span class="op">×</span>(1<span class="op">−</span><em>T</em>)</span>,
+            tj. včetně <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-danovy-stit" target="_blank" rel="noopener">daňového štítu</a>), <span class="math">N<sub>VK</sub></span> náklady
+            na vlastní kapitál, <span class="math">CK</span> cizí a&nbsp;<span class="math">VK</span>
+            vlastní kapitál a&nbsp;<span class="math">C<span class="op">=</span>CK<span class="op">+</span>VK</span>
+            celkový úplatně vložený kapitál.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ============================================================= -->
+      <h2>Průběh nákladů na kapitál a U-křivka WACC</h2>
+
+      <p>
+        Náklady jednotlivých druhů kapitálu <strong>nejsou konstantní</strong> –
+        mění se podle toho, jak je podnik zadlužený. Náklady na cizí kapitál
+        s&nbsp;rostoucí zadlužeností stoupají, protože roste riziko věřitelů
+        a&nbsp;ti požadují vyšší výnosnost půjčených prostředků. Náklady na vlastní
+        kapitál jsou trvale vyšší než náklady na cizí kapitál (vlastník nese větší
+        riziko než věřitel) a&nbsp;se zadlužením rovněž rostou – s&nbsp;větším dluhem
+        stoupá i&nbsp;riziko vlastníků.
+      </p>
+      <p>
+        Vážený průměr obojího, tedy WACC, se pak vyvíjí jako křivka ve tvaru
+        písmene&nbsp;<strong>„U"</strong>. Nejprve s&nbsp;rostoucím zadlužením
+        <em>klesá</em> – převažuje výhoda <strong>daňového štítu</strong>, protože
+        levnější cizí kapitál (jehož úroky navíc snižují daňový základ) postupně
+        vytlačuje dražší vlastní kapitál. Od určité výše zadlužení se však WACC
+        začne <em>zvyšovat</em> – převládne vliv <strong>nákladů finanční tísně</strong>
+        plynoucích z&nbsp;rostoucí hrozby potíží se splácením dluhů. V&nbsp;bodě obratu
+        leží minimum WACC.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: U-křivka WACC (obr. 4–14) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 4–14: Průběh N<sub>VK</sub>, N<sub>CK</sub> a WACC podle zadlužení</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Postupně se objeví náklady cizího kapitálu, náklady vlastního kapitálu a jejich vážený průměr WACC ve tvaru U s vyznačeným minimem. Schéma znázorňuje tvar křivek, nikoli konkrétní číselné hodnoty.</p>
+        </figcaption>
+        <div id="viz-ukrivka"></div>
+      </figure>
+
+      <!-- DEFINICE: U-křivka WACC -->
+      <section class="definice" id="pojem-u-krivka-wacc">
+        <h3 class="definice__pojem">U-křivka WACC</h3>
+        <div class="definice__telo">
+          <p>
+            Typický průběh vážených průměrných nákladů na kapitál v&nbsp;závislosti
+            na míře zadlužení. Vlivem <strong>daňového štítu</strong> WACC při
+            nízkém zadlužení klesá, od určité hranice ho ale začnou zvyšovat
+            <strong>náklady finanční tísně</strong>. Minimum křivky odpovídá takové
+            struktuře kapitálu, při níž jsou průměrné náklady na kapitál nejnižší –
+            a&nbsp;která tedy maximalizuje tržní hodnotu podniku.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: náklady finanční tísně -->
+      <section class="definice" id="pojem-naklady-financni-tisne">
+        <h3 class="definice__pojem">Náklady finanční tísně</h3>
+        <div class="definice__telo">
+          <p>
+            Náklady spojené s&nbsp;rizikem, že podnik nebude schopen dostát svým
+            závazkům. S&nbsp;rostoucím zadlužením se zvyšuje pravděpodobnost potíží
+            se splácením dluhů; věřitelé i&nbsp;vlastníci proto požadují vyšší
+            výnosnost. Od určité výše zadlužení tyto rostoucí náklady převáží úsporu
+            z&nbsp;daňového štítu, a&nbsp;WACC začne růst (pravé rameno U-křivky).
+          </p>
+        </div>
+      </section>
+
+      <!-- ZKUS SÁM 1: tvar U -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč má křivka WACC tvar U a&nbsp;co určuje polohu jejího minima? Které
+          dva protichůdné vlivy se v&nbsp;ní „přetahují"?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Proti sobě působí <strong>daňový štít</strong> a&nbsp;<strong>náklady
+              finanční tísně</strong>. Cizí kapitál je díky daňové uznatelnosti úroků
+              levnější než vlastní, takže <em>nahrazování</em> drahého vlastního
+              kapitálu levnějším cizím zpočátku snižuje WACC (klesající levé rameno).
+              S&nbsp;rostoucím zadlužením však roste riziko platební neschopnosti;
+              věřitelé i&nbsp;vlastníci žádají vyšší výnos, a&nbsp;náklady finanční
+              tísně nakonec převáží (rostoucí pravé rameno). Minimum leží tam, kde se
+              přírůstek úspory z&nbsp;daňového štítu právě vyrovná přírůstku nákladů
+              finanční tísně – to je struktura kapitálu s&nbsp;nejnižšími průměrnými
+              náklady, a&nbsp;tedy s&nbsp;nejvyšší tržní hodnotou podniku.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Jakou strukturu kapitálu do WACC dosadit?</h2>
+
+      <p>
+        Pro výpočet vah <span class="math"><span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">C</span></span></span>
+        a&nbsp;<span class="math"><span class="frac"><span class="frac__cit">VK</span><span class="frac__jmen">C</span></span></span>
+        je možné použít buď <strong>současnou</strong> strukturu kapitálu, nebo
+        <strong>cílovou</strong> strukturu kapitálu (případně strukturu obvyklou
+        u&nbsp;srovnatelných podniků). Pokud je součástí strategických rozhodnutí
+        změna struktury kapitálu, je nutné vycházet z&nbsp;cílové struktury.
+      </p>
+      <p>
+        Dále se doporučuje počítat s&nbsp;<strong>tržními cenami</strong> kapitálu,
+        nikoli s&nbsp;účetními hodnotami. To ovšem v&nbsp;praxi naráží na problém:
+        tržní hodnotu kapitálu neznáme u&nbsp;podniků neobchodovaných na kapitálových
+        trzích – musíme ji vypočítat výnosovou metodou. Jenže k&nbsp;výnosovému ocenění
+        opět potřebujeme znát náklady na kapitál. Pohybujeme se tak v&nbsp;kruhu.
+      </p>
+
+      <!-- CALLOUT: pozor – začarovaný kruh -->
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">„Začarovaný kruh" tržního ocenění</p>
+        <div class="callout__telo">
+          <p>
+            Abychom spočítali WACC z&nbsp;tržních cen, potřebujeme tržní hodnotu
+            kapitálu. Abychom ji ale u&nbsp;neobchodovaného podniku zjistili výnosovou
+            metodou, potřebujeme znát WACC. Řešením je <strong>iterační postup</strong>.
+          </p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE: iterační postup -->
+      <section class="definice" id="pojem-iteracni-postup">
+        <h3 class="definice__pojem">Iterační postup určení struktury kapitálu</h3>
+        <div class="definice__telo">
+          <p>
+            Postup, jak z&nbsp;„začarovaného kruhu" ven: odhadneme
+            <strong>výchozí</strong> strukturu kapitálu (lze použít účetní strukturu)
+            a&nbsp;spočítáme náklady na kapitál i&nbsp;hodnotu podniku. Z&nbsp;výsledku
+            zjistíme <strong>novou</strong> strukturu kapitálu, kterou použijeme pro
+            další výpočet. Kroky opakujeme tak dlouho, dokud se hodnoty kapitálu
+            <em>použité</em> pro výpočet WACC a&nbsp;hodnoty <em>vypočítané</em>
+            výnosovou metodou alespoň přibližně nerovnají.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Mezní náklady kapitálu a optimální výše kapitálových výdajů</h2>
+
+      <p>
+        Při úvahách o&nbsp;WACC se snadno zapomíná, že náklady jednotlivých druhů
+        kapitálu – a&nbsp;tím i&nbsp;průměrné náklady na kapitál – se mění také
+        v&nbsp;závislosti na <strong>výši</strong> investovaného kapitálu. Chce-li
+        podnik získat další kapitál, obvykle si to vynutí i&nbsp;růst jeho ceny:
+        při vyšším úvěrovém zatížení požadují věřitelé vyšší úrok, a&nbsp;průměrné
+        náklady na kapitál proto rostou. Náklady <em>přírůstku</em> kapitálu nazýváme
+        mezní průměrné náklady kapitálu.
+      </p>
+
+      <!-- DEFINICE: mezní náklady kapitálu -->
+      <section class="definice" id="pojem-mezni-naklady-kapitalu">
+        <h3 class="definice__pojem">Mezní průměrné náklady kapitálu</h3>
+        <div class="definice__telo">
+          <p>
+            Náklady spojené se <strong>získáním dodatečné (přírůstkové) jednotky
+            kapitálu</strong>. Rostou s&nbsp;výší celkově získávaného kapitálu, protože
+            další zdroje bývají dražší. Slouží ke stanovení <strong>optimální výše
+            kapitálových výdajů</strong> podniku: udávají hranici, které investiční
+            projekty ještě přijmout a&nbsp;které vyloučit.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Optimální výši kapitálových výdajů představuje souhrn výdajů právě těch
+        investičních akcí, jejichž <strong>očekávaná výnosnost přesahuje mezní
+        průměrné náklady kapitálu</strong>. Projekty, které tuto laťku nepřekonají,
+        podnik odmítne – financovat je dodatečným (a&nbsp;dražším) kapitálem by
+        znamenalo ničit hodnotu.
+      </p>
+
+      <!-- ============================================================= -->
+      <h2>Náklady na kapitál na mezinárodních trzích</h2>
+
+      <p>
+        V&nbsp;globalizovaném světě je nutné brát v&nbsp;úvahu specifika nákladů na
+        kapitál i&nbsp;u&nbsp;společností působících ve více zemích.
+        <strong>Multinacionální společnosti (MNS)</strong> působí ve složitějším
+        prostředí než čistě domácí podniky, takže i&nbsp;jejich náklady na kapitál
+        ovlivňuje více proměnných. Často se předpokládá, že MNS nesou <em>vyšší</em>
+        riziko, a&nbsp;proto mají vyšší náklady na kapitál. Na druhé straně ovšem
+        <strong>diverzifikují riziko mezi různé země</strong>, čímž si část rizika
+        snižují.
+      </p>
+
+      <!-- DEFINICE: MNS -->
+      <section class="definice" id="pojem-multinacionalni-spolecnost">
+        <h3 class="definice__pojem">Multinacionální společnost (MNS)</h3>
+        <div class="definice__telo">
+          <p>
+            Společnost působící v&nbsp;různých teritoriích (zemích). Její náklady na
+            kapitál ovlivňuje řada faktorů, které u&nbsp;čistě domácího podniku
+            nevystupují – od velikosti a&nbsp;přístupu ke kapitálu přes tržní
+            segmentaci a&nbsp;mezinárodní diverzifikaci až po politické, kurzové
+            a&nbsp;daňové riziko.
+          </p>
+        </div>
+      </section>
+
+      <p>Náklady na kapitál MNS ovlivňují zejména tyto faktory:</p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Faktory ovlivňující náklady na kapitál multinacionálních společností (MNS)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Faktor</th>
+              <th scope="col">Působení na náklady na kapitál</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Velikost podniku</th>
+              <td>Velké MNS získávají kapitál ve větších objemech a&nbsp;jsou známější; investoři jim ochotněji půjčují a&nbsp;podnik šetří na nákladech emisí. Působí spíše <strong>snižujícím</strong> směrem.</td>
+            </tr>
+            <tr>
+              <th scope="row">Přístup ke kapitálu</th>
+              <td>Vyšší dostupnost kapitálu na zahraničních trzích (při příznivém zdanění, kurzech a&nbsp;úrocích) snižuje mezní náklady na kapitál a&nbsp;usnadňuje udržení cílové kapitálové struktury. <strong>Snižuje</strong>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tržní segmentace</th>
+              <td>Rozdíly ve výnosnosti stejných cenných papírů mezi trhy (často kvůli vládním omezením pohybu kapitálu) vedou k&nbsp;omezenému přístupu ke kapitálu. Působí spíše <strong>zvyšujícím</strong> směrem.</td>
+            </tr>
+            <tr>
+              <th scope="row">Mezinárodní diverzifikace</th>
+              <td>Riziko jednotlivých zemí (inflace, měnová kontrola, kurzy, daně) se v&nbsp;mezinárodním kontextu stává <em>nesystematickým</em>, a&nbsp;lze jej diverzifikací snížit. <strong>Snižuje</strong>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Politické riziko</th>
+              <td>V&nbsp;zemi dceřiné společnosti hrozí změna podmínek pro podnikání. <strong>Zvyšuje</strong>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Kurzové riziko</th>
+              <td>Kolísání kurzů může zdražit kapitál získaný v&nbsp;zahraničí; lze jej ale tlumit zajišťovacími nástroji (swapy, forwardy, opce). <strong>Zvyšuje</strong> (částečně řiditelné).</td>
+            </tr>
+            <tr>
+              <th scope="row">Daňová politika</th>
+              <td>Odlišné podmínky zdanění (úrokové daňové štíty, zdanění repatriovaných či reinvestovaných zisků). Reinvestované zisky bez zdanění mohou náklady na kapitál dceřiné společnosti <strong>snížit</strong>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Poskytování finančních informací</th>
+              <td>Lépe informovaní investoři nesou menší riziko a&nbsp;spokojí se s&nbsp;nižším výnosem; důležitá je standardizace výkazů. <strong>Snižuje</strong>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Kapitálová struktura</th>
+              <td>Optimální strukturu je vhodné hledat na úrovni <em>celé skupiny</em>. Dcery mohou být i&nbsp;zadluženější, aniž jim rostou náklady, protože investoři vážou riziko na skupinu (matka často ručí). Mezní náklady MNS jsou proto často <strong>konstantní v&nbsp;širším rozsahu</strong> zadluženosti.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ZKUS SÁM 2: MNS rizika -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jaká specifická rizika a&nbsp;výhody musí zohlednit multinacionální
+          společnost při stanovení nákladů na kapitál? Uveďte alespoň jeden faktor,
+          který náklady zvyšuje, a&nbsp;jeden, který je snižuje.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              <strong>Zvyšují:</strong> politické riziko (změna podmínek v&nbsp;zemi
+              dcery), kurzové riziko a&nbsp;tržní segmentace omezující přístup ke
+              kapitálu. <strong>Snižují:</strong> mezinárodní diverzifikace (riziko
+              jednotlivých zemí se stává nesystematickým a&nbsp;lze je rozptýlit),
+              velikost podniku a&nbsp;lepší přístup ke kapitálu na zahraničních trzích,
+              využití výhodnějšího zdanění a&nbsp;kvalitní informování investorů.
+              Díky ručení matky a&nbsp;pohledu na skupinu jako celek bývají mezní
+              náklady na kapitál MNS navíc konstantní v&nbsp;širším rozsahu zadluženosti.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Náklady na kapitál a jejich vliv na výkonnost</h2>
+
+      <p>
+        Náklady na kapitál jsou <strong>významným faktorem výkonnosti</strong>
+        podniku – dokládají to ostatně všechna měřítka, která je berou v&nbsp;úvahu
+        (<a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-rezidualni-zisk" target="_blank" rel="noopener">reziduální zisk</a>, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>, <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-cva" target="_blank" rel="noopener">CVA</a> a&nbsp;další). Výše nákladů na kapitál odráží
+        celou skladbu rizik, kterou lze chápat jako <strong>soustavu rizikových
+        prémií</strong> přičítaných k&nbsp;bezrizikové úrokové sazbě.
+      </p>
+
+      <!-- STATICKÝ SCHEMA: skladba nákladů na kapitál z rizikových prémií -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Skladba nákladů na kapitál z rizikových prémií</p>
+          <p class="viz__popis">Náklady na kapitál lze chápat jako bezrizikovou sazbu (riziko ekonomiky) postupně navýšenou o prémie za jednotlivé druhy rizika. Schéma znázorňuje strukturu, nikoli konkrétní hodnoty jednotlivých prémií.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-premie"></div>
+      </figure>
+
+      <p>
+        Jednotlivé prémie mají jasnou ekonomickou interpretaci: prémie za
+        <strong>podnikatelské riziko</strong> odráží rizikovost samotného podnikání,
+        prémie za <strong>sníženou likvidnost</strong> souvisí s&nbsp;velikostí
+        podniku, prémie za <strong>finanční strukturu</strong> odráží zadluženost
+        a&nbsp;prémie za <strong>finanční stabilitu</strong> riziko plynoucí
+        z&nbsp;likvidity podniku. Základem je pak <strong>bezriziková sazba</strong>
+        vyjadřující riziko ekonomiky (včetně inflace), ve které podnik působí.
+      </p>
+      <p>
+        Podnik dosáhne na <strong>levnější kapitál</strong>, pokud umí řídit svou
+        likviditu, dostává svým závazkům a&nbsp;drží rozumnou <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálovou strukturu</a>.
+        Cizí zdroje přinášejí daňovou úsporu (úroky snižují základ daně), přílišná
+        zadluženost však ohrožuje finanční stabilitu. Riziko ekonomiky lze snižovat
+        diverzifikací činností do různých zemí nebo získáním kapitálu na mezinárodních
+        trzích.
+      </p>
+
+      <!-- CALLOUT: info – nejen manažerská záležitost -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Náklady na kapitál nejsou jen věcí manažerů</p>
+        <div class="callout__telo">
+          <p>
+            Investiční záměr s&nbsp;<em>kladnou</em> <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-npv" target="_blank" rel="noopener">čistou současnou hodnotou</a> přijatý
+            v&nbsp;jedné zemi může při <em>vysokých</em> nákladech na kapitál v&nbsp;jiné
+            zemi vyjít se <em>zápornou</em> NPV a&nbsp;být odmítnut. Vysoké náklady na
+            kapitál tak mohou znevýhodňovat celé ekonomiky – pochopení jejich
+            významnosti proto není jen záležitostí manažerů, ale i&nbsp;politiků
+            zainteresovaných na ekonomickém růstu země.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Vývoj úrokových sazeb má na výkonnost přímý dopad. Postupné snižování
+        úrokových sazeb v&nbsp;české ekonomice (tabulka&nbsp;4–6) trvající zhruba do
+        roku&nbsp;2005 umožňovalo podnikům snižovat úrokové náklady cizího kapitálu,
+        a&nbsp;tím i&nbsp;rizikovost podnikání a&nbsp;náklady na vlastní kapitál. Nižší
+        náklady na kapitál znamenaly i&nbsp;možnost přijmout investiční projekty dříve
+        odmítnuté – což působilo pozitivně na výkonnost. Od roku&nbsp;2006 sazby opět
+        rostly a&nbsp;stabilizovaly se.
+      </p>
+
+      <!-- TABULKA 4–6 -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4–6 – Úrokové sazby z úvěrů nefinančním podnikům (v %)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Rok</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009 <small>predikce</small></th>
+              <th scope="col" class="cislo">2010 <small>predikce</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Úroková sazba</th>
+              <td class="cislo">6,83</td>
+              <td class="cislo">5,82</td>
+              <td class="cislo">4,57</td>
+              <td class="cislo">4,51</td>
+              <td class="cislo">4,27</td>
+              <td class="cislo">4,29</td>
+              <td class="cislo">4,85</td>
+              <td class="cislo">5,59</td>
+              <td class="cislo">4,9</td>
+              <td class="cislo">5,0</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="tabulka-popis">Zdroj: Ministerstvo financí ČR (www.mfcr.cz).</p>
+      </div>
+
+      <p>
+        Podobný trend – klesající zhruba do roku&nbsp;2006 a&nbsp;poté nárůst –
+        vykazují i&nbsp;odvětvové průměry nákladů na vlastní kapitál (tabulka&nbsp;4–7).
+        Klesající náklady na vlastní kapitál byly jedním z&nbsp;faktorů přispívajících
+        k&nbsp;růstu výkonnosti českého průmyslu.
+      </p>
+
+      <!-- TABULKA 4–7 -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4–7 – Náklady na vlastní kapitál podle odvětví průmyslu (v %)</caption>
+          <thead>
+            <tr>
+              <th scope="col">OKEČ</th>
+              <th scope="col">Název</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">C</th><td>Těžba nerostných surovin</td><td class="cislo">22,82</td><td class="cislo">13,74</td><td class="cislo">12,14</td><td class="cislo">10,97</td><td class="cislo">8,94</td><td class="cislo">7,56</td><td class="cislo">6,34</td><td class="cislo">6,69</td><td class="cislo">9,49</td></tr>
+            <tr><th scope="row">DA</th><td>Potravinářské výrobky, nápoje, tabák</td><td class="cislo">16,06</td><td class="cislo">14,11</td><td class="cislo">14,79</td><td class="cislo">9,98</td><td class="cislo">12,54</td><td class="cislo">13,35</td><td class="cislo">11,35</td><td class="cislo">11,51</td><td class="cislo">13,02</td></tr>
+            <tr><th scope="row">DB</th><td>Textilie, textilní a oděvní výrobky</td><td class="cislo">19,98</td><td class="cislo">15,8</td><td class="cislo">15,25</td><td class="cislo">14,11</td><td class="cislo">17,39</td><td class="cislo">15,62</td><td class="cislo">13,81</td><td class="cislo">14,72</td><td class="cislo">17,31</td></tr>
+            <tr><th scope="row">DC</th><td>Usně a výrobky z usní</td><td class="cislo">30,58</td><td class="cislo">25,53</td><td class="cislo">25,74</td><td class="cislo">21,26</td><td class="cislo">20,26</td><td class="cislo">11,28</td><td class="cislo">16,65</td><td class="cislo">13,66</td><td class="cislo">22,7</td></tr>
+            <tr><th scope="row">DD</th><td>Zpracování dřeva, dřevěné výrobky</td><td class="cislo">16,65</td><td class="cislo">17,74</td><td class="cislo">14,59</td><td class="cislo">16,42</td><td class="cislo">17,17</td><td class="cislo">15,04</td><td class="cislo">13,09</td><td class="cislo">12,31</td><td class="cislo">12,13</td></tr>
+            <tr><th scope="row">DE</th><td>Vláknina, papír a výrobky z papíru</td><td class="cislo">19,72</td><td class="cislo">13,23</td><td class="cislo">16,56</td><td class="cislo">18,06</td><td class="cislo">16,39</td><td class="cislo">13,38</td><td class="cislo">9,76</td><td class="cislo">10,43</td><td class="cislo">11,67</td></tr>
+            <tr><th scope="row">DF</th><td>Koks, jaderná paliva, rafinérie ropy</td><td class="cislo">12,39</td><td class="cislo">10,25</td><td class="cislo">19,88</td><td class="cislo">16,44</td><td class="cislo">6,9</td><td class="cislo">6,43</td><td class="cislo">11,8</td><td class="cislo">6,59</td><td class="cislo">9,82</td></tr>
+            <tr><th scope="row">DG</th><td>Chemické látky, léčiva, chemická vlákna</td><td class="cislo">21,5</td><td class="cislo">15,36</td><td class="cislo">13,64</td><td class="cislo">13,4</td><td class="cislo">13,22</td><td class="cislo">11,39</td><td class="cislo">8,75</td><td class="cislo">8,02</td><td class="cislo">9,91</td></tr>
+            <tr><th scope="row">DH</th><td>Pryžové a plastové výrobky</td><td class="cislo">13,35</td><td class="cislo">11,03</td><td class="cislo">11,87</td><td class="cislo">10,11</td><td class="cislo">11,12</td><td class="cislo">11,04</td><td class="cislo">9,87</td><td class="cislo">10,16</td><td class="cislo">12,22</td></tr>
+            <tr><th scope="row">DI</th><td>Ostatní nekovové minerální výrobky</td><td class="cislo">12,65</td><td class="cislo">11,61</td><td class="cislo">12,26</td><td class="cislo">11,77</td><td class="cislo">12,09</td><td class="cislo">12,1</td><td class="cislo">9,7</td><td class="cislo">10,76</td><td class="cislo">10,74</td></tr>
+            <tr><th scope="row">DJ</th><td>Základní kovy, hutní a kovodělné výrobky</td><td class="cislo">23,15</td><td class="cislo">20,19</td><td class="cislo">19,08</td><td class="cislo">17,51</td><td class="cislo">11,14</td><td class="cislo">10,21</td><td class="cislo">9,52</td><td class="cislo">9,09</td><td class="cislo">9,74</td></tr>
+            <tr><th scope="row">DK</th><td>Výroba a opravy strojů j.&nbsp;n.</td><td class="cislo">21,69</td><td class="cislo">15,28</td><td class="cislo">15,78</td><td class="cislo">14,2</td><td class="cislo">15,64</td><td class="cislo">14,33</td><td class="cislo">14,16</td><td class="cislo">11,92</td><td class="cislo">12,34</td></tr>
+            <tr><th scope="row">DL</th><td>Elektrické a optické přístroje</td><td class="cislo">19,66</td><td class="cislo">13,8</td><td class="cislo">14,37</td><td class="cislo">11,7</td><td class="cislo">13,69</td><td class="cislo">12,27</td><td class="cislo">10,79</td><td class="cislo">10,13</td><td class="cislo">11,33</td></tr>
+            <tr><th scope="row">DM</th><td>Dopravní prostředky a zařízení</td><td class="cislo">17,33</td><td class="cislo">13,82</td><td class="cislo">12,18</td><td class="cislo">10,34</td><td class="cislo">10,73</td><td class="cislo">10,71</td><td class="cislo">8,45</td><td class="cislo">8,39</td><td class="cislo">8,77</td></tr>
+            <tr><th scope="row">DN</th><td>Zpracovatelský průmysl j.&nbsp;n.</td><td class="cislo">14,35</td><td class="cislo">13,4</td><td class="cislo">13,73</td><td class="cislo">12</td><td class="cislo">15,56</td><td class="cislo">17,8</td><td class="cislo">13,02</td><td class="cislo">10,79</td><td class="cislo">13,34</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">D</th><td>Zpracovatelský průmysl</td><td class="cislo">18,27</td><td class="cislo">14,41</td><td class="cislo">14,76</td><td class="cislo">12,88</td><td class="cislo">12,71</td><td class="cislo">12,01</td><td class="cislo">10,38</td><td class="cislo">9,87</td><td class="cislo">10,87</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">E</th><td>Elektřina, plyn a voda</td><td class="cislo">12,47</td><td class="cislo">9,41</td><td class="cislo">9,63</td><td class="cislo">8,02</td><td class="cislo">8,85</td><td class="cislo">7,65</td><td class="cislo">6,23</td><td class="cislo">6,99</td><td class="cislo">8,6</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">—</th><td>Průmysl celkem</td><td class="cislo">16,88</td><td class="cislo">12,59</td><td class="cislo">12,85</td><td class="cislo">11,14</td><td class="cislo">11,09</td><td class="cislo">10,27</td><td class="cislo">8,64</td><td class="cislo">8,59</td><td class="cislo">9,98</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">F</th><td>Stavebnictví</td><td class="cislo">17,54</td><td class="cislo">14,52</td><td class="cislo">12,54</td><td class="cislo">11,42</td><td class="cislo">11,69</td><td class="cislo">12,59</td><td class="cislo">10,28</td><td class="cislo">9,44</td><td class="cislo">11,13</td></tr>
+          </tbody>
+        </table>
+        <p class="tabulka-popis">Zdroj: www.mpo.cz. Zvýrazněné řádky jsou souhrnné (odvětvové skupiny a průmysl celkem).</p>
+      </div>
+
+      <!-- CALLOUT: pozor – subjektivita výpočtu -->
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nejdůležitější je uvědomit si, že kapitál není zadarmo</p>
+        <div class="callout__telo">
+          <p>
+            V&nbsp;praxi se nákladům na kapitál mnohdy nevěnuje dostatečná pozornost –
+            výpočet je náročný na informace, pracný a&nbsp;značně subjektivní. I&nbsp;když
+            při vyčíslení dojde k&nbsp;nepřesnostem, klíčové je, aby si podniky
+            uvědomily, že <strong>kapitál není zadarmo</strong>. Znalost nákladů na
+            kapitál umožňuje efektivní rozhodování o&nbsp;investicích, o&nbsp;zdrojích
+            financování i&nbsp;při oceňování (fúze a&nbsp;akvizice).
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč WACC s rostoucím zadlužením nejprve klesá a poté roste?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte dva protichůdné vlivy spojené s cizím kapitálem.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Zpočátku převažuje <strong>daňový štít</strong>: levnější (daňově zvýhodněný) cizí kapitál nahrazuje dražší vlastní, a WACC klesá. Od určité výše zadlužení převládnou <strong>náklady finanční tísně</strong> (rostoucí riziko platební neschopnosti), věřitelé i vlastníci žádají vyšší výnos a WACC roste. Vzniká tak U-křivka s minimem v bodě, kde se oba vlivy vyrovnají.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Jaký je rozdíl mezi současnou a cílovou strukturou kapitálu a proč se pro výpočet WACC dostáváme do „začarovaného kruhu"?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kdy se použije cílová struktura? A co potřebujeme znát, chceme-li počítat s tržními cenami kapitálu u neobchodovaného podniku?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Současná</strong> struktura odpovídá dnešnímu poměru zdrojů; <strong>cílová</strong> struktura se použije tehdy, je-li plánovaná změna struktury součástí strategie. Doporučuje se počítat s tržními cenami kapitálu, jenže tržní hodnotu kapitálu u neobchodovaného podniku musíme spočítat výnosovou metodou – a k té opět potřebujeme WACC. Tento kruh se řeší <strong>iteračním postupem</strong>: začneme odhadem (např. účetní struktura), spočteme WACC a hodnotu, z ní novou strukturu a opakujeme, dokud se vstupní a vypočtené hodnoty přibližně nerovnají.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Co jsou mezní průměrné náklady kapitálu a jak určují optimální výši kapitálových výdajů?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o náklady přírůstku kapitálu. Srovnejte je s očekávanou výnosností projektů.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Jsou to náklady na <strong>dodatečnou jednotku</strong> získávaného kapitálu; s rostoucím objemem rostou, protože další zdroje bývají dražší. Optimální výši kapitálových výdajů tvoří souhrn výdajů těch investičních akcí, jejichž <strong>očekávaná výnosnost přesahuje mezní průměrné náklady kapitálu</strong>. Projekty pod touto hranicí podnik odmítne.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Které faktory mohou multinacionální společnosti náklady na kapitál naopak <em>snížit</em>?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzpomeňte na velikost, diverzifikaci a přístup ke kapitálu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Snižovat je mohou: <strong>velikost</strong> podniku (levnější a snadnější přístup ke kapitálu, úspora na emisních nákladech), <strong>mezinárodní diverzifikace</strong> (riziko jednotlivých zemí se stává nesystematickým a lze je rozptýlit), lepší <strong>přístup ke kapitálu</strong> na zahraničních trzích, výhodnější <strong>zdanění</strong> reinvestovaných zisků a kvalitní <strong>informování investorů</strong>. Naproti tomu politické a kurzové riziko či tržní segmentace náklady zvyšují.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Z jakých rizikových prémií se skládají náklady na kapitál a jak souvisejí s výkonností podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte z bezrizikové sazby a přičítejte prémie za jednotlivé druhy rizika.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>K <strong>bezrizikové sazbě</strong> (riziko ekonomiky včetně inflace) se přičítají prémie za <strong>podnikatelské riziko</strong>, za <strong>sníženou likvidnost</strong> (velikost podniku), za <strong>finanční strukturu</strong> (zadluženost) a za <strong>finanční stabilitu</strong> (likvidita podniku). Čím vyšší náklady na kapitál, tím vyšší laťku musí výnosnost překonat – vysoké náklady mohou vést až k odmítnutí jinak výhodných projektů (záporná NPV), a tím snižovat výkonnost podniku i celé ekonomiky. Řízení likvidity, rozumná kapitálová struktura a diverzifikace proto výkonnost podporují.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t9-l2-capm.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">9.2 Náklady na vlastní kapitál – CAPM a další modely</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t9-l4-kapitalova-struktura.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">9.4 Kapitálová struktura – teorie a bod indiference</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      /* =========================================================
+         A) KROKOVÁ VIZUALIZACE: U-křivka WACC (obrázek 4–14)
+         Postupné odkrývání N_CK → N_VK → WACC → minimum.
+         Křivky jsou schematické (ukazují tvar, ne konkrétní čísla).
+         ========================================================= */
+
+      // Plocha grafu (v souřadnicích viewBoxu)
+      var plotL = 95, plotR = 610, plotB = 340, plotT = 55;
+      var yMax = 28; // horní hranice svislé osy (schematické „%")
+
+      // Mapování datových souřadnic na pixely
+      function fx(x) { return plotL + x * (plotR - plotL); }        // x: 0..1 (zadlužení)
+      function fy(v) { return plotB - (v / yMax) * (plotB - plotT); } // v: náklady
+
+      // Schematické průběhy nákladů podle zadlužení x (0..1)
+      function ck(x) { return 5 + 4 * x + 7 * x * x; }   // náklady cizího kapitálu (rostou)
+      function vk(x) { return 12 + 6 * x + 8 * x * x; }  // náklady vlastního kapitálu (nejvýš)
+      function wc(x) { return 12 - 5 * x + 10 * x * x; } // WACC (tvar U)
+
+      // Vygeneruje atribut points pro polyline z funkce fn
+      function body(fn) {
+        var p = [];
+        for (var i = 0; i <= 40; i++) {
+          var x = i / 40;
+          p.push(fx(x).toFixed(1) + ',' + fy(fn(x)).toFixed(1));
+        }
+        return p.join(' ');
+      }
+
+      // Minimum WACC: wc'(x) = -5 + 20x = 0 → x = 0,25
+      var xMin = 0.25, vMin = wc(xMin);
+
+      var BARVA_CK = '#0891b2';   // cizí kapitál (tyrkysová)
+      var BARVA_VK = '#dc2626';   // vlastní kapitál (červená)
+      var BARVA_WC = '#4338ca';   // WACC (indigo – hlavní)
+      var BARVA_MIN = '#16a34a';  // minimum (zelená)
+
+      Skripta.stepper('viz-ukrivka', {
+        sirka: 720, vyska: 400,
+        stavy: [
+          { ck: true, vk: false, wc: false, min: false },
+          { ck: true, vk: true,  wc: false, min: false },
+          { ck: true, vk: true,  wc: true,  min: false },
+          { ck: true, vk: true,  wc: true,  min: true  }
+        ],
+        popisky: [
+          'Náklady cizího kapitálu (N_CK) s rostoucím zadlužením stoupají – roste riziko věřitelů.',
+          'Náklady vlastního kapitálu (N_VK) leží nejvýše a rovněž rostou – vlastníci nesou větší riziko.',
+          'WACC je vážený průměr obojího a má tvar U: nejprve klesá, pak roste.',
+          'Minimum WACC = optimální zadlužení. Vlevo převažuje daňový štít, vpravo náklady finanční tísně.'
+        ],
+        render: function (svg, stav, i, u) {
+          // --- Osy (stále viditelné) ---
+          u.dej(svg, 'osa-x', 'line', { x1: plotL, y1: plotB, x2: plotR + 10, y2: plotB, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-y', 'line', { x1: plotL, y1: plotB, x2: plotL, y2: plotT - 5, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-x-titul', 'text', { x: (plotL + plotR) / 2, y: plotB + 40, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14 }, 'zadlužení (podíl cizího kapitálu CK/C) →');
+          u.dej(svg, 'osa-y-titul', 'text', { x: plotL - 20, y: (plotT + plotB) / 2, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14, transform: 'rotate(-90 ' + (plotL - 20) + ' ' + ((plotT + plotB) / 2) + ')' }, 'náklady na kapitál →');
+
+          // --- Křivka N_CK ---
+          u.dej(svg, 'krivka-ck', 'polyline', { points: body(ck), fill: 'none', stroke: BARVA_CK, 'stroke-width': 3, 'stroke-linejoin': 'round', opacity: stav.ck ? 1 : 0 });
+          u.dej(svg, 'lbl-ck', 'text', { x: plotR + 16, y: fy(ck(1)) + 16, fill: BARVA_CK, 'font-size': 14, 'font-weight': 700, opacity: stav.ck ? 1 : 0 }, 'N_CK');
+
+          // --- Křivka N_VK ---
+          u.dej(svg, 'krivka-vk', 'polyline', { points: body(vk), fill: 'none', stroke: BARVA_VK, 'stroke-width': 3, 'stroke-linejoin': 'round', opacity: stav.vk ? 1 : 0 });
+          u.dej(svg, 'lbl-vk', 'text', { x: plotR + 16, y: fy(vk(1)) + 4, fill: BARVA_VK, 'font-size': 14, 'font-weight': 700, opacity: stav.vk ? 1 : 0 }, 'N_VK');
+
+          // --- Křivka WACC ---
+          u.dej(svg, 'krivka-wc', 'polyline', { points: body(wc), fill: 'none', stroke: BARVA_WC, 'stroke-width': 3.5, 'stroke-linejoin': 'round', opacity: stav.wc ? 1 : 0 });
+          u.dej(svg, 'lbl-wc', 'text', { x: plotR + 16, y: fy(wc(1)) - 4, fill: BARVA_WC, 'font-size': 14, 'font-weight': 700, opacity: stav.wc ? 1 : 0 }, 'WACC');
+
+          // --- Minimum + rozdělení na daňový štít / finanční tíseň ---
+          u.dej(svg, 'min-cara', 'line', { x1: fx(xMin), y1: fy(vMin), x2: fx(xMin), y2: plotB, stroke: BARVA_MIN, 'stroke-width': 1.5, 'stroke-dasharray': '5 4', opacity: stav.min ? 1 : 0 });
+          u.dej(svg, 'min-bod', 'circle', { cx: fx(xMin), cy: fy(vMin), r: 6, fill: BARVA_MIN, opacity: stav.min ? 1 : 0 });
+          u.dej(svg, 'min-lbl', 'text', { x: fx(xMin), y: fy(vMin) - 16, 'text-anchor': 'middle', fill: BARVA_MIN, 'font-size': 13, 'font-weight': 700, opacity: stav.min ? 1 : 0 }, 'minimum WACC');
+          u.dej(svg, 'reg-stit', 'text', { x: fx(xMin / 2), y: plotB - 12, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: stav.min ? 1 : 0 }, '◀ daňový štít');
+          u.dej(svg, 'reg-tisen', 'text', { x: fx((xMin + 1) / 2), y: plotB - 12, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: stav.min ? 1 : 0 }, 'finanční tíseň ▶');
+        }
+      });
+
+      /* =========================================================
+         B) STATICKÉ SCHÉMA: skladba nákladů na kapitál z prémií
+         Kvalitativní „stavebnice" – pojmenované vrstvy bez konkrétních
+         číselných hodnot (zdroj neuvádí jejich výši).
+         ========================================================= */
+      (function () {
+        var host = document.getElementById('viz-premie');
+        if (!host || !window.Skripta || !Skripta.viz) return;
+        var u = Skripta.viz;
+        var W = 720, H = 430;
+        var svg = u.el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', preserveAspectRatio: 'xMidYMid meet', 'aria-label': 'Skladba nákladů na kapitál z bezrizikové sazby a rizikových prémií' });
+
+        // Vrstvy zdola nahoru: základna + prémie
+        var vrstvy = [
+          { text: 'Bezriziková sazba (riziko ekonomiky, inflace)', barva: '#475569' },
+          { text: 'Prémie za podnikatelské riziko',               barva: '#4338ca' },
+          { text: 'Prémie za sníženou likvidnost (velikost podniku)', barva: '#0891b2' },
+          { text: 'Prémie za finanční strukturu (zadluženost)',    barva: '#7c3aed' },
+          { text: 'Prémie za finanční stabilitu (likvidita)',      barva: '#db2777' }
+        ];
+
+        var barX = 70, barW = 150;
+        var segH = 60, gap = 6;
+        var startY = 40;
+        var textX = barX + barW + 24;
+
+        vrstvy.forEach(function (v, k) {
+          // shora dolů kreslíme: nejvyšší prémie nahoře, základna dole
+          var idxFromTop = vrstvy.length - 1 - k;
+          var y = startY + idxFromTop * (segH + gap);
+          svg.appendChild(u.el('rect', { x: barX, y: y, width: barW, height: segH, rx: 6, fill: v.barva, opacity: 0.92 }));
+          // spojnice k popisku
+          svg.appendChild(u.el('line', { x1: barX + barW, y1: y + segH / 2, x2: textX - 8, y2: y + segH / 2, stroke: u.barvaMrizka, 'stroke-width': 1.5 }));
+          svg.appendChild(u.el('text', { x: textX, y: y + segH / 2 + 5, fill: u.barvaText, 'font-size': 15 }, v.text));
+        });
+
+        // Souhrnná svorka vpravo od sloupce s popiskem „náklady na kapitál"
+        var topY = startY;
+        var botY = startY + vrstvy.length * segH + (vrstvy.length - 1) * gap;
+        var brX = barX - 22;
+        svg.appendChild(u.el('path', { d: 'M ' + brX + ' ' + topY + ' H ' + (brX - 8) + ' V ' + botY + ' H ' + brX, fill: 'none', stroke: u.barvaOsa, 'stroke-width': 1.5 }));
+        svg.appendChild(u.el('text', { x: brX - 14, y: (topY + botY) / 2, fill: u.barvaText, 'font-size': 14, 'font-weight': 700, 'text-anchor': 'middle', transform: 'rotate(-90 ' + (brX - 14) + ' ' + ((topY + botY) / 2) + ')' }, 'náklady na kapitál'));
+
+        host.appendChild(svg);
+      })();
+
+    })();
+  </script>
+</body>
+</html>

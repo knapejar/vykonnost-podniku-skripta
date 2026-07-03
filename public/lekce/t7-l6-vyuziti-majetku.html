@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7.6 Analýza využití majetku – Výkonnost podniku</title>
+  <meta name="description" content="Analýza efektivnosti využití majetku – obratovost a odepsanost aktiv jako most k investičnímu rozhodování a řízení čistého pracovního kapitálu.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 7, aktuální 7.6 -->
+    <nav class="panel" data-panel data-aktivni-lekce="7.6" aria-label="Lekce tématu 7">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 7</div>
+      <div class="panel__nazev-tema">Generátory hodnoty a řízení výnosů, nákladů a zisku</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="7.1" href="t7-l1-generatory-hodnoty.html"><span class="panel__odkaz-cislo">7.1</span><span>Generátory hodnoty</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.2" href="t7-l2-pyramidovy-rozklad-eva.html"><span class="panel__odkaz-cislo">7.2</span><span>Pyramidové soustavy ukazatelů – rozklad EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.3" href="t7-l3-bod-zvratu-provozni-paka.html"><span class="panel__odkaz-cislo">7.3</span><span>Tržby a řízení nákladů – bod zvratu a provozní páka</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.4" href="t7-l4-kryci-prispevek-abc.html"><span class="panel__odkaz-cislo">7.4</span><span>Krycí příspěvek a moderní kalkulace nákladů ABC</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.5" href="t7-l5-dividendova-politika.html"><span class="panel__odkaz-cislo">7.5</span><span>Konkurenceschopnost, rozdělování zisku a dividendová politika</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.6" href="t7-l6-vyuziti-majetku.html"><span class="panel__odkaz-cislo">7.6</span><span>Analýza využití majetku</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-7">Téma 7 · Generátory hodnoty</a></li>
+          <li><span aria-current="page">Lekce 7.6</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 7.6</span>
+        <h1>Analýza využití majetku</h1>
+        <p class="lekce-hlavicka__strany">Strany 134–135</p>
+      </header>
+
+      <p>
+        Tato krátká přemosťovací lekce uzavírá téma řízení výnosů, nákladů a zisku
+        pohledem na <strong>majetek</strong>, v němž je vázán investovaný kapitál.
+        Optimalizace kapitálu vloženého do majetku podniku je významným nástrojem
+        zvyšování jeho rentability a hodnoty – a zároveň přirozeným úvodem do
+        <strong>Tématu 8</strong>, které se věnuje investičnímu rozhodování a řízení
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého pracovního kapitálu</a>.
+      </p>
+
+      <!-- Návěští: obratovost a doba obratu jsou z lekce 3.3 -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Návaznost na finanční analýzu</p>
+        <div class="callout__telo">
+          <p>Ukazatele <strong>obratovosti</strong> (<a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-obrat-aktiv" target="_blank" rel="noopener">obrat aktiv</a>) a <strong>doby obratu</strong>
+          zásob, pohledávek a závazků byly zavedeny už v <strong>lekci 3.3</strong>
+          (Analýza likvidity a aktivity). Zde je nepočítáme znovu – používáme je jako
+          samostatný analytický krok pro posouzení, jak <em>efektivně</em> podnik
+          se svým majetkem hospodaří.</p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE: analýza využití majetku -->
+      <section class="definice" id="pojem-vyuziti-majetku">
+        <h3 class="definice__pojem">Analýza efektivnosti využití majetku</h3>
+        <div class="definice__telo">
+          <p>
+            Zkoumání toho, jak dobře podnik využívá majetek a jeho jednotlivé druhy
+            vázané v podnikání. Cílem je odhalit, zda kapitál investovaný do majetku
+            přináší dostatečné tržby a výnos – tedy zda majetek „pracuje" efektivně,
+            nebo zda je jeho část zbytečně vázaná bez odpovídajícího přínosu.
+          </p>
+        </div>
+      </section>
+
+      <h2>Obratovost jako měřítko využití majetku</h2>
+      <p>
+        Pro měření využití majetku <em>jako celku</em> slouží ukazatel
+        <strong>obratu aktiv</strong>. <strong>Vysoká</strong> hodnota obratovosti
+        může naznačovat, že podnik pracuje efektivně; zároveň však pro něj může být
+        obtížné pružně rozšířit výrobu při zvýšené poptávce bez dodatečně investovaného
+        kapitálu. <strong>Nízká</strong> hodnota by naopak měla vést k prozkoumání
+        efektivnosti využití jednotlivých majetkových složek – tedy k analýze
+        obratovosti <em>dlouhodobého majetku</em>, <em>zásob</em> a <em>pohledávek</em>.
+        U obratu pohledávek se doporučuje současně analyzovat obrat krátkodobých závazků.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Extrémy nejsou samy o sobě dobré ani špatné</p>
+        <div class="callout__telo">
+          <p>Vysoký obrat zásob se obvykle považuje za projev efektivnosti – nízké
+          zásoby však mohou vést k problémům s <strong>plynulostí výroby a dodávek</strong>.
+          Podobně nízká <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-pohledavek" target="_blank" rel="noopener">doba obratu pohledávek</a> může být znakem kvalitního inkasního
+          oddělení, nebo naopak <strong>příliš tvrdých platebních podmínek</strong>,
+          které do budoucna ohrozí odbyt. Každý ukazatel je proto třeba vykládat
+          v kontextu, nikoli jako izolované „čím víc, tím líp".</p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE: odepsanost aktiv -->
+      <section class="definice" id="pojem-odepsanost-aktiv">
+        <h3 class="definice__pojem">Odepsanost (opotřebení) aktiv</h3>
+        <div class="definice__telo">
+          <p>
+            Míra, do jaké je dlouhodobý majetek účetně odepsán – tedy jak nízká je
+            jeho zůstatková hodnota vzhledem k hodnotě pořizovací. Vypovídá o
+            <em>věkové struktuře</em> majetku: vysoká odepsanost signalizuje starý,
+            téměř odepsaný majetek a zpravidla i blížící se potřebu nových investic.
+          </p>
+        </div>
+      </section>
+
+      <h2>Pozor na odepsanost: past při srovnávání</h2>
+      <p>
+        Při časovém a mezipodnikovém srovnávání obratu dlouhodobého hmotného
+        a nehmotného majetku bychom neměli opomenout analyzovat <strong>odepsanost
+        aktiv</strong> a použité <strong>metody odepisování</strong>. Vysoká odepsanost
+        totiž ukazatel obratovosti <em>uměle zvyšuje</em>: majetek s nízkou zůstatkovou
+        hodnotou tvoří malý jmenovatel, takže podnik vyrábějící na odepsaných či téměř
+        odepsaných zařízeních může vykazovat <em>lepší</em> obratovost než podnik
+        s vysokou mírou investic do nového majetku – aniž by byl nutně výkonnější.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE (stepper) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Jak odepsanost „nafoukne" obrat dlouhodobého majetku</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Tržby zůstávají stejné,
+          klesá jen zůstatková hodnota odepisovaného majetku – a obrat přesto roste.
+          (Hodnoty jsou ilustrativní, slouží k pochopení principu.)</p>
+        </figcaption>
+        <div id="viz-odepsanost-obrat"></div>
+      </figure>
+
+      <h2>Struktura majetku a vliv odvětví</h2>
+      <p>
+        Na strukturu majetku má zásadní vliv <strong>obor podnikání</strong>.
+        Poradenská společnost prakticky nedrží peníze v zásobách, výrobce letadel
+        má velký podíl dlouhodobého hmotného majetku a investiční společnost zase
+        dlouhodobého finančního majetku. Podniky ve <em>stejném</em> odvětví s podobným
+        sortimentem by proto měly vykazovat i podobnou strukturu majetku. Pokud tomu
+        tak není, je namístě hledat příčiny – například zbytečně vysoké stavy zásob,
+        dlouhou dobu splatnosti pohledávek při silné tržní pozici nebo předimenzované
+        výrobní kapacity.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Neviditelná nehmotná aktiva</p>
+        <div class="callout__telo">
+          <p>V posledních desetiletích roste u podniků (zejména v některých odvětvích)
+          podíl <strong>nehmotných aktiv</strong>, která výkon produkují, ale účetnictví
+          je nezaznamenává – znalosti pracovníků, inovativní kulturu, vybudované vztahy
+          se zákazníky. Ta lze jen obtížně ocenit, a proto může být výsledek měření
+          efektivnosti využití majetku u takových podniků <strong>zkreslený</strong>.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM #1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik dosahuje nadprůměrné obratovosti dlouhodobého majetku a chlubí se
+          tím jako důkazem efektivity. Při bližším pohledu zjistíte, že většina jeho
+          strojů je téměř odepsaná. Co to o podniku vypovídá a jaké riziko z toho plyne?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Vysoká obratovost zde není projevem lepšího hospodaření, ale důsledkem
+            <strong>vysoké odepsanosti</strong>: nízká zůstatková hodnota majetku uměle
+            zmenšuje jmenovatel ukazatele. Podnik jede na „dojezd" starých zařízení.
+            Rizikem je, že jej brzy čeká <strong>vlna obnovovacích investic</strong> –
+            náklady i nová kapitálová vázanost, které obratovost naopak srazí. Vysoký
+            ukazatel tak paradoxně signalizuje spíše odloženou investiční potřebu než
+            skutečnou výkonnost.</p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Most k Tématu 8: řízení majetku</h2>
+      <p>
+        Analýza využití majetku není samoúčelná – ukazuje, kde má podnik prostor
+        pro zlepšení a jak s majetkem dál pracovat. Řízení majetku se pak dělí na
+        dvě velké oblasti, jimž se věnují následující dvě kapitoly (Téma 8):
+        <strong>investiční rozhodování</strong> zaměřené na dlouhodobý majetek a
+        <strong>řízení <a class="pojem" href="t8-l2-cpk-zasoby.html?zvyraznit=pojem-pracovni-kapital" target="_blank" rel="noopener">pracovního kapitálu</a></strong> zaměřené na majetek oběžný.
+      </p>
+
+      <!-- STATICKÉ SCHÉMA (inline SVG, bez JS) -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Od analýzy využití majetku k jeho řízení</p>
+          <p class="viz__popis">Majetek se pro účely řízení dělí na dlouhodobý (investiční rozhodování) a oběžný (řízení čistého pracovního kapitálu). Obojí míří ke společnému cíli – vyšší rentabilitě a hodnotě podniku.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 720 340" width="100%" role="img"
+               aria-label="Schéma: majetek podniku se dělí na dlouhodobý majetek (investiční rozhodování, Téma 8.1) a oběžný majetek (řízení ČPK, Téma 8.2 až 8.4); obojí vede k vyšší rentabilitě a hodnotě podniku.">
+            <!-- horní blok -->
+            <rect x="270" y="20" width="180" height="52" rx="10" fill="#4338ca"/>
+            <text x="360" y="52" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Majetek podniku</text>
+
+            <!-- spojnice k větvím -->
+            <path d="M360 72 L360 96 L180 96 L180 120" fill="none" stroke="#94a3b8" stroke-width="2"/>
+            <path d="M360 72 L360 96 L540 96 L540 120" fill="none" stroke="#94a3b8" stroke-width="2"/>
+
+            <!-- levá větev: dlouhodobý majetek -->
+            <rect x="70" y="120" width="220" height="52" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+            <text x="180" y="144" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="700">Dlouhodobý majetek</text>
+            <text x="180" y="162" text-anchor="middle" fill="#475569" font-size="12">stroje, budovy, technologie</text>
+
+            <!-- pravá větev: oběžný majetek -->
+            <rect x="430" y="120" width="220" height="52" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+            <text x="540" y="144" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="700">Oběžný majetek</text>
+            <text x="540" y="162" text-anchor="middle" fill="#475569" font-size="12">zásoby, pohledávky, peníze</text>
+
+            <!-- šipky dolů -->
+            <path d="M180 172 L180 206" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#sipka)"/>
+            <path d="M540 172 L540 206" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#sipka)"/>
+
+            <!-- nástroje řízení -->
+            <rect x="70" y="212" width="220" height="56" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+            <text x="180" y="236" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="700">Investiční rozhodování</text>
+            <text x="180" y="256" text-anchor="middle" fill="#475569" font-size="12">Téma 8.1</text>
+
+            <rect x="430" y="212" width="220" height="56" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+            <text x="540" y="236" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="700">Řízení pracovního kapitálu</text>
+            <text x="540" y="256" text-anchor="middle" fill="#475569" font-size="12">Téma 8.2–8.4</text>
+
+            <!-- sloučení do cíle -->
+            <path d="M180 268 L180 292 L360 292" fill="none" stroke="#059669" stroke-width="2"/>
+            <path d="M540 268 L540 292 L360 292" fill="none" stroke="#059669" stroke-width="2"/>
+            <path d="M360 292 L360 300" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#sipkaz)"/>
+
+            <rect x="230" y="304" width="260" height="30" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+            <text x="360" y="324" text-anchor="middle" fill="#065f46" font-size="14" font-weight="700">Vyšší rentabilita a hodnota podniku</text>
+
+            <defs>
+              <marker id="sipka" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                <path d="M0 0 L8 4 L0 8 z" fill="#94a3b8"/>
+              </marker>
+              <marker id="sipkaz" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                <path d="M0 0 L8 4 L0 8 z" fill="#059669"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </figure>
+
+      <!-- ================= ZKUS SÁM #2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jak souvisí obratovost majetku s rentabilitou? Vzpomeňte si na DuPontův
+          rozklad z lekce 3.6 a vysvětlete, proč zlepšení obratovosti může zvýšit
+          rentabilitu i beze změny <a class="pojem" href="t7-l2-pyramidovy-rozklad-eva.html?zvyraznit=pojem-ziskova-marze" target="_blank" rel="noopener">ziskové marže</a>.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p><a class="pojem" href="t3-l6-dupont-soustavy.html?zvyraznit=pojem-dupontuv-rozklad" target="_blank" rel="noopener">DuPontův rozklad</a> rozkládá rentabilitu na součin <strong>ziskové marže</strong>
+            (zisk / tržby) a <strong>obratu aktiv</strong> (tržby / aktiva). Rentabilita
+            aktiv tak roste dvěma cestami: buď podnik vydělá více z každé koruny tržeb,
+            nebo z téhož majetku „vytočí" více tržeb. Efektivnější využití majetku –
+            například odprodej nevyužitých kapacit nebo snížení zbytečných zásob –
+            zvýší obrat aktiv, a tím i rentabilitu, <strong>aniž</strong> by se musela
+            měnit zisková marže. Analýza využití majetku proto míří přímo na jeden
+            ze dvou motorů rentability.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Který ukazatel použijeme pro posouzení využití majetku jako celku a jak postupujeme, pokud vyjde nízký?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Začíná se ukazatelem za celý podnik, pak se „rozklikávají" jednotlivé složky majetku.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Použijeme <strong>obrat aktiv</strong>. Vyjde-li nízký, prozkoumáme efektivnost jednotlivých majetkových složek – obratovost <strong>dlouhodobého majetku, zásob a pohledávek</strong> (a u pohledávek doplníme i obrat krátkodobých závazků).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč může podnik s téměř odepsaným majetkem vykazovat lepší obratovost než podnik hodně investující, aniž by byl výkonnější?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se, co je ve jmenovateli ukazatele obratovosti.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Vysoká <strong>odepsanost</strong> snižuje zůstatkovou hodnotu majetku, tedy jmenovatel ukazatele. Při stejných tržbách proto obratovost <strong>uměle roste</strong>. Nejde o vyšší efektivitu, ale o účetní důsledek stáří majetku – proto je při srovnávání nutné zohlednit odepsanost a metody odepisování.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč je struktura majetku dvou podniků ze stejného odvětví užitečným srovnávacím vodítkem?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co byste čekali, že budou mít podobné, a co vás naopak zaujme?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podniky ze stejného odvětví s podobným sortimentem by měly mít <strong>podobnou strukturu majetku</strong>. Výrazná odchylka je signálem k hledání příčin – například zbytečně vysokých zásob, dlouhé splatnosti pohledávek nebo <strong>předimenzovaných kapacit</strong>.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Na jaké dvě oblasti řízení majetku analýza využití majetku navazuje a čeho se každá týká?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o dělení podle druhu majetku – dlouhodobý versus oběžný.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na <strong>investiční rozhodování</strong> (dlouhodobý majetek) a <strong>řízení pracovního kapitálu / ČPK</strong> (oběžný majetek). Oběma se věnuje následující Téma 8.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t7-l5-dividendova-politika.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">7.5 Konkurenceschopnost, rozdělování zisku a dividendová politika</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t8-l1-investicni-rozhodovani.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">8.1 Strategické investiční rozhodování</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: vliv odepsanosti na obrat dlouhodobého majetku.
+      // Tržby jsou konstantní; klesá jen zůstatková hodnota DM → obrat roste.
+      var TRZBY = 800;                 // ilustrativní, konstantní přes všechny kroky
+      var DM = [1000, 500, 200];       // klesající zůstatková hodnota DM
+      var scaleH = 0.20;               // px na jednotku hodnoty
+
+      Skripta.stepper('viz-odepsanost-obrat', {
+        sirka: 720, vyska: 340,
+        stavy: [ { i: 0 }, { i: 1 }, { i: 2 } ],
+        popisky: [
+          'Nové zařízení: vysoká zůstatková hodnota DM = 1000. Obrat DM = 800 / 1000 = 0,8.',
+          'Po letech odpisů klesá zůstatková hodnota na 500. Při stejných tržbách obrat roste na 1,6.',
+          'Téměř odepsaný majetek (200) „nafoukne" obrat na 4,0 – vysoká hodnota však neznamená vyšší efektivitu.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 290;
+          var dm = DM[stav.i];
+          var dmH = dm * scaleH;
+          var trzbyH = TRZBY * scaleH;
+          var obrat = TRZBY / dm;
+
+          // osa (základna)
+          u.dej(svg, 'osa', 'line', { x1: 70, y1: base, x2: 470, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // referenční čára tržeb (konstantní)
+          u.dej(svg, 'trzby-cara', 'line', {
+            x1: 70, y1: base - trzbyH, x2: 470, y2: base - trzbyH,
+            stroke: u.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '6 5'
+          });
+          u.dej(svg, 'trzby-lbl', 'text', {
+            x: 74, y: base - trzbyH - 8, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 13
+          }, 'Tržby = 800 (stálé)');
+
+          // sloupec zůstatkové hodnoty DM (mění výšku mezi kroky)
+          u.dej(svg, 'bar-dm', 'rect', {
+            x: 190, y: base - dmH, width: 130, height: dmH, rx: 6, fill: '#4338ca'
+          });
+          u.dej(svg, 'val-dm', 'text', {
+            x: 255, y: base - dmH - 12, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 15, 'font-weight': 700
+          }, u.formatCislo(dm));
+          u.dej(svg, 'lbl-dm', 'text', {
+            x: 255, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+          }, 'Zůstatková hodnota DM');
+
+          // výsledek: obrat DM (roste, zeleně)
+          u.dej(svg, 'obrat-lbl', 'text', {
+            x: 600, y: base - 70, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14
+          }, 'Obrat DM');
+          u.dej(svg, 'obrat-val', 'text', {
+            x: 600, y: base - 30, 'text-anchor': 'middle', fill: u.barvaTvorba,
+            'font-size': 34, 'font-weight': 700
+          }, u.formatCislo(obrat, 1));
+          u.dej(svg, 'obrat-pozn', 'text', {
+            x: 600, y: base + 4, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12
+          }, '= Tržby / DM');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

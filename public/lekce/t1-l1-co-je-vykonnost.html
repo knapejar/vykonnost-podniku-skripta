@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.1 Co je výkonnost podniku a proč řídit hodnotu – Výkonnost podniku</title>
+  <meta name="description" content="Vymezení výkonnosti podniku z pohledu různých subjektů, hodnota jako měřítko výkonnosti, hodnotové řízení (VBM) a čistá současná hodnota jako základní kritérium.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 1 -->
+    <nav class="panel" data-panel data-aktivni-lekce="1.1" aria-label="Lekce tématu 1">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 1</div>
+      <div class="panel__nazev-tema">Výkonnost a hodnotové řízení podniku</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="1.1" href="t1-l1-co-je-vykonnost.html"><span class="panel__odkaz-cislo">1.1</span><span>Co je výkonnost podniku a proč řídit hodnotu</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="1.2" href="t1-l2-valka-ukazatelu.html"><span class="panel__odkaz-cislo">1.2</span><span>Válka ukazatelů – klasické versus moderní přístupy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-1">Téma 1 · Hodnotové řízení</a></li>
+          <li><span aria-current="page">Lekce 1.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 1.1</span>
+        <h1>Co je výkonnost podniku a proč řídit hodnotu</h1>
+        <p class="lekce-hlavicka__strany">Strany 13–16</p>
+      </header>
+
+      <p>
+        Výkonnost podnikových činností závisí na míře, do jaké dokáže podnik využít
+        svou <a class="pojem" href="#pojem-konkurencni-vyhoda">konkurenční výhodu</a>.
+        V době rychlých změn podnikatelského prostředí je stále obtížnější tuto výhodu
+        dlouhodobě udržet. Uspět mohou jen podniky, které na měnící se podmínky reagují,
+        průběžně sledují a vyhodnocují úroveň své výkonnosti a systematicky usilují o její
+        zvyšování. Předpokladem růstu výkonnosti je proto její <strong>řízení opírající se
+        o opakovaná měření</strong> – identifikaci klíčových faktorů a nasazení vhodné
+        soustavy měřítek.
+      </p>
+
+      <!-- DEFINICE: výkonnost podniku -->
+      <section class="definice" id="pojem-vykonnost-podniku">
+        <h3 class="definice__pojem">Výkonnost podniku</h3>
+        <div class="definice__telo">
+          <p>
+            Schopnost podniku dlouhodobě naplňovat očekávání subjektů, které jsou s ním
+            spjaty. Různí účastníci ji přitom vnímají různě, proto vzniká otázka, <em>co
+            má být jejím měřítkem</em>. Moderní řízení odpovídá tvorbou hodnoty pro
+            vlastníky, jejíž měření vyžaduje nejúplnější informace.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: konkurenční výhoda -->
+      <section class="definice" id="pojem-konkurencni-vyhoda">
+        <h3 class="definice__pojem">Konkurenční výhoda</h3>
+        <div class="definice__telo">
+          <p>
+            Zdroj lepšího postavení podniku vůči konkurenci, díky němuž dokáže vytvářet
+            hodnotu. Jejím zdrojem mohou být nižší náklady z rozsahu výroby, inovace
+            výrobku, využití vyspělých technologií, kvalitní management či know-how.
+          </p>
+        </div>
+      </section>
+
+      <h2>Výkonnost očima různých subjektů</h2>
+
+      <p>
+        Co si vlastně pod výkonností podniku představit? Velikost bankovního konta, počet
+        zaměstnanců, image značky, podíl na trhu? Nebo schopnost uspokojovat zákazníky,
+        mít motivované zaměstnance, platit včas věřitelům a obstát v konkurenci? Každý
+        subjekt hodnotí výkonnost jinak:
+      </p>
+
+      <ul>
+        <li><strong>Vlastník</strong> – podle splnění očekávané návratnosti prostředků vložených do podnikání.</li>
+        <li><strong>Zákazník</strong> – podle uspokojení požadavků na výrobek či službu, jejich cenu, rychlost dodání a podmínky placení.</li>
+        <li><strong>Dodavatelé a banky</strong> – podle schopnosti podniku splácet své závazky.</li>
+        <li><strong>Zaměstnanci</strong> – podle výše mezd a pracovních podmínek.</li>
+        <li><strong>Stát</strong> – podle schopnosti platit daně.</li>
+      </ul>
+
+      <p>
+        Během desetiletí proto vznikla celá škála kritérií výkonnosti. Historický pohled
+        ukazuje postupný vývoj od měření ziskových marží a růstu zisku, přes rentabilitu
+        investovaného kapitálu, až k moderním konceptům založeným na tvorbě hodnoty pro
+        vlastníky (tabulka&nbsp;1–1).
+      </p>
+
+      <!-- TABULKA 1-1: čtyři generace ukazatelů -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 1–1 – Vývoj ukazatelů finanční výkonnosti podniku</caption>
+          <thead>
+            <tr>
+              <th scope="col">1. generace</th>
+              <th scope="col">2. generace</th>
+              <th scope="col">3. generace</th>
+              <th scope="col">4. generace</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">„Zisková marže"</th>
+              <th scope="row">„Růst zisku"</th>
+              <th scope="row">„Výnosnost kapitálu" (ROA, ROE, ROI)</th>
+              <th scope="row">„Tvorba hodnoty pro vlastníky"</th>
+            </tr>
+            <tr>
+              <td>
+                <span class="math"><span class="frac"><span class="frac__cit">Zisk</span><span class="frac__jmen">Tržby</span></span></span>
+              </td>
+              <td>Maximalizace zisku</td>
+              <td>
+                <span class="math"><span class="frac"><span class="frac__cit">Zisk</span><span class="frac__jmen">Investovaný kapitál</span></span></span>
+              </td>
+              <td>EVA, CFROI, FCF, …</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="poznamka">
+        <small>ROA – rentabilita celkového kapitálu, ROE – rentabilita vlastního kapitálu,
+        ROI – rentabilita investovaného kapitálu, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> – ekonomická přidaná hodnota,
+        CFROI – provozní návratnost investice, FCF – volné cash flow.</small>
+      </p>
+
+      <h2>Proč pohled vlastníka: shareholder a stakeholder value</h2>
+
+      <p>
+        Proč moderní koncepty řízení a měření výkonnosti preferují ze všech subjektů právě
+        <strong>vlastníky</strong>? Odpověď je jednoduchá: vlastníci přinesli do podnikání
+        myšlenku, vložili peníze a nesou největší riziko. Jen naplní-li se jejich
+        očekávání návratnosti odpovídající podstoupenému riziku, zůstanou a budou podnikat
+        dál. Aby se jim ale dařilo, musí usilovat o uspokojení všech, kdo jsou s podnikem
+        spjati.
+      </p>
+
+      <!-- DEFINICE: shareholder value -->
+      <section class="definice" id="pojem-shareholder-value">
+        <h3 class="definice__pojem">Shareholder value (hodnota pro akcionáře)</h3>
+        <div class="definice__telo">
+          <p>
+            Koncepce zdůrazňující zhodnocení prostředků <em>vlastníků</em>. Je typická pro
+            angloamerické prostředí s vyspělými kapitálovými trhy, které změnu výkonnosti
+            promítají do tržních cen akcií a tím přesouvají kapitál z méně výkonných
+            podniků do výkonnějších.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: stakeholder value -->
+      <section class="definice" id="pojem-stakeholder-value">
+        <h3 class="definice__pojem">Stakeholder value (hodnota pro zainteresované strany)</h3>
+        <div class="definice__telo">
+          <p>
+            Koncepce zdůrazňující uspokojení <em>všech</em> subjektů participujících na
+            chodu podniku (zákazníci, zaměstnanci, věřitelé, stát…). Historicky převažuje
+            v Evropě s dominantním bankovním sektorem a klade důraz na dlouhodobý princip
+            fungování podniku.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Nevylučují se, naopak se doplňují</p>
+        <div class="callout__telo">
+          <p>
+            Vyplácet mzdy, platit dodavatelům, splácet úroky a odvádět daně lze jen tehdy,
+            když podnik dokáže vyrobit a hlavně prodat své výrobky zákazníkům. Zároveň to
+            ale musí činit s dostatečnou výnosností, aby uspokojil i vlastníky – jinak
+            vlastníci přesunou kapitál jinam a možnost prospívat ostatním subjektům zaniká.
+          </p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Slova Tomáše Bati (1925)</p>
+        <div class="callout__telo">
+          <p>
+            <em>„Pod obchodní poctivostí rozumíme, že všechny strany na obchodě zúčastněné
+            musí být po provedení obchodu bohatší než byly předtím. Poctivé vedení výroby
+            nebo obchodu znamená tvoření hodnot."</em>
+          </p>
+        </div>
+      </aside>
+
+      <h2>Hodnota jako měřítko výkonnosti</h2>
+
+      <p>
+        Právě <strong>hodnota</strong> podniku se ukazuje jako nejvýhodnější měřítko
+        výkonnosti, protože jako jediná vyžaduje k měření kompletní informace. Hodnotově
+        orientované řízení pak sleduje růst hodnoty jako základní cíl podnikání a k jeho
+        naplnění směřuje veškeré aktivity podniku.
+      </p>
+
+      <!-- DEFINICE: hodnota podniku -->
+      <section class="definice" id="pojem-hodnota-podniku">
+        <h3 class="definice__pojem">Hodnota podniku</h3>
+        <div class="definice__telo">
+          <p>
+            Komplexní měřítko výkonnosti, které jako jediné vyžaduje k měření <em>kompletní
+            informace</em> o podniku. Odráží hodnotu budoucích peněžních toků očekávaných
+            z činnosti podniku, přepočtenou na jejich současnou hodnotu.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: maximalizace hodnoty -->
+      <section class="definice" id="pojem-maximalizace-hodnoty">
+        <h3 class="definice__pojem">Maximalizace hodnoty</h3>
+        <div class="definice__telo">
+          <p>
+            Vedení podniku usiluje o co největší přínos pro vlastníky v podobě rostoucí
+            hodnoty jejich vlastnického podílu. Dlouhodobě jí nelze dosáhnout bez
+            uspokojení zákazníků, věřitelů a zaměstnanců a bez dodržování etických principů
+            a společenské odpovědnosti.
+          </p>
+        </div>
+      </section>
+
+      <!-- ZKUS SÁM 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jak by výkonnost jednoho a téhož podniku hodnotil <strong>vlastník</strong>,
+          <strong>zaměstnanec</strong>, <strong>banka</strong> a <strong>stát</strong>?
+          Zkuste u každého pojmenovat, co konkrétně sleduje.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              <strong>Vlastník</strong> sleduje návratnost vložených prostředků odpovídající
+              podstoupenému riziku (zhodnocení jeho podílu). <strong>Zaměstnanec</strong>
+              hodnotí výši mezd a pracovní podmínky. <strong>Banka</strong> (a dodavatelé)
+              posuzuje schopnost podniku řádně a včas splácet závazky. <strong>Stát</strong>
+              hledí na schopnost platit daně. Každý tedy posuzuje zhodnocení „své investice"
+              do podniku – proto samotný jeden ukazatel nikdy neuspokojí všechny a moderní
+              řízení volí za souhrnné měřítko hodnotu.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Hodnotové řízení podniku (VBM)</h2>
+
+      <p>
+        Řízení hodnoty není jen výpočet jednoho čísla – jde o ucelený systém prostupující
+        celý podnik. Podle Younga a O'Byrneho by hodnotové řízení mělo obsahovat všechny
+        následující prvky:
+      </p>
+
+      <!-- DEFINICE: řízení hodnoty (VBM) -->
+      <section class="definice" id="pojem-rizeni-hodnoty">
+        <h3 class="definice__pojem">Řízení hodnoty (Value Based Management, VBM)</h3>
+        <div class="definice__telo">
+          <p>
+            Systém zahrnující strategii, procesy, analytické techniky, výkonnostní měřítka
+            i kulturu celého podniku, jehož smyslem je důsledné uplatňování kritéria tvorby
+            hodnoty při každém rozhodnutí.
+          </p>
+        </div>
+      </section>
+
+      <!-- STATICKÉ SCHÉMA: prvky hodnotového řízení (Young & O'Byrne) -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Prvky hodnotového řízení podle Younga a O'Byrneho</p>
+          <p class="viz__popis">Hodnotové řízení (VBM) propojuje šest oblastí podniku do jednoho systému zaměřeného na tvorbu hodnoty.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 760 380" role="img" aria-label="Schéma: uprostřed blok Řízení hodnoty (VBM), okolo šest prvků – strategické plánování a rozpočtování, alokace kapitálu, měření výkonnosti, systém odměňování manažerů, interní komunikace, externí komunikace." style="width:100%;height:auto">
+            <!-- spojnice hub → prvky -->
+            <g stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4">
+              <line x1="290" y1="190" x2="230" y2="57"></line>
+              <line x1="290" y1="190" x2="230" y2="190"></line>
+              <line x1="290" y1="190" x2="230" y2="323"></line>
+              <line x1="470" y1="190" x2="530" y2="57"></line>
+              <line x1="470" y1="190" x2="530" y2="190"></line>
+              <line x1="470" y1="190" x2="530" y2="323"></line>
+            </g>
+            <!-- centrální hub -->
+            <rect x="290" y="158" width="180" height="64" rx="12" fill="#4338ca"></rect>
+            <text x="380" y="185" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Řízení hodnoty</text>
+            <text x="380" y="205" text-anchor="middle" fill="#c7d2fe" font-size="13">(VBM)</text>
+            <!-- satelitní prvky -->
+            <g font-size="13.5" fill="#1e293b">
+              <!-- levý sloupec -->
+              <rect x="20" y="30" width="210" height="54" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+              <text x="125" y="51" text-anchor="middle">Strategické plánování</text>
+              <text x="125" y="69" text-anchor="middle">a rozpočtování</text>
+
+              <rect x="20" y="163" width="210" height="54" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+              <text x="125" y="195" text-anchor="middle">Alokace kapitálu</text>
+
+              <rect x="20" y="296" width="210" height="54" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+              <text x="125" y="328" text-anchor="middle">Měření výkonnosti</text>
+              <!-- pravý sloupec -->
+              <rect x="530" y="30" width="210" height="54" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+              <text x="635" y="51" text-anchor="middle">Systém odměňování</text>
+              <text x="635" y="69" text-anchor="middle">manažerů</text>
+
+              <rect x="530" y="163" width="210" height="54" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+              <text x="635" y="195" text-anchor="middle">Interní komunikace</text>
+
+              <rect x="530" y="296" width="210" height="54" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+              <text x="635" y="328" text-anchor="middle">Externí komunikace</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <h2>Základní kritérium: čistá současná hodnota (NPV)</h2>
+
+      <p>
+        Základním kritériem hodnocení jakékoli investice a její efektivnosti je
+        <a class="pojem" href="#pojem-cista-soucasna-hodnota">čistá současná hodnota</a>
+        (Net Present Value, NPV). Její propočet říká, nakolik dané rozhodnutí investorům
+        prospívá, nebo naopak škodí. Platí:
+      </p>
+
+      <!-- VZOREC 1.1 -->
+      <div class="vzorec" id="vzorec-1-1">
+        <div class="vzorec__telo">
+          <span class="math">NPV<span class="op">=</span>PV<span class="op">−</span>I</span>
+        </div>
+        <div class="vzorec__cislo">(1.1)</div>
+      </div>
+
+      <p>
+        kde <span class="math">NPV</span> je čistá současná hodnota,
+        <span class="math">PV</span> současná hodnota budoucích užitků z investice a
+        <span class="math">I</span> výše investice. Vlastník jako investor chce ze své
+        investice vytěžit více, než kolik ho stála, musí tedy platit
+        <span class="math">NPV<span class="op">&gt;</span>0</span>. Cestou k maximalizaci
+        výkonnosti podniku z pohledu vlastníka je proto maximalizace čisté současné hodnoty.
+      </p>
+
+      <!-- DEFINICE: NPV -->
+      <section class="definice" id="pojem-cista-soucasna-hodnota">
+        <h3 class="definice__pojem">Čistá současná hodnota (NPV)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi současnou hodnotou budoucích užitků z investice a výší vynaložené
+            investice. Kladná NPV znamená, že investice přináší více, než stála – vytváří
+            hodnotu; podmínkou přijatelnosti je <span class="math">NPV<span class="op">&gt;</span>0</span>.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Současná hodnota podniku v sobě odráží hodnotu budoucích peněžních toků z jeho
+        činnosti přepočtenou na dnešek. Tento přepočet – <strong>diskontování</strong> –
+        je odrazem úvah o riziku, které vlastník nese, i o časové hodnotě peněz. Platí:
+      </p>
+
+      <!-- VZOREC 1.2 -->
+      <div class="vzorec" id="vzorec-1-2">
+        <div class="vzorec__telo">
+          <span class="math">PV<span class="op">=</span>
+            <span style="font-size:1.4em">Σ</span><sub style="font-size:.8em">t=1</sub><sup style="font-size:.8em">n</sup>
+            <span class="frac">
+              <span class="frac__cit">P<sub>t</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>i)<sup>t</sup></span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(1.2)</div>
+      </div>
+
+      <p>
+        kde <span class="math">P<sub>t</sub></span> jsou peněžní příjmy v jednotlivých
+        letech, <span class="math">t</span> jednotlivá léta, <span class="math">n</span>
+        počet let celkem a <span class="math">i</span> úroková (diskontní) míra.
+      </p>
+
+      <!-- DEFINICE: PV -->
+      <section class="definice" id="pojem-soucasna-hodnota">
+        <h3 class="definice__pojem">Současná hodnota (PV)</h3>
+        <div class="definice__telo">
+          <p>
+            Hodnota budoucích peněžních příjmů přepočtená diskontováním na dnešní den.
+            Vzdálenější příjmy mají nižší současnou hodnotu, protože se dělí větším
+            faktorem <span class="math">(1<span class="op">+</span>i)<sup>t</sup></span>.
+          </p>
+        </div>
+      </section>
+
+      <!-- KROKOVÁ VIZUALIZACE: diskontování peněžních toků na PV -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Diskontování budoucích peněžních toků na současnou hodnotu</p>
+          <p class="viz__popis">Ilustrace vzorce (1.2). Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se stejně vysoké budoucí příjmy zmenší na svou současnou hodnotu a sečtou do jediného sloupce PV. Hodnoty jsou ilustrativní (příjem 100 v každém z pěti let, i = 10 %).</p>
+        </figcaption>
+        <div id="viz-diskontovani"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Diskontní sazba, riziko a odkaz vpřed</p>
+        <div class="callout__telo">
+          <p>
+            Diskontní sazba <span class="math">i</span> představuje míru výnosnosti, kterou
+            investor požaduje za dané riziko. Čím vyšší riziko, tím vyšší sazba a tím nižší
+            současná hodnota budoucích příjmů. Podrobný výklad nákladů na kapitál a odhadu
+            diskontní sazby najdete později v tématu&nbsp;9 (kapitola 4.7, str. 161–182).
+          </p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE: časová hodnota peněz -->
+      <section class="definice" id="pojem-casova-hodnota-penez">
+        <h3 class="definice__pojem">Časová hodnota peněz</h3>
+        <div class="definice__telo">
+          <p>
+            Skutečnost, že koruna získaná dnes je hodnotnější než koruna získaná v budoucnu.
+            Důvodem je možnost dnešní korunu investovat a získat z ní výnos.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: riziko -->
+      <section class="definice" id="pojem-riziko">
+        <h3 class="definice__pojem">Riziko</h3>
+        <div class="definice__telo">
+          <p>
+            Nebezpečí, že dosažené výsledky podnikání (tržby, zisk, <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a>…) se budou
+            odlišovat od výsledků předpokládaných. Charakterizuje se pravděpodobností
+            dosažení očekávaných výsledků a promítá se do odhadu diskontní sazby.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: diskontování -->
+      <section class="definice" id="pojem-diskontovani">
+        <h3 class="definice__pojem">Diskontování</h3>
+        <div class="definice__telo">
+          <p>
+            Přepočet budoucích peněžních toků na jejich současnou hodnotu vydělením
+            faktorem <span class="math">(1<span class="op">+</span>i)<sup>t</sup></span>.
+            Zahrnuje do výpočtu časovou hodnotu peněz i riziko prostřednictvím diskontní
+            sazby.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Kladné čisté současné hodnoty – a tím uspokojení vlastníka – dosáhne podnik jen
+        tehdy, když bude realizovat produkci, jež zákazníka uspokojí a bude pro něj výhodná
+        z hlediska poměru užitku a ceny ve srovnání s konkurencí, a to s potřebnou mírou
+        hospodárnosti. Řízení hodnoty tedy znamená <strong>důslednou aplikaci kritéria
+        čisté současné hodnoty při přijímání jakéhokoli rozhodnutí</strong>.
+      </p>
+
+      <!-- ZKUS SÁM 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč má koruna dnes vyšší hodnotu než koruna, kterou dostanete za rok? A jaká
+          je současná hodnota příjmu 100&nbsp;Kč očekávaného za jeden rok při diskontní
+          sazbě 10&nbsp;%?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Dnešní korunu lze okamžitě investovat a získat z ní výnos, zatímco na budoucí
+              korunu si musíme počkat a nést riziko, že ji vůbec dostaneme – v tom spočívá
+              <strong>časová hodnota peněz</strong>. Současnou hodnotu příjmu za rok
+              spočteme podle vzorce&nbsp;(1.2):
+              <span class="math">PV<span class="op">=</span><span class="frac"><span class="frac__cit">100</span><span class="frac__jmen">(1<span class="op">+</span>0,1)<sup>1</sup></span></span><span class="op">=</span>90,9</span>&nbsp;Kč.
+              Budoucích 100&nbsp;Kč tedy dnes „váží" jen zhruba 90,9&nbsp;Kč.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč moderní koncepty řízení výkonnosti preferují ze všech subjektů právě pohled vlastníka?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, kdo do podnikání vložil myšlenku, peníze a kdo nese největší riziko.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Vlastníci přinesli do podnikání myšlenku, vložili peníze a nesou největší riziko. Jen naplní-li se jejich očekávání návratnosti odpovídající riziku, zůstanou a budou podnikat dál. Uspokojení vlastníka je navíc podmínkou možnosti prospívat i ostatním subjektům (mzdy, platby dodavatelům, daně).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Čím se liší koncepce shareholder value a stakeholder value a proč se navzájem nevylučují?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kdo je v centru pozornosti u každé koncepce a v jakém prostředí (kapitálové trhy vs. banky) převažuje?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Shareholder value</strong> zdůrazňuje zhodnocení prostředků vlastníků (typické pro angloamerické prostředí s vyspělými kapitálovými trhy), <strong>stakeholder value</strong> zdůrazňuje uspokojení všech zainteresovaných stran (typické pro Evropu s dominantním bankovním sektorem). Nevylučují se: platit zaměstnance, dodavatele, věřitele i stát lze jen při dostatečné výnosnosti, která zároveň uspokojí vlastníky.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč je hodnota podniku považována za nejvýhodnější měřítko výkonnosti?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jaké informace potřebujete k tomu, abyste hodnotu skutečně změřili?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Protože jako jediné měřítko vyžaduje k výpočtu <strong>kompletní informace</strong> o podniku – odráží budoucí peněžní toky přepočtené na současnou hodnotu, tedy zohledňuje výnosnost, čas i riziko. Ostatní ukazatele zachycují jen dílčí pohled.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co vyjadřuje čistá současná hodnota (NPV) a co znamená podmínka NPV&nbsp;&gt;&nbsp;0?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Připomeňte si vzorec (1.1) a porovnejte současnou hodnotu užitků s výší investice.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>NPV je rozdíl mezi současnou hodnotou budoucích užitků z investice a výší investice: <span class="math">NPV<span class="op">=</span>PV<span class="op">−</span>I</span>. Podmínka <span class="math">NPV<span class="op">&gt;</span>0</span> znamená, že investice přináší více, než kolik stála, tedy <strong>vytváří hodnotu</strong> a je pro investora přijatelná.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč se budoucí peněžní toky diskontují?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Do diskontování se promítají dvě věci – čas a nejistota.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Diskontování zahrnuje do výpočtu <strong>časovou hodnotu peněz</strong> (koruna dnes je hodnotnější než koruna zítra, protože ji lze investovat) a <strong>riziko</strong> (nejistotu, že očekávané příjmy skutečně nastanou). Obojí se promítá do diskontní sazby, kterou dělíme budoucí příjmy faktorem <span class="math">(1<span class="op">+</span>i)<sup>t</sup></span>.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <!-- První lekce vůbec → předchozí je prázdné (ponechte pro zarovnání) -->
+        <span class="lekce-navigace__odkaz lekce-navigace__odkaz--prazdny" aria-hidden="true"></span>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t1-l2-valka-ukazatelu.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">1.2 Válka ukazatelů – klasické versus moderní přístupy</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: diskontování peněžních toků P1..P5 na PV
+      // Ilustrativní data: příjem 100 v každém z 5 let, diskontní míra i = 10 %.
+      var P  = [100, 100, 100, 100, 100];
+      var i  = 0.10;
+      var PV = P.map(function (p, k) { return p / Math.pow(1 + i, k + 1); }); // současné hodnoty
+      var sumaPV = PV.reduce(function (a, b) { return a + b; }, 0);           // ≈ 379,1
+
+      var xs = [110, 185, 260, 335, 410]; // pozice jednotlivých sloupců
+      var wInd = 48;                       // šířka individuálního sloupce
+      var base = 300;                      // úroveň osy (spodek sloupců)
+      var px = 0.6;                        // pixelů na jednotku hodnoty
+      var pvX = 560, pvW = 92;             // pozice a šířka výsledného sloupce PV
+
+      Skripta.stepper('viz-diskontovani', {
+        sirka: 760, vyska: 360,
+        stavy: [
+          { mode: 'nominal' },
+          { mode: 'disc' },
+          { mode: 'sum' }
+        ],
+        popisky: [
+          'Budoucí peněžní příjmy P₁ až P₅ v nominální (jmenovité) výši – zde 100 v každém roce.',
+          'Diskontováním dělíme každý příjem faktorem (1 + i)ᵗ. Vzdálenější příjmy ztrácejí na hodnotě nejvíce.',
+          'Sečtením diskontovaných příjmů získáme současnou hodnotu PV ≈ 379,1.'
+        ],
+        render: function (svg, stav, idx, u) {
+          // Osa (základna) – vždy
+          u.dej(svg, 'osa', 'line', { x1: 70, y1: base, x2: 700, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          // Popisek diskontní míry – vždy, vlevo nahoře
+          u.dej(svg, 'lbl-i', 'text', { x: 70, y: 34, fill: u.barvaText, 'font-size': 14, 'font-weight': 700 }, 'diskontní míra i = 10 %');
+
+          // Předpočítáme stohované pozice pro stav „sum"
+          var cum = 0;
+          var stohY = PV.map(function (v) {
+            var h = v * px;
+            var y = base - cum - h;
+            cum += h;
+            return y;
+          });
+          var topStack = base - cum; // horní hrana výsledného sloupce
+
+          // Jednotlivé peněžní toky
+          P.forEach(function (p, k) {
+            var val = (stav.mode === 'nominal') ? P[k] : PV[k];
+            var h = val * px;
+            var jeSum = (stav.mode === 'sum');
+            var x = jeSum ? pvX : xs[k];
+            var w = jeSum ? pvW : wInd;
+            var y = jeSum ? stohY[k] : (base - h);
+
+            u.dej(svg, 'cf' + k, 'rect', {
+              x: x, y: y, width: w, height: h,
+              rx: jeSum ? 0 : 4, fill: u.barvy[k]
+            });
+            // Datový popisek nad sloupcem (jen v nominálním a diskontovaném stavu)
+            u.dej(svg, 'val' + k, 'text', {
+              x: xs[k] + wInd / 2, y: (base - h) - 8, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 12, 'font-weight': 600,
+              opacity: jeSum ? 0 : 1
+            }, u.formatCislo(val, stav.mode === 'nominal' ? 0 : 1));
+            // Popisek roku pod osou (mizí ve stavu „sum")
+            u.dej(svg, 'rok' + k, 'text', {
+              x: xs[k] + wInd / 2, y: base + 20, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 12,
+              opacity: jeSum ? 0 : 1
+            }, 't = ' + (k + 1));
+          });
+
+          // Popisek a hodnota výsledného sloupce PV (jen ve stavu „sum")
+          u.dej(svg, 'lbl-pv', 'text', {
+            x: pvX + pvW / 2, y: topStack - 12, 'text-anchor': 'middle',
+            fill: u.barvaTvorba, 'font-size': 15, 'font-weight': 700,
+            opacity: stav.mode === 'sum' ? 1 : 0
+          }, 'PV = ' + u.formatCislo(sumaPV, 1));
+          u.dej(svg, 'lbl-pv2', 'text', {
+            x: pvX + pvW / 2, y: base + 20, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 12,
+            opacity: stav.mode === 'sum' ? 1 : 0
+          }, 'současná hodnota');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

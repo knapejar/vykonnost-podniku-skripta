@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2 Válka ukazatelů – klasické versus moderní přístupy – Výkonnost podniku</title>
+  <meta name="description" content="Spor mezi klasickými a moderními ukazateli výkonnosti, ekonomický zisk, alternativní náklady kapitálu a porovnání přístupů předních poradenských firem.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 1 -->
+    <nav class="panel" data-panel data-aktivni-lekce="1.2" aria-label="Lekce tématu 1">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 1</div>
+      <div class="panel__nazev-tema">Výkonnost a hodnotové řízení podniku</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="1.1" href="t1-l1-co-je-vykonnost.html"><span class="panel__odkaz-cislo">1.1</span><span>Co je výkonnost podniku a proč řídit hodnotu</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="1.2" href="t1-l2-valka-ukazatelu.html"><span class="panel__odkaz-cislo">1.2</span><span>Válka ukazatelů – klasické versus moderní přístupy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-1">Téma 1 · Hodnotové řízení</a></li>
+          <li><span aria-current="page">Lekce 1.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 1.2</span>
+        <h1>Válka ukazatelů – klasické versus moderní přístupy</h1>
+        <p class="lekce-hlavicka__strany">Strany 16–19</p>
+      </header>
+
+      <p>
+        Vytvořit hodnotu znamená naplnit nebo překročit očekávání investora. Výzvou
+        pak je najít cestu, jak tuto hodnotu vytvořit – a hlavně jak ji <strong>změřit</strong>.
+        Právě volba nejvhodnějšího měřítka výkonnosti je ve světě předmětem ostré
+        odborné diskuse, kterou vedou poradenské firmy, univerzity i manažeři podniků.
+        Tato diskuse se často označuje jako tzv. <em>válka ukazatelů</em>.
+      </p>
+
+      <!-- ================= INFOGRAFIKA: VÁLKA UKAZATELŮ (statické SVG) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">„Válka ukazatelů": dva tábory měřítek výkonnosti</p>
+          <p class="viz__popis">Na jedné straně stojí tradiční účetní ukazatele, na druhé moderní ukazatele hodnotového řízení. Spor se vede o to, které měřítko nejlépe vystihuje skutečnou tvorbu hodnoty.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 720 380" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Klasické ukazatele (ROI, ROE, ROA, EPS, P/E) versus moderní ukazatele (EVA, CFROI, Shareholder Value).">
+            <!-- LEVÝ TÁBOR: klasické ukazatele -->
+            <rect x="30" y="40" width="270" height="310" rx="16" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+            <text x="165" y="72" text-anchor="middle" fill="#3730a3" font-size="18" font-weight="700">Klasické ukazatele</text>
+            <text x="165" y="93" text-anchor="middle" fill="#6366f1" font-size="12">(tradiční, účetní)</text>
+            <g font-size="15" font-weight="600" fill="#3730a3">
+              <rect x="55" y="108" width="220" height="30" rx="8" fill="#ffffff" stroke="#c7d2fe"></rect><text x="165" y="128" text-anchor="middle">ROI</text>
+              <rect x="55" y="150" width="220" height="30" rx="8" fill="#ffffff" stroke="#c7d2fe"></rect><text x="165" y="170" text-anchor="middle">ROE</text>
+              <rect x="55" y="192" width="220" height="30" rx="8" fill="#ffffff" stroke="#c7d2fe"></rect><text x="165" y="212" text-anchor="middle">ROA</text>
+              <rect x="55" y="234" width="220" height="30" rx="8" fill="#ffffff" stroke="#c7d2fe"></rect><text x="165" y="254" text-anchor="middle">EPS</text>
+              <rect x="55" y="276" width="220" height="30" rx="8" fill="#ffffff" stroke="#c7d2fe"></rect><text x="165" y="296" text-anchor="middle">P/E</text>
+            </g>
+            <text x="165" y="335" text-anchor="middle" fill="#6366f1" font-size="12">cíl: maximalizace zisku</text>
+
+            <!-- PRAVÝ TÁBOR: moderní ukazatele -->
+            <rect x="420" y="40" width="270" height="310" rx="16" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"></rect>
+            <text x="555" y="72" text-anchor="middle" fill="#047857" font-size="18" font-weight="700">Moderní ukazatele</text>
+            <text x="555" y="93" text-anchor="middle" fill="#059669" font-size="12">(hodnotové řízení)</text>
+            <g font-size="15" font-weight="600" fill="#047857">
+              <rect x="445" y="116" width="220" height="34" rx="8" fill="#ffffff" stroke="#a7f3d0"></rect><text x="555" y="138" text-anchor="middle">EVA</text>
+              <rect x="445" y="176" width="220" height="34" rx="8" fill="#ffffff" stroke="#a7f3d0"></rect><text x="555" y="198" text-anchor="middle">CFROI</text>
+              <rect x="445" y="236" width="220" height="34" rx="8" fill="#ffffff" stroke="#a7f3d0"></rect><text x="555" y="258" text-anchor="middle">Shareholder Value</text>
+            </g>
+            <text x="555" y="335" text-anchor="middle" fill="#059669" font-size="12">cíl: maximalizace hodnoty</text>
+
+            <!-- STŘED: VS -->
+            <circle cx="360" cy="180" r="38" fill="#0f172a"></circle>
+            <text x="360" y="189" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">VS</text>
+            <text x="360" y="248" text-anchor="middle" fill="#64748b" font-size="13">spor o nejlepší</text>
+            <text x="360" y="266" text-anchor="middle" fill="#64748b" font-size="13">měřítko výkonnosti</text>
+          </svg>
+        </div>
+      </figure>
+
+      <h2>Dva tábory měřítek výkonnosti</h2>
+      <p>
+        Dosavadní – <strong>klasické</strong> – přístupy k měření výkonnosti vycházejí
+        zejména z <em>maximalizace zisku</em> jako základního cíle podnikání. K vyjádření
+        cílů používají značné množství (někdy vzájemně neslučitelných) ukazatelů, jako jsou
+        <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roi" target="_blank" rel="noopener">ROI</a>, <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">ROE</a>, <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roa" target="_blank" rel="noopener">ROA</a>, EPS nebo P/E.
+      </p>
+      <p>
+        <strong>Modernější</strong> přístupy hodnotového řízení se naproti tomu snaží
+        propojit všechny činnosti v podniku i všechny lidi účastnící se podnikových procesů
+        jedním <em>zastřešujícím kritériem</em> – dělat vše pro to, aby byla zvýšena hodnota
+        prostředků vložených vlastníky. Do ukazatelů je proto zabudována kategorie
+        <strong>ekonomického zisku</strong>: vedle běžných nákladů podniku berou v úvahu i
+        tzv. alternativní náklady kapitálu.
+      </p>
+
+      <!-- DEFINICE: klasické ukazatele -->
+      <section class="definice" id="pojem-klasicke-ukazatele">
+        <h3 class="definice__pojem">Klasické (tradiční) ukazatele</h3>
+        <div class="definice__telo">
+          <p>
+            Tradiční účetní měřítka výkonnosti odvozená především z maximalizace zisku
+            (např. ROI, ROE, ROA, EPS, P/E). Vycházejí z účetních výkazů a zpravidla
+            zohledňují pouze náklady na cizí kapitál, nikoli náklady na kapitál vlastní.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: moderní ukazatele -->
+      <section class="definice" id="pojem-moderni-ukazatele">
+        <h3 class="definice__pojem">Moderní ukazatele</h3>
+        <div class="definice__telo">
+          <p>
+            Měřítka výkonnosti postavená na hodnotovém řízení (<a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-rizeni-hodnoty" target="_blank" rel="noopener">Value Based Management</a>),
+            která spojují činnost podniku jediným kritériem – růstem hodnoty pro vlastníky.
+            Zahrnují kategorii ekonomického zisku, tedy i alternativní náklady kapitálu.
+            Patří sem zejména <span class="math">EVA</span>, MVA, CFROI či Shareholder Value.
+          </p>
+        </div>
+      </section>
+
+      <!-- CALLOUT: kontext VBM -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Value Based Management</p>
+        <div class="callout__telo">
+          <p>Koncept řízení hodnoty (Value Based Management, VBM) je považován za
+          nejvýznamnější změnu ve finančním řízení posledních let. Právě proto se stal
+          předmětem mimořádné pozornosti – a také soupeření poradenských firem o prestiž
+          a prodej vlastních konceptů měření výkonnosti.</p>
+        </div>
+      </aside>
+
+      <h2>Jádro moderních přístupů: ekonomický zisk</h2>
+      <p>
+        Klíčovým rozdílem mezi oběma tábory je pojem <strong>ekonomického zisku</strong>
+        (též mimořádného zisku či nadzisku). Zatímco účetní zisk odečítá od výnosů „jen"
+        skutečně vynaložené náklady (včetně úroků z cizího kapitálu), ekonomický zisk
+        odečítá navíc i <strong>alternativní náklad vlastního kapitálu</strong> – tedy to,
+        co by vlastník mohl vydělat, kdyby své peníze vložil do jiné, stejně rizikové
+        příležitosti.
+      </p>
+
+      <!-- DEFINICE: ekonomický zisk -->
+      <section class="definice" id="pojem-ekonomicky-zisk">
+        <h3 class="definice__pojem">Ekonomický zisk (mimořádný zisk, nadzisk)</h3>
+        <div class="definice__telo">
+          <p>
+            Zisk, který podniku zbývá po úhradě <em>všech</em> nákladů – tedy nejen běžných
+            nákladů a úroků z cizího kapitálu, ale i alternativních nákladů kapitálu
+            vlastního. Kladný ekonomický zisk znamená, že podnik vydělal více, než činí
+            minimální požadovaná výnosnost vlastníka, a skutečně tak tvoří hodnotu.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: alternativní náklady kapitálu -->
+      <section class="definice" id="pojem-alternativni-naklady-kapitalu">
+        <h3 class="definice__pojem">Alternativní náklady kapitálu (náklad obětované příležitosti)</h3>
+        <div class="definice__telo">
+          <p>
+            Označované též jako <em>náklad obětované příležitosti</em> nebo <em>oportunitní
+            náklad</em>. Představují výnos z obětované, nevyužité investiční příležitosti
+            vlastníka podniku, která nese <strong>stejné riziko</strong> jako daný podnik.
+            Jsou tím, oč moderní ukazatele rozšiřují měření výkonnosti oproti klasickým.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: účetní vs. ekonomický zisk ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Od účetního k ekonomickému zisku</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, proč může být účetní zisk kladný, a přesto po odečtení alternativního nákladu vlastního kapitálu zbude jen část jako skutečný ekonomický zisk. Hodnoty jsou ilustrativní.</p>
+        </figcaption>
+        <div id="viz-ekonomicky-zisk"></div>
+      </figure>
+
+      <!-- CALLOUT: pozor na terminologii -->
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Kladný účetní zisk ještě není úspěch</p>
+        <div class="callout__telo">
+          <p>Podnik může vykazovat kladný <em>účetní</em> zisk, a přesto ničit hodnotu –
+          pokud tento zisk nepokryje alternativní náklad vlastního kapitálu. Klasické
+          ukazatele tento skrytý náklad nevidí, moderní ukazatele ano.</p>
+        </div>
+      </aside>
+
+      <h2>Kdo válku vede: poradenské firmy a jejich koncepty</h2>
+      <p>
+        U moderních hodnotových ukazatelů stojí na jedné straně zastánci konceptu
+        <span class="math">EVA</span> (Economic Value Added – ekonomická přidaná hodnota)
+        a <span class="math">MVA</span> (Market Value Added – hodnota přidaná trhem),
+        na druhé straně zejména zastánci konceptu <a class="pojem" href="t6-l2-cfroi.html?zvyraznit=pojem-cfroi" target="_blank" rel="noopener">CFROI</a> (Cash Flow Return on Investment).
+        První koncept vzešel z dílny poradenské firmy <strong>Stern Stewart &amp; Co.</strong>,
+        druhý – v kombinaci s konceptem <a class="pojem" href="t6-l3-cfroi-tbr-croga.html?zvyraznit=pojem-tbr" target="_blank" rel="noopener">TBR</a> (Total Business Return) – propaguje chicagská
+        větev expertů firmy <strong>The Boston Consulting Group</strong>. Vedle nich existuje
+        řada dalších přístupů včetně řízení podniku na základě klasických ukazatelů
+        rentability (ROE, ROI, ROA).
+      </p>
+
+      <!-- DEFINICE: poradenské firmy -->
+      <section class="definice" id="pojem-poradenske-firmy">
+        <h3 class="definice__pojem">Poradenské (konzultační) firmy</h3>
+        <div class="definice__telo">
+          <p>
+            Významní tvůrci a propagátoři konceptů měření a řízení výkonnosti. Koncept
+            <span class="math">EVA</span>/<span class="math">MVA</span> pochází od
+            <strong>Stern Stewart &amp; Co.</strong>, koncept CFROI/TBR prosazuje
+            <strong>The Boston Consulting Group</strong>. Každá firma nabízí vlastní systém
+            měřítek a přístup k tvorbě hodnoty (viz srovnání níže).
+          </p>
+        </div>
+      </section>
+
+      <!-- CALLOUT: ochranné známky -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Registrované známky</p>
+        <div class="callout__telo">
+          <p><span class="math">EVA</span>® je registrovanou známkou firmy Stern Stewart &amp; Co.
+          Ukazatel CFROI® je registrovanou známkou firmy HOLT Value Associates, L.P. Za názvy
+          jednotlivých měřítek tedy nestojí jen metodika, ale i obchodní značka konkrétní
+          poradenské firmy.</p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč samotný účetní zisk nestačí jako měřítko úspěchu, pokud podnik nepokryje
+          náklady na vlastní kapitál?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Účetní zisk odečítá jen skutečně zaplacené náklady, mezi něž patří i úroky
+            z cizího kapitálu, ale <strong>ne</strong> odměna za použití vlastního kapitálu.
+            Vlastník přitom nese riziko a mohl své peníze vložit jinam se stejným rizikem
+            a určitým výnosem. Pokud tedy podnik nevydělá alespoň tento alternativní výnos,
+            vlastníkovi se „nevyplatí" – hodnota se ve skutečnosti ničí, i když je účetní
+            zisk kladný. Právě tuto mezeru zaplňují moderní ukazatele zahrnutím ekonomického
+            zisku.</p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Podle čeho se skupiny ukazatelů liší</h2>
+      <p>
+        Jednotlivé skupiny ukazatelů se od sebe odlišují v několika ohledech. Podle nich lze
+        posoudit, jak „bohatý" obraz o výkonnosti konkrétní měřítko poskytuje:
+      </p>
+      <ul>
+        <li>zda obsahují pouze <strong>náklady na cizí kapitál</strong>, nebo i náklady na
+        <strong>vlastní kapitál</strong> (to je hlavní dělicí čára mezi klasickými a moderními ukazateli),</li>
+        <li>zda jsou <strong>měřitelné na úrovni podnikových jednotek</strong> (divizí, výrobkových řad),</li>
+        <li>zda jsou <strong>snadno spočitatelné</strong> z běžně dostupných dat,</li>
+        <li>zda jsou <strong>upravené o inflaci</strong>,</li>
+        <li>zda hodnotí pouze <strong>historický</strong>, nebo i <strong>budoucí</strong> vývoj.</li>
+      </ul>
+
+      <!-- ================= TABULKA 1-2: porovnání přístupů poradenských firem ================= -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 1–2 – Porovnání přístupů k řízení hodnoty u šesti konzultačních firem</caption>
+          <thead>
+            <tr>
+              <th scope="col">Hledisko</th>
+              <th scope="col">Stern Stewart &amp; Co.</th>
+              <th scope="col">Marakon Associates</th>
+              <th scope="col">McKinsey &amp; Co.</th>
+              <th scope="col">Price Waterhouse Coopers</th>
+              <th scope="col">L.E.K. Consulting</th>
+              <th scope="col">HOLT Value Associates</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Základy pro tvorbu hodnoty</th>
+              <td>Strategie, struktura a měřítka</td>
+              <td>Strategie</td>
+              <td>Systém měřítek a přesvědčení</td>
+              <td>Struktura</td>
+              <td>Strategie a měřítka</td>
+              <td>Strategie a měřítka</td>
+            </tr>
+            <tr>
+              <th scope="row">Hlavní prvky v přístupu</th>
+              <td>Systémy se zaměřením na měření, výcvik a odměňování</td>
+              <td>Kultura, struktura a systémy se zaměřením na decentralizaci a strategii rozvoje</td>
+              <td>Kultura, struktura a systémy se zaměřením na podnikovou strategii a ocenění</td>
+              <td>Kultura, struktura a systémy se zaměřením na výcvik a komunikaci</td>
+              <td>Kultura a systémy se zaměřením na strategii a vzdělávání</td>
+              <td>Systémy se zaměřením na ocenění</td>
+            </tr>
+            <tr>
+              <th scope="row">Zaměření strategického nasazení</th>
+              <td>Zvýšení EVA jako hlavní cíl</td>
+              <td>Výnosný růst místo růstu samotného</td>
+              <td>Výnosný růst místo růstu samotného</td>
+              <td>Maximalizace hodnoty pro vlastníky</td>
+              <td>Maximalizace očekávané přidané hodnoty pro vlastníky</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">Preferovaná měřítka (úroveň použití)</th>
+              <td>MVA (podnik), EVA (podnik, obchodní jednotka a výrobková řada)</td>
+              <td>Ekonomický zisk (podnik, obchodní jednotka, zákazník a výrobková řada)</td>
+              <td>Podnikový DCF (podnik, obchodní jednotka), ekonomický zisk (podnik, obchodní jednotka, zákazník, výrobková řada)</td>
+              <td>CFROI (podnik), SVA (podnik, obchodní jednotka), FCF (podnik, obchodní jednotka)</td>
+              <td>SVA (podnik, operativní úroveň), změna EVA (operativní úroveň), indikátory hodnoty (operativní úroveň)</td>
+              <td>CFROI (podnik), na účetnictví založená měřítka (nižší úrovně)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabulka-popis">
+        Zdroj: Ameels, Bruggeman, Scheipers – <em>Value-based management control processes to
+        create value through integration: a literature review</em> (2002), upraveno.
+      </p>
+
+      <p>
+        Z tabulky je patrné, že ačkoli se firmy liší v důrazu na strategii, strukturu či
+        systémy, sdílejí společný cíl: <strong>maximalizaci hodnoty pro vlastníky</strong>.
+        Rozcházejí se hlavně v tom, které měřítko k jejímu vyjádření zvolí – <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>/<a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">MVA</a>,
+        ekonomický zisk, <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">DCF</a>, CFROI nebo <a class="pojem" href="t6-l1-sva.html?zvyraznit=pojem-sva" target="_blank" rel="noopener">SVA</a>.
+      </p>
+
+      <!-- CALLOUT: dopředná reference -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Co nás čeká dál</p>
+        <div class="callout__telo">
+          <p>Jednotlivá měřítka z této „bitvy" postupně rozebereme v dalších tématech:
+          klasické ukazatele zisku, cash flow a rentability v Tématu 2, moderní tržní
+          měřítka (MVA) v Tématu 4, vlajkovou EVA v Tématu 5 a měřítka na bázi cash flow
+          (CFROI) v Tématu 6.</p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Vysvětlete alternativní náklad kapitálu na příkladu vlastní úspory versus
+          podnikání. Kdy se vám „vyplatí" podnikat?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Představte si, že máte úspory, které byste mohli uložit do stejně rizikové
+            alternativy s určitým výnosem. Rozhodnete-li se místo toho podnikat, obětujete
+            právě tento výnos – to je <strong>alternativní náklad</strong> (náklad obětované
+            příležitosti) vašeho vlastního kapitálu. Podnikání se z pohledu hodnoty
+            „vyplatí" jedině tehdy, když vydělá <strong>více</strong>, než by přinesla
+            obětovaná příležitost se stejným rizikem. Tento nadvýnos je přesně ekonomický
+            zisk (nadzisk), na kterém stojí moderní ukazatele výkonnosti.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Co se míní pojmem „válka ukazatelů" a které dva tábory proti sobě stojí?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o spor o nejvhodnější měřítko výkonnosti; jeden tábor vychází z účetnictví, druhý z hodnoty.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Jde o odbornou diskusi o volbě nejvhodnějšího konceptu měření a řízení výkonnosti. Proti sobě stojí <strong>klasické (tradiční) ukazatele</strong> vycházející z maximalizace zisku (ROI, ROE, ROA, EPS, P/E) a <strong>moderní ukazatele</strong> hodnotového řízení (EVA, CFROI, <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-shareholder-value" target="_blank" rel="noopener">Shareholder Value</a>).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Čím se ekonomický zisk liší od účetního zisku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, jaký druh nákladů účetní zisk neodečítá.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Ekonomický zisk (nadzisk) odečítá navíc <strong>alternativní náklad vlastního kapitálu</strong>. Účetní zisk počítá jen se skutečně vynaloženými náklady včetně úroků z cizího kapitálu, a proto může být kladný i tehdy, když podnik ve skutečnosti ničí hodnotu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Co je alternativní náklad kapitálu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Souvisí s obětovanou příležitostí a se stejným rizikem.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Je to výnos z obětované, nevyužité investiční příležitosti vlastníka, která nese <strong>stejné riziko</strong> jako daný podnik. Označuje se také jako náklad obětované příležitosti nebo oportunitní náklad a tvoří jádro moderních měřítek výkonnosti.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Které poradenské firmy stojí za koncepty EVA/MVA a CFROI/TBR?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jedna firma má ve jménu „Stewart", druhá je celosvětově známá poradenská skupina s chicagskou větví.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Koncept <strong>EVA/MVA</strong> pochází od firmy <strong>Stern Stewart &amp; Co.</strong>, koncept <strong>CFROI/TBR</strong> propaguje <strong>The Boston Consulting Group</strong> (chicagská větev). Ukazatel CFROI je registrovanou známkou firmy HOLT Value Associates.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Podle jakých kritérií se jednotlivé skupiny ukazatelů liší?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Přemýšlejte o nákladech kapitálu, úrovni měření, náročnosti výpočtu, inflaci a časovém horizontu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Liší se v tom, zda obsahují jen náklady na cizí kapitál, nebo i na vlastní kapitál; zda jsou měřitelné na úrovni podnikových jednotek; zda jsou snadno spočitatelné; zda jsou upravené o inflaci; a zda hodnotí jen historický, nebo i budoucí vývoj.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t1-l1-co-je-vykonnost.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">1.1 Co je výkonnost podniku a proč řídit hodnotu</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t2-l1-zisk-cash-flow.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">2.1 Ukazatele zisku a cash flow</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: od účetního k ekonomickému zisku.
+      // Ilustrativní hodnoty (nejsou převzaty z knihy) – slouží jen k pochopení principu.
+      var ZISK = 100;    // účetní zisk (ilustrativně)
+      var NAKLAD = 70;   // alternativní náklad vlastního kapitálu (ilustrativně)
+
+      Skripta.stepper('viz-ekonomicky-zisk', {
+        sirka: 720, vyska: 360,
+        stavy: [
+          { showNaklad: false, showEko: false },
+          { showNaklad: true,  showEko: false },
+          { showNaklad: true,  showEko: true  }
+        ],
+        popisky: [
+          'Klasický pohled: podnik vykázal kladný účetní zisk (ilustrativně 100).',
+          'Moderní pohled odečte alternativní náklad vlastního kapitálu (ilustrativně 70) – to, co by vlastník vydělal jinde při stejném riziku.',
+          'Co zbude, je ekonomický zisk (nadzisk) = 30. Kladná hodnota → podnik skutečně tvoří hodnotu.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 300, px = 2.2;
+          var ziskH = ZISK * px;
+          var nakladH = NAKLAD * px;
+          var ekoH = (ZISK - NAKLAD) * px;
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 70, y1: base, x2: 690, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Sloupec ÚČETNÍ ZISK (indigo) – vždy viditelný
+          u.dej(svg, 'bar-zisk', 'rect', { x: 130, y: base - ziskH, width: 110, height: ziskH, rx: 5, fill: '#4338ca' });
+          u.dej(svg, 'val-zisk', 'text', { x: 185, y: base - ziskH - 12, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 15, 'font-weight': 700 }, u.formatCislo(ZISK));
+          u.dej(svg, 'lbl-zisk', 'text', { x: 185, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, 'Účetní zisk');
+
+          // Sloupec ALTERNATIVNÍHO NÁKLADU (červená) – odečet shora
+          u.dej(svg, 'bar-naklad', 'rect', {
+            x: 345, y: base - ziskH,
+            width: 110, height: stav.showNaklad ? nakladH : 0,
+            rx: 5, fill: u.barvaNiceni, opacity: stav.showNaklad ? 1 : 0
+          });
+          u.dej(svg, 'val-naklad', 'text', {
+            x: 400, y: base - ziskH + (nakladH / 2) + 5, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 15, 'font-weight': 700, opacity: stav.showNaklad ? 1 : 0
+          }, '−' + u.formatCislo(NAKLAD));
+          u.dej(svg, 'lbl-naklad', 'text', {
+            x: 400, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 13, opacity: stav.showNaklad ? 1 : 0
+          }, 'Alternativní náklad VK');
+
+          // Spojnice: vrchol zisku → vrchol odečtu
+          u.dej(svg, 'spoj1', 'line', {
+            x1: 240, y1: base - ziskH, x2: 345, y2: base - ziskH,
+            stroke: u.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '4 4',
+            opacity: stav.showNaklad ? 1 : 0
+          });
+
+          // Sloupec EKONOMICKÝ ZISK (zelená) – výsledek
+          u.dej(svg, 'bar-eko', 'rect', {
+            x: 560, y: base - ekoH,
+            width: 110, height: stav.showEko ? ekoH : 0,
+            rx: 5, fill: u.barvaTvorba, opacity: stav.showEko ? 1 : 0
+          });
+          u.dej(svg, 'val-eko', 'text', {
+            x: 615, y: base - ekoH - 12, 'text-anchor': 'middle', fill: u.barvaTvorba,
+            'font-size': 15, 'font-weight': 700, opacity: stav.showEko ? 1 : 0
+          }, u.formatCislo(ZISK - NAKLAD));
+          u.dej(svg, 'lbl-eko', 'text', {
+            x: 615, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText,
+            'font-size': 13, opacity: stav.showEko ? 1 : 0
+          }, 'Ekonomický zisk');
+
+          // Spojnice: spodek odečtu → vrchol ekonomického zisku
+          u.dej(svg, 'spoj2', 'line', {
+            x1: 455, y1: base - ekoH, x2: 560, y2: base - ekoH,
+            stroke: u.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '4 4',
+            opacity: stav.showEko ? 1 : 0
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

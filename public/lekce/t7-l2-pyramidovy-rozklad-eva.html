@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7.2 Pyramidové soustavy ukazatelů – rozklad EVA – Výkonnost podniku</title>
+  <meta name="description" content="Pyramidový rozklad EVA na spread (RONA − WACC) a úplatný kapitál C, rozklad RONA na ziskovou marži a obrat aktiv a faktory ovlivňující RONA.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <!-- Tlačítko pro sbalení panelu na mobilech -->
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 7 -->
+    <nav class="panel" data-panel data-aktivni-lekce="7.2" aria-label="Lekce tématu 7">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 7</div>
+      <div class="panel__nazev-tema">Generátory hodnoty a řízení výnosů, nákladů a zisku</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="7.1" href="t7-l1-generatory-hodnoty.html"><span class="panel__odkaz-cislo">7.1</span><span>Generátory hodnoty</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.2" href="t7-l2-pyramidovy-rozklad-eva.html"><span class="panel__odkaz-cislo">7.2</span><span>Pyramidové soustavy ukazatelů – rozklad EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.3" href="t7-l3-bod-zvratu-provozni-paka.html"><span class="panel__odkaz-cislo">7.3</span><span>Tržby a řízení nákladů – bod zvratu a provozní páka</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.4" href="t7-l4-kryci-prispevek-abc.html"><span class="panel__odkaz-cislo">7.4</span><span>Krycí příspěvek a moderní kalkulace nákladů ABC</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.5" href="t7-l5-dividendova-politika.html"><span class="panel__odkaz-cislo">7.5</span><span>Konkurenceschopnost, rozdělování zisku a dividendová politika</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.6" href="t7-l6-vyuziti-majetku.html"><span class="panel__odkaz-cislo">7.6</span><span>Analýza využití majetku</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-7">Téma 7 · Generátory hodnoty</a></li>
+          <li><span aria-current="page">Lekce 7.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 7.2</span>
+        <h1>Pyramidové soustavy ukazatelů – rozklad EVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 113–116</p>
+      </header>
+
+      <p>
+        V minulé lekci jsme poznali <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a> jako faktory, které významně
+        ovlivňují tvorbu hodnoty. Teď potřebujeme nástroj, který tyto faktory
+        <strong>uspořádá do jasné struktury</strong> a ukáže, jak spolu souvisí. Tím
+        nástrojem jsou <a class="pojem" href="#pojem-pyramidova-soustava">pyramidové
+        soustavy ukazatelů</a> – postupně rozkládají jeden vrcholový ukazatel výkonnosti
+        na dílčí, vzájemně propojené ukazatele.
+      </p>
+      <p>
+        Cílem této lekce je rozložit <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">ekonomickou přidanou hodnotu (EVA)</a> na její dílčí
+        složky, dojít až k <a class="pojem" href="#pojem-ziskova-marze">ziskové marži</a> a
+        <a class="pojem" href="#pojem-obrat-aktiv">obratu aktiv</a> a získat tak
+        „mapu" oblastí, přes které lze hodnotu podniku systematicky zvyšovat.
+      </p>
+
+      <!-- ================= 1) PYRAMIDOVÉ SOUSTAVY ================= -->
+      <h2>Proč pyramidové soustavy</h2>
+      <p>
+        Pro řízení výkonnosti potřebujeme nástroj, který zachytí souvislosti toho, co
+        se v podniku děje. Soustavy ukazatelů propojené <em>logickou vazbou</em> to
+        umožňují: vrcholový ukazatel se postupně rozkládá na dílčí ukazatele a soustava
+        odhalí jak vazby mezi nimi, tak jejich vztah k vrcholu. V hodnotovém řízení lze
+        navíc míru vlivu dílčích ukazatelů (generátorů hodnoty) <strong>kvantifikovat</strong> a
+        provést <em>citlivostní analýzu</em> – tedy zjistit, jak se změní vrcholový
+        ukazatel při změně vybraného generátoru.
+      </p>
+
+      <section class="definice" id="pojem-pyramidova-soustava">
+        <h3 class="definice__pojem">Pyramidová soustava ukazatelů</h3>
+        <div class="definice__telo">
+          <p>
+            Soustava ukazatelů, v níž je <strong>vrcholový ukazatel</strong> výkonnosti
+            postupně rozkládán na dílčí, vzájemně provázané ukazatele spojené
+            matematickými (aditivními a multiplikativními) vazbami. Umožňuje
+            identifikovat vazby mezi ukazateli, kvantifikovat míru jejich vlivu na
+            vrchol a provést citlivostní analýzu.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Známý předchůdce: rozklad Du Pont</p>
+        <div class="callout__telo">
+          <p>
+            Nejznámějším příkladem pyramidové soustavy je <strong><a class="pojem" href="t3-l6-dupont-soustavy.html?zvyraznit=pojem-dupontuv-rozklad" target="_blank" rel="noopener">rozklad Du Pont</a></strong>
+            (vztah 2.35), který za vrcholový ukazatel bere výnosnost vlastního kapitálu
+            (<a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">ROE</a>) a vymezuje její hlavní determinanty: <em>ziskovou marži</em>,
+            <em>obrat aktiv</em> a <em>finanční páku</em>. Rozklad EVA v této lekci staví
+            na stejné myšlence, jen vrcholem je hodnotové měřítko EVA.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= 2) ROZKLAD EVA ================= -->
+      <h2>Rozklad EVA: spread krát kapitál</h2>
+      <p>
+        Vrcholem pyramidy je EVA zapsaná v relativním (spreadovém) tvaru, který známe
+        z tématu o EVA. Rozdíl mezi výnosností úplatného kapitálu (<a class="pojem" href="#pojem-rona">RONA</a>)
+        a náklady na kapitál (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>) násobíme velikostí úplatného kapitálu:
+      </p>
+
+      <div class="vzorec" id="vzorec-eva-spread">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>(RONA<span class="op">−</span>WACC)<span class="op">×</span>C(NOA)</span>
+        </div>
+        <div class="vzorec__cislo">(3.6)</div>
+      </div>
+
+      <p>
+        Z tohoto zápisu je zřejmé, že výkonnost podniku měřená EVA závisí na
+        <strong>třech</strong> veličinách:
+      </p>
+      <ol>
+        <li>
+          <strong>výnosnosti úplatného kapitálu (RONA)</strong> – tzn. na schopnosti
+          podniku zhodnotit úplatný kapitál;
+        </li>
+        <li>
+          <strong>výši vážených průměrných nákladů na kapitál (WACC)</strong> – tzn. na
+          velikosti podstoupeného rizika;
+        </li>
+        <li>
+          <strong>výši úplatného kapitálu (C)</strong> – tzn. kolik kapitálu vlastníci a
+          věřitelé do podniku vložili a kolik ho je v podobě majetku zapojeno do
+          činnosti podniku.
+        </li>
+      </ol>
+
+      <section class="definice" id="pojem-spread">
+        <h3 class="definice__pojem">Spread (RONA − WACC)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozpětí mezi dosaženou výnosností úplatného kapitálu (RONA) a náklady na
+            tento kapitál (WACC). Je-li spread <span class="hodnota-tvorba">kladný</span>,
+            podnik vydělává více, než činí náklady kapitálu, a při kladném <span class="math">C</span>
+            <strong>tvoří hodnotu</strong> (EVA &gt; 0). Je-li <span class="hodnota-niceni">záporný</span>,
+            hodnotu ničí (EVA &lt; 0).
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-uplatny-kapital">
+        <h3 class="definice__pojem">Úplatný kapitál C (NOA)</h3>
+        <div class="definice__telo">
+          <p>
+            Kapitál nesoucí náklad, který je do podniku investován a v podobě majetku
+            zapojen do jeho činnosti (<a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">čistá operativní aktiva</a>, NOA). Skládá se z
+            dlouhodobého majetku a <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého pracovního kapitálu</a> (ČPK):
+          </p>
+          <div class="vzorec" id="vzorec-c-noa">
+            <div class="vzorec__telo">
+              <span class="math">C(NOA)<span class="op">=</span>dlouhodobý majetek<span class="op">+</span>ČPK</span>
+            </div>
+          </div>
+          <p>
+            přičemž <span class="math">ČPK<span class="op">=</span>zásoby<span class="op">+</span>pohledávky<span class="op">+</span>krátkodobý finanční majetek<span class="op">−</span>krátkodobé cizí zdroje</span>.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Náklady na kapitál se ve stromu dále rozkládají na vážený průměr nákladů
+        vlastního a cizího kapitálu (podrobný výklad WACC patří do tématu 9):
+      </p>
+
+      <div class="vzorec" id="vzorec-wacc-vahy">
+        <div class="vzorec__telo">
+          <span class="math">WACC<span class="op">=</span>N<sub>VK</sub><span class="op">×</span>
+            <span class="frac"><span class="frac__cit">VK</span><span class="frac__jmen">C</span></span>
+            <span class="op">+</span>N<sub>CK</sub><span class="op">×</span>
+            <span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">C</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(3.7)</div>
+      </div>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: pyramidový rozklad ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Pyramidový rozklad EVA (obr. 4–4)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se vrcholové EVA postupně větví na spread a kapitál, spread na RONA a WACC, kapitál na dlouhodobý majetek a ČPK a nakonec RONA na ziskovou marži a obrat aktiv.</p>
+        </figcaption>
+        <div id="viz-pyramida-eva"></div>
+      </figure>
+
+      <!-- ================= 3) RONA ================= -->
+      <h2>RONA – výnosnost úplatného kapitálu</h2>
+      <p>
+        Klíčovou částí levé větve pyramidy je RONA. Její výnosnost je ovlivněna
+        rentabilitou tržeb (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>/Tržby), obratovostí aktiv (Tržby/Aktiva) a vztahem
+        velikosti celkových zdrojů investovaných do aktiv k velikosti úplatných zdrojů
+        (Aktiva/Úplatný kapitál):
+      </p>
+
+      <div class="vzorec" id="vzorec-4-1">
+        <div class="vzorec__telo">
+          <span class="math">RONA<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">NOPAT</span><span class="frac__jmen">úplatný kapitál</span></span>
+            <span class="op">=</span>
+            <span class="frac"><span class="frac__cit">NOPAT</span><span class="frac__jmen">tržby</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">tržby</span><span class="frac__jmen">aktiva</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">aktiva</span><span class="frac__jmen">úplatný kapitál</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.1)</div>
+      </div>
+
+      <section class="definice" id="pojem-rona">
+        <h3 class="definice__pojem">RONA (výnosnost úplatného kapitálu)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Return on Net Assets</em> – poměr provozního zisku po zdanění (NOPAT) k
+            úplatnému kapitálu. Vyjadřuje, jak efektivně podnik zhodnocuje kapitál
+            nesoucí náklad. Ve zjednodušené (dvoufaktorové) podobě se v pyramidě
+            rozkládá na <strong>ziskovou marži × obrat aktiv</strong>.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Z rozkladu (4.1) jsou patrné základní faktory, které RONA ovlivňují, i směr,
+        jakým na ni působí:
+      </p>
+
+      <!-- ================= TABULKA 4–1 ================= -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 4–1 – Faktory ovlivňující RONA</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col">Působení na RONA</th>
+              <th scope="col" class="cislo">Aby RONA rostla</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="math"><span class="frac"><span class="frac__cit">NOPAT</span><span class="frac__jmen">tržby</span></span></span></th>
+              <td>Zvýšení ziskové marže působí pozitivně na RONA</td>
+              <td class="cislo hodnota-tvorba">↗ růst</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="math"><span class="frac"><span class="frac__cit">tržby</span><span class="frac__jmen">aktiva</span></span></span></th>
+              <td>Růst obratovosti aktiv pozitivně ovlivňuje RONA</td>
+              <td class="cislo hodnota-tvorba">↗ růst</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="math"><span class="frac"><span class="frac__cit">aktiva</span><span class="frac__jmen">úplatný kapitál</span></span></span></th>
+              <td>Snížení podílu úplatného kapitálu na celkovém kapitálu má pozitivní vliv na RONA</td>
+              <td class="cislo hodnota-tvorba">↗ růst</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ================= 4) ZISKOVÁ MARŽE ================= -->
+      <h2>Zisková marže a řízení nákladů</h2>
+      <section class="definice" id="pojem-ziskova-marze">
+        <h3 class="definice__pojem">Zisková marže (NOPAT / tržby)</h3>
+        <div class="definice__telo">
+          <p>
+            Schopnost podniku dosahovat zisku při dané úrovni tržeb – kolik zisku podnik
+            vyprodukuje na 1 Kč tržeb. Obecně platí: čím vyšší ziskovost tržeb, tím lépe.
+            Nízká zisková marže mimo jiné signalizuje nutnost zaměřit pozornost na
+            <strong>řízení nákladů</strong>.
+          </p>
+        </div>
+      </section>
+      <p>
+        V silně konkurenčních odvětvích je zisková marže tlačena postupně až na úroveň
+        nákladů na kapitál. Pro možnost tvorby kladné EVA je proto nezbytné mít
+        <strong><a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-konkurencni-vyhoda" target="_blank" rel="noopener">konkurenční výhodu</a></strong>, a tím i možnost vyšších ziskových marží
+        díky vyšším tržbám. Z toho plynou dvě oblasti řízení s výrazným vlivem na
+        výkonnost:
+      </p>
+      <ul>
+        <li><strong>dosahování tržeb (výnosů)</strong> jako výsledek marketingových strategií a cenové politiky,</li>
+        <li><strong>řízení nákladů</strong>.</li>
+      </ul>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Krátkodobá EVA může klamat</p>
+        <div class="callout__telo">
+          <p>
+            EVA a RONA jsou krátkodobá historická měřítka. Manažer může EVA v krátkém
+            období vylepšit krokem, který v dlouhodobém horizontu hodnotu ničí – např.
+            zkrácením splatnosti pohledávek zvýší současnou EVA, ale sníží spokojenost
+            zákazníků, a tím budoucí tržby i budoucí EVA. Proto je nutné sledovat i
+            <strong>nefinanční generátory hodnoty</strong> (např. spokojenost zákazníků).
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= 5) OBRAT AKTIV ================= -->
+      <h2>Obrat aktiv a využití majetku</h2>
+      <section class="definice" id="pojem-obrat-aktiv">
+        <h3 class="definice__pojem">Obrat aktiv (tržby / aktiva)</h3>
+        <div class="definice__telo">
+          <p>
+            Schopnost manažerů využít celkový (dlouhodobý i oběžný) majetek podniku.
+            Vyjadřuje počet obrátek aktiv za dané období – kolik tržeb dokáže majetek
+            vyprodukovat. Čím více tržeb na jednotku majetku, tím lépe; to vyžaduje
+            <strong>racionální využití majetku</strong>, efektivní investiční rozhodování
+            a řízení čistého pracovního kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= 6) MAPA OBLASTÍ ŘÍZENÍ ================= -->
+      <h2>Rozklad jako mapa řízení výkonnosti</h2>
+      <p>
+        Pyramidový rozklad funguje jako <strong>navigační mapa</strong> celého tématu:
+        každá jeho větev otevírá jednu oblast řízení, kterou se musí finanční manažer
+        zabývat, chce-li zvyšovat hodnotu. Z rozkladu RONA a kapitálu plynou tyto oblasti:
+      </p>
+      <ul>
+        <li>analýza <strong><a class="pojem" href="t7-l6-vyuziti-majetku.html?zvyraznit=pojem-vyuziti-majetku" target="_blank" rel="noopener">využití majetku</a></strong> (obrat aktiv),</li>
+        <li><strong>investiční rozhodování</strong>,</li>
+        <li>řízení <strong>oběžného majetku</strong> (zásoby, pohledávky, krátkodobý finanční majetek) a jeho financování,</li>
+        <li><strong>náklady na kapitál (WACC)</strong> a s nimi spojené riziko,</li>
+        <li><strong><a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálová struktura</a></strong> a analýza finanční stability,</li>
+        <li>výběr <strong>zdroje financování</strong>.</li>
+      </ul>
+      <p>
+        Z hlediska maximalizace RONA je pro podnik výhodné minimalizovat velikost
+        úplatného kapitálu C – tzn. volit vyšší podíl financování neúročeným cizím
+        kapitálem. To ale samo nestačí: je nutné zvažovat i strukturu úplatného kapitálu
+        (poměr vlastního a cizího) z hlediska nákladů a druhu financovaného majetku a
+        také vliv způsobu financování na likviditu. Pro efektivní řízení výkonnosti je
+        konečně nutné zabývat se <strong>růstovými příležitostmi</strong>, finančním
+        plánováním, <a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmarking" target="_blank" rel="noopener">benchmarkingem</a> a podporou informačních systémů.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🧭</span>
+        <p class="callout__nadpis">Kudy vede zbytek tématu</p>
+        <div class="callout__telo">
+          <p>
+            Jednotlivé větve rozkladu se rozpracovávají v následujících lekcích: řízení
+            tržeb a nákladů (<a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-bod-zvratu" target="_blank" rel="noopener">bod zvratu</a>, <a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-provozni-paka" target="_blank" rel="noopener">provozní páka</a>), kalkulace a krycí příspěvek,
+            rozdělování zisku a analýza využití majetku. Rozklad EVA tak drží celé téma
+            pohromadě.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Přes které dílčí ukazatele lze podle pyramidového rozkladu systematicky
+          zvyšovat EVA? Vyjmenujte alespoň tři páky a řekněte, kterým směrem je posunout.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Z rozkladu <span class="math">EVA<span class="op">=</span>(RONA<span class="op">−</span>WACC)<span class="op">×</span>C</span> plyne:</p>
+            <ul>
+              <li>zvýšit <strong>ziskovou marži</strong> (NOPAT/tržby) – řízením nákladů a cenovou politikou,</li>
+              <li>zvýšit <strong>obrat aktiv</strong> (tržby/aktiva) – lepším využitím majetku a řízením ČPK,</li>
+              <li>snížit <strong>WACC</strong> – vhodnou kapitálovou strukturou a snížením rizika,</li>
+              <li>optimalizovat výši a strukturu <strong>úplatného kapitálu C</strong>.</li>
+            </ul>
+            <p>První dvě páky zvyšují RONA, a tím spread; snížení WACC spread rozšiřuje přímo.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik dosahuje RONA 9 % a jeho WACC je 11 %. Vytváří, nebo ničí hodnotu?
+          A co se stane s EVA, pokud sníží WACC na 8 % při nezměněné RONA?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Spread = RONA − WACC = 9 % − 11 % = <span class="hodnota-niceni">−2 %</span>.
+            Spread je záporný, takže při kladném kapitálu C je EVA záporná – podnik
+            <strong>ničí hodnotu</strong>.</p>
+            <p>Po snížení WACC na 8 % je spread = 9 % − 8 % = <span class="hodnota-tvorba">+1 %</span>.
+            Spread se stává kladným, EVA je nyní kladná – podnik začíná
+            <strong>tvořit hodnotu</strong>. Ukazuje to, jak silnou pákou je řízení
+            nákladů na kapitál.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Co je pyramidová soustava ukazatelů a k čemu v hodnotovém řízení slouží?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte z pojmu „vrcholový ukazatel" a „citlivostní analýza".</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Je to soustava ukazatelů propojených logickou vazbou, v níž se vrcholový ukazatel (zde EVA) postupně rozkládá na dílčí, vzájemně provázané ukazatele. Umožňuje identifikovat vazby mezi ukazateli, <strong>kvantifikovat míru vlivu</strong> jednotlivých generátorů hodnoty na vrchol a provést <strong>citlivostní analýzu</strong> – tedy zjistit, jak změna generátoru ovlivní EVA.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Na které tři veličiny se podle rozkladu rozpadá EVA na nejvyšší úrovni?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte ze vztahu EVA = (RONA − WACC) × C.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na <strong>výnosnost úplatného kapitálu (RONA)</strong>, <strong>vážené průměrné náklady na kapitál (WACC)</strong> a <strong>výši úplatného kapitálu (C)</strong>. Rozdíl RONA − WACC je spread, který se násobí kapitálem C.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Na jaké dva dílčí ukazatele se rozkládá RONA a co každý z nich vyjadřuje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Připomeňte si dvoufaktorový rozklad ve stromu obr. 4–4.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na <strong>ziskovou marži</strong> (NOPAT/tržby) – kolik zisku podnik vyprodukuje na 1 Kč tržeb – a <strong>obrat aktiv</strong> (tržby/aktiva) – jak efektivně využívá majetek. Zisková marže míří na řízení nákladů a tržeb, obrat aktiv na využití majetku, investice a ČPK.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč z hlediska maximalizace RONA prospívá snížení úplatného kapitálu, ale toto konstatování v hodnotovém řízení nestačí?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte poměr aktiva/úplatný kapitál i strukturu kapitálu a likviditu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Nižší úplatný kapitál (vyšší podíl neúročeného cizího kapitálu) zvyšuje poměr aktiva/úplatný kapitál, a tím RONA. V hodnotovém řízení je ale nutné zvažovat i <strong>strukturu úplatného kapitálu</strong> (poměr vlastního a cizího kapitálu) z hlediska nákladů na kapitál a druhu financovaného majetku a také <strong>vliv financování na likviditu</strong>. Samotná maximalizace RONA proto může být na úkor rizika a platební schopnosti.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t7-l1-generatory-hodnoty.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">7.1 Generátory hodnoty</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t7-l3-bod-zvratu-provozni-paka.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">7.3 Tržby a řízení nákladů – bod zvratu a provozní páka</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizace TÉTO lekce: krokový pyramidový rozklad EVA ----
+    (function () {
+      // Pomocník: nakreslí obdélníkový uzel stromu s popiskem a nastaví jeho viditelnost.
+      function uzel(u, svg, id, x, y, w, h, fill, textColor, popis, viditelny) {
+        u.dej(svg, id + '-box', 'rect', {
+          x: x, y: y, width: w, height: h, rx: 8,
+          fill: fill, stroke: '#ffffff', 'stroke-width': 1.5,
+          opacity: viditelny ? 1 : 0
+        });
+        u.dej(svg, id + '-txt', 'text', {
+          x: x + w / 2, y: y + h / 2 + 5, 'text-anchor': 'middle',
+          fill: textColor, 'font-size': 14, 'font-weight': 600,
+          opacity: viditelny ? 1 : 0
+        }, popis);
+      }
+      // Pomocník: spojnice rodič → potomek (od pravé hrany rodiče k levé hraně potomka).
+      function spoj(u, svg, id, x1, y1, x2, y2, viditelny) {
+        u.dej(svg, id, 'path', {
+          d: 'M ' + x1 + ' ' + y1 + ' C ' + (x1 + 24) + ' ' + y1 + ', ' + (x2 - 24) + ' ' + y2 + ', ' + x2 + ' ' + y2,
+          fill: 'none', stroke: u.barvaOsa, 'stroke-width': 1.5,
+          opacity: viditelny ? 1 : 0
+        });
+      }
+      // Pomocník: operátor mezi větvemi.
+      function operator(u, svg, id, x, y, znak, viditelny) {
+        u.dej(svg, id, 'text', {
+          x: x, y: y, 'text-anchor': 'middle', fill: u.barvaText,
+          'font-size': 20, 'font-weight': 700, opacity: viditelny ? 1 : 0
+        }, znak);
+      }
+
+      Skripta.stepper('viz-pyramida-eva', {
+        sirka: 820, vyska: 470,
+        stavy: [ { k: 0 }, { k: 1 }, { k: 2 }, { k: 3 } ],
+        popisky: [
+          'Vrcholem pyramidy je ekonomická přidaná hodnota (EVA).',
+          'EVA = (RONA − WACC) × C(NOA): rozpětí (spread) násobené úplatným kapitálem.',
+          'Spread se dělí na RONA a WACC, kapitál C na dlouhodobý majetek a ČPK.',
+          'RONA se rozkládá na ziskovou marži (NOPAT/tržby) a obrat aktiv (tržby/aktiva).'
+        ],
+        render: function (svg, stav, i, u) {
+          var W = 150, H = 46, W3 = 148;
+          // Barvy uzlů
+          var cEva = '#4338ca', cSpread = '#4338ca', cKap = '#475569',
+              cRona = u.barvaTvorba, cWacc = u.barvaNiceni,
+              cDeti = '#0f766e', cKapDeti = '#64748b';
+
+          // --- Úroveň 0: EVA (vždy viditelná) ---
+          uzel(u, svg, 'eva', 20, 212, W, H, cEva, '#fff', 'EVA', true);
+
+          // --- Úroveň 1: spread a kapitál (krok ≥ 1) ---
+          var v1 = i >= 1;
+          spoj(u, svg, 'l-eva-spread', 170, 235, 235, 112, v1);
+          spoj(u, svg, 'l-eva-kap',    170, 235, 235, 312, v1);
+          operator(u, svg, 'op-eva', 205, 240, '×', v1);
+          uzel(u, svg, 'spread', 235, 89,  W, H, cSpread, '#fff', 'RONA − WACC', v1);
+          uzel(u, svg, 'kap',    235, 289, W, H, cKap,    '#fff', 'C (NOA)',      v1);
+
+          // --- Úroveň 2: RONA, WACC, DM, ČPK (krok ≥ 2) ---
+          var v2 = i >= 2;
+          spoj(u, svg, 'l-spread-rona', 385, 112, 455, 62,  v2);
+          spoj(u, svg, 'l-spread-wacc', 385, 112, 455, 162, v2);
+          spoj(u, svg, 'l-kap-dm',      385, 312, 455, 262, v2);
+          spoj(u, svg, 'l-kap-cpk',     385, 312, 455, 362, v2);
+          operator(u, svg, 'op-spread', 420, 118, '−', v2);
+          operator(u, svg, 'op-kap',    420, 318, '+', v2);
+          uzel(u, svg, 'rona', 455, 39,  W, H, cRona,    '#fff', 'RONA',            v2);
+          uzel(u, svg, 'wacc', 455, 139, W, H, cWacc,    '#fff', 'WACC',            v2);
+          uzel(u, svg, 'dm',   455, 239, W, H, cKapDeti, '#fff', 'Dlouh. majetek',  v2);
+          uzel(u, svg, 'cpk',  455, 339, W, H, cKapDeti, '#fff', 'ČPK',             v2);
+
+          // --- Úroveň 3: rozklad RONA na marži a obrat (krok ≥ 3) ---
+          var v3 = i >= 3;
+          spoj(u, svg, 'l-rona-marze', 605, 62, 670, 40, v3);
+          spoj(u, svg, 'l-rona-obrat', 605, 62, 670, 90, v3);
+          operator(u, svg, 'op-rona', 640, 68, '×', v3);
+          uzel(u, svg, 'marze', 670, 17, W3, H, cDeti, '#fff', 'Zisková marže', v3);
+          uzel(u, svg, 'obrat', 670, 67, W3, H, cDeti, '#fff', 'Obrat aktiv',   v3);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

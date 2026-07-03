@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Příloha R: Účetní výkazy, leasingový kalendář a funkcionální metoda rozkladu EVA – Výkonnost podniku</title>
+  <meta name="description" content="Referenční příloha případové studie PLAST, s.r.o.: kompletní účetní výkazy (rozvaha a výkaz zisku a ztráty), leasingový splátkový kalendář a odvození funkcionální metody rozkladu EVA.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12 (aktivní je Příloha R) -->
+    <nav class="panel" data-panel data-aktivni-lekce="R" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: účetní výkazy, leasing, funkcionální rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · Případová studie PLAST</a></li>
+          <li><span aria-current="page">Příloha R</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Příloha R · referenční materiál</span>
+        <h1>Referenční příloha: účetní výkazy, leasingový kalendář a funkcionální metoda rozkladu EVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 311–317 (Přílohy A–C)</p>
+      </header>
+
+      <p>
+        Tato stránka není běžná výuková lekce, ale <strong>referenční příloha</strong>
+        případové studie podniku PLAST, s.r.o. Soustřeďuje na jednom místě zdrojová
+        data, se kterými pracuje celé téma 12: kompletní účetní výkazy (Příloha A),
+        leasingový splátkový kalendář (Příloha B) a odvození funkcionální metody
+        rozkladu <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> (Příloha C). Slouží jako <em>slovník dat</em> – kdykoli v některé
+        lekci narazíte na číslo z rozvahy, výsledovky nebo na <a class="pojem" href="t12-l7-eva-noa-nopat.html?zvyraznit=pojem-aktivace-leasingu" target="_blank" rel="noopener">aktivaci leasingu</a>,
+        můžete se sem vrátit a dohledat jeho původ.
+      </p>
+      <p>
+        Příloha je rozdělena do tří sekcí. U každé najdete krátký úvod „k čemu slouží
+        a odkud se na ni odkazuje", a zpětné odkazy do lekcí, které příslušná data
+        využívají. Dlouhé výkazy jsou vloženy do rozklikávacích panelů, aby stránka
+        zůstala přehledná.
+
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🧭</span>
+        <p class="callout__nadpis">Rychlá orientace</p>
+        <div class="callout__telo">
+          <ul>
+            <li><a href="#priloha-a">Příloha A</a> – Účetní výkazy (rozvaha + výkaz zisku a ztráty), roky 1999–2004.</li>
+            <li><a href="#priloha-b">Příloha B</a> – Leasingový splátkový kalendář (podklad pro aktivaci leasingu v NOA/NOPAT).</li>
+            <li><a href="#priloha-c">Příloha C</a> – Funkcionální metoda rozkladu EVA (podklad pro pyramidový rozklad).</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- ============================================================= -->
+      <!-- ===================== PŘÍLOHA A ============================= -->
+      <!-- ============================================================= -->
+      <h2 id="priloha-a">Příloha A: Účetní výkazy podniku PLAST, s. r. o.</h2>
+
+      <p>
+        <strong>K čemu slouží.</strong> Rozvaha a výkaz zisku a ztráty za roky
+        1999–2004 (v tis. Kč) jsou primárním vstupem pro veškeré výpočty v případové
+        studii. Z těchto výkazů vychází klasická <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýza</a> podniku i následné
+        úpravy účetních dat na ekonomický model (vymezení <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">NOA</a> a <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>).
+      </p>
+      <p>
+        <strong>Odkud se odkazuje.</strong> Data z výkazů využívají zejména lekce
+        <a href="t12-l4-financni-analyza-1.html">12.4 Finanční analýza I – struktura, zisk, cash flow, ČPK</a>,
+        <a href="t12-l5-financni-analyza-2.html">12.5 Finanční analýza II – zadluženost, likvidita, rentabilita, aktivita</a>
+        a <a href="t12-l7-eva-noa-nopat.html">12.7 EVA v podniku PLAST – vymezení NOA a NOPAT</a>
+        (kde se účetní rozvaha a výsledovka přepočítávají na provozně nutný kapitál
+        a provozní zisk po zdanění).
+      </p>
+
+      <!-- ---------- Rozvaha: AKTIVA ---------- -->
+      <details open>
+        <summary>Rozvaha PLAST – strana aktiv (v tis. Kč)</summary>
+        <div class="tabulka-obal">
+          <table class="tabulka">
+            <caption>Příloha A – Rozvaha podniku PLAST, aktiva (v tis. Kč)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Ozn.</th>
+                <th scope="col">Položka</th>
+                <th scope="col" class="cislo">1999</th>
+                <th scope="col" class="cislo">2000</th>
+                <th scope="col" class="cislo">2001</th>
+                <th scope="col" class="cislo">2002</th>
+                <th scope="col" class="cislo">2003</th>
+                <th scope="col" class="cislo">2004</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tabulka__soucet"><th scope="row"></th><td>AKTIVA CELKEM</td><td class="cislo">982 295</td><td class="cislo">1 095 693</td><td class="cislo">1 158 822</td><td class="cislo">1 194 312</td><td class="cislo">1 181 890</td><td class="cislo">1 332 625</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">A.</th><td>Pohledávky za upsaný ZK</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">B.</th><td>Dlouhodobý majetek</td><td class="cislo">609 625</td><td class="cislo">564 849</td><td class="cislo">685 107</td><td class="cislo">711 291</td><td class="cislo">659 337</td><td class="cislo">771 635</td></tr>
+              <tr><th scope="row">B.I.</th><td>Dlouhodobý nehmotný majetek</td><td class="cislo">164</td><td class="cislo">73</td><td class="cislo">993</td><td class="cislo">2 657</td><td class="cislo">2 979</td><td class="cislo">16 766</td></tr>
+              <tr><th scope="row">B.I.3.</th><td>Software</td><td class="cislo">164</td><td class="cislo">73</td><td class="cislo">993</td><td class="cislo">2 657</td><td class="cislo">2 979</td><td class="cislo">1 596</td></tr>
+              <tr><th scope="row">B.I.7.</th><td>Nedokončený DNM</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">15 170</td></tr>
+              <tr><th scope="row">B.II.</th><td>Dlouhodobý hmotný majetek</td><td class="cislo">609 461</td><td class="cislo">522 668</td><td class="cislo">493 705</td><td class="cislo">502 995</td><td class="cislo">482 106</td><td class="cislo">479 350</td></tr>
+              <tr><th scope="row">B.II.1.</th><td>Pozemky</td><td class="cislo">4 699</td><td class="cislo">4 699</td><td class="cislo">4 699</td><td class="cislo">4 900</td><td class="cislo">6 776</td><td class="cislo">6 776</td></tr>
+              <tr><th scope="row">B.II.2.</th><td>Stavby</td><td class="cislo">259 266</td><td class="cislo">256 211</td><td class="cislo">244 798</td><td class="cislo">261 642</td><td class="cislo">277 960</td><td class="cislo">291 540</td></tr>
+              <tr><th scope="row">B.II.3.</th><td>Samostatné movité věci</td><td class="cislo">336 528</td><td class="cislo">254 295</td><td class="cislo">216 949</td><td class="cislo">196 439</td><td class="cislo">162 508</td><td class="cislo">164 364</td></tr>
+              <tr><th scope="row">B.II.7.</th><td>Nedokončený DHM</td><td class="cislo">6 658</td><td class="cislo">6 388</td><td class="cislo">20 204</td><td class="cislo">39 074</td><td class="cislo">21 474</td><td class="cislo">16 364</td></tr>
+              <tr><th scope="row">B.II.8.</th><td>Poskytnuté zálohy na DHM</td><td class="cislo">2 310</td><td class="cislo">1 075</td><td class="cislo">7 055</td><td class="cislo">940</td><td class="cislo">13 388</td><td class="cislo">306</td></tr>
+              <tr><th scope="row">B.III.</th><td>Dlouhodobý finanční majetek</td><td class="cislo">0</td><td class="cislo">42 108</td><td class="cislo">190 409</td><td class="cislo">205 639</td><td class="cislo">174 252</td><td class="cislo">275 519</td></tr>
+              <tr><th scope="row">B.III.1.</th><td>Podíly v ovl. a řízených osobách</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">275 519</td></tr>
+              <tr><th scope="row">B.III.2.</th><td>Podíly v úč. jednotkách pod podst. vlivem</td><td class="cislo">0</td><td class="cislo">42 108</td><td class="cislo">190 409</td><td class="cislo">205 639</td><td class="cislo">174 252</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">B.III.4.</th><td>Půjčky a úvěry</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">C.</th><td>Oběžná aktiva</td><td class="cislo">366 218</td><td class="cislo">528 149</td><td class="cislo">463 468</td><td class="cislo">480 421</td><td class="cislo">519 946</td><td class="cislo">558 651</td></tr>
+              <tr><th scope="row">C.I.</th><td>Zásoby</td><td class="cislo">126 005</td><td class="cislo">145 303</td><td class="cislo">162 757</td><td class="cislo">165 637</td><td class="cislo">154 729</td><td class="cislo">190 491</td></tr>
+              <tr><th scope="row">C.I.1.</th><td>Materiál</td><td class="cislo">57 725</td><td class="cislo">72 148</td><td class="cislo">82 215</td><td class="cislo">72 378</td><td class="cislo">74 756</td><td class="cislo">104 626</td></tr>
+              <tr><th scope="row">C.I.2.</th><td>Nedokončená výroba a polotovary</td><td class="cislo">1 458</td><td class="cislo">187</td><td class="cislo">2 215</td><td class="cislo">5 760</td><td class="cislo">1 525</td><td class="cislo">546</td></tr>
+              <tr><th scope="row">C.I.3.</th><td>Výrobky</td><td class="cislo">66 732</td><td class="cislo">72 917</td><td class="cislo">77 401</td><td class="cislo">87 328</td><td class="cislo">78 172</td><td class="cislo">84 898</td></tr>
+              <tr><th scope="row">C.I.4.</th><td>Zboží</td><td class="cislo">90</td><td class="cislo">51</td><td class="cislo">883</td><td class="cislo">141</td><td class="cislo">36</td><td class="cislo">50</td></tr>
+              <tr><th scope="row">C.I.6.</th><td>Poskytnuté zálohy na zásoby</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">43</td><td class="cislo">30</td><td class="cislo">240</td><td class="cislo">371</td></tr>
+              <tr><th scope="row">C.II.</th><td>Dlouhodobé pohledávky</td><td class="cislo">6 869</td><td class="cislo">2 303</td><td class="cislo">2 303</td><td class="cislo">8 364</td><td class="cislo">5 839</td><td class="cislo">3 654</td></tr>
+              <tr><th scope="row">C.II.1.</th><td>Pohledávky z obchodního styku</td><td class="cislo">1 246</td><td class="cislo">311</td><td class="cislo">99</td><td class="cislo">6 052</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">C.II.5.</th><td>Dlouhodobé poskytnuté zálohy</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">3 899</td><td class="cislo">1 368</td></tr>
+              <tr><th scope="row">C.II.7.</th><td>Jiné pohledávky</td><td class="cislo">5 623</td><td class="cislo">1 992</td><td class="cislo">2 204</td><td class="cislo">2 312</td><td class="cislo">1 940</td><td class="cislo">2 286</td></tr>
+              <tr><th scope="row">C.III.</th><td>Krátkodobé pohledávky</td><td class="cislo">216 678</td><td class="cislo">359 888</td><td class="cislo">279 045</td><td class="cislo">267 519</td><td class="cislo">302 330</td><td class="cislo">278 376</td></tr>
+              <tr><th scope="row">C.III.1.</th><td>Pohledávky z obchodních vztahů</td><td class="cislo">196 960</td><td class="cislo">294 440</td><td class="cislo">254 716</td><td class="cislo">247 028</td><td class="cislo">249 661</td><td class="cislo">253 697</td></tr>
+              <tr><th scope="row">C.III.2.</th><td>Pohledávky – ovl. a řídící osoba</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">31 811</td><td class="cislo">4 500</td></tr>
+              <tr><th scope="row">C.III.6.</th><td>Stát – daňové pohledávky</td><td class="cislo">19 551</td><td class="cislo">9 820</td><td class="cislo">21 262</td><td class="cislo">14 284</td><td class="cislo">8 830</td><td class="cislo">10 233</td></tr>
+              <tr><th scope="row">C.III.7.</th><td>Krátkodobé poskytnuté zálohy</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">7 216</td><td class="cislo">6 356</td></tr>
+              <tr><th scope="row">C.III.8.</th><td>Dohadné účty aktivní</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">370</td><td class="cislo">12</td></tr>
+              <tr><th scope="row">C.III.9.</th><td>Jiné pohledávky</td><td class="cislo">167</td><td class="cislo">55 628</td><td class="cislo">3 067</td><td class="cislo">6 207</td><td class="cislo">4 442</td><td class="cislo">3 578</td></tr>
+              <tr><th scope="row">C.IV.</th><td>Krátkodobý finanční majetek</td><td class="cislo">16 666</td><td class="cislo">20 655</td><td class="cislo">19 363</td><td class="cislo">38 901</td><td class="cislo">57 048</td><td class="cislo">86 130</td></tr>
+              <tr><th scope="row">C.IV.1.</th><td>Peníze</td><td class="cislo">583</td><td class="cislo">512</td><td class="cislo">367</td><td class="cislo">527</td><td class="cislo">238</td><td class="cislo">240</td></tr>
+              <tr><th scope="row">C.IV.2.</th><td>Účty v bankách</td><td class="cislo">16 083</td><td class="cislo">20 143</td><td class="cislo">18 996</td><td class="cislo">38 374</td><td class="cislo">56 810</td><td class="cislo">75 647</td></tr>
+              <tr><th scope="row">C.IV.3.</th><td>Krátkodobé CP a podíly</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">10 243</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">D.I.</th><td>Časové rozlišení</td><td class="cislo">6 452</td><td class="cislo">2 695</td><td class="cislo">10 247</td><td class="cislo">2 600</td><td class="cislo">2 607</td><td class="cislo">2 339</td></tr>
+              <tr><th scope="row">D.I.1.</th><td>Náklady příštích období</td><td class="cislo">497</td><td class="cislo">262</td><td class="cislo">1 110</td><td class="cislo">2 596</td><td class="cislo">2 607</td><td class="cislo">2 339</td></tr>
+              <tr><th scope="row">D.I.2.</th><td>Příjmy příštích období</td><td class="cislo">5 955</td><td class="cislo">2 433</td><td class="cislo">9 137</td><td class="cislo">4</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- ---------- Rozvaha: PASIVA ---------- -->
+      <details>
+        <summary>Rozvaha PLAST – strana pasiv (v tis. Kč)</summary>
+        <div class="tabulka-obal">
+          <table class="tabulka">
+            <caption>Příloha A – Rozvaha podniku PLAST, pasiva (v tis. Kč)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Ozn.</th>
+                <th scope="col">Položka</th>
+                <th scope="col" class="cislo">1999</th>
+                <th scope="col" class="cislo">2000</th>
+                <th scope="col" class="cislo">2001</th>
+                <th scope="col" class="cislo">2002</th>
+                <th scope="col" class="cislo">2003</th>
+                <th scope="col" class="cislo">2004</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tabulka__soucet"><th scope="row"></th><td>PASIVA CELKEM</td><td class="cislo">982 295</td><td class="cislo">1 095 693</td><td class="cislo">1 158 822</td><td class="cislo">1 194 312</td><td class="cislo">1 181 890</td><td class="cislo">1 332 625</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">A.</th><td>Vlastní kapitál</td><td class="cislo">517 858</td><td class="cislo">595 292</td><td class="cislo">655 025</td><td class="cislo">722 965</td><td class="cislo">775 719</td><td class="cislo">857 406</td></tr>
+              <tr><th scope="row">A.I.</th><td>Základní kapitál</td><td class="cislo">399 770</td><td class="cislo">399 770</td><td class="cislo">399 770</td><td class="cislo">399 870</td><td class="cislo">399 870</td><td class="cislo">399 870</td></tr>
+              <tr><th scope="row">A.II.</th><td>Kapitálové fondy</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">−7 334</td><td class="cislo">−24 254</td><td class="cislo">−14 369</td></tr>
+              <tr><th scope="row">A.II.3.</th><td>Oceňovací rozdíly</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">−7 334</td><td class="cislo">−24 254</td><td class="cislo">−14 369</td></tr>
+              <tr><th scope="row">A.III.</th><td>Rezervní fondy, neděl. fond, …</td><td class="cislo">23 200</td><td class="cislo">27 922</td><td class="cislo">31 787</td><td class="cislo">34 774</td><td class="cislo">38 498</td><td class="cislo">42 887</td></tr>
+              <tr><th scope="row">A.III.1.</th><td>Zákonný rezervní fond</td><td class="cislo">18 360</td><td class="cislo">23 110</td><td class="cislo">27 000</td><td class="cislo">30 000</td><td class="cislo">33 800</td><td class="cislo">37 400</td></tr>
+              <tr><th scope="row">A.III.2.</th><td>Statutární a ostatní fondy</td><td class="cislo">4 840</td><td class="cislo">4 812</td><td class="cislo">4 787</td><td class="cislo">4 774</td><td class="cislo">4 698</td><td class="cislo">5 487</td></tr>
+              <tr><th scope="row">A.IV.</th><td>VH minulých let</td><td class="cislo">45</td><td class="cislo">89 869</td><td class="cislo">163 538</td><td class="cislo">220 105</td><td class="cislo">291 429</td><td class="cislo">356 703</td></tr>
+              <tr><th scope="row">A.V.</th><td>HV běžného období</td><td class="cislo">94 843</td><td class="cislo">77 731</td><td class="cislo">59 930</td><td class="cislo">75 550</td><td class="cislo">70 176</td><td class="cislo">72 315</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">B.</th><td>Cizí zdroje</td><td class="cislo">463 496</td><td class="cislo">496 292</td><td class="cislo">486 885</td><td class="cislo">470 831</td><td class="cislo">405 753</td><td class="cislo">475 219</td></tr>
+              <tr><th scope="row">B.I.</th><td>Rezervy</td><td class="cislo">19 491</td><td class="cislo">12 537</td><td class="cislo">15 359</td><td class="cislo">19 845</td><td class="cislo">20 364</td><td class="cislo">660</td></tr>
+              <tr><th scope="row">B.I.1.</th><td>Rezervy podle zvl. předpisů</td><td class="cislo">13 547</td><td class="cislo">10 253</td><td class="cislo">6 237</td><td class="cislo">6 400</td><td class="cislo">3 940</td><td class="cislo">660</td></tr>
+              <tr><th scope="row">B.I.3.</th><td>Rezerva na daň z příjmů</td><td class="cislo">5 944</td><td class="cislo">2 284</td><td class="cislo">0</td><td class="cislo">13 445</td><td class="cislo">16 424</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">B.I.4.</th><td>Ostatní rezervy</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">9 122</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">B.II.</th><td>Dlouhodobé závazky</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">2 118</td><td class="cislo">407</td><td class="cislo">4 593</td></tr>
+              <tr><th scope="row">B.II.10.</th><td>Odložený daňový závazek</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">407</td><td class="cislo">4 593</td></tr>
+              <tr><th scope="row">B.III.</th><td>Krátkodobé závazky</td><td class="cislo">129 127</td><td class="cislo">81 532</td><td class="cislo">90 208</td><td class="cislo">90 269</td><td class="cislo">103 217</td><td class="cislo">133 451</td></tr>
+              <tr><th scope="row">B.III.1.</th><td>Závazky z obchodních vztahů</td><td class="cislo">116 648</td><td class="cislo">60 335</td><td class="cislo">67 154</td><td class="cislo">77 395</td><td class="cislo">89 358</td><td class="cislo">121 999</td></tr>
+              <tr><th scope="row">B.III.5.</th><td>Závazky k zaměstnancům</td><td class="cislo">172</td><td class="cislo">183</td><td class="cislo">185</td><td class="cislo">6 284</td><td class="cislo">6 860</td><td class="cislo">5 924</td></tr>
+              <tr><th scope="row">B.III.6.</th><td>Závazky ze SC a ZP</td><td class="cislo">2 718</td><td class="cislo">2 710</td><td class="cislo">3 125</td><td class="cislo">3 288</td><td class="cislo">4 024</td><td class="cislo">3 418</td></tr>
+              <tr><th scope="row">B.III.7.</th><td>Stát – daňové závazky a dotace</td><td class="cislo">760</td><td class="cislo">6 923</td><td class="cislo">13 640</td><td class="cislo">1 000</td><td class="cislo">1 135</td><td class="cislo">928</td></tr>
+              <tr><th scope="row">B.III.8.</th><td>Krátkodobé přijaté zálohy</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">293</td><td class="cislo">156</td></tr>
+              <tr><th scope="row">B.III.10.</th><td>Dohadné účty pasivní</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">807</td><td class="cislo">695</td></tr>
+              <tr><th scope="row">B.III.11.</th><td>Jiné závazky</td><td class="cislo">8 829</td><td class="cislo">11 381</td><td class="cislo">6 104</td><td class="cislo">2 302</td><td class="cislo">740</td><td class="cislo">331</td></tr>
+              <tr><th scope="row">B.IV.</th><td>Bankovní úvěry a výpomoci</td><td class="cislo">314 878</td><td class="cislo">402 223</td><td class="cislo">381 318</td><td class="cislo">358 599</td><td class="cislo">281 765</td><td class="cislo">336 515</td></tr>
+              <tr><th scope="row">B.IV.1.</th><td>Bankovní úvěry dlouhodobé</td><td class="cislo">160 186</td><td class="cislo">229 674</td><td class="cislo">110 014</td><td class="cislo">54 788</td><td class="cislo">1 840</td><td class="cislo">47 500</td></tr>
+              <tr><th scope="row">B.IV.2.</th><td>Krátkodobé bankovní úvěry</td><td class="cislo">154 692</td><td class="cislo">172 549</td><td class="cislo">271 304</td><td class="cislo">303 811</td><td class="cislo">279 925</td><td class="cislo">289 015</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">C.I.</th><td>Časové rozlišení</td><td class="cislo">941</td><td class="cislo">4 109</td><td class="cislo">16 912</td><td class="cislo">516</td><td class="cislo">418</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">C.I.1.</th><td>Výdaje příštích období</td><td class="cislo">310</td><td class="cislo">313</td><td class="cislo">16 912</td><td class="cislo">0</td><td class="cislo">418</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">C.I.2.</th><td>Výnosy příštích období</td><td class="cislo">631</td><td class="cislo">3 796</td><td class="cislo">0</td><td class="cislo">516</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- ---------- Výkaz zisku a ztráty ---------- -->
+      <details>
+        <summary>Výkaz zisku a ztráty PLAST (v tis. Kč)</summary>
+        <div class="tabulka-obal">
+          <table class="tabulka">
+            <caption>Příloha A – Výkaz zisku a ztráty podniku PLAST (v tis. Kč)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Ozn.</th>
+                <th scope="col">Položka</th>
+                <th scope="col" class="cislo">1999</th>
+                <th scope="col" class="cislo">2000</th>
+                <th scope="col" class="cislo">2001</th>
+                <th scope="col" class="cislo">2002</th>
+                <th scope="col" class="cislo">2003</th>
+                <th scope="col" class="cislo">2004</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">I.</th><td>Tržby za prodej zboží</td><td class="cislo">1 020</td><td class="cislo">511</td><td class="cislo">915</td><td class="cislo">403</td><td class="cislo">628</td><td class="cislo">2 482</td></tr>
+              <tr><th scope="row">A.</th><td>Náklady vynaložené na prodej zboží</td><td class="cislo">1 018</td><td class="cislo">560</td><td class="cislo">916</td><td class="cislo">458</td><td class="cislo">157</td><td class="cislo">2 402</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">+</th><td>Obchodní marže</td><td class="cislo">2</td><td class="cislo">−49</td><td class="cislo">−1</td><td class="cislo">−55</td><td class="cislo">471</td><td class="cislo">80</td></tr>
+              <tr><th scope="row">II.</th><td>Výkony</td><td class="cislo">882 341</td><td class="cislo">894 487</td><td class="cislo">1 074 021</td><td class="cislo">1 040 815</td><td class="cislo">1 047 808</td><td class="cislo">1 092 650</td></tr>
+              <tr><th scope="row">II.1.</th><td>Tržby za prodej vlastních výrobků a služeb</td><td class="cislo">862 917</td><td class="cislo">892 298</td><td class="cislo">1 064 379</td><td class="cislo">1 022 217</td><td class="cislo">1 055 564</td><td class="cislo">1 089 472</td></tr>
+              <tr><th scope="row">II.2.</th><td>Změna stavu zásob vlastní činností</td><td class="cislo">16 956</td><td class="cislo">731</td><td class="cislo">7 331</td><td class="cislo">15 401</td><td class="cislo">−15 531</td><td class="cislo">2 528</td></tr>
+              <tr><th scope="row">II.3.</th><td>Aktivace</td><td class="cislo">2 468</td><td class="cislo">1 458</td><td class="cislo">2 311</td><td class="cislo">3 197</td><td class="cislo">7 775</td><td class="cislo">650</td></tr>
+              <tr><th scope="row">B.</th><td>Výkonová spotřeba</td><td class="cislo">527 423</td><td class="cislo">576 409</td><td class="cislo">747 378</td><td class="cislo">708 912</td><td class="cislo">703 537</td><td class="cislo">773 883</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">+</th><td>Přidaná hodnota</td><td class="cislo">354 920</td><td class="cislo">318 029</td><td class="cislo">326 642</td><td class="cislo">331 848</td><td class="cislo">344 742</td><td class="cislo">318 847</td></tr>
+              <tr><th scope="row">C.</th><td>Osobní náklady</td><td class="cislo">105 415</td><td class="cislo">116 105</td><td class="cislo">130 110</td><td class="cislo">145 326</td><td class="cislo">160 493</td><td class="cislo">141 779</td></tr>
+              <tr><th scope="row">D.</th><td>Daně a poplatky</td><td class="cislo">486</td><td class="cislo">615</td><td class="cislo">467</td><td class="cislo">510</td><td class="cislo">373</td><td class="cislo">361</td></tr>
+              <tr><th scope="row">E.</th><td>Odpisy DNM a DHM</td><td class="cislo">133 995</td><td class="cislo">124 251</td><td class="cislo">114 678</td><td class="cislo">98 004</td><td class="cislo">91 142</td><td class="cislo">73 547</td></tr>
+              <tr><th scope="row">III.</th><td>Tržby z prodeje DM a materiálu</td><td class="cislo">162 650</td><td class="cislo">225 734</td><td class="cislo">230 909</td><td class="cislo">179 415</td><td class="cislo">153 381</td><td class="cislo">218 414</td></tr>
+              <tr><th scope="row">III.1.</th><td>Tržby z prodeje DM</td><td class="cislo">12 476</td><td class="cislo">9 463</td><td class="cislo">23 767</td><td class="cislo">12 576</td><td class="cislo">9 913</td><td class="cislo">24 673</td></tr>
+              <tr><th scope="row">III.2.</th><td>Tržby z prodeje materiálu</td><td class="cislo">150 174</td><td class="cislo">216 271</td><td class="cislo">207 142</td><td class="cislo">166 839</td><td class="cislo">143 468</td><td class="cislo">193 741</td></tr>
+              <tr><th scope="row">F.</th><td>ZC prodaného DM a materiálu</td><td class="cislo">139 523</td><td class="cislo">186 154</td><td class="cislo">205 980</td><td class="cislo">155 230</td><td class="cislo">135 966</td><td class="cislo">191 698</td></tr>
+              <tr><th scope="row">F.1.</th><td>ZC prodaného DM</td><td class="cislo">9 654</td><td class="cislo">4 678</td><td class="cislo">20 765</td><td class="cislo">9 654</td><td class="cislo">5 441</td><td class="cislo">16 495</td></tr>
+              <tr><th scope="row">F.2.</th><td>Prodaný materiál</td><td class="cislo">129 869</td><td class="cislo">181 476</td><td class="cislo">185 215</td><td class="cislo">145 576</td><td class="cislo">130 525</td><td class="cislo">175 203</td></tr>
+              <tr><th scope="row">G.</th><td>Změna stavu rezerv, OP, …</td><td class="cislo">4 503</td><td class="cislo">−241</td><td class="cislo">−11 799</td><td class="cislo">−13 844</td><td class="cislo">−6 379</td><td class="cislo">−15 780</td></tr>
+              <tr><th scope="row">IV.</th><td>Ostatní provozní výnosy</td><td class="cislo">1 944</td><td class="cislo">4 351</td><td class="cislo">7 078</td><td class="cislo">61 243</td><td class="cislo">4 942</td><td class="cislo">16 066</td></tr>
+              <tr><th scope="row">H.</th><td>Ostatní provozní náklady</td><td class="cislo">5 999</td><td class="cislo">8 513</td><td class="cislo">13 603</td><td class="cislo">71 445</td><td class="cislo">13 820</td><td class="cislo">28 794</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">*</th><td>Provozní výsledek hospodaření</td><td class="cislo">129 593</td><td class="cislo">112 717</td><td class="cislo">111 590</td><td class="cislo">115 835</td><td class="cislo">107 650</td><td class="cislo">132 928</td></tr>
+              <tr><th scope="row">M.</th><td>Změna stavu rezerv, OP (finanční)</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">3 823</td></tr>
+              <tr><th scope="row">X.</th><td>Výnosové úroky</td><td class="cislo">4 461</td><td class="cislo">7 042</td><td class="cislo">7 371</td><td class="cislo">6 640</td><td class="cislo">6 357</td><td class="cislo">2 479</td></tr>
+              <tr><th scope="row">N.</th><td>Nákladové úroky</td><td class="cislo">17 898</td><td class="cislo">21 099</td><td class="cislo">23 891</td><td class="cislo">16 548</td><td class="cislo">11 013</td><td class="cislo">10 632</td></tr>
+              <tr><th scope="row">XI.</th><td>Ostatní finanční výnosy</td><td class="cislo">9 171</td><td class="cislo">10 327</td><td class="cislo">8 984</td><td class="cislo">32 611</td><td class="cislo">11 334</td><td class="cislo">11 015</td></tr>
+              <tr><th scope="row">O.</th><td>Ostatní finanční náklady</td><td class="cislo">23 670</td><td class="cislo">12 716</td><td class="cislo">28 374</td><td class="cislo">30 670</td><td class="cislo">12 988</td><td class="cislo">30 579</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">*</th><td>Finanční výsledek hospodaření</td><td class="cislo">−27 936</td><td class="cislo">−16 446</td><td class="cislo">−35 910</td><td class="cislo">−7 967</td><td class="cislo">−6 310</td><td class="cislo">−31 540</td></tr>
+              <tr><th scope="row">Q.</th><td>Daň z příjmu za běžnou činnost</td><td class="cislo">6 852</td><td class="cislo">17 791</td><td class="cislo">15 709</td><td class="cislo">32 318</td><td class="cislo">31 164</td><td class="cislo">29 073</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">**</th><td>VH za běžnou činnost</td><td class="cislo">94 805</td><td class="cislo">78 480</td><td class="cislo">59 971</td><td class="cislo">75 550</td><td class="cislo">70 176</td><td class="cislo">72 315</td></tr>
+              <tr><th scope="row">XIII.</th><td>Mimořádné výnosy</td><td class="cislo">135</td><td class="cislo">77</td><td class="cislo">14</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">R.</th><td>Mimořádné náklady</td><td class="cislo">76</td><td class="cislo">1 159</td><td class="cislo">75</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr><th scope="row">S.</th><td>Daň z příjmu z mimořádné činnosti</td><td class="cislo">21</td><td class="cislo">−335</td><td class="cislo">−19</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">*</th><td>VH za mimořádnou činnost</td><td class="cislo">39</td><td class="cislo">−747</td><td class="cislo">−41</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+              <tr class="tabulka__soucet"><th scope="row">***</th><td>VH za účetní období</td><td class="cislo">94 844</td><td class="cislo">77 733</td><td class="cislo">59 930</td><td class="cislo">75 550</td><td class="cislo">70 176</td><td class="cislo">72 315</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Poznámka ke zkratkám</p>
+        <div class="callout__telo">
+          <p>DNM = dlouhodobý nehmotný majetek, DHM = dlouhodobý hmotný majetek,
+          DFM = dlouhodobý finanční majetek, DM = dlouhodobý majetek, ZC = zůstatková
+          cena, OP = opravné položky, VH = výsledek hospodaření, ZK = základní kapitál,
+          SC a ZP = sociální a zdravotní pojištění. Záporné hodnoty jsou uvedeny se
+          znaménkem minus (−).</p>
+        </div>
+      </aside>
+
+      <!-- ============================================================= -->
+      <!-- ===================== PŘÍLOHA B ============================= -->
+      <!-- ============================================================= -->
+      <h2 id="priloha-b">Příloha B: Leasing – splátkový kalendář</h2>
+
+      <p>
+        <strong>K čemu slouží.</strong> Podnik PLAST pořizoval část majetku
+        (automobily, vysokozdvižné vozíky, výrobní linky) formou <a class="pojem" href="t9-l5-zdroje-financovani.html?zvyraznit=pojem-financni-leasing" target="_blank" rel="noopener">finančního leasingu</a>.
+        Účetně se leasing neobjevuje v rozvaze jako majetek ani jako závazek, což
+        deformuje výši investovaného kapitálu. Při přechodu z účetního na ekonomický
+        model se proto leasing <em>aktivuje</em> – pořizovaná věc se doplní do
+        provozně nutných aktiv a odpovídající závazek do zpoplatněných zdrojů, přičemž
+        leasingová splátka se rozdělí na část odpisovou a část úrokovou.
+      </p>
+      <p>
+        <strong>Odkud se odkazuje.</strong> Tento splátkový kalendář je podkladem
+        pro úpravu NOA a NOPAT o leasing v lekci
+        <a href="t12-l7-eva-noa-nopat.html">12.7 EVA v podniku PLAST – vymezení NOA a NOPAT</a>.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Poznámka ke zdrojovým datům</p>
+        <div class="callout__telo">
+          <p>Splátkový kalendář je ve zdrojové publikaci uveden ilustrativně a část
+          buněk je v předloze anonymizována či zastoupena zástupným symbolem
+          „xxx". Hodnoty proto reprodukujeme věrně dle knihy včetně těchto
+          zástupných polí; slouží k demonstraci principu aktivace leasingu, nikoli
+          jako přesná účetní evidence.</p>
+        </div>
+      </aside>
+
+      <!-- ---------- Leasing 2002 ---------- -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Příloha B – Leasingové smlouvy uzavřené 2002; sloupce 2003–2009 = <em>Zbývá doplatit</em> (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Předmět</th>
+              <th scope="col">Posk.</th>
+              <th scope="col">Zahájení</th>
+              <th scope="col" class="cislo">Cena leasingu</th>
+              <th scope="col" class="cislo">Záloha</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">VW Passat Combi</th><td>CAC</td><td>1. 2. 2002</td><td class="cislo">998 586</td><td class="cislo">384 210</td><td class="cislo">193 953</td><td class="cislo">201 805</td><td class="cislo">201 805</td><td class="cislo">16 813</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Ford Mondeo</th><td>CAC</td><td>1. 2. 2002</td><td class="cislo">936 708</td><td class="cislo">297 000</td><td class="cislo">140 570</td><td class="cislo">149 569</td><td class="cislo">149 569</td><td class="cislo">200 000</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Škoda Octavia</th><td>CAC</td><td>1. 2. 2002</td><td class="cislo">442 085</td><td class="cislo">171 288</td><td class="cislo">85 521</td><td class="cislo">88 936</td><td class="cislo">88 937</td><td class="cislo">7 403</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">VZV I.</th><td>ČSOB</td><td>14. 2. 2002</td><td class="cislo">882 420</td><td class="cislo">257 766</td><td class="cislo">178 455</td><td class="cislo">214 176</td><td class="cislo">214 176</td><td class="cislo">227 883</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Extruzní linka</th><td>L. ČSp.</td><td>19. 2. 2002</td><td class="cislo">42 479 238</td><td class="cislo">4 640 066</td><td class="cislo">9 458 268</td><td class="cislo">9 458 268</td><td class="cislo">9 458 268</td><td class="cislo">9 458 268</td><td class="cislo">6 100</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">…</th><td>…</td><td>…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Celkem</th><td></td><td></td><td class="cislo">—</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">…</td><td class="cislo">17 113 509</td><td class="cislo">15 702 370</td><td class="cislo">3 949 013</td><td class="cislo">3 590 734</td><td class="cislo">3 429 982</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ---------- Leasing 2003 ---------- -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Příloha B – Leasingové smlouvy uzavřené 2003; sloupce 2004–2009 = <em>Zbývá doplatit</em> (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Předmět</th>
+              <th scope="col">Posk.</th>
+              <th scope="col">Zahájení</th>
+              <th scope="col" class="cislo">Cena leasingu</th>
+              <th scope="col" class="cislo">Záloha</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Ford Mondeo</th><td>CAC</td><td>1. 2. 2003</td><td class="cislo">749 165</td><td class="cislo">297 000</td><td class="cislo">140 570</td><td class="cislo">149 569</td><td class="cislo">149 569</td><td class="cislo">12 457</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Škoda Octavia</th><td>CAC</td><td>1. 2. 2003</td><td class="cislo">442 085</td><td class="cislo">171 288</td><td class="cislo">85 521</td><td class="cislo">88 936</td><td class="cislo">88 937</td><td class="cislo">7 403</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ---------- Leasing 2004 ---------- -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Příloha B – Leasingové smlouvy uzavřené 2004; sloupce 2005–2009 = <em>Zbývá doplatit</em> (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Předmět</th>
+              <th scope="col">Posk.</th>
+              <th scope="col">Zahájení</th>
+              <th scope="col" class="cislo">Cena leasingu</th>
+              <th scope="col" class="cislo">Záloha</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Škoda Octavia</th><td>CAC</td><td>1. 2. 2004</td><td class="cislo">442 085</td><td class="cislo">171 288</td><td class="cislo">85 521</td><td class="cislo">88 936</td><td class="cislo">88 937</td><td class="cislo">7 403</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">VZV II.</th><td>ČSOB</td><td>1. 2. 2004</td><td class="cislo">882 420</td><td class="cislo">257 766</td><td class="cislo">178 455</td><td class="cislo">214 176</td><td class="cislo">214 176</td><td class="cislo">17 847</td><td class="cislo">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ---------- Celkem leasingové platby ---------- -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Příloha B – Celkové leasingové platby v jednotlivých letech (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">Celkem leasingové platby</th><td class="cislo">17 620 000</td><td class="cislo">16 248 000</td><td class="cislo">4 276 000</td><td class="cislo">3 620 000</td><td class="cislo">3 434 000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Vysvětlivky</p>
+        <div class="callout__telo">
+          <p>Posk. = poskytovatel leasingu (CAC, ČSOB, L. ČSp. = leasingová
+          společnost). VZV = vysokozdvižný vozík. Sloupce jednotlivých let
+          v ročních tabulkách vyjadřují částku, která <em>zbývá doplatit</em>
+          k danému roku. „Cena leasingu" je celková pořizovací cena předmětu
+          financovaného leasingem, „Záloha" je akontace (první zvýšená splátka).</p>
+        </div>
+      </aside>
+
+      <!-- ============================================================= -->
+      <!-- ===================== PŘÍLOHA C ============================= -->
+      <!-- ============================================================= -->
+      <h2 id="priloha-c">Příloha C: Funkcionální metoda rozkladu EVA</h2>
+
+      <p>
+        <strong>K čemu slouží.</strong> Když se syntetický ukazatel (např. EVA)
+        rozloží pyramidově na dílčí analytické ukazatele, potřebujeme zjistit,
+        <em>jak velkou částí</em> se každý dílčí ukazatel podílel na změně
+        syntetického ukazatele. Tato příloha odvozuje matematiku, kterou pro
+        vyčíslení vlivů používá <strong><a class="pojem" href="t12-l9-generatory-citlivost.html?zvyraznit=pojem-funkcionalni-metoda" target="_blank" rel="noopener">funkcionální metoda</a></strong>.
+      </p>
+      <p>
+        <strong>Odkud se odkazuje.</strong> Odvození je teoretickým podkladem pro
+        pyramidový rozklad EVA a určení nejvýznamnějších finančních <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátorů
+        hodnoty</a> v lekci
+        <a href="t12-l9-generatory-citlivost.html">12.9 Generátory hodnoty – pyramidový rozklad a citlivostní analýza</a>.
+      </p>
+
+      <p>
+        Při analýze syntetického ukazatele <span class="math">X</span> zkoumáme
+        intenzitu vlivu analytických ukazatelů <span class="math">a, b, … s</span>,
+        získaných pyramidovým rozkladem. Přírůstek syntetického ukazatele
+        <span class="math">ΔX</span> (nebo jeho index <span class="math">I<sub>X</sub></span>)
+        je funkcí přírůstků (indexů) analytických ukazatelů:
+      </p>
+
+      <div class="vzorec" id="vzorec-c-1">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<span class="op">=</span><span class="fn">f</span>(Δa, Δb, … Δs)</span>
+        </div>
+        <div class="vzorec__cislo">(C.1)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-c-2">
+        <div class="vzorec__telo">
+          <span class="math">I<sub>X</sub><span class="op">=</span><span class="fn">f</span>(I<sub>a</sub>, I<sub>b</sub>, … I<sub>s</sub>)</span>
+        </div>
+        <div class="vzorec__cislo">(C.2)</div>
+      </div>
+
+      <p>
+        Hledáme, jakou část přírůstku hodnoty syntetického ukazatele lze připsat
+        přírůstkům jednotlivých analytických ukazatelů, tj.
+        <span class="math">ΔX<sub>a</sub>, ΔX<sub>b</sub>, … ΔX<sub>s</sub></span>.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Aditivní vs. multiplikativní vazby</p>
+        <div class="callout__telo">
+          <p>Existují-li mezi analytickými ukazateli <strong>aditivní</strong> vazby,
+          je jejich vliv dán přímo absolutními přírůstky:
+          <span class="math">ΔX<sub>a</sub><span class="op">=</span>Δa</span>,
+          <span class="math">ΔX<sub>b</sub><span class="op">=</span>Δb</span>.
+          U <strong>multiplikativních</strong> vazeb se používají tři metody:
+          (a) metoda postupných změn (řetězové dosazování), (b) logaritmická metoda,
+          (c) funkcionální metoda.</p>
+        </div>
+      </aside>
+
+      <p>
+        Pro naši analýzu je vybrána metoda <strong>funkcionální</strong>: není citlivá
+        na pořadí činitelů při výpočtu a lze ji použít i při záporných indexech.
+        Nevýhodou mohou být rozsáhlé matematické výrazy při větším počtu činitelů.
+      </p>
+
+      <h3>Odvození pro součin dvou činitelů</h3>
+
+      <p>
+        Uvažujme syntetický ukazatel jako součin dvou dílčích činitelů
+        <span class="math">X<span class="op">=</span>a<span class="op">×</span>b</span>.
+        Přírůstek zapíšeme jako rozdíl koncového a výchozího stavu, kde
+        <span class="math">a<sub>1</sub><span class="op">=</span>a<sub>0</sub><span class="op">+</span>Δa</span>
+        a <span class="math">b<sub>1</sub><span class="op">=</span>b<sub>0</sub><span class="op">+</span>Δb</span>:
+      </p>
+
+      <div class="vzorec" id="vzorec-c-3">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<span class="op">=</span>X<sub>1</sub><span class="op">−</span>X<sub>0</sub><span class="op">=</span>a<sub>1</sub>b<sub>1</sub><span class="op">−</span>a<sub>0</sub>b<sub>0</sub></span>
+        </div>
+        <div class="vzorec__cislo">(C.3)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-c-4">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<span class="op">=</span>a<sub>0</sub>b<sub>0</sub><span class="op">×</span>
+            {
+            <span class="frac">
+              <span class="frac__cit">(a<sub>0</sub><span class="op">+</span>Δa)(b<sub>0</sub><span class="op">+</span>Δb)</span>
+              <span class="frac__jmen">a<sub>0</sub>b<sub>0</sub></span>
+            </span>
+            <span class="op">−</span>1 }
+          </span>
+        </div>
+        <div class="vzorec__cislo">(C.4)</div>
+      </div>
+
+      <p>
+        Zlomek s více činiteli se rozdělí na poloviny tak, aby změna každého činitele
+        proběhla v kombinaci s ostatními. Celkový přírůstek se pak rozpadne na
+        součet dílčích vlivů:
+      </p>
+
+      <div class="vzorec" id="vzorec-c-5">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<span class="op">=</span>ΔX<sub>a</sub><span class="op">+</span>ΔX<sub>b</sub></span>
+        </div>
+        <div class="vzorec__cislo">(C.5)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-c-6">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<sub>a</sub><span class="op">=</span>X<sub>0</sub><span class="op">×</span>
+            <span class="frac"><span class="frac__cit">Δa</span><span class="frac__jmen">a<sub>0</sub></span></span>
+            <span class="op">(</span>1<span class="op">+</span>
+            <span class="frac"><span class="frac__cit">Δb</span><span class="frac__jmen">2b<sub>0</sub></span></span>
+            <span class="op">)</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(C.6)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-c-7">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<sub>b</sub><span class="op">=</span>X<sub>0</sub><span class="op">×</span>
+            <span class="frac"><span class="frac__cit">Δb</span><span class="frac__jmen">b<sub>0</sub></span></span>
+            <span class="op">(</span>1<span class="op">+</span>
+            <span class="frac"><span class="frac__cit">Δa</span><span class="frac__jmen">2a<sub>0</sub></span></span>
+            <span class="op">)</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(C.7)</div>
+      </div>
+
+      <p>
+        Zavedeme-li substituci relativních přírůstků
+        <span class="math">
+          <span class="frac"><span class="frac__cit">Δa</span><span class="frac__jmen">a<sub>0</sub></span></span>
+          <span class="op">=</span>A</span>,
+        <span class="math">
+          <span class="frac"><span class="frac__cit">Δb</span><span class="frac__jmen">b<sub>0</sub></span></span>
+          <span class="op">=</span>B</span>,
+        získají vzorce pro dílčí vlivy přehledný tvar:
+      </p>
+
+      <div class="vzorec" id="vzorec-c-8">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<sub>a</sub><span class="op">=</span>X<sub>0</sub><span class="op">·</span>A<span class="op">(</span>1<span class="op">+</span>
+            <span class="frac"><span class="frac__cit">B</span><span class="frac__jmen">2</span></span>
+            <span class="op">)</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(C.8)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-c-9">
+        <div class="vzorec__telo">
+          <span class="math">ΔX<sub>b</sub><span class="op">=</span>X<sub>0</sub><span class="op">·</span>B<span class="op">(</span>1<span class="op">+</span>
+            <span class="frac"><span class="frac__cit">A</span><span class="frac__jmen">2</span></span>
+            <span class="op">)</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(C.9)</div>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Jak to číst</p>
+        <div class="callout__telo">
+          <p>Vliv každého činitele (<span class="math">ΔX<sub>a</sub></span>,
+          <span class="math">ΔX<sub>b</sub></span>) obsahuje jeho vlastní relativní
+          přírůstek (<span class="math">A</span>, resp. <span class="math">B</span>)
+          a navíc „polovinu" interakce s druhým činitelem
+          (<span class="math">1<span class="op">+</span>B/2</span>, resp.
+          <span class="math">1<span class="op">+</span>A/2</span>). Právě toto
+          symetrické rozdělení interakce činí metodu nezávislou na pořadí činitelů.
+          Součet dílčích vlivů přesně dává celkovou změnu:
+          <span class="math">ΔX<sub>a</sub><span class="op">+</span>ΔX<sub>b</sub><span class="op">=</span>ΔX</span>.</p>
+        </div>
+      </aside>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l12-oceneni-eva.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.12 Ocenění podniku na bázi EVA, simulace generátorů a závěr</span>
+        </a>
+        <!-- Poslední položka tématu – další lekce neexistuje (ponecháno prázdné kvůli zarovnání) -->
+        <span class="lekce-navigace__odkaz lekce-navigace__odkaz--prazdny" aria-hidden="true"></span>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+</body>
+</html>

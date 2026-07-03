@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11.4 Oceňování podniku – výnosové metody – Výkonnost podniku</title>
+  <meta name="description" content="Výnosové metody oceňování podniku: dvoufázová DCF, pokračující hodnota, entity a equity, ocenění na bázi EVA a CFROI, metoda kapitalizovaných výnosů.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="11.4" aria-label="Lekce tématu 11">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 11</div>
+      <div class="panel__nazev-tema">Nástroje hodnotového řízení</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="11.1" href="t11-l1-benchmarking.html"><span class="panel__odkaz-cislo">11.1</span><span>Benchmarking v řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.2" href="t11-l2-financni-plan-rizika.html"><span class="panel__odkaz-cislo">11.2</span><span>Finanční plán a řízení rizik</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.3" href="t11-l3-abc-abb-beyond-budgeting.html"><span class="panel__odkaz-cislo">11.3</span><span>ABC/ABB a Beyond Budgeting</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.4" href="t11-l4-oceneni-vynosove.html"><span class="panel__odkaz-cislo">11.4</span><span>Oceňování podniku – výnosové metody</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.5" href="t11-l5-trzni-majetkove-metody.html"><span class="panel__odkaz-cislo">11.5</span><span>Tržní a majetkové metody; růstové příležitosti a hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.6" href="t11-l6-is-ict.html"><span class="panel__odkaz-cislo">11.6</span><span>IS/ICT pro řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.7" href="t11-l7-desatero.html"><span class="panel__odkaz-cislo">11.7</span><span>Desatero pro úspěšné zavedení systému řízení výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-11">Téma 11 · Nástroje hodnotového řízení</a></li>
+          <li><span aria-current="page">Lekce 11.4</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 11.4</span>
+        <h1>Oceňování podniku – výnosové metody</h1>
+        <p class="lekce-hlavicka__strany">Strany 218–227</p>
+      </header>
+
+      <p>
+        Celá tato skripta se točí kolem tvorby hodnoty. Zbývá zodpovědět otázku,
+        která to všechno zastřešuje: <strong>jak hodnotu podniku vyčíslit</strong> –
+        tedy jak podnik ocenit? Ocenění potřebujeme při vlastnických změnách (koupě
+        a prodej podniku či jeho části, fúze, rozdělení), ale i tam, kde vlastník
+        zůstává stejný – při změně právní formy, při žádosti o úvěr nebo prostě pro
+        průběžné <strong>zhodnocení výkonnosti</strong> podniku.
+      </p>
+      <p>
+        U podniků obchodovaných na veřejných trzích cenu zná trh: vyjadřuje ji kurz
+        akcií, který průběžně hodnotí vývoj podniku. Většina podniků však obchodována
+        není, jejich tržní cena tedy není k dispozici a hodnotu musíme <em>odhadnout</em>
+        vhodnou metodou. V této lekci se soustředíme na <strong>výnosové metody</strong>
+        a budeme sledovat, jak dobře jednotlivé postupy odrážejí skutečnou výkonnost
+        podniku – protože právě to z nich dělá použitelné nástroje hodnotového řízení.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Jen principy, ne kompletní kuchařka</p>
+        <div class="callout__telo">
+          <p>Oceňování podniku je samo o sobě rozsáhlá disciplína (viz Mařík,
+          Kislingerová, Damodaran). Zde uvádíme <strong>principy jednotlivých metod</strong>
+          a díváme se na ně z pohledu měření výkonnosti – abychom je uměli využít pro
+          průběžné sledování tvorby hodnoty.</p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-ocenovani-podniku">
+        <h3 class="definice__pojem">Oceňování podniku</h3>
+        <div class="definice__telo">
+          <p>
+            Proces stanovení hodnoty podniku (nebo jeho části) k určitému datu.
+            Podle použitého přístupu rozlišujeme metody <strong>výnosové</strong>
+            (hodnota = současná hodnota očekávaných budoucích užitků), <strong>tržní</strong>
+            (porovnání se srovnatelnými podniky) a <strong>majetkové</strong>
+            (ocenění jednotlivých složek majetku). Tato lekce se věnuje metodám
+            výnosovým.
+          </p>
+        </div>
+      </section>
+
+      <h2>Výnosové metody – společná myšlenka</h2>
+      <p>
+        Výnosové metody stojí na jednoduchém, ale silném poznatku: <strong>hodnota
+        podniku je dána hodnotou očekávaného budoucího užitku plynoucího z jeho
+        vlastnictví</strong>. Vycházejí tedy z očekávaných příjmů (výnosů). Podle
+        toho, jak budoucí výnosy určíme a jak je převedeme na dnešní hodnotu,
+        rozeznáváme tři skupiny:
+      </p>
+      <ul>
+        <li><strong>metodu diskontovaného peněžního toku (<a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">DCF</a>)</strong> – diskontuje budoucí volné cash flow,</li>
+        <li><strong>metodu založenou na koncepci <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a></strong> – pracuje s ekonomickou přidanou hodnotou,</li>
+        <li><strong>metodu kapitalizovaných výnosů</strong> – vychází z minulých upravených zisků.</li>
+      </ul>
+
+      <section class="definice" id="pojem-vynosove-metody">
+        <h3 class="definice__pojem">Výnosové metody oceňování</h3>
+        <div class="definice__telo">
+          <p>
+            Skupina oceňovacích metod založená na předpokladu, že hodnota podniku
+            se rovná <strong><a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-soucasna-hodnota" target="_blank" rel="noopener">současné hodnotě</a> budoucích výnosů</strong> (peněžních
+            toků, ekonomických zisků), které vlastnictví podniku přinese. Budoucí
+            výnosy se diskontují mírou odrážející náklady příležitosti poskytovatelů
+            kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <h2>Metoda diskontovaného peněžního toku (DCF)</h2>
+      <p>
+        Základní pravidlo zní: <strong>hodnota dnes se vždy rovná budoucímu peněžnímu
+        toku diskontovanému alternativním nákladem.</strong> Abychom metodu použili,
+        musíme (1) definovat, co přesně je oním peněžním tokem, (2) odhadnout jeho
+        výši v jednotlivých budoucích letech a (3) stanovit diskontní míru. Ta má –
+        jak už víme – odrážet náklady příležitosti těch, kdo poskytují kapitál.
+      </p>
+      <p>
+        Východiskem výpočtu je tzv. <a class="pojem" href="#pojem-volne-cash-flow">volné cash flow</a>
+        (disponibilní peněžní příjem). Jak se k němu dopracujeme a jak z něj vznikne
+        hodnota podniku, ukazuje schéma podle obrázku 6–4.
+      </p>
+
+      <section class="definice" id="pojem-volne-cash-flow">
+        <h3 class="definice__pojem">Volné cash flow (FCF)</h3>
+        <div class="definice__telo">
+          <p>
+            Disponibilní peněžní příjem, který podniku zbývá pro poskytovatele
+            kapitálu (vlastníky i věřitele) po pokrytí provozních potřeb a
+            investic. Vyjde z provozního výsledku hospodaření upraveného o daně,
+            zpět přičteme odpisy a tvorbu dlouhodobých rezerv (nepeněžní položky)
+            a odečteme investice do dlouhodobého majetku a přírůstek <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého
+            pracovního kapitálu</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ STATICKÁ VIZUALIZACE: obrázek 6-4 blokový diagram ============ -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 6–4: Výpočet volného cash flow a hodnoty podniku</p>
+          <p class="viz__popis">Provozní položky se skládají do předběžného CF, po odečtení investic a přírůstku ČPK vzniká volné CF pro jednotlivé roky. To se spolu s náklady na kapitál (WACC) promítá do hodnoty podniku.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 880 520" role="img" width="100%" style="min-width:640px" aria-label="Blokový diagram: z provozních položek vzniká volné cash flow, které se s WACC převádí na hodnotu podniku.">
+            <defs>
+              <marker id="sipka64" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#64748b"></path>
+              </marker>
+            </defs>
+            <!-- vstupní provozní položky -->
+            <g font-size="13" font-family="inherit">
+              <rect x="20" y="24" width="188" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="34" y="45" fill="#16a34a" font-weight="700">+</text><text x="50" y="45" fill="#1e293b">VH provozní</text>
+
+              <rect x="20" y="66" width="188" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="34" y="87" fill="#dc2626" font-weight="700">−</text><text x="50" y="87" fill="#1e293b">Upravené daně</text>
+
+              <rect x="20" y="108" width="188" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="34" y="129" fill="#16a34a" font-weight="700">+</text><text x="50" y="129" fill="#1e293b">Odpisy</text>
+
+              <rect x="20" y="150" width="188" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="34" y="171" fill="#16a34a" font-weight="700">+</text><text x="50" y="171" fill="#1e293b">Tvorba rezerv (dl.)</text>
+
+              <!-- předběžné CF -->
+              <rect x="270" y="78" width="150" height="52" rx="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"></rect>
+              <text x="345" y="100" text-anchor="middle" fill="#1e293b" font-weight="700">Předběžné CF</text>
+              <text x="345" y="118" text-anchor="middle" fill="#16a34a" font-weight="700">(+)</text>
+
+              <!-- investice a ČPK -->
+              <rect x="270" y="150" width="150" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="284" y="171" fill="#dc2626" font-weight="700">−</text><text x="300" y="171" fill="#1e293b">Investice do DM</text>
+
+              <rect x="270" y="192" width="150" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="284" y="213" fill="#dc2626" font-weight="700">−</text><text x="300" y="213" fill="#1e293b">Zvýšení ČPK</text>
+
+              <!-- volné CF (stoh karet) -->
+              <rect x="500" y="118" width="150" height="46" rx="7" fill="#c7d2fe" stroke="#4f46e5"></rect>
+              <rect x="492" y="128" width="150" height="46" rx="7" fill="#c7d2fe" stroke="#4f46e5"></rect>
+              <rect x="484" y="138" width="150" height="46" rx="7" fill="#a5b4fc" stroke="#4f46e5" stroke-width="1.5"></rect>
+              <text x="559" y="160" text-anchor="middle" fill="#1e293b" font-weight="700">Volné CF</text>
+              <text x="559" y="200" text-anchor="middle" fill="#475569" font-size="12">Rok 1 · … · Rok n</text>
+
+              <!-- náklady kapitálu a WACC -->
+              <rect x="20" y="330" width="188" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="34" y="351" fill="#1e293b">Náklady vlastního kapitálu</text>
+              <rect x="20" y="372" width="188" height="34" rx="7" fill="#eef2ff" stroke="#818cf8"></rect>
+              <text x="34" y="393" fill="#1e293b">Náklady cizího kapitálu</text>
+
+              <rect x="290" y="350" width="120" height="42" rx="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"></rect>
+              <text x="350" y="376" text-anchor="middle" fill="#1e293b" font-weight="700">WACC</text>
+
+              <!-- hodnota podniku -->
+              <rect x="690" y="250" width="170" height="78" rx="9" fill="#4338ca" stroke="#312e81" stroke-width="1.5"></rect>
+              <text x="775" y="284" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">HODNOTA</text>
+              <text x="775" y="306" text-anchor="middle" fill="#fff" font-weight="700" font-size="15">PODNIKU</text>
+            </g>
+            <!-- spojnice -->
+            <g stroke="#64748b" stroke-width="1.4" fill="none" marker-end="url(#sipka64)">
+              <path d="M208,41 L266,90"></path>
+              <path d="M208,83 L266,100"></path>
+              <path d="M208,125 L266,112"></path>
+              <path d="M208,167 L266,122"></path>
+              <path d="M420,104 L480,150"></path>
+              <path d="M420,167 L480,158"></path>
+              <path d="M420,209 L480,168"></path>
+              <path d="M208,347 L286,368"></path>
+              <path d="M208,389 L286,378"></path>
+              <path d="M634,168 L686,270"></path>
+              <path d="M410,372 L686,300"></path>
+            </g>
+          </svg>
+        </div>
+        <p class="tabulka-popis" style="margin-top:.5rem">Zdroj: Mařík, M. <em>Určování hodnoty firem</em>. Praha: Ekopress, 1998, upraveno.</p>
+      </figure>
+
+      <h3>Dvoufázová metoda a pokračující hodnota</h3>
+      <p>
+        Budoucnost není nekonečně předvídatelná. Proto ji dělíme na dvě fáze. V
+        <strong>první fázi</strong> jsme schopni sestavit prognózu peněžního toku pro
+        <em>jednotlivá léta</em> (typicky nejbližších pár let). <strong>Druhá fáze</strong>
+        zahrnuje celý zbytek horizontu – od konce první fáze do nekonečna – a odhaduje
+        se paušálně jako věčná renta z ustáleného cash flow. Hodnotu podniku celkem
+        <span class="math">H</span> pak počítáme dvoufázovým vztahem:
+      </p>
+
+      <div class="vzorec" id="vzorec-6-1">
+        <div class="vzorec__telo">
+          <span class="math">
+            H<span class="op">=</span>
+            <span style="font-size:1.3em">Σ</span><sub style="font-size:.7em">t=1</sub><sup style="font-size:.7em">k</sup>
+            <span class="frac">
+              <span class="frac__cit">CF<sub>t</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>i)<sup>t</sup></span>
+            </span>
+            <span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit">CF<sub>s</sub></span>
+              <span class="frac__jmen">i</span>
+            </span>
+            <span class="op">×</span>(1<span class="op">+</span>i)<sup>−k</sup>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.1)</div>
+      </div>
+
+      <p>kde <span class="math">CF<sub>t</sub></span> je cash flow v jednotlivých letech,
+        <span class="math">i</span> diskontní sazba (kalkulovaná úroková míra),
+        <span class="math">k</span> délka první fáze v letech a
+        <span class="math">CF<sub>s</sub></span> stálé cash flow prognózované pro druhou fázi.
+        Člen <span class="math"><span class="frac"><span class="frac__cit">CF<sub>s</sub></span><span class="frac__jmen">i</span></span></span>
+        je <strong>pokračující hodnota</strong>; předpokládáme-li navíc trvalý růst tempem
+        <span class="math">g</span>, použijeme tvar:</p>
+
+      <div class="vzorec" id="vzorec-6-2">
+        <div class="vzorec__telo">
+          <span class="math">pokračující hodnota<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">CF<sub>s</sub></span><span class="frac__jmen">i</span></span>
+            <span style="margin:0 .5em">event.</span>
+            <span class="frac"><span class="frac__cit">CF<sub>s</sub></span><span class="frac__jmen">i<span class="op">−</span>g</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.2)</div>
+      </div>
+
+      <section class="definice" id="pojem-pokracujici-hodnota">
+        <h3 class="definice__pojem">Pokračující hodnota</h3>
+        <div class="definice__telo">
+          <p>
+            Hodnota peněžních toků druhé fáze (od konce prognózy do nekonečna),
+            vyjádřená jako věčná renta z ustáleného cash flow a převedená na
+            současnou hodnotu k datu ocenění. Předpokládá stabilitu klíčových
+            parametrů (zisková marže, výnosnost investic, tempo růstu).
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pokračující hodnota rozhoduje</p>
+        <div class="callout__telo">
+          <p>Pokračující hodnota má často <strong>velmi vysoký podíl</strong> na
+          celkové hodnotě podniku – někdy se uvádí až <strong>80 %</strong>. Její
+          odhad (zejména volba <span class="math">CF<sub>s</sub></span>, <span class="math">i</span>
+          a <span class="math">g</span>) proto může celý výsledek zásadně posunout.
+          Malá změna vstupů druhé fáze = velká změna hodnoty podniku.</p>
+        </div>
+      </aside>
+
+      <h3>Entity vs. equity: co vlastně oceňujeme?</h3>
+      <p>
+        Výsledkem výpočtu podle (6.1) je <strong>celková hodnota podniku</strong>, tj.
+        hodnota vlastního i (úročeného) cizího kapitálu. Tomuto přístupu se říká
+        metoda <a class="pojem" href="#pojem-entity-equity">„entity"</a>. Volný peněžní
+        tok totiž zahrnuje platby pro obě skupiny investorů, a proto ho diskontujeme
+        <strong>průměrnými náklady na kapitál (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>)</strong>. Hodnotu vlastního
+        kapitálu pak dostaneme tak, že od celkové hodnoty odečteme hodnotu cizího
+        kapitálu (a případně přičteme neoperativní aktiva vyčleněná mimo provoz).
+      </p>
+      <p>
+        Alternativou je metoda <strong>„equity"</strong>: diskontujeme rovnou peněžní
+        toky pro vlastníky, a to <strong>náklady na vlastní kapitál</strong>.
+        Výsledkem je přímo hodnota vlastního kapitálu.
+      </p>
+
+      <section class="definice" id="pojem-entity-equity">
+        <h3 class="definice__pojem">Metoda „entity" a „equity"</h3>
+        <div class="definice__telo">
+          <p>
+            <strong>Entity</strong> oceňuje podnik jako celek: diskontuje volné CF
+            (pro vlastníky i věřitele) mírou WACC a dá hodnotu celkového kapitálu;
+            hodnotu vlastního kapitálu získáme odečtením úročených dluhů.
+            <strong>Equity</strong> diskontuje CF plynoucí jen vlastníkům náklady na
+            vlastní kapitál a dá přímo hodnotu vlastního kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ PŘÍKLAD 6.2 – ZETA ============ -->
+      <h3>Řešený příklad 6.2 – ocenění podniku ZETA metodou DCF</h3>
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Zadání</p>
+        <div class="callout__telo">
+          <p>Společnost <strong>ZETA, a. s.</strong> (výrobce potravinářských výrobků)
+          se oceňuje k 1. 1. 2008 metodou DCF. Struktura kapitálu: vlastní kapitál
+          <strong>200 mil. Kč</strong>, úročené cizí zdroje <strong>90 mil. Kč</strong>,
+          investovaný kapitál <strong>290 mil. Kč</strong>. Průměrné náklady na kapitál
+          <span class="math">i<span class="op">=</span>WACC<span class="op">=</span>10&nbsp;%</span>,
+          odpisy cca 20 % z hodnoty majetku, čistý pracovní kapitál pro jednoduchost
+          neuvažujeme. Pro druhou fázi počítáme s cash flow na úrovni posledního roku
+          prognózy.</p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Finanční plán podniku ZETA a odvození volného cash flow (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009</th>
+              <th scope="col" class="cislo">2010</th>
+              <th scope="col" class="cislo">2011</th>
+              <th scope="col" class="cislo">2012</th>
+              <th scope="col" class="cislo">2. fáze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Majetek na zač. období</th><td class="cislo">290</td><td class="cislo">544</td><td class="cislo">675</td><td class="cislo">700</td><td class="cislo">704</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Investice</th><td class="cislo">390</td><td class="cislo">300</td><td class="cislo">200</td><td class="cislo">180</td><td class="cislo">176</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Odpisy</th><td class="cislo">136</td><td class="cislo">169</td><td class="cislo">175</td><td class="cislo">176</td><td class="cislo">176</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Majetek na konci období</th><td class="cislo">544</td><td class="cislo">675</td><td class="cislo">700</td><td class="cislo">704</td><td class="cislo">704</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">NOPAT</th><td class="cislo">80</td><td class="cislo">90</td><td class="cislo">100</td><td class="cislo">120</td><td class="cislo">60</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">+ odpisy</th><td class="cislo">136</td><td class="cislo">169</td><td class="cislo">175</td><td class="cislo">176</td><td class="cislo">176</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">− investice</th><td class="cislo">−390</td><td class="cislo">−300</td><td class="cislo">−200</td><td class="cislo">−180</td><td class="cislo">−176</td><td class="cislo">—</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Volné cash flow</th>
+              <td class="cislo hodnota-niceni">−174</td>
+              <td class="cislo hodnota-niceni">−41</td>
+              <td class="cislo hodnota-tvorba">75</td>
+              <td class="cislo hodnota-tvorba">116</td>
+              <td class="cislo hodnota-tvorba">60</td>
+              <td class="cislo hodnota-tvorba">60</td>
+            </tr>
+            <tr><th scope="row">Pokračující hodnota</th><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">600</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        V letech vysokých investic (2008–2009) je volné CF <strong>záporné</strong> –
+        podnik do sebe víc vkládá, než z něj plyne ven. Teprve jak investice odeznívají,
+        CF se překlápí do kladných hodnot. Vidíme to i na grafu níže.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Volné cash flow podniku ZETA (mil. Kč)</p>
+          <p class="viz__popis">Zápornou fázi (investice převyšují provozní příjem) postupně střídá kladné volné CF.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-fcf-zeta"></div>
+      </figure>
+
+      <p><strong>1. fáze</strong> – diskontujeme cash flow let 2008–2012 na současnou hodnotu:</p>
+      <div class="vzorec" id="vzorec-zeta-1faze">
+        <div class="vzorec__telo">
+          <span class="math">
+            H<sub>1. fáze</sub><span class="op">=</span>
+            <span class="frac"><span class="frac__cit"><span class="op">−</span>174</span><span class="frac__jmen">(1<span class="op">+</span>0,10)<sup>1</sup></span></span>
+            <span class="op">+</span>
+            <span class="frac"><span class="frac__cit"><span class="op">−</span>41</span><span class="frac__jmen">(1<span class="op">+</span>0,10)<sup>2</sup></span></span>
+            <span class="op">+</span>
+            <span class="frac"><span class="frac__cit">75</span><span class="frac__jmen">(1<span class="op">+</span>0,10)<sup>3</sup></span></span>
+            <span class="op">+</span>
+            <span class="frac"><span class="frac__cit">116</span><span class="frac__jmen">(1<span class="op">+</span>0,10)<sup>4</sup></span></span>
+            <span class="op">+</span>
+            <span class="frac"><span class="frac__cit">60</span><span class="frac__jmen">(1<span class="op">+</span>0,10)<sup>5</sup></span></span>
+            <span class="op">=</span><strong>−19</strong>
+          </span>
+        </div>
+        <div class="vzorec__cislo">mil. Kč</div>
+      </div>
+
+      <p><strong>2. fáze</strong> – ustálené cash flow 60 mil. Kč jako věčnou rentu, převedenou na současnou hodnotu:</p>
+      <div class="vzorec" id="vzorec-zeta-2faze">
+        <div class="vzorec__telo">
+          <span class="math">
+            H<sub>2. fáze</sub><span class="op">=</span>
+            <span class="frac"><span class="frac__cit">CF<sub>s</sub></span><span class="frac__jmen">i</span></span>
+            <span class="op">×</span>(1<span class="op">+</span>i)<sup>−k</sup>
+            <span class="op">=</span>
+            <span class="frac"><span class="frac__cit">60</span><span class="frac__jmen">0,10</span></span>
+            <span class="op">×</span>(1<span class="op">+</span>0,10)<sup>−5</sup>
+            <span class="op">=</span><strong>373</strong>
+          </span>
+        </div>
+        <div class="vzorec__cislo">mil. Kč</div>
+      </div>
+
+      <p>Hodnotu podniku dostaneme součtem obou fází:</p>
+      <div class="vzorec" id="vzorec-zeta-celkem">
+        <div class="vzorec__telo">
+          <span class="math">H<span class="op">=</span><span class="op">−</span>19<span class="op">+</span>373<span class="op">=</span><strong>354 mil. Kč</strong></span>
+        </div>
+        <div class="vzorec__cislo">entity</div>
+      </div>
+
+      <p>
+        Hodnota podniku (celkového kapitálu) k 1. 1. 2008 činí <strong>354 mil. Kč</strong>.
+        Hodnotu vlastního kapitálu získáme odečtením úročeného cizího kapitálu:
+        <span class="math">354<span class="op">−</span>90<span class="op">=</span><strong>264 mil. Kč</strong></span>.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Všimněte si podílu druhé fáze</p>
+        <div class="callout__telo">
+          <p>První fáze přispěla <strong>−19</strong>, pokračující hodnota
+          <strong>+373</strong>. Prakticky <strong>celá</strong> hodnota podniku tak
+          leží ve druhé fázi – přesně to je onen dominantní vliv pokračující hodnoty
+          zmíněný výše. Sledujte to v následující krokové vizualizaci.</p>
+        </div>
+      </aside>
+
+      <!-- ============ KROKOVÁ VIZUALIZACE: dvoufázová DCF ============ -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Jak se skládá hodnota podniku ZETA</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Nejprve na současnou hodnotu diskontujeme cash flow první fáze (2008–2012), pak přidáme diskontovanou pokračující hodnotu a dostaneme celkovou hodnotu podniku.</p>
+        </figcaption>
+        <div id="viz-dcf-stepper"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč může pokračující hodnota tvořit klidně 80 % (u ZETA prakticky celou)
+          hodnotu podniku? A co to znamená pro spolehlivost ocenění?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Druhá fáze zahrnuje <strong>nekonečně dlouhé</strong> období, kdežto
+            první fáze jen několik let. I když jsou vzdálené toky diskontovány,
+            věčná renta z ustáleného CF dá dohromady velké číslo. U ZETA navíc byla
+            první fáze zatížena vysokými investicemi (záporné CF), takže veškerá
+            hodnota vznikla až ve druhé fázi.</p>
+            <p><strong>Důsledek:</strong> výsledek ocenění je velmi citlivý na
+            předpoklady druhé fáze – na volbě ustáleného <span class="math">CF<sub>s</sub></span>,
+            diskontní míry <span class="math">i</span> a tempa růstu <span class="math">g</span>.
+            Odhad pokračující hodnoty je proto nejchoulostivější částí celého výpočtu.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============ METODA EVA ============ -->
+      <h2>Ocenění na bázi EVA</h2>
+      <p>
+        Koncept <a class="pojem" href="#pojem-oceneni-eva">EVA</a> (ekonomická přidaná
+        hodnota) lze využít i k ocenění – a to s velkou výhodou: přímo postihuje hlavní
+        faktory tvorby hodnoty. Základní myšlenka je jednoduchá. Podnik má hodnotu
+        rovnou už vloženému (investovanému) kapitálu <em>plus</em> tomu, co navíc
+        vytvoří nad rámec požadované výnosnosti – tedy plus současné hodnotě budoucích EVA:
+      </p>
+
+      <div class="vzorec" id="vzorec-6-3">
+        <div class="vzorec__telo">
+          <span class="math">H<sub>podniku</sub><span class="op">=</span>investovaný kapitál<span class="op">+</span>současná hodnota budoucích EVA</span>
+        </div>
+        <div class="vzorec__cislo">(6.3)</div>
+      </div>
+
+      <p>Rozepsáno podrobněji, opět dvoufázově (1. fáze explicitní EVA, 2. fáze věčná renta), dostaneme přímo hodnotu vlastního kapitálu:</p>
+
+      <div class="vzorec" id="vzorec-6-4">
+        <div class="vzorec__telo">
+          <span class="math">
+            H<sub>VK</sub><span class="op">=</span>NOA<sub>0</sub>
+            <span class="op">+</span>
+            <span style="font-size:1.3em">Σ</span><sub style="font-size:.7em">t=1</sub><sup style="font-size:.7em">T</sup>
+            <span class="frac"><span class="frac__cit">EVA<sub>t</sub></span><span class="frac__jmen">(1<span class="op">+</span>WACC)<sup>t</sup></span></span>
+            <span class="op">+</span>
+            <span class="frac"><span class="frac__cit">EVA<sub>T+1</sub></span><span class="frac__jmen">WACC<span class="op">−</span>g</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">1</span><span class="frac__jmen">(1<span class="op">+</span>WACC)<sup>T</sup></span></span>
+            <span class="op">−</span>D<sub>0</sub><span class="op">+</span>A<sub>0</sub>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.4)</div>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Význam symbolů ve vzorci (6.4)</caption>
+          <tbody>
+            <tr><th scope="row">H<sub>VK</sub></th><td>hodnota vlastního kapitálu (netto)</td></tr>
+            <tr><th scope="row">NOA<sub>0</sub></th><td>čistá operativní aktiva k datu ocenění</td></tr>
+            <tr><th scope="row">T</th><td>počet let explicitně plánovaných hodnot EVA</td></tr>
+            <tr><th scope="row">D<sub>0</sub></th><td>hodnota úročených dluhů k datu ocenění</td></tr>
+            <tr><th scope="row">A<sub>0</sub></th><td>neoperativní aktiva k datu ocenění</td></tr>
+            <tr><th scope="row">WACC</th><td>průměrné náklady na kapitál</td></tr>
+            <tr><th scope="row">g</th><td>průměrné roční tempo růstu EVA</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="definice" id="pojem-oceneni-eva">
+        <h3 class="definice__pojem">Ocenění na bázi EVA</h3>
+        <div class="definice__telo">
+          <p>
+            Výnosová metoda, podle níž se hodnota podniku rovná <strong>investovanému
+            kapitálu (<a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">NOA</a>) zvětšenému o současnou hodnotu budoucích ekonomických
+            přidaných hodnot (EVA)</strong>. Budoucí EVA se diskontují mírou WACC;
+            po odečtení úročených dluhů a přičtení neoperativních aktiv dostaneme
+            hodnotu vlastního kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ PŘÍKLAD 6.3 – EVA ============ -->
+      <h3>Řešený příklad 6.3 – tentýž podnik oceněný přes EVA</h3>
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Zadání</p>
+        <div class="callout__telo">
+          <p>Vyjdeme ze stejného zadání jako u příkladu 6.2 (podnik ZETA) a oceníme jej
+          modelem EVA. Prognóza EVA pro roky 2008–2012 je v tabulce; pro druhou fázi
+          počítáme s úrovní EVA posledního roku (−10). Náklady na kapitál v jednotlivých
+          letech = <span class="math">WACC<span class="op">×</span>NOA<sub>0</sub></span>,
+          tedy 10 % z investovaného kapitálu na začátku roku.</p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Prognóza EVA a její současné hodnoty – podnik ZETA (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2008</th>
+              <th scope="col" class="cislo">2009</th>
+              <th scope="col" class="cislo">2010</th>
+              <th scope="col" class="cislo">2011</th>
+              <th scope="col" class="cislo">2012</th>
+              <th scope="col" class="cislo">2. fáze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Investovaný kapitál NOA<sub>0</sub></th><td class="cislo">290</td><td class="cislo">544</td><td class="cislo">675</td><td class="cislo">700</td><td class="cislo">704</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Investovaný kapitál NOA<sub>t</sub></th><td class="cislo">544</td><td class="cislo">675</td><td class="cislo">700</td><td class="cislo">704</td><td class="cislo">704</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">NOPAT</th><td class="cislo">80</td><td class="cislo">90</td><td class="cislo">100</td><td class="cislo">120</td><td class="cislo">60</td><td class="cislo">—</td></tr>
+            <tr><th scope="row">Náklady na kapitál</th><td class="cislo">29</td><td class="cislo">54</td><td class="cislo">68</td><td class="cislo">70</td><td class="cislo">70</td><td class="cislo">—</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">EVA</th>
+              <td class="cislo hodnota-tvorba">51</td>
+              <td class="cislo hodnota-tvorba">36</td>
+              <td class="cislo hodnota-tvorba">32</td>
+              <td class="cislo hodnota-tvorba">50</td>
+              <td class="cislo hodnota-niceni">−10</td>
+              <td class="cislo hodnota-niceni">−10</td>
+            </tr>
+            <tr><th scope="row">Pokračující hodnota</th><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo hodnota-niceni">−100</td></tr>
+            <tr><th scope="row">PV budoucích EVA</th><td class="cislo">46</td><td class="cislo">29</td><td class="cislo">24</td><td class="cislo">34</td><td class="cislo">−6</td><td class="cislo">−65</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Dosazením do (6.4) vypočítáme přímo hodnotu vlastního kapitálu:</p>
+      <div class="vzorec" id="vzorec-zeta-eva">
+        <div class="vzorec__telo">
+          <span class="math">
+            H<sub>VK</sub><span class="op">=</span>290
+            <span class="op">+</span>46<span class="op">+</span>29<span class="op">+</span>24<span class="op">+</span>34<span class="op">−</span>6
+            <span class="op">−</span>65<span class="op">−</span>90
+            <span class="op">=</span><strong>266 mil. Kč</strong>
+          </span>
+        </div>
+        <div class="vzorec__cislo">equity</div>
+      </div>
+      <p>
+        Hodnota vlastního kapitálu k 1. 1. 2008 vychází <strong>266 mil. Kč</strong> –
+        prakticky totéž jako 264 mil. Kč z metody DCF. Drobný rozdíl jde na vrub
+        zaokrouhlování vstupních veličin.
+      </p>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Proč DCF a EVA dávají totéž</p>
+        <div class="callout__telo">
+          <p>Při <strong>shodných předpokladech a vstupech</strong> musí metoda DCF i
+          metoda EVA dát <strong>stejný výsledek</strong>. Nejde o náhodu: jsou to dva
+          pohledy na tutéž ekonomickou podstatu. EVA jen rozkládá hodnotu na
+          <em>již vložený kapitál</em> a <em>nadhodnotu, kterou podnik vytvoří navíc</em>.
+          Souvislost ilustruje obrázek 6–5.</p>
+        </div>
+      </aside>
+
+      <!-- ============ STATICKÁ VIZUALIZACE: obrázek 6-5 ============ -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 6–5: Souvislost ocenění na bázi EVA a metody DCF</p>
+          <p class="viz__popis">Hodnota podniku z DCF (levý sloupec) se rovná investovanému kapitálu zvětšenému o současnou hodnotu budoucích EVA (pravý sloupec). Rostoucí EVA v jednotlivých letech se odúročením převádějí na jejich současnou hodnotu.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 820 420" role="img" width="100%" style="min-width:600px" aria-label="Rovnost: hodnota podniku z DCF se rovná investovanému kapitálu plus současné hodnotě budoucích EVA.">
+            <defs>
+              <marker id="sipka65" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#64748b"></path>
+              </marker>
+            </defs>
+            <g font-size="13" font-family="inherit">
+              <!-- levý sloupec: hodnota podniku (DCF) -->
+              <rect x="40" y="70" width="150" height="300" rx="8" fill="#c7d2fe" stroke="#4f46e5" stroke-width="1.5"></rect>
+              <text x="115" y="55" text-anchor="middle" fill="#334155" font-weight="700">DCF</text>
+              <text x="115" y="205" text-anchor="middle" fill="#1e293b" font-weight="700">Hodnota</text>
+              <text x="115" y="225" text-anchor="middle" fill="#1e293b" font-weight="700">podniku</text>
+              <text x="115" y="248" text-anchor="middle" fill="#475569" font-size="11">(PV Free Cash Flow)</text>
+
+              <!-- rovnítko -->
+              <text x="235" y="228" text-anchor="middle" fill="#334155" font-size="30" font-weight="700">=</text>
+
+              <!-- pravý sloupec: PV EVA nad investovaným kapitálem -->
+              <rect x="290" y="70" width="150" height="150" rx="8" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"></rect>
+              <text x="365" y="135" text-anchor="middle" fill="#166534" font-weight="700">Σ PV</text>
+              <text x="365" y="155" text-anchor="middle" fill="#166534" font-weight="700">budoucích EVA</text>
+
+              <rect x="290" y="220" width="150" height="150" rx="8" fill="#334155" stroke="#1e293b" stroke-width="1.5"></rect>
+              <text x="365" y="290" text-anchor="middle" fill="#fff" font-weight="700">Investovaný</text>
+              <text x="365" y="310" text-anchor="middle" fill="#fff" font-weight="700">kapitál (NOA)</text>
+              <text x="285" y="55" text-anchor="middle" fill="#334155" font-weight="700">EVA</text>
+
+              <!-- sloupce EVA vpravo -->
+              <line x1="560" y1="360" x2="800" y2="360" stroke="#94a3b8" stroke-width="1.5"></line>
+              <rect x="570" y="300" width="38" height="60" fill="#16a34a"></rect>
+              <text x="589" y="378" text-anchor="middle" fill="#475569" font-size="11">EVA₁</text>
+              <rect x="628" y="270" width="38" height="90" fill="#16a34a"></rect>
+              <text x="647" y="378" text-anchor="middle" fill="#475569" font-size="11">EVA₂</text>
+              <rect x="686" y="235" width="38" height="125" fill="#16a34a"></rect>
+              <text x="705" y="378" text-anchor="middle" fill="#475569" font-size="11">EVA₃</text>
+              <rect x="744" y="195" width="38" height="165" fill="#16a34a"></rect>
+              <text x="763" y="378" text-anchor="middle" fill="#475569" font-size="11">EVA₄</text>
+
+              <!-- odúročení: šipky od EVA sloupců zpět k PV bloku -->
+              <path d="M566,300 L444,150" stroke="#64748b" stroke-width="1.3" fill="none" marker-end="url(#sipka65)"></path>
+              <path d="M624,270 L444,140" stroke="#64748b" stroke-width="1.3" fill="none" marker-end="url(#sipka65)" stroke-dasharray="4 3"></path>
+              <text x="510" y="120" text-anchor="middle" fill="#475569" font-size="12" font-style="italic">odúročení</text>
+            </g>
+          </svg>
+        </div>
+        <p class="tabulka-popis" style="margin-top:.5rem">Zdroj: Doerr, H., Fiedler, R., Hoke, M. <em>Zkušenosti se zaváděním modelu investičních kalkulací na bázi EVA</em>, Controlling, č. 1, 2004.</p>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>DCF dalo hodnotu vlastního kapitálu 264 mil. Kč, EVA 266 mil. Kč. Proč
+          musí být oba výsledky (až na zaokrouhlení) shodné, když jedna metoda počítá
+          s peněžními toky a druhá s ekonomickými zisky?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Obě metody oceňují <strong>tentýž</strong> podnik na základě
+            <strong>týchž</strong> vstupů (NOPAT, investice, kapitál, WACC). EVA je jen
+            algebraickou přestavbou téhož: hodnota = už vložený kapitál + přidaná
+            hodnota nad požadovanou výnosnost. DCF totéž vyjadřuje přímo přes peněžní
+            toky. Diskontujeme-li konzistentně stejnou mírou, musí obě cesty vést ke
+            stejné současné hodnotě. Rozdíl 264 vs. 266 vzniká pouze zaokrouhlováním
+            mezikroků.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============ CFROI ============ -->
+      <h2>Ocenění pomocí modelu CFROI</h2>
+      <p>
+        Také koncept <a class="pojem" href="#pojem-cfroi">CFROI</a> lze použít k
+        ocenění. Vychází z myšlenky ocenit <strong>zvlášť</strong> hodnotu existujících
+        (současných) aktiv a <strong>zvlášť</strong> hodnotu budoucích investic:
+      </p>
+
+      <div class="vzorec" id="vzorec-6-5">
+        <div class="vzorec__telo">
+          <span class="math">hodnota podniku<span class="op">=</span>hodnota existujících aktiv<span class="op">+</span>hodnota budoucích investic</span>
+        </div>
+        <div class="vzorec__cislo">(6.5)</div>
+      </div>
+
+      <p>
+        Odhad budoucích peněžních toků se odvozuje od <strong>budoucí výnosnosti
+        investic (<a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roi" target="_blank" rel="noopener">ROI</a>)</strong> a od výše budoucích investic. K odhadu budoucích ROI
+        slouží model „CFROI fade", výše budoucích investic se odvozuje z tzv.
+        <strong>udržitelného růstového poměru</strong>. Ten předpokládá konstantní
+        poměr vlastního a cizího kapitálu, konstantní výplatní poměr podílů na zisku
+        a reinvestování všech hotovostních toků po zaplacení úroků a podílů na zisku.
+        Jde o zjednodušení, které se vyhýbá předpovědi tržeb – jeho vypovídací
+        schopnost je proto předmětem kritiky.
+      </p>
+
+      <section class="definice" id="pojem-cfroi">
+        <h3 class="definice__pojem">Ocenění na bázi CFROI</h3>
+        <div class="definice__telo">
+          <p>
+            Model rozdělující hodnotu podniku na hodnotu <strong>existujících aktiv</strong>
+            a hodnotu <strong>budoucích investic</strong>. Budoucí cash flow odhaduje
+            z budoucí výnosnosti investic (model „CFROI fade") a z udržitelného
+            růstového poměru. Používá <strong>tržní diskontní míru</strong> odvozenou
+            z podniků se známou tržní hodnotou a očekávanými výnosy.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Odlišná diskontní míra a kritika CAPM</p>
+        <div class="callout__telo">
+          <p>CFROI počítá náklady na kapitál <strong>jinak</strong> než ostatní modely.
+          Určí se <strong>tržní diskontní míra</strong> (ze souboru podniků se známou
+          tržní hodnotou a odhadem budoucích výnosů), k níž se přičtou <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-rizikova-premie" target="_blank" rel="noopener">rizikové prémie</a>
+          za velikost a zadlužení podniku (kladné, záporné i nulové). Tato míra je už na
+          úrovni průměrných nákladů na kapitál a <strong>neobsahuje inflaci ani daňový
+          štít</strong>. Zastánci CFROI vycházejí z budoucnosti, nikoli z minulosti, a
+          kritizují model <strong><a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-capm" target="_blank" rel="noopener">CAPM</a></strong> za to, že uvažuje jen <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-systematicke-riziko" target="_blank" rel="noopener">systematické riziko</a>
+          a stojí na nereálných předpokladech.</p>
+          <p>Postup je náročný na data o budoucích výnosech vzorku podniků; v podmínkách
+          české ekonomiky je málo reálný a lze si vypomoci odhady tržní diskontní míry
+          pro americký trh (Madden).</p>
+        </div>
+      </aside>
+
+      <!-- ============ KAPITALIZOVANÉ VÝNOSY ============ -->
+      <h2>Metoda kapitalizovaných výnosů</h2>
+      <p>
+        Zatímco DCF i EVA se dívají dopředu, <strong>metoda kapitalizovaných výnosů</strong>
+        (oblíbená zejména v německé praxi) se opírá o <strong>minulé výsledky</strong>
+        (obvykle 3–5 let). Časovou řadu minulých zisků upraví na srovnatelnou reálnou
+        úroveň a z ní odvodí tzv. <a class="pojem" href="#pojem-trvaly-zisk">trvalý zisk</a>.
+      </p>
+
+      <section class="definice" id="pojem-trvaly-zisk">
+        <h3 class="definice__pojem">Trvalý zisk</h3>
+        <div class="definice__telo">
+          <p>
+            Velikost prostředků, které lze rozdělit vlastníkům, <strong>aniž by byla
+            dotčena podstata podniku</strong>. Odhaduje se z minulých upravených zisků –
+            buď <strong>paušální metodou</strong> (vážený průměr minulých zisků, vhodné
+            tam, kde se nepředpokládá výraznější růst), nebo <strong>analytickou
+            metodou</strong> (rozbor faktorů působících na zisk a odhad jejich vývoje
+            do budoucna).
+          </p>
+        </div>
+      </section>
+
+      <p>Paušální metoda počítá trvalý zisk jako vážený průměr minulých upravených zisků:</p>
+      <div class="vzorec" id="vzorec-6-6">
+        <div class="vzorec__telo">
+          <span class="math">
+            trvalý zisk<span class="op">=</span>
+            <span style="font-size:1.3em">Σ</span><sub style="font-size:.7em">t=1</sub><sup style="font-size:.7em">K</sup>
+            q<sub>t</sub><span class="op">×</span>Z<sub>t</sub>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.6)</div>
+      </div>
+      <p>kde <span class="math">Z<sub>t</sub></span> jsou minulé upravené zisky,
+        <span class="math">q<sub>t</sub></span> váhy jednotlivých let (roky bližší
+        současnosti mají obvykle větší váhu) a <span class="math">K</span> počet
+        zahrnutých minulých let.</p>
+
+      <p>Samotnou výnosovou hodnotu pak dostaneme kapitalizací trvalého zisku vzorcem <strong>věčné renty</strong>:</p>
+      <div class="vzorec" id="vzorec-6-7">
+        <div class="vzorec__telo">
+          <span class="math">
+            výnosová hodnota<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">Z<sub>T</sub></span><span class="frac__jmen">i<sub>K</sub></span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.7)</div>
+      </div>
+      <p>kde <span class="math">Z<sub>T</sub></span> je trvalý zisk a
+        <span class="math">i<sub>K</sub></span> kalkulovaná úroková míra (diskontní míra).</p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Pohled dozadu, ne dopředu</p>
+        <div class="callout__telo">
+          <p>Klíčový rozdíl oproti DCF a EVA: kapitalizované výnosy vycházejí
+          z <strong>minulých</strong> (upravených) zisků. Hodí se pro stabilní podniky
+          bez očekávaného velkého růstu. Kde růst hraje roli, je vhodnější analytická
+          metoda nebo rovnou výhledové metody DCF/EVA.</p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">📘</span>
+        <p class="callout__nadpis">Kam dál</p>
+        <div class="callout__telo">
+          <p>V případové studii v tématu 12 je podnik oceněn vybranými výnosovými
+          metodami na základě připraveného finančního plánu. Následující lekce
+          <strong>11.5</strong> pak výnosové metody doplní o metody <strong><a class="pojem" href="t11-l5-trzni-majetkove-metody.html?zvyraznit=pojem-metody-trzniho-porovnani" target="_blank" rel="noopener">tržního
+          porovnání</a></strong> (multiplikátory jako <a class="pojem" href="t11-l5-trzni-majetkove-metody.html?zvyraznit=pojem-multiplikator" target="_blank" rel="noopener">P/E</a>) a <strong>majetkové</strong>
+          metody a ukáže, jak se v hodnotě podniku promítají růstové příležitosti.</p>
+        </div>
+      </aside>
+
+      <!-- ============ ZÁVĚREČNÉ OTÁZKY ============ -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Z čeho vychází volné cash flow a proč se v prvních letech podniku ZETA dostalo do záporných hodnot?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na řádky „NOPAT + odpisy − investice" v tabulce plánu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Volné CF vyjde z provozního zisku po zdanění (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>), k němuž přičteme nepeněžní odpisy (a tvorbu dlouhodobých rezerv) a odečteme investice do dlouhodobého majetku a přírůstek ČPK. V letech 2008–2009 podnik hodně investoval (390, resp. 300 mil. Kč), a tyto investice převýšily provozní příjem – volné CF proto vyšlo záporné (−174 a −41 mil. Kč).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Jaký je rozdíl mezi metodou „entity" a „equity"?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Liší se v tom, čí peněžní toky diskontujeme a jakou diskontní mírou.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Entity</strong> oceňuje podnik jako celek: diskontuje volné CF (pro vlastníky i věřitele) mírou WACC a dá hodnotu celkového kapitálu; hodnotu vlastního kapitálu získáme odečtením úročeného cizího kapitálu. <strong>Equity</strong> diskontuje jen toky plynoucí vlastníkům, a to náklady na vlastní kapitál, a dá přímo hodnotu vlastního kapitálu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč má pokračující hodnota tak velký vliv na výsledek a co z toho plyne pro oceňovatele?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kolik let pokrývá druhá fáze oproti první?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Druhá fáze pokrývá nekonečně dlouhé období, takže věčná renta z ustáleného CF dá velké číslo – uvádí se podíl až 80 % celkové hodnoty (u ZETA prakticky 100 %). Výsledek je proto velmi citlivý na předpoklady druhé fáze (ustálené CF, diskontní míra, tempo růstu g). Oceňovatel musí těmto vstupům věnovat největší pozornost.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč metody DCF a EVA při stejných vstupech vedou ke stejné hodnotě podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o dva pohledy na tutéž ekonomickou podstatu – co EVA rozkládá na dvě části?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Obě oceňují tentýž podnik z týchž vstupů. EVA vyjadřuje hodnotu jako investovaný kapitál plus současnou hodnotu budoucích EVA (nadhodnoty nad požadovanou výnosnost), zatímco DCF totéž počítá přímo z peněžních toků. Při konzistentním diskontování jde o algebraicky ekvivalentní vyjádření, takže výsledek je stejný (v příkladu 264 vs. 266 mil. Kč, rozdíl jen zaokrouhlením).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Čím se metoda kapitalizovaných výnosů zásadně liší od DCF a EVA a kdy je vhodná?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Dívá se dopředu, nebo dozadu? A co pojem „trvalý zisk"?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Vychází z minulých upravených zisků (obvykle 3–5 let), z nichž odvodí trvalý zisk – prostředky rozdělitelné vlastníkům bez dotčení podstaty podniku – a ten kapitalizuje jako věčnou rentu. Na rozdíl od DCF a EVA je tedy retrospektivní. Hodí se pro stabilní podniky bez očekávaného výraznějšího růstu; u růstových podniků je lepší analytická metoda nebo výhledové metody DCF/EVA.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PREV / NEXT ============ -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t11-l3-abc-abb-beyond-budgeting.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">11.3 ABC/ABB a Beyond Budgeting</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t11-l5-trzni-majetkove-metody.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">11.5 Tržní a majetkové metody; růstové příležitosti a hodnota</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: volné CF podniku ZETA
+      Skripta.sloupcovyGraf('viz-fcf-zeta', {
+        sirka: 680, vyska: 320, formatDesetin: 0,
+        data: [
+          { popisek: '2008', hodnota: -174 },
+          { popisek: '2009', hodnota: -41 },
+          { popisek: '2010', hodnota: 75 },
+          { popisek: '2011', hodnota: 116 },
+          { popisek: '2012', hodnota: 60 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: skládání hodnoty podniku ZETA (dvoufázová DCF)
+      // Komponenty = současné hodnoty (PV) cash flow jednotlivých let + pokračující hodnota.
+      var slozky = [
+        { pop: 'PV 2008', v: -158 },
+        { pop: 'PV 2009', v: -34 },
+        { pop: 'PV 2010', v: 56 },
+        { pop: 'PV 2011', v: 79 },
+        { pop: 'PV 2012', v: 37 },
+        { pop: 'Pokr. h.', v: 373 }
+      ];
+      var CELKEM = 354;
+
+      Skripta.stepper('viz-dcf-stepper', {
+        sirka: 820, vyska: 400,
+        stavy: [
+          { n: 0 }, { n: 1 }, { n: 2 }, { n: 3 }, { n: 4 }, { n: 5 }, { n: 6 }
+        ],
+        popisky: [
+          'Dvoufázová metoda: peněžní toky 1. fáze (2008–2012) převedeme na jejich současnou hodnotu.',
+          '2008: volné CF −174 → PV = −174 / 1,10 = −158.',
+          '2009: volné CF −41 → PV = −41 / 1,10² = −34.',
+          '2010: volné CF 75 → PV = 75 / 1,10³ = 56.',
+          '2011: volné CF 116 → PV = 116 / 1,10⁴ = 79.',
+          '2012: volné CF 60 → PV = 60 / 1,10⁵ = 37. Součet 1. fáze ≈ −19 mil. Kč.',
+          '2. fáze: pokračující hodnota 60 / 0,10 = 600, diskontovaná = 373. Celková hodnota podniku = −19 + 373 = 354 mil. Kč.'
+        ],
+        render: function (svg, stav, i, u) {
+          var zero = 250;       // svislá poloha nulové osy
+          var px = 0.32;        // měřítko (mil. Kč → px)
+          var x0 = 30, krok = 105, sirkaBar = 66;
+
+          // nulová osa
+          u.dej(svg, 'osa', 'line', { x1: 20, y1: zero, x2: 800, y2: zero, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-lbl', 'text', { x: 806, y: zero + 4, fill: u.barvaText, 'font-size': 11 }, '0');
+
+          // komponentní sloupce
+          slozky.forEach(function (s, idx) {
+            var vidi = stav.n >= (idx + 1);
+            var x = x0 + idx * krok;
+            var h = Math.abs(s.v) * px;
+            var kladny = s.v >= 0;
+            var y = kladny ? zero - h : zero;
+            var barva = kladny ? u.barvaTvorba : u.barvaNiceni;
+            // zvláštní barva pro pokračující hodnotu (indigo akcent)
+            if (idx === 5) barva = '#4338ca';
+
+            u.dej(svg, 'bar-' + idx, 'rect', {
+              x: x, y: vidi ? y : zero, width: sirkaBar, height: vidi ? h : 0,
+              rx: 4, fill: barva, opacity: vidi ? 1 : 0
+            });
+            u.dej(svg, 'val-' + idx, 'text', {
+              x: x + sirkaBar / 2, y: kladny ? y - 8 : zero + h + 16,
+              'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700,
+              opacity: vidi ? 1 : 0
+            }, u.formatCislo(s.v));
+            u.dej(svg, 'lbl-' + idx, 'text', {
+              x: x + sirkaBar / 2, y: 388,
+              'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12,
+              opacity: vidi ? 1 : 0
+            }, s.pop);
+          });
+
+          // celkový sloupec (hodnota podniku) – objeví se v posledním kroku
+          var vidiC = stav.n >= 6;
+          var xc = x0 + 6 * krok;
+          var hc = CELKEM * px;
+          u.dej(svg, 'bar-celkem', 'rect', {
+            x: xc, y: vidiC ? zero - hc : zero, width: sirkaBar, height: vidiC ? hc : 0,
+            rx: 4, fill: '#0f766e', opacity: vidiC ? 1 : 0
+          });
+          u.dej(svg, 'val-celkem', 'text', {
+            x: xc + sirkaBar / 2, y: vidiC ? zero - hc - 8 : zero - 8,
+            'text-anchor': 'middle', fill: '#0f766e', 'font-size': 14, 'font-weight': 700,
+            opacity: vidiC ? 1 : 0
+          }, u.formatCislo(CELKEM));
+          u.dej(svg, 'lbl-celkem', 'text', {
+            x: xc + sirkaBar / 2, y: 388,
+            'text-anchor': 'middle', fill: '#0f766e', 'font-size': 12, 'font-weight': 700,
+            opacity: vidiC ? 1 : 0
+          }, 'Hodnota');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

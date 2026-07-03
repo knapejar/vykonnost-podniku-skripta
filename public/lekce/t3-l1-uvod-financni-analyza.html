@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.1 Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK – Výkonnost podniku</title>
+  <meta name="description" content="Finanční analýza jako nástroj finančního řízení, její uživatelé, absolutní a rozdílové ukazatele a čistý pracovní kapitál (ČPK).">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 3 -->
+    <nav class="panel" data-panel data-aktivni-lekce="3.1" aria-label="Lekce tématu 3">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 3</div>
+      <div class="panel__nazev-tema">Finanční analýza v řízení výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="3.1" href="t3-l1-uvod-financni-analyza.html"><span class="panel__odkaz-cislo">3.1</span><span>Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.2" href="t3-l2-rentabilita-zadluzenost.html"><span class="panel__odkaz-cislo">3.2</span><span>Analýza rentability a zadluženosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.3" href="t3-l3-likvidita-aktivita.html"><span class="panel__odkaz-cislo">3.3</span><span>Analýza likvidity a aktivity</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.4" href="t3-l4-kapitalovy-trh.html"><span class="panel__odkaz-cislo">3.4</span><span>Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.5" href="t3-l5-souhrnne-ukazatele.html"><span class="panel__odkaz-cislo">3.5</span><span>Souhrnné ukazatele – bankrotní a bonitní modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.6" href="t3-l6-dupont-soustavy.html"><span class="panel__odkaz-cislo">3.6</span><span>Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-3">Téma 3 · Finanční analýza</a></li>
+          <li><span aria-current="page">Lekce 3.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 3.1</span>
+        <h1>Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</h1>
+        <p class="lekce-hlavicka__strany">Strany 26–28</p>
+      </header>
+
+      <p>
+        Tradiční ukazatele výkonnosti (zisk, <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a>, rentabilita) samy o sobě
+        nestačí – nevystačí bez dodatečných informací o vývoji <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidity</a>,
+        zadluženosti, o vztahu majetkové a finanční struktury nebo o využití aktiv
+        podniku. Hodnocení výkonnosti klasickými postupy je proto vždy orientováno
+        na využití metod a postupů <a class="pojem" href="#pojem-financni-analyza">finanční analýzy</a>.
+        Tato lekce otevírá téma finanční analýzy: vysvětlí, komu a k čemu slouží,
+        z jakých dat vychází a jak se člení její ukazatele na absolutní, rozdílové
+        a poměrové. Podrobně zavedeme klíčový rozdílový ukazatel – čistý pracovní
+        kapitál (ČPK).
+      </p>
+
+      <!-- ============================================================= -->
+      <h2>Finanční analýza jako nástroj finančního řízení</h2>
+
+      <p>
+        Finanční analýza patří k významným nástrojům finančního řízení. Hodnotí
+        minulý a současný vývoj hospodaření z různých pohledů, a dává tím podklady
+        pro budoucí rozhodnutí. Je nedílnou součástí finančního řízení, protože
+        působí jako <strong>zpětná informace</strong> o tom, čeho podnik
+        v jednotlivých oblastech dosáhl – v čem se mu jeho předpoklady podařilo
+        splnit a kde naopak nastala situace, které chtěl předejít nebo kterou
+        nečekal.
+      </p>
+
+      <section class="definice" id="pojem-financni-analyza">
+        <h3 class="definice__pojem">Finanční analýza</h3>
+        <div class="definice__telo">
+          <p>
+            Nástroj finančního řízení, který na základě údajů z účetních výkazů
+            hodnotí minulý a současný vývoj hospodaření podniku ve všech oblastech
+            (zadluženost, likvidita, rentabilita, aktivita, případně kapitálový trh)
+            a poskytuje podklady pro budoucí rozhodování. Slouží také k identifikaci
+            klíčových faktorů ovlivňujících výkonnost podniku.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nepřeceňujte minulost</p>
+        <div class="callout__telo">
+          <p>
+            Výsledky analýzy minulého vývoje nelze při prognózování budoucnosti
+            přeceňovat. Mění-li se výrazně vnější podmínky (ceny surovin, měnové
+            kurzy, nové technologie, růst konkurence), <strong>nelze mechanicky
+            aproximovat</strong> minulý vývoj do budoucna. Z minulosti se však lze
+            poučit a hledat možnosti zlepšení při respektování změněných podmínek.
+          </p>
+        </div>
+      </aside>
+
+      <h3>Kdo finanční analýzu potřebuje</h3>
+      <p>
+        Výsledky finanční analýzy poskytují cenné informace nejen pro vlastní
+        potřebu podniku, ale i pro subjekty, které nejsou jeho součástí, jsou
+        s ním však hospodářsky či finančně spjaty. Mezi <strong>uživatele finanční
+        analýzy</strong> patří:
+      </p>
+      <ul>
+        <li><strong>manažeři</strong> – pro krátkodobé a zejména dlouhodobé finanční řízení (získávání zdrojů, optimální finanční struktura, alokace volných prostředků, poskytování <a class="pojem" href="t8-l4-kratkodobe-zdroje.html?zvyraznit=pojem-obchodni-uver" target="_blank" rel="noopener">obchodních úvěrů</a>, rozdělování zisku);</li>
+        <li><strong>investoři</strong> a <strong>obchodní partneři</strong>;</li>
+        <li><strong>státní a zahraniční instituce</strong>;</li>
+        <li><strong>zaměstnanci</strong>, <strong>auditoři</strong>, <strong>konkurenti</strong>, <strong>burzovní makléři</strong>;</li>
+        <li>a v neposlední řadě i <strong>odborná veřejnost</strong>.</li>
+      </ul>
+
+      <h3>Z čeho analýza vychází</h3>
+      <p>
+        Finanční analýza vychází z analýzy <strong>účetních výkazů</strong>, tzn.
+        rozvahy, výkazu zisku a ztráty a výkazu peněžních toků (cash flow).
+        Hodnotíme všechny oblasti hospodaření – zadluženost, likviditu, rentabilitu
+        a aktivitu, případně vyjádříme <a class="pojem" href="t3-l4-kapitalovy-trh.html?zvyraznit=pojem-ukazatele-kapitaloveho-trhu" target="_blank" rel="noopener">ukazatele kapitálového trhu</a>. To předpokládá:
+      </p>
+      <ul>
+        <li>výběr <strong>vhodných ukazatelů</strong> a jejich správné naplnění z finančních výkazů;</li>
+        <li><strong>porovnání</strong> jejich hodnot v čase a se situací v odvětví, do kterého podnik patří;</li>
+        <li>analýzu <strong>vztahů a souvislostí</strong> mezi jednotlivými ukazateli;</li>
+        <li><strong>interpretaci</strong> výsledků a formulaci závěrů pro další hospodaření.</li>
+      </ul>
+
+      <!-- ============================================================= -->
+      <h2>Tři druhy ukazatelů: absolutní, rozdílové, poměrové</h2>
+
+      <p>
+        Podle způsobu, jak s údaji z výkazů pracujeme, rozlišujeme tři základní
+        typy ukazatelů. Účetní výkazy obsahují údaje, které lze použít přímo –
+        <strong>absolutní ukazatele</strong>. Z jejich rozdílů vznikají
+        <strong>rozdílové ukazatele</strong>. Dáváme-li jeden údaj do poměru
+        s jiným, pracujeme s <strong>poměrovými ukazateli</strong>.
+      </p>
+
+      <section class="definice" id="pojem-absolutni-ukazatele">
+        <h3 class="definice__pojem">Absolutní ukazatele</h3>
+        <div class="definice__telo">
+          <p>
+            Údaje převzaté přímo z účetních výkazů. Rozvaha uvádí stav k určitému
+            okamžiku – <strong>stavové ukazatele</strong>; výkaz zisku a ztráty
+            předkládá ve formě nákladů a výnosů údaje za daný časový interval –
+            <strong>tokové ukazatele</strong>. Absolutní ukazatele slouží zejména
+            k analýze vývojových trendů a k analýze struktury položek jednotlivých
+            výkazů.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Stav vs. tok</p>
+        <div class="callout__telo">
+          <p>
+            <strong>Stavový</strong> ukazatel je „fotografie" k danému dni (např.
+            výše zásob v rozvaze k 31. 12.). <strong>Tokový</strong> ukazatel je
+            „film" za období (např. tržby nebo náklady za celý rok ve výkazu zisku
+            a ztráty). Rozdíl dvou stavů dává rozdílový ukazatel, poměr dvou údajů
+            dává ukazatel poměrový.
+          </p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-rozdilove-ukazatele">
+        <h3 class="definice__pojem">Rozdílové ukazatele</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatele získané jako rozdíl stavových ukazatelů. Slouží k analýze
+            a řízení finanční situace podniku s orientací na jeho
+            <strong>likviditu</strong>. Nejvýznamnějším rozdílovým ukazatelem je
+            čistý pracovní kapitál (ČPK).
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Čistý pracovní kapitál (ČPK)</h2>
+
+      <p>
+        Nejvýznamnějším rozdílovým ukazatelem je čistý pracovní kapitál. Je
+        definován jako rozdíl mezi oběžným majetkem a krátkodobými cizími zdroji
+        a má významný vliv na platební schopnost podniku.
+      </p>
+
+      <div class="vzorec" id="vzorec-cpk">
+        <div class="vzorec__telo">
+          <span class="math">ČPK<span class="op">=</span>oběžný majetek<span class="op">−</span>krátkodobé cizí zdroje</span>
+        </div>
+      </div>
+
+      <section class="definice" id="pojem-cisty-pracovni-kapital">
+        <h3 class="definice__pojem">Čistý pracovní kapitál (ČPK)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi oběžným majetkem a krátkodobými cizími zdroji. Vyjadřuje
+            přebytek krátkodobých likvidních aktiv nad krátkodobými zdroji – tedy
+            výši relativně volného kapitálu, který má podnik k dispozici. Má-li být
+            podnik likvidní, musí mít potřebnou výši tohoto „polštáře". Konstrukce
+            ČPK je založena na rozlišení oběžného a dlouhodobého majetku a dále na
+            rozlišení dlouhodobě a krátkodobě vázaného kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: ČPK z pozice aktiv ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Čistý pracovní kapitál z pozice aktiv (obrázek 2–1)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak ČPK vzniká jako část oběžného majetku, kterou nekryjí krátkodobé cizí zdroje, nýbrž dlouhodobý kapitál.</p>
+        </figcaption>
+        <div id="viz-cpk"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč je ČPK „polštář"</p>
+        <div class="callout__telo">
+          <p>
+            Kladný ČPK znamená, že část oběžného majetku je financována
+            dlouhodobým kapitálem (vlastním kapitálem a dlouhodobými cizími zdroji).
+            Podnik tak nemusí veškerý oběžný majetek splácet v krátkém horizontu –
+            vzniká rezerva relativně volného kapitálu chránící platební schopnost.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Co znamená, když je ČPK <strong>záporný</strong>? Jak jsou v takovém případě financována oběžná aktiva a co to naznačuje o platební schopnosti podniku?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Záporný ČPK znamená, že krátkodobé cizí zdroje jsou vyšší než oběžný
+              majetek – tedy že krátkodobými zdroji je financována nejen část
+              oběžného majetku, ale i část majetku dlouhodobého. Podnik nemá žádný
+              „polštář" volného kapitálu; hrozí, že nebude schopen včas hradit
+              krátkodobé závazky (riziko platební neschopnosti). Jde o signál
+              možného <em><a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-podkapitalizovani" target="_blank" rel="noopener">podkapitalizování</a></em> – dlouhodobý majetek by měl být
+              kryt dlouhodobými zdroji.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jak by se na tomtéž podniku lišila „poptávka po informacích" u <strong>manažera</strong>, <strong>banky</strong> (věřitele) a <strong>státu</strong>? Které oblasti finanční analýzy každého z nich zajímají nejvíc?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              <strong>Manažer</strong> potřebuje komplexní obraz pro řízení –
+              rentabilitu, strukturu kapitálu, likviditu i aktivitu, aby správně
+              rozhodoval o zdrojích financování, alokaci prostředků a rozdělování
+              zisku. <strong>Banku</strong> jako věřitele zajímá především
+              zadluženost a likvidita, tedy schopnost splácet (riziko úvěru).
+              <strong>Stát</strong> sleduje zejména hospodářský výsledek a plnění
+              daňových a statistických povinností. Tytéž výkazy tedy různí uživatelé
+              čtou různým „objektivem".
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Poměrové ukazatele a oblasti finanční analýzy</h2>
+
+      <p>
+        Základním nástrojem finanční analýzy jsou <a class="pojem" href="#pojem-pomerove-ukazatele">poměrové
+        ukazatele</a>. Analýza účetních výkazů pomocí poměrových ukazatelů je jednou
+        z nejoblíbenějších metod především proto, že umožňuje získat rychlou
+        představu o základních finančních charakteristikách podniku. Poměrových
+        ukazatelů se postupem času vyvinulo značné množství, a proto se třídí do
+        skupin podle jednotlivých <strong>oblastí finanční analýzy</strong>.
+      </p>
+
+      <section class="definice" id="pojem-pomerove-ukazatele">
+        <h3 class="definice__pojem">Poměrové ukazatele</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatele vzniklé dáním jednoho údaje z výkazů do poměru s jiným.
+            Umožňují rychlé srovnání v čase i mezi podniky a tvoří jádro finanční
+            analýzy. Třídí se do skupin podle oblastí: ukazatele
+            <strong>zadluženosti</strong>, <strong>likvidity</strong>,
+            <strong>rentability</strong>, <strong>aktivity</strong> a ukazatele
+            <strong>kapitálového trhu</strong>, případně ostatní.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= STATICKÝ ROZCESTNÍK OBLASTÍ ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Mapa oblastí finanční analýzy</p>
+          <p class="viz__popis">Poměrové ukazatele se třídí do pěti oblastí. Každé z nich se věnují navazující lekce tématu 3.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 720 270" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Rozcestník pěti oblastí finanční analýzy: rentabilita, zadluženost, likvidita, aktivita a kapitálový trh.">
+            <!-- spojnice -->
+            <g stroke="#94a3b8" stroke-width="1.5">
+              <line x1="360" y1="70" x2="80"  y2="176"></line>
+              <line x1="360" y1="70" x2="220" y2="176"></line>
+              <line x1="360" y1="70" x2="360" y2="176"></line>
+              <line x1="360" y1="70" x2="500" y2="176"></line>
+              <line x1="360" y1="70" x2="640" y2="176"></line>
+            </g>
+            <!-- centrální uzel -->
+            <rect x="280" y="16" width="160" height="54" rx="8" fill="#4338ca"></rect>
+            <text x="360" y="40" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">Finanční analýza</text>
+            <text x="360" y="58" text-anchor="middle" fill="#e0e7ff" font-size="12">poměrové ukazatele</text>
+            <!-- oblasti -->
+            <g>
+              <rect x="20"  y="176" width="120" height="66" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="80"  y="205" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="700">Rentabilita</text>
+              <text x="80"  y="223" text-anchor="middle" fill="#64748b" font-size="11">výnosnost</text>
+
+              <rect x="160" y="176" width="120" height="66" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="220" y="205" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="700">Zadluženost</text>
+              <text x="220" y="223" text-anchor="middle" fill="#64748b" font-size="11">riziko a struktura</text>
+
+              <rect x="300" y="176" width="120" height="66" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="360" y="205" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="700">Likvidita</text>
+              <text x="360" y="223" text-anchor="middle" fill="#64748b" font-size="11">platební schopnost</text>
+
+              <rect x="440" y="176" width="120" height="66" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="500" y="205" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="700">Aktivita</text>
+              <text x="500" y="223" text-anchor="middle" fill="#64748b" font-size="11">využití aktiv</text>
+
+              <rect x="580" y="176" width="120" height="66" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="1.5"></rect>
+              <text x="640" y="205" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="700">Kapitálový trh</text>
+              <text x="640" y="223" text-anchor="middle" fill="#64748b" font-size="11">pohled trhu</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <p>
+        V následujícím textu tématu 3 jsou postupně uvedeny nejčastěji používané
+        poměrové ukazatele jednotlivých oblastí. U vybraných ukazatelů jsou uvedeny
+        <strong>orientační doporučené hodnoty</strong> vycházející z běžné praxe
+        finanční analýzy – nikoli závazné normy. Konkrétní konstrukci a interpretaci
+        ukazatelů rentability a zadluženosti rozebírá hned následující lekce 3.2,
+        likviditu a aktivitu lekce 3.3 a ukazatele kapitálového trhu lekce 3.4.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Ukazatele rentability jako spojnice</p>
+        <div class="callout__telo">
+          <p>
+            Rentabilita, tj. výnosnost vloženého kapitálu, je měřítkem míry zisku,
+            které v tržní ekonomice slouží jako hlavní ukazatel pro alokaci
+            kapitálu. Ukazatele rentability navíc odrážejí <strong>kombinovaný
+            vliv</strong> likvidity, řízení aktiv a zadluženosti na výsledek
+            hospodaření – propojují tedy jednotlivé oblasti finanční analýzy do
+            jednoho pohledu.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaký je rozdíl mezi stavovými a tokovými absolutními ukazateli a ze kterých výkazů pocházejí?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, který výkaz zachycuje stav k okamžiku a který tok za období.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Stavové</strong> ukazatele udávají stav k určitému okamžiku a pocházejí z <strong>rozvahy</strong> (např. výše aktiv či zásob k datu). <strong>Tokové</strong> ukazatele zachycují náklady a výnosy za časový interval a pocházejí z <strong>výkazu zisku a ztráty</strong> (např. tržby za rok). Absolutní ukazatele slouží hlavně k analýze vývojových trendů a struktury položek výkazů.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Jak je definován čistý pracovní kapitál a proč ovlivňuje platební schopnost podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o rozdíl dvou položek rozvahy; jedna je z oběžných aktiv, druhá z krátkodobých pasiv.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>ČPK = oběžný majetek − krátkodobé cizí zdroje. Je to přebytek krátkodobých likvidních aktiv nad krátkodobými zdroji, tedy „polštář" relativně volného kapitálu. Čím vyšší (kladný) ČPK, tím větší rezerva pro úhradu krátkodobých závazků, a tím vyšší platební schopnost.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Co znamená záporný ČPK z hlediska financování oběžného majetku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte výši krátkodobých zdrojů s oběžným majetkem – co pak zbývá na krytí?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Krátkodobé cizí zdroje převyšují oběžný majetek, takže krátkodobými zdroji je financována i část dlouhodobého majetku. Podnik nemá žádnou rezervu volného kapitálu a hrozí riziko platební neschopnosti (signál podkapitalizování).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Do jakých oblastí se člení poměrové ukazatele finanční analýzy?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Je jich pět; hledejte je v „mapě oblastí" výše.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Ukazatele <strong>zadluženosti</strong>, <strong>likvidity</strong>, <strong>rentability</strong>, <strong>aktivity</strong> a ukazatele <strong>kapitálového trhu</strong> (případně ostatní ukazatele).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč manažer potřebuje finanční analýzu a v čem je omezena její výpovědní hodnota o budoucnosti?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Analýza pracuje s minulými daty – co se stane, změní-li se vnější podmínky?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Manažer ji využívá pro krátkodobé i dlouhodobé řízení – získávání zdrojů, volbu finanční struktury, alokaci prostředků, poskytování obchodních úvěrů a rozdělování zisku. Vychází však z minulých údajů; mění-li se výrazně vnější podmínky (ceny, kurzy, technologie, konkurence), nelze minulý vývoj mechanicky promítat do budoucna – lze se z něj jen poučit.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t2-l2-rentabilita-kritika.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">2.2 Ukazatele rentability a kritika klasických ukazatelů</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t3-l2-rentabilita-zadluzenost.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">3.2 Analýza rentability a zadluženosti</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: Čistý pracovní kapitál z pozice aktiv (obrázek 2–1)
+      // Rozvaha jako dva sloupce; ČPK = část oběžného majetku krytá dlouhodobým kapitálem.
+      Skripta.stepper('viz-cpk', {
+        sirka: 720, vyska: 400,
+        stavy: [
+          { zvyraznit: false, cpk: false },
+          { zvyraznit: true,  cpk: false },
+          { zvyraznit: true,  cpk: true  }
+        ],
+        popisky: [
+          'Rozvaha: vlevo majetek (aktiva) – dlouhodobý a oběžný; vpravo kapitál (pasiva) – vlastní kapitál, cizí kapitál dlouhodobý a krátkodobý.',
+          'Pro ČPK jsou klíčové dvě položky: oběžný majetek (modře) a krátkodobé cizí zdroje (oranžově).',
+          'ČPK = oběžný majetek − krátkodobé cizí zdroje. Je to část oběžného majetku krytá dlouhodobým kapitálem – „polštář" volných prostředků nad krátkodobými závazky.'
+        ],
+        render: function (svg, stav, i, u) {
+          // Neutrální vzhled bloků
+          var nFill = '#e2e8f0', nStroke = '#94a3b8', nText = '#334155';
+          var zv = stav.zvyraznit, cpk = stav.cpk;
+
+          // Základna
+          u.dej(svg, 'base', 'line', { x1: 200, y1: 360, x2: 620, y2: 360, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Hlavičky sloupců
+          u.dej(svg, 'h-aktiva', 'text', { x: 295, y: 44, 'text-anchor': 'middle', fill: nText, 'font-size': 14, 'font-weight': 700 }, 'AKTIVA (majetek)');
+          u.dej(svg, 'h-pasiva', 'text', { x: 535, y: 44, 'text-anchor': 'middle', fill: nText, 'font-size': 14, 'font-weight': 700 }, 'PASIVA (kapitál)');
+
+          // --- Aktiva (x = 230, šířka 130) ---
+          u.dej(svg, 'dm', 'rect', { x: 230, y: 60, width: 130, height: 150, fill: nFill, stroke: nStroke, 'stroke-width': 1.5 });
+          var omFill = zv ? '#4338ca' : nFill;
+          var omText = zv ? '#ffffff' : nText;
+          u.dej(svg, 'om', 'rect', { x: 230, y: 210, width: 130, height: 150, fill: omFill, stroke: nStroke, 'stroke-width': 1.5 });
+
+          // --- Pasiva (x = 470, šířka 130) ---
+          u.dej(svg, 'vk', 'rect', { x: 470, y: 60, width: 130, height: 110, fill: nFill, stroke: nStroke, 'stroke-width': 1.5 });
+          u.dej(svg, 'ckd', 'rect', { x: 470, y: 170, width: 130, height: 90, fill: nFill, stroke: nStroke, 'stroke-width': 1.5 });
+          var ckkFill = zv ? '#f59e0b' : nFill;
+          var ckkText = zv ? '#ffffff' : nText;
+          u.dej(svg, 'ckk', 'rect', { x: 470, y: 260, width: 130, height: 100, fill: ckkFill, stroke: nStroke, 'stroke-width': 1.5 });
+
+          // Popisky bloků (dvouřádkové, stabilní id kvůli animaci barvy textu)
+          u.dej(svg, 'dm-l1', 'text', { x: 295, y: 130, 'text-anchor': 'middle', fill: nText, 'font-size': 12 }, 'Dlouhodobý');
+          u.dej(svg, 'dm-l2', 'text', { x: 295, y: 146, 'text-anchor': 'middle', fill: nText, 'font-size': 12 }, 'majetek');
+          u.dej(svg, 'om-l1', 'text', { x: 295, y: 300, 'text-anchor': 'middle', fill: omText, 'font-size': 12, 'font-weight': 600 }, 'Oběžný');
+          u.dej(svg, 'om-l2', 'text', { x: 295, y: 316, 'text-anchor': 'middle', fill: omText, 'font-size': 12, 'font-weight': 600 }, 'majetek');
+          u.dej(svg, 'vk-l1', 'text', { x: 535, y: 110, 'text-anchor': 'middle', fill: nText, 'font-size': 12 }, 'Vlastní');
+          u.dej(svg, 'vk-l2', 'text', { x: 535, y: 126, 'text-anchor': 'middle', fill: nText, 'font-size': 12 }, 'kapitál');
+          u.dej(svg, 'ckd-l1', 'text', { x: 535, y: 209, 'text-anchor': 'middle', fill: nText, 'font-size': 12 }, 'Cizí kapitál');
+          u.dej(svg, 'ckd-l2', 'text', { x: 535, y: 225, 'text-anchor': 'middle', fill: nText, 'font-size': 12 }, 'dlouhodobý');
+          u.dej(svg, 'ckk-l1', 'text', { x: 535, y: 305, 'text-anchor': 'middle', fill: ckkText, 'font-size': 12, 'font-weight': 600 }, 'Cizí kapitál');
+          u.dej(svg, 'ckk-l2', 'text', { x: 535, y: 321, 'text-anchor': 'middle', fill: ckkText, 'font-size': 12, 'font-weight': 600 }, 'krátkodobý');
+
+          // --- ČPK pásmo (stav 2): horní část oběžného majetku 210–260 ---
+          u.dej(svg, 'band', 'rect', {
+            x: 230, y: 210, width: 130, height: cpk ? 50 : 0,
+            fill: u.barvaTvorba, opacity: cpk ? 0.9 : 0, stroke: '#065f46', 'stroke-width': cpk ? 1.5 : 0
+          });
+
+          // Dělicí čáry (hranice krytí dlouhodobým × krátkodobým kapitálem)
+          u.dej(svg, 'delici', 'line', { x1: 205, y1: 260, x2: 615, y2: 260, stroke: '#475569', 'stroke-width': 1.5, 'stroke-dasharray': '5 4', opacity: cpk ? 1 : 0 });
+          u.dej(svg, 'hranice-om', 'line', { x1: 205, y1: 210, x2: 360, y2: 210, stroke: '#475569', 'stroke-width': 1.5, 'stroke-dasharray': '5 4', opacity: cpk ? 1 : 0 });
+
+          // Levá měrná dvojšipka ČPK (mezi y = 210 a 260)
+          u.dej(svg, 'cpk-mera', 'line', { x1: 212, y1: 210, x2: 212, y2: 260, stroke: u.barvaTvorba, 'stroke-width': 2.5, opacity: cpk ? 1 : 0 });
+          u.dej(svg, 'cpk-tick1', 'line', { x1: 205, y1: 210, x2: 219, y2: 210, stroke: u.barvaTvorba, 'stroke-width': 2.5, opacity: cpk ? 1 : 0 });
+          u.dej(svg, 'cpk-tick2', 'line', { x1: 205, y1: 260, x2: 219, y2: 260, stroke: u.barvaTvorba, 'stroke-width': 2.5, opacity: cpk ? 1 : 0 });
+          u.dej(svg, 'cpk-lbl', 'text', { x: 150, y: 240, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 15, 'font-weight': 700, opacity: cpk ? 1 : 0 }, 'ČPK');
+          u.dej(svg, 'cpk-spoj', 'line', { x1: 172, y1: 235, x2: 210, y2: 235, stroke: u.barvaTvorba, 'stroke-width': 1, 'stroke-dasharray': '3 3', opacity: cpk ? 1 : 0 });
+
+          // Pravá měrná dvojšipka „Dlouhodobý kapitál" (VK + CK dlouhodobý, y = 60–260)
+          u.dej(svg, 'dk-mera', 'line', { x1: 612, y1: 60, x2: 612, y2: 260, stroke: '#64748b', 'stroke-width': 2, opacity: cpk ? 1 : 0 });
+          u.dej(svg, 'dk-tick1', 'line', { x1: 606, y1: 60, x2: 618, y2: 60, stroke: '#64748b', 'stroke-width': 2, opacity: cpk ? 1 : 0 });
+          u.dej(svg, 'dk-tick2', 'line', { x1: 606, y1: 260, x2: 618, y2: 260, stroke: '#64748b', 'stroke-width': 2, opacity: cpk ? 1 : 0 });
+          u.dej(svg, 'dk-lbl1', 'text', { x: 628, y: 156, 'text-anchor': 'start', fill: '#64748b', 'font-size': 12, 'font-weight': 600, opacity: cpk ? 1 : 0 }, 'Dlouhodobý');
+          u.dej(svg, 'dk-lbl2', 'text', { x: 628, y: 172, 'text-anchor': 'start', fill: '#64748b', 'font-size': 12, 'font-weight': 600, opacity: cpk ? 1 : 0 }, 'kapitál');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

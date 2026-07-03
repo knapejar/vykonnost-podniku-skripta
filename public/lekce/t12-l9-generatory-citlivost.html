@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.9 Generátory hodnoty – pyramidový rozklad a citlivostní analýza – Výkonnost podniku</title>
+  <meta name="description" content="Identifikace generátorů hodnoty podniku PLAST pomocí pyramidového rozkladu EVA funkcionální metodou a citlivostní analýza faktorů.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12 -->
+    <nav class="panel" data-panel data-aktivni-lekce="12.9" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: výkazy, leasing, funkcionální rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.9</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.9</span>
+        <h1>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</h1>
+        <p class="lekce-hlavicka__strany">Strany 285–292</p>
+      </header>
+
+      <p>
+        V předchozích lekcích jsme pro podnik PLAST vyčíslili <a class="pojem" href="#pojem-generatory-hodnoty">EVA</a> za
+        roky 2003 a 2004 a zjistili, že tvorba hodnoty pro vlastníky v roce 2004 výrazně poklesla.
+        Samotné číslo „EVA klesla o 6 368 tis. Kč" nám ale neřekne <em>proč</em> – a bez toho nelze
+        podnik řídit. V této lekci proto EVA rozložíme na dílčí faktory a u každého z nich vyčíslíme,
+        jak přispěl ke změně vrcholového ukazatele. Tím identifikujeme <strong>generátory hodnoty</strong> –
+        veličiny, jejichž řízení má na tvorbu hodnoty největší dopad.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde jsme v případové studii</p>
+        <div class="callout__telo">
+          <p>Toto je vyvrcholení analytické části studie PLAST: pyramidový rozklad EVA a citlivostní
+          analýza jsou mostem od <em>měření</em> výkonnosti k jejímu <em>řízení</em>. Identifikované
+          generátory hodnoty v následující lekci propojíme se strategií podniku a <a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard</a>.</p>
+        </div>
+      </aside>
+
+      <h2>Identifikace generátorů hodnoty pyramidovým rozkladem</h2>
+
+      <p>
+        Pro odhalení generátorů hodnoty je vhodné využít <strong>pyramidový rozklad</strong>. U každého
+        vlivu nás zajímají tři údaje: o jaký ukazatel jde, jaká byla jeho hodnota v běžném a v minulém
+        období a <em>jak změna tohoto ukazatele přispěla ke změně vrcholového ukazatele</em> EVA. Rozklad
+        EVA je pro identifikaci generátorů hodnoty i pro samotné řízení podniku obzvlášť výhodný, protože
+        vrcholovým ukazatelem je přímo tvorba hodnoty pro vlastníka.
+      </p>
+
+      <section class="definice" id="pojem-generatory-hodnoty">
+        <h3 class="definice__pojem">Generátory hodnoty (value drivers)</h3>
+        <div class="definice__telo">
+          <p>
+            Dílčí finanční i nefinanční faktory, které významně ovlivňují tvorbu hodnoty podniku
+            (zde měřenou ukazatelem EVA). Pyramidový rozklad umožňuje mezi mnoha ukazateli najít
+            právě ty, jejichž změna má na EVA největší vliv – ty se pak stávají cílem řízení.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-pyramidovy-rozklad-eva">
+        <h3 class="definice__pojem">Pyramidový rozklad EVA</h3>
+        <div class="definice__telo">
+          <p>
+            Stromová soustava ukazatelů, v jejímž vrcholu stojí EVA a která se postupně větví na dílčí
+            činitele propojené matematickými vazbami (součin, podíl, součet, rozdíl). Umožňuje sledovat,
+            jak se změna kteréhokoli dílčího ukazatele promítne až do vrcholové EVA.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Základem rozkladu je vztah, který známe z definice EVA – její tzv. hodnotový (spreadový) tvar:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-6">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>(RONA<span class="op">−</span>WACC)<span class="op">×</span>C<sub>(NOA)</sub></span>
+        </div>
+        <div class="vzorec__cislo">(3.6)</div>
+      </div>
+
+      <p>
+        Výnosnost <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-investovany-kapital" target="_blank" rel="noopener">investovaného kapitálu</a> <span class="math">RONA</span> se dále rozkládá na
+        <strong><a class="pojem" href="t7-l2-pyramidovy-rozklad-eva.html?zvyraznit=pojem-ziskova-marze" target="_blank" rel="noopener">ziskovou marži</a></strong> a <strong>obratovost</strong> investovaného kapitálu:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-1">
+        <div class="vzorec__telo">
+          <span class="math">RONA<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">NOPAT</span><span class="frac__jmen">Tržby</span></span>
+            <span class="op">×</span>
+            <span class="frac"><span class="frac__cit">Tržby</span><span class="frac__jmen">C<sub>(NOA)</sub></span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.1)</div>
+      </div>
+
+      <p>
+        Druhou složku spreadu – náklady na kapitál <span class="math">WACC</span> – rozkládáme na váhy
+        a náklady jednotlivých druhů kapitálu, přičemž náklady vlastního kapitálu vycházejí z modelu <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-capm" target="_blank" rel="noopener">CAPM</a>:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-7">
+        <div class="vzorec__telo">
+          <span class="math">WACC<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">VK</span><span class="frac__jmen">C</span></span>
+            <span class="op">×</span>N<sub>VK</sub><span class="op">+</span>
+            <span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">C</span></span>
+            <span class="op">×</span>N<sub>CK</sub></span>
+        </div>
+        <div class="vzorec__cislo">(3.7)</div>
+      </div>
+
+      <p>
+        kde <span class="math">N<sub>VK</sub><span class="op">=</span>r<sub>f</sub><span class="op">+</span>β<span class="op">×</span>(r<sub>m</sub><span class="op">−</span>r<sub>f</sub>)</span>
+        je odhad nákladů vlastního kapitálu metodou CAPM (bezriziková míra <span class="math">r<sub>f</sub></span>,
+        koeficient <span class="math">β</span> a riziková prémie <span class="math">r<sub>m</sub><span class="op">−</span>r<sub>f</sub></span>).
+      </p>
+
+      <h2>Jak se vyčíslí vliv jednotlivých faktorů</h2>
+
+      <p>
+        Ke kvantifikaci vlivů byla použita <a class="pojem" href="#pojem-funkcionalni-metoda">funkcionální
+        metoda rozkladu</a>. Pyramidový rozklad EVA podniku PLAST za roky 2003–2004 zachycuje obrázek 8–12.
+        Protože je schéma rozsáhlé, projdeme je postupně shora dolů – nejdřív animací hlavní kostry rozkladu,
+        poté v úplnosti v souhrnné tabulce.
+      </p>
+
+      <section class="definice" id="pojem-funkcionalni-metoda">
+        <h3 class="definice__pojem">Funkcionální metoda rozkladu</h3>
+        <div class="definice__telo">
+          <p>
+            Technika, kterou se u multiplikativních (součinových) a dalších vazeb v pyramidovém rozkladu
+            rozdělí celková změna vrcholového ukazatele mezi jednotlivé činitele. Na rozdíl od jednodušších
+            metod zohledňuje i vzájemné působení současných změn více faktorů a rozděluje je mezi ně
+            (nevzniká nepřiřazený „zbytek"). Podrobný popis metody je uveden v příloze.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">📎</span>
+        <p class="callout__nadpis">Odkaz na přílohu</p>
+        <div class="callout__telo">
+          <p>Kompletní matematický popis funkcionální metody rozkladu, včetně vzorců pro rozdělení vlivů
+          u součinových vazeb, najdete v <a href="t12-R-prilohy.html">referenční příloze R</a>
+          (funkcionální metoda rozkladu EVA).</p>
+        </div>
+      </aside>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: pyramidový rozklad ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Pyramidový rozklad EVA podniku PLAST (kostra) – obrázek 8–12</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". V každém bloku je hodnota za rok
+          2003 → 2004 a ve spodním řádku vyčíslený <strong>vliv na přírůstek EVA</strong> (v tis. Kč,
+          zeleně tvorba, červeně ničení hodnoty).</p>
+        </figcaption>
+        <div id="viz-pyramida"></div>
+      </figure>
+
+      <p>
+        Podnik PLAST v obou letech hodnotu <em>tvořil</em> (EVA byla kladná), roční změna však byla výrazně
+        záporná: EVA klesla ze 7 296 na 928 tis. Kč, tedy o <span class="hodnota-niceni">−6 368</span> tis. Kč.
+        Rozklad ukazuje dvě bezprostřední příčiny: pokles <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-spread" target="_blank" rel="noopener">spreadu</a></strong> (RONA − WACC) z 0,80 %
+        na 0,10 % (vliv <span class="hodnota-niceni">−6 388</span>) a téměř neutrální vliv mírného růstu
+        investovaného kapitálu (<span class="hodnota-tvorba">+20</span>).
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Dvojí role investovaného kapitálu</p>
+        <div class="callout__telo">
+          <p>Působení investovaného kapitálu na EVA není jednoznačné. Je-li spread <strong>kladný</strong>,
+          růst kapitálu hodnotu <strong>tvoří</strong>; je-li spread záporný, jeho růst hodnotu ničí.
+          U podniku PLAST byl spread v roce 2004 stále kladný (0,10 %), a proto mírný růst kapitálu
+          působil na EVA nepatrně pozitivně.</p>
+        </div>
+      </aside>
+
+      <p>
+        Spread je tvořen výnosností kapitálu <span class="math">RONA</span> (její pokles škodí) a jeho
+        náklady <span class="math">WACC</span> (jejich růst rovněž škodí). Hlavní brzdou byl v roce 2004
+        <strong>růst <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a></strong> (vliv <span class="hodnota-niceni">−5 207</span>), doplněný mírným poklesem
+        <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-rona" target="_blank" rel="noopener">RONA</a> (<span class="hodnota-niceni">−1 181</span>). Pokles RONA má přitom jasnou strukturu: klesající
+        zisková marže (<span class="hodnota-niceni">−3 351</span>) převážila nad příznivější obratovostí
+        aktiv (<span class="hodnota-tvorba">+2 170</span>).
+      </p>
+
+      <h2>Úplný rozklad – všechny generátory hodnoty</h2>
+
+      <p>
+        Následující tabulka reprodukuje všechny bloky pyramidového rozkladu z obrázku 8–12. U každého
+        ukazatele je hodnota za rok 2003 a 2004 a jeho <strong>vliv na přírůstek EVA</strong>. Odsazení
+        naznačuje úroveň v pyramidě; vlivy dílčích činitelů se v rámci každé vazby sčítají do vlivu
+        nadřazeného ukazatele.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Pyramidový rozklad EVA podniku PLAST 2003–2004 (obr. 8–12); hodnoty a vlivy v tis. Kč, není-li uvedeno jinak</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel (vazba)</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+              <th scope="col" class="cislo">Vliv na EVA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">EVA = (RONA − WACC) × C</th><td class="cislo">7 296</td><td class="cislo">928</td><td class="cislo hodnota-niceni">−6 368</td></tr>
+            <tr><th scope="row">RONA − WACC (spread)</th><td class="cislo">0,80 %</td><td class="cislo">0,10 %</td><td class="cislo hodnota-niceni">−6 388</td></tr>
+            <tr><th scope="row">C (NOA) – investovaný kapitál</th><td class="cislo">911 203</td><td class="cislo">915 690</td><td class="cislo hodnota-tvorba">+20</td></tr>
+            <tr><th scope="row" style="padding-left:1.6rem">RONA</th><td class="cislo">8,43 %</td><td class="cislo">8,30 %</td><td class="cislo hodnota-niceni">−1 181</td></tr>
+            <tr><th scope="row" style="padding-left:1.6rem">WACC</th><td class="cislo">7,63 %</td><td class="cislo">8,20 %</td><td class="cislo hodnota-niceni">−5 207</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">NOPAT / Tržby (zisková marže)</th><td class="cislo">7,27 %</td><td class="cislo">6,96 %</td><td class="cislo hodnota-niceni">−3 351</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">Tržby / C (obratovost)</th><td class="cislo">1,16</td><td class="cislo">1,19</td><td class="cislo hodnota-tvorba">+2 170</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">PH / Tržby</th><td class="cislo">32,64 %</td><td class="cislo">29,20 %</td><td class="cislo hodnota-niceni">−36 951</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">− Osobní Ná / Tržby</th><td class="cislo">15,20 %</td><td class="cislo">12,98 %</td><td class="cislo hodnota-tvorba">+23 752</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">− Odpisy / Tržby</th><td class="cislo">8,63 %</td><td class="cislo">6,74 %</td><td class="cislo hodnota-tvorba">+20 342</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">+ Ost. Vý − ost. Ná / Tržby</th><td class="cislo">−1,54 %</td><td class="cislo">−2,52 %</td><td class="cislo hodnota-niceni">−10 494</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">Tržby</th><td class="cislo">1 056 192</td><td class="cislo">1 091 954</td><td class="cislo hodnota-tvorba">+2 545</td></tr>
+            <tr><th scope="row" style="padding-left:4.9rem">T za vl. výr. a služby</th><td class="cislo">1 055 564</td><td class="cislo">1 089 472</td><td class="cislo hodnota-tvorba">+2 413</td></tr>
+            <tr><th scope="row" style="padding-left:4.9rem">+ T za prodej zboží</th><td class="cislo">628</td><td class="cislo">2 482</td><td class="cislo hodnota-tvorba">+132</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">ČPK</th><td class="cislo">367 673</td><td class="cislo">395 540</td><td class="cislo hodnota-niceni">−2 332</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">Zásoby</th><td class="cislo">165 637</td><td class="cislo">154 729</td><td class="cislo hodnota-tvorba">+913</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">+ Pohledávky</th><td class="cislo">275 883</td><td class="cislo">308 169</td><td class="cislo hodnota-niceni">−2 702</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">+ Krátkodobý FM</th><td class="cislo">38 901</td><td class="cislo">57 048</td><td class="cislo hodnota-niceni">−1 519</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">− Krátkodobý CK</th><td class="cislo">112 748</td><td class="cislo">124 406</td><td class="cislo hodnota-tvorba">+976</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">Dlouhodobý majetek</th><td class="cislo">540 930</td><td class="cislo">517 543</td><td class="cislo hodnota-tvorba">+1 957</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">DHM</th><td class="cislo">538 273</td><td class="cislo">514 564</td><td class="cislo hodnota-tvorba">+1 984</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">+ DNM</th><td class="cislo">2 657</td><td class="cislo">2 979</td><td class="cislo hodnota-niceni">−27</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">+ DFM</th><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">Časové rozlišení</th><td class="cislo">2 600</td><td class="cislo">2 607</td><td class="cislo hodnota-niceni">−1</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">VK / C</th><td class="cislo">0,5291</td><td class="cislo">0,6345</td><td class="cislo hodnota-niceni">−11 493</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">N<sub>VK</sub> (náklady VK)</th><td class="cislo">12,26 %</td><td class="cislo">11,61 %</td><td class="cislo hodnota-tvorba">+3 437</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">r<sub>f</sub> (bezrizik. míra)</th><td class="cislo">4,10 %</td><td class="cislo">4,80 %</td><td class="cislo hodnota-niceni">−3 720</td></tr>
+            <tr><th scope="row" style="padding-left:3.8rem">β × riziková prémie</th><td class="cislo">8,16 %</td><td class="cislo">6,81 %</td><td class="cislo hodnota-tvorba">+7 157</td></tr>
+            <tr><th scope="row" style="padding-left:4.9rem">Koeficient β</th><td class="cislo">1,29</td><td class="cislo">1,13</td><td class="cislo hodnota-tvorba">+5 226</td></tr>
+            <tr><th scope="row" style="padding-left:4.9rem">Riziková prémie</th><td class="cislo">6,32 %</td><td class="cislo">6,02 %</td><td class="cislo hodnota-tvorba">+1 932</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">CK / C</th><td class="cislo">0,4709</td><td class="cislo">0,3655</td><td class="cislo hodnota-tvorba">+2 243</td></tr>
+            <tr><th scope="row" style="padding-left:2.7rem">N<sub>CK</sub> (náklady CK)</th><td class="cislo">2,43 %</td><td class="cislo">2,27 %</td><td class="cislo hodnota-tvorba">+606</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Vliv ≠ směr změny ukazatele</p>
+        <div class="callout__telo">
+          <p>Pozor na znaménka: řádek <em>PH / Tržby</em> ukazuje pokles (32,64 % → 29,20 %) s obrovským
+          <strong>záporným</strong> vlivem −36 951, zatímco pokles <em>Osobní Ná / Tržby</em> působí
+          <strong>kladně</strong> (+23 752), protože nižší náklady marži zvyšují. Souhrnně se ale všechny
+          čtyři složky marže sečtou do −3 351 – rozhodl velký propad <a class="pojem" href="t3-l4-kapitalovy-trh.html?zvyraznit=pojem-pridana-hodnota" target="_blank" rel="noopener">přidané hodnoty</a> na tržbách.</p>
+        </div>
+      </aside>
+
+      <p>
+        Z rozkladu je patrné, že <strong>klíčovým generátorem hodnoty je zisková marže, konkrétně podíl
+        přidané hodnoty na tržbách</strong>. Právě sem – spolu s řízením WACC (podnik zvýšil podíl dražšího
+        vlastního kapitálu, vliv −11 493) – by mělo směřovat úsilí managementu. Pozitivně naopak působilo
+        efektivnější využití aktiv (obratovost) a snížení podílu osobních nákladů a odpisů na tržbách.
+        Poznamenejme však, že klesají-li odpisy kvůli nízkým investicím, může podnik dlouhodobě ztratit
+        dynamiku rozvoje i konkurenceschopnost.
+      </p>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>V pyramidovém rozkladu má řádek <em>PH / Tržby</em> vliv −36 951 tis. Kč, ale marže jako celek
+          (NOPAT / Tržby) jen −3 351 tis. Kč. Jak je možné, že vliv jediné složky je řádově větší než vliv
+          celé marže?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Marže se skládá ze čtyř složek se <strong>střídavými znaménky</strong>:
+            <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>/T = PH/T − Osobní Ná/T − Odpisy/T + (Ost. Vý − ost. Ná)/T. Obrovský záporný vliv poklesu
+            přidané hodnoty (−36 951) byl z velké části <em>kompenzován</em> kladnými vlivy poklesu osobních
+            nákladů (+23 752) a odpisů (+20 342) a záporným vlivem ostatních položek (−10 494). Jejich součet
+            −36 951 + 23 752 + 20 342 − 10 494 = <strong>−3 351</strong> tis. Kč dává čistý vliv marže.
+            Velikost dílčího vlivu tedy sama o sobě neříká, jak dopadne nadřazený ukazatel – rozhoduje
+            výsledná bilance.</p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Citlivostní analýza</h2>
+
+      <p>
+        Pyramidový rozklad říká, co se stalo mezi lety 2003 a 2004. <strong>Citlivostní analýza</strong>
+        se ptá jinak: jak <em>choulostivá</em> je EVA na změnu jednotlivých faktorů? Postup je jednoduchý –
+        u každého faktoru identifikovaného v pyramidové soustavě se jeho hodnota změní o 10 % (od nejpravděpodobnější,
+        tj. skutečné hodnoty roku 2004) a spočítá se, jak se přitom změní EVA. Faktory, jejichž
+        desetiprocentní změna vyvolá jen malou změnu EVA, jsou málo důležité; faktory s velkým dopadem jsou
+        naopak klíčové.
+      </p>
+
+      <section class="definice" id="pojem-citlivostni-analyza">
+        <h3 class="definice__pojem">Citlivostní analýza</h3>
+        <div class="definice__telo">
+          <p>
+            Metoda zjišťování, jak citlivé je zvolené kritérium (zde EVA) na změny faktorů, které je
+            ovlivňují. Každý faktor se změní o stejný podíl (např. 10 %) při zachování ostatních a měří se
+            výsledná změna kritéria. Faktory se pak seřadí podle velikosti dopadu – nejcitlivější jsou
+            pro řízení nejdůležitější.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Výchozí (skutečná) EVA roku 2004 činila 928 tis. Kč. Výsledky pro všechny faktory shrnuje
+        tabulka 8–51; graficky je seřazený přehled dopadů zachycen tornádovým grafem níže.
+      </p>
+
+      <!-- ================= TORNÁDOVÝ GRAF citlivosti ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Tornádový graf citlivosti EVA – změna faktoru o 10 % (tabulka 8–51)</p>
+          <p class="viz__popis">Faktory jsou seřazeny podle velikosti dopadu. Pruh doprava (zeleně) znamená
+          růst EVA, doleva (červeně) její pokles při zvýšení daného faktoru o 10 %. Hodnoty jsou změny EVA
+          v tis. Kč.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-tornado"></div>
+      </figure>
+
+      <p>
+        Graf i tabulka ukazují jednoznačného vítěze: EVA je zdaleka nejcitlivější na poměr
+        <strong>přidané hodnoty k tržbám</strong> – jeho zvýšení o 10 % by EVA zvedlo o +31 885 tis. Kč.
+        Dalšími silnými faktory jsou podíl <strong>osobních nákladů na tržbách</strong> (−14 178),
+        vážené průměrné náklady na kapitál <strong>WACC</strong> (−7 507), samotné zvýšení
+        <strong>tržeb</strong> a <strong>rentability</strong> (RONA, oba +7 602) a podíl
+        <strong>odpisů na tržbách</strong> (−7 355). Naopak nejméně citlivá je EVA na drobné položky jako
+        drobný nehmotný majetek (DNM, −25) nebo samotný objem investovaného kapitálu (+94).
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tabulka 8–51 – Citlivostní analýza podniku PLAST; výchozí EVA 2004 = 928 tis. Kč (hodnoty v tis. Kč, není-li uvedeno jinak)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Faktor</th>
+              <th scope="col" class="cislo">Původní hodnota</th>
+              <th scope="col" class="cislo">Hodnota +10 %</th>
+              <th scope="col" class="cislo">Nová EVA</th>
+              <th scope="col" class="cislo">Změna EVA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">DHM</th><td class="cislo">514 564</td><td class="cislo">566 020</td><td class="cislo">−3 116</td><td class="cislo hodnota-niceni">−4 044</td></tr>
+            <tr><th scope="row">DNM</th><td class="cislo">2 979</td><td class="cislo">3 277</td><td class="cislo">903</td><td class="cislo hodnota-niceni">−25</td></tr>
+            <tr><th scope="row">Zásoby</th><td class="cislo">154 729</td><td class="cislo">170 202</td><td class="cislo">−335</td><td class="cislo hodnota-niceni">−1 263</td></tr>
+            <tr><th scope="row">Pohledávky</th><td class="cislo">308 169</td><td class="cislo">338 986</td><td class="cislo">−1 547</td><td class="cislo hodnota-niceni">−2 475</td></tr>
+            <tr><th scope="row">Krátkodobý FM</th><td class="cislo">57 048</td><td class="cislo">62 753</td><td class="cislo">457</td><td class="cislo hodnota-niceni">−471</td></tr>
+            <tr><th scope="row">Krátkodobý CZ</th><td class="cislo">124 406</td><td class="cislo">136 847</td><td class="cislo">1 975</td><td class="cislo hodnota-tvorba">+1 047</td></tr>
+            <tr><th scope="row">PH / Tržby</th><td class="cislo">29,20 %</td><td class="cislo">32,12 %</td><td class="cislo">32 813</td><td class="cislo hodnota-tvorba">+31 885</td></tr>
+            <tr><th scope="row">Osobní Ná / Tržby</th><td class="cislo">12,98 %</td><td class="cislo">14,28 %</td><td class="cislo">−13 250</td><td class="cislo hodnota-niceni">−14 178</td></tr>
+            <tr><th scope="row">Odpisy / Tržby</th><td class="cislo">6,74 %</td><td class="cislo">7,41 %</td><td class="cislo">−6 427</td><td class="cislo hodnota-niceni">−7 355</td></tr>
+            <tr><th scope="row">Ost. Vý − Ná / Tržby</th><td class="cislo">2,52 %</td><td class="cislo">2,77 %</td><td class="cislo">−1 823</td><td class="cislo hodnota-niceni">−2 751</td></tr>
+            <tr><th scope="row">Tržby</th><td class="cislo">1 091 954</td><td class="cislo">1 201 149</td><td class="cislo">8 530</td><td class="cislo hodnota-tvorba">+7 602</td></tr>
+            <tr><th scope="row">Bezriziková sazba</th><td class="cislo">4,80 %</td><td class="cislo">5,28 %</td><td class="cislo">−1 861</td><td class="cislo hodnota-niceni">−2 789</td></tr>
+            <tr><th scope="row">Náklady na VK</th><td class="cislo">11,61 %</td><td class="cislo">12,77 %</td><td class="cislo">−5 820</td><td class="cislo hodnota-niceni">−6 748</td></tr>
+            <tr><th scope="row">Náklady na CK</th><td class="cislo">2,27 %</td><td class="cislo">2,50 %</td><td class="cislo">168</td><td class="cislo hodnota-niceni">−760</td></tr>
+            <tr><th scope="row">Beta koeficient</th><td class="cislo">1,13</td><td class="cislo">1,24</td><td class="cislo">−3 031</td><td class="cislo hodnota-niceni">−3 959</td></tr>
+            <tr><th scope="row">Riziková přirážka</th><td class="cislo">6,02 %</td><td class="cislo">6,62 %</td><td class="cislo">−3 018</td><td class="cislo hodnota-niceni">−3 946</td></tr>
+            <tr><th scope="row">WACC</th><td class="cislo">8,20 %</td><td class="cislo">9,02 %</td><td class="cislo">−6 579</td><td class="cislo hodnota-niceni">−7 507</td></tr>
+            <tr><th scope="row">VK / Úplatné zdroje</th><td class="cislo">0,63</td><td class="cislo">0,70</td><td class="cislo">−4 501</td><td class="cislo hodnota-niceni">−5 429</td></tr>
+            <tr><th scope="row">Investovaný kapitál</th><td class="cislo">915 690</td><td class="cislo">1 007 259</td><td class="cislo">1 022</td><td class="cislo hodnota-tvorba">+94</td></tr>
+            <tr><th scope="row">RONA</th><td class="cislo">8,30 %</td><td class="cislo">9,13 %</td><td class="cislo">8 530</td><td class="cislo hodnota-tvorba">+7 602</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Omezení citlivostní analýzy</p>
+        <div class="callout__telo">
+          <p>Citlivostní analýza mění vždy <strong>jen jeden faktor izolovaně</strong>. V praxi se však
+          rizikové faktory zpravidla nemění samostatně – změna jednoho vyvolá změnu dalšího (např. růst tržeb
+          bývá provázen růstem osobních nákladů i zásob). Tuto vzájemnou závislost analýza nerespektuje.
+          Je proto dobrým nástrojem pro <em>identifikaci</em> nejvýznamnějších faktorů, výsledky je ale nutné
+          interpretovat s vědomím tohoto zjednodušení.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podle citlivostní analýzy má zvýšení tržeb o 10 % dopad na EVA +7 602 tis. Kč. Management proto
+          navrhne agresivní růst tržeb jako hlavní cestu ke zvýšení hodnoty. Kde je v této úvaze háček?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Analýza počítala růst tržeb <strong>při neměnných ostatních faktorech</strong>. Reálný růst
+            tržeb ale obvykle vyžaduje i vyšší osobní náklady, více zásob a pohledávek (růst <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">ČPK</a>) a často
+            i další investice – a všechny tyto faktory na EVA působí <strong>záporně</strong>. Skutečný čistý
+            dopad růstu tržeb tak může být mnohem menší, ba i negativní. Mnohem účinnější cestou je podle
+            rozkladu i citlivosti zvýšení <strong>podílu přidané hodnoty na tržbách</strong>, které EVA zvedá
+            nejsilněji a nevynucuje si nutně růst kapitálu. Citlivostní analýza ukazuje směr, ne hotový
+            recept – její jednofaktorové zjednodušení je třeba brát v úvahu.</p>
+          </div>
+        </details>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🎯</span>
+        <p class="callout__nadpis">Co si odnést</p>
+        <div class="callout__telo">
+          <p>Pyramidový rozklad odhalil, <em>proč</em> EVA klesla (růst WACC a pokles marže tažený přidanou
+          hodnotou), citlivostní analýza ukázala, <em>na čem</em> EVA nejvíc závisí (opět PH/tržby, osobní
+          náklady, WACC). Oba nástroje se shodují na klíčových generátorech hodnoty – a právě ty se v další
+          lekci stanou východiskem pro strategii a Balanced Scorecard podniku PLAST.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Co konkrétně vyjadřuje ve schématu obr. 8–12 spodní hodnota v každém bloku (např. −5 207 u WACC)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Nejde o hodnotu ukazatele, ale o jeho příspěvek k něčemu vrcholovému.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Je to <strong>vliv daného ukazatele na přírůstek EVA</strong> – o kolik tis. Kč změna tohoto ukazatele mezi lety 2003 a 2004 přispěla ke změně vrcholové EVA. U WACC hodnota −5 207 znamená, že růst WACC ze 7,63 % na 8,20 % snížil EVA o 5 207 tis. Kč.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>EVA podniku PLAST v roce 2004 klesla. Byla hlavní příčinou strana výnosnosti (RONA), nebo strana nákladů kapitálu (WACC)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte vlivy −1 181 (RONA) a −5 207 (WACC) uvnitř spreadu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Rozhodující byla <strong>strana nákladů kapitálu – růst WACC (vliv −5 207)</strong>, který více než čtyřnásobně převýšil vliv poklesu RONA (−1 181). Za růstem WACC stál hlavně nárůst podílu dražšího vlastního kapitálu na celkovém kapitálu (VK/C, vliv −11 493).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč mírný růst investovaného kapitálu (o 4 487 tis. Kč) působil na EVA podniku PLAST kladně, a ne záporně?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Rozhoduje znaménko spreadu (RONA − WACC).</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Protože spread byl v roce 2004 stále <strong>kladný</strong> (0,10 %). Každá dodatečná koruna kapitálu vydělá o spread víc, než stojí, takže při kladném spreadu růst kapitálu hodnotu <strong>tvoří</strong> (vliv +20). Kdyby byl spread záporný, stejný růst kapitálu by EVA snižoval.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Na který faktor je EVA podniku PLAST nejcitlivější a co to znamená pro řízení hodnoty?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na nejdelší pruh v tornádovém grafu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na podíl <strong>přidané hodnoty na tržbách (PH/Tržby)</strong> – jeho zvýšení o 10 % by EVA zvedlo o +31 885 tis. Kč, tj. řádově víc než kterýkoli jiný faktor. Řízení hodnoty by proto mělo prioritně mířit na zvyšování přidané hodnoty (např. inovace, vyšší marže produktů), nikoli jen na objem tržeb.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jaké je hlavní omezení citlivostní analýzy a jak ovlivňuje interpretaci jejích výsledků?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kolik faktorů se v jednom výpočtu mění najednou?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Analýza mění vždy <strong>jen jeden faktor izolovaně</strong> a ostatní drží konstantní. V praxi jsou však faktory provázané – změna jednoho vyvolá změnu dalších. Výsledky proto ukazují <em>potenciální</em> citlivost a slouží k identifikaci nejvýznamnějších faktorů, nelze je však chápat jako přesnou předpověď skutečné reakce EVA.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l8-eva-wacc.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.8 EVA v podniku PLAST – WACC a výpočet EVA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l10-bsc-strategicka-mapa.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.10 Balanced Scorecard a strategická mapa podniku PLAST</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    (function () {
+      /* ============================================================
+         A) KROKOVÁ VIZUALIZACE: kostra pyramidového rozkladu EVA
+         Prvky mají stabilní id (přes u.dej) a odkrývají se změnou
+         opacity podle aktuálního kroku → plynulá animace.
+         ============================================================ */
+
+      // Definice bloků: id, pozice (x = levý okraj), název, hodnoty 2003/2004,
+      // vliv (číslo), a od kterého kroku je blok viditelný.
+      var BW = 156, BH = 62; // rozměr bloku
+      var bloky = [
+        { id: 'eva',   x: 372, y: 20,  nazev: 'EVA',           v: '7 296 → 928',        vliv: -6368, krok: 0 },
+        { id: 'spread',x: 182, y: 138, nazev: 'RONA − WACC',   v: '0,80 % → 0,10 %',    vliv: -6388, krok: 1 },
+        { id: 'cnoa',  x: 566, y: 138, nazev: 'C (NOA)',       v: '911 203 → 915 690',  vliv: 20,    krok: 1 },
+        { id: 'rona',  x: 74,  y: 256, nazev: 'RONA',          v: '8,43 % → 8,30 %',    vliv: -1181, krok: 2 },
+        { id: 'wacc',  x: 304, y: 256, nazev: 'WACC',          v: '7,63 % → 8,20 %',    vliv: -5207, krok: 2 },
+        { id: 'marze', x: 14,  y: 374, nazev: 'NOPAT / Tržby', v: '7,27 % → 6,96 %',    vliv: -3351, krok: 3 },
+        { id: 'obrat', x: 184, y: 374, nazev: 'Tržby / C',     v: '1,16 → 1,19',        vliv: 2170,  krok: 3 }
+      ];
+
+      // Spojnice a operátory (od kterého kroku viditelné)
+      var hrany = [
+        { id: 'h-eva-spread', x1: 450, y1: 82,  x2: 260, y2: 138, krok: 1 },
+        { id: 'h-eva-cnoa',   x1: 450, y1: 82,  x2: 644, y2: 138, krok: 1 },
+        { id: 'h-spread-rona',x1: 260, y1: 200, x2: 152, y2: 256, krok: 2 },
+        { id: 'h-spread-wacc',x1: 260, y1: 200, x2: 382, y2: 256, krok: 2 },
+        { id: 'h-rona-marze', x1: 152, y1: 318, x2: 92,  y2: 374, krok: 3 },
+        { id: 'h-rona-obrat', x1: 152, y1: 318, x2: 262, y2: 374, krok: 3 }
+      ];
+      var operatory = [
+        { id: 'op1', x: 452, y: 118, znak: '×', krok: 1 },
+        { id: 'op2', x: 262, y: 236, znak: '−', krok: 2 },
+        { id: 'op3', x: 154, y: 354, znak: '×', krok: 3 }
+      ];
+
+      Skripta.stepper('viz-pyramida', {
+        sirka: 740, vyska: 452,
+        stavy: [0, 1, 2, 3, 4],
+        popisky: [
+          'Vrchol rozkladu: EVA klesla ze 7 296 na 928 tis. Kč, tedy o −6 368. Cílem je zjistit, proč.',
+          'EVA = (RONA − WACC) × C (NOA). Za pokles může spread (−6 388); růst kapitálu vliv +20.',
+          'Spread = RONA − WACC. Hlavní brzdou je růst WACC (−5 207), pokles RONA přidal −1 181.',
+          'RONA = zisková marže × obratovost. Marže dolů (−3 351) převážila lepší obratovost (+2 170).',
+          'Rozhodující generátor: pokles ziskové marže tažený propadem podílu přidané hodnoty na tržbách.'
+        ],
+        render: function (svg, stav, i, u) {
+          var vidBlok = function (b) { return i >= b.krok; };
+
+          // Hrany (spojnice) – kreslíme jako první, ať jsou pod bloky
+          hrany.forEach(function (h) {
+            u.dej(svg, h.id, 'line', {
+              x1: h.x1, y1: h.y1, x2: h.x2, y2: h.y2,
+              stroke: u.barvaOsa, 'stroke-width': 1.5,
+              opacity: i >= h.krok ? 1 : 0
+            });
+          });
+
+          // Bloky
+          bloky.forEach(function (b) {
+            var vid = vidBlok(b) ? 1 : 0;
+            var zvyraznen = (i >= 4 && b.id === 'marze');
+            var cx = b.x + BW / 2;
+            u.dej(svg, b.id + '-rect', 'rect', {
+              x: b.x, y: b.y, width: BW, height: BH, rx: 9,
+              fill: '#ffffff',
+              stroke: zvyraznen ? u.barvaNiceni : '#818cf8',
+              'stroke-width': zvyraznen ? 2.5 : 1.4,
+              opacity: vid
+            });
+            u.dej(svg, b.id + '-nazev', 'text', {
+              x: cx, y: b.y + 20, 'text-anchor': 'middle',
+              fill: '#4338ca', 'font-size': 13, 'font-weight': 700, opacity: vid
+            }, b.nazev);
+            u.dej(svg, b.id + '-val', 'text', {
+              x: cx, y: b.y + 37, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 11.5, opacity: vid
+            }, b.v);
+            u.dej(svg, b.id + '-vliv', 'text', {
+              x: cx, y: b.y + 54, 'text-anchor': 'middle',
+              fill: b.vliv >= 0 ? u.barvaTvorba : u.barvaNiceni,
+              'font-size': 13, 'font-weight': 700, opacity: vid
+            }, (b.vliv > 0 ? '+' : '') + u.formatCislo(b.vliv));
+          });
+
+          // Operátory
+          operatory.forEach(function (o) {
+            u.dej(svg, o.id, 'text', {
+              x: o.x, y: o.y, 'text-anchor': 'middle',
+              fill: '#64748b', 'font-size': 22, 'font-weight': 700,
+              opacity: i >= o.krok ? 1 : 0
+            }, o.znak);
+          });
+
+          // Legenda vlivu (stále viditelná, dole)
+          u.dej(svg, 'leg', 'text', {
+            x: 360, y: 446, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 11
+          }, 'V každém bloku: název · hodnota 2003 → 2004 · vliv na přírůstek EVA (tis. Kč)');
+        }
+      });
+
+      /* ============================================================
+         B) TORNÁDOVÝ GRAF citlivostní analýzy (tabulka 8–51)
+         Vlastní horizontální graf; faktory seřazené dle |změny EVA|.
+         ============================================================ */
+      (function () {
+        var u = Skripta.viz;
+        var host = document.getElementById('viz-tornado');
+        if (!host || !u) return;
+
+        // Faktor + změna EVA (tis. Kč), seřazeno sestupně dle absolutní hodnoty
+        var data = [
+          { l: 'PH / Tržby',           v: 31885 },
+          { l: 'Osobní Ná / Tržby',    v: -14178 },
+          { l: 'Tržby',                v: 7602 },
+          { l: 'RONA',                 v: 7602 },
+          { l: 'WACC',                 v: -7507 },
+          { l: 'Odpisy / Tržby',       v: -7355 },
+          { l: 'Náklady na VK',        v: -6748 },
+          { l: 'VK / Úplatné zdroje',  v: -5429 },
+          { l: 'DHM',                  v: -4044 },
+          { l: 'Beta koeficient',      v: -3959 },
+          { l: 'Riziková přirážka',    v: -3946 },
+          { l: 'Bezriziková sazba',    v: -2789 },
+          { l: 'Ost. Vý − Ná / Tržby', v: -2751 },
+          { l: 'Pohledávky',           v: -2475 },
+          { l: 'Zásoby',               v: -1263 },
+          { l: 'Krátkodobý CZ',        v: 1047 },
+          { l: 'Náklady na CK',        v: -760 },
+          { l: 'Krátkodobý FM',        v: -471 },
+          { l: 'Investovaný kapitál',  v: 94 },
+          { l: 'DNM',                  v: -25 }
+        ];
+
+        var W = 960, rowH = 22, top = 42, bottom = 18;
+        var H = top + data.length * rowH + bottom;
+        var labelX = 185;   // pravý okraj sloupce s názvy faktorů
+        var plotL = 250, plotR = 830;
+        var maxPos = 31885, maxNeg = 14178, total = maxPos + maxNeg;
+        var zero = plotL + (plotR - plotL) * maxNeg / total;
+        var scale = (plotR - plotL) / total;
+
+        var svg = u.el('svg', {
+          viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+          preserveAspectRatio: 'xMidYMid meet',
+          'aria-label': 'Tornádový graf citlivosti EVA na změnu faktorů o 10 procent'
+        });
+
+        // Jemné pruhování řádků pro lepší čitelnost
+        data.forEach(function (d, i) {
+          if (i % 2 === 0) {
+            svg.appendChild(u.el('rect', {
+              x: 0, y: top + i * rowH, width: W, height: rowH, fill: '#f8fafc'
+            }));
+          }
+        });
+
+        // Nulová osa
+        svg.appendChild(u.el('line', {
+          x1: zero, y1: top - 10, x2: zero, y2: H - bottom + 2,
+          stroke: u.barvaOsa, 'stroke-width': 1.5
+        }));
+
+        // Popisky směru
+        svg.appendChild(u.el('text', {
+          x: zero - 8, y: top - 18, 'text-anchor': 'end',
+          fill: u.barvaNiceni, 'font-size': 12, 'font-weight': 600
+        }, '← pokles EVA'));
+        svg.appendChild(u.el('text', {
+          x: zero + 8, y: top - 18, 'text-anchor': 'start',
+          fill: u.barvaTvorba, 'font-size': 12, 'font-weight': 600
+        }, 'růst EVA →'));
+
+        // Pruhy + popisky
+        data.forEach(function (d, i) {
+          var cy = top + i * rowH + rowH / 2;
+          var len = Math.abs(d.v) * scale;
+          var x = d.v >= 0 ? zero : zero - len;
+          var barva = d.v >= 0 ? u.barvaTvorba : u.barvaNiceni;
+
+          svg.appendChild(u.el('rect', {
+            x: x, y: cy - 6, width: Math.max(len, 0.5), height: 12, rx: 2, fill: barva
+          }));
+          // Název faktoru (vlevo, zarovnaný vpravo)
+          svg.appendChild(u.el('text', {
+            x: labelX, y: cy + 4, 'text-anchor': 'end',
+            fill: u.barvaText, 'font-size': 12
+          }, d.l));
+          // Hodnota změny na vnějším konci pruhu
+          var vx = d.v >= 0 ? x + len + 6 : x - 6;
+          svg.appendChild(u.el('text', {
+            x: vx, y: cy + 4, 'text-anchor': d.v >= 0 ? 'start' : 'end',
+            fill: barva, 'font-size': 11.5, 'font-weight': 600
+          }, (d.v > 0 ? '+' : '') + u.formatCislo(d.v));
+        });
+
+        host.appendChild(svg);
+      })();
+    })();
+  </script>
+</body>
+</html>

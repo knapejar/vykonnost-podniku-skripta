@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.12 Ocenění podniku na bázi EVA, simulace generátorů a závěr studie – Výkonnost podniku</title>
+  <meta name="description" content="Ocenění podniku PLAST výnosovou metodou na bázi EVA (dvoufázová metoda), tornádová simulace vlivu generátorů hodnoty na hodnotu vlastního kapitálu a celkový závěr případové studie.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12 -->
+    <nav class="panel" data-panel data-aktivni-lekce="12.12" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: účetní výkazy, leasing, funkcionální rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · Případová studie PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.12</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.12</span>
+        <h1>Ocenění podniku na bázi EVA, simulace generátorů a závěr studie</h1>
+        <p class="lekce-hlavicka__strany">Strany 306–311</p>
+      </header>
+
+      <p>
+        Dostáváme se k vyvrcholení celé případové studie. V předchozí lekci jsme
+        sestavili <a class="pojem" href="t11-l2-financni-plan-rizika.html?zvyraznit=pojem-financni-plan" target="_blank" rel="noopener">finanční plán</a> na roky 2005–2007 a upravili jej na vstupy pro
+        výpočet <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>. Teď z těchto vstupů <strong>oceníme podnik PLAST</strong> –
+        stanovíme hodnotu jeho vlastního kapitálu výnosovou metodou založenou na
+        EVA. Následně pomocí <em>simulace <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátorů hodnoty</a></em> zjistíme, na které
+        faktory je tato hodnota nejcitlivější, a nakonec shrneme celkové závěry studie.
+      </p>
+      <p>
+        Simulaci změn vybraných faktorů budeme sledovat právě ve vztahu ke změně
+        hodnoty vlastního kapitálu. Proč? Protože <a class="pojem" href="t5-l5-eva-investice-oceneni.html?zvyraznit=pojem-trzni-hodnota-podniku" target="_blank" rel="noopener">tržní hodnota podniku</a> (resp. jeho
+        vlastního kapitálu) je považována za <strong>základní cíl každého podnikání</strong> –
+        a hodnotové měřítko EVA je s touto hodnotou přímo provázané.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde najdete vstupní data</p>
+        <div class="callout__telo">
+          <p>Kompletní účetní výkazy podniku PLAST, leasingový splátkový kalendář
+          a odvození funkcionální metody rozkladu EVA jsou soustředěny v
+          <a href="t12-R-prilohy.html">Referenční příloze R</a>. Sloužila jako
+          podklad pro <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">NOA</a>, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a> i finanční plán, z nichž zde vycházíme.</p>
+        </div>
+      </aside>
+
+      <!-- ===================== 1. VÝNOSOVÁ METODA NA BÁZI EVA ===================== -->
+      <h2>Ocenění výnosovou metodou na bázi EVA</h2>
+
+      <p>
+        Teoretickým základem <a class="pojem" href="t11-l4-oceneni-vynosove.html?zvyraznit=pojem-vynosove-metody" target="_blank" rel="noopener">výnosových metod</a> pro stanovení tržní hodnoty podniku je
+        <strong><a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-soucasna-hodnota" target="_blank" rel="noopener">současná hodnota</a> očekávaných výnosů</strong> po dobu, po kterou bude
+        investor podnik vlastnit. Proto vycházíme ze sestaveného finančního plánu.
+        Pro výpočet hodnoty podniku na základě EVA použijeme vztah (6.4) z kapitoly 6.3.
+      </p>
+
+      <section class="definice" id="pojem-oceneni-vynosova-metoda-eva">
+        <h3 class="definice__pojem">Ocenění podniku výnosovou metodou na bázi EVA</h3>
+        <div class="definice__telo">
+          <p>
+            Metoda stanovení tržní hodnoty podniku, která k datu ocenění sečte
+            <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-investovany-kapital" target="_blank" rel="noopener">investovaný kapitál</a> (<span class="math">NOA<sub>0</sub></span>),
+            současnou hodnotu budoucích ekonomických přidaných hodnot (EVA) a
+            <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-neoperativni-aktiva" target="_blank" rel="noopener">neoperativní aktiva</a> a odečte úročené dluhy. Výsledkem je
+            <a class="pojem" href="#pojem-hodnota-vlastniho-kapitalu">hodnota vlastního kapitálu</a>.
+            Na rozdíl od klasického <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">diskontování peněžních toků</a> pracuje přímo
+            s tvorbou hodnoty nad rámec nákladů na kapitál.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-6-4">
+        <div class="vzorec__telo">
+          <span class="math">H<sub>VK</sub><span class="op">=</span>NOA<sub>0</sub><span class="op">+</span>
+            <span style="font-size:1.3em">Σ</span>
+            <span class="frac">
+              <span class="frac__cit">EVA<sub>t</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>WACC)<sup>t</sup></span>
+            </span>
+            <span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit">EVA<sub>T+1</sub></span>
+              <span class="frac__jmen">WACC<span class="op">−</span>g</span>
+            </span>
+            <span class="op">×</span>
+            <span class="frac">
+              <span class="frac__cit">1</span>
+              <span class="frac__jmen">(1<span class="op">+</span>WACC)<sup>T</sup></span>
+            </span>
+            <span class="op">−</span>D<sub>0</sub><span class="op">+</span>A<sub>0</sub>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.4)</div>
+      </div>
+
+      <p>Kde:</p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Význam symbolů ve vztahu (6.4)</caption>
+          <tbody>
+            <tr><th scope="row"><span class="math">H<sub>VK</sub></span></th><td>hodnota vlastního kapitálu (netto)</td></tr>
+            <tr><th scope="row"><span class="math">NOA<sub>0</sub></span></th><td>čistá operativní aktiva k datu ocenění</td></tr>
+            <tr><th scope="row"><span class="math">T</span></th><td>počet let explicitně plánovaných hodnot EVA (1. fáze)</td></tr>
+            <tr><th scope="row"><span class="math">D<sub>0</sub></span></th><td>hodnota úročených dluhů k datu ocenění</td></tr>
+            <tr><th scope="row"><span class="math">A<sub>0</sub></span></th><td>neoperativní aktiva k datu ocenění</td></tr>
+            <tr><th scope="row"><span class="math">WACC</span></th><td>průměrné náklady na kapitál</td></tr>
+            <tr><th scope="row"><span class="math">g</span></th><td>průměrné roční tempo růstu EVA ve 2. fázi</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="definice" id="pojem-dvoufazova-metoda">
+        <h3 class="definice__pojem">Dvoufázová metoda</h3>
+        <div class="definice__telo">
+          <p>
+            Postup ocenění, který rozděluje budoucnost na <strong>1. fázi</strong> –
+            období, pro které lze EVA explicitně naplánovat (u PLAST roky 2005–2007) –
+            a <strong>2. fázi</strong>, tj. neomezené období po skončení plánu, jehož
+            hodnotu vyjádříme jednou souhrnnou <a class="pojem" href="#pojem-pokracujici-hodnota">pokračující hodnotou</a>.
+            Prognóza zisku na dlouhou dobu dopředu totiž není u většiny podniků reálná.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-pokracujici-hodnota">
+        <h3 class="definice__pojem">Pokračující hodnota (2. fáze)</h3>
+        <div class="definice__telo">
+          <p>
+            Trvalá renta z odhadu stálé výše EVA po skončení plánovacího období.
+            Bez růstu je rovna <span class="math"><span class="frac"><span class="frac__cit">EVA<sub>T+1</sub></span><span class="frac__jmen">WACC</span></span></span>,
+            při očekávaném růstu <span class="math"><span class="frac"><span class="frac__cit">EVA<sub>T+1</sub></span><span class="frac__jmen">WACC<span class="op">−</span>g</span></span></span>.
+            Tuto rentu je ještě nutné diskontovat k datu ocenění.
+          </p>
+        </div>
+      </section>
+
+      <h3>Krok 1 – Výpočet EVA v jednotlivých letech</h3>
+      <p>
+        EVA v letech plánu spočítáme ze vstupů <span class="math">NOPAT</span> a
+        <span class="math">NOA<sub>0</sub></span> z finančního plánu. Výše průměrných
+        nákladů na kapitál je v posledních obdobích stabilizovaná, proto s touto výší
+        (8 %) počítáme i do budoucna. Pro 2. fázi počítáme s udržením EVA na úrovni
+        posledního roku 1. fáze (rok 2007).
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–60 – Výpočet EVA (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">NOPAT</th><td class="cislo">83 431</td><td class="cislo">88 051</td><td class="cislo">90 484</td></tr>
+            <tr><th scope="row">WACC</th><td class="cislo">8,0 %</td><td class="cislo">8,0 %</td><td class="cislo">8,0 %</td></tr>
+            <tr><th scope="row"><span class="math">NOA<sub>0</sub></span></th><td class="cislo">928 553</td><td class="cislo">1 016 446</td><td class="cislo">1 031 123</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">EVA</th>
+              <td class="cislo hodnota-tvorba">9 147</td>
+              <td class="cislo hodnota-tvorba">6 735</td>
+              <td class="cislo hodnota-tvorba">7 994</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Podnik má v celém plánovaném období <strong>kladnou EVA</strong> – tvoří tedy
+        hodnotu. V roce 2005 podnik investoval; zvýšená hodnota investovaného kapitálu
+        se promítla do nižší EVA v roce 2006. V dalším roce se vliv zvýšené investiční
+        aktivity projevil ve vyšší EVA. Pro 2. fázi počítáme s udržením EVA ve výši
+        posledního roku 1. fáze, tj. <strong>7 994 tis. Kč</strong>.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">EVA v plánovaném období (tis. Kč)</p>
+          <p class="viz__popis">Ve všech třech letech je EVA kladná – podnik tvoří hodnotu. Pokles v roce 2006 způsobila investice roku 2005 (vyšší investovaný kapitál).</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-eva-plan"></div>
+      </figure>
+
+      <h3>Krok 2 – Diskontní míra a hodnota vlastního kapitálu</h3>
+      <p>
+        Jako diskontní míru použijeme vývoj průměrných nákladů na kapitál v posledních
+        letech; pro celé plánované období volíme <strong>8 %</strong>. Budoucí hodnoty
+        EVA převedeme na současnou hodnotu (PV), přičteme pokračující hodnotu 2. fáze,
+        investovaný kapitál a neoperativní aktiva a odečteme cizí (úročené) zdroje.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–61 – Hodnota podniku PLAST zjištěná na základě EVA (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. 1. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2006</th>
+              <th scope="col" class="cislo">31. 12. 2007</th>
+              <th scope="col" class="cislo">2. fáze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EVA</th><td class="cislo"></td><td class="cislo">9 147</td><td class="cislo">6 735</td><td class="cislo">7 994</td><td class="cislo">7 994</td></tr>
+            <tr><th scope="row"><span class="math">EVA<sub>T+1</sub><span class="op">/</span>WACC</span></th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo">99 925</td></tr>
+            <tr><th scope="row">PV budoucích EVA</th><td class="cislo"></td><td class="cislo">8 469</td><td class="cislo">5 774</td><td class="cislo">6 346</td><td class="cislo">79 324</td></tr>
+            <tr><th scope="row"><span class="math">NOA<sub>0</sub></span></th><td class="cislo">928 553</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Neoperativní aktiva<sub>0</sub></th><td class="cislo">275 519</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Cizí zdroje<sub>0</sub></th><td class="cislo">377 395</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Hodnota VK</th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo hodnota-tvorba">926 590</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Výpočet hodnoty VK k 1. 1. 2005</p>
+        <div class="callout__telo">
+          <p>
+            <span class="math">H<sub>VK</sub><span class="op">=</span>8 469<span class="op">+</span>5 774<span class="op">+</span>6 346<span class="op">+</span>79 324<span class="op">+</span>928 553<span class="op">+</span>275 519<span class="op">−</span>377 395<span class="op">=</span><strong>926 590</strong></span> tis. Kč.
+          </p>
+          <p>
+            První tři členy jsou diskontované EVA z 1. fáze, čtvrtý je diskontovaná
+            pokračující hodnota 2. fáze, dále investovaný kapitál a neoperativní aktiva,
+            od nichž odečteme cizí zdroje.
+          </p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-hodnota-vlastniho-kapitalu">
+        <h3 class="definice__pojem">Hodnota vlastního kapitálu (VK)</h3>
+        <div class="definice__telo">
+          <p>
+            Tržní hodnota podniku připadající vlastníkům, tzn. hodnota podniku očištěná
+            o úročené dluhy. U podniku PLAST činí k 1. 1. 2005 zjištěná pomocí výnosové
+            metody na bázi EVA <strong>926 590 tis. Kč</strong>. Právě její citlivost na
+            klíčové faktory zkoumáme v následující simulaci.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 2. SIMULACE GENERÁTORŮ ===================== -->
+      <h2>Simulace změn generátorů hodnoty</h2>
+
+      <p>
+        Ze vztahu (6.4) vyplývají faktory, které ovlivňují hodnotu vlastního kapitálu.
+        Jsou to EVA v jednotlivých letech (1. i 2. fáze), tempo růstu EVA ve 2. fázi
+        a průměrné náklady kapitálu. Samotná EVA přitom závisí na provozním výsledku
+        hospodaření, nákladech kapitálu a velikosti investovaného kapitálu. Proto
+        budeme zjišťovat citlivost hodnoty podniku na <strong>čtyři generátory</strong>:
+        NOPAT, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>, tempo růstu <span class="math">g</span> a výši investovaného kapitálu.
+      </p>
+
+      <section class="definice" id="pojem-simulace-generatoru-hodnoty">
+        <h3 class="definice__pojem">Simulace generátorů hodnoty</h3>
+        <div class="definice__telo">
+          <p>
+            <a class="pojem" href="t12-l9-generatory-citlivost.html?zvyraznit=pojem-citlivostni-analyza" target="_blank" rel="noopener">Citlivostní analýza</a>, ve které postupně měníme jeden vstupní faktor
+            (generátor) a sledujeme, jak se změní výsledná hodnota vlastního kapitálu.
+            Výsledek se přehledně zobrazuje <strong>tornádovým grafem</strong> – vodorovné
+            pruhy seřazené podle velikosti dopadu, nejcitlivější faktor nahoře.
+          </p>
+        </div>
+      </section>
+
+      <h3>Vliv provozního zisku (NOPAT)</h3>
+      <p>
+        Při zvýšení NOPAT o 10 mil. Kč v každém roce 1. i 2. fáze se hodnota podniku
+        zvýší o <span class="math hodnota-tvorba">+125 001</span> tis. Kč, tj. na
+        <strong>1 051 591 tis. Kč</strong>.
+      </p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–62 – Vliv na hodnotu podniku v závislosti na výsledku hospodaření (NOPAT +10 mil. Kč), v tis. Kč</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. 1. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2006</th>
+              <th scope="col" class="cislo">31. 12. 2007</th>
+              <th scope="col" class="cislo">2. fáze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EVA</th><td class="cislo"></td><td class="cislo">19 147</td><td class="cislo">16 735</td><td class="cislo">17 994</td><td class="cislo">17 994</td></tr>
+            <tr><th scope="row"><span class="math">EVA<sub>T+1</sub><span class="op">/</span>WACC</span></th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo">224 925</td></tr>
+            <tr><th scope="row">PV budoucích EVA</th><td class="cislo"></td><td class="cislo">17 729</td><td class="cislo">14 348</td><td class="cislo">14 284</td><td class="cislo">178 553</td></tr>
+            <tr><th scope="row"><span class="math">NOA<sub>0</sub></span></th><td class="cislo">928 553</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Neoperativní aktiva<sub>0</sub></th><td class="cislo">275 519</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Cizí zdroje<sub>0</sub></th><td class="cislo">377 395</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Hodnota VK</th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo hodnota-tvorba">1 051 591</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Vliv průměrných nákladů na kapitál (WACC)</h3>
+      <p>
+        Při zvýšení WACC o 5 procentních bodů v 1. i 2. fázi se hodnota podniku
+        <strong>sníží</strong> o <span class="math hodnota-niceni">−429 859</span> tis. Kč,
+        tj. na pouhých <strong>496 731 tis. Kč</strong>. Vyšší náklady kapitálu srazí EVA
+        dokonce do záporu.
+      </p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–63 – Vliv na hodnotu podniku v závislosti na WACC (+5 p. b.), v tis. Kč</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. 1. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2006</th>
+              <th scope="col" class="cislo">31. 12. 2007</th>
+              <th scope="col" class="cislo">2. fáze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EVA</th><td class="cislo"></td><td class="cislo hodnota-niceni">−37 281</td><td class="cislo hodnota-niceni">−44 087</td><td class="cislo hodnota-niceni">−43 562</td><td class="cislo hodnota-niceni">−43 562</td></tr>
+            <tr><th scope="row"><span class="math">EVA<sub>T+1</sub><span class="op">/</span>WACC</span></th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo hodnota-niceni">−335 092</td></tr>
+            <tr><th scope="row">PV budoucích EVA</th><td class="cislo"></td><td class="cislo hodnota-niceni">−32 992</td><td class="cislo hodnota-niceni">−34 527</td><td class="cislo hodnota-niceni">−30 191</td><td class="cislo hodnota-niceni">−232 236</td></tr>
+            <tr><th scope="row"><span class="math">NOA<sub>0</sub></span></th><td class="cislo">928 553</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Neoperativní aktiva<sub>0</sub></th><td class="cislo">275 519</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Cizí zdroje<sub>0</sub></th><td class="cislo">377 395</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Hodnota VK</th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo hodnota-niceni">496 731</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Vliv očekávaného růstu EVA (g)</h3>
+      <p>
+        Při očekávaném růstu EVA do budoucna o 5 % se hodnota podniku zvýší o
+        <span class="math hodnota-tvorba">+132 206</span> tis. Kč, tj. na
+        <strong>1 058 796 tis. Kč</strong>. Ve vztahu (6.4) se růst promítá do jmenovatele
+        pokračující hodnoty (<span class="math">WACC<span class="op">−</span>g</span>).
+      </p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–64 – Vliv na hodnotu podniku v závislosti na růstu (g +5 %), v tis. Kč</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. 1. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2006</th>
+              <th scope="col" class="cislo">31. 12. 2007</th>
+              <th scope="col" class="cislo">2. fáze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EVA</th><td class="cislo"></td><td class="cislo">9 147</td><td class="cislo">6 735</td><td class="cislo">7 994</td><td class="cislo">7 994</td></tr>
+            <tr><th scope="row"><span class="math">EVA<sub>T+1</sub><span class="op">/</span>(WACC<span class="op">−</span>g)</span></th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo">266 467</td></tr>
+            <tr><th scope="row">PV budoucích EVA</th><td class="cislo"></td><td class="cislo">8 469</td><td class="cislo">5 774</td><td class="cislo">6 346</td><td class="cislo">211 530</td></tr>
+            <tr><th scope="row"><span class="math">NOA<sub>0</sub></span></th><td class="cislo">928 553</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Neoperativní aktiva<sub>0</sub></th><td class="cislo">275 519</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Cizí zdroje<sub>0</sub></th><td class="cislo">377 395</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Hodnota VK</th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo hodnota-tvorba">1 058 796</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Vliv výše investovaného kapitálu (C)</h3>
+      <p>
+        Investovaný kapitál tvoří poměrně velkou část hodnoty ocenění. Znamená to,
+        že hodnota podniku závisí i na současné výši vázaného kapitálu? Podívejme se,
+        jak hodnotu ovlivní snížení investovaného kapitálu o 100 000 tis. Kč.
+      </p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–65 – Vliv na hodnotu podniku v závislosti na investovaném kapitálu (C −100 000), v tis. Kč</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. 1. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2005</th>
+              <th scope="col" class="cislo">31. 12. 2006</th>
+              <th scope="col" class="cislo">31. 12. 2007</th>
+              <th scope="col" class="cislo">2. fáze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EVA</th><td class="cislo"></td><td class="cislo">17 147</td><td class="cislo">14 735</td><td class="cislo">15 994</td><td class="cislo">15 994</td></tr>
+            <tr><th scope="row"><span class="math">EVA<sub>T+1</sub><span class="op">/</span>WACC</span></th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo">199 925</td></tr>
+            <tr><th scope="row">PV budoucích EVA</th><td class="cislo"></td><td class="cislo">15 877</td><td class="cislo">12 633</td><td class="cislo">12 697</td><td class="cislo">158 707</td></tr>
+            <tr><th scope="row"><span class="math">NOA<sub>0</sub></span> (snížený o 100 000)</th><td class="cislo">828 553</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Neoperativní aktiva<sub>0</sub></th><td class="cislo">275 519</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr><th scope="row">Cizí zdroje<sub>0</sub></th><td class="cislo">377 395</td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Hodnota VK</th><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo"></td><td class="cislo">926 591</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Snížení kapitálu hodnotu nezmění</p>
+        <div class="callout__telo">
+          <p>
+            Při snížení investovaného kapitálu o 100 000 tis. Kč se hodnota podniku
+            <strong>prakticky nezmění</strong> (926 591 vs. 926 590 tis. Kč). Je to dáno
+            tím, že nižší investovaný kapitál sice ubere z členu <span class="math">NOA<sub>0</sub></span>,
+            zároveň ale zvýší budoucí EVA (menší kapitálový náklad
+            <span class="math">WACC<span class="op">×</span>C</span>). Oba efekty se navzájem
+            vyruší. Samotné navýšení kapitálu tedy hodnotu netvoří – rozhoduje, zda kapitál
+            vydělá víc, než činí náklady na něj.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== 3. TORNÁDOVÝ GRAF (STEPPER) ===================== -->
+      <h2>Tornádový graf: který generátor rozhoduje?</h2>
+      <p>
+        Výsledky všech čtyř simulací srovnáme v jednom obrázku. Tornádový graf zobrazuje
+        odchylku hodnoty VK od základní úrovně 926 590 tis. Kč pro každou změnu generátoru;
+        pruhy jsou seřazené podle velikosti dopadu, nejcitlivější faktor je nahoře.
+        Procházejte kroky a sledujte, jak se dopady skládají.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Citlivost hodnoty VK na generátory hodnoty (tornádo)</p>
+          <p class="viz__popis">Svislá osa je základní hodnota VK (926 590 tis. Kč). Zelené pruhy zvyšují hodnotu, červený ji snižuje. Tlačítky „Zpět / Další" přidávejte jednotlivé generátory.</p>
+        </figcaption>
+        <div id="viz-tornado"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Jak číst tornádo</p>
+        <div class="callout__telo">
+          <p>
+            <strong>WACC</strong> má zdaleka největší dopad (−429 859) – jeho pruh je
+            nejdelší, proto je nahoře. Následuje růst <span class="math">g</span>
+            (+132 206) a NOPAT (+125 001), které mají podobnou sílu. Výše investovaného
+            kapitálu (<span class="math">C</span>) je v dolní části s nulovým dopadem.
+          </p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Který ze čtyř generátorů má na hodnotu podniku PLAST největší dopad a proč
+          právě on? Jak by se toto zjištění mělo promítnout do řízení podniku?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Největší dopad má <strong>WACC (průměrné náklady kapitálu)</strong>:
+              jeho zvýšení o 5 p. b. sráží hodnotu VK o 429 859 tis. Kč – téměř o polovinu.
+              Důvod je dvojí: vyšší WACC (a) přímo zvedá kapitálový náklad, takže EVA klesá
+              až do záporu, a (b) zároveň diskontuje budoucí EVA přísněji a zvětšuje
+              jmenovatel pokračující hodnoty. Pro řízení to znamená velkou pozornost
+              kapitálové struktuře a nákladům financování – i mírné zlepšení WACC vytváří
+              značnou hodnotu.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč samotné navýšení (nebo snížení) investovaného kapitálu nemusí změnit
+          hodnotu podniku, i když kapitál tvoří velkou část ocenění?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Ve vztahu (6.4) vystupuje investovaný kapitál dvakrát s opačným znaménkem:
+              přímo jako člen <span class="math">NOA<sub>0</sub></span> a nepřímo přes EVA,
+              kde snížení kapitálu zmenší kapitálový náklad
+              <span class="math">WACC<span class="op">×</span>C</span> a tím zvýší budoucí EVA.
+              Oba efekty se vyruší (viz Tab. 8–65: 926 591 ≈ 926 590 tis. Kč). Hodnotu
+              proto netvoří velikost kapitálu, ale <strong>jeho výnosnost nad rámec WACC</strong>
+              – tedy kladný <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-spread" target="_blank" rel="noopener">spread</a>. Investice zvýší hodnotu jen tehdy, když vydělá víc,
+              než stojí.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== 4. ZÁVĚR STUDIE ===================== -->
+      <h2>Závěr případové studie</h2>
+      <p>
+        Cílem případové studie bylo demonstrovat možnosti měření a řízení výkonnosti ve
+        vybraném podniku a ukázat tak aplikaci teoretických východisek a metodických
+        postupů z celé publikace. Projděme si cestu, kterou jsme urazili:
+      </p>
+
+      <ol>
+        <li><strong>Makroekonomická, odvětvová a benchmarkingová analýza</strong> –
+          zasazení podniku do kontextu odvětví a určení <a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmark" target="_blank" rel="noopener">benchmarku</a> i odvětvových standardů.</li>
+        <li><strong>Klasická finanční analýza</strong> – ukázala solidní finanční
+          stabilitu, avšak nižší rentabilitu než je v odvětví běžné; podnik spadl do
+          tzv. <em><a class="pojem" href="t3-l5-souhrnne-ukazatele.html?zvyraznit=pojem-seda-zona" target="_blank" rel="noopener">„šedé zóny"</a></em>.</li>
+        <li><strong>Hodnotové měřítko EVA</strong> – přineslo klíčové zjištění: z hlediska
+          tvorby hodnoty lze vývoj podniku v posledních letech označit za
+          <strong>úspěšný</strong>. Tím se potvrdila oprávněnost kritiky tradičních metod
+          finanční analýzy.</li>
+        <li><strong><a class="pojem" href="t12-l9-generatory-citlivost.html?zvyraznit=pojem-pyramidovy-rozklad-eva" target="_blank" rel="noopener">Pyramidový rozklad EVA</a> a <a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">BSC</a></strong> – identifikace nejvýznamnějších
+          finančních i nefinančních generátorů hodnoty a jejich promítnutí do <a class="pojem" href="t10-l2-strategicka-mapa.html?zvyraznit=pojem-strategicka-mapa" target="_blank" rel="noopener">strategické
+          mapy</a> vyvážené výkonnosti.</li>
+        <li><strong>Finanční plán, ocenění a simulace</strong> – stanovení tržní hodnoty
+          podniku a zkoumání vlivu klíčových faktorů výkonnosti na tuto hodnotu, která je
+          považována za základní cíl podnikání.</li>
+      </ol>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Hlavní závěr</p>
+        <div class="callout__telo">
+          <p>
+            Zdánlivý rozpor <em>„šedé zóny"</em> tradiční finanční analýzy (stabilita,
+            ale nižší rentabilita) a <strong>kladné EVA</strong> ukazuje sílu hodnotového
+            řízení: klasické ukazatele mohou podnik podceňovat, zatímco EVA odhalí, že
+            podnik ve skutečnosti <strong>tvoří hodnotu</strong> pro vlastníky. To je
+            přesně ta mezera, kterou tradiční účetní zisk nezachytí.
+          </p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">📎</span>
+        <p class="callout__nadpis">Referenční příloha</p>
+        <div class="callout__telo">
+          <p>
+            Podrobná vstupní data celé studie – kompletní rozvaha a výkaz zisku a ztráty
+            (1999–2004), leasingový splátkový kalendář i odvození funkcionální metody
+            rozkladu EVA – najdete v <a href="t12-R-prilohy.html">Referenční příloze R</a>.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== ZÁVĚREČNÉ OTÁZKY ===================== -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jakou metodou a v jaké výši byla stanovena hodnota vlastního kapitálu podniku PLAST k 1. 1. 2005?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na vztah (6.4) a tabulku 8–61.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Byla stanovena <strong>výnosovou metodou na bázi EVA</strong> pomocí <strong>dvoufázové metody</strong> (vztah 6.4) a činí <strong>926 590 tis. Kč</strong>. Vznikla součtem investovaného kapitálu, diskontovaných EVA 1. fáze, diskontované pokračující hodnoty 2. fáze a neoperativních aktiv, sníženým o cizí zdroje.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co představuje 2. fáze (pokračující hodnota) a jak se počítá?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o období po skončení explicitního plánu – trvalá renta z EVA.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Je to <strong>trvalá renta</strong> z odhadu stálé výše EVA po skončení plánovacího období (2. fáze). Bez růstu <span class="math">EVA<sub>T+1</sub><span class="op">/</span>WACC</span> (u PLAST 99 925 tis. Kč), s růstem <span class="math">EVA<sub>T+1</sub><span class="op">/</span>(WACC<span class="op">−</span>g)</span>. Rentu je nutno diskontovat k datu ocenění.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Který generátor hodnoty je pro hodnotu podniku nejcitlivější a proč?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Srovnejte dopady z tabulek 8–62 až 8–65, resp. tornádový graf.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>WACC</strong>: jeho zvýšení o 5 p. b. sníží hodnotu VK o 429 859 tis. Kč (na 496 731). Vyšší WACC zvedá kapitálový náklad (EVA klesá do záporu) a zároveň přísněji diskontuje a zvětšuje jmenovatel pokračující hodnoty. Následují g (+132 206) a NOPAT (+125 001).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč se hodnota podniku prakticky nezměnila, když jsme snížili investovaný kapitál o 100 000 tis. Kč?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kde všude ve vztahu (6.4) vystupuje investovaný kapitál?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Nižší kapitál sice sníží člen <span class="math">NOA<sub>0</sub></span>, ale zároveň zmenší kapitálový náklad <span class="math">WACC<span class="op">×</span>C</span>, čímž zvýší budoucí EVA. Oba efekty se vyruší (926 591 ≈ 926 590). Hodnotu tvoří <strong>výnosnost kapitálu nad WACC</strong>, ne jeho velikost.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jak lze shrnout celkový závěr případové studie o podniku PLAST?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte výsledek klasické finanční analýzy a hodnotového měřítka EVA.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Klasická finanční analýza ukázala <strong>solidní finanční stabilitu, ale nižší rentabilitu</strong> než v odvětví (podnik v „šedé zóně"). Hodnotové měřítko <strong>EVA</strong> naopak odhalilo, že podnik v posledních letech <strong>úspěšně tvoří hodnotu</strong>. To potvrzuje oprávněnost kritiky tradičních metod finanční analýzy.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PREV / NEXT ===================== -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l11-financni-plan.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.11 Finanční plán 2005–2007 a jeho úprava na vstupy EVA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-R-prilohy.html">
+          <span class="lekce-navigace__smer">Další →</span>
+          <span class="lekce-navigace__nazev">R Referenční příloha: účetní výkazy, leasing, funkcionální rozklad EVA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: EVA v plánovaném období (kladná ve všech letech)
+      Skripta.sloupcovyGraf('viz-eva-plan', {
+        sirka: 640, vyska: 300, formatDesetin: 0,
+        data: [
+          { popisek: '2005', hodnota: 9147 },
+          { popisek: '2006', hodnota: 6735 },
+          { popisek: '2007', hodnota: 7994 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: tornádový graf citlivosti hodnoty VK
+      // Pevné (seřazené) pozice pruhů; jednotlivé generátory se odkrývají po krocích.
+      // Řady odshora dolů podle velikosti |dopadu|: WACC, g, NOPAT, C.
+      var cx = 540;              // svislá osa = základní hodnota VK
+      var faktor = 0.00088;      // px na 1 tis. Kč
+      // Definice řad: dopad na hodnotu VK (tis. Kč)
+      var rady = [
+        { klic: 'w', nazev: 'WACC (+5 p. b.)',      dopad: -429859, cy: 92 },
+        { klic: 'g', nazev: 'Růst g (+5 %)',        dopad:  132206, cy: 170 },
+        { klic: 'n', nazev: 'NOPAT (+10 mil. Kč)',  dopad:  125001, cy: 248 },
+        { klic: 'c', nazev: 'Investovaný kapitál C (−100 000)', dopad: 1, cy: 326 }
+      ];
+
+      Skripta.stepper('viz-tornado', {
+        sirka: 760, vyska: 360,
+        stavy: [
+          { n: false, w: false, g: false, c: false },
+          { n: true,  w: false, g: false, c: false },
+          { n: true,  w: true,  g: false, c: false },
+          { n: true,  w: true,  g: true,  c: false },
+          { n: true,  w: true,  g: true,  c: true  }
+        ],
+        popisky: [
+          'Výchozí stav: základní hodnota VK = 926 590 tis. Kč (svislá osa).',
+          'NOPAT +10 mil. Kč v každém roce → hodnota VK roste o +125 001 (na 1 051 591).',
+          'WACC +5 p. b. → hodnota VK klesá o −429 859 (na 496 731). Zdaleka největší dopad.',
+          'Vyšší růst g (+5 %) → hodnota VK roste o +132 206 (na 1 058 796).',
+          'Snížení kapitálu C o 100 000 → dopad ≈ 0. Tornádo hotové: nejcitlivější je WACC.'
+        ],
+        render: function (svg, stav, i, u) {
+          // Svislá osa (základní hodnota VK)
+          u.dej(svg, 'osa', 'line', { x1: cx, y1: 45, x2: cx, y2: 345, stroke: u.barvaOsa, 'stroke-width': 2 });
+          u.dej(svg, 'osa-popis', 'text', {
+            x: cx, y: 32, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700
+          }, 'Základ: VK = 926 590 tis. Kč');
+
+          rady.forEach(function (r) {
+            var viditelny = stav[r.klic];
+            var kladny = r.dopad >= 0;
+            var sirkaPruhu = Math.max(Math.abs(r.dopad) * faktor, viditelny ? 3 : 0);
+            var barva = kladny ? u.barvaTvorba : u.barvaNiceni;
+            var xStart = kladny ? cx : cx - sirkaPruhu;
+
+            // Název generátoru (vždy viditelný, nad pruhem, vlevo)
+            u.dej(svg, 'lbl-' + r.klic, 'text', {
+              x: 30, y: r.cy - 24, 'text-anchor': 'start', fill: u.barvaText,
+              'font-size': 13, 'font-weight': 700, opacity: viditelny ? 1 : 0.35
+            }, r.nazev);
+
+            // Pruh (roste/mizí plynule přes width a opacity)
+            u.dej(svg, 'bar-' + r.klic, 'rect', {
+              x: xStart, y: r.cy - 15, width: sirkaPruhu, height: 30, rx: 4,
+              fill: barva, opacity: viditelny ? 1 : 0
+            });
+
+            // Hodnota dopadu na vnějším konci pruhu
+            var znamenko = kladny ? '+' : '−';
+            var xVal = kladny ? (cx + sirkaPruhu + 8) : (cx - sirkaPruhu - 8);
+            u.dej(svg, 'val-' + r.klic, 'text', {
+              x: xVal, y: r.cy + 5, 'text-anchor': kladny ? 'start' : 'end',
+              fill: barva, 'font-size': 13, 'font-weight': 700, opacity: viditelny ? 1 : 0
+            }, znamenko + u.formatCislo(Math.abs(r.dopad)));
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

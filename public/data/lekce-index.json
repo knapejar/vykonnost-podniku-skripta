@@ -1,0 +1,147 @@
+[
+  {
+    "cislo": 1,
+    "nazev": "Výkonnost a hodnotové řízení podniku",
+    "popis": "Co je výkonnost, proč řídit hodnotu a jak se liší klasické a moderní přístupy k jejímu měření.",
+    "lekce": [
+      { "id": "1.1", "nazev": "Co je výkonnost podniku a proč řídit hodnotu", "soubor": "t1-l1-co-je-vykonnost.html", "strany": "13–16" },
+      { "id": "1.2", "nazev": "Válka ukazatelů – klasické versus moderní přístupy", "soubor": "t1-l2-valka-ukazatelu.html", "strany": "16–19" }
+    ]
+  },
+  {
+    "cislo": 2,
+    "nazev": "Klasické ukazatele finanční výkonnosti",
+    "popis": "Tradiční účetní ukazatele – zisk, cash flow a rentabilita – a jejich meze při měření hodnoty.",
+    "lekce": [
+      { "id": "2.1", "nazev": "Ukazatele zisku a cash flow", "soubor": "t2-l1-zisk-cash-flow.html", "strany": "20–23" },
+      { "id": "2.2", "nazev": "Ukazatele rentability a kritika klasických ukazatelů", "soubor": "t2-l2-rentabilita-kritika.html", "strany": "23–25" }
+    ]
+  },
+  {
+    "cislo": 3,
+    "nazev": "Finanční analýza v řízení výkonnosti",
+    "popis": "Nástroje finanční analýzy: od absolutních a rozdílových ukazatelů přes poměrové skupiny až po souhrnné modely.",
+    "lekce": [
+      { "id": "3.1", "nazev": "Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK", "soubor": "t3-l1-uvod-financni-analyza.html", "strany": "26–28" },
+      { "id": "3.2", "nazev": "Analýza rentability a zadluženosti", "soubor": "t3-l2-rentabilita-zadluzenost.html", "strany": "28–30" },
+      { "id": "3.3", "nazev": "Analýza likvidity a aktivity", "soubor": "t3-l3-likvidita-aktivita.html", "strany": "31–34" },
+      { "id": "3.4", "nazev": "Ukazatele kapitálového trhu, cash flow a přidaná hodnota", "soubor": "t3-l4-kapitalovy-trh.html", "strany": "34–38" },
+      { "id": "3.5", "nazev": "Souhrnné ukazatele – bankrotní a bonitní modely", "soubor": "t3-l5-souhrnne-ukazatele.html", "strany": "38–40" },
+      { "id": "3.6", "nazev": "Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy", "soubor": "t3-l6-dupont-soustavy.html", "strany": "40–42" }
+    ]
+  },
+  {
+    "cislo": 4,
+    "nazev": "Moderní měřítka výkonnosti I – DCF a tržní měřítka",
+    "popis": "Diskontované peněžní toky a tržní pohled na tvorbu hodnoty pro akcionáře.",
+    "lekce": [
+      { "id": "4.1", "nazev": "Proč moderní ukazatele; DCF, NPV a IRR", "soubor": "t4-l1-dcf-npv-irr.html", "strany": "43–46" },
+      { "id": "4.2", "nazev": "Tržní měřítka – MVA, Excess Return a TSR", "soubor": "t4-l2-trzni-meritka.html", "strany": "46–52" }
+    ]
+  },
+  {
+    "cislo": 5,
+    "nazev": "Ekonomická přidaná hodnota (EVA)",
+    "popis": "Klíčové moderní měřítko výkonnosti: podstata, účetní úpravy, výpočet, praxe i odměňování.",
+    "lekce": [
+      { "id": "5.1", "nazev": "Podstata a výpočet EVA", "soubor": "t5-l1-podstata-eva.html", "strany": "52–56" },
+      { "id": "5.2", "nazev": "Účetní úpravy rozvahy – vymezení NOA", "soubor": "t5-l2-noa.html", "strany": "56–62" },
+      { "id": "5.3", "nazev": "NOPAT, náklady na kapitál a zjednodušené verze EVA", "soubor": "t5-l3-nopat-naklady-kapital.html", "strany": "62–69" },
+      { "id": "5.4", "nazev": "EVA v praxi – případové studie a srovnání s tržními měřítky", "soubor": "t5-l4-eva-v-praxi.html", "strany": "69–74" },
+      { "id": "5.5", "nazev": "EVA pro investiční rozhodování a ocenění podniku", "soubor": "t5-l5-eva-investice-oceneni.html", "strany": "74–76" },
+      { "id": "5.6", "nazev": "EVA a odměňování – bonusové systémy", "soubor": "t5-l6-eva-odmenovani.html", "strany": "76–83" },
+      { "id": "5.7", "nazev": "Zhodnocení EVA, empirické studie a zavedení do praxe", "soubor": "t5-l7-zhodnoceni-eva.html", "strany": "83–91" }
+    ]
+  },
+  {
+    "cislo": 6,
+    "nazev": "Měřítka na bázi cash flow a souhrnné srovnání",
+    "popis": "Ukazatele postavené na peněžních tocích (SVA, CFROI, TBR, CROGA) a jejich vzájemné srovnání.",
+    "lekce": [
+      { "id": "6.1", "nazev": "Shareholder Value Added – SVA", "soubor": "t6-l1-sva.html", "strany": "91–93" },
+      { "id": "6.2", "nazev": "Cash Flow Return on Investment – CFROI", "soubor": "t6-l2-cfroi.html", "strany": "93–98" },
+      { "id": "6.3", "nazev": "CFROI – oceňování, zhodnocení, TBR a CROGA", "soubor": "t6-l3-cfroi-tbr-croga.html", "strany": "98–101" },
+      { "id": "6.4", "nazev": "Souhrnné srovnání ukazatelů výkonnosti", "soubor": "t6-l4-souhrnne-srovnani.html", "strany": "101–105" }
+    ]
+  },
+  {
+    "cislo": 7,
+    "nazev": "Generátory hodnoty a řízení výnosů, nákladů a zisku",
+    "popis": "Faktory tvořící hodnotu, pyramidové rozklady a nástroje řízení tržeb, nákladů a zisku.",
+    "lekce": [
+      { "id": "7.1", "nazev": "Generátory hodnoty", "soubor": "t7-l1-generatory-hodnoty.html", "strany": "106–113" },
+      { "id": "7.2", "nazev": "Pyramidové soustavy ukazatelů – rozklad EVA", "soubor": "t7-l2-pyramidovy-rozklad-eva.html", "strany": "113–116" },
+      { "id": "7.3", "nazev": "Tržby a řízení nákladů – bod zvratu a provozní páka", "soubor": "t7-l3-bod-zvratu-provozni-paka.html", "strany": "116–122" },
+      { "id": "7.4", "nazev": "Krycí příspěvek a moderní kalkulace nákladů ABC", "soubor": "t7-l4-kryci-prispevek-abc.html", "strany": "122–127" },
+      { "id": "7.5", "nazev": "Konkurenceschopnost, rozdělování zisku a dividendová politika", "soubor": "t7-l5-dividendova-politika.html", "strany": "127–134" },
+      { "id": "7.6", "nazev": "Analýza využití majetku", "soubor": "t7-l6-vyuziti-majetku.html", "strany": "134–135" }
+    ]
+  },
+  {
+    "cislo": 8,
+    "nazev": "Investice a čistý pracovní kapitál",
+    "popis": "Strategické investiční rozhodování a řízení čistého pracovního kapitálu (zásoby, pohledávky, peníze).",
+    "lekce": [
+      { "id": "8.1", "nazev": "Strategické investiční rozhodování", "soubor": "t8-l1-investicni-rozhodovani.html", "strany": "135–144" },
+      { "id": "8.2", "nazev": "ČPK – hotovostní cyklus a řízení zásob", "soubor": "t8-l2-cpk-zasoby.html", "strany": "144–149" },
+      { "id": "8.3", "nazev": "Řízení pohledávek a peněžních prostředků", "soubor": "t8-l3-pohledavky-penize.html", "strany": "149–155" },
+      { "id": "8.4", "nazev": "Krátkodobé finanční zdroje a vliv ČPK na výkonnost", "soubor": "t8-l4-kratkodobe-zdroje.html", "strany": "155–161" }
+    ]
+  },
+  {
+    "cislo": 9,
+    "nazev": "Náklady na kapitál a kapitálová struktura",
+    "popis": "Cena kapitálu, model CAPM, WACC a rozhodování o optimální kapitálové struktuře.",
+    "lekce": [
+      { "id": "9.1", "nazev": "Náklady na kapitál – podstata, riziko a cizí kapitál", "soubor": "t9-l1-naklady-cizi-kapital.html", "strany": "161–168" },
+      { "id": "9.2", "nazev": "Náklady na vlastní kapitál – CAPM a další modely", "soubor": "t9-l2-capm.html", "strany": "168–175" },
+      { "id": "9.3", "nazev": "WACC, mezinárodní kontext a vliv na výkonnost", "soubor": "t9-l3-wacc.html", "strany": "175–182" },
+      { "id": "9.4", "nazev": "Kapitálová struktura – teorie a bod indiference", "soubor": "t9-l4-kapitalova-struktura.html", "strany": "182–188" },
+      { "id": "9.5", "nazev": "Zdroje financování a jejich vliv na výkonnost", "soubor": "t9-l5-zdroje-financovani.html", "strany": "188–193" }
+    ]
+  },
+  {
+    "cislo": 10,
+    "nazev": "Balanced Scorecard",
+    "popis": "Vyvážený systém ukazatelů propojující strategii se čtyřmi perspektivami řízení výkonnosti.",
+    "lekce": [
+      { "id": "10.1", "nazev": "Balanced Scorecard a jeho čtyři perspektivy", "soubor": "t10-l1-bsc-perspektivy.html", "strany": "194–197" },
+      { "id": "10.2", "nazev": "Strategická mapa, kaskádování a odměňování v BSC", "soubor": "t10-l2-strategicka-mapa.html", "strany": "197–200" },
+      { "id": "10.3", "nazev": "Využití BSC a propojení s dalšími koncepty", "soubor": "t10-l3-vyuziti-bsc.html", "strany": "200–205" }
+    ]
+  },
+  {
+    "cislo": 11,
+    "nazev": "Nástroje hodnotového řízení",
+    "popis": "Benchmarking, finanční plánování, moderní rozpočtování, oceňování podniku a podpora IS/ICT.",
+    "lekce": [
+      { "id": "11.1", "nazev": "Benchmarking v řízení výkonnosti", "soubor": "t11-l1-benchmarking.html", "strany": "206–210" },
+      { "id": "11.2", "nazev": "Finanční plán a řízení rizik", "soubor": "t11-l2-financni-plan-rizika.html", "strany": "210–214" },
+      { "id": "11.3", "nazev": "ABC/ABB a Beyond Budgeting", "soubor": "t11-l3-abc-abb-beyond-budgeting.html", "strany": "214–218" },
+      { "id": "11.4", "nazev": "Oceňování podniku – výnosové metody", "soubor": "t11-l4-oceneni-vynosove.html", "strany": "218–227" },
+      { "id": "11.5", "nazev": "Tržní a majetkové metody; růstové příležitosti a hodnota", "soubor": "t11-l5-trzni-majetkove-metody.html", "strany": "227–231" },
+      { "id": "11.6", "nazev": "IS/ICT pro řízení výkonnosti", "soubor": "t11-l6-is-ict.html", "strany": "231–235" },
+      { "id": "11.7", "nazev": "Desatero pro úspěšné zavedení systému řízení výkonnosti", "soubor": "t11-l7-desatero.html", "strany": "236–237" }
+    ]
+  },
+  {
+    "cislo": 12,
+    "nazev": "Případová studie PLAST, s.r.o.",
+    "popis": "Komplexní aplikace nástrojů řízení výkonnosti na modelovém podniku – od analýzy odvětví po ocenění.",
+    "lekce": [
+      { "id": "12.1", "nazev": "Makroekonomická a odvětvová analýza", "soubor": "t12-l1-makro-odvetvi.html", "strany": "238–244" },
+      { "id": "12.2", "nazev": "Benchmarking I – metoda, výběr a benchmark", "soubor": "t12-l2-benchmarking-1.html", "strany": "244–251" },
+      { "id": "12.3", "nazev": "Benchmarking II – analýza faktorů a závěry", "soubor": "t12-l3-benchmarking-2.html", "strany": "251–258" },
+      { "id": "12.4", "nazev": "Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK", "soubor": "t12-l4-financni-analyza-1.html", "strany": "258–262" },
+      { "id": "12.5", "nazev": "Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita", "soubor": "t12-l5-financni-analyza-2.html", "strany": "262–267" },
+      { "id": "12.6", "nazev": "Finanční analýza PLAST III – souhrnné ukazatele, SPIDER", "soubor": "t12-l6-financni-analyza-3.html", "strany": "268–270" },
+      { "id": "12.7", "nazev": "EVA v podniku PLAST – vymezení NOA a NOPAT", "soubor": "t12-l7-eva-noa-nopat.html", "strany": "271–277" },
+      { "id": "12.8", "nazev": "EVA v podniku PLAST – WACC a výpočet EVA", "soubor": "t12-l8-eva-wacc.html", "strany": "277–285" },
+      { "id": "12.9", "nazev": "Generátory hodnoty – pyramidový rozklad a citlivostní analýza", "soubor": "t12-l9-generatory-citlivost.html", "strany": "285–292" },
+      { "id": "12.10", "nazev": "Balanced Scorecard a strategická mapa podniku PLAST", "soubor": "t12-l10-bsc-strategicka-mapa.html", "strany": "292–300" },
+      { "id": "12.11", "nazev": "Finanční plán 2005–2007 a úprava na vstupy EVA", "soubor": "t12-l11-financni-plan.html", "strany": "301–306" },
+      { "id": "12.12", "nazev": "Ocenění podniku na bázi EVA, simulace generátorů a závěr", "soubor": "t12-l12-oceneni-eva.html", "strany": "306–311" },
+      { "id": "R", "nazev": "Referenční příloha: účetní výkazy, leasingový kalendář, funkcionální rozklad EVA", "soubor": "t12-R-prilohy.html", "strany": "311–317" }
+    ]
+  }
+]

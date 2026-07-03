@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4.1 Proč moderní ukazatele; DCF, NPV a IRR – Výkonnost podniku</title>
+  <meta name="description" content="Proč vznikají moderní měřítka výkonnosti, diskontované cash flow (DCF), čistá současná hodnota (NPV) a vnitřní výnosové procento (IRR) metodou lineární interpolace.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 4 -->
+    <nav class="panel" data-panel data-aktivni-lekce="4.1" aria-label="Lekce tématu 4">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 4</div>
+      <div class="panel__nazev-tema">Moderní měřítka výkonnosti I – DCF a tržní měřítka</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="4.1" href="t4-l1-dcf-npv-irr.html"><span class="panel__odkaz-cislo">4.1</span><span>Proč moderní ukazatele; DCF, NPV a IRR</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="4.2" href="t4-l2-trzni-meritka.html"><span class="panel__odkaz-cislo">4.2</span><span>Tržní měřítka – MVA, Excess Return a TSR</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-4">Téma 4 · DCF a tržní měřítka</a></li>
+          <li><span aria-current="page">Lekce 4.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 4.1</span>
+        <h1>Proč moderní ukazatele; DCF, NPV a IRR</h1>
+        <p class="lekce-hlavicka__strany">Strany 43–46</p>
+      </header>
+
+      <p>
+        Tradiční účetní ukazatele mají jednu společnou slabinu: měří výkonnost na
+        základě dat, která nevznikla proto, aby zachytila <em>ekonomickou</em>
+        <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-hodnota-podniku" target="_blank" rel="noopener">hodnotu podniku</a>. Existuje tak <strong>koncepční bariéra</strong> mezi tím,
+        jak podnik oceňuje trh, a tím, co ukazují účetní výkazy. Trh totiž oceňuje
+        výhodnost investice podle <em>očekávaných budoucích peněžních toků</em>,
+        které přepočítává na jejich <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-soucasna-hodnota" target="_blank" rel="noopener">současnou hodnotu</a> pomocí <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">nákladů na kapitál</a> –
+        tedy se zohledněním <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-riziko" target="_blank" rel="noopener">rizika</a> i <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-casova-hodnota-penez" target="_blank" rel="noopener">časové hodnoty peněz</a>. Účetní metody takto
+        nefungují, protože byly vytvořeny pro jiné účely.
+      </p>
+      <p>
+        Právě z kritiky klasických ukazatelů vznikají a v praxi zdomácňují moderní
+        přístupy k měření a řízení výkonnosti. V této lekci se seznámíme s prvním
+        z nich – s <a class="pojem" href="#pojem-dcf">diskontovaným cash flow</a>
+        (DCF) – a připomeneme si dvě klíčová kritéria, která z něj vycházejí:
+        <a class="pojem" href="#pojem-npv">čistou současnou hodnotu</a> (NPV) a
+        <a class="pojem" href="#pojem-irr">vnitřní výnosové procento</a> (IRR).
+      </p>
+
+      <!-- CALLOUT: info – proč moderní ukazatele -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kritéria moderního ukazatele (Mařík, Maříková)</p>
+        <div class="callout__telo">
+          <p>Podle Maříka a Maříkové by <a class="pojem" href="t1-l2-valka-ukazatelu.html?zvyraznit=pojem-moderni-ukazatele" target="_blank" rel="noopener">moderní ukazatel</a> výkonnosti měl:</p>
+          <ul>
+            <li>vykazovat co nejužší, statisticky prokazatelnou vazbu na hodnotu
+              akcií (<a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-shareholder-value" target="_blank" rel="noopener">shareholder value</a>),</li>
+            <li>co nejvíce využívat údaje z účetnictví (nižší pracnost, lepší
+              komunikace s praxí),</li>
+            <li>překonávat námitky proti účetním ukazatelům – zejména zahrnovat
+              <strong>kalkulaci rizika</strong> a <strong>rozsah vázaného
+              kapitálu</strong>,</li>
+            <li>umožňovat hodnocení výkonnosti i ocenění podniku.</li>
+          </ul>
+          <p>K tomu se přidávají dva požadavky navíc: jasná vazba ukazatele na
+            všechny úrovně řízení a podpora řízení hodnoty. Najít ukazatel, který
+            splní vše, je obtížné – proto se v praxi používá více konceptů vedle
+            sebe.</p>
+        </div>
+      </aside>
+
+      <h2>Diskontované cash flow (DCF)</h2>
+      <p>
+        <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-volne-cash-flow" target="_blank" rel="noopener">Volné cash flow</a> je absolutní veličina, která nezohledňuje <em>čas</em> ani
+        <em>riziko</em>, za nichž peněžní toky vznikají. Pokud je ale diskontujeme
+        náklady na kapitál, obě tyto okolnosti do měřítka zahrneme. Diskontované
+        cash flow se tak stává výhodným měřítkem výkonnosti a nástrojem, kterým
+        investoři posuzují výhodnost svých investic – buď pomocí čisté současné
+        hodnoty, nebo pomocí vnitřního výnosového procenta.
+      </p>
+
+      <!-- DEFINICE: DCF -->
+      <section class="definice" id="pojem-dcf">
+        <h3 class="definice__pojem">Diskontované cash flow (DCF)</h3>
+        <div class="definice__telo">
+          <p>
+            Budoucí peněžní toky přepočtené (diskontované) na jejich současnou
+            hodnotu pomocí nákladů na kapitál. Na rozdíl od prostého volného cash
+            flow zohledňuje <strong>časovou hodnotu peněz</strong> i
+            <strong>riziko</strong>, s nímž jsou peněžní toky produkovány.
+          </p>
+        </div>
+      </section>
+
+      <h2>Čistá současná hodnota (NPV)</h2>
+      <p>
+        Čistá současná hodnota (Net Present Value) porovnává současnou hodnotu
+        budoucích peněžních toků z projektu s počátečním <a class="pojem" href="t8-l1-investicni-rozhodovani.html?zvyraznit=pojem-kapitalovy-vydaj" target="_blank" rel="noopener">kapitálovým výdajem</a>.
+        Platí pro ni vztah:
+      </p>
+
+      <!-- VZOREC (3.1) -->
+      <div class="vzorec" id="vzorec-3-1">
+        <div class="vzorec__telo">
+          <span class="math">NPV<span class="op">=</span>
+            <span style="display:inline-flex;flex-direction:column;align-items:center;line-height:1;vertical-align:middle;font-size:.6em">
+              <span>n</span>
+              <span style="font-size:2.1em;line-height:1">Σ</span>
+              <span>t=1</span>
+            </span>
+            <span class="frac">
+              <span class="frac__cit">CF<sub>t</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>i)<sup>t</sup></span>
+            </span>
+            <span class="op">−</span>K</span>
+        </div>
+        <div class="vzorec__cislo">(3.1)</div>
+      </div>
+
+      <p>Kde:</p>
+      <ul>
+        <li><span class="math">CF<sub>t</sub></span> – peněžní toky z realizace
+          investičního projektu v jednotlivých letech životnosti,</li>
+        <li><span class="math">K</span> – kapitálový výdaj spojený s investicí,</li>
+        <li><span class="math">n</span> – doba životnosti investice,</li>
+        <li><span class="math">i</span> – diskontní míra odrážející požadovanou
+          výnosnost investice.</li>
+      </ul>
+
+      <!-- DEFINICE: NPV -->
+      <section class="definice" id="pojem-npv">
+        <h3 class="definice__pojem">Čistá současná hodnota (NPV)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi součtem diskontovaných budoucích peněžních toků projektu
+            a počátečním kapitálovým výdajem. Vyjadřuje, o kolik projekt zvýší
+            (nebo sníží) tržní hodnotu podniku nad rámec požadované výnosnosti.
+          </p>
+        </div>
+      </section>
+
+      <p>Interpretace výsledku je přímočará:</p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Rozhodovací pravidlo podle znaménka NPV</caption>
+          <thead>
+            <tr>
+              <th scope="col">Hodnota</th>
+              <th scope="col">Význam</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="hodnota-tvorba">NPV &gt; 0</th>
+              <td>Projekt je přijatelný – zaručuje požadovanou výnosnost a
+                <strong>zvyšuje</strong> tržní hodnotu podniku.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="hodnota-niceni">NPV &lt; 0</th>
+              <td>Projekt není přijatelný – nezajišťuje požadovanou výnosnost a
+                jeho přijetí by tržní hodnotu podniku <strong>snížilo</strong>.</td>
+            </tr>
+            <tr>
+              <th scope="row">NPV = 0</th>
+              <td>Projekt je z hlediska tvorby hodnoty indiferentní.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Vnitřní výnosové procento (IRR)</h2>
+      <p>
+        Vnitřní výnosové procento (Internal Rate of Return) je taková diskontní
+        míra – tedy výnosnost investice – při které je čistá současná hodnota
+        <strong>rovna nule</strong>. Je to výnosnost, kterou projekt sám o sobě
+        „nese"; porovnáním s požadovanou výnosností poznáme, jakou má projekt
+        rezervu.
+      </p>
+
+      <!-- DEFINICE: IRR -->
+      <section class="definice" id="pojem-irr">
+        <h3 class="definice__pojem">Vnitřní výnosové procento (IRR)</h3>
+        <div class="definice__telo">
+          <p>
+            Diskontní míra, při níž je čistá současná hodnota projektu rovna nule
+            (<span class="math">NPV<span class="op">=</span>0</span>). Vyjadřuje
+            skutečnou výnosnost projektu; je-li IRR vyšší než požadovaná
+            výnosnost investora, projekt tvoří hodnotu.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        IRR obvykle nelze z rovnice (3.1) vyjádřit přímo. V praxi se určuje
+        přibližně metodou <strong>lineární interpolace</strong>:
+      </p>
+      <ol>
+        <li>Vypočítáme NPV při zvolené diskontní sazbě.</li>
+        <li>Je-li NPV kladná, zvolíme <em>vyšší</em> sazbu a NPV spočítáme znovu
+          (je-li první NPV záporná, volíme naopak <em>nižší</em> sazbu).</li>
+        <li>Jakmile máme jednu sazbu s kladnou a jednu se zápornou NPV, dosadíme
+          do interpolačního vztahu:</li>
+      </ol>
+
+      <!-- VZOREC (3.2) -->
+      <div class="vzorec" id="vzorec-3-2">
+        <div class="vzorec__telo">
+          <span class="math">IRR<span class="op">=</span>i<sub>N</sub><span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit">NPV<sub>N</sub></span>
+              <span class="frac__jmen">NPV<sub>N</sub><span class="op">+</span>NPV<sub>V</sub></span>
+            </span>
+            <span class="op">×</span>(i<sub>V</sub><span class="op">−</span>i<sub>N</sub>)</span>
+        </div>
+        <div class="vzorec__cislo">(3.2)</div>
+      </div>
+
+      <p>Kde:</p>
+      <ul>
+        <li><span class="math">i<sub>N</sub></span> – diskontní sazba, při níž je
+          NPV kladná (hodnota <span class="math">NPV<sub>N</sub></span>),</li>
+        <li><span class="math">i<sub>V</sub></span> – diskontní sazba, při níž je
+          NPV záporná (<span class="math">NPV<sub>V</sub></span> se do vzorce
+          dosazuje v <strong>absolutní hodnotě</strong>).</li>
+      </ul>
+
+      <!-- DEFINICE: lineární interpolace -->
+      <section class="definice" id="pojem-linearni-interpolace">
+        <h3 class="definice__pojem">Lineární interpolace (výpočet IRR)</h3>
+        <div class="definice__telo">
+          <p>
+            Přibližný postup určení IRR: mezi jednou sazbou s kladnou a jednou
+            se zápornou NPV proložíme přímku a najdeme její průsečík s nulou.
+            Čím blíže jsou obě zvolené sazby skutečnému IRR, tím přesnější je
+            odhad (skutečná křivka NPV je totiž mírně zakřivená).
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 3.1 ================= -->
+      <h2>Řešený příklad 3.1</h2>
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Zadání</p>
+        <div class="callout__telo">
+          <p>Podnik zvažuje investici. Kapitálový výdaj je <strong>40 mil. Kč</strong>,
+          navíc je nutná investice do <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého pracovního kapitálu</a> ve výši
+          <strong>10 mil. Kč</strong>. Očekávaný vývoj zisku ve čtyřech letech je
+          v tabulce níže, majetek se odpisuje lineárně, sazba daně je 20 %.</p>
+          <p><strong>a)</strong> Je investice výhodná, požaduje-li investor výnosnost 10 %?<br>
+          <strong>b)</strong> Jakou výnosnost lze u projektu očekávat?</p>
+        </div>
+      </aside>
+
+      <p>
+        Nejprve z očekávaného zisku odvodíme <strong>volné cash flow</strong>
+        projektu v jednotlivých letech. K provoznímu zisku po zdanění
+        <span class="math">EBIT<span class="op">×</span>(1<span class="op">−</span>T)</span>
+        přičteme zpět odpisy (nepeněžní náklad) a v roce 0 zohledníme kapitálovou
+        investici i investici do ČPK.
+      </p>
+
+      <!-- TABULKA: výpočet volného cash flow -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3.1 – Výpočet volného cash flow projektu (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">0</th>
+              <th scope="col" class="cislo">1. rok</th>
+              <th scope="col" class="cislo">2. rok</th>
+              <th scope="col" class="cislo">3. rok</th>
+              <th scope="col" class="cislo">4. rok</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EBITDA</th><td class="cislo">–</td><td class="cislo">15</td><td class="cislo">20</td><td class="cislo">25</td><td class="cislo">20</td></tr>
+            <tr><th scope="row">Odpisy (−)</th><td class="cislo">–</td><td class="cislo">10</td><td class="cislo">10</td><td class="cislo">10</td><td class="cislo">10</td></tr>
+            <tr><th scope="row">EBIT</th><td class="cislo">–</td><td class="cislo">5</td><td class="cislo">10</td><td class="cislo">15</td><td class="cislo">10</td></tr>
+            <tr><th scope="row">EBIT × (1 − T)</th><td class="cislo">–</td><td class="cislo">4</td><td class="cislo">8</td><td class="cislo">12</td><td class="cislo">8</td></tr>
+            <tr><th scope="row">Odpisy (+)</th><td class="cislo">–</td><td class="cislo">10</td><td class="cislo">10</td><td class="cislo">10</td><td class="cislo">10</td></tr>
+            <tr><th scope="row">Kapitálová investice</th><td class="cislo">−40</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td></tr>
+            <tr><th scope="row">Investice do ČPK</th><td class="cislo">−10</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Volné cash flow</th>
+              <td class="cislo hodnota-niceni">−50</td>
+              <td class="cislo">14</td>
+              <td class="cislo">18</td>
+              <td class="cislo">22</td>
+              <td class="cislo">18</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>a) Výpočet NPV při 10 %.</strong> Každý roční tok vydělíme
+        diskontním faktorem <span class="math">(1<span class="op">+</span>i)<sup>t</sup></span>
+        a od součtu odečteme počáteční výdaj 50 mil. Kč.
+      </p>
+
+      <!-- TABULKA: diskontování při 10 % -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Diskontování peněžních toků při i = 10 % (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Rok t</th>
+              <th scope="col" class="cislo">CF<sub>t</sub></th>
+              <th scope="col" class="cislo">1 / (1,10)<sup>t</sup></th>
+              <th scope="col" class="cislo">Současná hodnota</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1</th><td class="cislo">14</td><td class="cislo">0,9091</td><td class="cislo">12,73</td></tr>
+            <tr><th scope="row">2</th><td class="cislo">18</td><td class="cislo">0,8264</td><td class="cislo">14,88</td></tr>
+            <tr><th scope="row">3</th><td class="cislo">22</td><td class="cislo">0,7513</td><td class="cislo">16,53</td></tr>
+            <tr><th scope="row">4</th><td class="cislo">18</td><td class="cislo">0,6830</td><td class="cislo">12,29</td></tr>
+            <tr><th scope="row">Σ současných hodnot</th><td class="cislo"></td><td class="cislo"></td><td class="cislo">56,43</td></tr>
+            <tr><th scope="row">− kapitálový výdaj K</th><td class="cislo"></td><td class="cislo"></td><td class="cislo">−50,00</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">NPV<sub>10 %</sub></th><td class="cislo"></td><td class="cislo"></td>
+              <td class="cislo hodnota-tvorba">6,43</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Kladná NPV = <strong>6,43 mil. Kč</strong> znamená, že projekt při
+        očekávaných peněžních tocích vydělá <em>více</em>, než činí požadovaná
+        výnosnost. Tento rozdíl je zdrojem tvorby hodnoty – <strong>investice je
+        výhodná</strong>.
+      </p>
+
+      <p>
+        <strong>b) Výpočet IRR.</strong> NPV při 10 % byla kladná; potřebujeme
+        proto sazbu, při které bude NPV záporná. Zvolme 20 %. Stejným postupem
+        vyjde <span class="math">NPV<sub>20 %</sub><span class="op">=</span>−4,42</span> mil. Kč.
+        IRR tedy leží mezi 10 % a 20 %. Dosadíme do interpolačního vztahu (3.2):
+      </p>
+
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">IRR<span class="op">=</span>10<span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit">6,43</span>
+              <span class="frac__jmen">6,43<span class="op">+</span>4,42</span>
+            </span>
+            <span class="op">×</span>(20<span class="op">−</span>10)<span class="op">=</span>15,9 <span class="op">%</span></span>
+        </div>
+      </div>
+
+      <p>
+        Vnitřní výnosové procento projektu činí přibližně <strong>15,9 %</strong>.
+        Protože je vyšší než požadovaných 10 %, potvrzuje se závěr z části a) –
+        projekt tvoří hodnotu a má proti požadované výnosnosti rezervu zhruba
+        6 procentních bodů.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE (stepper): NPV(i) a IRR ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">NPV v závislosti na diskontní sazbě – kde leží IRR?</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Bod na křivce se posouvá podle zvolené diskontní sazby; tam, kde křivka protíná osu (NPV = 0), leží vnitřní výnosové procento.</p>
+        </figcaption>
+        <div id="viz-npv-irr"></div>
+      </figure>
+
+      <!-- CALLOUT: pozor – interpolace je aproximace -->
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Interpolace je jen přibližná</p>
+        <div class="callout__telo">
+          <p>Skutečná křivka NPV(i) není přímka, ale je mírně zakřivená. Lineární
+          interpolace mezi 10 % a 20 % proto dává jen <strong>odhad</strong> IRR.
+          Čím užší interval sazeb kolem skutečného průsečíku zvolíte, tím přesnější
+          výsledek dostanete.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Investor zpřísní svůj požadavek a místo 10 % chce výnosnost 20 %.
+          Změní se rozhodnutí o přijetí projektu z příkladu 3.1? Proč?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Ano, změní. Při požadované výnosnosti 20 % diskontujeme sazbou
+            <span class="math">i<span class="op">=</span>20 <span class="op">%</span></span>
+            a dostáváme <span class="math">NPV<sub>20 %</sub><span class="op">=</span>−4,42</span> mil. Kč,
+            tedy zápornou hodnotu. Projekt by tržní hodnotu podniku snížil, a proto
+            by nyní byl <strong>zamítnut</strong>. Důvod je jednoduchý: požadovaná
+            výnosnost 20 % převyšuje IRR projektu (15,9 %). Jakmile diskontní sazba
+            překročí IRR, NPV se stává zápornou.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Co říká IRR = 15,9 % o „rezervě" projektu, když investor požaduje
+          výnosnost 10 %?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>IRR je nejvyšší diskontní sazba, při které projekt ještě není
+            ztrátový (NPV = 0). Rozdíl mezi IRR a požadovanou výnosností,
+            <span class="math">15,9 <span class="op">%</span><span class="op">−</span>10 <span class="op">%</span><span class="op">=</span>5,9</span>
+            procentního bodu, je bezpečnostní <strong>rezerva</strong> projektu:
+            požadovaná výnosnost (nebo náklady na kapitál) by mohla vzrůst až o
+            necelých 6 p. b., než by projekt přestal tvořit hodnotu. Čím větší je
+            tento odstup, tím odolnější je projekt vůči zdražení kapitálu či
+            zhoršení odhadů.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- CALLOUT: info – oceňování podniku -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Od projektu k celému podniku</p>
+        <div class="callout__telo">
+          <p>Stejný postup, jaký jsme použili pro jeden investiční projekt, slouží
+          i k <strong><a class="pojem" href="t11-l4-oceneni-vynosove.html?zvyraznit=pojem-ocenovani-podniku" target="_blank" rel="noopener">oceňování podniku</a></strong>: hodnota podniku je funkcí volných
+          cash flow dosažených v budoucnu, diskontovaných nákladem na kapitál.
+          Model volných peněžních toků je založen na předpovědích budoucího vývoje –
+          to je pro investora zásadní. Jeho slabinou ovšem je, že neumožňuje přímo
+          propojit měření a řízení výkonnosti s motivačním systémem manažerů.
+          Proto se hledají další měřítka konzistentní s tržním oceněním – například
+          <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">tržní přidaná hodnota</a> (MVA) v následující lekci.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč účetní data ne vždy odpovídají tomu, jak podnik oceňuje trh?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, k jakému účelu vzniklo účetnictví a co naopak sleduje trh.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Mezi tržním oceněním a účetní výkonností je <strong>koncepční bariéra</strong>. Účetní metody byly vytvořeny pro jiné účely a nezachycují ekonomický pohled. Trh oceňuje podnik podle očekávaných <strong>budoucích peněžních toků</strong> přepočtených na současnou hodnotu pomocí nákladů na kapitál – tedy se zohledněním rizika a časové hodnoty peněz.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Čím je DCF výhodnější měřítko než prosté volné cash flow?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co s peněžními toky udělá diskontování?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Volné cash flow je absolutní veličina, která nezohledňuje čas ani riziko. Diskontováním náklady na kapitál obě tyto okolnosti do měřítka zahrneme – DCF tak respektuje <strong>časovou hodnotu peněz</strong> i <strong>riziko</strong>, za nichž toky vznikají.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Co přesně vyjadřuje IRR a jaký je jeho vztah k NPV?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na křivku NPV(i) a její průsečík s osou.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>IRR je ta diskontní míra, při níž je <span class="math">NPV<span class="op">=</span>0</span> – tedy bod, kde křivka NPV(i) protíná vodorovnou osu. Vyjadřuje skutečnou výnosnost projektu. Je-li požadovaná výnosnost nižší než IRR, je NPV kladná (projekt tvoří hodnotu); je-li vyšší, je NPV záporná.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Jak se pomocí lineární interpolace určí IRR a proč je výsledek jen přibližný?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Potřebujeme dvě sazby – jednu s kladnou a jednu se zápornou NPV. Jaký tvar má skutečná křivka?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Najdeme jednu sazbu <span class="math">i<sub>N</sub></span> s kladnou NPV a jednu <span class="math">i<sub>V</sub></span> se zápornou NPV a dosadíme do vztahu (3.2). Metoda mezi oběma body proloží <strong>přímku</strong> a hledá její průsečík s nulou. Protože skutečná křivka NPV(i) je zakřivená, jde jen o <strong>odhad</strong>; přesnost roste, čím blíže jsou obě sazby skutečnému IRR.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>V příkladu 3.1 vyšla NPV<sub>10 %</sub> = 6,43 mil. Kč. Co tato hodnota znamená pro rozhodnutí o projektu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Použijte rozhodovací pravidlo podle znaménka NPV.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>NPV je kladná, projekt tedy vydělá více než požadovaných 10 %. Rozdíl 6,43 mil. Kč je zdrojem <strong>tvorby hodnoty</strong> a zvyšuje tržní hodnotu podniku – investice je výhodná a měla by být přijata.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t3-l6-dupont-soustavy.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">3.6 Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t4-l2-trzni-meritka.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">4.2 Tržní měřítka – MVA, Excess Return a TSR</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // Peněžní toky projektu z příkladu 3.1 (mil. Kč): index = rok t
+      var CF = [-50, 14, 18, 22, 18];
+
+      // Čistá současná hodnota při diskontní míře i (desetinné číslo)
+      function npv(i) {
+        var s = 0;
+        for (var t = 0; t < CF.length; t++) {
+          s += CF[t] / Math.pow(1 + i, t);
+        }
+        return s;
+      }
+
+      // KROKOVÁ VIZUALIZACE: křivka NPV(i) s vyznačením IRR (průsečík s osou)
+      Skripta.stepper('viz-npv-irr', {
+        sirka: 720, vyska: 400,
+        stavy: [
+          { rate: 0.10 },
+          { rate: 0.20 },
+          { rate: 0.159 }
+        ],
+        popisky: [
+          'Při diskontní sazbě 10 % je NPV = +6,43 mil. Kč (kladná, zelený bod). Projekt je výhodný.',
+          'Zvýšíme sazbu na 20 %: NPV = −4,42 mil. Kč (záporná, červený bod). Projekt by nebyl přijatelný.',
+          'IRR ≈ 15,9 % je tam, kde křivka protíná osu NPV = 0 – hranice mezi tvorbou a ničením hodnoty.'
+        ],
+        render: function (svg, stav, i, u) {
+          // Škály: x = diskontní sazba 0–30 %, y = NPV od −15 do 25 mil. Kč
+          var xS = u.skala(0, 30, 70, 680);
+          var yS = u.skala(-15, 25, 340, 30);
+          var y0 = yS(0);
+          var AKCENT = '#4338ca';
+
+          // Osy
+          u.dej(svg, 'osa-x', 'line', { x1: 70, y1: 340, x2: 680, y2: 340, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-y', 'line', { x1: 70, y1: 30, x2: 70, y2: 340, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Nulová linie NPV = 0
+          u.dej(svg, 'nula', 'line', { x1: 70, y1: y0, x2: 680, y2: y0, stroke: u.barvaOsa, 'stroke-width': 1, 'stroke-dasharray': '6 4' });
+          u.dej(svg, 'nula-lbl', 'text', { x: 676, y: y0 - 6, 'text-anchor': 'end', fill: u.barvaText, 'font-size': 12 }, 'NPV = 0');
+
+          // Popisky osy x (procenta)
+          [0, 5, 10, 15, 20, 25, 30].forEach(function (t) {
+            u.dej(svg, 'tx' + t, 'text', { x: xS(t), y: 356, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, t + ' %');
+          });
+          // Popisky osy y (mil. Kč)
+          [-10, 0, 10, 20].forEach(function (v) {
+            u.dej(svg, 'ty_' + (v < 0 ? 'm' + Math.abs(v) : v), 'text', { x: 62, y: yS(v) + 4, 'text-anchor': 'end', fill: u.barvaText, 'font-size': 12 }, u.formatCislo(v));
+          });
+
+          // Názvy os
+          u.dej(svg, 'lbl-x', 'text', { x: 375, y: 392, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 600 }, 'Diskontní sazba i (%)');
+          u.dej(svg, 'lbl-y', 'text', { x: 70, y: 20, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 600 }, 'NPV (mil. Kč)');
+
+          // Křivka NPV(i) – statická, spojnice bodů po 0,5 %
+          var d = '';
+          for (var r = 0; r <= 30.0001; r += 0.5) {
+            d += (d === '' ? 'M' : 'L') + xS(r).toFixed(1) + ' ' + yS(npv(r / 100)).toFixed(1);
+          }
+          u.dej(svg, 'krivka', 'path', { d: d, fill: 'none', stroke: AKCENT, 'stroke-width': 2.5 });
+
+          // Pohyblivý bod podle zvolené sazby
+          var val = npv(stav.rate);
+          var mx = xS(stav.rate * 100);
+          var my = yS(val);
+          // U průsečíku s osou (|NPV| malá ≈ IRR) použijeme neutrální akcent
+          var barva = val > 0.6 ? u.barvaTvorba : (val < -0.6 ? u.barvaNiceni : AKCENT);
+          var vpravo = stav.rate * 100 > 22; // u pravého okraje popisek zarovnáme doleva
+
+          // Vodicí čáry od bodu k osám
+          u.dej(svg, 'g-vert', 'line', { x1: mx, y1: my, x2: mx, y2: 340, stroke: barva, 'stroke-width': 1, 'stroke-dasharray': '4 3', opacity: 0.75 });
+          u.dej(svg, 'g-horiz', 'line', { x1: 70, y1: my, x2: mx, y2: my, stroke: barva, 'stroke-width': 1, 'stroke-dasharray': '4 3', opacity: 0.75 });
+
+          // Bod
+          u.dej(svg, 'bod', 'circle', { cx: mx, cy: my, r: 7, fill: barva, stroke: '#ffffff', 'stroke-width': 2 });
+
+          // Popisek hodnoty NPV u bodu
+          u.dej(svg, 'bod-lbl', 'text', {
+            x: mx + (vpravo ? -12 : 12),
+            y: val >= 0 ? my - 12 : my + 20,
+            'text-anchor': vpravo ? 'end' : 'start',
+            fill: barva, 'font-size': 13, 'font-weight': 700
+          }, 'NPV = ' + u.formatCislo(val, 2));
+
+          // Zvýrazněná hodnota sazby na ose x
+          u.dej(svg, 'bod-rate', 'text', {
+            x: mx, y: 372, 'text-anchor': 'middle', fill: barva, 'font-size': 12, 'font-weight': 700
+          }, 'i = ' + u.formatCislo(stav.rate * 100, 1) + ' %');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

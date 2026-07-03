@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.5 EVA pro investiční rozhodování a ocenění podniku – Výkonnost podniku</title>
+  <meta name="description" content="Využití EVA při investičních kalkulacích a shoda s metodou DCF; oceňování podniku pomocí EVA a tržní hodnota podle vztahů (3.10) a (3.11).">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: staticky vypsané lekce tématu 5, aktivní 5.5 -->
+    <nav class="panel" data-panel data-aktivni-lekce="5.5" aria-label="Lekce tématu 5">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 5</div>
+      <div class="panel__nazev-tema">Ekonomická přidaná hodnota (EVA)</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="5.1" href="t5-l1-podstata-eva.html"><span class="panel__odkaz-cislo">5.1</span><span>Podstata a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.2" href="t5-l2-noa.html"><span class="panel__odkaz-cislo">5.2</span><span>Účetní úpravy rozvahy – vymezení NOA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.3" href="t5-l3-nopat-naklady-kapital.html"><span class="panel__odkaz-cislo">5.3</span><span>NOPAT, náklady na kapitál a zjednodušené verze EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.4" href="t5-l4-eva-v-praxi.html"><span class="panel__odkaz-cislo">5.4</span><span>EVA v praxi</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.5" href="t5-l5-eva-investice-oceneni.html"><span class="panel__odkaz-cislo">5.5</span><span>EVA pro investiční rozhodování a ocenění</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.6" href="t5-l6-eva-odmenovani.html"><span class="panel__odkaz-cislo">5.6</span><span>EVA a odměňování</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.7" href="t5-l7-zhodnoceni-eva.html"><span class="panel__odkaz-cislo">5.7</span><span>Zhodnocení EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-5">Téma 5 · EVA</a></li>
+          <li><span aria-current="page">Lekce 5.5</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 5.5</span>
+        <h1>EVA pro investiční rozhodování a ocenění podniku</h1>
+        <p class="lekce-hlavicka__strany">Strany 74–76</p>
+      </header>
+
+      <p>
+        Dosud jsme <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> používali k <em>měření</em> výkonnosti za uplynulé období.
+        V této lekci ukážeme, že tentýž ukazatel dokáže i <strong>rozhodovat o budoucnosti</strong> –
+        posloužit jako kritérium při hodnocení investičních projektů a jako základ
+        pro <strong>ocenění celého podniku</strong>. Klíčové zjištění zní: hodnocení
+        investice pomocí EVA vede ke <strong>stejnému výsledku</strong> jako tradiční
+        metoda diskontovaných peněžních toků (<a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">DCF</a>).
+      </p>
+
+      <!-- ================= 3.5.3 EVA v investičním rozhodování ================= -->
+      <h2>EVA v investičním rozhodování</h2>
+
+      <p>
+        Při investičních kalkulacích se tradičně používá metoda <strong>DCF</strong>
+        (<em>Discounted Cash Flow</em>), tedy hodnocení projektu pomocí čisté současné
+        hodnoty budoucích peněžních toků. Koncept EVA lze však do investičních kalkulací
+        zapojit rovněž. Jeho výhodou je, že umožňuje <strong>sjednotit investiční
+        kalkulace napříč celým podnikem</strong> – což ocení zejména podniky, které
+        jsou už tak řízeny na základě konceptu EVA. Nemusí pak vedle sebe udržovat
+        dva různé myšlenkové rámce (jeden pro měření výkonnosti, druhý pro hodnocení
+        investic), ale používají jeden konzistentní nástroj.
+      </p>
+
+      <section class="definice" id="pojem-investicni-kalkulace-eva">
+        <h3 class="definice__pojem">Investiční kalkulace na bázi EVA</h3>
+        <div class="definice__telo">
+          <p>
+            Hodnocení investičního projektu, při němž se v každém roce životnosti
+            spočítá EVA (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a> projektu snížený o náklady na vázaný kapitál) a projekt
+            se přijímá tehdy, je-li <strong>současná hodnota všech budoucích EVA
+            kladná</strong>. Dává shodný výsledek jako <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-npv" target="_blank" rel="noopener">čistá současná hodnota (NPV)</a>
+            spočtená metodou DCF.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč vychází EVA a DCF stejně</p>
+        <div class="callout__telo">
+          <p>
+            DCF pracuje s <em>peněžními toky</em> a odečítá celou počáteční investici
+            hned na začátku. EVA naopak pracuje s <em>účetním ziskem</em> (NOPAT), který
+            už má v sobě odpisy, a investici „splácí" postupně tím, že každý rok účtuje
+            náklad na dosud vázaný kapitál (<span class="math">WACC<span class="op">×</span>C</span>).
+            Obě metody tedy jen jinak rozprostřou v čase tutéž ekonomickou skutečnost –
+            proto se jejich diskontované součty rovnají.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 3.8 ================= -->
+      <h3>Řešený příklad 3.8 – DCF versus EVA</h3>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Zadání</p>
+        <div class="callout__telo">
+          <p>
+            Podnik plánuje investiční projekt v hodnotě <strong>20 mil. Kč</strong>
+            s předpokládanou životností <strong>4 roky</strong>. Požadovaná návratnost
+            (a zároveň <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>) je <strong>10 %</strong>. V jednotlivých letech očekává
+            tyto výsledky v podobě NOPAT:
+          </p>
+          <p>
+            1. rok <strong>1 mil. Kč</strong> · 2. rok <strong>3 mil. Kč</strong> ·
+            3. rok <strong>5 mil. Kč</strong> · 4. rok <strong>3 mil. Kč</strong>.
+          </p>
+          <p>Zhodnoťte investici metodou DCF i pomocí EVA.</p>
+        </div>
+      </aside>
+
+      <p>
+        <strong>Hodnocení pomocí DCF (čisté současné hodnoty).</strong>
+        Majetek se odepisuje rovnoměrně, tedy 20 / 4 = 5 mil. Kč ročně. Volné cash
+        flow získáme tak, že k <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a> přičteme odpisy (ty nejsou skutečným výdajem).
+        Každý peněžní tok pak diskontujeme sazbou 10 %.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Příklad 3.8 – Hodnocení investice metodou DCF (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Rok</th>
+              <th scope="col" class="cislo">0</th>
+              <th scope="col" class="cislo">1</th>
+              <th scope="col" class="cislo">2</th>
+              <th scope="col" class="cislo">3</th>
+              <th scope="col" class="cislo">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">NOPAT</th><td class="cislo">—</td><td class="cislo">1,0</td><td class="cislo">3,0</td><td class="cislo">5,0</td><td class="cislo">3,0</td></tr>
+            <tr><th scope="row">+ odpisy</th><td class="cislo">—</td><td class="cislo">5,0</td><td class="cislo">5,0</td><td class="cislo">5,0</td><td class="cislo">5,0</td></tr>
+            <tr><th scope="row">Volné cash flow</th><td class="cislo">—</td><td class="cislo">6,0</td><td class="cislo">8,0</td><td class="cislo">10,0</td><td class="cislo">8,0</td></tr>
+            <tr><th scope="row">Současná hodnota CF</th><td class="cislo">—</td><td class="cislo">5,5</td><td class="cislo">6,6</td><td class="cislo">7,5</td><td class="cislo">5,5</td></tr>
+            <tr><th scope="row">Počáteční investice</th><td class="cislo">−20,0</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Součet diskontovaných peněžních toků je 5,5 + 6,6 + 7,5 + 5,5 = <strong>25,1 mil. Kč</strong>.
+        Po odečtení počáteční investice dostáváme čistou současnou hodnotu:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-8-npv">
+        <div class="vzorec__telo">
+          <span class="math"><span class="fn">NPV</span><span class="op">=</span><span class="num">25,1</span><span class="op">−</span><span class="num">20</span><span class="op">=</span><span class="num">5,1</span></span>
+        </div>
+        <div class="vzorec__cislo">mil. Kč</div>
+      </div>
+
+      <p>
+        <strong>Hodnocení pomocí EVA.</strong> V každém roce spočteme EVA jako NOPAT
+        snížený o <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklad na kapitál</a>, který je stále vázán v projektu. Vázaný kapitál
+        na začátku roku klesá o roční odpis (20 → 15 → 10 → 5), protože se investice
+        postupně „vrací" v podobě odpisů. Náklad na kapitál je vždy 10 % z počátečního
+        stavu, EVA pak diskontujeme stejnou sazbou.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Příklad 3.8 – Hodnocení téže investice pomocí EVA (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Rok</th>
+              <th scope="col" class="cislo">1</th>
+              <th scope="col" class="cislo">2</th>
+              <th scope="col" class="cislo">3</th>
+              <th scope="col" class="cislo">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">NOPAT</th><td class="cislo">1,00</td><td class="cislo">3,00</td><td class="cislo">5,00</td><td class="cislo">3,00</td></tr>
+            <tr><th scope="row">Investovaný kapitál k zač. roku</th><td class="cislo">20,00</td><td class="cislo">15,00</td><td class="cislo">10,00</td><td class="cislo">5,00</td></tr>
+            <tr><th scope="row">Náklady na kapitál (WACC × C)</th><td class="cislo">2,00</td><td class="cislo">1,50</td><td class="cislo">1,00</td><td class="cislo">0,50</td></tr>
+            <tr><th scope="row">EVA</th>
+              <td class="cislo hodnota-niceni">−1,00</td>
+              <td class="cislo hodnota-tvorba">1,50</td>
+              <td class="cislo hodnota-tvorba">4,00</td>
+              <td class="cislo hodnota-tvorba">2,50</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Současná hodnota EVA</th>
+              <td class="cislo hodnota-niceni">−0,90</td>
+              <td class="cislo hodnota-tvorba">1,24</td>
+              <td class="cislo hodnota-tvorba">3,00</td>
+              <td class="cislo hodnota-tvorba">1,71</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Součet současných hodnot EVA je −0,90 + 1,24 + 3,00 + 1,71 = <strong>5,1 mil. Kč</strong>.
+        Obě metody tedy vedou ke <strong>stejnému výsledku</strong>: projekt vytváří
+        hodnotu 5,1 mil. Kč, a je proto přijatelný.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: konvergence DCF a EVA ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Konvergence DCF a EVA v čase</p>
+          <p class="viz__popis">Sledujte, jak se rok po roce vyvíjí čistá současná hodnota podle DCF (startuje na −20 od počáteční investice) a kumulovaná současná hodnota EVA (startuje na 0). Obě se na konci setkají na hodnotě 5,1 mil. Kč.</p>
+        </figcaption>
+        <div id="viz-dcf-eva"></div>
+      </figure>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pozor na první rok</p>
+        <div class="callout__telo">
+          <p>
+            V 1. roce je EVA <strong>záporná</strong> (−1,0 mil. Kč): projekt teprve
+            nastartoval a NOPAT 1,0 mil. Kč zatím nepokryje náklad na plně vázaný
+            kapitál 2,0 mil. Kč. To ale neznamená špatnou investici – rozhoduje
+            <strong>součet diskontovaných EVA za celou životnost</strong>, nikoli jediný rok.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Ověřte hodnoty pro <strong>3. rok</strong> projektu z příkladu 3.8:
+          NOPAT je 5,0 mil. Kč, vázaný kapitál na začátku roku 10,0 mil. Kč a WACC 10 %.
+          Kolik činí EVA a její současná hodnota?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Náklad na kapitál = 0,10 × 10,0 = 1,0 mil. Kč. Tedy
+            <span class="math"><span class="fn">EVA</span><span class="op">=</span><span class="num">5,0</span><span class="op">−</span><span class="num">1,0</span><span class="op">=</span><span class="num">4,0</span></span> mil. Kč.
+            Diskontujeme třemi lety: 4,0 / (1,10)<sup>3</sup> = 4,0 / 1,331 ≈
+            <strong>3,00 mil. Kč</strong> – přesně jak uvádí tabulka.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= 3.5.4 EVA pro ocenění podniku ================= -->
+      <h2>EVA pro ocenění podniku</h2>
+
+      <p>
+        Oceňování podniku pomocí EVA je významné především proto, že tento ukazatel
+        <strong>postihuje hlavní faktory tvorby hodnoty</strong>. Základní myšlenka
+        navazuje na vztah mezi <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">tržní přidanou hodnotou (MVA)</a> a budoucí EVA z předchozí
+        lekce: tržní hodnota podniku není nic jiného než účetně <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-investovany-kapital" target="_blank" rel="noopener">investovaný kapitál</a>
+        navýšený o to, co podnik dokáže nad rámec nákladů na kapitál teprve vytvořit.
+      </p>
+
+      <div class="vzorec" id="vzorec-3-10">
+        <div class="vzorec__telo">
+          <span class="math"><span class="fn">Tržní hodnota podniku</span><span class="op">=</span><span class="fn">investovaný kapitál</span><span class="op">+</span><span class="fn">PV budoucích EVA</span></span>
+        </div>
+        <div class="vzorec__cislo">(3.10)</div>
+      </div>
+
+      <p>
+        Symbol <span class="fn" style="font-style:normal">PV</span> zde značí
+        <em>současnou hodnotu</em> (Present Value) budoucích EVA, tedy jejich součet
+        diskontovaný pomocí WACC. Budoucí EVA lze přitom rozložit na dvě části:
+        na <strong>dosaženou (běžnou) úroveň EVA</strong>, o níž předpokládáme, že
+        bude trvat, a na <strong>očekávané zvýšení či snížení</strong> této úrovně.
+        Dosaženou EVA, kterou podnik generuje trvale, kapitalizujeme jako věčnou
+        rentu podílem <span class="math"><span class="fn">EVA</span><span class="op">/</span><span class="fn">WACC</span></span>.
+        Tím se vztah (3.10) rozpadne do podrobnějšího tvaru:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-11">
+        <div class="vzorec__telo">
+          <span class="math"><span class="fn">Tržní hodnota podniku</span><span class="op">=</span><span class="fn">investovaný kapitál</span><span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit"><span class="fn">EVA</span></span>
+              <span class="frac__jmen"><span class="fn">WACC</span></span>
+            </span>
+            <span class="op">+</span><span class="fn">PV očekávaných změn EVA</span></span>
+        </div>
+        <div class="vzorec__cislo">(3.11)</div>
+      </div>
+
+      <section class="definice" id="pojem-trzni-hodnota-podniku">
+        <h3 class="definice__pojem">Tržní hodnota podniku (dle EVA)</h3>
+        <div class="definice__telo">
+          <p>
+            Součet <strong>investovaného kapitálu</strong>, <strong>kapitalizované
+            běžné EVA</strong> (<span class="math"><span class="fn">EVA</span><span class="op">/</span><span class="fn">WACC</span></span>)
+            a <strong>současné hodnoty očekávaných změn EVA</strong>. Vyjadřuje, kolik
+            hodnoty už je v podniku vázáno a kolik navíc dokáže vytvořit nad požadovanou
+            výnosnost svého kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: skládané schéma tržní hodnoty ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Z čeho se skládá tržní hodnota podniku</p>
+          <p class="viz__popis">Postupně na sebe skládáme tři složky vztahu (3.11). Schéma je ilustrativní – ukazuje pořadí a smysl složek, nikoli konkrétní čísla.</p>
+        </figcaption>
+        <div id="viz-trzni-hodnota"></div>
+      </figure>
+
+      <section class="definice" id="pojem-rustove-prilezitosti">
+        <h3 class="definice__pojem">Růstové příležitosti</h3>
+        <div class="definice__telo">
+          <p>
+            Očekávaná budoucí zvýšení EVA nad její dnešní úroveň. Ve vztahu (3.11)
+            odpovídají poslední složce – <em>současné hodnotě očekávaných změn EVA</em>.
+            Právě ony odlišují tržní hodnotu od pouhé kapitalizace dnešní výkonnosti.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Dvě páky růstu tržní hodnoty</p>
+        <div class="callout__telo">
+          <p>
+            Ze vztahu (3.11) je zřejmé, že chce-li podnik zvyšovat svou tržní hodnotu,
+            musí usilovat o obojí současně: <strong>(1)</strong> dosahovat co nejvyšší
+            ekonomické přidané hodnoty v běžném roce (roste člen
+            <span class="math"><span class="fn">EVA</span><span class="op">/</span><span class="fn">WACC</span></span>)
+            a <strong>(2)</strong> vytvářet růstové příležitosti, tedy příslib dalšího
+            zvyšování EVA v budoucnu (roste poslední člen). Podrobněji se ocenění pomocí
+            EVA věnuje kapitola 6.3.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Dva podniky mají stejný investovaný kapitál i stejnou dnešní EVA. Trh
+          přesto oceňuje jeden z nich výše. Čím to podle vztahu (3.11) může být?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Rozdíl je v poslední složce – v <strong>současné hodnotě očekávaných
+            změn EVA</strong>. Výše oceněný podnik má věrohodnější <strong>růstové
+            příležitosti</strong>: trh věří, že jeho EVA v budoucnu poroste. První dvě
+            složky (investovaný kapitál a kapitalizovaná běžná EVA) jsou u obou stejné,
+            takže veškerý rozdíl v tržní hodnotě jde na vrub očekávaného růstu EVA.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč vede hodnocení téhož investičního projektu metodou DCF a metodou EVA ke stejnému závěru?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte, jak každá metoda nakládá s počáteční investicí a s odpisy.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Obě metody promítají tutéž ekonomickou skutečnost, jen ji jinak rozprostřou v čase. DCF odečte celou investici hned na začátku a pracuje s peněžními toky (NOPAT + odpisy). EVA pracuje s NOPAT a investici „splácí" postupně prostřednictvím ročního nákladu na dosud vázaný kapitál (WACC × C). Součet diskontovaných EVA za celou životnost se proto rovná čisté současné hodnotě – v příkladu 3.8 shodně <strong>5,1 mil. Kč</strong>.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Jakou praktickou výhodu přináší celopodnikové zavedení investičních kalkulací na bázi EVA?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o konzistenci nástrojů napříč podnikem.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Umožňuje <strong>sjednotit investiční kalkulace napříč celým podnikem</strong>. To je výhodné zejména u podniků, které jsou už tak řízeny podle konceptu EVA – používají pak jeden konzistentní rámec pro měření výkonnosti i pro hodnocení investic, místo dvou oddělených metodik.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Z čeho se podle vztahu (3.10) skládá tržní hodnota podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Dvě složky – jedna účetní, jedna „výhledová".</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Z <strong>investovaného kapitálu</strong> a <strong>současné hodnoty budoucích EVA</strong> (diskontovaných pomocí WACC).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Rozepište tři složky vztahu (3.11) a vysvětlete jejich význam.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte z (3.10) a budoucí EVA rozdělte na trvalou úroveň a její změny.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>(1) Investovaný kapitál</strong> – účetní hodnota vloženého kapitálu; <strong>(2) EVA / WACC</strong> – kapitalizace dnešní běžné EVA jako trvalé renty; <strong>(3) současná hodnota očekávaných změn EVA</strong> – přínos růstových příležitostí, tedy budoucího zvyšování EVA nad dnešní úroveň.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Co musí podnik dělat, aby podle vztahu (3.11) rostla jeho tržní hodnota?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Dva paralelní úkoly – dnes i do budoucna.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Současně <strong>dosahovat co nejvyšší EVA v běžném roce</strong> (roste kapitalizovaná složka EVA/WACC) a <strong>vytvářet růstové příležitosti</strong>, tedy zvyšovat očekávanou budoucí EVA (roste poslední složka). Samotná vysoká dnešní EVA bez výhledu růstu, ani sliby růstu bez dnešní výkonnosti, tržní hodnotu dlouhodobě nezvednou.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t5-l4-eva-v-praxi.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">5.4 EVA v praxi – případové studie a srovnání s tržními měřítky</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l6-eva-odmenovani.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.6 EVA a odměňování – bonusové systémy</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // =====================================================================
+      // A) KROKOVÁ VIZUALIZACE: konvergence DCF a EVA (příklad 3.8)
+      //    Levý sloupec = běžící NPV podle DCF (start −20 od investice).
+      //    Pravý sloupec = kumulovaná současná hodnota EVA (start 0).
+      //    Po 4. roce se oba sloupce potkají na 5,1 mil. Kč.
+      // =====================================================================
+      // Kumulované hodnoty po jednotlivých krocích:
+      var dcfVals = [-20.0, -14.5, -7.9, -0.4, 5.1]; // NPV = −20 + Σ PV(CF)
+      var evaVals = [  0.0,  -0.9,  0.34, 3.34, 5.05]; // Σ PV(EVA)
+
+      Skripta.stepper('viz-dcf-eva', {
+        sirka: 760, vyska: 420,
+        stavy: [ {k:0}, {k:1}, {k:2}, {k:3}, {k:4} ],
+        popisky: [
+          'Start: DCF odečte celou počáteční investici → −20,0. Kumulovaná PV(EVA) je zatím 0.',
+          'Po 1. roce: DCF přičte PV volného CF (+5,5) → −14,5. PV(EVA) klesne o 0,90 (EVA je záporná) → −0,9.',
+          'Po 2. roce: DCF → −7,9. Kumulovaná PV(EVA) → +0,34 (druhá EVA už je kladná).',
+          'Po 3. roce: DCF → −0,4. Kumulovaná PV(EVA) → +3,34.',
+          'Po 4. roce: obě metody dospějí ke shodné hodnotě 5,1 mil. Kč → projekt tvoří hodnotu.'
+        ],
+        render: function (svg, stav, i, u) {
+          var i0 = stav.k;
+          // Lineární škála hodnoty → y (doména −20…8)
+          var yTop = 60, yBot = 340;
+          var dMin = -20, dMax = 8;
+          function yv(v) { return yBot + (yTop - yBot) * ((v - dMin) / (dMax - dMin)); }
+          var y0 = yv(0);      // úroveň nuly
+          var yRef = yv(5.1);  // referenční čára shody
+
+          // Nulová osa
+          u.dej(svg, 'osa0', 'line', { x1: 80, y1: y0, x2: 700, y2: y0, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa0-lbl', 'text', { x: 712, y: y0 + 4, fill: u.barvaText, 'font-size': 12 }, '0');
+
+          // Referenční čára shody na 5,1 (zvýrazní se v posledním kroku)
+          var refOn = (i0 === 4);
+          u.dej(svg, 'ref', 'line', {
+            x1: 80, y1: yRef, x2: 700, y2: yRef,
+            stroke: u.barvaTvorba, 'stroke-width': refOn ? 2 : 1,
+            'stroke-dasharray': '5 5', opacity: refOn ? 1 : 0.35
+          });
+          u.dej(svg, 'ref-lbl', 'text', {
+            x: 712, y: yRef + 4, fill: u.barvaTvorba, 'font-size': 12,
+            'font-weight': refOn ? 700 : 400, opacity: refOn ? 1 : 0.5
+          }, '5,1');
+
+          // Pomocná funkce pro vykreslení sloupce od nulové osy
+          function sloupec(id, cx, v, fill) {
+            var yy = yv(v);
+            var top = Math.min(yy, y0);
+            var h = Math.abs(yy - y0);
+            u.dej(svg, id + '-bar', 'rect', { x: cx - 65, y: top, width: 130, height: h, rx: 5, fill: fill });
+            // Hodnota nad/pod sloupcem
+            u.dej(svg, id + '-val', 'text', {
+              x: cx, y: v >= 0 ? yy - 10 : yy + 20,
+              'text-anchor': 'middle', fill: u.barvaText, 'font-size': 15, 'font-weight': 700
+            }, u.formatCislo(v, 1));
+          }
+
+          // Levý sloupec: DCF (indigo)
+          sloupec('dcf', 230, dcfVals[i0], '#4338ca');
+          u.dej(svg, 'dcf-lbl', 'text', { x: 230, y: 372, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 600 }, 'NPV podle DCF');
+
+          // Pravý sloupec: EVA (barva podle znaménka)
+          var evaColor = evaVals[i0] >= 0 ? u.barvaTvorba : u.barvaNiceni;
+          sloupec('eva', 530, evaVals[i0], evaColor);
+          u.dej(svg, 'eva-lbl', 'text', { x: 530, y: 372, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 600 }, 'Σ PV(EVA)');
+
+          // Indikátor kroku (rok)
+          u.dej(svg, 'rok-lbl', 'text', {
+            x: 390, y: 400, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+          }, i0 === 0 ? 'Výchozí stav (rok 0)' : ('Po ' + i0 + '. roce'));
+        }
+      });
+
+      // =====================================================================
+      // B) KROKOVÁ VIZUALIZACE: skládané schéma tržní hodnoty (vztah 3.11)
+      //    Postupně skládáme tři složky na sebe. Výšky jsou ILUSTRATIVNÍ.
+      // =====================================================================
+      var segKapital = 150; // investovaný kapitál (schematická výška)
+      var segEva     = 90;  // kapitalizovaná běžná EVA (EVA / WACC)
+      var segRust    = 60;  // PV očekávaných změn EVA
+      var baseY = 350;      // spodní hrana sloupce
+
+      Skripta.stepper('viz-trzni-hodnota', {
+        sirka: 760, vyska: 420,
+        stavy: [ {n:1}, {n:2}, {n:3} ],
+        popisky: [
+          'Základ tvoří investovaný kapitál – hodnota už vložená do podniku.',
+          'Přidáme kapitalizovanou běžnou EVA (EVA / WACC) – trvalá tvorba hodnoty nad náklady na kapitál.',
+          'Nahoru přidáme současnou hodnotu očekávaných změn EVA (růstové příležitosti). Součet = tržní hodnota podniku.'
+        ],
+        render: function (svg, stav, i, u) {
+          var n = stav.n;
+          var cx = 300, w = 190, x = cx - w / 2;
+
+          // Segment 1: investovaný kapitál (vždy)
+          var y1 = baseY - segKapital;
+          u.dej(svg, 'seg1', 'rect', { x: x, y: y1, width: w, height: segKapital, rx: 4, fill: '#4338ca' });
+          u.dej(svg, 'seg1-lbl', 'text', { x: cx, y: y1 + segKapital / 2 + 5, 'text-anchor': 'middle', fill: '#fff', 'font-size': 14, 'font-weight': 600 }, 'Investovaný kapitál');
+
+          // Segment 2: EVA / WACC (od kroku 2)
+          var on2 = n >= 2;
+          var y2 = y1 - (on2 ? segEva : 0);
+          u.dej(svg, 'seg2', 'rect', {
+            x: x, y: y2, width: w, height: on2 ? segEva : 0, rx: 4,
+            fill: u.barvaTvorba, opacity: on2 ? 1 : 0
+          });
+          u.dej(svg, 'seg2-lbl', 'text', {
+            x: cx, y: y1 - segEva / 2 + 5, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 14, 'font-weight': 600, opacity: on2 ? 1 : 0
+          }, 'EVA / WACC');
+
+          // Segment 3: PV očekávaných změn EVA (od kroku 3)
+          var on3 = n >= 3;
+          var y3base = y1 - segEva;
+          var y3 = y3base - (on3 ? segRust : 0);
+          u.dej(svg, 'seg3', 'rect', {
+            x: x, y: y3, width: w, height: on3 ? segRust : 0, rx: 4,
+            fill: '#0ea5e9', opacity: on3 ? 1 : 0
+          });
+          u.dej(svg, 'seg3-lbl', 'text', {
+            x: cx, y: y3base - segRust / 2 + 4, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 12, 'font-weight': 600, opacity: on3 ? 1 : 0
+          }, 'PV změn EVA');
+
+          // Základna
+          u.dej(svg, 'zaklad', 'line', { x1: x - 30, y1: baseY, x2: x + w + 30, y2: baseY, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Popiska celkové výšky = tržní hodnota (od kroku 3), se závorkou
+          var topY = on3 ? y3 : (on2 ? y2 : y1);
+          u.dej(svg, 'zav', 'line', {
+            x1: x + w + 24, y1: topY, x2: x + w + 24, y2: baseY,
+            stroke: u.barvaText, 'stroke-width': 1.5, opacity: on3 ? 1 : 0
+          });
+          u.dej(svg, 'zav-lbl', 'text', {
+            x: x + w + 36, y: (topY + baseY) / 2, fill: u.barvaText,
+            'font-size': 14, 'font-weight': 700, opacity: on3 ? 1 : 0
+          }, 'Tržní hodnota podniku');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

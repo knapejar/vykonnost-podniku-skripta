@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.11 Finanční plán 2005–2007 a jeho úprava na vstupy EVA – Výkonnost podniku</title>
+  <meta name="description" content="Tříletý finanční plán podniku PLAST (2005–2007) tvořený třemi provázanými výkazy a jeho úprava na vstupní veličiny EVA (NOA, NOPAT).">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12 -->
+    <nav class="panel" data-panel data-aktivni-lekce="12.11" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: účetní výkazy, leasing, rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST, s.r.o.</a></li>
+          <li><span aria-current="page">Lekce 12.11</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.11</span>
+        <h1>Finanční plán 2005–2007 a jeho úprava na vstupy EVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 301–306</p>
+      </header>
+
+      <p>
+        Dosud jsme podnik PLAST <strong>měřili</strong> – historicky. Sestavili jsme
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzu</a>, spočítali <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> za rok 2004, rozložili ji na <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a>
+        a v předchozí lekci sestavili <a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard</a>. BSC nám ale připomněla jednu
+        věc: každý strategický cíl potřebuje <em>cílovou hodnotu</em> – a ta se nedá
+        stanovit bez pohledu dopředu. Proto teď obrátíme směr a podíváme se do
+        <strong>budoucnosti</strong>: sestavíme tříletý finanční plán na období
+        2005–2007.
+      </p>
+      <p>
+        Plán nám poslouží jako podklad pro <strong>ocenění podniku</strong> v následující
+        (závěrečné) lekci. Aby to bylo možné, musíme plánové výkazy nakonec upravit
+        stejně, jako jsme upravovali ty historické – převést je na <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener"><strong>NOA</strong></a> a
+        <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener"><strong>NOPAT</strong></a>, tj. na vstupní veličiny ekonomického modelu EVA.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Na co navazujeme</p>
+        <div class="callout__telo">
+          <p>Metodiku tvorby finančního plánu jsme zavedli obecně v <strong>lekci 11.2</strong>
+          (nástroje hodnotového řízení). Úpravu účetní rozvahy na NOA a výsledku hospodaření
+          na NOPAT jsme na historických datech PLASTu provedli v <strong>lekci 12.7</strong>.
+          Tato lekce obojí spojuje: aplikuje tytéž úpravy na <em>plánová</em> data.</p>
+        </div>
+      </aside>
+
+      <h2>Co je finanční plán a z čeho se skládá</h2>
+
+      <section class="definice" id="pojem-financni-plan">
+        <h3 class="definice__pojem">Finanční plán</h3>
+        <div class="definice__telo">
+          <p>
+            Soustava vzájemně provázaných plánových výkazů, které v číslech vyjadřují
+            očekávaný hospodářský vývoj podniku v příštích letech. Tvoří jej tři výkazy –
+            <strong>plánový výkaz zisku a ztráty</strong>, <strong>plánová rozvaha</strong>
+            a <strong>plán cash flow</strong> – sestavené na základě předpokladů o vývoji
+            trhu, tržeb, nákladů a investic. Finanční plán je nezbytným podkladem pro
+            stanovení cílových hodnot ukazatelů (např. v BSC) i pro výnosové ocenění podniku.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Sestavení kompletního plánu vyžaduje velké množství detailních údajů nejen
+        z podniku, ale i z jeho okolí: analýzy vývoje trhu, jednotlivých nákladů,
+        investiční náročnosti apod. Většinou jde o citlivé údaje, které si podniky
+        pečlivě chrání. Plán podniku PLAST byl proto sestaven <strong>ve spolupráci
+        s vedením společnosti</strong>.
+      </p>
+
+      <h2>Předpoklady finančního plánu PLAST</h2>
+      <p>
+        Plán pro roky 2005–2007 vychází z následujících předpokladů (vstupů), o nichž
+        rozhodlo vedení na základě znalosti trhu i vlastního záměru:
+      </p>
+
+      <ul>
+        <li><strong>Tržby za zboží a náklady na prodané zboží</strong> porostou každoročně o 5 %.</li>
+        <li><strong>Výkony</strong> vzrostou v roce 2005 zhruba o 10 %, v dalších letech konstantně o 3 %.</li>
+        <li><strong>Výkonová spotřeba</strong> vzroste v roce 2005 vlivem zdražení surovin o 14 %, v dalších letech o 3 %.</li>
+        <li><strong>Ostatní nákladové položky</strong> (kromě odpisů) i ostatní provozní výnosy porostou o cca 3 % ročně.</li>
+        <li><strong>Odpisy</strong> činí 15 % z dlouhodobého hmotného a nehmotného majetku v daném roce.</li>
+        <li><strong>Výnosové úroky</strong> = 2 % z průměrného stavu krátkodobého finančního majetku; ostatní finanční výnosy cca 8 000 tis. Kč, finanční náklady cca 25 000 tis. Kč ročně.</li>
+        <li><strong>Daňová sazba:</strong> 26 % pro rok 2005, 24 % pro roky 2006 a 2007.</li>
+        <li><strong>Dlouhodobá aktiva</strong> (DHM a DNM) porostou v roce 2005 o 5 %, dále o 3 %; investice tedy musí pokrýt odpisy i tento růst. DFM se nekupuje ani neprodává.</li>
+        <li><strong>Leasing</strong> se postupně splácí dle smluv (příloha B), nový majetek se na leasing nepořizuje.</li>
+        <li><a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener"><strong>Čistý pracovní kapitál</strong></a> roste úměrně výkonům; krátkodobý bankovní úvěr se každoročně splácí o 30 mil. Kč (kvůli vyšší likviditě).</li>
+        <li><strong>Financování investic:</strong> přednostně z vytvořeného zisku a odpisů; případně dlouhodobý úvěr (PRIBOR 1,75 % + přirážka 1 %). Úrok stávajícího úvěru 2,75 %. Přebytek peněz se použije ke splácení dlouhodobého úvěru.</li>
+        <li>Do <strong>rezervních fondů</strong> se odvádí 5 % zisku; <strong>podíly na zisku se nevyplácejí</strong>. Základní kapitál se nemění, kapitálové fondy jsou nulové. Netvoří se rezervy ani dlouhodobé závazky.</li>
+      </ul>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Zisk zůstává v podniku</p>
+        <div class="callout__telo">
+          <p>Protože se nevyplácejí podíly na zisku, celý zisk každého roku se zadržuje
+          (kumuluje do vlastního kapitálu). To výrazně posiluje samofinancování a umožňuje
+          rychle splácet úvěry – všimněte si toho v plánové rozvaze i cash flow níže.</p>
+        </div>
+      </aside>
+
+      <h2>1) Plánový výkaz zisku a ztráty</h2>
+
+      <section class="definice" id="pojem-planovy-vykaz-zisku-ztraty">
+        <h3 class="definice__pojem">Plánový výkaz zisku a ztráty</h3>
+        <div class="definice__telo">
+          <p>
+            Plánová výsledovka – dopočítává očekávané výnosy, náklady a z nich plynoucí
+            výsledek hospodaření pro každý rok plánu. Vzniká aplikací předpokladů o růstu
+            jednotlivých položek na výchozí (historický) rok. Jeho konečný řádek –
+            <strong>VH za účetní období</strong> – vstupuje do plánové rozvahy (zvyšuje
+            vlastní kapitál) i do plánu cash flow.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Aplikací výše uvedených předpokladů na skutečnost roku 2004 vzniká následující
+        plánová výsledovka. Výchozí historický rok je uveden <em>kurzívou</em> pro srovnání.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–54 – Výkaz zisku a ztráty, finanční plán podniku PLAST (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">Historie 2004</th>
+              <th scope="col" class="cislo">Plán 2005</th>
+              <th scope="col" class="cislo">Plán 2006</th>
+              <th scope="col" class="cislo">Plán 2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Tržby za prodej zboží</th><td class="cislo"><em>2 482</em></td><td class="cislo">2 606</td><td class="cislo">2 736</td><td class="cislo">2 873</td></tr>
+            <tr><th scope="row">Náklady na prodané zboží</th><td class="cislo"><em>2 402</em></td><td class="cislo">2 522</td><td class="cislo">2 648</td><td class="cislo">2 780</td></tr>
+            <tr><th scope="row">Obchodní marže</th><td class="cislo"><em>80</em></td><td class="cislo">84</td><td class="cislo">88</td><td class="cislo">93</td></tr>
+            <tr><th scope="row">Výkony</th><td class="cislo"><em>1 092 650</em></td><td class="cislo">1 201 915</td><td class="cislo">1 237 972</td><td class="cislo">1 275 111</td></tr>
+            <tr><th scope="row">Výkonová spotřeba</th><td class="cislo"><em>773 883</em></td><td class="cislo">882 227</td><td class="cislo">908 694</td><td class="cislo">935 955</td></tr>
+            <tr><th scope="row">Přidaná hodnota</th><td class="cislo"><em>318 847</em></td><td class="cislo">319 772</td><td class="cislo">329 366</td><td class="cislo">339 249</td></tr>
+            <tr><th scope="row">Osobní náklady</th><td class="cislo"><em>141 779</em></td><td class="cislo">146 032</td><td class="cislo">150 413</td><td class="cislo">154 925</td></tr>
+            <tr><th scope="row">Odpisy</th><td class="cislo"><em>73 547</em></td><td class="cislo">78 138</td><td class="cislo">80 482</td><td class="cislo">82 897</td></tr>
+            <tr><th scope="row">Ostatní provozní výnosy</th><td class="cislo"><em>234 480</em></td><td class="cislo">241 514</td><td class="cislo">248 760</td><td class="cislo">256 223</td></tr>
+            <tr><th scope="row">Ostatní provozní náklady</th><td class="cislo"><em>205 073</em></td><td class="cislo">211 225</td><td class="cislo">217 562</td><td class="cislo">224 089</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Provozní VH</th><td class="cislo"><em>132 928</em></td><td class="cislo">125 891</td><td class="cislo">129 668</td><td class="cislo">133 561</td></tr>
+            <tr><th scope="row">Výnosové úroky</th><td class="cislo"><em>2 479</em></td><td class="cislo">1 809</td><td class="cislo">1 923</td><td class="cislo">1 981</td></tr>
+            <tr><th scope="row">Nákladové úroky</th><td class="cislo"><em>10 632</em></td><td class="cislo">9 022</td><td class="cislo">8 085</td><td class="cislo">6 630</td></tr>
+            <tr><th scope="row">Ostatní finanční výnosy</th><td class="cislo"><em>11 015</em></td><td class="cislo">8 000</td><td class="cislo">8 000</td><td class="cislo">8 000</td></tr>
+            <tr><th scope="row">Ostatní finanční náklady</th><td class="cislo"><em>34 402</em></td><td class="cislo">25 000</td><td class="cislo">25 000</td><td class="cislo">25 000</td></tr>
+            <tr><th scope="row">Finanční VH</th><td class="cislo"><em>−31 540</em></td><td class="cislo">−24 213</td><td class="cislo">−23 162</td><td class="cislo">−21 649</td></tr>
+            <tr><th scope="row">VH před zdaněním</th><td class="cislo"><em>101 388</em></td><td class="cislo">101 678</td><td class="cislo">106 506</td><td class="cislo">111 912</td></tr>
+            <tr><th scope="row">Daň z příjmu</th><td class="cislo"><em>29 073</em></td><td class="cislo">26 436</td><td class="cislo">25 561</td><td class="cislo">26 859</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">VH za účetní období</th><td class="cislo"><em>72 315</em></td><td class="cislo hodnota-tvorba">75 242</td><td class="cislo hodnota-tvorba">80 945</td><td class="cislo hodnota-tvorba">85 053</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Zisk každoročně roste (75 → 81 → 85 mil. Kč). Zajímavé je, že
+        <strong>provozní VH v roce 2005 mírně klesá</strong> (z 133 na 126 mil. Kč) –
+        za to může skokové zdražení surovin (+14 % výkonová spotřeba). Přesto celkový
+        zisk roste, protože se výrazně zlepšuje <strong>finanční VH</strong>: díky
+        splácení úvěrů klesají nákladové úroky.
+      </p>
+
+      <h2>2) Plánová rozvaha</h2>
+
+      <section class="definice" id="pojem-planova-rozvaha">
+        <h3 class="definice__pojem">Plánová rozvaha</h3>
+        <div class="definice__telo">
+          <p>
+            Plánový výkaz o stavu majetku (aktiv) a zdrojů jeho financování (pasiv) ke konci
+            každého roku plánu. Musí platit základní bilanční rovnost <span class="math">aktiva<span class="op">=</span>pasiva</span>.
+            Do vlastního kapitálu se promítá zadržený zisk z výsledovky, do peněžní položky
+            konečný stav peněz z cash flow – proto rozvahu nelze sestavit izolovaně.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–55 – Rozvaha, finanční plán podniku PLAST (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">Historie 2004</th>
+              <th scope="col" class="cislo">Plán 2005</th>
+              <th scope="col" class="cislo">Plán 2006</th>
+              <th scope="col" class="cislo">Plán 2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">AKTIVA CELKEM</th><td class="cislo"><em>1 332 625</em></td><td class="cislo">1 413 457</td><td class="cislo">1 447 520</td><td class="cislo">1 482 605</td></tr>
+            <tr><th scope="row">Dlouhodobý majetek</th><td class="cislo"><em>771 635</em></td><td class="cislo">796 441</td><td class="cislo">812 068</td><td class="cislo">828 165</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;DNM</th><td class="cislo"><em>16 766</em></td><td class="cislo">17 604</td><td class="cislo">18 132</td><td class="cislo">18 676</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;DHM</th><td class="cislo"><em>479 350</em></td><td class="cislo">503 318</td><td class="cislo">518 417</td><td class="cislo">533 970</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;DFM</th><td class="cislo"><em>275 519</em></td><td class="cislo">275 519</td><td class="cislo">275 519</td><td class="cislo">275 519</td></tr>
+            <tr><th scope="row">Oběžná aktiva</th><td class="cislo"><em>558 651</em></td><td class="cislo">614 516</td><td class="cislo">632 952</td><td class="cislo">651 940</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Zásoby</th><td class="cislo"><em>190 491</em></td><td class="cislo">209 540</td><td class="cislo">215 826</td><td class="cislo">222 301</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Dlouhodobé pohledávky</th><td class="cislo"><em>3 654</em></td><td class="cislo">4 019</td><td class="cislo">4 140</td><td class="cislo">4 264</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Krátkodobé pohledávky</th><td class="cislo"><em>278 376</em></td><td class="cislo">306 214</td><td class="cislo">315 401</td><td class="cislo">324 863</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Krátk. finanční majetek</th><td class="cislo"><em>86 130</em></td><td class="cislo">94 743</td><td class="cislo">97 585</td><td class="cislo">100 512</td></tr>
+            <tr><th scope="row">Časové rozlišení</th><td class="cislo"><em>2 339</em></td><td class="cislo">2 500</td><td class="cislo">2 500</td><td class="cislo">2 500</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">PASIVA CELKEM</th><td class="cislo"><em>1 332 624</em></td><td class="cislo">1 413 457</td><td class="cislo">1 447 520</td><td class="cislo">1 482 605</td></tr>
+            <tr><th scope="row">Vlastní kapitál</th><td class="cislo"><em>857 406</em></td><td class="cislo">947 017</td><td class="cislo">1 027 962</td><td class="cislo">1 113 015</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Základní kapitál</th><td class="cislo"><em>399 870</em></td><td class="cislo">399 870</td><td class="cislo">399 870</td><td class="cislo">399 870</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Rezervní fond apod.</th><td class="cislo"><em>42 887</em></td><td class="cislo">46 503</td><td class="cislo">50 265</td><td class="cislo">54 312</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Kapitálové fondy</th><td class="cislo"><em>−14 369</em></td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;VH minulých let</th><td class="cislo"><em>356 703</em></td><td class="cislo">425 402</td><td class="cislo">496 882</td><td class="cislo">573 780</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;VH za účetní období</th><td class="cislo"><em>72 315</em></td><td class="cislo">75 242</td><td class="cislo">80 945</td><td class="cislo">85 053</td></tr>
+            <tr><th scope="row">Cizí zdroje</th><td class="cislo"><em>475 218</em></td><td class="cislo">466 440</td><td class="cislo">419 558</td><td class="cislo">369 590</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Rezervy</th><td class="cislo"><em>660</em></td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Dlouhodobé závazky</th><td class="cislo"><em>4 593</em></td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Krátkodobé závazky</th><td class="cislo"><em>133 451</em></td><td class="cislo">146 796</td><td class="cislo">151 200</td><td class="cislo">155 736</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Bankovní úvěry</th><td class="cislo"><em>336 514</em></td><td class="cislo">319 644</td><td class="cislo">268 358</td><td class="cislo">213 854</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;&nbsp;&nbsp;– dlouhodobé BÚ</th><td class="cislo"><em>47 500</em></td><td class="cislo">60 630</td><td class="cislo">39 344</td><td class="cislo">14 840</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;&nbsp;&nbsp;– krátkodobé BÚ</th><td class="cislo"><em>289 014</em></td><td class="cislo">259 014</td><td class="cislo">229 014</td><td class="cislo">199 014</td></tr>
+            <tr><th scope="row">Časové rozlišení</th><td class="cislo"><em>0</em></td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Rozvaha ukazuje jasný příběh: <strong>vlastní kapitál roste</strong>
+        (857 → 1 113 mil. Kč), protože se zadržuje celý zisk, zatímco
+        <strong>cizí zdroje klesají</strong> (475 → 370 mil. Kč) díky splácení úvěrů.
+        Podnik se tedy plánovaně <em>oddlužuje</em> a posiluje finanční stabilitu.
+      </p>
+
+      <h2>3) Plán cash flow</h2>
+
+      <section class="definice" id="pojem-plan-cash-flow">
+        <h3 class="definice__pojem">Plán cash flow (peněžních toků)</h3>
+        <div class="definice__telo">
+          <p>
+            Plánový přehled o peněžních příjmech a výdajích, sestavený nepřímou metodou:
+            vychází z výsledku hospodaření, k němuž přičítá nepeněžní náklady (odpisy) a
+            zohledňuje změny rozvahových položek (zásoby, pohledávky, závazky, úvěry).
+            Dělí se na cash flow z <strong>provozní</strong>, <strong>investiční</strong> a
+            <strong>finanční</strong> činnosti. Jeho konečný stav peněz musí souhlasit
+            s krátkodobým finančním majetkem v plánové rozvaze.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–56 – Výkaz cash flow, finanční plán podniku PLAST (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">Plán 2005</th>
+              <th scope="col" class="cislo">Plán 2006</th>
+              <th scope="col" class="cislo">Plán 2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">PS peněžních prostředků</th><td class="cislo">86 130</td><td class="cislo">94 743</td><td class="cislo">97 585</td></tr>
+            <tr><th scope="row">VH za účetní období</th><td class="cislo">75 242</td><td class="cislo">80 945</td><td class="cislo">85 053</td></tr>
+            <tr><th scope="row">+ Odpisy</th><td class="cislo">78 138</td><td class="cislo">80 482</td><td class="cislo">82 897</td></tr>
+            <tr><th scope="row">Zásoby</th><td class="cislo">−19 049</td><td class="cislo">−6 286</td><td class="cislo">−6 475</td></tr>
+            <tr><th scope="row">Pohledávky</th><td class="cislo">−28 203</td><td class="cislo">−9 308</td><td class="cislo">−9 586</td></tr>
+            <tr><th scope="row">Časové rozlišení aktiv, pasiv</th><td class="cislo">−161</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">Krátkodobé závazky</th><td class="cislo">13 345</td><td class="cislo">4 404</td><td class="cislo">4 536</td></tr>
+            <tr><th scope="row">Rezervy</th><td class="cislo">−660</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">Krátkodobé bankovní úvěry</th><td class="cislo">−30 000</td><td class="cislo">−30 000</td><td class="cislo">−30 000</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">CF z provozní činnosti</th><td class="cislo">88 652</td><td class="cislo">120 237</td><td class="cislo">126 425</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">CF z investiční činnosti</th><td class="cislo hodnota-niceni">−102 944</td><td class="cislo hodnota-niceni">−96 109</td><td class="cislo hodnota-niceni">−98 994</td></tr>
+            <tr><th scope="row">Kapitálové fondy</th><td class="cislo">14 369</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">Dlouhodobé bankovní úvěry</th><td class="cislo">13 130</td><td class="cislo">−21 286</td><td class="cislo">−24 504</td></tr>
+            <tr><th scope="row">Dlouhodobé závazky</th><td class="cislo">−4 593</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">CF z finanční činnosti</th><td class="cislo">22 906</td><td class="cislo">−21 286</td><td class="cislo">−24 504</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">CF celkem</th><td class="cislo">8 614</td><td class="cislo">2 842</td><td class="cislo">2 927</td></tr>
+            <tr><th scope="row">KS peněžních prostředků</th><td class="cislo">94 743</td><td class="cislo">97 585</td><td class="cislo">100 513</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Kontrola provázanosti</p>
+        <div class="callout__telo">
+          <p>Všimněte si, že <strong>KS peněžních prostředků v cash flow</strong>
+          (94 743 pro rok 2005) přesně odpovídá <strong>krátkodobému finančnímu majetku
+          v plánové rozvaze</strong> a zároveň se stává <em>počátečním</em> stavem peněz
+          příštího roku. Kdyby se tato čísla nerovnala, byl by plán vnitřně nekonzistentní.</p>
+        </div>
+      </aside>
+
+      <h2>Provázanost tří výkazů</h2>
+
+      <section class="definice" id="pojem-provazanost-vykazu">
+        <h3 class="definice__pojem">Provázanost plánových výkazů</h3>
+        <div class="definice__telo">
+          <p>
+            Vlastnost finančního plánu, kdy tři výkazy nejsou nezávislé, ale navzájem se
+            <strong>krmí čísly</strong>: výsledek hospodaření z výsledovky zvyšuje vlastní
+            kapitál v rozvaze a je vstupem cash flow; změny rozvahových položek určují
+            peněžní toky; a konečný stav peněz z cash flow se vrací do rozvahy jako peněžní
+            majetek. Sestavení plánu je proto <strong>iterační</strong> – změna jednoho
+            předpokladu se promítne do všech tří výkazů a je nutné je opakovaně dopočítat,
+            dokud vše nesouhlasí.
+          </p>
+        </div>
+      </section>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Jak do sebe tři výkazy zapadají</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak zisk z výsledovky putuje do rozvahy a cash flow a jak se peníze z cash flow vracejí zpět do rozvahy.</p>
+        </figcaption>
+        <div id="viz-provazanost"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Vedení by chtělo v plánu vyplatit vlastníkům podíly na zisku ve výši 20 mil. Kč
+          ročně. Které ze tří výkazů se tím změní a jak? Přemýšlejte v pořadí výsledovka →
+          rozvaha → cash flow.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p><strong>Výsledovka</strong> se nezmění – podíly na zisku nejsou náklad, VH za
+            období zůstává stejný. <strong>Rozvaha:</strong> vlastní kapitál poroste pomaleji,
+            protože se do VH minulých let nezadrží celý zisk, ale jen jeho část (zbytek odejde
+            vlastníkům). <strong>Cash flow:</strong> objeví se peněžní výdaj ve finanční
+            činnosti (−20 mil. Kč ročně), takže klesne konečný stav peněz – a ten se opět
+            promítne do peněžního majetku v rozvaze. Vidíte, že jediný předpoklad rozhýbe
+            dva ze tří výkazů – to je právě ta provázanost a iterační povaha plánu.</p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Úprava plánu na vstupní veličiny EVA</h2>
+      <p>
+        Máme kompletní účetní plán. Abychom podle něj mohli podnik <strong>ocenit</strong>
+        (v příští lekci), potřebujeme z něj získat <strong>NOA</strong> (čistá operativní
+        aktiva) a <strong>NOPAT</strong> (operativní zisk po zdanění) – vstupy ekonomického
+        modelu EVA. Použijeme <em>úplně stejné</em> úpravy jako u historických dat v lekci 12.7,
+        jen je aplikujeme na plánové výkazy.
+      </p>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Připomenutí: NOA a NOPAT</p>
+        <div class="callout__telo">
+          <p><strong>NOA</strong> = čistá operativní aktiva, tedy majetek skutečně sloužící
+          hlavní (operativní) činnosti podniku. <strong>NOPAT</strong> = operativní výsledek
+          hospodaření po zdanění, symetrický k NOA. Základní vztah pro EVA zůstává
+          <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>,
+          kde <span class="math">C</span> je právě investovaný kapitál na úrovni NOA.</p>
+        </div>
+      </aside>
+
+      <h3>Úprava rozvahy → NOA</h3>
+      <p>
+        Plánová rozvaha se na NOA upravuje ve čtyřech krocích:
+      </p>
+      <ul>
+        <li>do dlouhodobého majetku se <strong>aktivuje hodnota leasingu</strong> (diskontovaná 5% sazbou); stejná hodnota se přidá i do cizích zdrojů,</li>
+        <li><strong>DFM (finanční majetek) se vyloučí</strong> z aktiv jako neoperativní; jeho vyřazení se na straně pasiv promítne přes <a class="pojem" href="t12-l7-eva-noa-nopat.html?zvyraznit=pojem-ekvivalenty-vlastniho-kapitalu" target="_blank" rel="noopener"><strong>ekvivalenty vlastního kapitálu</strong></a>,</li>
+        <li>zásoby, pohledávky, krátkodobý finanční majetek a časové rozlišení zůstávají beze změny,</li>
+        <li>aktiva se převedou na <em>čistá</em> operativní tím, že se vyčlení <strong>neúročené závazky</strong> (ty se od aktiv odečtou, resp. se zahrnou do čistého pracovního kapitálu).</li>
+      </ul>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–57 – Upravená rozvaha (finanční plán): strana NOA (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">Historie 2004</th>
+              <th scope="col" class="cislo">Plán 2005</th>
+              <th scope="col" class="cislo">Plán 2006</th>
+              <th scope="col" class="cislo">Plán 2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">NOA</th><td class="cislo"><em>928 553</em></td><td class="cislo">1 016 447</td><td class="cislo">1 031 123</td><td class="cislo">1 057 912</td></tr>
+            <tr><th scope="row">Dlouhodobý majetek</th><td class="cislo"><em>506 267</em></td><td class="cislo">546 227</td><td class="cislo">546 871</td><td class="cislo">559 208</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;DNM</th><td class="cislo"><em>1 596</em></td><td class="cislo">17 604</td><td class="cislo">18 132</td><td class="cislo">18 676</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;DHM</th><td class="cislo"><em>463 790</em></td><td class="cislo">503 318</td><td class="cislo">518 417</td><td class="cislo">533 970</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Aktivace leasingu</th><td class="cislo"><em>40 881</em></td><td class="cislo">25 305</td><td class="cislo">10 322</td><td class="cislo">6 562</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;DFM (vyloučen)</th><td class="cislo"><em>0</em></td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">Čistý pracovní kapitál</th><td class="cislo"><em>419 947</em></td><td class="cislo">467 720</td><td class="cislo">481 752</td><td class="cislo">496 204</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Zásoby</th><td class="cislo"><em>190 491</em></td><td class="cislo">209 540</td><td class="cislo">215 826</td><td class="cislo">222 301</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Dlouhodobé pohledávky</th><td class="cislo"><em>3 654</em></td><td class="cislo">4 019</td><td class="cislo">4 140</td><td class="cislo">4 264</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Krátkodobé pohledávky</th><td class="cislo"><em>278 376</em></td><td class="cislo">306 214</td><td class="cislo">315 401</td><td class="cislo">324 863</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Krátk. finanční majetek</th><td class="cislo"><em>86 130</em></td><td class="cislo">94 743</td><td class="cislo">97 585</td><td class="cislo">100 512</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;(−) Neúročené cizí zdroje</th><td class="cislo"><em>138 704</em></td><td class="cislo">146 796</td><td class="cislo">151 200</td><td class="cislo">155 736</td></tr>
+            <tr><th scope="row">Časové rozlišení</th><td class="cislo"><em>2 339</em></td><td class="cislo">2 500</td><td class="cislo">2 500</td><td class="cislo">2 500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Druhá polovina upravené rozvahy ukazuje, čím je NOA financováno –
+        <strong>vlastním kapitálem</strong> (upraveným o ekvivalenty VK, které kompenzují
+        vyloučení DFM) a <strong>úročenými cizími zdroji</strong> (bankovní úvěry +
+        aktivovaný leasing). Součet obou stran dává <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-investovany-kapital" target="_blank" rel="noopener">investovaný kapitál</a>
+        <span class="math">C</span>.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–57 (pokr.) – Upravená rozvaha: financování investovaného kapitálu C (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">Historie 2004</th>
+              <th scope="col" class="cislo">Plán 2005</th>
+              <th scope="col" class="cislo">Plán 2006</th>
+              <th scope="col" class="cislo">Plán 2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">C (investovaný kapitál)</th><td class="cislo"><em>928 553</em></td><td class="cislo">1 016 447</td><td class="cislo">1 031 123</td><td class="cislo">1 057 912</td></tr>
+            <tr><th scope="row">Vlastní kapitál</th><td class="cislo"><em>551 158</em></td><td class="cislo">671 498</td><td class="cislo">752 443</td><td class="cislo">837 496</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Základní kapitál</th><td class="cislo"><em>399 870</em></td><td class="cislo">399 870</td><td class="cislo">399 870</td><td class="cislo">399 870</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Kapitálové fondy</th><td class="cislo"><em>−14 369</em></td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Rezervní fond apod.</th><td class="cislo"><em>42 887</em></td><td class="cislo">46 503</td><td class="cislo">50 265</td><td class="cislo">54 312</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;VH minulých let</th><td class="cislo"><em>356 703</em></td><td class="cislo">425 402</td><td class="cislo">496 882</td><td class="cislo">573 780</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;VH za účetní období</th><td class="cislo"><em>72 315</em></td><td class="cislo">75 242</td><td class="cislo">80 945</td><td class="cislo">85 053</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Ekvivalenty VK</th><td class="cislo"><em>−306 248</em></td><td class="cislo">−275 519</td><td class="cislo">−275 519</td><td class="cislo">−275 519</td></tr>
+            <tr><th scope="row">Úročené cizí zdroje</th><td class="cislo"><em>377 395</em></td><td class="cislo">344 949</td><td class="cislo">278 680</td><td class="cislo">220 416</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Bankovní úvěry</th><td class="cislo"><em>336 514</em></td><td class="cislo">319 644</td><td class="cislo">268 358</td><td class="cislo">213 854</td></tr>
+            <tr><th scope="row">&nbsp;&nbsp;Leasing</th><td class="cislo"><em>40 881</em></td><td class="cislo">25 305</td><td class="cislo">10 322</td><td class="cislo">6 562</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Úprava výsledku hospodaření → NOPAT</h3>
+      <p>
+        Symetricky k NOA se upravuje i zisk. Vyjdeme z plánového VH z běžné činnosti před
+        zdaněním a <strong>přičteme nákladové úroky</strong> – jednak z bankovního úvěru,
+        jednak <em>implicitní</em> úroky z leasingu (odhadovaná 5% sazba × stav leasingu na
+        počátku období). Úroky vracíme zpět proto, že v modelu EVA se náklady kapitálu
+        (včetně úroků) zohledňují až přes <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a> – nesmějí tedy být odečteny už v zisku,
+        jinak by se počítaly dvakrát.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–58 – Úprava původního VH na upravený VH (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">VH z běžné činnosti před zdaněním – původní</th><td class="cislo">101 678</td><td class="cislo">106 506</td><td class="cislo">111 912</td></tr>
+            <tr><th scope="row">+ Nákladové úroky – úvěry</th><td class="cislo">9 022</td><td class="cislo">8 085</td><td class="cislo">6 630</td></tr>
+            <tr><th scope="row">+ Nákladové úroky – leasing</th><td class="cislo">2 044</td><td class="cislo">1 265</td><td class="cislo">516</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">VH z běžné činnosti před zdaněním – po úpravách</th><td class="cislo">112 744</td><td class="cislo">115 856</td><td class="cislo">119 058</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Od upraveného VH pak odečteme upravenou daň z příjmu (26 % pro rok 2005, 24 % dále)
+        a získáme <strong>NOPAT</strong>:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–59 – Výpočet NOPAT z finančního plánu (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">2005</th>
+              <th scope="col" class="cislo">2006</th>
+              <th scope="col" class="cislo">2007</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">VH z běžné činnosti před zdaněním – po úpravách</th><td class="cislo">112 744</td><td class="cislo">115 856</td><td class="cislo">119 058</td></tr>
+            <tr><th scope="row">Daň z příjmu</th><td class="cislo">29 313</td><td class="cislo">27 805</td><td class="cislo">28 574</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">NOPAT</th><td class="cislo hodnota-tvorba">83 431</td><td class="cislo hodnota-tvorba">88 051</td><td class="cislo hodnota-tvorba">90 484</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Od plánového VH k NOPAT (rok 2005)</p>
+          <p class="viz__popis">Krok za krokem: k účetnímu zisku před zdaněním přičteme nákladové úroky (úvěr i leasing), odečteme upravenou daň – a zbude operativní zisk NOPAT.</p>
+        </figcaption>
+        <div id="viz-nopat-vodopad"></div>
+      </figure>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Plánovaný NOPAT 2005–2007 (tis. Kč)</p>
+          <p class="viz__popis">Operativní zisk po zdanění rok od roku roste – dobrý předpoklad pro tvorbu hodnoty.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-nopat-sloupce"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Co máme připravené pro ocenění</p>
+        <div class="callout__telo">
+          <p>Nyní máme pro každý rok plánu obě vstupní veličiny: <strong>NOA</strong>
+          (1 016 → 1 031 → 1 058 mil. Kč) a <strong>NOPAT</strong> (83 → 88 → 90 mil. Kč).
+          V následující lekci z nich spočítáme plánovanou EVA a výnosovou metodou stanovíme
+          <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-hodnota-podniku" target="_blank" rel="noopener">hodnotu podniku</a>.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč je při výpočtu NOPAT nutné k zisku <em>přičíst</em> nákladové úroky, když
+          jsou to přece skutečné náklady, které podnik platí?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Protože v modelu EVA se náklady <strong>veškerého</strong> kapitálu (cizího
+            i vlastního) zohledňují jednotně přes člen <span class="math">WACC<span class="op">×</span>C</span>.
+            Úroky z cizího kapitálu jsou už součástí WACC. Kdybychom je nechali odečtené
+            i v zisku, počítali bychom je <strong>dvakrát</strong> a EVA by vyšla uměle nižší.
+            NOPAT proto musí být <em>operativní</em> zisk „očištěný" od způsobu financování –
+            jako by podnik neměl žádný dluh. Tím zůstane symetrický k NOA, které leasing i
+            úvěr zahrnuje na straně kapitálu.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Ze kterých tří výkazů se skládá finanční plán a jak jsou navzájem provázané?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Sledujte cestu zisku a cestu peněz.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Plánový <strong>výkaz zisku a ztráty</strong>, plánová <strong>rozvaha</strong> a plán <strong>cash flow</strong>. VH za období z výsledovky zvyšuje vlastní kapitál v rozvaze a je vstupem cash flow; změny rozvahových položek určují peněžní toky; konečný stav peněz z cash flow se vrací do rozvahy jako peněžní majetek. Proto je sestavení plánu iterační.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč v plánu roste vlastní kapitál a zároveň klesají cizí zdroje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co se v plánu děje s vytvořeným ziskem a co s bankovními úvěry?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Podnik nevyplácí podíly na zisku, takže celý zisk zadržuje (kumuluje do VH minulých let) – vlastní kapitál proto roste z 857 na 1 113 mil. Kč. Zároveň plánovaně splácí krátkodobý úvěr (−30 mil. Kč ročně) a přebytkem peněz i dlouhodobý úvěr, takže cizí zdroje klesají z 475 na 370 mil. Kč. Podnik se oddlužuje a posiluje finanční stabilitu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Jaké dvě hlavní úpravy provádíme na plánové rozvaze, abychom získali NOA?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jedna položka se přidává (leasing), jiná odebírá (DFM), a ještě se vyčleňují neúročené závazky.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Do dlouhodobého majetku se <strong>aktivuje leasing</strong> (a přidá i do cizích zdrojů); <strong>DFM se vyloučí</strong> jako neoperativní aktivum (přes ekvivalenty vlastního kapitálu). Dále se od aktiv vyčlení <strong>neúročené závazky</strong>, aby vznikla <em>čistá</em> operativní aktiva. Zásoby, pohledávky, peníze a časové rozlišení zůstávají beze změny.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč se plánové výkazy musí před oceněním upravit stejně jako historické?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Ocenění na bázi EVA pracuje s ekonomickým, ne účetním modelem.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Výnosové ocenění na bázi EVA vyžaduje ekonomické veličiny <strong>NOA a NOPAT</strong>, nikoli účetní aktiva a účetní zisk. Aby byly plánové a historické hodnoty srovnatelné a metodicky konzistentní, musí projít stejnými úpravami (aktivace leasingu, vyloučení DFM, přičtení úroků k zisku, vyčlenění neúročených závazků). Jinak by se do ocenění promíchaly dvě různé metodiky.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Provozní VH v roce 2005 oproti roku 2004 klesá, přesto celkový zisk (VH za období) roste. Čím to je?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na finanční VH a na vývoj nákladových úroků.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Provozní VH klesá kvůli skokovému zdražení surovin (výkonová spotřeba +14 % v roce 2005). Celkový zisk přesto roste, protože se výrazně zlepšuje <strong>finanční VH</strong> (z −31 540 na −24 213 tis. Kč): splácením úvěrů klesají nákladové úroky a klesají i ostatní finanční náklady. Zlepšení finanční části tak převáží pokles provozní části.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l10-bsc-strategicka-mapa.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.10 Balanced Scorecard a strategická mapa podniku PLAST</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l12-oceneni-eva.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.12 Ocenění podniku na bázi EVA, simulace generátorů a závěr</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // =========================================================
+      // A) KROKOVÁ VIZUALIZACE: provázanost tří plánových výkazů
+      // =========================================================
+      Skripta.stepper('viz-provazanost', {
+        sirka: 760, vyska: 340,
+        stavy: [
+          { a1: false, a2: false },
+          { a1: true,  a2: false },
+          { a1: true,  a2: true  }
+        ],
+        popisky: [
+          'Tři výkazy zatím stojí samostatně: výsledovka, rozvaha a cash flow.',
+          'Zisk (VH za období) z výsledovky se přelévá do rozvahy – zvyšuje vlastní kapitál.',
+          'Cash flow vychází z VH a změn rozvahy; jeho konečný stav peněz se vrací zpět do rozvahy. Výkazy jsou provázané.'
+        ],
+        render: function (svg, stav, i, u) {
+          var akc = '#4338ca';
+          // --- tři boxy ---
+          function box(id, x, y, w, h, titul) {
+            u.dej(svg, id + '-box', 'rect', { x: x, y: y, width: w, height: h, rx: 10, fill: '#eef2ff', stroke: akc, 'stroke-width': 2 });
+            u.dej(svg, id + '-tit', 'text', { x: x + w / 2, y: y + 24, 'text-anchor': 'middle', fill: akc, 'font-size': 15, 'font-weight': 700 }, titul);
+          }
+          function radek(id, x, y, text, tucne) {
+            u.dej(svg, id, 'text', { x: x, y: y, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12.5, 'font-weight': tucne ? 700 : 400 }, text);
+          }
+
+          box('vzz', 30, 115, 190, 120, 'Výkaz Z/Z');
+          radek('vzz-r1', 125, 158, 'Výnosy − náklady');
+          radek('vzz-r2', 125, 200, 'VH za období', false);
+          radek('vzz-r3', 125, 220, '75 242', true);
+
+          box('roz', 285, 70, 190, 210, 'Rozvaha');
+          radek('roz-r1', 380, 108, 'Aktiva = Pasiva');
+          radek('roz-r2', 380, 150, 'Vlastní kapitál ↑', false);
+          radek('roz-r3', 380, 214, 'Peníze (KFM)', false);
+          radek('roz-r4', 380, 234, '94 743', true);
+
+          box('cf', 540, 115, 190, 120, 'Cash flow');
+          radek('cf-r1', 635, 152, 'PS peněz 86 130');
+          radek('cf-r2', 635, 176, '+ VH + odpisy…');
+          radek('cf-r5', 635, 208, 'KS peněz 94 743', true);
+
+          // --- šipka 1: VZZ -> Rozvaha (stav >= 1) ---
+          var o1 = stav.a1 ? 1 : 0;
+          u.dej(svg, 'a1-line', 'line', { x1: 220, y1: 175, x2: 283, y2: 165, stroke: akc, 'stroke-width': 2.5, opacity: o1 });
+          u.dej(svg, 'a1-head', 'path', { d: 'M 285,164 L 273,160 L 275,171 Z', fill: akc, opacity: o1 });
+          u.dej(svg, 'a1-lbl', 'text', { x: 252, y: 150, 'text-anchor': 'middle', fill: akc, 'font-size': 11.5, 'font-weight': 600, opacity: o1 }, 'zisk →');
+
+          // --- šipka 2: Rozvaha -> CF (horní, stav >= 2) ---
+          var o2 = stav.a2 ? 1 : 0;
+          u.dej(svg, 'a2-line', 'line', { x1: 475, y1: 140, x2: 538, y2: 140, stroke: akc, 'stroke-width': 2.5, opacity: o2 });
+          u.dej(svg, 'a2-head', 'path', { d: 'M 540,140 L 528,135 L 528,145 Z', fill: akc, opacity: o2 });
+          u.dej(svg, 'a2-lbl', 'text', { x: 507, y: 128, 'text-anchor': 'middle', fill: akc, 'font-size': 11.5, 'font-weight': 600, opacity: o2 }, 'VH + Δ');
+
+          // --- šipka 3: CF -> Rozvaha (spodní, návrat peněz, stav >= 2) ---
+          u.dej(svg, 'a3-line', 'line', { x1: 538, y1: 210, x2: 477, y2: 210, stroke: u.barvaTvorba, 'stroke-width': 2.5, opacity: o2 });
+          u.dej(svg, 'a3-head', 'path', { d: 'M 475,210 L 487,205 L 487,215 Z', fill: u.barvaTvorba, opacity: o2 });
+          u.dej(svg, 'a3-lbl', 'text', { x: 507, y: 232, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 11.5, 'font-weight': 600, opacity: o2 }, 'peníze');
+        }
+      });
+
+      // =========================================================
+      // B) KROKOVÁ VIZUALIZACE: vodopád VH -> NOPAT (rok 2005)
+      // =========================================================
+      Skripta.stepper('viz-nopat-vodopad', {
+        sirka: 720, vyska: 380,
+        stavy: [
+          { s: 0 }, { s: 1 }, { s: 2 }, { s: 3 }, { s: 4 }
+        ],
+        popisky: [
+          'Začínáme účetním ziskem: VH z běžné činnosti před zdaněním = 101 678.',
+          'Přičteme nákladové úroky z úvěru (+9 022) – v NOPAT nesmějí být odečteny.',
+          'Přičteme implicitní úroky z leasingu (+2 044). Upravený VH = 112 744.',
+          'Odečteme upravenou daň z příjmu (−29 313).',
+          'Zbývá NOPAT = 83 431 – operativní zisk po zdanění pro výpočet EVA.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320, px = 0.00212;
+          var akc = '#4338ca';
+          // hodnoty
+          var vh = 101678, uv = 9022, le = 2044, upr = 112744, dan = 29313, nopat = 83431;
+          // klíčové výšky (y)
+          var yVH = base - vh * px;            // 104.4
+          var yUv = base - (vh + uv) * px;     // 85.3
+          var yUpr = base - upr * px;          // 81.0
+          var yDan = base - nopat * px;        // 143.1 (upr - dan)
+          var yNop = base - nopat * px;        // 143.1
+
+          var w = 92;
+          var xVH = 55, xUv = 185, xLe = 315, xDan = 445, xNop = 590;
+
+          function osa() {
+            u.dej(svg, 'osa', 'line', { x1: 40, y1: base, x2: 700, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          }
+          function popisek(id, x, text) {
+            u.dej(svg, id, 'text', { x: x + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, text);
+          }
+          osa();
+
+          // Sloupec VH (vždy)
+          u.dej(svg, 'b-vh', 'rect', { x: xVH, y: yVH, width: w, height: base - yVH, rx: 4, fill: akc });
+          u.dej(svg, 'v-vh', 'text', { x: xVH + w / 2, y: yVH - 8, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700 }, u.formatCislo(vh));
+          popisek('l-vh', xVH, 'VH př. zdan.');
+
+          // + úroky úvěry (stav >= 1)
+          var o1 = stav.s >= 1 ? 1 : 0;
+          u.dej(svg, 'b-uv', 'rect', { x: xUv, y: yUv, width: w, height: (vh + uv) * px - vh * px, rx: 4, fill: u.barvaTvorba, opacity: o1 });
+          u.dej(svg, 'v-uv', 'text', { x: xUv + w / 2, y: yUv - 8, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 12.5, 'font-weight': 700, opacity: o1 }, '+' + u.formatCislo(uv));
+          u.dej(svg, 'l-uv', 'text', { x: xUv + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: o1 }, '+ úroky úvěr');
+          u.dej(svg, 'c1', 'line', { x1: xVH + w, y1: yVH, x2: xUv, y2: yVH, stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: o1 });
+
+          // + úroky leasing (stav >= 2)
+          var o2 = stav.s >= 2 ? 1 : 0;
+          u.dej(svg, 'b-le', 'rect', { x: xLe, y: yUpr, width: w, height: (vh + uv + le) * px - (vh + uv) * px, rx: 3, fill: u.barvaTvorba, opacity: o2 });
+          u.dej(svg, 'v-le', 'text', { x: xLe + w / 2, y: yUpr - 8, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 12.5, 'font-weight': 700, opacity: o2 }, '+' + u.formatCislo(le));
+          u.dej(svg, 'l-le', 'text', { x: xLe + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: o2 }, '+ úroky leas.');
+          u.dej(svg, 'c2', 'line', { x1: xUv + w, y1: yUv, x2: xLe, y2: yUv, stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: o2 });
+
+          // − daň (stav >= 3)
+          var o3 = stav.s >= 3 ? 1 : 0;
+          u.dej(svg, 'b-dan', 'rect', { x: xDan, y: yUpr, width: w, height: dan * px, rx: 4, fill: u.barvaNiceni, opacity: o3 });
+          u.dej(svg, 'v-dan', 'text', { x: xDan + w / 2, y: yUpr + dan * px / 2 + 5, 'text-anchor': 'middle', fill: '#fff', 'font-size': 12.5, 'font-weight': 700, opacity: o3 }, '−' + u.formatCislo(dan));
+          u.dej(svg, 'l-dan', 'text', { x: xDan + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: o3 }, '− daň');
+          u.dej(svg, 'c3', 'line', { x1: xLe + w, y1: yUpr, x2: xDan, y2: yUpr, stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: o3 });
+
+          // = NOPAT (stav >= 4)
+          var o4 = stav.s >= 4 ? 1 : 0;
+          u.dej(svg, 'b-nop', 'rect', { x: xNop, y: yNop, width: w, height: base - yNop, rx: 4, fill: u.barvaTvorba, opacity: o4 });
+          u.dej(svg, 'v-nop', 'text', { x: xNop + w / 2, y: yNop - 8, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 700, opacity: o4 }, u.formatCislo(nopat));
+          u.dej(svg, 'l-nop', 'text', { x: xNop + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, 'font-weight': 700, opacity: o4 }, 'NOPAT');
+          u.dej(svg, 'c4', 'line', { x1: xDan + w, y1: yDan, x2: xNop, y2: yDan, stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: o4 });
+        }
+      });
+
+      // =========================================================
+      // C) STATICKÝ SLOUPCOVÝ GRAF: plánovaný NOPAT 2005–2007
+      // =========================================================
+      Skripta.sloupcovyGraf('viz-nopat-sloupce', {
+        sirka: 640, vyska: 300, formatDesetin: 0,
+        data: [
+          { popisek: '2005', hodnota: 83431 },
+          { popisek: '2006', hodnota: 88051 },
+          { popisek: '2007', hodnota: 90484 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11.5 Tržní a majetkové metody; růstové příležitosti a hodnota – Výkonnost podniku</title>
+  <meta name="description" content="Metody tržního porovnání (multiplikátory, P/E), majetkové metody ocenění a rozklad hodnoty podniku na hodnotu současných obchodů a budoucího růstu.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 11 -->
+    <nav class="panel" data-panel data-aktivni-lekce="11.5" aria-label="Lekce tématu 11">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 11</div>
+      <div class="panel__nazev-tema">Nástroje hodnotového řízení</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="11.1" href="t11-l1-benchmarking.html"><span class="panel__odkaz-cislo">11.1</span><span>Benchmarking v řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.2" href="t11-l2-financni-plan-rizika.html"><span class="panel__odkaz-cislo">11.2</span><span>Finanční plán a řízení rizik</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.3" href="t11-l3-abc-abb-beyond-budgeting.html"><span class="panel__odkaz-cislo">11.3</span><span>ABC/ABB a Beyond Budgeting</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.4" href="t11-l4-oceneni-vynosove.html"><span class="panel__odkaz-cislo">11.4</span><span>Oceňování podniku – výnosové metody</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.5" href="t11-l5-trzni-majetkove-metody.html"><span class="panel__odkaz-cislo">11.5</span><span>Tržní a majetkové metody; růstové příležitosti a hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.6" href="t11-l6-is-ict.html"><span class="panel__odkaz-cislo">11.6</span><span>IS/ICT pro řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.7" href="t11-l7-desatero.html"><span class="panel__odkaz-cislo">11.7</span><span>Desatero pro úspěšné zavedení systému řízení výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-11">Téma 11 · Nástroje řízení</a></li>
+          <li><span aria-current="page">Lekce 11.5</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 11.5</span>
+        <h1>Tržní a majetkové metody; růstové příležitosti a hodnota</h1>
+        <p class="lekce-hlavicka__strany">Strany 227–231</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme oceňovali podnik <strong><a class="pojem" href="t11-l4-oceneni-vynosove.html?zvyraznit=pojem-vynosove-metody" target="_blank" rel="noopener">výnosovými metodami</a></strong> –
+        <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">diskontovaným cash flow</a>, koncepcí <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> nebo modelem <a class="pojem" href="t6-l2-cfroi.html?zvyraznit=pojem-cfroi" target="_blank" rel="noopener">CFROI</a>. Ty stojí na odhadu
+        budoucích výnosů. Vedle nich však existují dvě další skupiny metod: metody
+        <strong>tržního porovnání</strong>, které odvozují hodnotu z cen podobných
+        podniků na trhu, a metody <strong>majetkové</strong>, které vycházejí ze
+        současné hodnoty aktiv. Lekci uzavřeme pohledem na to, jak jednotlivé modely
+        zachycují <strong>růstové příležitosti a riziko</strong> jako zdroje tvorby
+        hodnoty.
+      </p>
+
+      <!-- ================================================================== -->
+      <h2>Metody tržního porovnání</h2>
+
+      <p>
+        Tržní hodnotou podniku rozumíme odhad ceny, za kterou by bylo možné podnik
+        reálně prodat. U společnosti, jejíž akcie jsou běžně obchodovány, můžeme
+        vyjít z aktuálního kurzu akcií na veřejných trzích: z kurzu a počtu akcií
+        snadno určíme tržní hodnotu vlastního kapitálu. Není-li tomu tak (jiná právní
+        forma nebo neobchodované akcie), vycházíme z aktuálních cen
+        <em>srovnatelných podniků</em>.
+      </p>
+
+      <section class="definice" id="pojem-metody-trzniho-porovnani">
+        <h3 class="definice__pojem">Metody tržního porovnání</h3>
+        <div class="definice__telo">
+          <p>
+            Skupina oceňovacích metod, které odvozují tržní hodnotu oceňovaného podniku
+            z&nbsp;cen podobných podniků, jejichž hodnota je známá. Podle Maříka je lze
+            uplatňovat ve třech rovinách: srovnání s podobnými podniky se známou hodnotou,
+            srovnání s podniky, které byly předmětem transakce (známe realizační cenu),
+            a srovnání s podniky, jejichž podíly byly oceňovány pro vstup na burzu.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Abychom z ceny srovnatelného podniku odvodili hodnotu oceňovaného podniku,
+        používáme <strong>tržní faktory</strong>, tzv. <em>multiplikátory</em>. Obecná
+        podoba multiplikátoru je poměr ceny akcie a vybraného ukazatele přepočteného
+        na jednu akcii:
+      </p>
+
+      <section class="definice" id="pojem-multiplikator">
+        <h3 class="definice__pojem">Multiplikátor (tržní faktor), P/E</h3>
+        <div class="definice__telo">
+          <p>
+            Poměrový násobitel ve tvaru
+            <span class="math">
+              <span class="frac"><span class="frac__cit">cena akcie</span><span class="frac__jmen">ukazatel na akcii</span></span>
+            </span>,
+            kterým se přenáší tržní ocenění ze srovnatelného podniku na oceňovaný.
+            Nejznámějším multiplikátorem je <strong>P/E</strong> (Price / Earnings) –
+            poměr ceny (prodejní ceny podniku) a zisku. Vynásobením ukazatele
+            oceňovaného podniku multiplikátorem získáme odhad jeho hodnoty.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pomocná, nikoli objektivní metoda</p>
+        <div class="callout__telo">
+          <p>
+            Výhodou tržního porovnání je technická jednoduchost. Kromě multiplikátorů je
+            však nutné zohlednit další vlivy pomocí různých <strong>srážek a přirážek</strong> –
+            a tím se z objektivní metody stává metoda spíše <strong>subjektivní</strong>.
+            Proto ji považujeme za <strong>pomocnou</strong>. Navíc vyžaduje vyspělý trh
+            s cennými papíry a její použití je omezené kvůli problematické srovnatelnosti
+            podniků.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 6.4 ================= -->
+      <h3>Řešený příklad 6.4 – ocenění přes P/E</h3>
+
+      <p>
+        Za poslední rok byly prodány tři podniky srovnatelné s oceňovaným podnikem.
+        Známe jejich roční zisk (E) a dosaženou prodejní cenu (P). Průměrný roční zisk
+        oceňovaného podniku za poslední tři roky je <strong>800 mil. Kč</strong>.
+        Stanovte tržní hodnotu podniku.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 6.4 – Srovnatelné podniky a jejich multiplikátory P/E (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Podnik</th>
+              <th scope="col" class="cislo">Roční zisk E</th>
+              <th scope="col" class="cislo">Prodejní cena P</th>
+              <th scope="col" class="cislo">P/E = P / E</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">A</th><td class="cislo">400</td><td class="cislo">4 000</td><td class="cislo">10</td></tr>
+            <tr><th scope="row">B</th><td class="cislo">200</td><td class="cislo">1 800</td><td class="cislo">9</td></tr>
+            <tr><th scope="row">C</th><td class="cislo">900</td><td class="cislo">7 200</td><td class="cislo">8</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Průměr P/E</th><td class="cislo">—</td><td class="cislo">—</td><td class="cislo">9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Řešení</p>
+        <div class="callout__telo">
+          <p>
+            Každý srovnatelný podnik má jiný poměr ceny a zisku:
+            <span class="math">P/E<sub>A</sub><span class="op">=</span>4 000<span class="op">/</span>400<span class="op">=</span>10</span>,
+            <span class="math">P/E<sub>B</sub><span class="op">=</span>1 800<span class="op">/</span>200<span class="op">=</span>9</span>,
+            <span class="math">P/E<sub>C</sub><span class="op">=</span>7 200<span class="op">/</span>900<span class="op">=</span>8</span>.
+          </p>
+          <p>
+            Použijeme <strong>průměrnou</strong> hodnotu relace ceny a zisku, tedy
+            <span class="math">P/E<span class="op">=</span>(10<span class="op">+</span>9<span class="op">+</span>8)<span class="op">/</span>3<span class="op">=</span>9</span>.
+            Tržní hodnotu oceňovaného podniku pak získáme vynásobením jeho zisku:
+            <span class="math">800<span class="op">×</span>9<span class="op">=</span><strong>7 200</strong></span> mil. Kč.
+          </p>
+        </div>
+      </aside>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Multiplikátory P/E srovnatelných podniků</p>
+          <p class="viz__popis">Každý srovnatelný podnik má jiný poměr ceny a zisku; pro ocenění se použil jejich průměr (9).</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-pe-sloupce"></div>
+      </figure>
+
+      <!-- ================================================================== -->
+      <h2>Majetkové metody ocenění</h2>
+
+      <p>
+        Majetkové metody vycházejí ze <strong>současné hodnoty aktiv snížené o výši
+        cizích zdrojů</strong>. Patří k nim tři metody:
+      </p>
+
+      <ul>
+        <li><strong>Metoda účetní hodnoty</strong> – vychází z účetních informací o hodnotě vlastního kapitálu.</li>
+        <li><strong>Metoda likvidační hodnoty</strong> – počítá se k okamžiku předpokládaného ukončení činnosti podniku; <em>neuplatňuje</em> se u ní princip going concern.</li>
+        <li><strong>Metoda substanční hodnoty</strong> – naopak princip going concern uplatňuje.</li>
+      </ul>
+
+      <section class="definice" id="pojem-going-concern">
+        <h3 class="definice__pojem">Going concern</h3>
+        <div class="definice__telo">
+          <p>
+            Předpoklad <strong>pokračování podniku</strong> v činnosti. Uplatňuje-li se
+            (metoda substanční hodnoty), oceňuje se majetek s ohledem na jeho další
+            užitečnost pro provoz. Neuplatňuje-li se (metoda likvidační hodnoty), majetek
+            se oceňuje k okamžiku ukončení činnosti – tedy tím, co by se za něj získalo
+            při rozprodeji.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-substancni-hodnota">
+        <h3 class="definice__pojem">Substanční hodnota</h3>
+        <div class="definice__telo">
+          <p>
+            Hodnota podniku odvozená z reálné (znovupořizovací) hodnoty jeho majetku za
+            předpokladu pokračování činnosti. Vychází z tzv. substanční hodnoty provozně
+            nutného majetku <em>brutto</em>: u dlouhodobých aktiv se odhadují náklady na
+            jejich znovupořízení se zohledněním morálního a fyzického opotřebení,
+            u oběžných aktiv jejich potřebnost pro další fungování podniku a jejich
+            likvidnost.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Výpočet substanční hodnoty netto</p>
+        <div class="callout__telo">
+          <p>Substanční hodnotu netto lze vyjádřit dvěma rovnocennými pohledy:</p>
+          <p style="margin:.4em 0">
+            Substanční hodnota provozně nutného majetku <em>brutto</em><br>
+            <span class="op">−</span> Reálná hodnota závazků<br>
+            <span class="op">+</span> Tržní hodnota majetku nepotřebného pro provoz<br>
+            <span class="op">=</span> <strong>Substanční hodnota netto</strong>
+          </p>
+          <p style="margin:.4em 0">
+            nebo z účetního pohledu:<br>
+            Vlastní kapitál podle účetnictví<br>
+            <span class="op">+</span> Zvýšení (snížení) účetní hodnoty aktiv<br>
+            <span class="op">−</span> Zvýšení (snížení) účetní hodnoty pasiv<br>
+            <span class="op">=</span> <strong>Substanční hodnota netto</strong>
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Kdy je vhodné použít majetkovou (substanční, likvidační) metodu místo výnosové? Co majetkové metody v hodnotě podniku <em>nezachytí</em>?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Majetkové metody určují hodnotu ze stávající hodnoty aktiv a dluhů, proto
+              se hodí, když podnik nemá spolehlivě odhadnutelné budoucí výnosy nebo se
+              uvažuje o ukončení jeho činnosti (likvidační hodnota). Ani substanční
+              hodnota – přes princip going concern – však <strong>nezahrne <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-goodwill" target="_blank" rel="noopener">goodwill</a></strong>
+              spojený s vybudovanou značkou, dodavatelsko-odběratelskými vztahy či
+              kvalifikací pracovníků a <strong>nepracuje s <a class="pojem" href="t11-l2-financni-plan-rizika.html?zvyraznit=pojem-financni-plan" target="_blank" rel="noopener">finančním plánem</a></strong>
+              budoucího rozvoje. Očekávanou výkonnost a riziko (přes diskontní sazbu)
+              odrážejí jen metody <strong>výnosové</strong>; ty proto lépe odhalují
+              potenciál růstu podniku.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================================================================== -->
+      <h2>Růstové příležitosti a hodnota podniku</h2>
+
+      <p>
+        Budoucí vývoj a očekávané <strong>růstové příležitosti</strong> jsou vestavěny
+        do filozofie výnosových metod. U výnosových metod je hodnota podniku v podstatě
+        rozdělena do dvou komponent: tvoří ji <strong>hodnota současných obchodů</strong>
+        a <strong>hodnota budoucího růstu</strong>. To platí pro oceňovací model založený
+        na koncepci EVA i pro model CFROI. U podniků s velkým růstovým potenciálem může
+        být složka budoucího růstu velmi vysoká.
+      </p>
+
+      <section class="definice" id="pojem-rustove-prilezitosti">
+        <h3 class="definice__pojem">Hodnota současných obchodů a budoucího růstu</h3>
+        <div class="definice__telo">
+          <p>
+            Rozklad hodnoty podniku u výnosových metod na dvě části. <strong>Hodnota
+            současných obchodů</strong> vychází z výkonnosti již existujících aktiv
+            a obchodů (u modelu EVA je to kapitalizovaná běžná EVA, tj.
+            <span class="math">EVA<span class="op">/</span>WACC</span>).
+            <strong>Hodnota budoucího růstu</strong> vyjadřuje současnou hodnotu
+            očekávaných změn výkonnosti (očekávaných zvýšení EVA) plynoucích z růstových
+            příležitostí podniku.
+          </p>
+        </div>
+      </section>
+
+      <h3>Oceňovací model vycházející z EVA</h3>
+
+      <p>
+        Model EVA předpokládá, že tržní hodnota podniku se skládá z <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-investovany-kapital" target="_blank" rel="noopener">investovaného
+        kapitálu</a> a současné hodnoty budoucích EVA. Budoucí EVA lze odvodit z dosažené
+        úrovně EVA a z očekávaných zvýšení (případně snížení) její současné výše:
+      </p>
+
+      <div class="vzorec" id="vzorec-6-8">
+        <div class="vzorec__telo">
+          <span class="math">
+            Tržní hodnota<span class="op">=</span>Investovaný kapitál<span class="op">+</span>
+            <span class="frac"><span class="frac__cit">EVA</span><span class="frac__jmen">WACC</span></span>
+            <span class="op">+</span>PV očekávaných změn EVA
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.8)</div>
+      </div>
+
+      <p>
+        Kde <span class="math"><span class="frac"><span class="frac__cit">EVA</span><span class="frac__jmen">WACC</span></span></span>
+        je kapitalizovaná běžná EVA (hodnota současných obchodů) a poslední člen je
+        současná hodnota očekávaných změn EVA (hodnota budoucího růstu). Chce-li podnik,
+        aby rostla jeho tržní hodnota, musí usilovat o <strong>co nejvyšší EVA v běžném
+        roce</strong> i o <strong>vytváření růstových příležitostí</strong>.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Rozklad tržní hodnoty podniku (model EVA, obr. 6–6)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se tržní hodnota skládá z investovaného kapitálu, kapitalizované běžné EVA a hodnoty budoucího růstu. Tržní přidaná hodnota (MVA) je součet obou horních složek.</p>
+        </figcaption>
+        <div id="viz-rozklad-hodnoty"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Očekávání trhu a hodnota budoucího růstu</p>
+        <div class="callout__telo">
+          <p>
+            U obchodovaných podniků lze modely použít i obráceně: z tržní hodnoty
+            určené trhem a z hodnoty existujících aktiv <strong>dopočítáme hodnotu
+            budoucích investic (růstu), kterou trh očekává</strong>. Tržní cena se pak
+            skládá z investovaného kapitálu a <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">MVA</a>, přičemž
+            <span class="math">MVA<span class="op">=</span><span class="frac"><span class="frac__cit">EVA</span><span class="frac__jmen">WACC</span></span><span class="op">+</span>budoucí růst hodnoty</span>
+            (obrázek 6–6).
+          </p>
+        </div>
+      </aside>
+
+      <h3>Oceňovací model CFROI</h3>
+
+      <p>
+        Model CFROI předpokládá, že hodnota podniku je tvořena <strong>hodnotou
+        existujících aktiv</strong> a <strong>hodnotou budoucích investic</strong>.
+        Existující aktiva produkují cash flow po dobu své ekonomické životnosti; další
+        část hodnoty tvoří cash flow z budoucích plánovaných investic. Čím lepší má
+        podnik růstové příležitosti, tím větší roli hraje v celkové hodnotě právě
+        složka budoucích investic.
+      </p>
+
+      <h3>Oceňovací model diskontovaných peněžních toků (DCF)</h3>
+
+      <p>
+        Model DCF vychází z předpokladu, že tržní hodnota podniku je současnou hodnotou
+        budoucích peněžních toků:
+      </p>
+
+      <div class="vzorec" id="vzorec-6-9">
+        <div class="vzorec__telo">
+          <span class="math">Tržní hodnota<span class="op">=</span>Současná hodnota budoucích peněžních toků</span>
+        </div>
+        <div class="vzorec__cislo">(6.9)</div>
+      </div>
+
+      <p>
+        Hodnota současných aktiv (investovaného kapitálu) zde vystupuje jen jako
+        východisko budoucích příjmů a potenciálu růstu – explicitně se s ní nepočítá.
+        Budoucí peněžní toky se odvozují z plánovaných hodnot pro určité (explicitně
+        prognózované) období a z tzv. <strong>pokračující hodnoty</strong> po tomto
+        období.
+      </p>
+
+      <section class="definice" id="pojem-pokracujici-hodnota">
+        <h3 class="definice__pojem">Pokračující (terminální) hodnota</h3>
+        <div class="definice__telo">
+          <p>
+            Současná hodnota nekonečných peněžních toků <strong>po</strong> explicitně
+            prognózovaném období. Její stanovení vychází z principu going concern
+            a z předpokladu stabilního a trvalého růstu. Vyjadřuje ji <strong><a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-gordonuv-model" target="_blank" rel="noopener">Gordonův
+            vzorec</a></strong>.
+          </p>
+        </div>
+      </section>
+
+      <p>Pro pokračující hodnotu platí <strong>Gordonův vzorec</strong>:</p>
+
+      <div class="vzorec" id="vzorec-6-10">
+        <div class="vzorec__telo">
+          <span class="math">
+            Pokračující hodnota<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">CF<sub>k+1</sub></span>
+              <span class="frac__jmen">i<span class="op">−</span>g</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.10)</div>
+      </div>
+
+      <p>Kde:</p>
+      <ul>
+        <li><span class="math">CF<sub>k+1</sub></span> – disponibilní peněžní tok v prvním roce po explicitně prognózovaném období,</li>
+        <li><span class="math">k</span> – poslední rok prognózovaného období,</li>
+        <li><span class="math">i</span> – diskontní míra,</li>
+        <li><span class="math">g</span> – předpokládané tempo růstu peněžních toků.</li>
+      </ul>
+
+      <p>
+        Pro hodnotové řízení podniku lze pokračující hodnotu vyjádřit i vzorcem, který
+        ukazuje <strong>faktory tvorby hodnoty</strong>:
+      </p>
+
+      <div class="vzorec" id="vzorec-6-11">
+        <div class="vzorec__telo">
+          <span class="math">
+            Pokračující hodnota<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Upravený provozní zisk po dani<span class="op">×</span>(1<span class="op">−</span>g<span class="op">/</span>r)</span>
+              <span class="frac__jmen">i<span class="op">−</span>g</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(6.11)</div>
+      </div>
+
+      <p>Kde:</p>
+      <ul>
+        <li><strong>Upravený provozní zisk po dani</strong> – výsledek hospodaření z provozní činnosti počítaný jen z relativně pravidelných výnosů a nákladů hlavní činnosti,</li>
+        <li><span class="math">g</span> – očekávaná míra růstu čistých provozních zisků,</li>
+        <li><span class="math">r</span> – očekávaná míra návratnosti čistých investic (přírůstek zdaněného upraveného provozního zisku / přírůstek investovaného kapitálu v předchozím roce),</li>
+        <li><span class="math">g<span class="op">/</span>r</span> – míra investic z dlouhodobého hlediska, tj. podíl zisku věnovaný na čisté investice.</li>
+      </ul>
+
+      <p>
+        U obou způsobů výpočtu pokračující hodnoty vidíme významnou roli <strong>míry
+        očekávaného růstu</strong> disponibilních příjmů pro hodnotu podniku.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde je v modelech ukryto riziko</p>
+        <div class="callout__telo">
+          <p>
+            Všechny modely mají zabudovanou úvahu o <strong>riziku</strong> prostřednictvím
+            <strong>diskontní sazby</strong>, která odráží <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklady na kapitál</a> – ty úzce
+            souvisejí s rizikem. Růstové příležitosti jsou zakomponovány zejména
+            v diskontní sazbě modelu CFROI: jeho <em>tržní diskontní míra</em> se odvozuje
+            ze souboru podniků, u nichž je známá jejich tržní hodnota a odhad budoucích
+            výnosů.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jak se v hodnotě podniku promítají růstové příležitosti a riziko? Kterými dvěma „pákami" může management podle vztahu (6.8) zvyšovat tržní hodnotu?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              <strong>Růstové příležitosti</strong> vstupují do hodnoty jako složka
+              budoucího růstu – u modelu EVA jako současná hodnota očekávaných změn EVA,
+              u DCF přes tempo růstu <span class="math">g</span> v pokračující hodnotě
+              (6.10) a (6.11). <strong>Riziko</strong> se promítá do <strong>diskontní
+              sazby</strong> (nákladů na kapitál): čím vyšší riziko, tím vyšší
+              <span class="math">i</span> (resp. <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>) a tím nižší současná hodnota
+              budoucích příjmů. Podle vztahu (6.8) může management zvyšovat tržní hodnotu
+              dvěma pákami: <strong>vyšší běžnou EVA</strong> (hodnota současných obchodů)
+              a <strong>vytvářením růstových příležitostí</strong> (hodnota budoucího růstu).
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaký je obecný tvar multiplikátoru a co vyjadřuje ukazatel P/E?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Multiplikátor je poměr dvou veličin přepočtených na akcii.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Obecně je multiplikátor poměr <em>cena akcie / vybraný ukazatel na akcii</em>. P/E je poměr ceny (prodejní ceny podniku) a zisku; vynásobením zisku oceňovaného podniku průměrným P/E srovnatelných podniků získáme odhad jeho tržní hodnoty.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Čím se liší metoda likvidační a substanční hodnoty?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Rozhoduje princip going concern.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Likvidační hodnota se počítá k okamžiku ukončení činnosti a <strong>neuplatňuje</strong> princip going concern (majetek se oceňuje tím, co by se získalo při rozprodeji). Substanční hodnota princip <strong>going concern uplatňuje</strong> – majetek se oceňuje reálnými (znovupořizovacími) hodnotami s ohledem na jeho potřebnost pro další provoz.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Na jaké dvě komponenty se u výnosových metod rozkládá hodnota podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jedna složka je „teď", druhá „potom".</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na <strong>hodnotu současných obchodů</strong> (výkonnost existujících aktiv, u EVA kapitalizovaná běžná EVA = EVA/WACC) a <strong>hodnotu budoucího růstu</strong> (současná hodnota očekávaných změn EVA, resp. hodnota budoucích investic u CFROI).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co vyjadřuje Gordonův vzorec (6.10) a jakou roli v něm hraje tempo růstu g?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se, co je ve jmenovateli.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Gordonův vzorec počítá <strong>pokračující (terminální) hodnotu</strong> jako současnou hodnotu nekonečně rostoucích peněžních toků: <span class="math"><span class="frac"><span class="frac__cit">CF<sub>k+1</sub></span><span class="frac__jmen">i<span class="op">−</span>g</span></span></span>. Tempo růstu <span class="math">g</span> snižuje jmenovatele <span class="math">(i<span class="op">−</span>g)</span> – čím vyšší očekávaný růst, tím vyšší pokračující hodnota (a naopak vyšší diskontní míra <span class="math">i</span> ji snižuje).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jak se do ocenění podniku promítá riziko?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Souvisí s náklady na kapitál.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Riziko vstupuje do ocenění přes <strong>diskontní sazbu</strong> (náklady na kapitál), kterou se budoucí příjmy převádějí na současnou hodnotu. Vyšší riziko znamená vyšší diskontní sazbu a nižší současnou hodnotu. U modelu CFROI je riziko (i růstové příležitosti) zabudováno v tržní diskontní míře odvozené ze souboru podniků se známou tržní hodnotou.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t11-l4-oceneni-vynosove.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">11.4 Oceňování podniku – výnosové metody</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t11-l6-is-ict.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">11.6 IS/ICT pro řízení výkonnosti</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: multiplikátory P/E srovnatelných podniků (příklad 6.4)
+      Skripta.sloupcovyGraf('viz-pe-sloupce', {
+        sirka: 640, vyska: 300, formatDesetin: 0,
+        data: [
+          { popisek: 'Podnik A', hodnota: 10 },
+          { popisek: 'Podnik B', hodnota: 9 },
+          { popisek: 'Podnik C', hodnota: 8 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: rozklad tržní hodnoty podniku (model EVA, obr. 6–6)
+      // Segmenty se skládají na sebe; postupně přibývá EVA/WACC a hodnota budoucího růstu.
+      Skripta.stepper('viz-rozklad-hodnoty', {
+        sirka: 720, vyska: 380,
+        stavy: [
+          { showEva: false, showRust: false },
+          { showEva: true,  showRust: false },
+          { showEva: true,  showRust: true  }
+        ],
+        popisky: [
+          'Východisko: investovaný kapitál – účetní hodnota kapitálu vloženého do podniku (existující aktiva).',
+          'Přičteme kapitalizovanou běžnou EVA (EVA / WACC) – hodnotu současných obchodů, tj. výkonnost existujících aktiv.',
+          'Přidáme současnou hodnotu očekávaných změn EVA – hodnotu budoucího růstu. Součet dává tržní hodnotu; MVA = EVA/WACC + budoucí růst.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320;                 // základna sloupce
+          var barX = 120, barW = 170;     // levý sloupec
+          var kapH = 110, ewH = 80, rustH = 70;
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 60, y1: base, x2: 680, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Segment 1: Investovaný kapitál (indigo) – vždy viditelný
+          var kapY = base - kapH;
+          u.dej(svg, 'seg-kap', 'rect', { x: barX, y: kapY, width: barW, height: kapH, fill: '#4338ca' });
+          u.dej(svg, 'lbl-kap', 'text', { x: barX + barW / 2, y: kapY + kapH / 2 + 5, 'text-anchor': 'middle', fill: '#fff', 'font-size': 13, 'font-weight': 600 }, 'Invest. kapitál');
+
+          // Segment 2: EVA / WACC (zelená) – hodnota současných obchodů
+          var ewFull = base - kapH - ewH;
+          var ewCur = stav.showEva ? ewH : 0;
+          u.dej(svg, 'seg-ew', 'rect', { x: barX, y: kapY - ewCur, width: barW, height: ewCur, fill: u.barvaTvorba, opacity: stav.showEva ? 1 : 0 });
+          u.dej(svg, 'lbl-ew', 'text', { x: barX + barW / 2, y: ewFull + ewH / 2 + 5, 'text-anchor': 'middle', fill: '#fff', 'font-size': 13, 'font-weight': 600, opacity: stav.showEva ? 1 : 0 }, 'EVA / WACC');
+
+          // Segment 3: Budoucí růst hodnoty (jantarová) – hodnota budoucího růstu
+          var rustFull = ewFull - rustH;
+          var rustCur = stav.showRust ? rustH : 0;
+          u.dej(svg, 'seg-rust', 'rect', { x: barX, y: ewFull - rustCur, width: barW, height: rustCur, fill: '#f59e0b', opacity: stav.showRust ? 1 : 0 });
+          u.dej(svg, 'lbl-rust', 'text', { x: barX + barW / 2, y: rustFull + rustH / 2 + 5, 'text-anchor': 'middle', fill: '#fff', 'font-size': 13, 'font-weight': 600, opacity: stav.showRust ? 1 : 0 }, 'Budoucí růst');
+
+          // Popisek pod sloupcem
+          u.dej(svg, 'lbl-podnik', 'text', { x: barX + barW / 2, y: base + 26, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700 }, 'Tržní hodnota');
+
+          // Pravé popisky složek se spojnicí
+          var xLine = barX + barW + 14;   // start spojnice
+          var xText = xLine + 20;
+          // Hodnota současných obchodů → EVA/WACC
+          var yEw = ewFull + ewH / 2;
+          u.dej(svg, 'ln-obchod', 'line', { x1: barX + barW, y1: yEw, x2: xText - 6, y2: yEw, stroke: u.barvaTvorba, 'stroke-width': 1.5, opacity: stav.showEva ? 1 : 0 });
+          u.dej(svg, 'tx-obchod', 'text', { x: xText, y: yEw + 5, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 13, opacity: stav.showEva ? 1 : 0 }, 'Hodnota současných obchodů');
+          // Hodnota budoucího růstu → růst
+          var yRust = rustFull + rustH / 2;
+          u.dej(svg, 'ln-rust', 'line', { x1: barX + barW, y1: yRust, x2: xText - 6, y2: yRust, stroke: '#f59e0b', 'stroke-width': 1.5, opacity: stav.showRust ? 1 : 0 });
+          u.dej(svg, 'tx-rust', 'text', { x: xText, y: yRust + 5, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 13, opacity: stav.showRust ? 1 : 0 }, 'Hodnota budoucího růstu');
+
+          // MVA svorka vpravo od popisků (obě horní složky) – ve finálním kroku
+          var xMva = 520;
+          u.dej(svg, 'mva-bracket', 'path', {
+            d: 'M ' + xMva + ' ' + rustFull + ' H ' + (xMva + 10) + ' V ' + base + ' H ' + xMva,
+            fill: 'none', stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: stav.showRust ? 1 : 0
+          });
+          u.dej(svg, 'mva-tx', 'text', { x: xMva + 16, y: (rustFull + base) / 2 + 5, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 13, 'font-weight': 700, opacity: stav.showRust ? 1 : 0 }, 'MVA');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

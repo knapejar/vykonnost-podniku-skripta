@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.1 Shareholder Value Added – SVA – Výkonnost podniku</title>
+  <meta name="description" content="Shareholder Value Added (SVA) jako přírůstek hodnoty pro vlastníky mezi dvěma obdobími, skladba Shareholder Value a srovnání SVA, EVA a ROI.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 6 -->
+    <nav class="panel" data-panel data-aktivni-lekce="6.1" aria-label="Lekce tématu 6">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 6</div>
+      <div class="panel__nazev-tema">Měřítka na bázi cash flow a souhrnné srovnání</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="6.1" href="t6-l1-sva.html"><span class="panel__odkaz-cislo">6.1</span><span>Shareholder Value Added – SVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.2" href="t6-l2-cfroi.html"><span class="panel__odkaz-cislo">6.2</span><span>Cash Flow Return on Investment – CFROI</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.3" href="t6-l3-cfroi-tbr-croga.html"><span class="panel__odkaz-cislo">6.3</span><span>CFROI – oceňování, zhodnocení, TBR a CROGA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.4" href="t6-l4-souhrnne-srovnani.html"><span class="panel__odkaz-cislo">6.4</span><span>Souhrnné srovnání ukazatelů výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-6">Téma 6 · Cash flow měřítka</a></li>
+          <li><span aria-current="page">Lekce 6.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 6.1</span>
+        <h1>Shareholder Value Added – SVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 91–93</p>
+      </header>
+
+      <p>
+        Ukazatele typu <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>
+        měří hodnotu vytvořenou za jedno období. Dalším pohledem na výkonnost je
+        přímé sledování toho, <em>o kolik vzrostla hodnota podniku pro jeho vlastníky</em>
+        mezi dvěma okamžiky. Přesně to vyjadřuje ukazatel přidané hodnoty pro
+        vlastníky – <a class="pojem" href="#pojem-sva">Shareholder Value Added (SVA)</a>.
+      </p>
+      <p>
+        V této lekci si ukážeme, jak se SVA počítá, z čeho se skládá samotná
+        hodnota pro vlastníky (Shareholder Value) a proč dokáže SVA odhalit
+        investici bez tvorby hodnoty i tam, kde EVA zůstává kladná.
+      </p>
+
+      <!-- ================= SVA jako přírůstek SV ================= -->
+      <h2>SVA jako přírůstek hodnoty pro vlastníky</h2>
+      <p>
+        SVA je definována jako změna hodnoty podniku pro vlastníky
+        (<span class="math">SV</span>) mezi koncem a začátkem sledovaného období:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-14">
+        <div class="vzorec__telo">
+          <span class="math">SVA<sub>t</sub><span class="op">=</span>SV<sub>t</sub><span class="op">−</span>SV<sub>t−1</sub></span>
+        </div>
+        <div class="vzorec__cislo">(3.14)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">SV<sub>t</sub></span> je hodnota podniku pro vlastníky
+        (Shareholder Value) v čase <span class="math">t</span>. SVA je tedy prostý
+        <strong>přírůstek</strong> této hodnoty: kladná hodnota znamená, že podnik
+        za dané období hodnotu pro vlastníky zvýšil, záporná, že ji snížil.
+      </p>
+
+      <section class="definice" id="pojem-sva">
+        <h3 class="definice__pojem">Shareholder Value Added (SVA)</h3>
+        <div class="definice__telo">
+          <p>
+            Přidaná hodnota pro vlastníky – přírůstek hodnoty podniku pro vlastníky
+            (Shareholder Value) mezi dvěma obdobími. Měří, o kolik se za sledovaný
+            interval zvýšila (nebo snížila) hodnota náležející vlastníkům podniku.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-shareholder-value">
+        <h3 class="definice__pojem">Shareholder Value (SV)</h3>
+        <div class="definice__telo">
+          <p>
+            Hodnota podniku pro vlastníky. Představuje rozdíl mezi hodnotou celého
+            podniku a hodnotou cizího kapitálu v tržních cenách k určitému datu.
+            Hodnotu podniku přitom ovlivňuje současná hodnota <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-provozni-cash-flow" target="_blank" rel="noopener">provozních cash flow</a>
+            z prognózovaného období, reziduální hodnota podniku na konci tohoto
+            období a tržní hodnota neprovozního (neoperativního) majetku.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= Skladba SV ================= -->
+      <h2>Z čeho se skládá Shareholder Value</h2>
+      <p>
+        Hodnotu pro vlastníky získáme tak, že od hodnoty celého podniku odečteme
+        cizí zdroje. Samotná hodnota podniku se přitom skládá ze tří složek. Pro
+        Shareholder Value tak platí:
+      </p>
+
+      <div class="vzorec" id="vzorec-sv-skladba">
+        <div class="vzorec__telo">
+          <span class="math">SV<span class="op">=</span>PV<sub>provozních CF</sub><span class="op">+</span>PV<sub>reziduální hodnoty</sub><span class="op">+</span>neoperativní aktiva<span class="op">−</span>cizí zdroje</span>
+        </div>
+      </div>
+
+      <p>Slovně řečeno, Shareholder Value je součtem těchto položek:</p>
+      <ul>
+        <li><a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-soucasna-hodnota" target="_blank" rel="noopener">současná hodnota</a> <strong>cash flow z operativní činnosti</strong> pro prognózované období,</li>
+        <li>současná hodnota <strong>reziduální (zbytkové) hodnoty</strong> podniku ke konci prognózovaného období,</li>
+        <li><strong>tržní hodnota neoperativních aktiv</strong>,</li>
+        <li>od tohoto součtu se odečtou <strong>cizí zdroje</strong>.</li>
+      </ul>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: skladba SV ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Skladba Shareholder Value</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se z jednotlivých složek postupně skládá hodnota celého podniku a po odečtení cizích zdrojů zbývá hodnota pro vlastníky (SV). Schéma je ilustrativní – ukazuje strukturu, nikoli konkrétní částky.</p>
+        </figcaption>
+        <div id="viz-sv-skladba"></div>
+      </figure>
+
+      <section class="definice" id="pojem-rezidualni-hodnota">
+        <h3 class="definice__pojem">Reziduální (zbytková) hodnota podniku</h3>
+        <div class="definice__telo">
+          <p>
+            Hodnota podniku ke konci prognózovaného období, tj. hodnota všech
+            peněžních toků očekávaných po jeho skončení. Do Shareholder Value
+            vstupuje svojí současnou hodnotou (<a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-diskontovani" target="_blank" rel="noopener">diskontovaná</a> k datu ocenění).
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-neoperativni-aktiva">
+        <h3 class="definice__pojem">Neoperativní aktiva</h3>
+        <div class="definice__telo">
+          <p>
+            Neprovozní majetek, který se přímo nepodílí na hlavní (operativní)
+            činnosti podniku, a jehož peněžní toky proto nejsou zahrnuty v provozních
+            cash flow. Do hodnoty podniku vstupuje samostatně svojí tržní hodnotou.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= Trvání konkurenční výhody ================= -->
+      <h2>Prognózované období a trvání konkurenční výhody</h2>
+      <p>
+        Klíčovou otázkou je, jak dlouhé prognózované období pro výpočet použít.
+        Délka prognózovaného období odpovídá délce <strong>trvání konkurenční
+        výhody</strong> – tedy období, po které podnik dosahuje výnosnosti vyšší,
+        než jsou jeho <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklady na kapitál</a>. Po skončení této výhody se předpokládá,
+        že podnik již hodnotu netvoří, a jeho další existence je zachycena
+        reziduální hodnotou.
+      </p>
+
+      <section class="definice" id="pojem-trvani-konkurencni-vyhody">
+        <h3 class="definice__pojem">Trvání konkurenční výhody</h3>
+        <div class="definice__telo">
+          <p>
+            Období, po které podnik dosahuje výnosnosti vyšší než náklady na kapitál,
+            a tedy tvoří hodnotu. Jeho délka určuje délku prognózovaného období, za
+            které se diskontují provozní cash flow při výpočtu Shareholder Value.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč záleží na délce konkurenční výhody</p>
+        <div class="callout__telo">
+          <p>Čím déle podnik dokáže udržet výnosnost nad náklady kapitálu, tím delší
+          je prognózované období a tím větší část hodnoty pochází z diskontovaných
+          provozních cash flow (a méně z reziduální hodnoty). Odhad trvání
+          konkurenční výhody je proto jedním z nejcitlivějších předpokladů celého
+          ocenění.</p>
+        </div>
+      </aside>
+
+      <!-- ================= Zjednodušený výpočet SVA za období ================= -->
+      <h2>Zjednodušený výpočet SVA za jedno období</h2>
+      <p>
+        Pro výpočet SVA za jedno období lze použít zjednodušený vztah, který
+        vychází z přírůstku provozního zisku po zdanění a z čistých investic:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-15">
+        <div class="vzorec__telo">
+          <span class="math">SVA<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">ΔNOPAT</span>
+              <span class="frac__jmen">WACC</span>
+            </span>
+            <span class="op">−</span>Čisté investice</span>
+        </div>
+        <div class="vzorec__cislo">(3.15)</div>
+      </div>
+
+      <p>
+        Výraz <span class="math"><span class="frac"><span class="frac__cit">ΔNOPAT</span><span class="frac__jmen">WACC</span></span></span>
+        představuje kapitalizovaný přírůstek provozního zisku po zdanění – tedy
+        hodnotu, kterou navíc generovaný zisk (za předpokladu jeho trvání) přidává
+        podniku. Od ní se odečtou <strong>čisté investice</strong> vynaložené na
+        dosažení tohoto přírůstku. SVA je tak vytvořená hodnota po odečtení toho,
+        co jsme do ní vložili.
+      </p>
+
+      <section class="definice" id="pojem-ciste-investice">
+        <h3 class="definice__pojem">Čisté investice</h3>
+        <div class="definice__telo">
+          <p>
+            Kapitál nově vložený do podniku (do investice) v daném období. Ve vztahu
+            (3.15) se odečítají od kapitalizovaného přírůstku <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>: hodnota vzniká
+            jen tehdy, když je kapitalizovaný přínos vyšší než vynaložené investice.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 3.9 ================= -->
+      <h2>Řešený příklad: SVA vs. EVA vs. ROI</h2>
+      <p>
+        Následující příklad ukazuje možnosti hodnocení výkonnosti pomocí měřítek
+        SVA, EVA a <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roi" target="_blank" rel="noopener">ROI</a> na téže investici – a odhaluje, kde se jejich signály liší.
+      </p>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 3.9 – zadání</p>
+        <div class="callout__telo">
+          <p>Podnik na konci minulého roku uskutečnil investici ve výši <strong>2 000</strong>.
+          Investice přinesla přírůstek NOPAT ve výši <strong>200</strong>. Průměrné
+          náklady na kapitál (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>) jsou <strong>10 %</strong>. Vypočítejme SVA a
+          porovnejme ji s ukazateli EVA a ROI.</p>
+        </div>
+      </aside>
+
+      <h3>Pohled na samotnou investici</h3>
+      <p>Pro samotnou investici dosadíme do vztahu (3.15):</p>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">SVA<span class="op">=</span>
+            <span class="frac"><span class="frac__cit"><span class="num">200</span></span><span class="frac__jmen"><span class="num">0,1</span></span></span>
+            <span class="op">−</span><span class="num">2 000</span><span class="op">=</span><span class="num">0</span></span>
+        </div>
+      </div>
+      <p>
+        Realizací investice <strong>nebyla vytvořena žádná dodatečná hodnota</strong>
+        pro vlastníka – zhodnocení je přesně na úrovni podnikových nákladů na kapitál.
+        Totéž potvrdí i ostatní dvě měřítka počítaná pro samotnou investici:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3.9a – Samotná investice pohledem tří měřítek</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">Výpočet</th>
+              <th scope="col" class="cislo">Výsledek</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">ROI investice</th><td class="cislo">200 / 2 000</td><td class="cislo">10,0 %</td></tr>
+            <tr><th scope="row">EVA investice</th><td class="cislo">200 − 0,10 × 2 000</td><td class="cislo hodnota-niceni">0</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">SVA investice</th><td class="cislo">200 / 0,10 − 2 000</td><td class="cislo hodnota-niceni">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Všechna tři měřítka se shodují: investice vydělává přesně na náklady kapitálu
+        (ROI 10 % = WACC 10 %), takže EVA i SVA jsou nulové. Zajímavý – a poučný –
+        rozpor nastane, když se podíváme na <strong>celý podnik</strong>.
+      </p>
+
+      <h3>Pohled na celý podnik</h3>
+      <p>
+        Vložený kapitál podniku byl na konci minulého roku <strong>20 000</strong>
+        a výnosnost vloženého kapitálu (ROI) činila <strong>15 %</strong>, tj. zisk
+        3 000. Po realizaci investice vzroste kapitál na 22 000 a zisk na 3 200.
+        Porovnejme stav podniku bez investice a s investicí:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3.9b – Podnik bez investice a s investicí</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">Bez investice</th>
+              <th scope="col" class="cislo">S investicí</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Vložený kapitál</th><td class="cislo">20 000</td><td class="cislo">22 000</td></tr>
+            <tr><th scope="row">Zisk (NOPAT)</th><td class="cislo">3 000</td><td class="cislo">3 200</td></tr>
+            <tr><th scope="row">ROI podniku</th><td class="cislo">15,0 %</td><td class="cislo">14,5 %</td></tr>
+            <tr><th scope="row">EVA podniku</th><td class="cislo hodnota-tvorba">1 000</td><td class="cislo hodnota-tvorba">1 000</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">SVA investice</th><td class="cislo">—</td><td class="cislo hodnota-niceni">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Rozepišme dva klíčové výpočty s investicí:</p>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">ROI<sub>podniku</sub><span class="op">=</span>
+            <span class="frac"><span class="frac__cit"><span class="num">3 200</span></span><span class="frac__jmen"><span class="num">22 000</span></span></span>
+            <span class="op">=</span><span class="num">0,145</span><span class="op">=</span><span class="num">14,5 %</span></span>
+        </div>
+      </div>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">EVA<sub>podniku</sub><span class="op">=</span><span class="num">3 200</span><span class="op">−</span><span class="num">0,10</span><span class="op">×</span><span class="num">22 000</span><span class="op">=</span><span class="num">1 000</span></span>
+        </div>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">V čem se signály liší</p>
+        <div class="callout__telo">
+          <p>Investice <strong>udržuje kladnou EVA</strong> podniku (zůstává 1 000 –
+          nepřinesla ale žádný přírůstek), zatímco <strong>ROI podniku klesá</strong>
+          z 15 % na 14,5 %. Naproti tomu <strong>SVA jednoznačně ukázala</strong>
+          (SVA = 0), že daná investice žádnou hodnotu netvoří.</p>
+          <p>U ukazatele EVA je proto nutné vycházet buď z hodnocení <strong>přírůstků
+          EVA</strong>, nebo použít EVA přímo pro hodnocení investičního projektu –
+          jinak celkově kladná EVA podniku „schová" investici, která hodnotu netvoří.</p>
+        </div>
+      </aside>
+
+      <!-- STATICKÝ GRAF: ROI podniku -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">ROI podniku bez investice a s investicí (%)</p>
+          <p class="viz__popis">Investice zhodnocená přesně na úrovni WACC (10 %) stáhne celkovou rentabilitu podniku dolů, přestože EVA zůstává kladná.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-roi-sloupce"></div>
+      </figure>
+
+      <!-- ================= ZKUS SÁM ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik plánuje investici 5 000, která by přinesla přírůstek NOPAT 600.
+          WACC je 10 %. Vytvoří investice hodnotu pro vlastníky? Spočítejte SVA.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Dosadíme do (3.15):
+            <span class="math">SVA<span class="op">=</span><span class="frac"><span class="frac__cit"><span class="num">600</span></span><span class="frac__jmen"><span class="num">0,1</span></span></span><span class="op">−</span><span class="num">5 000</span><span class="op">=</span><span class="num">6 000</span><span class="op">−</span><span class="num">5 000</span><span class="op">=</span><span class="num">1 000</span></span>.
+            Kapitalizovaný přírůstek zisku (6 000) je vyšší než vložené investice
+            (5 000), takže SVA = 1 000 &gt; 0 – investice <strong>tvoří hodnotu</strong>.
+            (Ekvivalentně: ROI investice = 600/5 000 = 12 % &gt; WACC 10 %.)</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč může SVA odhalit investici bez tvorby hodnoty i tam, kde EVA
+          celého podniku zůstává kladná?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>EVA počítaná za <em>celý podnik</em> je součtem přínosů všech aktiv.
+            Když je podniková EVA vysoce kladná díky stávajícím aktivům, může do ní
+            přibýt investice, která sama o sobě jen pokrývá náklady kapitálu
+            (přírůstek EVA = 0) – celková EVA přesto zůstane kladná a rozpor se
+            „ztratí". SVA se naproti tomu počítá <em>adresně pro danou investici</em>
+            (kapitalizovaný přírůstek zisku minus čisté investice), takže nulovou
+            tvorbu hodnoty ukáže přímo. Proto se u EVA sledují <strong>přírůstky</strong>,
+            nebo se EVA aplikuje přímo na projekt.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jak je definována SVA a co znamená její kladná, resp. záporná hodnota?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzorec (3.14) porovnává hodnotu pro vlastníky ve dvou okamžicích.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>SVA je přírůstek hodnoty podniku pro vlastníky mezi dvěma obdobími:
+              <span class="math">SVA<sub>t</sub><span class="op">=</span>SV<sub>t</sub><span class="op">−</span>SV<sub>t−1</sub></span>.
+              Kladná SVA znamená, že podnik za období hodnotu pro vlastníky <strong>zvýšil</strong>,
+              záporná, že ji <strong>snížil</strong>.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Z jakých složek se skládá Shareholder Value (SV)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Tři přičítané položky hodnoty podniku a jedna odečítaná.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>SV = současná hodnota provozních cash flow za prognózované období
+              + současná hodnota reziduální (zbytkové) hodnoty podniku
+              + tržní hodnota neoperativních aktiv − cizí zdroje. Jinak řečeno:
+              hodnota celého podniku snížená o hodnotu cizího kapitálu v tržních cenách.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Čím je určena délka prognózovaného období ve výpočtu SV?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Souvisí s obdobím, kdy výnosnost převyšuje náklady kapitálu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Odpovídá <strong>délce trvání konkurenční výhody</strong> – tedy období,
+              po které podnik dosahuje výnosnosti vyšší, než jsou náklady na kapitál.
+              Po jeho skončení je další existence podniku zachycena reziduální hodnotou.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>V příkladu 3.9 vyšla SVA investice nulová, ale EVA podniku zůstala 1 000. Jak to vysvětlíte?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Rozlišujte měřítko počítané za investici a za celý podnik.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Investice se zhodnocuje přesně na úrovni WACC (ROI 10 % = WACC 10 %),
+              takže sama o sobě netvoří hodnotu – její <strong>přírůstek EVA je 0</strong> a SVA = 0.
+              EVA podniku 1 000 pochází ze stávajících aktiv a zůstává kladná i po přidání
+              investice, jen se nezvýší. Rozpor odhalí buď SVA, nebo sledování přírůstku EVA;
+              zároveň ROI podniku klesne z 15 % na 14,5 %.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Pomocí vztahu (3.15) rozhodněte, kdy investice tvoří hodnotu.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte kapitalizovaný přírůstek NOPAT s čistými investicemi.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Investice tvoří hodnotu (SVA &gt; 0) tehdy, když je kapitalizovaný přírůstek
+              zisku <span class="math"><span class="frac"><span class="frac__cit">ΔNOPAT</span><span class="frac__jmen">WACC</span></span></span>
+              <strong>vyšší</strong> než čisté investice. To nastane, právě když je výnosnost
+              investice (ΔNOPAT / investice) vyšší než WACC.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t5-l7-zhodnoceni-eva.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">5.7 Zhodnocení EVA, empirické studie a zavedení do praxe</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t6-l2-cfroi.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">6.2 Cash Flow Return on Investment – CFROI</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // A) KROKOVÁ VIZUALIZACE: skladba Shareholder Value
+      // Ilustrativní (bezrozměrné) výšky složek – schéma struktury, ne konkrétní částky.
+      var CF = 120, REZID = 90, NEOP = 45, CIZI = 105;
+
+      Skripta.stepper('viz-sv-skladba', {
+        sirka: 720, vyska: 400,
+        stavy: [
+          { cf: true,  rez: false, neop: false, sv: false },
+          { cf: true,  rez: true,  neop: false, sv: false },
+          { cf: true,  rez: true,  neop: true,  sv: false },
+          { cf: true,  rez: true,  neop: true,  sv: true  }
+        ],
+        popisky: [
+          'Základ tvoří současná hodnota provozních cash flow za prognózované období (dobu trvání konkurenční výhody).',
+          'Přičteme současnou hodnotu reziduální (zbytkové) hodnoty podniku ke konci prognózovaného období.',
+          'Přidáme tržní hodnotu neoperativních aktiv – dostaneme hodnotu celého podniku.',
+          'Odečteme cizí zdroje. Co zbude, je Shareholder Value (SV) – hodnota podniku pro vlastníky.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 340;
+          var xs = 150, w = 130;            // levý sloupec (hodnota celého podniku)
+          var xc = 370;                     // sloupec cizích zdrojů (odečet)
+          var xr = 560;                     // výsledný sloupec SV
+
+          // Osa / základna
+          u.dej(svg, 'osa', 'line', { x1: 60, y1: base, x2: 690, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // --- Levý stack: složky hodnoty podniku ---
+          // 1) Provozní CF (dole)
+          u.dej(svg, 'seg-cf', 'rect', { x: xs, y: base - CF, width: w, height: CF, rx: 4, fill: '#4338ca' });
+          u.dej(svg, 'txt-cf', 'text', { x: xs + w / 2, y: base - CF / 2 + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 12 }, 'Provozní CF');
+
+          // 2) Reziduální hodnota
+          u.dej(svg, 'seg-rez', 'rect', {
+            x: xs, y: base - CF - REZID, width: w, height: stav.rez ? REZID : 0, rx: 4,
+            fill: '#6366f1', opacity: stav.rez ? 1 : 0
+          });
+          u.dej(svg, 'txt-rez', 'text', {
+            x: xs + w / 2, y: base - CF - REZID / 2 + 4, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 12, opacity: stav.rez ? 1 : 0
+          }, 'Reziduální h.');
+
+          // 3) Neoperativní aktiva
+          u.dej(svg, 'seg-neop', 'rect', {
+            x: xs, y: base - CF - REZID - NEOP, width: w, height: stav.neop ? NEOP : 0, rx: 4,
+            fill: '#a5b4fc', opacity: stav.neop ? 1 : 0
+          });
+          u.dej(svg, 'txt-neop', 'text', {
+            x: xs + w / 2, y: base - CF - REZID - NEOP / 2 + 4, 'text-anchor': 'middle',
+            fill: '#1e1b4b', 'font-size': 11, opacity: stav.neop ? 1 : 0
+          }, 'Neoper. aktiva');
+
+          // Popisek levého sloupce
+          u.dej(svg, 'lbl-podnik', 'text', {
+            x: xs + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, 'font-weight': 700,
+            opacity: stav.neop ? 1 : 0
+          }, 'Hodnota podniku');
+
+          // --- Sloupec cizích zdrojů (odečet) ---
+          u.dej(svg, 'seg-cizi', 'rect', {
+            x: xc, y: base - CIZI, width: w, height: stav.sv ? CIZI : 0, rx: 4,
+            fill: u.barvaNiceni, opacity: stav.sv ? 1 : 0
+          });
+          u.dej(svg, 'txt-cizi', 'text', {
+            x: xc + w / 2, y: base - CIZI / 2 + 4, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 12, opacity: stav.sv ? 1 : 0
+          }, 'Cizí zdroje');
+          u.dej(svg, 'lbl-cizi', 'text', {
+            x: xc + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12,
+            opacity: stav.sv ? 1 : 0
+          }, '− Cizí zdroje');
+
+          // --- Výsledný sloupec SV ---
+          var svH = CF + REZID + NEOP - CIZI;
+          u.dej(svg, 'seg-sv', 'rect', {
+            x: xr, y: base - svH, width: w, height: stav.sv ? svH : 0, rx: 4,
+            fill: u.barvaTvorba, opacity: stav.sv ? 1 : 0
+          });
+          u.dej(svg, 'txt-sv', 'text', {
+            x: xr + w / 2, y: base - svH / 2 + 4, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 13, 'font-weight': 700, opacity: stav.sv ? 1 : 0
+          }, 'SV');
+          u.dej(svg, 'lbl-sv', 'text', {
+            x: xr + w / 2, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, 'font-weight': 700,
+            opacity: stav.sv ? 1 : 0
+          }, 'Pro vlastníky');
+        }
+      });
+
+      // B) STATICKÝ SLOUPCOVÝ GRAF: ROI podniku bez / s investicí
+      Skripta.sloupcovyGraf('viz-roi-sloupce', {
+        sirka: 640, vyska: 300, formatDesetin: 1,
+        data: [
+          { popisek: 'Bez investice', hodnota: 15.0 },
+          { popisek: 'S investicí', hodnota: 14.5 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

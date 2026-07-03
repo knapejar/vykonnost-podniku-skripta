@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.6 EVA a odměňování – bonusové systémy – Výkonnost podniku</title>
+  <meta name="description" content="Sladění cílů vlastníků a manažerů, slabiny tradičních bonusů a manažerských opcí a vývoj bonusového systému EVA (verze X, XY, moderní) včetně bonusové banky.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="5.6" aria-label="Lekce tématu 5">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 5</div>
+      <div class="panel__nazev-tema">Ekonomická přidaná hodnota (EVA)</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="5.1" href="t5-l1-podstata-eva.html"><span class="panel__odkaz-cislo">5.1</span><span>Podstata a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.2" href="t5-l2-noa.html"><span class="panel__odkaz-cislo">5.2</span><span>Účetní úpravy rozvahy – vymezení NOA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.3" href="t5-l3-nopat-naklady-kapital.html"><span class="panel__odkaz-cislo">5.3</span><span>NOPAT, náklady na kapitál a zjednodušené verze EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.4" href="t5-l4-eva-v-praxi.html"><span class="panel__odkaz-cislo">5.4</span><span>EVA v praxi – případové studie</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.5" href="t5-l5-eva-investice-oceneni.html"><span class="panel__odkaz-cislo">5.5</span><span>EVA pro investiční rozhodování a ocenění</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.6" href="t5-l6-eva-odmenovani.html"><span class="panel__odkaz-cislo">5.6</span><span>EVA a odměňování – bonusové systémy</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.7" href="t5-l7-zhodnoceni-eva.html"><span class="panel__odkaz-cislo">5.7</span><span>Zhodnocení EVA, empirické studie a praxe</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== HLAVNÍ OBSAH ===================== -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-5">Téma 5 · EVA</a></li>
+          <li><span aria-current="page">Lekce 5.6</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 5.6</span>
+        <h1>EVA a odměňování – bonusové systémy</h1>
+        <p class="lekce-hlavicka__strany">Strany 76–83</p>
+      </header>
+
+      <p>
+        Doposud jsme <a class="pojem" href="#pojem-eva-bonusovy-system">EVA</a> používali jako
+        měřítko výkonnosti a nástroj oceňování. <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">Ekonomická přidaná hodnota</a> má však ještě jednu
+        silnou stránku: dokáže sloužit jako <strong>základ systému odměňování</strong>. V této
+        lekci uvidíme, proč je vůbec potřeba propojovat odměny s tvorbou hodnoty, v čem selhávají
+        tradiční bonusy i manažerské opce a jak se postupně vyvíjel bonusový systém založený na EVA
+        – od původní verze přes verzi XY až k moderní podobě navázané na očekávané zlepšení EVA.
+      </p>
+
+      <h2>Proč vůbec sladit cíle vlastníků a manažerů</h2>
+
+      <p>
+        Odměňování manažerů (a dalších zaměstnanců) je významnou součástí řízení podniku hlavně
+        proto, že <em>cíle vlastníků a manažerů se mohou lišit</em>. Cílem vlastníka je maximalizace
+        tržní hodnoty podniku. Cílem manažera je také <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-maximalizace-hodnoty" target="_blank" rel="noopener">maximalizace hodnoty</a> – ale pro něho samotného.
+        V praxi je nutné oba cíle sladit. Ideální je stav, kdy má manažer prospěch ze zvyšování
+        hodnoty pro vlastníky; pak lze očekávat, že jeho rozhodnutí budou s cíli vlastníka v souladu.
+      </p>
+
+      <section class="definice" id="pojem-sladeni-cilu">
+        <h3 class="definice__pojem">Sladění cílů vlastníků a manažerů</h3>
+        <div class="definice__telo">
+          <p>
+            Situace, kdy je odměna manažera (zaměstnance) navázána na tvorbu hodnoty pro vlastníky,
+            takže manažer má sám osobní prospěch z rozhodnutí, která zvyšují hodnotu podniku. Cílem
+            je odstranit rozpor mezi zájmem vlastníka (maximalizace tržní hodnoty podniku) a zájmem
+            manažera (maximalizace vlastního prospěchu).
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Není to nová myšlenka. Inspiraci najdeme už ve dvacátých letech minulého století ve firmě
+        Baťa. Tomáš Baťa razil zásadu „učinit ze svých zaměstnanců kapitalisty“ – ne z dobrého
+        srdce, ale protože veliký závod lze nejlépe řídit tehdy, když zaměstnanec pracuje, „jako by
+        sám byl majitelem“.
+      </p>
+
+      <section class="definice" id="pojem-system-bata">
+        <h3 class="definice__pojem">Systém Baťa (účast na zisku i ztrátě)</h3>
+        <div class="definice__telo">
+          <p>
+            Historický motivační systém, v němž měli vedoucí pracovníci, mistři a vybraní
+            zaměstnanci <strong>účast na zisku i na ztrátě</strong> svého oddělení. Každý měl vlastní
+            účet zisku a ztrát, který se týdně veřejně vyúčtovával. Část podílu na zisku se vyplácela
+            v hotovosti, druhá se připisovala na <em>osobní konto</em> úročené 10 % ročně (spořitelny
+            tehdy platily v průměru jen 5 %). Zaměstnanci s pevným platem nesli i část ztráty
+            oddělení (zpravidla do 50 % kreditní účasti z minulého pololetí) – část rizika tak
+            přecházela na zaměstnance.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Práce jako u nájemce</p>
+        <div class="callout__telo">
+          <p>
+            Práce zaměstnanců u Bati se podobala práci nájemce-podnikatele, který má pronajaté
+            výrobní zařízení. Každá dílna a oddělení měly svůj výrobní i finanční plán, jehož plnění
+            si sami sledovali. Soustava účasti na zisku měla podle dobových svědectví skvělé výsledky
+            pro rozmach podniku.
+          </p>
+        </div>
+      </aside>
+
+      <h2>Tradiční systémy odměňování a jejich slabiny</h2>
+
+      <p>
+        V dnešní praxi se nejčastěji setkáme s tzv. <a class="pojem" href="#pojem-tradicni-bonusovy-model">tradičním
+        bonusovým modelem</a>. Má dva základní rysy: bonus se vyplácí při dosažení naplánované cílové
+        výkonnosti v daném roce (většinou vázané na výši provozního zisku) a existuje
+        <strong>maximální hodnota bonusu</strong>, kterou lze vyplatit.
+      </p>
+
+      <section class="definice" id="pojem-tradicni-bonusovy-model">
+        <h3 class="definice__pojem">Tradiční (klasický) bonusový model</h3>
+        <div class="definice__telo">
+          <p>
+            Systém odměňování se schodovitým („esovitým“) průběhem: při nízké výkonnosti je bonus
+            nulový, po dosažení prahové (minimální) výkonnosti se skokem rozběhne a lineárně roste
+            přes cílovou výkonnost až ke <strong>stropu</strong>, za nímž už bonus neroste. Výkonnostní
+            měřítko bývá provozní zisk. Charakteristické je omezení bonusu shora (a fakticky i zdola).
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= STATICKÁ VIZUALIZACE: TRADIČNÍ vs. EVA PLÁN ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Tvar bonusového plánu: tradiční schodovitý vs. lineární EVA plán</p>
+          <p class="viz__popis">Vlevo klasický plán se stropem a „zónou“ mezi minimální a maximální
+          výkonností (obrázek 3–10); vpravo původní EVA plán – přímka procházející počátkem, bez
+          horní i dolní hranice (obrázek 3–11).</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 760 340" role="img" preserveAspectRatio="xMidYMid meet"
+               aria-label="Porovnání tradičního schodovitého bonusového plánu se stropem a lineárního EVA plánu bez stropu.">
+            <defs>
+              <marker id="sipka" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#475569"></path>
+              </marker>
+            </defs>
+
+            <!-- ===== LEVÝ PANEL: tradiční schodovitý plán ===== -->
+            <text x="70" y="28" fill="#334155" font-size="14" font-weight="700">Tradiční plán</text>
+            <!-- osy -->
+            <line x1="70" y1="46" x2="70" y2="262" stroke="#94a3b8" stroke-width="1.5" marker-start="url(#sipka)"></line>
+            <line x1="70" y1="262" x2="352" y2="262" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#sipka)"></line>
+            <text x="62" y="42" text-anchor="end" fill="#475569" font-size="12">Bonus</text>
+            <text x="352" y="284" text-anchor="end" fill="#475569" font-size="12">Výkonnost (provozní zisk)</text>
+            <!-- křivka bonusu: nulová zóna → skok → lineární růst → strop -->
+            <path d="M70,262 L150,262 L150,214 L300,96 L352,96" fill="none" stroke="#4338ca" stroke-width="3" stroke-linejoin="round"></path>
+            <!-- cílová výkonnost (svislá čárkovaná) -->
+            <line x1="225" y1="262" x2="225" y2="152" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 4"></line>
+            <text x="225" y="278" text-anchor="middle" fill="#475569" font-size="11">cíl</text>
+            <!-- popisky zón -->
+            <text x="108" y="253" text-anchor="middle" fill="#64748b" font-size="11">bonus = 0</text>
+            <text x="322" y="88" text-anchor="middle" fill="#64748b" font-size="11">strop</text>
+
+            <!-- ===== PRAVÝ PANEL: lineární EVA plán ===== -->
+            <text x="430" y="28" fill="#334155" font-size="14" font-weight="700">EVA plán (verze X)</text>
+            <!-- osy: vodorovná osa = nulový bonus uprostřed -->
+            <line x1="430" y1="46" x2="430" y2="262" stroke="#94a3b8" stroke-width="1.5" marker-start="url(#sipka)"></line>
+            <line x1="430" y1="152" x2="720" y2="152" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#sipka)"></line>
+            <text x="422" y="42" text-anchor="end" fill="#475569" font-size="12">Bonus</text>
+            <text x="720" y="172" text-anchor="end" fill="#475569" font-size="12">EVA</text>
+            <!-- přímka bonusu skrz počátek (430,152), bez stropu -->
+            <line x1="452" y1="228" x2="710" y2="66" stroke="#16a34a" stroke-width="3" marker-end="url(#sipka)"></line>
+            <text x="612" y="96" fill="#16a34a" font-size="12" font-weight="600">vydělaný bonus</text>
+            <!-- úroveň aktuální EVA -->
+            <line x1="612" y1="152" x2="612" y2="99" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 4"></line>
+            <text x="612" y="168" text-anchor="middle" fill="#475569" font-size="11">úroveň EVA</text>
+            <text x="470" y="200" fill="#64748b" font-size="11">záporná EVA → záporný „bonus“</text>
+          </svg>
+        </div>
+      </figure>
+
+      <p>K tradičnímu modelu se váže několik zásadních problémů:</p>
+      <ul>
+        <li>výkonnostní měřítko (často provozní zisk) není systematicky spojeno s „hodnotou pro
+        vlastníky“;</li>
+        <li>minimální a maximální hranice vytvářejí jakousi <strong>„zónu“</strong>, ve které se
+        manažeři pohybují: na spodní hranici přesouvají náklady do dalšího období, na horní hranici
+        (u stropu) naopak odsouvají výnosy do dalšího období – a tak si „šetří“ výkon na horší roky.</li>
+      </ul>
+
+      <p>
+        Tradiční bonusové systémy tak mohou zaměstnance <strong>demotivovat</strong>. Druhou
+        slabinou je, že bývají založeny na rozpočtech, které lze úmyslně předem podhodnocovat, aby
+        se cíl snáze překonal.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Manažerské opce – zdánlivé sladění zájmů</p>
+        <div class="callout__telo">
+          <p>
+            Dalším nástrojem pro odměňování top manažerů jsou <a class="pojem" href="#pojem-manazerske-opce">manažerské
+            opce</a>. Mají prý sladit zájmy manažerů a vlastníků, realita je však jiná. Podle Sterna
+            je asi <strong>50 % změn tržních cen akcií</strong> způsobeno vnějšími faktory (úrokové
+            sazby, inflace, HDP, kurzy, politika), dalších 25 % odvětvovými vlivy a jen zbylých
+            <strong>25 %</strong> výkonností managementu. V období růstu trhů tak růst cen akcií nemá
+            s manažerskou úspěšností mnoho společného. Navíc na růstu akcií vydělávají manažeři
+            i vlastníci, ale na poklesu reálně ztrácejí jen vlastníci – to sladění zájmů příliš
+            neodpovídá. Opce sehrály svou roli i v účetních skandálech let 2000–2002 (Enron, Arthur
+            Andersen, WorldCom). Jejich „výhodou“ z pohledu firmy je, že při vydání nevstupují do
+            výdajů ani rozvahy a působí jako „bezplatná forma odměňování“.</p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-manazerske-opce">
+        <h3 class="definice__pojem">Manažerské opce</h3>
+        <div class="definice__telo">
+          <p>
+            Právo (nikoli povinnost) koupit stanovené množství akcií vlastního podniku v budoucím
+            období za předem stanovenou cenu (obvykle tržní cenu v okamžiku získání opce). Mají
+            motivovat manažera k růstu ceny akcií; jejich sladění zájmů je však jen částečné a značně
+            rozporuplné, protože cenu akcií z velké části tvoří vnější a odvětvové vlivy mimo kontrolu
+            managementu.
+          </p>
+        </div>
+      </section>
+
+      <h2>Argumenty pro odměňování na základě EVA</h2>
+
+      <p>
+        Je-li EVA nulová, vlastníci vydělali přesně tolik, kolik bylo potřeba na pokrytí <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">nákladů na
+        kapitál</a>. Idea bonusu založeného na EVA vychází z předpokladu, že má-li manažer dostat bonus,
+        měli by vlastníci vydělat <em>více, než očekávali</em> (více než <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-naklad-obetovane-prilezitosti" target="_blank" rel="noopener">náklady obětované
+        příležitosti</a>). Takový systém je přínosný pro obě strany, protože společným cílem je zvýšit EVA.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Peníze „ležící ladem“</p>
+        <div class="callout__telo">
+          <p>
+            Podniky často nemají vhodný investiční záměr a nechají volné prostředky „ležet ladem“ na
+            účtu. Bonusový systém na bázi EVA takové chování netoleruje – všichni vědí, že kapitál
+            produkující nižší výnos než <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a> krátí jejich bonusy. Wallace doložil, že po zavedení EVA
+            bonusů se manažeři podstatně více vyhýbali investicím s výnosností nižší, než jsou náklady
+            na kapitál.</p>
+        </div>
+      </aside>
+
+      <p>
+        EVA bonusy také dobře propojují <strong>produktivitu s výplatní páskou</strong>: je-li část
+        kladné EVA předána zaměstnancům, roste jejich odměna spolu s výkonností. Když se hospodaří
+        dobře, bonusy plynou; když špatně (EVA není vytvořena), bonusy se nevyplácejí. Pokud růst
+        mezd převýší růst produktivity, nelze dosáhnout kladné EVA – a bonus nebude. Růst bonusů tak
+        velmi dobře kopíruje růst podnikové produktivity.
+      </p>
+
+      <h2>Vývoj bonusového systému EVA</h2>
+
+      <section class="definice" id="pojem-eva-bonusovy-system">
+        <h3 class="definice__pojem">Bonusový systém EVA</h3>
+        <div class="definice__telo">
+          <p>
+            Systém odměňování, v němž je bonus odvozen od dosažené ekonomické přidané hodnoty
+            (případně od jejího přírůstku). Vyvíjel se ve třech krocích: <strong>verze X</strong>
+            (fixní procento z EVA), <strong>verze XY</strong> (kombinace absolutní EVA a jejího
+            přírůstku) a <strong>moderní verze</strong> (navázaná na očekávané zlepšení EVA). Klíčovým
+            prvkem všech verzí je bonusová banka.
+          </p>
+        </div>
+      </section>
+
+      <h3>Původní EVA bonusový systém – verze X</h3>
+
+      <p>
+        Původní systém je založen na tom, že se manažerům vyplácí <strong>fixní procento z vytvořené
+        EVA</strong> (viz pravý panel obrázku výše). Výhody oproti klasickým pobídkovým systémům jsou
+        dvě:
+      </p>
+      <ul>
+        <li>ukazatel lze z běžných údajů průběžně sledovat a je přímo propojen s <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-hodnota-podniku" target="_blank" rel="noopener">hodnotou podniku</a>;</li>
+        <li>systém nemá stanoveny žádné limity – právě proto, že růst EVA přímo ukazuje na růst
+        hodnoty podniku, je možné se o přírůstek podělit se zaměstnanci. Bonus není omezen ani zdola;
+        záporný bonus prostě sníží zůstatek <a class="pojem" href="#pojem-bonusova-banka">bonusové
+        banky</a>.</li>
+      </ul>
+
+      <p>S původní verzí X jsou ovšem spojeny tyto problémy:</p>
+      <ul>
+        <li>špatně hospodařící podniky se mohou snažit „nahustit“ co nejvíce výnosů do jednoho roku
+        a náklady odsunout na další rok;</li>
+        <li>systém neodměňuje zlepšení přesahující očekávanou hodnotu EVA;</li>
+        <li>podnik může vyplácet vysoké odměny i v době, kdy vlastníci ztrácejí – vytvoří se sice
+        kladná EVA, ale klesá budoucí růstová hodnota i cena akcií na burze.</li>
+      </ul>
+
+      <h3>Verze XY – přidáváme přírůstek EVA</h3>
+
+      <p>
+        Empirické studie ukazují, že <strong>přírůstky EVA</strong> mohou být pro tržní cenu akcií
+        důležitější než absolutní hodnota EVA (změny EVA vykazují vyšší závislost na tržních cenách
+        než její absolutní úroveň). Stewart a Bennett proto navrhli odměňovat management spíše podle
+        přírůstků EVA – to zdůrazňuje kontinuální zlepšování podnikových procesů.
+      </p>
+
+      <section class="definice" id="pojem-prirustek-eva">
+        <h3 class="definice__pojem">Přírůstek EVA (ΔEVA)</h3>
+        <div class="definice__telo">
+          <p>
+            Meziroční změna ekonomické přidané hodnoty, <span class="math">ΔEVA<span class="op">=</span>EVA<sub>t</sub><span class="op">−</span>EVA<sub>t−1</sub></span>.
+            Vyjadřuje zlepšení (nebo zhoršení) výkonnosti oproti minulému období. Bývá lépe navázán
+            na tvorbu tržní hodnoty než samotná absolutní úroveň EVA a týká se i podniků, které
+            kladnou EVA zatím nevytvořily.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Verze XY bere za základ absolutní hodnotu EVA a současně zohledňuje i její zlepšení:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-12">
+        <div class="vzorec__telo">
+          <span class="math">Bonus<span class="op">=</span>(<span class="num">x</span>&nbsp;%<span class="op">×</span>EVA)<span class="op">+</span>(<span class="num">y</span>&nbsp;%<span class="op">×</span>ΔEVA)</span>
+        </div>
+        <div class="vzorec__cislo">(3.12)</div>
+      </div>
+
+      <p>
+        Verze XY je podstatně efektivnější než původní verze X, a to hlavně pro podniky, které
+        doposud hodnotu pro vlastníky netvořily – i takový podnik totiž může být odměněn za
+        <em>zlepšení</em>, i když je jeho EVA stále záporná.
+      </p>
+
+      <h3>Moderní verze – vazba na očekávané zlepšení EVA</h3>
+
+      <p>
+        Moderní verze se od modelu XY liší dvěma podstatnými změnami. Vydělaný bonus se skládá
+        z <strong>cílového bonusu</strong> a fixního procenta z rozdílu mezi skutečným přírůstkem EVA
+        a očekávaným zlepšením EVA. Podstatné je, že <strong>cílový bonus se vydělá až při dosažení
+        očekávané změny EVA</strong>.
+      </p>
+
+      <div class="vzorec" id="vzorec-3-13">
+        <div class="vzorec__telo">
+          <span class="math">Bonus<span class="op">=</span>cílový&nbsp;bonus<span class="op">+</span><span class="num">y</span>&nbsp;%<span class="op">×</span>(ΔEVA<span class="op">−</span>OZE)</span>
+        </div>
+        <div class="vzorec__cislo">(3.13)</div>
+      </div>
+
+      <section class="definice" id="pojem-oze">
+        <h3 class="definice__pojem">Očekávané zlepšení EVA (OZE)</h3>
+        <div class="definice__telo">
+          <p>
+            Předem stanovená úroveň zlepšení EVA, kterou má podnik v daném období dosáhnout. Ve
+            vzorci&nbsp;(3.13) je <span class="math">cílový&nbsp;bonus</span> odměna při dosažení
+            právě tohoto očekávaného zlepšení a proměnná složka odměňuje jen tu část přírůstku EVA,
+            která OZE <strong>překročí</strong> (<span class="math">ΔEVA<span class="op">−</span>OZE</span>).
+            Měřítkem výkonnosti tedy je EVA dosažená <em>navíc</em> k očekávanému zlepšení.
+          </p>
+        </div>
+      </section>
+
+      <p>Proč je moderní verze lepší:</p>
+      <ul>
+        <li>zájem o <em>zlepšení</em> EVA je účinnější pobídkou než pouhý zájem o její vytvoření;</li>
+        <li>zlepšení EVA je lépe propojeno s tvorbou hodnoty než absolutní úroveň EVA;</li>
+        <li>zlepšení EVA se týká všech podniků – i těch, které kladnou EVA dosud nevytvořily;</li>
+        <li>zlepšení EVA má lepší vazbu na ukazatel <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-excess-return" target="_blank" rel="noopener">Excess Return</a>: pokud trhy do ceny promítají
+        budoucí růstové očekávání, musí být zlepšení EVA dosaženo, aby investoři vydělali na své
+        náklady kapitálu.</li>
+      </ul>
+
+      <!-- ================= PŘEHLEDOVÁ TABULKA VERZÍ ================= -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Přehled vývoje bonusového systému EVA</caption>
+          <thead>
+            <tr>
+              <th scope="col">Verze</th>
+              <th scope="col">Základ odměny</th>
+              <th scope="col">Vztah</th>
+              <th scope="col">Hlavní přínos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">X (původní)</th>
+              <td>fixní % z absolutní EVA</td>
+              <td>x&nbsp;% × EVA</td>
+              <td>průběžné měření, propojení s hodnotou, bez limitů</td>
+            </tr>
+            <tr>
+              <th scope="row">XY</th>
+              <td>absolutní EVA i její přírůstek</td>
+              <td>(3.12)</td>
+              <td>odměna i za zlepšení – vhodné i pro podniky se zápornou EVA</td>
+            </tr>
+            <tr>
+              <th scope="row">moderní</th>
+              <td>zlepšení EVA nad rámec očekávání</td>
+              <td>(3.13)</td>
+              <td>cílový bonus až při dosažení OZE; vazba na Excess Return</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Bonusová banka – motor dlouhodobé motivace</h2>
+
+      <section class="definice" id="pojem-bonusova-banka">
+        <h3 class="definice__pojem">Bonusová banka (bonus bank)</h3>
+        <div class="definice__telo">
+          <p>
+            Účet, na který se převádí vytvořený bonus a z něhož se každý rok vyplácí jen
+            <strong>část</strong> kladného zůstatku. Kladný bonus se tak nevyplácí celý, případný
+            záporný bonus prostě sníží zůstatek účtu. Je-li stav banky záporný, nevyplácejí se žádné
+            odměny. Z pohledu vlastníků má bonusová banka pozitivní účinek na <strong>dlouhodobou
+            motivaci</strong> – nutí manažera hledět na EVA dlouhodobě, ne se zaměřovat jen na jedno
+            období.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: bonusová banka ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Simulace bonusové banky napříč roky</p>
+          <p class="viz__popis">Ilustrativní příklad: každý rok se na účet připíše vytvořený bonus
+          (zelený/červený sloupec), z kladného zůstatku se vyplatí jedna třetina (oranžový sloupec)
+          a zbytek zůstává v bance (modrý/červený sloupec). Projděte kroky tlačítky „Zpět / Další“.</p>
+        </figcaption>
+        <div id="viz-bonusova-banka"></div>
+      </figure>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Co simulace ukazuje</p>
+        <div class="callout__telo">
+          <p>
+            V roce 3 přijde silně záporný bonus, který stáhne účet do mínusu – a v tom i následujícím
+            roce se <strong>nevyplácí nic</strong>, dokud se zůstatek nevrátí do plusu. Manažer tak
+            reálně nese následky slabého roku a je motivován k udržitelné, nikoli jen jednorázově
+            „šťastné“ EVA. Čísla jsou ilustrativní (výplata = třetina kladného zůstatku).</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč může tradiční bonusový model se stropem manažera <strong>demotivovat</strong>,
+          jakmile se přiblíží maximální hranici výkonnosti?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              U stropu už další výkon nepřinese vyšší bonus – „neoceněná vysoká výkonnost“. Racionální
+              manažer proto přestane tlačit na výsledek a raději <em>odsune výnosy do dalšího období</em>,
+              kde se mu za ně opět zaplatí. Analogicky na spodní hranici (kde bonus začíná) odsouvá
+              naopak náklady. Vzniká „zóna“, uvnitř které se výkon uměle vyrovnává mezi roky, místo
+              aby se maximalizovala hodnota pro vlastníky. EVA plán tento problém odstraňuje tím, že
+              nemá strop – větší tvorba hodnoty vždy znamená větší bonus.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Jak bonusová banka řeší problém „šťastného“ a „nešťastného“ roku? Uvažte manažera, který
+          jeden rok dosáhne mimořádně vysoké EVA díky náhodě a příští rok naopak propadne.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Kdyby se celý kladný bonus vyplatil hned, manažer by za „šťastný“ rok inkasoval vše
+              a za následný propad by už nic nevrátil. Bonusová banka vyplácí jen část kladného
+              zůstatku, takže velká odměna se rozloží do více let; přijde-li slabý rok se zápornou
+              EVA, sníží zůstatek banky a další výplaty se pozastaví. Motivační program EVA sice
+              nerozezná, zda je výsledek dílem rozhodnutí, nebo náhody, ale banka <strong>zmírní
+              dopady výkyvů</strong> a udrží dlouhodobý pohled – odměny lze v horších letech vyplácet
+              z prostředků nastřádaných v lepších letech.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <h2>Kdy EVA bonusy nasazovat opatrně</h2>
+
+      <p>
+        Moderní EVA bonusový systém uspěl v mnoha podnicích, není však univerzální. Vždy by měl být
+        „ušitý na míru“ konkrétní situaci; podnikový cyklus může ovlivnit cíle i podobu systému.
+        Opatrnost je namístě:
+      </p>
+      <ul>
+        <li>v kulturách (podnikových i národních) neochotných pracovat se silnými pobídkami na tvorbu
+        hodnoty;</li>
+        <li>v odvětvích s výraznými cyklickými výkyvy;</li>
+        <li>v rozvíjejících se ekonomikách, kde jsou nutné velké investice po částech (do
+        infrastruktury);</li>
+        <li>u začínajících podniků, které hodně investují, dosahují nízkých zisků a vysoké záporné
+        EVA, přičemž výnosy z investic přijdou až v dalších letech.</li>
+      </ul>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">EVA nemusí být jediné měřítko</p>
+        <div class="callout__telo">
+          <p>
+            Aby systém fungoval, mělo by být prioritou dosažení <strong>přírůstku EVA</strong> a až
+            potom bonifikace dalších cílů. Stern a Shiely doporučují, aby bonifikace ostatních cílů
+            nepřekročila <strong>25 %</strong> celkové odměny (u servisních oddělení – ekonomické,
+            právní, personální – připouštějí cca 50 %). Konfliktní cíle (např. bezpečnost práce) lze
+            ošetřit tak, že vyplacení odměny je podmíněno jejich prioritním splněním. A platí
+            i varování: má-li podnik odepsanou většinu aktiv, může vykazovat vysokou EVA, i když
+            nehospodaří dobře; naopak po velkých investicích může mít EVA zápornou při dobrých
+            vyhlídkách. Investuje-li podnik „ve vlnách“, měl by to systém zohlednit.</p>
+        </div>
+      </aside>
+
+      <p>
+        Závěrem lze říci, že <strong>EVA dělá manažery bohatými, ale jen tehdy, když oni dělají
+        bohatými vlastníky</strong>. Lidé dělají to, za co jsou odměňováni – bude-li odměna záviset
+        na tržbách, budou maximalizovat tržby; bude-li záviset na tvorbě hodnoty, budou tvořit
+        hodnotu. Považujeme-li za hlavní finanční cíl podniku maximalizaci hodnoty pro vlastníky,
+        musí být na této hodnotě závislá i odměna zaměstnanců – jedině tak budou cíle podniku
+        i zaměstnanců v souladu.
+      </p>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaký základní problém řízení
+          se snaží odměňování na základě EVA vyřešit?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte cíl vlastníka a cíl manažera.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Rozpor mezi zájmy vlastníků (maximalizace tržní hodnoty
+              podniku) a manažerů (maximalizace vlastního prospěchu). EVA bonusy sladí cíle tím, že
+              manažer má osobní prospěch až tehdy, když vytvoří hodnotu pro vlastníky – tj. když EVA
+              přesáhne náklady na kapitál.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Vyjmenujte dva základní rysy
+          tradičního bonusového modelu a vysvětlete, proč mohou vést k demotivaci.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zaměřte se na prahovou (cílovou) výkonnost a na strop.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>(1) Bonus se vyplácí při dosažení cílové výkonnosti
+              (obvykle podle provozního zisku); (2) existuje maximální výše bonusu (strop). Minimální
+              a maximální hranice tvoří „zónu“: u spodní hranice manažer přesouvá náklady do dalšího
+              období, u stropu odsouvá výnosy – místo maximalizace hodnoty tak výkon uměle vyrovnává
+              mezi roky.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč jsou manažerské opce
+          sporným nástrojem sladění zájmů manažerů a vlastníků?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kolik z pohybu ceny akcie skutečně způsobí management? A kdo
+              nese ztrátu při poklesu?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Cenu akcií z velké části (asi 50 % vnější faktory, 25 %
+              odvětvové) tvoří vlivy mimo kontrolu managementu, takže odměna slabě odráží skutečnou
+              manažerskou výkonnost. Navíc na růstu vydělávají manažeři i vlastníci, ale na poklesu
+              ztrácejí reálně jen vlastníci (asymetrie). Opce jsou málo transparentní a bývaly spojeny
+              s „kreativním“ účetnictvím a skandály (Enron, WorldCom).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>V čem se liší verze X, XY
+          a moderní verze bonusového systému EVA (vzorce 3.12 a 3.13)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Sledujte, zda systém odměňuje absolutní EVA, její přírůstek,
+              nebo přírůstek nad rámec očekávání.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Verze X</strong> vyplácí fixní procento z absolutní
+              EVA. <strong>Verze XY</strong> přidává i odměnu za přírůstek EVA:
+              <span class="math">Bonus<span class="op">=</span>(x&nbsp;%<span class="op">×</span>EVA)<span class="op">+</span>(y&nbsp;%<span class="op">×</span>ΔEVA)</span>&nbsp;(3.12),
+              takže odmění i podnik se zápornou EVA, který se zlepšil. <strong>Moderní verze</strong>
+              vyplácí cílový bonus až při dosažení očekávaného zlepšení EVA (OZE) a proměnnou složku
+              jen za jeho překročení:
+              <span class="math">Bonus<span class="op">=</span>cílový&nbsp;bonus<span class="op">+</span>y&nbsp;%<span class="op">×</span>(ΔEVA<span class="op">−</span>OZE)</span>&nbsp;(3.13).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jakou roli hraje bonusová banka
+          a proč je z pohledu vlastníků prospěšná?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co se stane s kladným a co se záporným bonusem? A na jak
+              dlouhý horizont manažera systém orientuje?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Bonusová banka nevyplácí celý kladný bonus najednou, ale jen
+              jeho část; záporný bonus snižuje zůstatek účtu a při záporném zůstatku se nevyplácí nic.
+              Tím odměny rozkládá v čase, zmírňuje dopady „šťastných“ a „nešťastných“ let a udržuje
+              <strong>dlouhodobou motivaci</strong> – manažer je nucen hledět na EVA dlouhodobě, ne
+              jen na jediné období.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t5-l5-eva-investice-oceneni.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">5.5 EVA pro investiční rozhodování a ocenění podniku</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l7-zhodnoceni-eva.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.7 Zhodnocení EVA, empirické studie a zavedení do praxe</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: simulace bonusové banky napříč pěti roky.
+      // Každý stav popisuje: vytvořený bonus v daném roce (earned),
+      // výplatu z banky (payout) a koncový zůstatek banky (bank).
+      // Pravidlo: výplata = třetina kladného zůstatku; záporný zůstatek → 0.
+      Skripta.stepper('viz-bonusova-banka', {
+        sirka: 720, vyska: 380,
+        stavy: [
+          { rok: 1, earned:  90, payout: 30, bank:  60 },
+          { rok: 2, earned:  30, payout: 30, bank:  60 },
+          { rok: 3, earned: -120, payout: 0, bank: -60 },
+          { rok: 4, earned:  60, payout:  0, bank:   0 },
+          { rok: 5, earned:  90, payout: 30, bank:  60 }
+        ],
+        popisky: [
+          'Rok 1 (dobrý): připíše se vytvořený bonus +90, vyplatí se třetina (30), v bance zůstává 60.',
+          'Rok 2: připsáno +30 (účet 90), opět se vyplatí 30, zůstatek banky = 60. Odměny plynou dál.',
+          'Rok 3 (špatný): záporný bonus −120 stáhne účet na −60. Zůstatek je záporný → nevyplácí se nic.',
+          'Rok 4: připsáno +60, banka se vrací na 0. Stále není z čeho vyplácet – manažer nese následky slabého roku.',
+          'Rok 5: opět +90, banka 60, výplata 30. Systém motivuje k udržitelné EVA, ne k jednomu „šťastnému“ roku.'
+        ],
+        render: function (svg, stav, i, u) {
+          var sc = 0.7;      // px na jednotku hodnoty
+          var base = 200;    // svislá pozice nulové osy
+          var x0 = 70, x1 = 650;
+
+          // Nulová osa (základna)
+          u.dej(svg, 'osa', 'line', { x1: x0, y1: base, x2: x1, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Pomocné vykreslení jednoho sloupce s hodnotou a titulkem
+          function sloupec(idp, cx, hodnota, barva, titulek) {
+            var w = 108, x = cx - w / 2;
+            var y = hodnota >= 0 ? base - hodnota * sc : base;
+            var h = Math.abs(hodnota) * sc;
+            u.dej(svg, idp, 'rect', { x: x, y: y, width: w, height: h, rx: 6, fill: barva, opacity: (hodnota === 0 ? 0.25 : 1) });
+            // Datový popisek: kladné nad sloupcem, záporné pod ním
+            var ly = hodnota >= 0 ? y - 12 : y + h + 20;
+            u.dej(svg, idp + '-val', 'text', {
+              x: cx, y: ly, 'text-anchor': 'middle', fill: u.barvaText,
+              'font-size': 17, 'font-weight': 700
+            }, (hodnota > 0 ? '+' : '') + u.formatCislo(hodnota));
+            // Titulek kategorie – vždy úplně dole
+            u.dej(svg, idp + '-lbl', 'text', {
+              x: cx, y: 352, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13
+            }, titulek);
+          }
+
+          sloupec('bar-earned', 185, stav.earned, stav.earned >= 0 ? u.barvaTvorba : u.barvaNiceni, 'Vytvořený bonus');
+          sloupec('bar-payout', 360, stav.payout, '#d97706', 'Výplata (třetina)');
+          sloupec('bar-bank',   535, stav.bank,   stav.bank >= 0 ? '#4338ca' : u.barvaNiceni, 'Zůstatek banky');
+
+          // Nadpis s číslem roku
+          u.dej(svg, 'nadpis-rok', 'text', {
+            x: x0, y: 36, fill: '#334155', 'font-size': 16, 'font-weight': 700
+          }, 'Rok ' + stav.rok);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

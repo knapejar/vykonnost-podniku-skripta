@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.6 Finanční analýza PLAST III – souhrnné ukazatele, SPIDER – Výkonnost podniku</title>
+  <meta name="description" content="Souhrnné modely (Altmanovo Z-skóre a index IN01), zařazení podniku PLAST do šedé zóny, SPIDER analýza jako paprskové srovnání s odvětvím a benchmarkem a porovnání klasických měřítek výkonnosti.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12 -->
+    <nav class="panel" data-panel data-aktivni-lekce="12.6" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="R" href="t12-R-prilohy.html"><span class="panel__odkaz-cislo">R</span><span>Referenční příloha: účetní výkazy, leasing, rozklad EVA</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST, s.r.o.</a></li>
+          <li><span aria-current="page">Lekce 12.6</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.6</span>
+        <h1>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</h1>
+        <p class="lekce-hlavicka__strany">Strany 268–270</p>
+      </header>
+
+      <p>
+        V předchozích dvou lekcích jsme podnik PLAST prohnali celou baterií
+        poměrových ukazatelů – zadlužeností, likviditou, rentabilitou i aktivitou.
+        Získali jsme tak spoustu jednotlivých čísel. Teď je čas je <strong>stlačit
+        do několika souhrnných čísel</strong> a podívat se na podnik <em>jedním
+        pohledem</em>. K tomu poslouží dva nástroje: souhrnné (bonitní a bankrotní)
+        indexy, které z desítek ukazatelů udělají jediné skóre, a <strong>SPIDER
+        analýza</strong>, která všechny klíčové ukazatele naráz zobrazí v paprskovém
+        grafu a rovnou je porovná s odvětvím i s <a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmark" target="_blank" rel="noopener">benchmarkem</a>. Na závěr shrneme
+        vývoj klasických měřítek výkonnosti podniku PLAST.
+      </p>
+
+      <!-- ============================================================
+           1. SOUHRNNÉ UKAZATELE
+           ============================================================ -->
+      <h2>Souhrnné ukazatele: jedno číslo místo dvaceti</h2>
+
+      <p>
+        Souhrnné ukazatele (nazývané též souhrnné indexy) váží několik dílčích
+        poměrových ukazatelů do <strong>jediného čísla</strong>, které má rychle
+        signalizovat celkové finanční zdraví podniku. Rozlišujeme přitom
+        <a class="pojem" href="t3-l5-souhrnne-ukazatele.html?zvyraznit=pojem-bankrotni-model" target="_blank" rel="noopener"><em>bankrotní</em></a> modely (predikují riziko úpadku – např. Altmanovo
+        Z-skóre) a <a class="pojem" href="t3-l5-souhrnne-ukazatele.html?zvyraznit=pojem-bonitni-model" target="_blank" rel="noopener"><em>bonitní</em></a> modely (hodnotí bonitu, tj. celkovou finanční
+        důvěryhodnost – např. český index IN01). U podniku PLAST oba modely
+        (tabulky 8–22 a 8–23) jen <strong>potvrdily</strong> výsledky předchozí
+        podrobné analýzy: podnik patří do tzv. <a class="pojem" href="#pojem-seda-zona">šedé zóny</a>.
+      </p>
+
+      <section class="definice" id="pojem-souhrnne-ukazatele">
+        <h3 class="definice__pojem">Souhrnné ukazatele</h3>
+        <div class="definice__telo">
+          <p>
+            Modely, které pomocí vážené kombinace několika dílčích poměrových
+            ukazatelů vyjádří finanční situaci podniku <strong>jediným číslem</strong>.
+            Slouží k rychlé orientaci a signalizaci. Bankrotní modely (Z-skóre)
+            predikují riziko úpadku, bonitní modely (IN01) hodnotí celkovou bonitu
+            podniku. Nenahrazují podrobnou analýzu – pouze ji zhušťují a potvrzují.
+          </p>
+        </div>
+      </section>
+
+      <h3>Altmanovo Z-skóre (bankrotní model)</h3>
+
+      <section class="definice" id="pojem-altmanuv-index">
+        <h3 class="definice__pojem">Altmanův index důvěryhodnosti (Z-skóre)</h3>
+        <div class="definice__telo">
+          <p>
+            Bankrotní model, který váženým součtem pěti poměrových ukazatelů
+            (podíl <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého pracovního kapitálu</a>, kumulovaného zisku, provozního
+            výsledku, kapitálové struktury a obratu aktiv) odhaduje
+            pravděpodobnost budoucího úpadku podniku. Zde je použita varianta
+            pro podniky <strong>bez veřejně obchodovaných akcií</strong> (vztah 2.30).
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Z-skóre se počítá jako vážený součet pěti dílčích ukazatelů
+        <span class="math">X<sub>1</sub></span> až <span class="math">X<sub>5</sub></span>:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-30">
+        <div class="vzorec__telo">
+          <span class="math">Z<span class="op">=</span><span class="num">0,717</span><span class="op">·</span>X<sub>1</sub><span class="op">+</span><span class="num">0,847</span><span class="op">·</span>X<sub>2</sub><span class="op">+</span><span class="num">3,107</span><span class="op">·</span>X<sub>3</sub><span class="op">+</span><span class="num">0,420</span><span class="op">·</span>X<sub>4</sub><span class="op">+</span><span class="num">0,998</span><span class="op">·</span>X<sub>5</sub></span>
+        </div>
+        <div class="vzorec__cislo">(2.30)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">X<sub>1</sub><span class="op">=</span>ČPK/aktiva</span>,
+        <span class="math">X<sub>2</sub><span class="op">=</span>nerozdělený zisk/aktiva</span>,
+        <span class="math">X<sub>3</sub><span class="op">=</span>EBIT/aktiva</span>,
+        <span class="math">X<sub>4</sub><span class="op">=</span>vlastní kapitál/cizí zdroje</span> a
+        <span class="math">X<sub>5</sub><span class="op">=</span>tržby/aktiva</span>.
+        Tabulka 8–22 uvádí právě těchto pět poměrů za jednotlivé roky a v posledním
+        řádku výsledné Z-skóre.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–22 – Altmanův index důvěryhodnosti (Z-skóre) podniku PLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Dílčí ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">ČPK / aktiva (X<sub>1</sub>)</th><td class="cislo">0,08</td><td class="cislo">0,25</td><td class="cislo">0,09</td><td class="cislo">0,07</td><td class="cislo">0,12</td><td class="cislo">0,10</td></tr>
+            <tr><th scope="row">Nerozdělené zisky / A (X<sub>2</sub>)</th><td class="cislo">0,12</td><td class="cislo">0,18</td><td class="cislo">0,22</td><td class="cislo">0,28</td><td class="cislo">0,34</td><td class="cislo">0,35</td></tr>
+            <tr><th scope="row">EBIT / aktiva (X<sub>3</sub>)</th><td class="cislo">0,12</td><td class="cislo">0,11</td><td class="cislo">0,09</td><td class="cislo">0,10</td><td class="cislo">0,10</td><td class="cislo">0,08</td></tr>
+            <tr><th scope="row">VK / cizí zdroje (X<sub>4</sub>)</th><td class="cislo">1,12</td><td class="cislo">1,20</td><td class="cislo">1,35</td><td class="cislo">1,54</td><td class="cislo">1,91</td><td class="cislo">1,80</td></tr>
+            <tr><th scope="row">Tržby / aktiva (X<sub>5</sub>)</th><td class="cislo">0,88</td><td class="cislo">0,81</td><td class="cislo">0,92</td><td class="cislo">0,86</td><td class="cislo">0,89</td><td class="cislo">0,82</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Z-skóre</th>
+              <td class="cislo">1,89</td><td class="cislo">1,98</td><td class="cislo">2,00</td><td class="cislo">2,11</td><td class="cislo">2,36</td><td class="cislo">2,21</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Kontrola výpočtu pro rok 2004</p>
+        <div class="callout__telo">
+          <p>
+            Dosadíme dílčí ukazatele roku 2004 do vztahu (2.30):
+            <span class="math"><span class="num">0,717</span><span class="op">·</span><span class="num">0,10</span><span class="op">+</span><span class="num">0,847</span><span class="op">·</span><span class="num">0,35</span><span class="op">+</span><span class="num">3,107</span><span class="op">·</span><span class="num">0,08</span><span class="op">+</span><span class="num">0,420</span><span class="op">·</span><span class="num">1,80</span><span class="op">+</span><span class="num">0,998</span><span class="op">·</span><span class="num">0,82</span><span class="op">≈</span><span class="num">2,19</span></span>,
+            což odpovídá zaokrouhlené hodnotě Z-skóre <strong>2,21</strong> z tabulky.
+          </p>
+        </div>
+      </aside>
+
+      <h3>Index IN01 (bonitně-bankrotní model)</h3>
+
+      <section class="definice" id="pojem-in01">
+        <h3 class="definice__pojem">Index IN01</h3>
+        <div class="definice__telo">
+          <p>
+            Souhrnný index manželů Neumaierových sestavený na datech českých
+            podniků. Kombinuje pět ukazatelů zadluženosti, úrokového krytí,
+            rentability aktiv, obratu a likvidity do jediného skóre. Spojuje
+            bankrotní i bonitní pohled – hodnotí zároveň riziko úpadku i schopnost
+            podniku tvořit hodnotu (vztah 2.33).
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-33">
+        <div class="vzorec__telo">
+          <span class="math">IN01<span class="op">=</span><span class="num">0,13</span><span class="op">·</span><span class="frac"><span class="frac__cit">A</span><span class="frac__jmen">CK</span></span><span class="op">+</span><span class="num">0,04</span><span class="op">·</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">Ú</span></span><span class="op">+</span><span class="num">3,92</span><span class="op">·</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">A</span></span><span class="op">+</span><span class="num">0,21</span><span class="op">·</span><span class="frac"><span class="frac__cit">Výnosy</span><span class="frac__jmen">A</span></span><span class="op">+</span><span class="num">0,09</span><span class="op">·</span><span class="frac"><span class="frac__cit">OA</span><span class="frac__jmen">KCK</span></span></span>
+        </div>
+        <div class="vzorec__cislo">(2.33)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">A</span> jsou aktiva, <span class="math">CK</span> cizí
+        kapitál, <span class="math">Ú</span> nákladové úroky, <span class="math">OA</span>
+        oběžná aktiva a <span class="math">KCK</span> krátkodobý cizí kapitál.
+        Tabulka 8–23 rozepisuje dílčí ukazatele i výsledný index.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–23 – Index IN01 podniku PLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Dílčí ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Aktiva / cizí kapitál</th><td class="cislo">2,12</td><td class="cislo">2,21</td><td class="cislo">2,38</td><td class="cislo">2,54</td><td class="cislo">2,91</td><td class="cislo">2,80</td></tr>
+            <tr><th scope="row">EBIT / nákladové úroky</th><td class="cislo">6,68</td><td class="cislo">5,51</td><td class="cislo">4,17</td><td class="cislo">7,52</td><td class="cislo">10,20</td><td class="cislo">10,54</td></tr>
+            <tr><th scope="row">EBIT / aktiva</th><td class="cislo">0,12</td><td class="cislo">0,11</td><td class="cislo">0,09</td><td class="cislo">0,10</td><td class="cislo">0,10</td><td class="cislo">0,08</td></tr>
+            <tr><th scope="row">Výnosy / aktiva</th><td class="cislo">1,10</td><td class="cislo">1,07</td><td class="cislo">1,17</td><td class="cislo">1,11</td><td class="cislo">1,04</td><td class="cislo">1,01</td></tr>
+            <tr><th scope="row">Oběžná A / krátk. CK</th><td class="cislo">1,29</td><td class="cislo">2,08</td><td class="cislo">1,28</td><td class="cislo">1,22</td><td class="cislo">1,36</td><td class="cislo">1,32</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">IN01</th>
+              <td class="cislo">1,37</td><td class="cislo">1,33</td><td class="cislo">1,17</td><td class="cislo">1,38</td><td class="cislo">1,50</td><td class="cislo">1,45</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Graf vývoje souhrnných indexů -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj souhrnných indexů PLAST (1999–2004)</p>
+          <p class="viz__popis">Obě křivky se po celé sledované období pohybují uvnitř „šedé zóny" – bez jasného signálu prosperity, ale i bez hrozby bankrotu.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-souhrnne"></div>
+      </figure>
+
+      <section class="definice" id="pojem-seda-zona">
+        <h3 class="definice__pojem">Šedá zóna</h3>
+        <div class="definice__telo">
+          <p>
+            Pásmo hodnot souhrnného indexu <strong>mezi jednoznačnou prosperitou
+            a jednoznačným rizikem bankrotu</strong>. Podnik v šedé zóně nelze
+            přesvědčivě označit ani za finančně zdravý, ani za ohrožený úpadkem –
+            výsledek modelu je neprůkazný a vyžaduje doplnění o podrobnější
+            analýzu. Pro Altmanovo Z-skóre (varianta pro neobchodované podniky)
+            je šedá zóna přibližně v rozmezí <span class="math"><span class="num">1,2</span></span> až
+            <span class="math"><span class="num">2,9</span></span>, pro index IN01 přibližně
+            <span class="math"><span class="num">0,75</span></span> až <span class="math"><span class="num">1,77</span></span>.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">PLAST je stabilně v šedé zóně</p>
+        <div class="callout__telo">
+          <p>
+            Z-skóre podniku se drží mezi 1,89 a 2,36, index IN01 mezi 1,17 a 1,50 –
+            obě hodnoty tedy po celé období leží uvnitř příslušné šedé zóny.
+            Souhrnné indexy tak nezávisle <strong>potvrzují</strong> závěr podrobné
+            <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzy</a>: PLAST je finančně stabilní a bezpečný podnik, ale
+            zároveň nijak výjimečně výkonný. Nejlepších hodnot obou indexů dosáhl
+            v roce 2003.
+          </p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Podnik PLAST spadl podle obou modelů do „šedé zóny". Co to o něm
+            vlastně vypovídá? Je to špatná zpráva? A proč by manažerovi nemělo
+            stačit jen toto jediné číslo?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Šedá zóna znamená <strong>neprůkazný výsledek</strong> – model
+              nedokáže podnik jednoznačně zařadit mezi prosperující, ani mezi
+              ohrožené bankrotem. Není to katastrofa: PLAST bankrot rozhodně
+              nehrozí, jen mu chybí výkonnostní jiskra (nadprůměrná rentabilita).
+              Manažerovi jediné souhrnné číslo nestačí proto, že <em>zprůměruje</em>
+              a skryje detail: podnik může mít skvělou finanční stabilitu a přitom
+              podprůměrnou rentabilitu – a právě tyto protichůdné rysy se v jednom
+              skóre navzájem „vyruší". Souhrnný index proto vždy doplňujeme
+              podrobnou analýzou dílčích ukazatelů, jako je SPIDER.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================
+           2. SPIDER ANALÝZA
+           ============================================================ -->
+      <h2>SPIDER analýza: celý podnik jedním pohledem</h2>
+
+      <p>
+        Zatímco souhrnný index vše zhustí do jednoho čísla, <strong>SPIDER analýza</strong>
+        jde opačnou cestou: rozprostře klíčové ukazatele do <em>paprskového
+        (radarového) grafu</em> tvaru pavučiny a nechá manažera porovnat je
+        všechny naráz. Po obvodu kruhu je rozmístěno dvanáct os – po třech pro
+        rentabilitu, likviditu, zadluženost a obratovost. Každá osa nese jeden
+        ukazatel vyjádřený jako <strong>procento hodnoty odvětví nebo benchmarku</strong>,
+        která tvoří referenční úroveň <span class="math"><span class="num">100</span><span class="op"> </span>%</span>.
+      </p>
+
+      <section class="definice" id="pojem-spider-analyza">
+        <h3 class="definice__pojem">SPIDER analýza (paprskový graf)</h3>
+        <div class="definice__telo">
+          <p>
+            Nástroj rychlé orientace, který v paprskovém (radarovém) grafu
+            zobrazuje výsledky základních skupin poměrových ukazatelů – rentability,
+            likvidity, zadluženosti a aktivity – <strong>jedním pohledem</strong>.
+            Hodnota každého ukazatele analyzovaného podniku se vyjádří jako
+            procentní podíl hodnoty odvětví (nebo zvoleného benchmarku), která
+            představuje základnu <span class="math"><span class="num">100</span><span class="op"> </span>%</span>.
+            Zjednodušeně platí: <strong>čím dále od středu leží křivka podniku, tím
+            lépe si podnik vede</strong> – s výhradami popsanými níže.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">„Dále od středu = lépe" má své meze</p>
+        <div class="callout__telo">
+          <p>
+            Interpretace SPIDER grafu není mechanická. Příliš vysoké hodnoty
+            <strong><a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidity</a></strong> svědčí o neefektivním umrtvování peněz
+            v zásobách a pohledávkách; příliš vysoký podíl <strong>vlastního
+            kapitálu</strong> může snižovat využití <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-financni-paka" target="_blank" rel="noopener">finanční páky</a>. „Vybíhat"
+            daleko od středu tedy není vždy dobře – u některých ukazatelů je
+            optimum blízko úrovně odvětví.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        V tabulce 8–24 jsou shrnuty výsledky podniku PLAST, subsekce plastových
+        obalů (odvětví) a benchmarku ALPLA v roce 2003. Z těchto absolutních
+        hodnot se pak počítají procentní podíly pro paprskový graf.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–24 – Porovnání podniku PLAST s odvětvím (subsekcí) a benchmarkem ALPLA (rok 2003)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Skupina</th>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">PLAST</th>
+              <th scope="col" class="cislo">Subsekce</th>
+              <th scope="col" class="cislo">ALPLA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" rowspan="3">Rentabilita</th><td>A.1 Rentabilita vl. kapitálu</td><td class="cislo">9,0 %</td><td class="cislo">16,9 %</td><td class="cislo">58,2 %</td></tr>
+            <tr><td>A.2 Rentabilita aktiv</td><td class="cislo">9,5 %</td><td class="cislo">10,7 %</td><td class="cislo">18,1 %</td></tr>
+            <tr><td>A.3 Rentabilita tržeb</td><td class="cislo">6,6 %</td><td class="cislo">7,0 %</td><td class="cislo">9,1 %</td></tr>
+            <tr><th scope="row" rowspan="3">Likvidita</th><td>B.1 Běžná likvidita</td><td class="cislo">1,36</td><td class="cislo">1,65</td><td class="cislo">1,81</td></tr>
+            <tr><td>B.2 Pohotová likvidita</td><td class="cislo">0,94</td><td class="cislo">1,10</td><td class="cislo">1,09</td></tr>
+            <tr><td>B.3 Hotovostní likvidita</td><td class="cislo">0,15</td><td class="cislo">0,28</td><td class="cislo">0,00</td></tr>
+            <tr><th scope="row" rowspan="3">Zadluženost</th><td>C.1 Vlastní kapitál / aktiva</td><td class="cislo">65,7 %</td><td class="cislo">50,0 %</td><td class="cislo">19,4 %</td></tr>
+            <tr><td>C.2 Krytí dl. majetku dl. kapitálem</td><td class="cislo">1,18</td><td class="cislo">1,38</td><td class="cislo">1,52</td></tr>
+            <tr><td>C.3 Úrokové krytí</td><td class="cislo">10,2</td><td class="cislo">8,0</td><td class="cislo">8,04</td></tr>
+            <tr><th scope="row" rowspan="3">Obratovost</th><td>D.1 Obrat aktiv</td><td class="cislo">0,89</td><td class="cislo">1,18</td><td class="cislo">1,24</td></tr>
+            <tr><td>D.2 Obrat pohledávek</td><td class="cislo">3,5</td><td class="cislo">4,3</td><td class="cislo">3,8</td></tr>
+            <tr><td>D.3 Obrat zásob</td><td class="cislo">6,8</td><td class="cislo">7,6</td><td class="cislo">5,8</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: SPIDER RADAR ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">SPIDER graf podniku PLAST (rok 2003)</p>
+          <p class="viz__popis">Procházejte kroky tlačítky „Zpět / Další". Šedá dvanáctiúhelníková referenční linie je vždy na úrovni 100 % (odvětví / benchmark). Černá křivka je PLAST: nejdřív vůči subsekci (obr. 8–7), pak vůči benchmarku ALPLA (obr. 8–8). Čím dále od středu, tím lépe.</p>
+        </figcaption>
+        <div id="viz-spider"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Jak číst obě srovnání</p>
+        <div class="callout__telo">
+          <p>
+            <strong>Vůči subsekci (obr. 8–7):</strong> černá křivka PLASTu se
+            u většiny os drží <em>pod</em> referenční úrovní 100 % – nižší
+            rentabilita, likvidita i obratovost. Výrazně však <em>vybíhá ven</em>
+            u osy C.3 (<a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-urokove-kryti" target="_blank" rel="noopener">úrokové krytí</a>) a C.1 (podíl vlastního kapitálu), kde PLAST
+            odvětví převyšuje.
+          </p>
+          <p>
+            <strong>Vůči benchmarku ALPLA (obr. 8–8):</strong> u rentability
+            (A.1–A.3) a likvidity zůstává PLAST pod úrovní 100 %, zato v oblasti
+            finanční stability výrazně vybíhá k okraji – zejména u C.1 (vlastní
+            kapitál/aktiva) a B.3, kde je hodnota tak vysoká, že „přetéká" za
+            vnější prstenec grafu (na okraji zobrazeno na hodnotě 200 %).
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Souhrn plyne z tabulky 8–24 i obou obrázků: nejlepší <strong>rentability</strong>
+        dosahoval ALPLA, následován odvětvím a teprve pak PLAST (A.1, A.2, A.3).
+        <strong>Likvidita</strong> byla u všech vyrovnaná (B.1, B.2); pozornost si
+        zaslouží velmi nízká hotovostní likvidita ALPLA (B.3). Z hlediska
+        <strong>zadluženosti</strong> (finanční stability) byl nejméně zadlužený
+        PLAST, nejvíce ALPLA (C.1). V <strong>obratovosti</strong> využívala
+        majetek nejefektivněji subsekce jako celek, PLAST dopadl hůře (D.1). Oba
+        obrázky tak jednoznačně ukazují <strong>vysokou finanční stabilitu PLASTu
+        (C.3) doprovázenou nižší rentabilitou (A.1–A.3)</strong> – tedy přesně
+        profil bezpečného, ale ne mimořádně výkonného podniku.
+      </p>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Podívejte se na SPIDER graf PLASTu vůči subsekci. U kterých os křivka
+            výrazně vybíhá ven a co to o podniku říká? A proč právě „vysoký"
+            vlastní kapitál (C.1) nemusí být jen samá výhra?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Křivka výrazně vybíhá u <strong>C.3 (úrokové krytí, ~128 % odvětví)</strong>
+              a <strong>C.1 (vlastní kapitál/aktiva, ~131 %)</strong>. To potvrzuje
+              mimořádně <strong>vysokou finanční stabilitu</strong> – PLAST bez
+              problémů pokrývá úroky ze zisku a financuje se převážně vlastními
+              zdroji. Vysoký podíl vlastního kapitálu ale znamená i to, že podnik
+              málo využívá <em>finanční páku</em>: levnější cizí kapitál by mohl
+              zvýšit rentabilitu vlastního kapitálu. Právě proto je nízká
+              zadluženost současně příčinou podprůměrné rentability, kterou graf
+              ukazuje na osách A.1–A.3 (křivka pod úrovní 100 %).
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================
+           3. KLASICKÁ MĚŘÍTKA VÝKONNOSTI
+           ============================================================ -->
+      <h2>Porovnání klasických měřítek výkonnosti</h2>
+
+      <section class="definice" id="pojem-klasicka-meritka-vykonnosti">
+        <h3 class="definice__pojem">Klasická měřítka výkonnosti</h3>
+        <div class="definice__telo">
+          <p>
+            Tradiční ukazatele výkonnosti opřené o účetní zisk a peněžní toky –
+            absolutní zisky (<strong><a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-ebit" target="_blank" rel="noopener">EBIT</a>, EBITDA, EBT, čistý zisk</strong>),
+            volný peněžní tok (<strong>FCF</strong>) a rentability
+            (<strong>ROE, ROA</strong>). Na rozdíl od moderních konceptů
+            (např. EVA) nezohledňují náklady na vlastní kapitál, dávají ale
+            rychlý a dostupný přehled o vývoji podniku.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Vývoj vybraných klasických ukazatelů shrnuje tabulka 8–25. Ukazatele
+        absolutních zisků i rentabilit se do roku 2001 shodně zhoršovaly, rok 2002
+        přinesl zlepšení ve všech ukazatelích, v roce 2003 pak mírný pokles a
+        v roce 2004 už se situace oproti roku 2003 podstatně nezměnila. Zcela jiný
+        pohled nabízí <strong><a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-volne-cash-flow" target="_blank" rel="noopener">FCF</a></strong>: jeho hodnotu například v roce 2004
+        výrazně stlačila investice do dlouhodobého finančního majetku (proto klesl
+        až mírně pod nulu).
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–25 – Klasické ukazatele výkonnosti podniku PLAST (absolutní hodnoty v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Čistý zisk</th><td class="cislo">94 844</td><td class="cislo">77 733</td><td class="cislo">59 930</td><td class="cislo">75 550</td><td class="cislo">70 176</td><td class="cislo">72 315</td></tr>
+            <tr><th scope="row">EBT</th><td class="cislo">101 716</td><td class="cislo">95 189</td><td class="cislo">75 620</td><td class="cislo">107 868</td><td class="cislo">101 340</td><td class="cislo">101 388</td></tr>
+            <tr><th scope="row">EBIT</th><td class="cislo">119 614</td><td class="cislo">116 288</td><td class="cislo">99 511</td><td class="cislo">124 416</td><td class="cislo">112 353</td><td class="cislo">112 020</td></tr>
+            <tr><th scope="row">EBITDA</th><td class="cislo">253 609</td><td class="cislo">240 539</td><td class="cislo">214 189</td><td class="cislo">222 420</td><td class="cislo">203 495</td><td class="cislo">185 567</td></tr>
+            <tr><th scope="row">FCF</th><td class="cislo">182 906</td><td class="cislo hodnota-niceni">−62 665</td><td class="cislo">119 225</td><td class="cislo">94 816</td><td class="cislo">97 162</td><td class="cislo hodnota-niceni">−1 943</td></tr>
+            <tr><th scope="row">ROE</th><td class="cislo">18,3 %</td><td class="cislo">13,1 %</td><td class="cislo">9,1 %</td><td class="cislo">10,5 %</td><td class="cislo">9,0 %</td><td class="cislo">8,4 %</td></tr>
+            <tr><th scope="row">ROA</th><td class="cislo">12,2 %</td><td class="cislo">10,6 %</td><td class="cislo">8,6 %</td><td class="cislo">10,4 %</td><td class="cislo">9,5 %</td><td class="cislo">8,4 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Obrázek 8–9 kombinuje obě roviny do jednoho pohledu. Protože se absolutní
+        zisky (v tis. Kč) a rentability (v %) pohybují ve zcela jiných řádech,
+        rozdělíme je do dvou názorných grafů: vývoj rentabilit <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">ROE</a> a <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roa" target="_blank" rel="noopener">ROA</a> a vývoj
+        volného peněžního toku FCF, který se chová „jinak než ostatní".
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj rentabilit ROE a ROA (obr. 8–9, levá osa)</p>
+          <p class="viz__popis">Obě rentability po celé období klesají – z 18,3 % (ROE) a 12,2 % (ROA) v roce 1999 na shodných 8,4 % v roce 2004.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-rentability"></div>
+      </figure>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj volného peněžního toku FCF (obr. 8–9, pravá osa)</p>
+          <p class="viz__popis">FCF vypráví jiný příběh než zisky: kolísá a v letech 2000 a 2004 klesá do záporných hodnot (červeně) kvůli velkým investicím.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-fcf"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč FCF nesleduje zisky</p>
+        <div class="callout__telo">
+          <p>
+            Zisk je účetní veličina; FCF je skutečný <em>peněžní</em> tok volný pro
+            vlastníky a věřitele po financování provozu i investic. Roky s velkými
+            investicemi (2000, 2004) proto vykazují záporný FCF, přestože podnik
+            byl ziskový. To je typická ukázka toho, proč jediné měřítko nestačí –
+            a proč se v další části případové studie přesuneme k modernímu ukazateli
+            <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a></strong>, který zisk i náklady na kapitál spojuje do jednoho
+            konceptu.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Které dva souhrnné modely řadí PLAST do „šedé zóny" a co takové zařazení znamená?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jeden model je bankrotní (Altman), druhý bonitně-bankrotní (český). Šedá zóna leží mezi dvěma jasnými signály.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Jsou to <strong>Altmanovo Z-skóre</strong> (tab. 8–22) a <strong>index IN01</strong> (tab. 8–23). Šedá zóna je pásmo mezi jednoznačnou prosperitou a hrozbou bankrotu – výsledek je <strong>neprůkazný</strong>. Znamená to, že PLAST není ohrožen úpadkem, ale ani nevyniká výkonností; závěr je nutné doplnit podrobnou analýzou.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Jak se v SPIDER grafu pozná, že si podnik v daném ukazateli vede lépe než odvětví?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Referenční úroveň odvětví je vždy 100 %. Sledujte polohu křivky vůči této úrovni.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Křivka podniku na dané ose leží <strong>dále od středu</strong> než referenční linie odvětví (100 %), tj. hodnota ukazatele přesahuje 100 % hodnoty odvětví. Zjednodušeně: čím dál od středu, tím lépe – u PLASTu to platí zejména u úrokového krytí (C.3) a podílu vlastního kapitálu (C.1).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč nemusí být vysoká hodnota některých ukazatelů (např. likvidity nebo podílu vlastního kapitálu) jednoznačně pozitivní?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se nad umrtvenými penězi a nad nevyužitou finanční pákou.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Příliš vysoká <strong>likvidita</strong> znamená neefektivní umrtvování peněz v zásobách a pohledávkách, které by mohly vydělávat jinde. Příliš vysoký podíl <strong>vlastního kapitálu</strong> zase snižuje využití levnějšího cizího kapitálu a tím i finanční páky – snižuje rentabilitu vlastního kapitálu. „Vybíhat" daleko od středu proto není u každého ukazatele žádoucí.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co ukázala klasická měřítka o vývoji rentability PLASTu a proč FCF nabízí odlišný obrázek?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Sledujte trend ROE a ROA v tabulce 8–25 a vzpomeňte, čím se liší zisk od peněžního toku.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Rentability <strong>ROE a ROA klesaly</strong> (ROE z 18,3 % v roce 1999 na 8,4 % v roce 2004, ROA z 12,2 % na 8,4 %), s dočasným zlepšením v roce 2002. FCF ale kopíruje <strong>peněžní toky, ne účetní zisk</strong>: v letech velkých investic (2000 a 2004) klesl do záporných hodnot, přestože podnik zůstal ziskový. Různá měřítka tak dávají různé pohledy.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jaký celkový profil podniku PLAST vykreslila celá klasická finanční analýza (souhrnné indexy + SPIDER)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Spojte „šedou zónu" se závěrem SPIDER grafu o stabilitě versus rentabilitě.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>PLAST je <strong>finančně velmi stabilní a bezpečný podnik</strong> (nízká zadluženost, vysoké úrokové krytí, stabilní pozice v šedé zóně), ale s <strong>podprůměrnou rentabilitou</strong> a horší obratovostí než odvětví i benchmark ALPLA. Právě tento rozpor – bezpečí bez výkonnostní jiskry – motivuje přechod k modernímu měřítku EVA v následujících lekcích.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l5-financni-analyza-2.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.5 Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l7-eva-noa-nopat.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.7 EVA v podniku PLAST – vymezení NOA a NOPAT</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      var u = Skripta.viz;
+
+      /* =========================================================
+         A) KROKOVÁ VIZUALIZACE: SPIDER (paprskový) graf
+         --------------------------------------------------------
+         Referenční 12úhelník = 100 % (odvětví / benchmark).
+         Černá křivka = PLAST vyjádřený jako % benchmarku.
+         Stav 0: jen reference. Stav 1: vs subsekce (obr. 8–7).
+         Stav 2: vs ALPLA (obr. 8–8, hodnoty > 200 % oříznuty
+                 na vnější prstenec).
+         ========================================================= */
+      var OSY = ['A.1','A.2','A.3','B.1','B.2','B.3','C.1','C.2','C.3','D.1','D.2','D.3'];
+      // PLAST / subsekce · 100 %
+      var VS_SUB   = [53.3, 88.8, 94.3, 82.4, 85.5, 53.6, 131.4, 85.5, 127.5, 75.4, 81.4, 89.5];
+      // PLAST / ALPLA · 100 %  (B.3 dělení nulou a C.1 = 339 % oříznuto na 200 %)
+      var VS_ALPLA = [15.5, 52.5, 72.5, 75.1, 86.2, 200,  200,   77.6, 126.9, 71.8, 92.1, 117.2];
+
+      var CX = 360, CY = 250, RMAX = 180, VMAX = 200; // hodnota 200 % = vnější prstenec
+      var PRSTENCE = [50, 100, 150, 200];
+
+      // Úhel osy k (0 = nahoře, po směru hodinových ručiček)
+      function uhel(k) { return (-90 + k * 30) * Math.PI / 180; }
+      // Bod pro hodnotu (v %) na ose k
+      function bod(val, k) {
+        var r = Math.min(val, VMAX) / VMAX * RMAX;
+        var a = uhel(k);
+        return [CX + r * Math.cos(a), CY + r * Math.sin(a)];
+      }
+      // Bod v pevné vzdálenosti (v pixelech) od středu na ose k (bez ořezu)
+      function bodPx(rpx, k) {
+        var a = uhel(k);
+        return [CX + rpx * Math.cos(a), CY + rpx * Math.sin(a)];
+      }
+      // Řetězec points pro polygon z pole hodnot
+      function polyBody(hodnoty) {
+        return hodnoty.map(function (v, k) { var p = bod(v, k); return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+      }
+
+      Skripta.stepper('viz-spider', {
+        sirka: 720, vyska: 500,
+        stavy: [
+          { rezim: 'ref'   },
+          { rezim: 'sub'   },
+          { rezim: 'alpla' }
+        ],
+        popisky: [
+          'Základ SPIDER grafu: 12 os (rentabilita A, likvidita B, zadluženost C, obratovost D). Šedá dvanáctiúhelníková linie = 100 % (úroveň odvětví/benchmarku).',
+          'Obr. 8–7 – PLAST vůči subsekci. Křivka se u většiny os drží pod 100 %, výrazně vybíhá jen u C.3 (úrokové krytí) a C.1 (vlastní kapitál/aktiva).',
+          'Obr. 8–8 – PLAST vůči benchmarku ALPLA. Rentabilita (A) hluboko pod 100 %, zato zadluženost/stabilita (C.1, B.3) přetéká až k okraji grafu.'
+        ],
+        render: function (svg, stav, i, uu) {
+          // --- Prstence (soustředné dvanáctiúhelníky) ---
+          PRSTENCE.forEach(function (val) {
+            var pts = OSY.map(function (_, k) { var p = bod(val, k); return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+            var jeRef = (val === 100);
+            uu.dej(svg, 'ring-' + val, 'polygon', {
+              points: pts, fill: 'none',
+              stroke: jeRef ? uu.barvaOsa : uu.barvaMrizka,
+              'stroke-width': jeRef ? 2 : 1,
+              'stroke-dasharray': jeRef ? '0' : '3 3'
+            });
+            // Popisek stupnice podél svislé (horní) osy
+            var yp = CY - (val / VMAX * RMAX);
+            uu.dej(svg, 'ringlbl-' + val, 'text', {
+              x: CX + 6, y: yp + 4, fill: uu.barvaText, 'font-size': 11
+            }, val + ' %');
+          });
+
+          // --- Osy a jejich popisky ---
+          OSY.forEach(function (nazev, k) {
+            var kon = bod(VMAX, k);
+            uu.dej(svg, 'axis-' + k, 'line', {
+              x1: CX, y1: CY, x2: kon[0], y2: kon[1],
+              stroke: uu.barvaMrizka, 'stroke-width': 1
+            });
+            var lp = bodPx(RMAX + 26, k);
+            var kotva = 'middle';
+            if (lp[0] > CX + 4) kotva = 'start';
+            else if (lp[0] < CX - 4) kotva = 'end';
+            uu.dej(svg, 'axislbl-' + k, 'text', {
+              x: lp[0], y: lp[1] + 4, 'text-anchor': kotva,
+              fill: uu.barvaText, 'font-size': 13, 'font-weight': 600
+            }, nazev);
+          });
+
+          // --- Referenční polygon (benchmark = 100 %) zvýrazněný ---
+          uu.dej(svg, 'poly-ref', 'polygon', {
+            points: OSY.map(function (_, k) { var p = bod(100, k); return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' '),
+            fill: uu.barvaOsa, 'fill-opacity': 0.10,
+            stroke: uu.barvaOsa, 'stroke-width': 2
+          });
+
+          // --- Křivka PLAST ---
+          var jeAlpla = (stav.rezim === 'alpla');
+          var hodnoty = jeAlpla ? VS_ALPLA : VS_SUB;
+          var viditelna = (stav.rezim !== 'ref');
+          var barvaP = '#111827';
+          uu.dej(svg, 'poly-plast', 'polygon', {
+            points: polyBody(hodnoty),
+            fill: barvaP, 'fill-opacity': viditelna ? 0.08 : 0,
+            stroke: barvaP, 'stroke-width': 2.5,
+            opacity: viditelna ? 1 : 0
+          });
+          // Body na vrcholech křivky PLAST
+          OSY.forEach(function (_, k) {
+            var p = bod(hodnoty[k], k);
+            uu.dej(svg, 'dot-' + k, 'circle', {
+              cx: p[0], cy: p[1], r: 3.5,
+              fill: '#fff', stroke: barvaP, 'stroke-width': 2,
+              opacity: viditelna ? 1 : 0
+            });
+          });
+
+          // --- Legenda dole ---
+          uu.dej(svg, 'leg-ref-box', 'rect', { x: 200, y: 476, width: 22, height: 4, rx: 2, fill: uu.barvaOsa });
+          uu.dej(svg, 'leg-ref-txt', 'text', { x: 228, y: 481, fill: uu.barvaText, 'font-size': 12 }, 'benchmark = 100 %');
+          uu.dej(svg, 'leg-p-box', 'rect', { x: 380, y: 476, width: 22, height: 4, rx: 2, fill: '#111827', opacity: viditelna ? 1 : 0 });
+          uu.dej(svg, 'leg-p-txt', 'text', {
+            x: 408, y: 481, fill: uu.barvaText, 'font-size': 12, opacity: viditelna ? 1 : 0
+          }, jeAlpla ? 'PLAST vs ALPLA' : 'PLAST vs subsekce');
+        }
+      });
+
+      /* =========================================================
+         B) STATICKÝ ČÁROVÝ GRAF: vývoj souhrnných indexů
+         ========================================================= */
+      Skripta.carovyGraf('viz-souhrnne', {
+        sirka: 660, vyska: 320, formatDesetin: 2,
+        serie: [
+          { nazev: 'Z-skóre', body: [
+            { x: '1999', y: 1.89 }, { x: '2000', y: 1.98 }, { x: '2001', y: 2.00 },
+            { x: '2002', y: 2.11 }, { x: '2003', y: 2.36 }, { x: '2004', y: 2.21 } ] },
+          { nazev: 'IN01', body: [
+            { x: '1999', y: 1.37 }, { x: '2000', y: 1.33 }, { x: '2001', y: 1.17 },
+            { x: '2002', y: 1.38 }, { x: '2003', y: 1.50 }, { x: '2004', y: 1.45 } ] }
+        ]
+      });
+
+      /* =========================================================
+         C) STATICKÝ ČÁROVÝ GRAF: rentability ROE a ROA (obr. 8–9)
+         ========================================================= */
+      Skripta.carovyGraf('viz-rentability', {
+        sirka: 660, vyska: 320, formatDesetin: 1,
+        serie: [
+          { nazev: 'ROE (%)', body: [
+            { x: '1999', y: 18.3 }, { x: '2000', y: 13.1 }, { x: '2001', y: 9.1 },
+            { x: '2002', y: 10.5 }, { x: '2003', y: 9.0 }, { x: '2004', y: 8.4 } ] },
+          { nazev: 'ROA (%)', body: [
+            { x: '1999', y: 12.2 }, { x: '2000', y: 10.6 }, { x: '2001', y: 8.6 },
+            { x: '2002', y: 10.4 }, { x: '2003', y: 9.5 }, { x: '2004', y: 8.4 } ] }
+        ]
+      });
+
+      /* =========================================================
+         D) STATICKÝ SLOUPCOVÝ GRAF: FCF (obr. 8–9)
+         Záporné hodnoty se automaticky obarví červeně.
+         ========================================================= */
+      Skripta.sloupcovyGraf('viz-fcf', {
+        sirka: 660, vyska: 320, formatDesetin: 0,
+        data: [
+          { popisek: '1999', hodnota: 182906 },
+          { popisek: '2000', hodnota: -62665 },
+          { popisek: '2001', hodnota: 119225 },
+          { popisek: '2002', hodnota: 94816 },
+          { popisek: '2003', hodnota: 97162 },
+          { popisek: '2004', hodnota: -1943 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

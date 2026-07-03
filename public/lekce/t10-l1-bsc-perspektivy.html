@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10.1 Balanced Scorecard a jeho čtyři perspektivy – Výkonnost podniku</title>
+  <meta name="description" content="Balanced Scorecard (BSC) Kaplana a Nortona, jeho čtyři perspektivy propojené s vizí a strategií a interní hodnotový řetězec.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 10 -->
+    <nav class="panel" data-panel data-aktivni-lekce="10.1" aria-label="Lekce tématu 10">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 10</div>
+      <div class="panel__nazev-tema">Balanced Scorecard</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="10.1" href="t10-l1-bsc-perspektivy.html"><span class="panel__odkaz-cislo">10.1</span><span>Balanced Scorecard a jeho čtyři perspektivy</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="10.2" href="t10-l2-strategicka-mapa.html"><span class="panel__odkaz-cislo">10.2</span><span>Strategická mapa, kaskádování a odměňování v BSC</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="10.3" href="t10-l3-vyuziti-bsc.html"><span class="panel__odkaz-cislo">10.3</span><span>Využití BSC a propojení s dalšími koncepty</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-10">Téma 10 · BSC</a></li>
+          <li><span aria-current="page">Lekce 10.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 10.1</span>
+        <h1>Balanced Scorecard a jeho čtyři perspektivy</h1>
+        <p class="lekce-hlavicka__strany">Strany 194–197</p>
+      </header>
+
+      <p>
+        Předchozí kapitoly ukázaly řadu konceptů pro měření a řízení výkonnosti –
+        od klasických <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-pomerove-ukazatele" target="_blank" rel="noopener">poměrových ukazatelů</a> přes <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> až po <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklady na kapitál</a>.
+        Všechny však vycházejí především z <strong>finančních dat</strong>, a ta
+        popisují hlavně to, co se už stalo. Podnik ale potřebuje vedle výsledků
+        minulé výkonnosti sledovat i <em>hybné síly té budoucí</em> – spokojené
+        zákazníky, kvalitní procesy, schopné a motivované lidi. Právě tuto mezeru
+        zaplňuje <a class="pojem" href="#pojem-balanced-scorecard">Balanced Scorecard</a>.
+      </p>
+      <p>
+        V této lekci si zavedeme BSC jako vyvážený systém měřítek, který propojuje
+        finanční i nefinanční pohledy s vizí a strategií podniku, a projdeme jeho
+        čtyři perspektivy včetně interního hodnotového řetězce.
+      </p>
+
+      <!-- CALLOUT: info – původ konceptu -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Odkud koncept pochází</p>
+        <div class="callout__telo">
+          <p>Koncept Balanced Scorecard představili <strong>Robert Kaplan</strong> a
+          <strong>David Norton</strong> v článku <em>The Balanced Scorecard – Measures
+          that Drive Performance</em> (Harvard Business Review, 1992). Klíčovou
+          myšlenkou je „vyváženost" (balance) mezi finančními a nefinančními měřítky
+          a mezi pohledem do minulosti a do budoucnosti.</p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE: BSC -->
+      <section class="definice" id="pojem-balanced-scorecard">
+        <h3 class="definice__pojem">Balanced Scorecard (BSC)</h3>
+        <div class="definice__telo">
+          <p>
+            Systém strategických výkonnostních měřítek, který <strong>doplňuje finanční
+            měřítka minulé výkonnosti o měřítka hybných sil budoucí výkonnosti</strong>.
+            Cíle a měřítka vycházejí z vize a strategie podniku a sledují jeho výkonnost
+            ze čtyř perspektiv: finanční, zákaznické, interních procesů a učení se a růstu.
+            BSC není jen soustavou ukazatelů – lze jej využít jako strategický manažerský
+            systém k vyjasnění a komunikaci strategie i ke zlepšení zpětné vazby.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Aby systém fungoval, musí být napojen na <strong>základní podnikovou vizi</strong>.
+        Strategická měřítka by měla představovat klíčové faktory ovlivňující hodnotu
+        podniku, měla by <em>vzájemně souviset</em> a nemělo by jich být mnoho – jinak
+        se systém stane nepřehlednou džunglí čísel.
+      </p>
+
+      <!-- CALLOUT: pozor – proč nestačí jen finanční měřítka -->
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Proč nestačí řídit jen podle financí</p>
+        <div class="callout__telo">
+          <p>Finanční měřítka jsou excelentní v pohledu <em>do minulosti</em>, ale
+          zaměřují se krátkodobě a funkčně. Podle Nivena dnešní firmy pracují v týmech
+          napříč odděleními a stále více jejich hodnoty tvoří <strong>nehmotná aktiva</strong>
+          – kvalitní výrobky a služby, motivovaní a zkušení zaměstnanci, pružné procesy,
+          loajální zákazníci. Ta mohou představovat až <strong>tři čtvrtiny zdrojů
+          hodnoty</strong>, přesto se běžně nevykazují v účetnictví. Horváth navíc
+          zdůrazňuje BSC jako nástroj pro prosazování, sdílení a komunikování strategie.</p>
+        </div>
+      </aside>
+
+      <h2>Čtyři perspektivy a jejich propojení s vizí</h2>
+      <p>
+        Jádrem BSC jsou čtyři perspektivy uspořádané kolem centrální vize a strategie
+        (obrázek 5–1). Nejde o čtyři nezávislé seznamy ukazatelů: perspektivy jsou
+        provázané <strong>obousměrnými vazbami</strong> a tvoří řetězec příčin a důsledků –
+        schopní lidé zvládají kvalitní procesy, kvalitní procesy uspokojují zákazníky
+        a spokojení zákazníci naplňují finanční cíle vlastníků.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: obrázek 5–1 ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 5–1: Čtyři perspektivy BSC propojené s vizí a strategií</p>
+          <p class="viz__popis">Tlačítky „Zpět / Další" postupně odkryjte jednotlivé perspektivy kolem centrální vize a strategie a nakonec i obousměrné vazby, které je propojují do řetězce příčin a důsledků.</p>
+        </figcaption>
+        <div id="viz-bsc-perspektivy"></div>
+      </figure>
+
+      <!-- ===== Finanční perspektiva ===== -->
+      <section class="definice" id="pojem-financni-perspektiva">
+        <h3 class="definice__pojem">Finanční perspektiva</h3>
+        <div class="definice__telo">
+          <p>
+            Sleduje <strong>spokojenost vlastníků</strong> – zhodnocování vložených
+            prostředků a naplňování základního kritéria hodnocení podnikání, <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-cista-soucasna-hodnota" target="_blank" rel="noopener">čisté
+            současné hodnoty</a>. Finanční ukazatele jsou důležité pro hodnocení ekonomických
+            důsledků realizovaných akcí, proto BSC finanční perspektivu zachovává jako
+            <em>vrchol</em>, k němuž směřují cíle všech ostatních perspektiv. Klíčovým
+            měřítkem může být např. provozní zisk, <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">ROE</a> či EVA.
+          </p>
+        </div>
+      </section>
+      <p>
+        Cíle a <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a> ostatních tří perspektiv by měly být propojeny
+        k dosažení jednoho nebo více cílů finanční perspektivy. Tím se explicitně
+        vyjadřuje, že <strong>dlouhodobým cílem podniku je tvorba hodnoty</strong> a
+        uspokojení vlastníků.
+      </p>
+
+      <!-- ===== Zákaznická perspektiva ===== -->
+      <section class="definice" id="pojem-zakaznicka-perspektiva">
+        <h3 class="definice__pojem">Zákaznická perspektiva</h3>
+        <div class="definice__telo">
+          <p>
+            Zaměřuje pozornost na <strong>zákazníka</strong> a práci s trhem. Typická
+            měřítka: spokojenost a loajalita zákazníků, ziskovost zákazníků, podíl na
+            trhu, získávání nových a udržení stávajících zákazníků. Tato měřítka jsou
+            vzájemně provázaná – spokojenost vede k loajalitě a udržení, přilákání
+            dalších zákazníků a růstu podílu na trhu, což slibuje zisk.
+          </p>
+        </div>
+      </section>
+      <p>
+        Provázání na finanční perspektivu je zřejmé přes dosažené tržby a ziskovost
+        jednotlivých zákazníků, trhů a výrobkových řad. Výše tržeb ovšem není konečným
+        signálem o výkonnosti – proto je nutné zaměřit se i na procesy, které usilování
+        o zákazníka vůbec umožňují.
+      </p>
+
+      <!-- ===== Perspektiva interních procesů ===== -->
+      <section class="definice" id="pojem-perspektiva-internich-procesu">
+        <h3 class="definice__pojem">Perspektiva interních procesů</h3>
+        <div class="definice__telo">
+          <p>
+            Procesy je třeba řídit tak, aby výstup měl parametry požadované zákazníky
+            a přitom byl uskutečněn co <strong>nejhospodárněji</strong> – s nejpříznivějším
+            poměrem výstup/vstup. Pozornost se soustředí na <em>interní hodnotový řetězec</em>
+            a doporučuje se opustit měření podle středisek a přejít na měření výkonnosti
+            <strong>procesů</strong>, které prostupují více odděleními.
+          </p>
+        </div>
+      </section>
+      <p>
+        Právě zde se vytvářejí předpoklady pro úspěchy měřené zákaznickou perspektivou
+        a možnosti tvorby hodnoty pro vlastníka – ať už kvalitou výrobků, jejich novými
+        vlastnostmi, službami, vyšší produktivitou či nižšími náklady. V rámci interních
+        procesů jsou důležité <strong>tři parametry: náklady, kvalita procesů a doba cyklu</strong>.
+      </p>
+
+      <!-- ===== DEFINICE: interní hodnotový řetězec ===== -->
+      <section class="definice" id="pojem-interni-hodnotovy-retezec">
+        <h3 class="definice__pojem">Interní hodnotový řetězec</h3>
+        <div class="definice__telo">
+          <p>
+            Posloupnost tří klíčových procesů, jimiž podnik vytváří hodnotu pro zákazníka:
+            <strong>inovační</strong> proces (hledání a vývoj lepších výrobků podle potřeb
+            trhu), <strong>provozní</strong> proces (od objednávky k dodávce výrobku) a
+            <strong>poprodejní</strong> proces (servis a vypořádání inkasa za prodané výrobky).
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= STATICKÝ DIAGRAM: hodnotový řetězec ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Interní hodnotový řetězec</p>
+          <p class="viz__popis">Tok tvorby hodnoty od zjištění potřeb trhu (inovace) přes výrobu a dodávku (provoz) až po servis a inkaso (poprodej). U každého procesu se sledují náklady, kvalita a doba cyklu.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 760 220" width="100%" role="img" aria-label="Diagram interního hodnotového řetězce: inovační proces, provozní proces, poprodejní proces">
+            <defs>
+              <marker id="sipka-hr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"></path>
+              </marker>
+            </defs>
+            <!-- Inovační -->
+            <rect x="30" y="44" width="180" height="88" rx="12" fill="#4338ca"></rect>
+            <text x="120" y="82" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Inovační proces</text>
+            <text x="120" y="104" text-anchor="middle" fill="#e5e7eb" font-size="12">návrh a vývoj výrobků</text>
+            <!-- Provozní -->
+            <rect x="290" y="44" width="180" height="88" rx="12" fill="#0e7490"></rect>
+            <text x="380" y="82" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Provozní proces</text>
+            <text x="380" y="104" text-anchor="middle" fill="#e5e7eb" font-size="12">od objednávky k dodávce</text>
+            <!-- Poprodejní -->
+            <rect x="550" y="44" width="180" height="88" rx="12" fill="#b45309"></rect>
+            <text x="640" y="82" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">Poprodejní proces</text>
+            <text x="640" y="104" text-anchor="middle" fill="#e5e7eb" font-size="12">servis a inkaso</text>
+            <!-- šipky -->
+            <line x1="214" y1="88" x2="286" y2="88" stroke="#64748b" stroke-width="2.5" marker-end="url(#sipka-hr)"></line>
+            <line x1="474" y1="88" x2="546" y2="88" stroke="#64748b" stroke-width="2.5" marker-end="url(#sipka-hr)"></line>
+            <!-- vstup / výstup -->
+            <text x="120" y="30" text-anchor="middle" fill="#475569" font-size="12.5">Potřeby trhu →</text>
+            <text x="640" y="30" text-anchor="middle" fill="#475569" font-size="12.5">→ Uspokojený zákazník</text>
+            <!-- sledované parametry -->
+            <text x="380" y="176" text-anchor="middle" fill="#334155" font-size="13" font-weight="600">Sledované parametry každého procesu:</text>
+            <text x="380" y="198" text-anchor="middle" fill="#475569" font-size="13">náklady &#160;·&#160; kvalita &#160;·&#160; doba cyklu</text>
+          </svg>
+        </div>
+      </figure>
+
+      <!-- ===== Perspektiva učení se a růstu ===== -->
+      <section class="definice" id="pojem-perspektiva-uceni-a-rustu">
+        <h3 class="definice__pojem">Perspektiva učení se a růstu</h3>
+        <div class="definice__telo">
+          <p>
+            Vytváří <strong>podmínky pro budoucnost</strong>. Schopnost dosáhnout
+            náročné finanční, zákaznické i procesní cíle závisí na tom, jak se podnik
+            umí <em>učit a růst</em>. Umožňují to tři skupiny zdrojů: <strong>zaměstnanci,
+            informační systémy a podnikové procedury</strong>. Klíčové oblasti: znalosti
+            a schopnosti zaměstnanců, kvalita informačních systémů, motivace, delegování
+            pravomocí a angažovanost.
+          </p>
+        </div>
+      </section>
+      <p>
+        Kvalifikace a spokojenost zaměstnanců souvisí s jejich produktivitou a udržením
+        v podniku; zvýšená produktivita – měřená např. tržbami, ziskem nebo přidanou
+        hodnotou na zaměstnance – významně ovlivňuje hodnotu podniku. Zaměstnanci ale
+        potřebují <strong>informace</strong> ze všech ostatních perspektiv a musí být
+        <strong>motivováni</strong> a schopni sami rozhodovat – jinak ani kvalifikovaní
+        lidé s dobrým přístupem k datům nepřispějí k úspěchu.
+      </p>
+
+      <!-- ================= TABULKA typických měřítek ================= -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Přehled typických měřítek jednotlivých perspektiv BSC</caption>
+          <thead>
+            <tr>
+              <th scope="col">Perspektiva</th>
+              <th scope="col">Základní otázka</th>
+              <th scope="col">Příklady měřítek</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Finanční</th>
+              <td>Jak nás vidí vlastníci?</td>
+              <td>provozní zisk, ROE, EVA, čistá současná hodnota</td>
+            </tr>
+            <tr>
+              <th scope="row">Zákaznická</th>
+              <td>Jak nás vidí zákazníci?</td>
+              <td>spokojenost a loajalita, ziskovost zákazníků, podíl na trhu, získávání a udržení zákazníků</td>
+            </tr>
+            <tr>
+              <th scope="row">Interních procesů</th>
+              <td>V čem musíme vynikat?</td>
+              <td>náklady procesů, kvalita, doba cyklu, spolehlivost dodávek</td>
+            </tr>
+            <tr>
+              <th scope="row">Učení se a růstu</th>
+              <td>Umíme se dále zlepšovat?</td>
+              <td>znalosti a schopnosti zaměstnanců, kvalita IS, motivace, produktivita na zaměstnance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CALLOUT: info – řetězec příčin a důsledků -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Řetězec příčin a důsledků</p>
+        <div class="callout__telo">
+          <p>Perspektivy čteme zdola nahoru jako logický řetězec: <em>schopní a motivovaní
+          lidé</em> (učení a růst) zvládají <em>kvalitní a hospodárné procesy</em> (interní
+          procesy), ty uspokojují <em>zákazníky</em> (zákaznická perspektiva), a spokojení
+          zákazníci naplňují <em>finanční cíle</em> vlastníků. Tvorbu <a class="pojem" href="t10-l2-strategicka-mapa.html?zvyraznit=pojem-strategicka-mapa" target="_blank" rel="noopener">strategické mapy</a> z těchto
+          vazeb rozebereme v následující lekci.</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč podle BSC nestačí řídit podnik pouze podle finančních měřítek? Uveďte
+          alespoň dva argumenty.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Finanční měřítka popisují hlavně <strong>minulost</strong> a krátkodobý,
+            funkčně zaměřený pohled – neříkají nic o hybných silách budoucí výkonnosti.
+            Navíc nezachycují <strong>nehmotná aktiva</strong> (znalosti a motivaci lidí,
+            kvalitu procesů, loajalitu zákazníků, značku), která dnes mohou tvořit až tři
+            čtvrtiny zdrojů hodnoty, ale v účetnictví se běžně nevykazují. BSC proto finanční
+            měřítka doplňuje o zákaznickou, procesní a rozvojovou perspektivu.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Seřaďte tři procesy interního hodnotového řetězce a přiřaďte ke každému jednu
+          typickou aktivitu.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Pořadí je <strong>inovační → provozní → poprodejní</strong>.
+            V <strong>inovačním</strong> procesu podnik zjišťuje potřeby trhu a navrhuje či
+            zlepšuje výrobky. V <strong>provozním</strong> procesu vyrábí a dodává – od
+            objednávky k dodávce zákazníkovi. V <strong>poprodejním</strong> procesu zajišťuje
+            servis a vypořádání inkasa za prodané výrobky. U všech tří se sledují náklady,
+            kvalita a doba cyklu.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Kdo a kdy představil koncept Balanced Scorecard a v čem spočívá jeho „vyváženost"?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzpomeňte na dvojici autorů a rok publikace v Harvard Business Review; „balance" je mezi dvěma druhy měřítek a dvěma časovými pohledy.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Koncept představili <strong>Kaplan a Norton</strong> v roce <strong>1992</strong>. Vyváženost spočívá v rovnováze mezi <strong>finančními a nefinančními</strong> měřítky a mezi pohledem do <strong>minulosti</strong> (finanční výsledky) a do <strong>budoucnosti</strong> (hybné síly výkonnosti).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Vyjmenujte čtyři perspektivy BSC a stručně řekněte, čeho se každá týká.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vlastníci, zákazníci, procesy uvnitř podniku, lidé a jejich rozvoj.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Finanční</strong> (spokojenost vlastníků, tvorba hodnoty), <strong>zákaznická</strong> (spokojenost a loajalita zákazníků, podíl na trhu), <strong>interních procesů</strong> (hospodárné a kvalitní procesy – hodnotový řetězec) a <strong>učení se a růstu</strong> (zaměstnanci, informační systémy, procedury).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Z jakých tří procesů se skládá interní hodnotový řetězec a které tři parametry se u nich sledují?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Řetězec začíná před výrobou (nápadem) a končí po prodeji (servisem); parametry jsou o penězích, jakosti a čase.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Procesy: <strong>inovační → provozní → poprodejní</strong>. Sledované parametry: <strong>náklady, kvalita procesů a doba cyklu</strong>.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč BSC zachovává finanční perspektivu jako vrcholovou, přestože zdůrazňuje nefinanční měřítka?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>K čemu mají v konečném důsledku směřovat cíle všech ostatních perspektiv?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Finanční ukazatele hodnotí <strong>ekonomické důsledky</strong> realizovaných akcí. Cíle a generátory hodnoty ostatních perspektiv mají v konečném důsledku vést k naplnění cílů finanční perspektivy – tím se explicitně vyjadřuje, že dlouhodobým cílem podniku je <strong>tvorba hodnoty a uspokojení vlastníků</strong>.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jaké tři skupiny zdrojů umožňují naplnit perspektivu učení se a růstu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Lidé, technologie pro práci s informacemi a nastavená pravidla fungování.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Zaměstnanci</strong> (jejich znalosti, schopnosti, motivace), <strong>informační systémy</strong> a <strong>podnikové procedury</strong>. Dosažení vysoké výkonnosti vyžaduje značné investice do lidí, systémů a procesů.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t9-l5-zdroje-financovani.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">9.5 Zdroje financování a jejich vliv na výkonnost</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t10-l2-strategicka-mapa.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">10.2 Strategická mapa, kaskádování a odměňování v BSC</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: obrázek 5–1 – čtyři perspektivy kolem vize a strategie.
+      // Perspektivy se odkrývají postupně, v posledním kroku se zobrazí obousměrné vazby.
+      Skripta.stepper('viz-bsc-perspektivy', {
+        sirka: 720, vyska: 460,
+        stavy: [
+          { n: 0, ring: false },
+          { n: 1, ring: false },
+          { n: 2, ring: false },
+          { n: 3, ring: false },
+          { n: 4, ring: false },
+          { n: 4, ring: true }
+        ],
+        popisky: [
+          'Vše vychází z centrální vize a strategie podniku.',
+          'Finanční perspektiva (nahoře): cíle vedoucí k uspokojení vlastníků.',
+          'Zákaznická perspektiva (vlevo): cíle vedoucí k uspokojení zákazníků.',
+          'Perspektiva interních procesů (vpravo): hospodárné a kvalitní procesy.',
+          'Perspektiva učení se a růstu (dole): potenciál podniku – lidé, systémy, procedury.',
+          'Perspektivy jsou propojeny obousměrnými vazbami do řetězce příčin a důsledků.'
+        ],
+        render: function (svg, stav, i, u) {
+          // Definice čtyř perspektiv (pořadí odkrývání: finanční, zákaznická, interní, učení).
+          var persp = [
+            { id: 'fin',  cx: 360, cy: 70,  fill: '#4338ca', t: 'Finanční',        s: 'spokojenost vlastníků' },
+            { id: 'cust', cx: 140, cy: 230, fill: '#0e7490', t: 'Zákaznická',      s: 'spokojenost zákazníků' },
+            { id: 'int',  cx: 580, cy: 230, fill: '#b45309', t: 'Interní procesy', s: 'hodnotový řetězec' },
+            { id: 'lrn',  cx: 360, cy: 390, fill: '#15803d', t: 'Učení se a růst', s: 'lidé · systémy · procedury' }
+          ];
+          // Spojnice z centra ke každé perspektivě (odkrývá se spolu s perspektivou).
+          var conn = [
+            { x1: 360, y1: 194, x2: 360, y2: 100 },
+            { x1: 260, y1: 230, x2: 230, y2: 230 },
+            { x1: 460, y1: 230, x2: 490, y2: 230 },
+            { x1: 360, y1: 266, x2: 360, y2: 360 }
+          ];
+
+          // Centrální blok Vize a strategie – vždy viditelný.
+          u.dej(svg, 'c-box', 'rect', { x: 260, y: 194, width: 200, height: 72, rx: 12, fill: '#312e81' });
+          u.dej(svg, 'c-t1', 'text', { x: 360, y: 224, 'text-anchor': 'middle', fill: '#fff', 'font-size': 17, 'font-weight': 700 }, 'Vize');
+          u.dej(svg, 'c-t2', 'text', { x: 360, y: 247, 'text-anchor': 'middle', fill: '#fff', 'font-size': 17, 'font-weight': 700 }, 'a strategie');
+
+          // Perspektivy + spojnice.
+          persp.forEach(function (p, k) {
+            var vis = k < stav.n ? 1 : 0;
+            var c = conn[k];
+            u.dej(svg, p.id + '-ln', 'line', { x1: c.x1, y1: c.y1, x2: c.x2, y2: c.y2, stroke: u.barvaOsa, 'stroke-width': 2, opacity: vis });
+            u.dej(svg, p.id + '-box', 'rect', { x: p.cx - 92, y: p.cy - 30, width: 184, height: 60, rx: 12, fill: p.fill, opacity: vis });
+            u.dej(svg, p.id + '-t', 'text', { x: p.cx, y: p.cy - 3, 'text-anchor': 'middle', fill: '#fff', 'font-size': 15, 'font-weight': 700, opacity: vis }, p.t);
+            u.dej(svg, p.id + '-s', 'text', { x: p.cx, y: p.cy + 16, 'text-anchor': 'middle', fill: '#e5e7eb', 'font-size': 11.5, opacity: vis }, p.s);
+          });
+
+          // Obousměrné vazby mezi sousedními perspektivami (rohové oblouky) – poslední krok.
+          var rv = stav.ring ? 1 : 0;
+          var arcs = [
+            'M 285 92 Q 175 120 152 196',   // finanční ↔ zákaznická (levý horní roh)
+            'M 152 264 Q 175 340 285 388',  // zákaznická ↔ učení (levý dolní roh)
+            'M 435 388 Q 545 340 568 264',  // učení ↔ interní (pravý dolní roh)
+            'M 568 196 Q 545 120 435 92'    // interní ↔ finanční (pravý horní roh)
+          ];
+          arcs.forEach(function (d, k) {
+            u.dej(svg, 'arc-' + k, 'path', { d: d, fill: 'none', stroke: '#6366f1', 'stroke-width': 2.2, 'stroke-dasharray': '6 5', opacity: rv });
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

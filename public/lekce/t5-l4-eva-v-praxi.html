@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.4 EVA v praxi – případové studie a srovnání s tržními měřítky – Výkonnost podniku</title>
+  <meta name="description" content="EVA v praxi: případové studie PLASTIKO a Enron, selhání ukazatele EPS, vztah MVA a EVA a srovnání EVA s Excess Return a REVA.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 5 -->
+    <nav class="panel" data-panel data-aktivni-lekce="5.4" aria-label="Lekce tématu 5">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 5</div>
+      <div class="panel__nazev-tema">Ekonomická přidaná hodnota (EVA)</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="5.1" href="t5-l1-podstata-eva.html"><span class="panel__odkaz-cislo">5.1</span><span>Podstata a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.2" href="t5-l2-noa.html"><span class="panel__odkaz-cislo">5.2</span><span>Účetní úpravy rozvahy – vymezení NOA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.3" href="t5-l3-nopat-naklady-kapital.html"><span class="panel__odkaz-cislo">5.3</span><span>NOPAT, náklady na kapitál a zjednodušené verze EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.4" href="t5-l4-eva-v-praxi.html"><span class="panel__odkaz-cislo">5.4</span><span>EVA v praxi – případové studie a srovnání s tržními měřítky</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.5" href="t5-l5-eva-investice-oceneni.html"><span class="panel__odkaz-cislo">5.5</span><span>EVA pro investiční rozhodování a ocenění podniku</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.6" href="t5-l6-eva-odmenovani.html"><span class="panel__odkaz-cislo">5.6</span><span>EVA a odměňování – bonusové systémy</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.7" href="t5-l7-zhodnoceni-eva.html"><span class="panel__odkaz-cislo">5.7</span><span>Zhodnocení EVA, empirické studie a zavedení do praxe</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-5">Téma 5 · EVA</a></li>
+          <li><span aria-current="page">Lekce 5.4</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 5.4</span>
+        <h1>EVA v praxi – případové studie a srovnání s tržními měřítky</h1>
+        <p class="lekce-hlavicka__strany">Strany 69–74</p>
+      </header>
+
+      <p>
+        Předchozí lekce dovedly výpočet <a class="pojem" href="#pojem-mva-soucasna-hodnota-eva">EVA</a>
+        do konce – od úprav rozvahy (<a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">NOA</a>) přes provozní zisk (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a>) až po
+        náklady na kapitál (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>). Nyní ukazatel vyzkoušíme <em>v akci</em>. Na
+        dvou případových studiích uvidíme, jak <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> odhalí to, co tradiční
+        ukazatele zisku a rentability skrývají, a nakonec EVA porovnáme s tržními
+        měřítky (<a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">MVA</a>, <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-excess-return" target="_blank" rel="noopener">Excess Return</a>) a s její tržní modifikací REVA.
+      </p>
+      <p>
+        Motivaci nám dala už předchozí lekce: v příkladu&nbsp;3.6 vyšlo, že
+        podnik&nbsp;B měl výrazně vyšší rentabilitu vlastního kapitálu (<a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">ROE</a>&nbsp;18&nbsp;%)
+        než podnik&nbsp;A (11,6&nbsp;%), a přesto <strong>ničil hodnotu</strong> –
+        jeho výnosnost (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-rona" target="_blank" rel="noopener">RONA</a>) byla nižší než <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklady na kapitál</a>, takže EVA byla
+        záporná. Tradiční a moderní pohled tedy mohou vést k opačnému verdiktu.
+        Tuto zkušenost teď rozvineme.
+      </p>
+
+      <!-- ================= PŘÍPADOVÁ STUDIE PLASTIKO ================= -->
+      <h2>Případová studie PLASTIKO: rozpor mezi ROE a EVA</h2>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nepleťte si PLASTIKO a PLAST, s.r.o.</p>
+        <div class="callout__telo">
+          <p>
+            <strong>PLASTIKO</strong> je <em>ilustrativní</em> plastikářský podnik
+            použitý pouze v této lekci k demonstraci chování ukazatele EVA. Není
+            totožný s <strong>hlavní případovou studií PLAST, s.r.o.</strong>, na
+            které je v <em>Tématu 12</em> aplikována celá teorie skript. Jde o dva
+            odlišné příklady – nezaměňujte jejich čísla ani závěry.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        PLASTIKO je středně velký plastikářský podnik s 250 zaměstnanci, který
+        nabízí komplexní řešení pro technické výlisky – návrh výrobku, konstrukci
+        i výrobu forem, vstřikování, potisk a montáž plastových výrobků.
+        Sledujeme jej ve čtyřech po sobě jdoucích letech. Tabulky&nbsp;3–2 a&nbsp;3–3
+        ukazují jeho výkonnost tradičníma očima (zisk a rentabilita),
+        tabulka&nbsp;3–4 pak očima EVA.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3–2 – Ukazatele zisku podniku PLASTIKO (tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. rok</th>
+              <th scope="col" class="cislo">2. rok</th>
+              <th scope="col" class="cislo">3. rok</th>
+              <th scope="col" class="cislo">4. rok</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Čistý zisk</th><td class="cislo">3 023</td><td class="cislo">9 826</td><td class="cislo">17 660</td><td class="cislo">18 516</td></tr>
+            <tr><th scope="row">EBIT</th><td class="cislo">7 024</td><td class="cislo">14 870</td><td class="cislo">23 173</td><td class="cislo">23 750</td></tr>
+            <tr><th scope="row">EBITDA</th><td class="cislo">29 201</td><td class="cislo">35 885</td><td class="cislo">43 365</td><td class="cislo">43 123</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3–3 – Ukazatele ziskovosti (rentability) podniku PLASTIKO</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. rok</th>
+              <th scope="col" class="cislo">2. rok</th>
+              <th scope="col" class="cislo">3. rok</th>
+              <th scope="col" class="cislo">4. rok</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Rentabilita tržeb</th><td class="cislo">1,31 %</td><td class="cislo">3,08 %</td><td class="cislo">3,79 %</td><td class="cislo">3,35 %</td></tr>
+            <tr><th scope="row">Rentabilita aktiv</th><td class="cislo">3,23 %</td><td class="cislo">6,83 %</td><td class="cislo">9,96 %</td><td class="cislo">10,10 %</td></tr>
+            <tr><th scope="row">Rentabilita čistých operativních aktiv (RONA)</th><td class="cislo hodnota-niceni">−1,60 %</td><td class="cislo">8,76 %</td><td class="cislo">14,11 %</td><td class="cislo">11,80 %</td></tr>
+            <tr><th scope="row">Rentabilita vlastního kapitálu (ROE)</th><td class="cislo">2,52 %</td><td class="cislo">8,20 %</td><td class="cislo">13,06 %</td><td class="cislo">12,31 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3–4 – Vývoj ukazatele EVA a vstupních veličin (tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1. rok</th>
+              <th scope="col" class="cislo">2. rok</th>
+              <th scope="col" class="cislo">3. rok</th>
+              <th scope="col" class="cislo">4. rok</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">NOPAT</th><td class="cislo hodnota-niceni">−2 305</td><td class="cislo">13 713</td><td class="cislo">22 352</td><td class="cislo">21 814</td></tr>
+            <tr><th scope="row">Investovaný kapitál C</th><td class="cislo">144 346</td><td class="cislo">156 470</td><td class="cislo">158 372</td><td class="cislo">184 823</td></tr>
+            <tr><th scope="row">WACC</th><td class="cislo">13,76 %</td><td class="cislo">12,86 %</td><td class="cislo">13,50 %</td><td class="cislo">10,45 %</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">EVA</th>
+              <td class="cislo hodnota-niceni">−22 167</td>
+              <td class="cislo hodnota-niceni">−6 409</td>
+              <td class="cislo hodnota-tvorba">972</td>
+              <td class="cislo hodnota-tvorba">2 500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Tabulka&nbsp;3–2 hlásí samé dobré zprávy: všechny kategorie zisku v 1.&nbsp;až
+        3.&nbsp;roce výrazně rostou a ve 4.&nbsp;roce se situace stabilizuje. Také
+        ukazatele rentability (tab.&nbsp;3–3) vyprávějí stejný příběh – zřetelné
+        zlepšení ve sledovaných letech a mírný pokles téměř všech ukazatelů
+        v posledním roce. Kdybychom se dívali jen sem, prohlásili bychom podnik za
+        jednoznačně úspěšný.
+      </p>
+      <p>
+        EVA však přidává rozměr, který tradiční ukazatele nevidí – <strong>náklady
+        na veškerý kapitál</strong>. Podle tabulky&nbsp;3–4 byla EVA v 1. a 2.&nbsp;roce
+        <span class="hodnota-niceni">záporná</span> (podnik navzdory rostoucímu
+        účetnímu zisku ničil hodnotu, protože nevydělal ani na náklady kapitálu),
+        a teprve od 3.&nbsp;roku se dostává do <span class="hodnota-tvorba">kladných</span>
+        hodnot. Skutečná tvorba hodnoty pro vlastníky tedy začíná až dva roky poté,
+        co účetní zisk „vypadá skvěle".
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 3–6: Vývoj podniku PLASTIKO podle různých ukazatelů</p>
+          <p class="viz__popis">Sloupce EBIT (šedě) i rentabilita ROE (fialová spojnice, pravá osa v %) míří vzhůru, ale EVA (levá osa v tis. Kč) startuje hluboko v záporu. Všimněte si posledního roku: ROE klesá, zatímco EVA roste – ukazatele si protiřečí.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-plastiko"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Klíčový rozpor ve 4. roce</p>
+        <div class="callout__telo">
+          <p>
+            Mezi 3. a 4.&nbsp;rokem <strong>ROE poklesla</strong> (z 13,06&nbsp;% na
+            12,31&nbsp;%), a přesto <strong>EVA vzrostla</strong> (z 972 na
+            2&nbsp;500&nbsp;tis. Kč). Vysvětlení nabízí tabulka&nbsp;3–4: ve 4.&nbsp;roce
+            výrazně klesly náklady na kapitál (WACC z 13,50&nbsp;% na 10,45&nbsp;%),
+            takže i mírně nižší provozní výnosnost stačila vytvořit více hodnoty
+            nad laťkou danou WACC. Tradiční ukazatel rentability tento efekt
+            nákladů na kapitál zachytit nedokáže.
+          </p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            V 1.&nbsp;roce vykázal PLASTIKO kladný <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-eat" target="_blank" rel="noopener">čistý zisk</a> 3&nbsp;023&nbsp;tis. Kč, a přesto
+            byla jeho EVA hluboce záporná (−22&nbsp;167&nbsp;tis. Kč). Jak je to možné?
+            Nápovědou budiž řádky NOPAT, WACC a C v tabulce&nbsp;3–4.
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Účetní čistý zisk je počítán po odečtení jen nákladů na cizí kapitál
+              (úroků), nikoli nákladů na vlastní kapitál. EVA naopak odečítá
+              <em>kapitálový náklad</em> z veškerého investovaného kapitálu:
+              <span class="math">WACC<span class="op">×</span>C<span class="op">=</span>0,1376<span class="op">×</span>144&nbsp;346<span class="op">≈</span>19&nbsp;862</span>&nbsp;tis. Kč.
+              Navíc byl provozní zisk po zdanění v ekonomickém pojetí záporný
+              (NOPAT&nbsp;=&nbsp;−2&nbsp;305). Odtud
+              <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C<span class="op">≈</span><span class="op">−</span>2&nbsp;305<span class="op">−</span>19&nbsp;862<span class="op">≈</span><span class="op">−</span>22&nbsp;167</span>.
+              Kladný účetní zisk tedy ani zdaleka nestačil na úhradu nákladů kapitálu.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= PŘÍPADOVÁ STUDIE ENRON ================= -->
+      <h2>Případová studie Enron: selhání ukazatele EPS</h2>
+
+      <p>
+        Druhá studie ukazuje totéž z opačné strany – kdy klasické měřítko dlouho
+        svítí zeleně, ačkoli podnik systematicky ničí hodnotu. Ukazatele typu
+        <span class="math">EPS</span> (Earnings per Share, zisk na akcii) mohou
+        selhávat, protože svádějí management k honbě za co nejvyšším účetním ziskem –
+        obzvlášť když trh na růst zisku reaguje růstem ceny akcií. To ukázaly
+        případy podniků Enron, WorldCom a dalších.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Pád energetického kolosu</p>
+        <div class="callout__telo">
+          <p>
+            Americký energetický gigant Enron musel vyhlásit bankrot, protože
+            nebyl schopen splácet závazky dosahující až sta miliard dolarů. Kdysi
+            sedmá největší akciová společnost v USA skončila na burze na
+            <strong>0,30&nbsp;USD za akcii</strong> – ve srovnání s rekordním kurzem
+            <strong>90,56&nbsp;USD</strong> ze srpna 2000.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Jednou z podstatných příčin krachu bylo zaměření managementu na dosažení
+        co nejvyššího zisku na akcii (<a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-eps" target="_blank" rel="noopener">EPS</a>), a to <em>jakýmkoli způsobem</em>. Enron
+        se svou láskou k tomuto ukazateli netajil; ve výroční zprávě za rok 2000
+        uvedl, že je „<em>laser-focused on earnings per share</em>" a očekává
+        pokračování silné ziskové výkonnosti.
+      </p>
+      <p>
+        Z konstrukce ukazatele
+        <span class="math">EPS<span class="op">=</span><span class="frac"><span class="frac__cit">čistý zisk</span><span class="frac__jmen">počet akcií</span></span></span>
+        je zřejmé, že jej lze „vylepšit" zvýšením zisku, snížením počtu akcií, nebo
+        obojím. Snaha o zvyšování EPS s sebou ale nese nebezpečné důsledky:
+      </p>
+      <ul>
+        <li>potřebu dalšího kapitálu, který má zvýšit zisk;</li>
+        <li>potřebu dalšího <strong>cizího</strong> kapitálu, aby se nemusely vydávat
+          nové akcie (a nerostl jmenovatel) – tedy postupné <strong>předlužování</strong>;</li>
+        <li>tlak zamaskovat enormní dluhy a nadsadit výsledky – tedy pokušení
+          k <strong>účetním podvodům</strong>.</li>
+      </ul>
+      <p>
+        Enron zvolil taktiku zvyšování zisku při zhruba stálém počtu akcií.
+        Investoval vypůjčený kapitál do <strong>málo výnosných projektů</strong>.
+        Stačilo, aby projekt vydělal víc, než činily náklady na cizí kapitál
+        (v USA tehdy 4–5&nbsp;%): tím rostl objem zisku i EPS. Manažery už
+        nezajímalo, že výnosnost projektů nepřevyšuje <em>průměrné</em> náklady na
+        kapitál (se započtením dražšího vlastního kapitálu na úrovni 10–12&nbsp;%),
+        a že takové investice tedy ve skutečnosti <strong>snižují tržní hodnotu
+        akcií</strong>.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Past ukazatele EPS</p>
+        <div class="callout__telo">
+          <p>
+            Klíčová vada EPS: <strong>nezohledňuje náklady na vlastní kapitál ani
+            riziko</strong>. Projekt, který vydělá nad úrok z dluhu, ale pod
+            celkové WACC, EPS zvýší – a přitom ničí hodnotu. Právě proto EPS „sám
+            o sobě" není vhodné měřítko výkonnosti podniku.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Použijeme-li zpětně na Enron oba ukazatele, dostaneme dva zcela protichůdné
+        obrázky. EPS (i čistý zisk) dosahoval kladných hodnot a v čase
+        <strong>rostl</strong> – v roce 2000 kulminoval na 1,12&nbsp;USD/akcii
+        (obr.&nbsp;3–7). Naproti tomu EVA byla už v roce 1998
+        <span class="hodnota-niceni">záporná</span> a dále <strong>klesala</strong>
+        (obr.&nbsp;3–8). Ekonomická přidaná hodnota tedy varovala před špatným
+        hospodařením už tři roky před krachem – v době, kdy EPS zářil.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 3–8: Vývoj EVA Enronu (1998–2000)</p>
+          <p class="viz__popis">Zatímco EPS a čistý zisk rostly, EVA byla po všechna léta záporná a rok od roku hlubší. Hodnoty v mil. USD jsou přibližné, odečtené z původního grafu.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-enron-eva"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Jak mohl Enron celé roky vykazovat rostoucí EPS a čistý zisk, a přitom
+            podle EVA soustavně ničit hodnotu? Kde je „skrytá díra"?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Enron financoval růst zisku levným cizím kapitálem a vkládal jej do
+              projektů, jejichž výnosnost sice převyšovala úrok z dluhu (4–5&nbsp;%),
+              ale nikoli celkové WACC (10–12&nbsp;%). Účetní zisk – a tím i EPS –
+              rostl, protože zisk se nedělil mezi více akcií. EVA však odečítá
+              náklady na <em>veškerý</em> kapitál včetně vlastního: <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-spread" target="_blank" rel="noopener">spread</a>
+              <span class="math">(RONA<span class="op">−</span>WACC)</span> byl
+              záporný, takže EVA klesala. „Skrytá díra" je tedy neuhrazený náklad
+              na vlastní kapitál a podstoupené riziko, které EPS ignoruje.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= MVA A EVA ================= -->
+      <h2>Vztah MVA a EVA: tržní přidaná hodnota jako součet budoucích EVA</h2>
+
+      <p>
+        Na tržní přidanou hodnotu (MVA), zavedenou u tržních měřítek, se lze dívat
+        i z jiného úhlu: <strong>MVA je současná hodnota všech budoucích EVA</strong>.
+        Trh totiž oceňuje podnik podle toho, kolik ekonomické přidané hodnoty
+        očekává v příštích letech – a tato očekávání, diskontovaná na dnešek,
+        vytvářejí rozdíl mezi tržní a účetní hodnotou vlastního kapitálu.
+      </p>
+
+      <section class="definice" id="pojem-mva-soucasna-hodnota-eva">
+        <h3 class="definice__pojem">MVA jako současná hodnota budoucích EVA</h3>
+        <div class="definice__telo">
+          <p>
+            Tržní přidaná hodnota (MVA) se rovná součtu budoucích ekonomických
+            přidaných hodnot diskontovaných na současnost pomocí WACC. Politika
+            maximalizace současné hodnoty budoucích EVA je proto ekvivalentní
+            politice maximalizace tržní hodnoty podniku.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-mva-eva">
+        <div class="vzorec__telo">
+          <span class="math">MVA<span class="op">=</span>
+            <span style="font-size:1.3em">Σ</span>
+            <span class="frac">
+              <span class="frac__cit">EVA<sub>t</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>WACC)<sup>t</sup></span>
+            </span>
+            <span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">EVA<sub>1</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>WACC)<sup>1</sup></span>
+            </span>
+            <span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit">EVA<sub>2</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>WACC)<sup>2</sup></span>
+            </span>
+            <span class="op">+</span>…
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Krokový diagram níže ukazuje myšlenku obrázku&nbsp;3–9 pro podnik, který
+        <em>tvoří</em> hodnotu: mezera mezi tržní a účetní hodnotou vlastního
+        kapitálu se postupně zaplní diskontovanými budoucími EVA. (Pro podnik,
+        který hodnotu <em>ničí</em>, by byla tržní hodnota naopak nižší než účetní
+        a součet diskontovaných EVA by byl záporný – vznikla by „tržní přidaná
+        ztráta".)
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 3–9: MVA jako současná hodnota budoucích EVA</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se z diskontovaných budoucích EVA skládá tržní přidaná hodnota – mezera mezi účetní a tržní hodnotou vlastního kapitálu. Diagram je schematický (ilustrativní výšky).</p>
+        </figcaption>
+        <div id="viz-mva-eva"></div>
+      </figure>
+
+      <p>
+        Empirické studie ovšem odhalily i případy, kdy podnik vykazuje
+        <strong>kladnou MVA a zápornou EVA</strong> současně. Nabízí se několik
+        vysvětlení:
+      </p>
+      <ul>
+        <li><strong>Způsob odpisování.</strong> Rovnoměrné či zrychlené odpisy
+          mohou vést k podcenění majetku, a tím k nadhodnocení MVA.</li>
+        <li><strong>Nadhodnocené náklady na vlastní kapitál.</strong> Jsou-li
+          odhadnuty příliš vysoko, EVA je podhodnocena.</li>
+        <li><strong>Tržní hodnoty ve WACC.</strong> Vyšší tržní hodnota zvyšuje MVA,
+          ale zároveň zvyšuje WACC (roste podíl dražšího vlastního kapitálu i
+          požadovaný výnos), což snižuje EVA. U podniků s velkým růstovým
+          potenciálem je pak otázkou, zda dodatečný výnos brát jako současný
+          náklad, nebo jej rozložit do budoucích období, kdy se očekávaná zlepšení
+          EVA teprve projeví.</li>
+      </ul>
+
+      <!-- ================= EXCESS RETURN A EVA ================= -->
+      <h2>EVA versus Excess Return</h2>
+
+      <p>
+        Young a O'Byrne ve své empirické studii společností na americkém,
+        britském, francouzském a německém kapitálovém trhu zjistili, že některé
+        firmy mají <strong>zápornou EVA a zároveň kladný Excess Return</strong> –
+        a ještě častěji <strong>kladnou EVA a záporný Excess Return</strong>.
+        Vypadá to jako rozpor, ale vysvětlení je prosté a tkví v <em>časovém
+        horizontu</em> obou měřítek.
+      </p>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Odlišná vypovídací schopnost</p>
+        <div class="callout__telo">
+          <p>
+            <strong>EVA</strong> je měřítko výkonnosti <em>jednoho období</em>
+            (typicky jednoho roku). <strong>Excess Return</strong> byl ve studii
+            počítán z <em>desetileté historie</em> a navíc obsahoval očekávání
+            budoucího vývoje. Jednoletá EVA a víceletý Excess Return proto
+            přirozeně mohou dát odlišný verdikt – měří jinak dlouhý úsek života
+            podniku.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= REVA A EVA ================= -->
+      <h2>EVA versus REVA</h2>
+
+      <p>
+        Poslední srovnání se týká modifikace EVA, která místo účetního
+        investovaného kapitálu používá <strong>tržní hodnotu kapitálu</strong>.
+        Tato varianta se nazývá REVA a může vést k jinému hodnocení než základní
+        koncept.
+      </p>
+
+      <section class="definice" id="pojem-reva">
+        <h3 class="definice__pojem">REVA (Refined Economic Value Added)</h3>
+        <div class="definice__telo">
+          <p>
+            Modifikace ukazatele EVA, v níž se kapitálový náklad počítá z
+            <strong>tržní</strong> hodnoty kapitálu (nikoli z účetní hodnoty
+            investovaného kapitálu). Zohledňuje tak očekávání investora, který
+            kupuje podíl za tržní cenu a požaduje jeho adekvátní zhodnocení.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-reva">
+        <div class="vzorec__telo">
+          <span class="math">REVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>(tržní hodnota kapitálu)</span>
+        </div>
+      </div>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 3.7 – EVA versus REVA</p>
+        <div class="callout__telo">
+          <p>
+            Podnik má na začátku roku investovaný kapitál 100&nbsp;mil. Kč, jeho
+            tržní hodnota je však 200&nbsp;mil. Kč. Za rok dosáhl NOPAT 14&nbsp;mil. Kč
+            a jeho náklady na kapitál jsou 10&nbsp;%. Porovnejme obě měřítka:
+          </p>
+          <p>
+            <span class="math">EVA<span class="op">=</span>14<span class="op">−</span>0,10<span class="op">×</span>100<span class="op">=</span><span class="hodnota-tvorba">4</span></span>&nbsp;mil. Kč,
+            &nbsp;&nbsp;
+            <span class="math">REVA<span class="op">=</span>14<span class="op">−</span>0,10<span class="op">×</span>200<span class="op">=</span><span class="hodnota-niceni">−6</span></span>&nbsp;mil. Kč.
+          </p>
+          <p>
+            Podle EVA podnik <strong>zvýšil</strong> hodnotu vlastnických vkladů,
+            podle REVA je naopak <strong>snížil</strong>.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Zastánci REVA argumentují, že investor, který kupuje podíl za tržní cenu
+        (zde 200&nbsp;mil. Kč), očekává odpovídající zhodnocení (20&nbsp;mil. Kč),
+        takže vytvořený NOPAT 14&nbsp;mil. Kč je nedostatečný. Háček je ovšem v tom,
+        že podniky s vysokou tržní cenou <em>z titulu očekávaného budoucího růstu</em>,
+        jehož přínosy se ještě nepromítly do zisku běžného roku, budou vykazovat
+        nízkou REVA. Takto mohou být <strong>negativně hodnoceny právě podniky,
+        které dnes zakládají předpoklady pro budoucí růstové příležitosti</strong>.
+      </p>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Proč může mít slibný start-up (nebo rychle rostoucí podnik) kladnou EVA,
+            a přitom zápornou REVA? Je to nutně známka toho, že ničí hodnotu?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Trh oceňuje takový podnik vysoko kvůli očekávanému <em>budoucímu</em>
+              růstu EVA, takže jeho tržní hodnota kapitálu je mnohem vyšší než
+              účetní. REVA porovnává letošní NOPAT s náklady z této vysoké tržní
+              hodnoty, a proto snadno vyjde záporná, i když EVA (počítaná z účetního
+              kapitálu) je kladná. Nejde tedy nutně o ničení hodnoty – jen o to, že
+              růstové příležitosti jsou už započtené v ceně, ale zisk je teprve
+              přinesou. REVA proto systematicky znevýhodňuje růstové podniky.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Shrnutí lekce</p>
+        <div class="callout__telo">
+          <p>
+            EVA v praxi odhalí to, co tradiční ukazatele skrývají: na podniku
+            PLASTIKO rozpor mezi ROE a EVA, na Enronu selhání EPS, které nezohledňuje
+            riziko a náklady na vlastní kapitál. MVA lze chápat jako současnou
+            hodnotu budoucích EVA. Srovnání s Excess Return a REVA připomíná, že
+            každé měřítko mluví o jiném časovém horizontu, takže se mohou lišit,
+            aniž by si nutně protiřečila.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>U podniku PLASTIKO ve 4. roce ROE poklesla, ale EVA vzrostla. Čím to vysvětlíte?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na řádek WACC v tabulce 3–4. Co se stalo s náklady na kapitál mezi 3. a 4. rokem?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Ve 4. roce výrazně klesly náklady na kapitál (WACC z 13,50 % na 10,45 %). I když provozní výnosnost mírně klesla (proto nižší ROE), laťka WACC klesla ještě víc, takže podnik vytvořil více hodnoty nad touto laťkou – EVA vzrostla. ROE náklady na kapitál nezohledňuje, a proto tento efekt „nevidí".</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč ukazatel EPS selhal jako měřítko výkonnosti Enronu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jaké náklady a jaký faktor EPS ve svém výpočtu vůbec nezohledňuje?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>EPS nezohledňuje náklady na vlastní kapitál ani podstoupené riziko. Enron zvyšoval zisk (a tím EPS) levným cizím kapitálem vkládaným do projektů, jejichž výnosnost převyšovala úrok z dluhu, ale nikoli celkové WACC. EPS proto rostl, ačkoli EVA byla záporná a podnik ničil hodnotu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Co znamená tvrzení „MVA je současná hodnota budoucích EVA"?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzpomeňte na vzorec MVA = Σ EVAₜ/(1+WACC)ᵗ a na to, co reprezentuje rozdíl mezi tržní a účetní hodnotou vlastního kapitálu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Rozdíl mezi tržní a účetní hodnotou vlastního kapitálu (tj. MVA) odpovídá součtu všech budoucích EVA diskontovaných na dnešek pomocí WACC. Trh tak vlastně oceňuje očekávanou budoucí tvorbu hodnoty. Maximalizovat současnou hodnotu budoucích EVA je proto totéž jako maximalizovat tržní hodnotu podniku.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Jak lze vysvětlit, že podnik má kladnou EVA a zároveň záporný Excess Return?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Za jak dlouhé období se počítá EVA a za jak dlouhé Excess Return?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Obě měřítka pokrývají různě dlouhý horizont. EVA hodnotí jediné období (např. jeden rok), zatímco Excess Return byl počítán z desetileté historie a obsahoval očekávání budoucnosti. Dobrý jeden rok (kladná EVA) tedy může být obklopen slabou desetiletou bilancí (záporný Excess Return) – nejde o skutečný rozpor, ale o odlišnou vypovídací schopnost.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč REVA systematicky znevýhodňuje podniky s velkým růstovým potenciálem?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Z jaké hodnoty kapitálu REVA počítá kapitálový náklad a kdy se růstové příležitosti promítnou do zisku?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>REVA počítá kapitálový náklad z tržní hodnoty kapitálu. U růstových podniků je tržní hodnota vysoká kvůli očekávaným budoucím ziskům, které se ale ještě nepromítly do NOPAT běžného roku. Vysoký kapitálový náklad z tržní hodnoty tak snadno převýší dosud nízký běžný zisk a REVA vyjde záporná, přestože podnik teprve zakládá předpoklady pro budoucí tvorbu hodnoty (příklad 3.7: EVA = 4, REVA = −6).</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t5-l3-nopat-naklady-kapital.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">5.3 NOPAT, náklady na kapitál a zjednodušené verze EVA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l5-eva-investice-oceneni.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.5 EVA pro investiční rozhodování a ocenění podniku</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      var u = Skripta.viz;
+
+      // =====================================================================
+      // A) STATICKÝ KOMBINOVANÝ GRAF: PLASTIKO (obr. 3–6)
+      //    Sloupce EBIT a EVA (levá osa, tis. Kč) + spojnice ROE (pravá osa, %).
+      // =====================================================================
+      (function plastiko() {
+        var host = document.getElementById('viz-plastiko');
+        if (!host) return;
+
+        var W = 780, H = 440;
+        var mL = 66, mR = 62, mT = 34, mB = 66;
+        var x0 = mL, x1 = W - mR;         // 66 .. 718
+        var yTop = mT, yBot = H - mB;     // 34 .. 374
+
+        var syL = u.skala(-30000, 30000, yBot, yTop); // levá osa (tis. Kč)
+        var syR = u.skala(-15, 15, yBot, yTop);        // pravá osa (%)
+        var yNula = syL(0);
+
+        var roky = ['1. rok', '2. rok', '3. rok', '4. rok'];
+        var ebit = [7024, 14870, 23173, 23750];
+        var eva  = [-22167, -6409, 972, 2500];
+        var roe  = [2.52, 8.20, 13.06, 12.31];
+
+        var BARVA_EBIT = '#64748b';   // šedomodrá
+        var BARVA_ROE  = '#7c3aed';   // fialová spojnice
+
+        var deti = [];
+
+        // --- Mřížka + osové popisky (7 linek: −30000..30000 / −15..15 %) ---
+        for (var i = 0; i <= 6; i++) {
+          var levaV = -30000 + 10000 * i;
+          var pravaV = -15 + 5 * i;
+          var y = syL(levaV);
+          deti.push(u.el('line', { x1: x0, y1: y, x2: x1, y2: y, stroke: u.barvaMrizka, 'stroke-width': 1 }));
+          deti.push(u.el('text', { x: x0 - 8, y: y + 4, 'text-anchor': 'end', fill: u.barvaText, 'font-size': 11 }, u.formatCislo(levaV, 0)));
+          deti.push(u.el('text', { x: x1 + 8, y: y + 4, 'text-anchor': 'start', fill: BARVA_ROE, 'font-size': 11 }, u.formatCislo(pravaV, 0) + ' %'));
+        }
+        // Nulová osa zvýrazněná
+        deti.push(u.el('line', { x1: x0, y1: yNula, x2: x1, y2: yNula, stroke: u.barvaOsa, 'stroke-width': 1.5 }));
+
+        // Titulky os
+        deti.push(u.el('text', { x: x0 - 8, y: yTop - 12, 'text-anchor': 'start', fill: u.barvaText, 'font-size': 11, 'font-weight': 600 }, 'tis. Kč'));
+        deti.push(u.el('text', { x: x1 + 8, y: yTop - 12, 'text-anchor': 'end', fill: BARVA_ROE, 'font-size': 11, 'font-weight': 600 }, 'ROE'));
+
+        // --- Skupiny sloupců ---
+        var n = 4;
+        var groupW = (x1 - x0) / n;
+        var barW = 42;
+        for (var g = 0; g < n; g++) {
+          var gcx = x0 + groupW * (g + 0.5);
+          // EBIT (vlevo od středu, vždy kladný)
+          var ebX = gcx - barW - 4;
+          var ebTop = syL(ebit[g]);
+          deti.push(u.el('rect', { x: ebX, y: ebTop, width: barW, height: yNula - ebTop, rx: 4, fill: BARVA_EBIT }));
+          deti.push(u.el('text', { x: ebX + barW / 2, y: ebTop - 6, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 10.5, 'font-weight': 600 }, u.formatCislo(ebit[g], 0)));
+
+          // EVA (vpravo od středu, kladný i záporný)
+          var evX = gcx + 4;
+          var evVal = syL(eva[g]);
+          var evTop = Math.min(evVal, yNula);
+          var evH = Math.abs(evVal - yNula);
+          var evBarva = eva[g] < 0 ? u.barvaNiceni : u.barvaTvorba;
+          deti.push(u.el('rect', { x: evX, y: evTop, width: barW, height: evH, rx: 4, fill: evBarva }));
+          var evLabelY = eva[g] >= 0 ? evTop - 6 : evTop + evH + 14;
+          deti.push(u.el('text', { x: evX + barW / 2, y: evLabelY, 'text-anchor': 'middle', fill: evBarva, 'font-size': 10.5, 'font-weight': 600 }, u.formatCislo(eva[g], 0)));
+
+          // Popisek roku (úplně dole)
+          deti.push(u.el('text', { x: gcx, y: yBot + 20, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, roky[g]));
+        }
+
+        // --- Spojnice ROE (pravá osa) ---
+        var roeBody = roe.map(function (v, g) {
+          var gcx = x0 + groupW * (g + 0.5);
+          return gcx + ',' + syR(v);
+        }).join(' ');
+        deti.push(u.el('polyline', { points: roeBody, fill: 'none', stroke: BARVA_ROE, 'stroke-width': 2.5, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+        roe.forEach(function (v, g) {
+          var gcx = x0 + groupW * (g + 0.5);
+          deti.push(u.el('circle', { cx: gcx, cy: syR(v), r: 4, fill: '#fff', stroke: BARVA_ROE, 'stroke-width': 2.5 }));
+        });
+
+        // --- Legenda (dole pod roky) ---
+        var lgY = H - 12;
+        var lg = [
+          { b: BARVA_EBIT, t: 'EBIT', typ: 'rect' },
+          { b: u.barvaTvorba, t: 'EVA (kladná/záporná)', typ: 'rect' },
+          { b: BARVA_ROE, t: 'ROE (pravá osa)', typ: 'line' }
+        ];
+        var lgX = x0;
+        lg.forEach(function (it) {
+          if (it.typ === 'rect') {
+            deti.push(u.el('rect', { x: lgX, y: lgY - 9, width: 12, height: 12, rx: 3, fill: it.b }));
+          } else {
+            deti.push(u.el('line', { x1: lgX, y1: lgY - 3, x2: lgX + 12, y2: lgY - 3, stroke: it.b, 'stroke-width': 2.5 }));
+            deti.push(u.el('circle', { cx: lgX + 6, cy: lgY - 3, r: 3, fill: '#fff', stroke: it.b, 'stroke-width': 2 }));
+          }
+          deti.push(u.el('text', { x: lgX + 18, y: lgY + 1, fill: u.barvaText, 'font-size': 11 }, it.t));
+          lgX += 18 + it.t.length * 6.6 + 22;
+        });
+
+        var svg = u.el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Kombinovaný graf EBIT, EVA a ROE podniku PLASTIKO ve čtyřech letech', preserveAspectRatio: 'xMidYMid meet' }, deti);
+        host.appendChild(svg);
+      })();
+
+      // =====================================================================
+      // B) STATICKÝ SLOUPCOVÝ GRAF: EVA Enronu 1998–2000 (obr. 3–8, přibližně)
+      // =====================================================================
+      Skripta.sloupcovyGraf('viz-enron-eva', {
+        sirka: 680, vyska: 320, formatDesetin: 0,
+        data: [
+          { popisek: '1998', hodnota: -150 },
+          { popisek: '1999', hodnota: -330 },
+          { popisek: '2000', hodnota: -730 }
+        ]
+      });
+
+      // =====================================================================
+      // C) KROKOVÁ VIZUALIZACE: MVA jako součet diskontovaných budoucích EVA
+      //    (schematicky dle obr. 3–9, scénář tvorby hodnoty)
+      // =====================================================================
+      (function mvaEva() {
+        var ground = 330;                 // základna (spodní hrana sloupců)
+        var base = 130;                   // výška „účetní hodnoty VK"
+        var uceTop = ground - base;       // 200
+        var bloky = [
+          { h: 58, popis: 'EVA₁ /(1+WACC)¹' },
+          { h: 42, popis: 'EVA₂ /(1+WACC)²' },
+          { h: 32, popis: 'EVA₃ /(1+WACC)³ + …' }
+        ];
+        // Kumulované horní hrany bloků
+        var topy = [];
+        var y = uceTop;
+        bloky.forEach(function (b) { y -= b.h; topy.push(y); });
+        var trziTop = y; // vrchol tržní hodnoty
+
+        var levX = 155, prX = 435, sirkaSl = 120;
+
+        Skripta.stepper('viz-mva-eva', {
+          sirka: 720, vyska: 380,
+          stavy: [ { n: 0 }, { n: 1 }, { n: 2 }, { n: 3 } ],
+          popisky: [
+            'Účetní hodnota vlastního kapitálu tvoří společný základ obou sloupců. Tržní hodnota (čárkovaně) je ale vyšší – tuto mezeru vysvětlíme.',
+            'První část mezery tvoří diskontovaná EVA prvního roku: EVA₁/(1+WACC)¹.',
+            'Přičteme diskontovanou EVA druhého roku: EVA₂/(1+WACC)².',
+            'Součet všech diskontovaných budoucích EVA přesně vyplní mezeru mezi účetní a tržní hodnotou. Proto MVA = současná hodnota budoucích EVA.'
+          ],
+          render: function (svg, stav, i, uu) {
+            // Základna
+            uu.dej(svg, 'osa', 'line', { x1: 110, y1: ground, x2: 610, y2: ground, stroke: uu.barvaOsa, 'stroke-width': 1.5 });
+
+            // Levý sloupec: účetní hodnota VK (solidní indigo)
+            uu.dej(svg, 'bar-uce', 'rect', { x: levX, y: uceTop, width: sirkaSl, height: base, rx: 5, fill: '#4338ca' });
+            uu.dej(svg, 'lbl-uce', 'text', { x: levX + sirkaSl / 2, y: ground + 24, 'text-anchor': 'middle', fill: uu.barvaText, 'font-size': 13, 'font-weight': 600 }, 'Účetní hodnota VK');
+
+            // Pravý sloupec: účetní základ (světlejší indigo)
+            uu.dej(svg, 'bar-pr-base', 'rect', { x: prX, y: uceTop, width: sirkaSl, height: base, rx: 5, fill: '#a5b4fc' });
+            uu.dej(svg, 'lbl-pr', 'text', { x: prX + sirkaSl / 2, y: ground + 24, 'text-anchor': 'middle', fill: uu.barvaText, 'font-size': 13, 'font-weight': 600 }, 'Tržní hodnota VK');
+
+            // Čárkovaný obrys cílové tržní výšky
+            uu.dej(svg, 'cil', 'rect', { x: prX, y: trziTop, width: sirkaSl, height: ground - trziTop, rx: 5, fill: 'none', stroke: uu.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '5 5' });
+
+            // Bloky diskontovaných EVA (zelené), odhalované po krocích
+            bloky.forEach(function (b, k) {
+              var viditelny = stav.n >= (k + 1);
+              uu.dej(svg, 'blok-' + k, 'rect', {
+                x: prX, y: topy[k], width: sirkaSl, height: b.h,
+                rx: 3, fill: uu.barvaTvorba, opacity: viditelny ? 0.92 : 0
+              });
+              uu.dej(svg, 'blok-lbl-' + k, 'text', {
+                x: prX + sirkaSl + 12, y: topy[k] + b.h / 2 + 4, 'text-anchor': 'start',
+                fill: uu.barvaText, 'font-size': 12, opacity: viditelny ? 1 : 0
+              }, b.popis);
+              // Spojnice od popisku k bloku
+              uu.dej(svg, 'blok-spoj-' + k, 'line', {
+                x1: prX + sirkaSl, y1: topy[k] + b.h / 2, x2: prX + sirkaSl + 10, y2: topy[k] + b.h / 2,
+                stroke: uu.barvaMrizka, 'stroke-width': 1, opacity: viditelny ? 1 : 0
+              });
+            });
+
+            // Popisek MVA nad odhalenou částí (objeví se od 1. bloku)
+            var mvaVidno = stav.n >= 1;
+            uu.dej(svg, 'lbl-mva', 'text', {
+              x: prX + sirkaSl / 2, y: trziTop - 12, 'text-anchor': 'middle',
+              fill: uu.barvaTvorba, 'font-size': 14, 'font-weight': 700,
+              opacity: (stav.n >= 3) ? 1 : 0
+            }, 'MVA');
+            // Průběžný popisek „tržní přidaná hodnota" u boku, dokud se skládá
+            uu.dej(svg, 'lbl-mva-prubeh', 'text', {
+              x: prX + sirkaSl / 2, y: trziTop - 12, 'text-anchor': 'middle',
+              fill: uu.barvaText, 'font-size': 12,
+              opacity: (mvaVidno && stav.n < 3) ? 1 : 0
+            }, 'tržní přidaná hodnota…');
+          }
+        });
+      })();
+    })();
+  </script>
+</body>
+</html>

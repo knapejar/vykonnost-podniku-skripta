@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.2 Ukazatele rentability a kritika klasických ukazatelů – Výkonnost podniku</title>
+  <meta name="description" content="Ukazatele rentability (ROS, ROA, ROI, ROE, EPS), jejich konstrukce a interpretace a shrnutí hlavních kritických námitek vůči tradičním ukazatelům výkonnosti.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 2 -->
+    <nav class="panel" data-panel data-aktivni-lekce="2.2" aria-label="Lekce tématu 2">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 2</div>
+      <div class="panel__nazev-tema">Klasické ukazatele finanční výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="2.1" href="t2-l1-zisk-cash-flow.html"><span class="panel__odkaz-cislo">2.1</span><span>Ukazatele zisku a cash flow</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="2.2" href="t2-l2-rentabilita-kritika.html"><span class="panel__odkaz-cislo">2.2</span><span>Ukazatele rentability a kritika klasických ukazatelů</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-2">Téma 2 · Klasické ukazatele</a></li>
+          <li><span aria-current="page">Lekce 2.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 2.2</span>
+        <h1>Ukazatele rentability a kritika klasických ukazatelů</h1>
+        <p class="lekce-hlavicka__strany">Strany 23–25</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme si ukázali ukazatele zisku a <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a>. Nyní přidáme
+        třetí velkou skupinu tradičních měřítek – <strong>ukazatele rentability</strong>,
+        které poměřují dosažený zisk s tím, co jsme museli k jeho vytvoření použít
+        (tržby, aktiva, kapitál). Na závěr celé skupiny klasických ukazatelů shrneme
+        jejich <strong>slabá místa</strong>: proč samotná rentabilita nestačí a proč
+        potřebujeme <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzu</a> i moderní měřítka výkonnosti.
+      </p>
+
+      <!-- ===================== 1. RENTABILITA OBECNĚ ===================== -->
+      <h2>Ukazatele rentability</h2>
+
+      <p>
+        Ukazatele rentability jsou měřítkem <em>míry zisku</em>. Jsou to
+        <strong>relativní</strong> (poměrové) ukazatele – zisk dávají do poměru
+        s nějakou vztažnou veličinou. Díky tomu je lze použít jak pro srovnání
+        v čase (vývojová řada jednoho podniku), tak pro <strong>mezipodnikové
+        srovnávání</strong> výkonnosti, kde by absolutní zisk sám o sobě neřekl,
+        který podnik hospodaří efektivněji.
+      </p>
+
+      <section class="definice" id="pojem-rentabilita">
+        <h3 class="definice__pojem">Ukazatele rentability</h3>
+        <div class="definice__telo">
+          <p>
+            Relativní ukazatele poměřující dosažený zisk se vztažnou veličinou
+            (tržbami, aktivy, kapitálem). Vyjadřují, kolik zisku připadá na jednotku
+            této veličiny, a umožňují srovnání v čase i mezi podniky. V čitateli
+            vystupuje některá z podob zisku (čistý zisk, EBIT), ve jmenovateli
+            veličina, k níž zisk vztahujeme.
+          </p>
+        </div>
+      </section>
+
+      <!-- ROS -->
+      <section class="definice" id="pojem-ros">
+        <h3 class="definice__pojem">Rentabilita tržeb – ROS (Return on Sales)</h3>
+        <div class="definice__telo">
+          <p>
+            Vyjadřuje <strong>ziskovou marži</strong> podniku, tedy kolik zisku
+            připadá na korunu tržeb. Ve vývojové řadě by měl ukazatel vykazovat
+            stoupající tendenci.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-1">
+        <div class="vzorec__telo">
+          <span class="math">ROS<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">výsledek hospodaření</span>
+              <span class="frac__jmen">tržby</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.1)</div>
+      </div>
+
+      <p>
+        Výsledek hospodaření má v čitateli nejčastěji podobu <strong>zisku po zdanění</strong>,
+        nebo <strong>EBIT</strong>. Pro srovnání ziskové marže mezi podniky lze doporučit
+        použít EBIT: hodnocení tak není ovlivněno různou <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálovou strukturou</a>
+        (různým podílem úroků) ani – u podniků z různých zemí – odlišnou mírou zdanění.
+      </p>
+
+      <!-- ROA -->
+      <section class="definice" id="pojem-roa">
+        <h3 class="definice__pojem">Rentabilita aktiv – ROA (Return on Assets)</h3>
+        <div class="definice__telo">
+          <p>
+            Měří <strong>výkonnost (produkční sílu)</strong> podniku – kolik zisku
+            podnik vyprodukuje využitím svého majetku <em>bez ohledu na to, z jakých
+            zdrojů</em> (vlastních či cizích) byl majetek pořízen. Na rozdíl od
+            absolutního zisku ROA neignoruje efektivní využití kapitálu vloženého
+            do majetku.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-2">
+        <div class="vzorec__telo">
+          <span class="math">ROA<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">EBIT</span>
+              <span class="frac__jmen">aktiva</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.2)</div>
+      </div>
+
+      <p>Někdy se ROA uvádí i v této podobě, kde se do čitatele vrací „zdaněné" úroky:</p>
+
+      <div class="vzorec" id="vzorec-2-3">
+        <div class="vzorec__telo">
+          <span class="math">ROA<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">čistý zisk<span class="op">+</span>„zdaněné" úroky</span>
+              <span class="frac__jmen">aktiva</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.3)</div>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč „zdaněné" úroky</p>
+        <div class="callout__telo">
+          <p>
+            Úroky z cizího kapitálu jsou odměnou věřitelů – i oni financují majetek
+            podniku. Ve variantě (2.3) se proto k čistému zisku připočtou zpět, ovšem
+            po zohlednění daňové úspory (proto „zdaněné"). Ukazatel tak měří výnos
+            majetku nezávisle na tom, kdo majetek financoval.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ROI -->
+      <section class="definice" id="pojem-roi">
+        <h3 class="definice__pojem">Rentabilita investovaného kapitálu – ROI (Return on Investment)</h3>
+        <div class="definice__telo">
+          <p>
+            V pojímání tohoto ukazatele <strong>neexistuje jednoznačná shoda</strong>.
+            Nejčastěji se používá jako ukazatel měřící <strong>výnosnost dlouhodobého
+            kapitálu</strong> vloženého do majetku podniku.
+          </p>
+        </div>
+      </section>
+
+      <!-- ROE -->
+      <section class="definice" id="pojem-roe">
+        <h3 class="definice__pojem">Rentabilita vlastního kapitálu – ROE (Return on Equity)</h3>
+        <div class="definice__telo">
+          <p>
+            Vyjadřuje <strong>výnosnost kapitálu vloženého vlastníky</strong> podniku.
+            Počítá ziskovost z účetní hodnoty vlastního kapitálu, a proto jej lze
+            použít pouze na úrovni <em>celého podniku</em>. Výsledek by se měl
+            pohybovat <strong>nad úrovní alternativního nákladu na kapitál</strong>.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-4">
+        <div class="vzorec__telo">
+          <span class="math">ROE<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">čistý zisk</span>
+              <span class="frac__jmen">vlastní kapitál</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.4)</div>
+      </div>
+
+      <!-- EPS -->
+      <section class="definice" id="pojem-eps">
+        <h3 class="definice__pojem">Zisk na akcii – EPS (Earnings per Share)</h3>
+        <div class="definice__telo">
+          <p>
+            Měří výši <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-eat" target="_blank" rel="noopener">čistého zisku</a> připadajícího na <strong>jednu akcii</strong>
+            podniku. Je hojně využíván investory na kapitálových trzích.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-5">
+        <div class="vzorec__telo">
+          <span class="math">EPS<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">čistý zisk</span>
+              <span class="frac__jmen">počet vydaných akcií</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.5)</div>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">EPS a jeho nástrahy</p>
+        <div class="callout__telo">
+          <p>
+            EPS může <strong>selhávat</strong> kvůli snaze manažerů dosáhnout
+            co nejvyšší hodnoty ukazatele (trh totiž na jeho zvýšení často reaguje
+            růstem tržní ceny akcií). Zvýšení EPS lze docílit i větším podílem
+            cizích zdrojů (hrozí až předlužení). EPS navíc <strong>nerozlišuje mezi
+            kapitálem produkujícím pouhý růst a kapitálem produkujícím
+            <em>efektivní</em> růst</strong> – to se může stát osudným každému
+            podniku, který zvyšuje zisk, aniž pokrývá náklady na vlastní kapitál.
+            Honba za EPS může vést až k <strong>účetním podvodům</strong>.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== PŘEHLEDOVÁ TABULKA ===================== -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Přehled – ukazatele rentability a jejich konstrukce</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col">Čitatel (zisk)</th>
+              <th scope="col">Jmenovatel</th>
+              <th scope="col">Co měří</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">ROS (2.1)</th>
+              <td>výsledek hospodaření (ČZ nebo EBIT)</td>
+              <td>tržby</td>
+              <td>zisková marže</td>
+            </tr>
+            <tr>
+              <th scope="row">ROA (2.2)</th>
+              <td>EBIT</td>
+              <td>aktiva</td>
+              <td>produkční síla majetku</td>
+            </tr>
+            <tr>
+              <th scope="row">ROA (2.3)</th>
+              <td>čistý zisk + „zdaněné" úroky</td>
+              <td>aktiva</td>
+              <td>produkční síla majetku (varianta)</td>
+            </tr>
+            <tr>
+              <th scope="row">ROI</th>
+              <td>zisk (bez jednotné shody)</td>
+              <td>dlouhodobý investovaný kapitál</td>
+              <td>výnosnost dlouhodobého kapitálu</td>
+            </tr>
+            <tr>
+              <th scope="row">ROE (2.4)</th>
+              <td>čistý zisk</td>
+              <td>vlastní kapitál</td>
+              <td>výnosnost kapitálu vlastníků</td>
+            </tr>
+            <tr>
+              <th scope="row">EPS (2.5)</th>
+              <td>čistý zisk</td>
+              <td>počet vydaných akcií</td>
+              <td>zisk na jednu akcii</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Všimněte si, že o vypovídací schopnosti ukazatele rozhoduje především
+        <strong>volba čitatele</strong> (jaký druh zisku) a <strong>jmenovatele</strong>
+        (k čemu zisk vztahujeme). Právě proto je nutné při srovnávání dbát, aby
+        obě strany podílu byly u porovnávaných podniků vymezeny stejně.
+      </p>
+
+      <!-- ===================== ZKUS SÁM 1 ===================== -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Manažer se pochlubí, že „zvýšil ROE". Podnik přitom jen nahradil část
+            vlastního kapitálu bankovním úvěrem. Jak může větší zadlužení uměle
+            zvednout ROE a proč to nemusí znamenat lepší výkonnost?
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              ROE = čistý zisk / vlastní kapitál. Nahradí-li podnik část vlastního
+              kapitálu cizím, <strong>zmenší se jmenovatel</strong> (vlastní kapitál),
+              takže i při obdobném zisku podíl vzroste. Zvyšování podílu cizího kapitálu
+              se tedy může odrazit v <strong>růstu ROE</strong>. Výsledná hodnota v sobě
+              ale <strong>neobsahuje riziko</strong> plynoucí ze zvýšené zadluženosti –
+              horší likviditu a hrozbu platební neschopnosti. Vyšší ROE zde není známkou
+              vyšší výkonnosti, ale vyššího rizika.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== 2. KRITIKA ===================== -->
+      <h2>Kritika tradičních ukazatelů výkonnosti</h2>
+
+      <p>
+        Většina tradičních ukazatelů (zisku, cash flow i rentability) je založena
+        na <strong>účetních údajích</strong> a především na účetním
+        <strong>výsledku hospodaření</strong>. Z toho plynou zásadní omezení. Tradiční
+        ukazatele zejména:
+      </p>
+
+      <ul>
+        <li>neberou v úvahu <strong>riziko</strong>,</li>
+        <li>ignorují <strong>vliv inflace</strong>,</li>
+        <li>nezabývají se <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-casova-hodnota-penez" target="_blank" rel="noopener"><strong>časovou hodnotou peněz</strong></a>,</li>
+        <li>neporovnávají výsledek hospodaření s <strong>náklady obětované příležitosti</strong>.</li>
+      </ul>
+
+      <section class="definice" id="pojem-naklad-obetovane-prilezitosti">
+        <h3 class="definice__pojem">Náklad obětované příležitosti</h3>
+        <div class="definice__telo">
+          <p>
+            Alternativní náklad kapitálu – výnos, o který přicházíme tím, že kapitál
+            použijeme v daném podniku místo v nejlepší srovnatelně rizikové
+            alternativě. Teprve srovnání dosažené rentability s tímto nákladem říká,
+            zda je hodnota ukazatele skutečným úspěchem. <strong>Samotná hodnota
+            rentability ještě není měřítkem úspěšnosti podniku.</strong>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== KROKOVÁ VIZUALIZACE ===================== -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Stačí vysoká rentabilita? Srovnání s náklady obětované příležitosti</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Ilustrativní hodnoty ukazují, že samotné ROE nic neřekne, dokud jej nepoměříme s požadovanou (alternativní) výnosností kapitálu.</p>
+        </figcaption>
+        <div id="viz-rentabilita-latka"></div>
+      </figure>
+
+      <p>
+        Kritické námitky se dále týkají samotného <strong>účetního výsledku
+        hospodaření</strong>. Ten může být ovlivněn různorodostí přijaté
+        <strong>účetní politiky</strong> podniku – technikami oceňování majetku,
+        tvorbou rezerv a opravných položek, odpisovou politikou i časovým rozlišením
+        nákladů a výnosů. Výsledek hospodaření může navíc obsahovat výnosy a náklady,
+        které nevznikají hlavní činností podniku (alokace volného kapitálu) nebo jsou
+        důsledkem mimořádných událostí.
+      </p>
+
+      <p>
+        Problémy jsou i s <strong>vymezením kapitálu a aktiv</strong> pro účely
+        rentability:
+      </p>
+      <ul>
+        <li>některá hmotná aktiva nejsou ve vlastnictví podniku, ale slouží
+          k podnikání (majetek na <strong>leasing</strong>, majetek v osobním vlastnictví);</li>
+        <li>část <strong>nehmotných aktiv</strong> není v rozvaze zahrnuta, protože
+          jejich přínos lze těžko kvantifikovat (dodavatelsko-odběratelské vztahy,
+          kvalifikovaná pracovní síla apod.);</li>
+        <li>v ukazatelích jsou aktiva zahrnuta bez ohledu na to, zda jsou skutečně
+          využívána v hlavní činnosti;</li>
+        <li>zůstatkové ceny aktiv závisejí na zvolené metodice odpisování – vzniká
+          problém <strong>historických cen</strong>.</li>
+      </ul>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Slabá místa tradičních ukazatelů – shrnutí</p>
+        <div class="callout__telo">
+          <ul>
+            <li><strong>Riziko</strong> – hodnoty v sobě nezrcadlí riziko podnikání ani riziko z používání cizího kapitálu (a související hrozbu platební neschopnosti).</li>
+            <li><strong>Inflace a časová hodnota peněz</strong> – nejsou zohledněny.</li>
+            <li><strong>Náklad obětované příležitosti</strong> – hodnoty rentability nejsou porovnány s alternativním výnosem.</li>
+            <li><strong>Zadluženost</strong> – růst podílu cizího kapitálu může zvednout ROE, aniž se to projeví ve větší výkonnosti.</li>
+            <li><strong>Orientace na minulost</strong> – ukazatele hodnotí minulé období a nezohledňují odhad budoucích přínosů.</li>
+            <li><strong>Účetní zkreslení</strong> – vliv účetní politiky, mimořádných položek a historických cen.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Past „stejného data" u ROE</p>
+        <div class="callout__telo">
+          <p>
+            Počítáme-li ROE jako podíl čistého zisku a vlastního kapitálu z údajů
+            ke <strong>stejnému datu</strong> (v praxi nejčastější postup), můžeme
+            skutečnou ziskovost <strong>podhodnotit</strong>. Zisk totiž podnik
+            vytvářel postupně během celého roku a nebyl po celou dobu součástí
+            vlastního kapitálu, který financoval činnost podniku.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== STATICKÁ VIZUALIZACE (schéma) ===================== -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Rentabilita se neobejde bez doplňujících informací</p>
+          <p class="viz__popis">Hodnocení výkonnosti tradičními postupy je proto orientováno na využití finanční analýzy (téma 3).</p>
+        </figcaption>
+        <div id="viz-zavislosti"></div>
+      </figure>
+
+      <p>
+        Právě proto se tradiční ukazatele <strong>neobejdou bez dodatečných
+        informací</strong> – zejména o vývoji <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidity</a>, <a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-celkova-zadluzenost" target="_blank" rel="noopener">zadluženosti</a>, o vztahu
+        majetkové a <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-financni-struktura" target="_blank" rel="noopener">finanční struktury</a> a o využití aktiv podniku. Hodnocení
+        výkonnosti tradičními postupy je tak nutně orientováno na metody a postupy
+        <strong>finanční analýzy</strong>, jimž se budeme věnovat v následujícím tématu.
+      </p>
+
+      <!-- ===================== ZKUS SÁM 2 ===================== -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>
+            Proč může ukazatel EPS svádět management k účetním podvodům? Uvažte, jak
+            trh reaguje na zvýšení EPS a co všechno lze pro jeho růst „udělat".
+          </p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Trh na zvýšení EPS často reaguje <strong>růstem tržní ceny akcií</strong>,
+              což je pro management (i vlastníky) přímý prospěch. Vzniká tak silná
+              motivace hodnotu EPS zvyšovat – ať už větším podílem cizích zdrojů
+              (s rizikem předlužení), nebo prostým navýšením zisku bez ohledu na to,
+              zda pokrývá náklady na vlastní kapitál. EPS totiž <strong>nerozlišuje
+              růst efektivní od neefektivního</strong>. Tlak na stále vyšší číslo pak
+              může vést až k <strong>manipulaci účetnictví</strong> a účetním podvodům.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== ZÁVĚREČNÉ OTÁZKY ===================== -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaký druh zisku je vhodné použít v čitateli ROS pro srovnání ziskové marže mezi podniky a proč?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Který zisk není ovlivněn kapitálovou strukturou ani mírou zdanění?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Doporučuje se <strong>EBIT</strong> (zisk před úroky a zdaněním). Hodnocení pak není ovlivněno různou kapitálovou strukturou (různým podílem úroků) ani – u podniků z různých zemí – odlišnou mírou zdanění.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Čím se ROA liší od absolutního ukazatele zisku, pokud jde o hodnocení výkonnosti?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>ROA dává zisk do poměru s aktivy. Co tím zohledňuje navíc?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na rozdíl od absolutního zisku ROA <strong>neignoruje efektivní využití kapitálu</strong> vloženého do majetku. Měří produkční sílu podniku – kolik zisku podnik vyprodukuje využitím majetku – nezávisle na tom, z jakých zdrojů (vlastních či cizích) byl majetek pořízen.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Vyjmenujte čtyři skutečnosti, které tradiční ukazatele výkonnosti neberou v úvahu.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Souvisejí s časem, cenovou hladinou, nejistotou a alternativním využitím kapitálu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Riziko</strong>, <strong>vliv inflace</strong>, <strong>časovou hodnotu peněz</strong> a <strong>náklad obětované příležitosti</strong> (neporovnávají s ním dosažený výsledek hospodaření).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč může být ROE počítaná z čitatele i jmenovatele ke stejnému datu podhodnocená?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kdy během roku se zisk stával součástí vlastního kapitálu?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Zisk podnik vytvářel <strong>postupně během celého roku</strong>, takže po většinu roku nebyl v plné výši součástí vlastního kapitálu, který financoval činnost podniku. Vztáhneme-li celoroční zisk ke konečnému (již o zisk zvýšenému) vlastnímu kapitálu, vyjde ukazatel nižší, než odpovídá skutečné ziskovosti.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč hodnoty ukazatelů rentability samy o sobě nejsou měřítkem úspěšnosti podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>S čím je nutné hodnotu rentability nejprve porovnat?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Je nutné je porovnat s <strong>náklady obětované příležitosti</strong> (alternativním nákladem kapitálu). Hodnoty navíc v sobě nezrcadlí riziko podnikání ani riziko ze zadluženosti a jsou zaměřeny na minulé období, aniž by zohledňovaly budoucí přínosy. Teprve srovnání s požadovanou výnosností říká, zda je dosažená rentabilita skutečným úspěchem.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PREV / NEXT NAVIGACE ===================== -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t2-l1-zisk-cash-flow.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">2.1 Ukazatele zisku a cash flow</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t3-l1-uvod-financni-analyza.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">3.1 Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) KROKOVÁ VIZUALIZACE: rentabilita vs. náklad obětované příležitosti
+      // Ilustrativní hodnoty: ROE = 18 %, požadovaná (alternativní) výnosnost = 12 %.
+      var ROE = 18, LATKA = 12, PX = 12; // px na 1 procentní bod
+
+      Skripta.stepper('viz-rentabilita-latka', {
+        sirka: 720, vyska: 360,
+        stavy: [
+          { showLatka: false, showNadvynos: false },
+          { showLatka: true,  showNadvynos: false },
+          { showLatka: true,  showNadvynos: true  }
+        ],
+        popisky: [
+          'Podnik vykazuje ROE = 18 %. Vypadá to jako úspěch – ale samotné číslo nic neříká.',
+          'Doplníme „laťku": náklad obětované příležitosti (požadovaná výnosnost) = 12 %. Teprve teď má hodnota smysl.',
+          'ROE převyšuje laťku o 6 p. b. → podnik tvoří hodnotu. Kdyby ROE kleslo pod laťku, hodnota by se ničila i při kladném zisku.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 300;
+          var roeH = ROE * PX;      // 216
+          var latH = LATKA * PX;    // 144
+          var barX = 250, barW = 150;
+          var yTopBar = base - roeH;
+          var yLatka = base - latH;
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 90, y1: base, x2: 660, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Sloupec ROE (indigo) – vždy viditelný
+          u.dej(svg, 'bar-roe', 'rect', { x: barX, y: yTopBar, width: barW, height: roeH, rx: 5, fill: '#4338ca' });
+          u.dej(svg, 'val-roe', 'text', { x: barX + barW / 2, y: yTopBar - 12, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 16, 'font-weight': 700 }, 'ROE = 18 %');
+          u.dej(svg, 'lbl-roe', 'text', { x: barX + barW / 2, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, 'dosažená rentabilita');
+
+          // „Laťka" – náklad obětované příležitosti (vodorovná čára přes celý graf)
+          u.dej(svg, 'latka', 'line', {
+            x1: 90, y1: yLatka, x2: 660, y2: yLatka,
+            stroke: u.barvaNiceni, 'stroke-width': 2.5, 'stroke-dasharray': '8 5',
+            opacity: stav.showLatka ? 1 : 0
+          });
+          u.dej(svg, 'lbl-latka', 'text', {
+            x: 648, y: yLatka - 10, 'text-anchor': 'end',
+            fill: u.barvaNiceni, 'font-size': 13, 'font-weight': 700,
+            opacity: stav.showLatka ? 1 : 0
+          }, 'náklad obětované příležitosti = 12 %');
+
+          // Zvýrazněný nadvýnos (část sloupce nad laťkou) – zelený překryv
+          u.dej(svg, 'bar-nadvynos', 'rect', {
+            x: barX, y: yTopBar, width: barW, height: stav.showNadvynos ? (roeH - latH) : 0,
+            rx: 5, fill: u.barvaTvorba, opacity: stav.showNadvynos ? 0.92 : 0
+          });
+          u.dej(svg, 'val-nadvynos', 'text', {
+            x: barX + barW / 2, y: yTopBar + (roeH - latH) / 2 + 5, 'text-anchor': 'middle',
+            fill: '#fff', 'font-size': 14, 'font-weight': 700,
+            opacity: stav.showNadvynos ? 1 : 0
+          }, '+6 p. b.');
+        }
+      });
+
+      // B) STATICKÉ SCHÉMA: rentabilita se neobejde bez doplňujících informací
+      // Vlastní čisté inline SVG – nic se nepřekrývá, škáluje přes viewBox.
+      (function () {
+        var host = document.getElementById('viz-zavislosti');
+        if (!host) return;
+        var NS = 'http://www.w3.org/2000/svg';
+        function el(tag, attrs, text) {
+          var e = document.createElementNS(NS, tag);
+          for (var k in attrs) e.setAttribute(k, attrs[k]);
+          if (text != null) e.textContent = text;
+          return e;
+        }
+        var svg = el('svg', { viewBox: '0 0 760 300', role: 'img', preserveAspectRatio: 'xMidYMid meet' });
+        svg.appendChild(el('title', {}, 'Rentabilita doplněná o likviditu, zadluženost, majetkovou a finanční strukturu a využití aktiv'));
+
+        // Levý uzel – ukazatel rentability
+        svg.appendChild(el('rect', { x: 30, y: 110, width: 210, height: 80, rx: 12, fill: '#4338ca' }));
+        svg.appendChild(el('text', { x: 135, y: 145, 'text-anchor': 'middle', fill: '#fff', 'font-size': 16, 'font-weight': 700 }, 'Ukazatel rentability'));
+        svg.appendChild(el('text', { x: 135, y: 168, 'text-anchor': 'middle', fill: '#e0e7ff', 'font-size': 13 }, 'ROS · ROA · ROI · ROE'));
+
+        // Prostřední popisek na spojnici
+        svg.appendChild(el('text', { x: 340, y: 140, 'text-anchor': 'middle', fill: '#475569', 'font-size': 13, 'font-style': 'italic' }, 'nutno doplnit o'));
+
+        // Pravé uzly – doplňující informace
+        var polozky = [
+          'Vývoj likvidity',
+          'Zadluženost',
+          'Majetková a finanční struktura',
+          'Využití aktiv'
+        ];
+        var rx = 470, rw = 260, rh = 46, gap = 14, ry0 = 42;
+        polozky.forEach(function (p, k) {
+          var y = ry0 + k * (rh + gap);
+          var cy = y + rh / 2;
+          // Spojnice z pravého okraje levého uzlu do uzlu vpravo
+          svg.appendChild(el('path', {
+            d: 'M240 150 C 360 150, 380 ' + cy + ', ' + rx + ' ' + cy,
+            fill: 'none', stroke: '#94a3b8', 'stroke-width': 1.8
+          }));
+          svg.appendChild(el('rect', { x: rx, y: y, width: rw, height: rh, rx: 9, fill: '#eef2ff', stroke: '#c7d2fe', 'stroke-width': 1.5 }));
+          svg.appendChild(el('text', { x: rx + rw / 2, y: cy + 5, 'text-anchor': 'middle', fill: '#312e81', 'font-size': 14, 'font-weight': 600 }, p));
+        });
+
+        host.appendChild(svg);
+      })();
+
+    })();
+  </script>
+</body>
+</html>

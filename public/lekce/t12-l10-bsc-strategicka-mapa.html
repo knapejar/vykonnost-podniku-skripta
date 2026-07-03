@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.10 Balanced Scorecard a strategická mapa podniku PLAST – Výkonnost podniku</title>
+  <meta name="description" content="Tvorba Balanced Scorecard pro podnik PLAST: formulace strategie, strategická témata, cíle ve čtyřech perspektivách, strategická mapa s vazbami příčina–důsledek a přiřazení měřítek.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="12.10" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.10</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.10</span>
+        <h1>Balanced Scorecard a strategická mapa podniku PLAST</h1>
+        <p class="lekce-hlavicka__strany">Strany 292–300</p>
+      </header>
+
+      <p>
+        Až dosud jsme podnik PLAST <em>měřili</em>: spočítali jsme <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>, rozložili ji
+        na <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátory hodnoty</a> a otestovali citlivost na klíčové faktory. Teď uděláme
+        krok od diagnózy k <strong>řízení</strong>. Ukážeme, jak vedení PLASTu převádí
+        obecně formulovanou strategii do konkrétních cílů, propojuje je do
+        <a class="pojem" href="#pojem-strategicka-mapa">strategické mapy</a> a přiřazuje
+        jim <a class="pojem" href="#pojem-meritko">měřítka</a>, kterými se plnění
+        strategie dá průběžně sledovat. Nástrojem, který to celé drží pohromadě, je
+        <a class="pojem" href="#pojem-balanced-scorecard">Balanced Scorecard</a>.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde jsme a kam míříme</p>
+        <div class="callout__telo">
+          <p>V podniku PLAST byl vedením stanoven základní cíl – <strong>zvyšování
+          hodnoty</strong> – a pro měření jeho plnění byl vybrán koncept EVA. Strategie
+          zvýšení hodnoty pro vlastníka vznikla na základě analýzy dosavadní výkonnosti
+          podle EVA a identifikace klíčových faktorů, které hodnotu ovlivňují (viz
+          předchozí lekce o <a class="pojem" href="t12-l9-generatory-citlivost.html?zvyraznit=pojem-pyramidovy-rozklad-eva" target="_blank" rel="noopener">pyramidovém rozkladu</a> a <a class="pojem" href="t12-l9-generatory-citlivost.html?zvyraznit=pojem-citlivostni-analyza" target="_blank" rel="noopener">citlivostní analýze</a>).</p>
+        </div>
+      </aside>
+
+      <!-- ================= 1. STRATEGIE ================= -->
+      <h2>Formulace strategie PLAST</h2>
+      <p>
+        Strategie podniku PLAST vychází ze strategie celé skupiny a zejména z&nbsp;mateřské
+        firmy, která provádí strategickou analýzu trhu a určuje směřování jednotlivých
+        závodů. Strategii pro další období lze charakterizovat čtyřmi body:
+      </p>
+      <ul>
+        <li>Poskytovat vysoce inovativní, zákaznicky orientovaná řešení výrobků ve smyslu „Do the innovation".</li>
+        <li>Získávat <strong>multies</strong> (velké nadnárodní zákazníky) ve všech oblastech.</li>
+        <li>Orientovat se na výrobu „high-tech" výrobků.</li>
+        <li>Zavést novou koncepci vzdělávání zaměstnanců.</li>
+      </ul>
+      <p>
+        Souhrnně řečeno: PLAST se chce stát <strong>„jedničkou v Evropě ve svém oboru"</strong>.
+        Tato ambice se opírá o zázemí velké evropské skupiny a image silné, velké
+        a úspěšné společnosti.
+      </p>
+
+      <section class="definice" id="pojem-strategicke-tema">
+        <h3 class="definice__pojem">Strategické téma</h3>
+        <div class="definice__telo">
+          <p>
+            Ucelený strategický směr, který prostupuje napříč všemi
+            <a class="pojem" href="#pojem-perspektivy-bsc">perspektivami</a> Balanced
+            Scorecard. U PLASTu jsou strategickými tématy <em>jedinečná řešení</em>,
+            <em>multies</em>, <em>orientace na „high-tech" výrobky</em> a
+            <em>vzdělávání zaměstnanců</em>. Každé téma se v mapě promítne do cílů ve
+            více perspektivách současně.
+          </p>
+        </div>
+      </section>
+
+      <!-- Obrázek 8-13: strategická témata (statické SVG schéma) -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 8–13: Strategická témata firmy PLAST</p>
+          <p class="viz__popis">Čtyři strategická témata (svislé bloky) prostupují všemi čtyřmi perspektivami Balanced Scorecard (vodorovné pruhy).</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 760 320" width="100%" role="img" aria-label="Matice čtyř perspektiv a čtyř strategických témat firmy PLAST">
+            <!-- Pruhy perspektiv -->
+            <g font-family="inherit">
+              <rect x="8" y="16"  width="744" height="64" rx="6" fill="#eef2ff"/>
+              <rect x="8" y="88"  width="744" height="64" rx="6" fill="#f5f3ff"/>
+              <rect x="8" y="160" width="744" height="64" rx="6" fill="#ecfeff"/>
+              <rect x="8" y="232" width="744" height="64" rx="6" fill="#f0fdf4"/>
+              <text x="20" y="52"  font-size="14" font-weight="600" fill="#3730a3">Finanční</text>
+              <text x="20" y="124" font-size="14" font-weight="600" fill="#6d28d9">Zákaznická</text>
+              <text x="20" y="196" font-size="14" font-weight="600" fill="#0e7490">Procesů</text>
+              <text x="20" y="268" font-size="14" font-weight="600" fill="#15803d">Učení se a růstu</text>
+              <!-- Svislé bloky témat -->
+              <g fill="#1e293b" font-size="12.5" text-anchor="middle">
+                <rect x="190" y="12" width="128" height="288" rx="8" fill="none" stroke="#6366f1" stroke-width="2"/>
+                <rect x="330" y="12" width="128" height="288" rx="8" fill="none" stroke="#6366f1" stroke-width="2"/>
+                <rect x="470" y="12" width="128" height="288" rx="8" fill="none" stroke="#6366f1" stroke-width="2"/>
+                <rect x="610" y="12" width="128" height="288" rx="8" fill="none" stroke="#6366f1" stroke-width="2"/>
+                <text x="254" y="308" font-weight="600">Jedinečná řešení</text>
+                <text x="394" y="308" font-weight="600">Multies</text>
+                <text x="534" y="308" font-weight="600">High-tech výrobky</text>
+                <text x="674" y="308" font-weight="600">Vzdělávání</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <!-- ================= 2. PROMÍTNUTÍ DO EVA ================= -->
+      <h2>Ověření strategie: promítnutí do modelu EVA</h2>
+      <p>
+        Každou strategii je nutné ověřit z pohledu základního cíle – zvyšování hodnoty
+        podniku. Ověření spočívá v tom, že se dopady strategie promítnou do finančního
+        modelu EVA. Cílem je identifikovat <strong>generátory hodnoty („value drivers")</strong>,
+        které strategie ovlivní, a rozhodnout, zda je dopad pozitivní, či negativní.
+        Jednotlivé charakteristiky strategie se přiřadí k větvím pyramidového rozkladu EVA
+        a odhadne se síla jejich vlivu. Na tomto základě lze sestavit model rámcové
+        budoucí EVA.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Strategie táhne oběma směry</p>
+        <div class="callout__telo">
+          <p>Všimněte si, že tatáž strategie působí na EVA <strong>protichůdně</strong>.
+          Získávání multies zvyšuje objem tržeb (<span class="math">↑T</span>, velký kladný
+          vliv), ale zároveň tlačí dolů přidanou hodnotu na tržbách
+          (<span class="math">↓PH/T</span>) i cenu. Úkolem řízení je najít takovou
+          kombinaci, aby převážil kladný dopad na hodnotu.</p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tabulka 8–52 – Vlivy strategie na finanční výkonnost (síla vlivu je odhadem managementu PLAST)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Charakteristika strategie</th>
+              <th scope="col">Vliv na výkonnost (prvek rozkladu EVA)</th>
+              <th scope="col">Odhad síly vlivu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row" colspan="3">Jedinečná řešení</th></tr>
+            <tr><th scope="row">Vyšší cena produktů</th><td>růst ceny → <span class="math">T</span></td><td>mírný</td></tr>
+            <tr><th scope="row">Vyšší přidaná hodnota</th><td>růst <span class="math">PH/T</span></td><td>velký</td></tr>
+            <tr><th scope="row">Vyšší podíl práce</th><td>růst <span class="math">ON/T</span></td><td>střední</td></tr>
+            <tr><th scope="row">Vyšší technologická náročnost</th><td>růst <span class="math">Odpisy/T</span></td><td>mírný</td></tr>
+            <tr><th scope="row">Vyšší náročnost na pracovní sílu</th><td>souvisí se vzděláváním zaměstnanců</td><td>střední</td></tr>
+            <tr class="tabulka__soucet"><th scope="row" colspan="3">Multies</th></tr>
+            <tr><th scope="row">Vyšší objem produkce</th><td>růst <span class="math">T</span></td><td>velký</td></tr>
+            <tr><th scope="row">Nižší cena produktů</th><td>pokles <span class="math">T</span></td><td>mírný</td></tr>
+            <tr><th scope="row">Nižší přidaná hodnota</th><td>snížení <span class="math">PH/T</span></td><td>velký</td></tr>
+            <tr><th scope="row">Nižší podíl práce – automatizace</th><td>snížení <span class="math">ON/T</span></td><td>střední</td></tr>
+            <tr><th scope="row">Automatizace výroby</th><td>zvýšení obratovosti aktiv</td><td>střední</td></tr>
+            <tr><th scope="row">Vysoká provozní efektivnost</th><td>snížení <span class="math">Odpisy/T</span></td><td>střední</td></tr>
+            <tr class="tabulka__soucet"><th scope="row" colspan="3">Orientace na „high-tech" výrobky</th></tr>
+            <tr><th scope="row">Moderní stroje a zařízení</th><td>růst <span class="math">DM</span></td><td>střední</td></tr>
+            <tr><th scope="row">Výzkum a vývoj</th><td>růst nákladů (služby)</td><td>střední</td></tr>
+            <tr><th scope="row">Vyšší náročnost na pracovní sílu</th><td>růst nákladů na vzdělávání</td><td>—</td></tr>
+            <tr class="tabulka__soucet"><th scope="row" colspan="3">Vzdělávání zaměstnanců</th></tr>
+            <tr><th scope="row">Školení zaměstnanců</th><td>růst nákladů (služby, osobní náklady)</td><td>střední</td></tr>
+            <tr><th scope="row">Motivace</th><td>růst osobních nákladů</td><td>střední</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ================= 3. BSC A PERSPEKTIVY ================= -->
+      <h2>Balanced Scorecard a jeho čtyři perspektivy</h2>
+
+      <section class="definice" id="pojem-balanced-scorecard">
+        <h3 class="definice__pojem">Balanced Scorecard (BSC)</h3>
+        <div class="definice__telo">
+          <p>
+            Nástroj strategického řízení, který převádí strategii podniku do soustavy
+            vzájemně provázaných cílů a měřítek uspořádaných do čtyř
+            <a class="pojem" href="#pojem-perspektivy-bsc">perspektiv</a>. „Vyvážená"
+            (balanced) je proto, že vedle finančních měřítek sleduje i nefinanční –
+            zákaznická, procesní a rozvojová –, která finanční výsledky teprve
+            připravují. U PLASTu je vrcholovým měřítkem celého BSC ekonomická přidaná
+            hodnota (EVA).
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-perspektivy-bsc">
+        <h3 class="definice__pojem">Perspektivy BSC</h3>
+        <div class="definice__telo">
+          <p>Čtyři úrovně pohledu na výkonnost, do nichž BSC třídí strategické cíle:</p>
+          <ul>
+            <li><strong>Finanční</strong> – jak nás vidí vlastníci; vrcholem je hodnota podniku měřená EVA.</li>
+            <li><strong>Zákaznická</strong> – jak nás vidí zákazníci; nese růstovou část strategie.</li>
+            <li><strong>Interních procesů</strong> – v čem musíme vynikat, abychom uspokojili zákazníky.</li>
+            <li><strong>Učení se a růstu</strong> – jak si udržíme schopnost zlepšovat se (lidé, znalosti, systémy).</li>
+          </ul>
+          <p>Perspektivy se čtou <em>zdola nahoru</em>: rozvoj lidí umožní lepší procesy,
+          ty přinesou spokojené zákazníky a růst tržeb, a to nakonec zvýší finanční
+          výkonnost.</p>
+        </div>
+      </section>
+
+      <h3>Finanční perspektiva</h3>
+      <p>Obsahuje vrcholový cíl a dva podpůrné finanční cíle:</p>
+      <ul>
+        <li><strong>F1 – Zvýšit hodnotu podniku.</strong> Vrcholový, dlouhodobý cíl, který
+        naplňuje základní cíl podniku. Jeho dosažení musí být podpořeno napříč celým BSC
+        prostřednictvím vazeb příčina–důsledek; závisí na cílech F2 a F3.</li>
+        <li><strong>F2 – Zvýšit <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-rona" target="_blank" rel="noopener">RONA</a>.</strong> Rentabilita investovaného kapitálu je klíčovým
+        faktorem EVA; zachycuje jak růstovou část strategie, tak vyšší efektivnost využití
+        zdrojů. Důležitý je zejména dlouhodobý vývoj RONA.</li>
+        <li><strong>F3 – Snížit náklady kapitálu.</strong> Použitý kapitál není zadarmo.
+        Součástí cíle je snížit riziko z pohledu investorů, což vede k nižším nákladům
+        kapitálu; závisí na kapitálové struktuře a ceně zdrojů.</li>
+      </ul>
+
+      <h3>Zákaznická perspektiva</h3>
+      <p>Nese růstovou část strategie – zajišťuje růst tržeb u klíčových skupin zákazníků:</p>
+      <ul>
+        <li><strong>Z1 – Získávat multies.</strong> Velcí mezinárodní zákazníci (např. Danone,
+        Stihl, Xerox) s velkou vyjednávací silou; snahou je prosadit u nich výrobky vyšší kategorie.</li>
+        <li><strong>Z2 – Získávat nové trhy.</strong> Noví zákazníci i zcela nové oblasti
+        aplikace, zejména v oblasti technických dílů.</li>
+        <li><strong>Z3 – Zavádět jedinečná řešení zákazníkům.</strong> Přenést inovace
+        k zákazníkovi a převést je do růstu tržeb (vyšší cenou nebo množstvím).</li>
+        <li><strong>Z4 – Nabízet komplexní řešení zákazníkům.</strong> Nekonkurovat nízkou
+        cenou, ale komplexní službou – návrh, flexibilní dodávky, spolehlivost, delší
+        splatnost, růst s potřebami zákazníka.</li>
+      </ul>
+
+      <h3>Perspektiva interních procesů</h3>
+      <ul>
+        <li><strong>P1 – Posílit inovace procesů a výrobků.</strong> „Motor" strategie PLAST;
+        inovace výrobků i procesů, sběr podnětů od zákazníků i zaměstnanců.</li>
+        <li><strong>P2 – Zvýšit efektivnost výroby.</strong> Snížení nákladů lepším využitím
+        strojů a materiálu, novými postupy a organizací práce.</li>
+        <li><strong>P3 – Zlepšit plánovací proces.</strong> Sladit protichůdné zájmy výroby
+        (dlouhé série) a zákazníků (malé série, časté změny); rychlá reakce, méně neprodejných kusů.</li>
+        <li><strong>P4 – Zvýšit využití majetku.</strong> Zvýšit obrat dlouhodobého i oběžného
+        majetku (stroje, SW, materiál, výrobky, pohledávky).</li>
+      </ul>
+
+      <h3>Perspektiva učení se a růstu</h3>
+      <ul>
+        <li><strong>U1 – Zvýšit iniciativu zaměstnanců.</strong> Iniciativa zaměřená na podporu inovací.</li>
+        <li><strong>U2 – Rozvíjet vzdělávací systém.</strong> Individuální vzdělávací plány,
+        kariérní růst, spolupráce s klastrem.</li>
+        <li><strong>U3 – Zlepšit využití informačního systému.</strong> Účinnější využití IS,
+        důraz na SAP; lepší sdílení informací.</li>
+        <li><strong>U4 – Zlepšit týmovou spolupráci.</strong> Tvorba týmů propojujících
+        oddělení a funkce, zejména pro inovace.</li>
+      </ul>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Značení cílů</p>
+        <div class="callout__telo">
+          <p>Cíle se značí písmenem perspektivy a pořadovým číslem: <strong>F</strong>inanční,
+          <strong>Z</strong>ákaznická, <strong>P</strong>rocesů, <strong>U</strong>čení se a růstu
+          (F1–F3, Z1–Z4, P1–P4, U1–U4). Toto značení se objevuje ve strategické mapě
+          i v tabulce měřítek.</p>
+        </div>
+      </aside>
+
+      <!-- ================= 4. STROMOVÝ ŘETĚZEC (STEPPER) ================= -->
+      <h2>Vazby příčina–důsledek: jak se cíle promítají do hodnoty</h2>
+
+      <section class="definice" id="pojem-vazby-pricina-dusledek">
+        <h3 class="definice__pojem">Vazby příčina–důsledek</h3>
+        <div class="definice__telo">
+          <p>
+            Řetězce, které logicky spojují strategické cíle napříč perspektivami: splnění
+            cíle v nižší perspektivě je <em>příčinou</em>, jejímž <em>důsledkem</em> je
+            posun v perspektivě vyšší. Právě tyto vazby dělají z izolovaných cílů ucelený
+            příběh strategie a umožňují ověřit, že každý cíl skutečně přispívá k vrcholovému
+            cíli podniku.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Nejlépe si logiku BSC ukážeme, když projdeme řetězec zdola nahoru – od rozvoje lidí
+        až k růstu hodnoty. Projděte kroky tlačítky „Zpět / Další".
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Řetězec příčin a důsledků napříč perspektivami</p>
+          <p class="viz__popis">Krok po kroku se přidává jedna perspektiva. Sledujte, jak se investice do lidí postupně „přelévá" vzhůru až do růstu EVA a hodnoty podniku.</p>
+        </figcaption>
+        <div id="viz-retezec"></div>
+      </figure>
+
+      <!-- ================= 5. STRATEGICKÁ MAPA (obr 8-14) ================= -->
+      <h2>Strategická mapa podniku PLAST</h2>
+
+      <section class="definice" id="pojem-strategicka-mapa">
+        <h3 class="definice__pojem">Strategická mapa</h3>
+        <div class="definice__telo">
+          <p>
+            Grafické zobrazení strategie: strategické cíle uspořádané do čtyř perspektiv
+            a propojené šipkami vzájemných <a class="pojem" href="#pojem-vazby-pricina-dusledek">vazeb
+            příčina–důsledek</a>. Mapa pomáhá ověřit, zda každý cíl má význam pro realizaci
+            strategie a zda podporuje hlavní cíl podniku i klíčové finanční faktory. U PLASTu
+            je zakončena vrcholovým cílem „Zvýšit hodnotu podniku" a je napojena na finanční
+            model EVA.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Vrcholovým cílem je růst <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-hodnota-podniku" target="_blank" rel="noopener">hodnoty podniku</a>. Ten se dělí na dílčí cíle: je nutné zajistit
+        růst <strong>RONA</strong> (1) a současně <strong>snížit náklady kapitálu</strong> (2).
+        Zákaznická perspektiva naplňuje růstovou část strategie – růstu tržeb se dosáhne u dvou
+        skupin zákazníků, na nových trzích (3) a u multies (4). Konkurenční výhodou jsou jedinečná
+        řešení (5, 6) a komplexní služby (7, 8). Aby to bylo možné, musí se změnit interní procesy:
+        jedinečná řešení stojí na inovaci výrobků (10), komplexní řešení na inovaci procesů (9);
+        vyšší efektivnost (11) umožní snižovat náklady (13) a lepší plánování (12) i vyšší využití
+        strojů (15) vedou k vyššímu využití majetku (16). Základem všeho jsou lidé – iniciativa (17),
+        vzdělávání (18), informační systém (19, 20) a týmová spolupráce (21).
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 8–14: Strategická mapa podniku PLAST</p>
+          <p class="viz__popis">Čtyři perspektivy (vodorovná pásma) se strategickými cíli, propojené číslovanými vazbami příčina–důsledek (1–21). Úplný seznam vazeb je v tabulce pod schématem.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 940 720" width="100%" role="img" aria-label="Strategická mapa podniku PLAST se čtyřmi perspektivami a číslovanými vazbami příčina–důsledek">
+            <defs>
+              <marker id="sipka" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+              </marker>
+            </defs>
+
+            <!-- Pásma perspektiv -->
+            <rect x="96" y="88"  width="820" height="66"  rx="8" fill="#eef2ff"/>
+            <rect x="96" y="186" width="820" height="176" rx="8" fill="#f5f3ff"/>
+            <rect x="96" y="392" width="820" height="74"  rx="8" fill="#ecfeff"/>
+            <rect x="96" y="504" width="820" height="74"  rx="8" fill="#f0fdf4"/>
+
+            <!-- Popisky perspektiv (svisle) -->
+            <g font-size="13" font-weight="600" font-style="italic" text-anchor="middle">
+              <text x="34" y="121" fill="#3730a3" transform="rotate(-90 34 121)">Finanční</text>
+              <text x="34" y="274" fill="#6d28d9" transform="rotate(-90 34 274)">Zákaznická</text>
+              <text x="34" y="429" fill="#0e7490" transform="rotate(-90 34 429)">Procesů</text>
+              <text x="34" y="541" fill="#15803d" transform="rotate(-90 34 541)">Učení a růst</text>
+            </g>
+
+            <!-- ŠIPKY (kresleny pod bloky) -->
+            <g stroke="#64748b" stroke-width="1.6" fill="none" marker-end="url(#sipka)">
+              <!-- 1,2 do vrcholu -->
+              <line x1="415" y1="88" x2="452" y2="58"/>
+              <line x1="650" y1="88" x2="516" y2="58"/>
+              <!-- 3,4 do F2 (Zvýšit RONA) -->
+              <line x1="255" y1="196" x2="392" y2="154"/>
+              <line x1="486" y1="196" x2="452" y2="154"/>
+              <!-- vnitřní zákaznická: 5,6,7,8 -->
+              <line x1="486" y1="300" x2="486" y2="246"/>
+              <line x1="410" y1="322" x2="340" y2="322"/>
+              <line x1="255" y1="300" x2="255" y2="246"/>
+              <line x1="340" y1="312" x2="404" y2="250"/>
+              <!-- procesy → zákaznická: 9,10 -->
+              <line x1="200" y1="392" x2="240" y2="352"/>
+              <line x1="250" y1="392" x2="470" y2="352"/>
+              <!-- vnitřní procesy: 11,12,15 -->
+              <line x1="290" y1="428" x2="310" y2="428"/>
+              <line x1="480" y1="428" x2="500" y2="428"/>
+              <line x1="670" y1="428" x2="690" y2="428"/>
+              <!-- 16: využití majetku → snížit náklady kapitálu -->
+              <line x1="775" y1="392" x2="655" y2="154"/>
+              <!-- učení → procesy: 17,18,20,21 -->
+              <line x1="205" y1="504" x2="205" y2="466"/>
+              <line x1="380" y1="504" x2="255" y2="466"/>
+              <line x1="585" y1="504" x2="585" y2="466"/>
+              <line x1="775" y1="504" x2="625" y2="466"/>
+              <!-- 19: vnitřní učení U2↔U3 -->
+              <line x1="480" y1="534" x2="500" y2="534"/>
+            </g>
+
+            <!-- Číselné odznaky vazeb -->
+            <g font-size="11" font-weight="700" text-anchor="middle">
+              <g fill="#fff">
+                <circle cx="433" cy="74"  r="10" fill="#475569"/><text x="433" y="78" fill="#fff">1</text>
+                <circle cx="582" cy="74"  r="10" fill="#475569"/><text x="582" y="78" fill="#fff">2</text>
+                <circle cx="322" cy="176" r="10" fill="#475569"/><text x="322" y="180" fill="#fff">3</text>
+                <circle cx="470" cy="176" r="10" fill="#475569"/><text x="470" y="180" fill="#fff">4</text>
+                <circle cx="502" cy="273" r="10" fill="#475569"/><text x="502" y="277" fill="#fff">5</text>
+                <circle cx="372" cy="322" r="10" fill="#475569"/><text x="372" y="326" fill="#fff">6</text>
+                <circle cx="255" cy="273" r="10" fill="#475569"/><text x="255" y="277" fill="#fff">7</text>
+                <circle cx="378" cy="282" r="10" fill="#475569"/><text x="378" y="286" fill="#fff">8</text>
+                <circle cx="212" cy="374" r="10" fill="#475569"/><text x="212" y="378" fill="#fff">9</text>
+                <circle cx="368" cy="374" r="10" fill="#475569"/><text x="368" y="378" fill="#fff">10</text>
+                <circle cx="300" cy="418" r="10" fill="#475569"/><text x="300" y="422" fill="#fff">11</text>
+                <circle cx="490" cy="418" r="10" fill="#475569"/><text x="490" y="422" fill="#fff">12</text>
+                <circle cx="680" cy="418" r="10" fill="#475569"/><text x="680" y="422" fill="#fff">15</text>
+                <circle cx="726" cy="273" r="10" fill="#475569"/><text x="726" y="277" fill="#fff">16</text>
+                <circle cx="205" cy="486" r="10" fill="#475569"/><text x="205" y="490" fill="#fff">17</text>
+                <circle cx="330" cy="486" r="10" fill="#475569"/><text x="330" y="490" fill="#fff">18</text>
+                <circle cx="585" cy="486" r="10" fill="#475569"/><text x="585" y="490" fill="#fff">20</text>
+                <circle cx="712" cy="486" r="10" fill="#475569"/><text x="712" y="490" fill="#fff">21</text>
+                <circle cx="490" cy="524" r="10" fill="#475569"/><text x="490" y="528" fill="#fff">19</text>
+              </g>
+            </g>
+
+            <!-- VRCHOLOVÝ BLOK -->
+            <g>
+              <rect x="358" y="10" width="224" height="46" rx="8" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+              <text x="470" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b">Zvýšit hodnotu podniku</text>
+            </g>
+
+            <!-- Bloky – helper styl přes group -->
+            <g font-size="12" text-anchor="middle" fill="#1e293b">
+              <!-- Finanční -->
+              <rect x="332" y="96" width="166" height="48" rx="7" fill="#fff" stroke="#6366f1" stroke-width="1.5"/>
+              <text x="415" y="118" font-weight="600">F2 · Zvýšit</text><text x="415" y="134">RONA</text>
+              <rect x="560" y="96" width="180" height="48" rx="7" fill="#fff" stroke="#6366f1" stroke-width="1.5"/>
+              <text x="650" y="118" font-weight="600">F3 · Snížit</text><text x="650" y="134">náklady kapitálu</text>
+
+              <!-- Zákaznická – horní řada -->
+              <rect x="164" y="198" width="182" height="48" rx="7" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/>
+              <text x="255" y="220" font-weight="600">Z2 · Získávat</text><text x="255" y="236">nové trhy</text>
+              <rect x="396" y="198" width="180" height="48" rx="7" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/>
+              <text x="486" y="220" font-weight="600">Z1 · Získávat</text><text x="486" y="236">multies</text>
+              <!-- Zákaznická – dolní řada -->
+              <rect x="164" y="302" width="182" height="48" rx="7" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/>
+              <text x="255" y="324" font-weight="600">Z4 · Komplexní</text><text x="255" y="340">řešení</text>
+              <rect x="396" y="302" width="180" height="48" rx="7" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/>
+              <text x="486" y="324" font-weight="600">Z3 · Jedinečná</text><text x="486" y="340">řešení</text>
+
+              <!-- Procesů -->
+              <rect x="120" y="400" width="170" height="58" rx="7" fill="#fff" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="205" y="424" font-weight="600">P1 · Inovace</text><text x="205" y="440">procesů</text><text x="205" y="454">a výrobků</text>
+              <rect x="310" y="400" width="170" height="58" rx="7" fill="#fff" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="395" y="426" font-weight="600">P2 · Efektivnost</text><text x="395" y="442">výroby</text>
+              <rect x="500" y="400" width="170" height="58" rx="7" fill="#fff" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="585" y="426" font-weight="600">P3 · Plánovací</text><text x="585" y="442">proces</text>
+              <rect x="690" y="400" width="170" height="58" rx="7" fill="#fff" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="775" y="426" font-weight="600">P4 · Využití</text><text x="775" y="442">majetku</text>
+
+              <!-- Učení -->
+              <rect x="120" y="510" width="170" height="58" rx="7" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+              <text x="205" y="534" font-weight="600">U1 · Iniciativa</text><text x="205" y="550">zaměstnanců</text>
+              <rect x="310" y="510" width="170" height="58" rx="7" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+              <text x="395" y="534" font-weight="600">U2 · Vzdělávací</text><text x="395" y="550">systém</text>
+              <rect x="500" y="510" width="170" height="58" rx="7" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+              <text x="585" y="534" font-weight="600">U3 · Informační</text><text x="585" y="550">systém</text>
+              <rect x="690" y="510" width="170" height="58" rx="7" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+              <text x="775" y="534" font-weight="600">U4 · Týmová</text><text x="775" y="550">spolupráce</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <details class="rozbal">
+        <summary>Úplný seznam vazeb příčina–důsledek (1–21)</summary>
+        <div class="rozbal__telo">
+          <ol>
+            <li>Zvýšit RONA → Zvýšit hodnotu podniku</li>
+            <li>Snížit náklady kapitálu → Zvýšit hodnotu podniku</li>
+            <li>Získávat nové trhy → Zvýšit RONA (růst tržeb)</li>
+            <li>Získávat multies → Zvýšit RONA (růst tržeb)</li>
+            <li>Zavádět jedinečná řešení → Získávat multies</li>
+            <li>Zavádět jedinečná řešení → Získávat nové trhy</li>
+            <li>Nabízet komplexní řešení → Získávat nové trhy</li>
+            <li>Nabízet komplexní řešení → Získávat multies</li>
+            <li>Inovace procesů → Nabízet komplexní řešení</li>
+            <li>Inovace výrobků → Zavádět jedinečná řešení</li>
+            <li>Vazba mezi inovacemi a efektivností výroby</li>
+            <li>Efektivnost / plánování → zlepšení plánovacího procesu</li>
+            <li>Vyšší efektivnost výroby → snižování nákladů</li>
+            <li>Sladění potřeb výroby a zákazníka v plánování</li>
+            <li>Lepší plánování → vyšší využití strojů</li>
+            <li>Zvýšit využití majetku → Snížit náklady kapitálu</li>
+            <li>Zvýšit iniciativu zaměstnanců → posílení inovací</li>
+            <li>Rozvíjet vzdělávací systém → znalosti pro inovace</li>
+            <li>Vzdělávací systém ↔ využití informačního systému</li>
+            <li>Zlepšit využití IS → zlepšit plánovací proces</li>
+            <li>Zlepšit týmovou spolupráci → plánování a inovace</li>
+          </ol>
+        </div>
+      </details>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Cíl <strong>U2 – Rozvíjet vzdělávací systém</strong> leží v nejnižší perspektivě
+          a nemá žádné přímé finanční měřítko. Vysvětlete pomocí vazeb ve strategické mapě,
+          jak se přesto může promítnout do EVA a hodnoty podniku.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Řetězec vede vzhůru: vzdělanější zaměstnanci mají znalosti nutné pro inovace
+            (vazba 18) → posílí se <strong>inovace procesů a výrobků (P1)</strong> → ty
+            umožní nabízet <strong>jedinečná (Z3) i komplexní řešení (Z4)</strong> zákazníkům
+            (vazby 9, 10) → tím se získávají <strong>multies (Z1) a nové trhy (Z2)</strong>
+            (vazby 5–8) → rostou <strong>tržby</strong>, a při mírném růstu nákladů i
+            <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a> a RONA (F2)</strong> (vazby 3, 4, resp. 1) → nakonec roste
+            <strong>EVA a hodnota podniku (F1)</strong>. Cíl bez finančního měřítka tedy
+            není „zbytečný" – je počátkem příčinného řetězce.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= 6. MĚŘÍTKA ================= -->
+      <h2>Přiřazení měřítek strategickým cílům</h2>
+      <p>
+        Pro řízení nestačí mít stanovené cíle. Každý cíl musí mít přiřazeno
+        <strong>měřítko</strong>, aby bylo možné ověřovat jeho plnění. Měřená hodnota musí
+        odpovídat obsahu cíle – mezi cílem a měřítkem má být úzká vazba. Jeden strategický
+        cíl má jedno nebo více měřítek; tabulka 8–53 uvádí i číslo a jednotku každého měřítka.
+      </p>
+
+      <section class="definice" id="pojem-meritko">
+        <h3 class="definice__pojem">Měřítko (v BSC)</h3>
+        <div class="definice__telo">
+          <p>
+            Konkrétní kvantifikovatelný ukazatel přiřazený strategickému cíli, kterým se
+            sleduje jeho plnění. Měřítko má obvykle číslo, jednotku, přiřazeného
+            odpovědného pracovníka a pravidelnou frekvenci reportingu (měsíční či
+            čtvrtletní). Bez měřítek by strategická mapa zůstala jen deklarací záměrů.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tabulka 8–53 – Měřítka strategických cílů podniku PLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Cíl</th>
+              <th scope="col">Strategický cíl</th>
+              <th scope="col">Měřítko</th>
+              <th scope="col">Číslo</th>
+              <th scope="col">Jednotka</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row" colspan="5">Finanční perspektiva</th></tr>
+            <tr><th scope="row">F1</th><td>Zvýšit hodnotu podniku</td><td>Hodnota podniku počítaná podle EVA</td><td>F1.1</td><td>tis. Kč</td></tr>
+            <tr><td></td><td></td><td>Hodnota roční EVA</td><td>F1.2</td><td>tis. Kč</td></tr>
+            <tr><th scope="row">F2</th><td>Zvýšit RONA</td><td>Hodnota RONA</td><td>F2.1</td><td>%</td></tr>
+            <tr><td></td><td></td><td>NOPAT</td><td>F2.2</td><td>tis. Kč</td></tr>
+            <tr><td></td><td></td><td>NOA</td><td>F2.3</td><td>tis. Kč</td></tr>
+            <tr><th scope="row">F3</th><td>Snížit náklady na kapitál</td><td>WACC</td><td>F3.1</td><td>%</td></tr>
+            <tr><td></td><td></td><td>Kapitálová struktura VK/C</td><td>F3.2</td><td>%</td></tr>
+
+            <tr class="tabulka__soucet"><th scope="row" colspan="5">Zákaznická perspektiva</th></tr>
+            <tr><th scope="row">Z1</th><td>Získávat multies</td><td>Počet multies</td><td>Z1.1</td><td>počet</td></tr>
+            <tr><td></td><td></td><td>Počet nových projektů v rámci multies</td><td>Z1.2</td><td>počet</td></tr>
+            <tr><td></td><td></td><td>Tržby za multies</td><td>Z1.3</td><td>tis. Kč</td></tr>
+            <tr><th scope="row">Z2</th><td>Získávat nové trhy</td><td>Tržby z nových trhů (bez multies)</td><td>Z2.1</td><td>tis. Kč</td></tr>
+            <tr><td></td><td></td><td>Počet nových trhů (bez multies)</td><td>Z2.2</td><td>počet</td></tr>
+            <tr><th scope="row">Z3</th><td>Zavádět jedinečná řešení</td><td>Podíl tržeb z nových výrobků na celkových tržbách</td><td>Z3.1</td><td>%</td></tr>
+            <tr><td></td><td></td><td>Počet nových výrobků</td><td>Z3.2</td><td>počet</td></tr>
+            <tr><th scope="row">Z4</th><td>Nabízet komplexní řešení</td><td>Dotazník spokojenosti zákazníků</td><td>Z4.1</td><td>body</td></tr>
+            <tr><td></td><td></td><td>Reklamace uznané (počet externích)</td><td>Z4.2</td><td>počet</td></tr>
+            <tr><td></td><td></td><td>Náklady na uznané externí reklamace</td><td>Z4.3</td><td>tis. Kč</td></tr>
+
+            <tr class="tabulka__soucet"><th scope="row" colspan="5">Perspektiva interních procesů</th></tr>
+            <tr><th scope="row">P1</th><td>Posílit inovace procesů a výrobků</td><td>Počet realizovaných inovativních návrhů</td><td>P1.1</td><td>ks</td></tr>
+            <tr><td></td><td></td><td>Počet akceptovaných inovativních návrhů</td><td>P1.2</td><td>ks</td></tr>
+            <tr><th scope="row">P2</th><td>Zvýšit efektivnost výroby</td><td>Produktivita strojových časů</td><td>P2.1</td><td>%</td></tr>
+            <tr><td></td><td></td><td>Personální produktivita</td><td>P2.2</td><td>tis. Kč/os.</td></tr>
+            <tr><td></td><td></td><td>Využití materiálu</td><td>P2.3</td><td>%</td></tr>
+            <tr><th scope="row">P3</th><td>Zlepšit plánovací proces</td><td>Doba obratu zásob</td><td>P3.1</td><td>dny</td></tr>
+            <tr><td></td><td></td><td>Ležáky (déle než 6 měsíců)</td><td>P3.2</td><td>tis. Kč</td></tr>
+            <tr><td></td><td></td><td>Vyřazené výrobky a materiál (drcení)</td><td>P3.3</td><td>tis. Kč</td></tr>
+            <tr><th scope="row">P4</th><td>Zvýšit využití majetku</td><td>Obrat dlouhodobého majetku</td><td>P4.1</td><td>počet</td></tr>
+            <tr><td></td><td></td><td>Doba obratu oběžného majetku</td><td>P4.2</td><td>počet</td></tr>
+
+            <tr class="tabulka__soucet"><th scope="row" colspan="5">Perspektiva učení se a růstu</th></tr>
+            <tr><th scope="row">U1</th><td>Zvýšit iniciativu zaměstnanců</td><td>Počet navržených inovativních návrhů</td><td>U1.1</td><td>počet</td></tr>
+            <tr><th scope="row">U2</th><td>Rozvíjet vzdělávací systém</td><td>Podíl výdajů na vzdělání z tržeb</td><td>U2.1</td><td>%</td></tr>
+            <tr><td></td><td></td><td>Účinnost individuálních vzdělávacích plánů</td><td>U2.2</td><td>body</td></tr>
+            <tr><th scope="row">U3</th><td>Zlepšit využití informačního systému</td><td>Počet školení</td><td>U3.1</td><td>počet</td></tr>
+            <tr><td></td><td></td><td>Využití ERP systému</td><td>U3.2</td><td>%</td></tr>
+            <tr><th scope="row">U4</th><td>Zlepšit týmovou spolupráci</td><td>Dotazník – hodnocení týmové spolupráce</td><td>U4.1</td><td>body</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Od měřítek k cílovým hodnotám</p>
+        <div class="callout__telo">
+          <p>Každému měřítku je přiřazen odpovědný pracovník (na celopodnikové úrovni vedoucí
+          úseků) a plnění se promítá do jeho osobního ohodnocení. Dalším krokem je
+          <strong>stanovení cílových hodnot</strong> jednotlivých měřítek – to už ale
+          vyžaduje kompletní finanční plán s mnoha detailními údaji z podniku i z okolí.
+          Tvorbě finančního plánu 2005–2007 se věnuje následující lekce.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Pro cíl <strong>P3 – Zlepšit plánovací proces</strong> byste měli navrhnout
+          měřítko. Které z ukazatelů dávají smysl a proč právě ony?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>PLAST zvolil <strong>dobu obratu zásob (P3.1, dny)</strong>, hodnotu
+            <strong>ležáků nad 6 měsíců (P3.2, tis. Kč)</strong> a <strong>vyřazené výrobky
+            a materiál (P3.3, tis. Kč)</strong>. Všechna tři měřítka postihují to podstatné
+            na plánování: dobré plánování drží zásoby nízko (rychlý obrat), předchází vzniku
+            neprodejných ležáků a minimalizuje odpad (drcení). Měřítko tak přímo odráží obsah
+            cíle – sladit potřeby výroby a zákazníků a lépe využít zdroje.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jmenujte čtyři perspektivy Balanced Scorecard a řekněte, kterým směrem se mezi nimi čtou vazby příčina–důsledek.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vrcholem je finanční perspektiva, základem lidé a jejich rozvoj.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Finanční, zákaznická, interních procesů a učení se a růstu. Vazby se čtou <strong>zdola nahoru</strong>: rozvoj lidí (učení a růst) je příčinou lepších procesů, ty vedou ke spokojeným zákazníkům a růstu tržeb a to nakonec zvyšuje finanční výkonnost (EVA a hodnotu podniku).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč je nutné každou strategii ověřit „promítnutím do modelu EVA"? Co je cílem tohoto kroku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vzpomeňte na generátory hodnoty a pyramidový rozklad EVA.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Základním cílem podniku je zvyšování hodnoty (měřené EVA). Ověření spočívá v tom, že se charakteristiky strategie přiřadí k větvím rozkladu EVA a určí se, které <strong>generátory hodnoty</strong> ovlivní a zda je dopad kladný, či záporný. Tak se ověří, že strategie skutečně směřuje k tvorbě hodnoty, a sestaví se model rámcové budoucí EVA.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Získávání multies má na EVA protichůdný vliv. Vysvětlete oba směry.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Sledujte objem tržeb versus přidanou hodnotu na tržbách a cenu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Kladně:</strong> multies přinášejí velký objem produkce, a tedy růst tržeb (<span class="math">↑T</span>). <strong>Záporně:</strong> mají velkou vyjednávací sílu, tlačí na nižší cenu a nižší přidanou hodnotu (<span class="math">↓PH/T</span>). PLAST proto usiluje o multies jen s podmínkou, že půjde o high-tech produkty s vysokou přidanou hodnotou.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>K čemu slouží měřítka v BSC a jaké tři náležitosti k měřítku PLAST připojuje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Bez čeho by měřítko nešlo řídit ani odpovědně sledovat?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Měřítko umožňuje ověřovat plnění strategického cíle – měří to, co cíl obsahuje. PLAST k němu připojuje <strong>číslo a jednotku</strong> (tabulka 8–53), <strong>odpovědného pracovníka</strong> (vedoucího úseku) a <strong>frekvenci reportingu</strong> (obvykle měsíční či čtvrtletní). Dosahování hodnot se promítá do osobního ohodnocení pracovníka.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Ve strategické mapě vede z cíle „Zvýšit využití majetku" (P4) šipka 16 přímo do finanční perspektivy. Do kterého cíle a proč?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyšší využití majetku znamená menší potřebu vázaného kapitálu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Do cíle <strong>F3 – Snížit náklady kapitálu</strong>. Lepší využití majetku (vyšší obrat aktiv, menší zásoby, lepší plánování) snižuje investovaný kapitál, a tím i celkovou výši nákladů kapitálu (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a> × C), což posiluje růst hodnoty podniku.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l9-generatory-citlivost.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.9 Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l11-financni-plan.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.11 Finanční plán 2005–2007 a úprava na vstupy EVA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Kroková vizualizace: řetězec příčin a důsledků napříč perspektivami ----
+    (function () {
+      // Čtyři perspektivy + vrchol, seřazené SHORA DOLŮ na plátně.
+      // Řetězec se buduje ZDOLA (učení) NAHORU (hodnota).
+      var bloky = [
+        { id: 'vrchol',  nazev: 'Hodnota podniku (EVA)',      barva: '#16a34a' },
+        { id: 'fin',     nazev: 'Finanční: RONA ↑, WACC ↓',   barva: '#4338ca' },
+        { id: 'zak',     nazev: 'Zákaznická: multies, nové trhy, tržby ↑', barva: '#7c3aed' },
+        { id: 'proc',    nazev: 'Procesů: inovace, efektivnost, plánování', barva: '#0891b2' },
+        { id: 'ucen',    nazev: 'Učení a růst: lidé, znalosti, IS, týmy',   barva: '#15803d' }
+      ];
+
+      Skripta.stepper('viz-retezec', {
+        sirka: 720, vyska: 430,
+        stavy: [
+          { aktivni: 1 }, { aktivni: 2 }, { aktivni: 3 }, { aktivni: 4 }, { aktivni: 5 }
+        ],
+        popisky: [
+          'Základ strategie: rozvoj lidí – vzdělávání, iniciativa, informační systém a týmová spolupráce (perspektiva učení a růstu).',
+          'Znalí a iniciativní zaměstnanci posilují inovace, efektivnost výroby a plánování (perspektiva interních procesů).',
+          'Lepší procesy umožní jedinečná i komplexní řešení → získání multies a nových trhů → růst tržeb (zákaznická perspektiva).',
+          'Růst tržeb při mírném růstu nákladů zvyšuje NOPAT a RONA; lepší využití majetku snižuje náklady kapitálu (finanční perspektiva).',
+          'Vyšší RONA a nižší WACC znamenají růst EVA – a tím zvýšení hodnoty podniku. Řetězec je uzavřen.'
+        ],
+        render: function (svg, stav, i, u) {
+          var x = 90, w = 540, h = 58, mezera = 16;
+          var poradiOdSpodu, aktivni;
+          for (var j = 0; j < bloky.length; j++) {
+            var b = bloky[j];
+            var y = 20 + j * (h + mezera);
+            // blok j (shora) je aktivní, pokud se řetězec zdola dostal až k němu
+            poradiOdSpodu = bloky.length - j;          // ucen=1 ... vrchol=5
+            aktivni = poradiOdSpodu <= stav.aktivni;
+            u.dej(svg, 'rect-' + b.id, 'rect', {
+              x: x, y: y, width: w, height: h, rx: 10,
+              fill: aktivni ? b.barva : '#e2e8f0',
+              stroke: aktivni ? b.barva : '#cbd5e1', 'stroke-width': 2,
+              opacity: aktivni ? 1 : 0.55
+            });
+            u.dej(svg, 'txt-' + b.id, 'text', {
+              x: x + w / 2, y: y + h / 2 + 5, 'text-anchor': 'middle',
+              'font-size': 15, 'font-weight': 700,
+              fill: aktivni ? '#ffffff' : '#94a3b8'
+            }, b.nazev);
+            // Šipka nahoru z tohoto bloku do bloku nad ním (kromě vrcholu)
+            if (j > 0) {
+              var yStart = y;                 // horní hrana aktuálního bloku
+              var yEnd = y - mezera;          // spodní hrana bloku nad ním
+              var sipkaAktivni = poradiOdSpodu < stav.aktivni; // vazba se „rozsvítí" až přijde vyšší blok
+              u.dej(svg, 'sip-' + b.id, 'line', {
+                x1: x + w / 2, y1: yStart, x2: x + w / 2, y2: yEnd + 2,
+                stroke: sipkaAktivni ? '#334155' : '#cbd5e1', 'stroke-width': 2.5,
+                opacity: sipkaAktivni ? 1 : 0.4
+              });
+              u.dej(svg, 'siph-' + b.id, 'path', {
+                d: 'M' + (x + w / 2 - 6) + ',' + (yEnd + 6) + ' L' + (x + w / 2) + ',' + (yEnd) + ' L' + (x + w / 2 + 6) + ',' + (yEnd + 6),
+                fill: 'none', stroke: sipkaAktivni ? '#334155' : '#cbd5e1', 'stroke-width': 2.5,
+                opacity: sipkaAktivni ? 1 : 0.4
+              });
+            }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

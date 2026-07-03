@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6.2 Cash Flow Return on Investment – CFROI – Výkonnost podniku</title>
+  <meta name="description" content="Podstata a výpočet ukazatele CFROI: reálná míra výnosnosti aktiv jako vnitřní výnosové procento, brutto investice a brutto cash flow, CFROI spread a konkurenční životní cyklus.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="6.2" aria-label="Lekce tématu 6">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 6</div>
+      <div class="panel__nazev-tema">Měřítka na bázi cash flow a souhrnné srovnání</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="6.1" href="t6-l1-sva.html"><span class="panel__odkaz-cislo">6.1</span><span>Shareholder Value Added – SVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.2" href="t6-l2-cfroi.html"><span class="panel__odkaz-cislo">6.2</span><span>Cash Flow Return on Investment – CFROI</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.3" href="t6-l3-cfroi-tbr-croga.html"><span class="panel__odkaz-cislo">6.3</span><span>CFROI – oceňování, zhodnocení, TBR a CROGA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="6.4" href="t6-l4-souhrnne-srovnani.html"><span class="panel__odkaz-cislo">6.4</span><span>Souhrnné srovnání ukazatelů výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== HLAVNÍ OBSAH ===================== -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-6">Téma 6 · Cash flow měřítka</a></li>
+          <li><span aria-current="page">Lekce 6.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 6.2</span>
+        <h1>Cash Flow Return on Investment – CFROI (podstata a výpočet)</h1>
+        <p class="lekce-hlavicka__strany">Strany 93–98</p>
+      </header>
+
+      <p>
+        Předchozí měřítka – <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> i <a class="pojem" href="t6-l1-sva.html?zvyraznit=pojem-sva" target="_blank" rel="noopener">SVA</a> – vycházejí buď z upraveného účetního zisku,
+        nebo z peněžních toků, ale výsledek stále vyjadřují v korunách. Ukazatel
+        <a class="pojem" href="#pojem-cfroi">CFROI</a> jde jinou cestou: měří
+        výkonnost podniku jako <strong>procentní míru výnosnosti</strong> jeho aktiv
+        a navíc pracuje výhradně s <em>reálnými</em>, tj. o inflaci očištěnými
+        hodnotami. Díky tomu umí porovnat tentýž podnik v čase i podniky napříč
+        odvětvími a zeměmi.
+      </p>
+      <p>
+        V této lekci si vysvětlíme podstatu CFROI, jeho vstupy (brutto investici,
+        brutto cash flow, dobu ekonomické životnosti a hodnotu neodepisovaných
+        aktiv), spočítáme kompletní řešený příklad a představíme koncept
+        konkurenčního životního cyklu a „CFROI fade".
+      </p>
+
+      <!-- CALLOUT: info – původ ukazatele -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Odkud CFROI pochází</p>
+        <div class="callout__telo">
+          <p>Ukazatel vyvinula firma <em>HOLT Value Associates</em>, jejíž divizi
+          v roce 1991 převzala poradenská skupina <em>Boston Consulting Group (BCG)</em>.
+          Databáze HOLT počítá CFROI pro tisíce podniků po celém světě.</p>
+        </div>
+      </aside>
+
+      <!-- ================= 1. PODSTATA ================= -->
+      <h2>CFROI jako reálná míra výnosnosti aktiv</h2>
+
+      <p>
+        Hodnota podniku se odvíjí od očekávaných budoucích čistých peněžních toků
+        převedených na současnou hodnotu. V tomto je CFROI podobný modelu
+        <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-dcf" target="_blank" rel="noopener">diskontovaných peněžních toků (DCF)</a>. Zásadní odlišnost spočívá v tom, že
+        model CFROI pracuje výhradně s <strong>reálnými hodnotami</strong> (očištěnými
+        od inflace). Protože je navíc celý postaven na peněžních tocích, jde ještě
+        dál než EVA v odstraňování vlivu akruálního (časově rozlišeného) účetnictví.
+      </p>
+
+      <section class="definice" id="pojem-cfroi">
+        <h3 class="definice__pojem">CFROI (Cash Flow Return on Investment)</h3>
+        <div class="definice__telo">
+          <p>
+            Odhad <strong>reálné míry výnosnosti všech aktiv podniku</strong>
+            vyjádřený formou <em><a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-irr" target="_blank" rel="noopener">vnitřního výnosového procenta</a></em>. Aktiva se přitom
+            chápou jako portfolio projektů. Na rozdíl od EVA není CFROI monetární
+            (korunovou) veličinou, ale procentem – proto jej lze srovnávat napříč
+            podniky, divizemi či investicemi různé velikosti.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        CFROI porovnává inflačně upravené, zdaněné budoucí cash flow, které je
+        k dispozici všem investorům podniku, s inflačně upravenou hotovostní
+        <strong>investicí brutto</strong>, kterou tito investoři do podniku vložili.
+        Výpočet stojí na dvou zjednodušujících předpokladech:
+      </p>
+      <ul>
+        <li>stávající vybavenost aktivy se v čase nebude měnit;</li>
+        <li>cash flow generované tímto majetkem bude po dobu jeho životnosti konstantní.</li>
+      </ul>
+      <p>
+        Je proto nutné odhadnout <strong>dobu ekonomické životnosti</strong>
+        odepisovaných aktiv a <strong>hodnotu aktiv neodepisovaných</strong>, která
+        se na konci životnosti „uvolní".
+      </p>
+
+      <!-- ================= STATICKÉ SCHÉMA – obr. 3–12 ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 3–12: Podstata ukazatele CFROI</p>
+          <p class="viz__popis">Časová struktura peněžních toků. Na počátku stojí záporná brutto investice (odepisovaná + neodepisovaná aktiva), během ekonomické životnosti plynou kladné brutto cash flow a na konci se uvolní hodnota neodepisovaných aktiv.</p>
+        </figcaption>
+        <svg viewBox="0 0 760 250" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Časová osa peněžních toků ukazatele CFROI">
+          <!-- vodorovná osa (čas) -->
+          <line x1="60" y1="160" x2="700" y2="160" stroke="#94a3b8" stroke-width="2"/>
+          <polygon points="700,153 714,160 700,167" fill="#94a3b8"/>
+          <!-- brutto investice: šipka dolů -->
+          <line x1="100" y1="95" x2="100" y2="160" stroke="#dc2626" stroke-width="3"/>
+          <polygon points="93,148 107,148 100,162" fill="#dc2626"/>
+          <text x="100" y="185" text-anchor="middle" fill="#475569" font-size="13" font-weight="700">Brutto investice</text>
+          <text x="100" y="202" text-anchor="middle" fill="#475569" font-size="11">(odepisovaná + neodepisovaná)</text>
+          <!-- brutto cash flow: šipky nahoru -->
+          <g stroke="#4338ca" stroke-width="3">
+            <line x1="250" y1="160" x2="250" y2="98"/>
+            <line x1="360" y1="160" x2="360" y2="98"/>
+            <line x1="470" y1="160" x2="470" y2="98"/>
+          </g>
+          <polygon points="243,110 257,110 250,96" fill="#4338ca"/>
+          <polygon points="353,110 367,110 360,96" fill="#4338ca"/>
+          <polygon points="463,110 477,110 470,96" fill="#4338ca"/>
+          <text x="360" y="86" text-anchor="middle" fill="#4338ca" font-size="13" font-weight="700">Brutto cash flow z provozních aktiv</text>
+          <!-- neodepisovaná aktiva: vyšší šipka nahoru -->
+          <line x1="640" y1="160" x2="640" y2="72" stroke="#16a34a" stroke-width="3"/>
+          <polygon points="633,84 647,84 640,70" fill="#16a34a"/>
+          <text x="640" y="60" text-anchor="middle" fill="#16a34a" font-size="13" font-weight="700">Neodepisovaná aktiva</text>
+          <!-- popis osy -->
+          <text x="380" y="230" text-anchor="middle" fill="#475569" font-size="13" font-style="italic">Ekonomická životnost aktiv (n let)</text>
+        </svg>
+      </figure>
+
+      <!-- ================= 2. VZOREC 3.16 ================= -->
+      <h2>Rovnice pro výpočet CFROI</h2>
+
+      <p>
+        Podnik vlastní <strong>aktiva odepisovaná</strong> (dlouhodobý hmotný majetek
+        bez pozemků a dlouhodobý nehmotný majetek) a <strong>aktiva neodepisovaná</strong>
+        (pozemky, dlouhodobý finanční majetek, oběžný majetek a časové rozlišení).
+        Odepisovaná aktiva se vyjádří v pořizovací (brutto) hodnotě upravené o inflaci,
+        produkují po dobu ekonomické životnosti brutto cash flow (opět inflačně
+        upravené) a na konci zůstane uvolněná hodnota aktiv neodepisovaných. CFROI je
+        pak ta <strong>vnitřní výnosová míra</strong>, která tyto toky vyrovná:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-16">
+        <div class="vzorec__telo">
+          <span class="math">I<span class="op">=</span>
+            <span style="font-size:1.35em">Σ</span><sub style="font-size:.7em">t=1</sub><sup style="font-size:.7em">n</sup>
+            <span class="frac">
+              <span class="frac__cit">BCF<sub>t</sub></span>
+              <span class="frac__jmen">(1<span class="op">+</span>CFROI)<sup>t</sup></span>
+            </span>
+            <span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit">NA</span>
+              <span class="frac__jmen">(1<span class="op">+</span>CFROI)<sup>n</sup></span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(3.16)</div>
+      </div>
+
+      <p>Kde:</p>
+      <ul>
+        <li><span class="math">I</span> = brutto investice,</li>
+        <li><span class="math">BCF</span> = brutto cash flow v jednotlivých letech upravené o inflaci,</li>
+        <li><span class="math">NA</span> = hodnota neodepisovaných aktiv,</li>
+        <li><span class="math">n</span> = doba ekonomické životnosti,</li>
+        <li><span class="math">t</span> = jednotlivé roky budoucího období <span class="math">n</span>.</li>
+      </ul>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">CFROI se nepočítá „přímo"</p>
+        <div class="callout__telo">
+          <p>CFROI je neznámá <em>uvnitř</em> diskontování – hledá se stejným způsobem
+          jako vnitřní výnosové procento (IRR): iterativně tak, aby se pravá strana
+          rovnice (3.16) rovnala brutto investici <span class="math">I</span>. Přestože
+          se počítá jako IRR, <strong>neinterpretuje se</strong> stejně jako klasické
+          IRR investičního projektu.</p>
+        </div>
+      </aside>
+
+      <!-- ================= 3. VSTUPY VÝPOČTU ================= -->
+      <h2>Vstupy výpočtu krok za krokem</h2>
+
+      <h3>Doba ekonomické životnosti</h3>
+      <section class="definice" id="pojem-doba-ekonomicke-zivotnosti">
+        <h3 class="definice__pojem">Doba ekonomické životnosti</h3>
+        <div class="definice__telo">
+          <p>
+            Odhad počtu let <span class="math">n</span>, po která odepisovaná aktiva
+            produkují cash flow. Určí se podílem brutto hodnoty odepisovaných aktiv
+            a ročních odpisů (předpokládá se lineární odepisování).
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-3-17">
+        <div class="vzorec__telo">
+          <span class="math">Doba ekonomické životnosti<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Odepisovaná aktiva brutto</span>
+              <span class="frac__jmen">Roční odpisy</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(3.17)</div>
+      </div>
+
+      <p>Odepisovaná aktiva brutto se přitom vyčíslí takto:</p>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Výpočet odepisovaných aktiv brutto</caption>
+          <tbody>
+            <tr><th scope="row">Dlouhodobý hmotný majetek + dlouhodobý nehmotný majetek (brutto)</th><td class="cislo">+</td></tr>
+            <tr><th scope="row">Pozemky</th><td class="cislo">−</td></tr>
+            <tr><th scope="row">Nedokončené investice</th><td class="cislo">−</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">= Odepisovaná aktiva brutto</th><td class="cislo">=</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Pokud byl odepisován <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-goodwill" target="_blank" rel="noopener">goodwill</a>, u něhož ekonomicky nepředpokládáme amortizaci,
+        odečte se z ročních odpisů příslušný podíl připadající na goodwill.
+      </p>
+
+      <h3>Brutto investice</h3>
+      <section class="definice" id="pojem-brutto-investice">
+        <h3 class="definice__pojem">Brutto investice</h3>
+        <div class="definice__telo">
+          <p>
+            Hotovost vložená investory do podniku, tvořená <strong>odepisovanými</strong>
+            i <strong>neodepisovanými</strong> aktivy v brutto (pořizovací) hodnotě
+            upravené o inflaci. Údaje nelze mechanicky převzít z rozvahy – tu je nutné
+            (podobně jako <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">NOA</a> u EVA) upravit.
+          </p>
+        </div>
+      </section>
+      <p>Nejdůležitější úpravy rozvahy pro potřeby brutto investice:</p>
+      <ul>
+        <li>zahrnout majetek pořízený na <strong>leasing</strong>;</li>
+        <li>rozhodnout o zařazení <strong>goodwillu</strong> (odepisovaná vs. neodepisovaná aktiva – databáze HOLT jej do výpočtu zahrnuje);</li>
+        <li>pracovat s <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistým pracovním kapitálem</a>, tj. odečíst krátkodobé <strong>neúročené závazky</strong>;</li>
+        <li>vyloučit <strong><a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-neoperativni-aktiva" target="_blank" rel="noopener">neoperativní aktiva</a></strong>, zejména <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-portfoliove-investice" target="_blank" rel="noopener">portfoliové investice</a> bez charakteru strategických investic;</li>
+        <li>odepisovaná aktiva <strong>přepočíst o inflaci</strong> na cenovou hladinu k datu ocenění (např. <a class="pojem" href="t12-l1-makro-odvetvi.html?zvyraznit=pojem-deflator-hdp" target="_blank" rel="noopener">deflátorem HDP</a> nebo cenovými indexy výrobců).</li>
+      </ul>
+
+      <section class="definice" id="pojem-cista-monetarni-aktiva">
+        <h3 class="definice__pojem">Čistá monetární aktiva</h3>
+        <div class="definice__telo">
+          <p>
+            Monetární aktiva (pohledávky, krátkodobý finanční majetek, časové
+            rozlišení) snížená o hodnotu neúročených závazků. Monetární aktiva
+            <strong>ztrácejí</strong> vlivem inflace hodnotu; jejich čistou pozici je
+            proto nutné pro CFROI samostatně sledovat.
+          </p>
+        </div>
+      </section>
+
+      <h3>Brutto cash flow</h3>
+      <section class="definice" id="pojem-brutto-cash-flow">
+        <h3 class="definice__pojem">Brutto cash flow (BCF)</h3>
+        <div class="definice__telo">
+          <p>
+            Hotovostní tok produkovaný aktivy, zjištěný <em>nepřímou metodou</em>.
+            Vychází se z upraveného a zdaněného zisku, k němuž se přičtou odpisy
+            (nepeněžní náklad) a nákladové úroky (počítá se tok pro všechny investory)
+            a přičtou zisky, resp. odečtou ztráty z čistých monetárních aktiv z titulu
+            inflace.
+          </p>
+        </div>
+      </section>
+      <p>
+        Zisk se – podobně jako u <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a> při výpočtu EVA – upraví o změny rozvahy
+        s dopadem do zisku a očistí o mimořádné výnosy a náklady, poté se zdaní. Klíčové
+        je zacházení s inflací u čistých monetárních aktiv:
+      </p>
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Inflační ztráta vs. zisk z monetárních aktiv</p>
+        <div class="callout__telo">
+          <p>Jsou-li <strong>čistá monetární aktiva kladná</strong> (podnik drží více
+          peněžních aktiv než neúročených závazků), vzniká vlivem inflace
+          <strong>ztráta</strong> – BCF se o ni sníží. Má-li podnik <strong>záporná
+          čistá monetární aktiva</strong>, na inflaci naopak vydělává (inflační
+          <strong>zisk</strong>).</p>
+        </div>
+      </aside>
+
+      <!-- ================= 4. CFROI SPREAD ================= -->
+      <h2>CFROI spread – tvorba, nebo ničení hodnoty</h2>
+      <p>
+        Samotné procento CFROI ještě neříká, zda podnik tvoří hodnotu. Ukazatel se
+        proto počítá zpravidla na roční bázi a porovnává s reálnými (inflačně
+        upravenými) <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">náklady na kapitál</a>:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-18">
+        <div class="vzorec__telo">
+          <span class="math">CFROI<sub>spread</sub><span class="op">=</span>CFROI<span class="op">−</span>WACC<sub>reál</sub></span>
+        </div>
+        <div class="vzorec__cislo">(3.18)</div>
+      </div>
+
+      <section class="definice" id="pojem-cfroi-spread">
+        <h3 class="definice__pojem">CFROI spread</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi CFROI a reálnými náklady na kapitál
+            (<span class="math">WACC<sub>reál</sub></span>). Je-li
+            <span class="hodnota-tvorba">spread &gt; 0</span>, podnik
+            <strong>tvoří hodnotu</strong>; je-li
+            <span class="hodnota-niceni">spread &lt; 0</span>, hodnotu
+            <strong>ničí</strong>. Jde o obdobu spreadu (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-rona" target="_blank" rel="noopener">RONA</a> − WACC) u ukazatele EVA.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kompatibilní diskontní míra</p>
+        <div class="callout__telo">
+          <p>Obhájci konceptu tvrdí, že každý oceňovací model vyžaduje diskontní míru
+          slučitelnou s podstatou modelu – proto se CFROI porovnává s náklady na kapitál
+          upravenými o inflaci. Podrobný výklad nákladů na kapitál je předmětem
+          kapitoly 4.7 (Téma 9).</p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč CFROI pracuje s reálnými (inflačně očištěnými) hodnotami a co díky
+          tomu umožňuje porovnávat, na rozdíl od ukazatele vyjádřeného v nominálních
+          korunách?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Aktiva jsou v rozvaze v historických cenách odpovídajících kupní síle
+            měny v době pořízení. Očištění o inflaci sladí staré i nové položky do
+            jedné cenové hladiny k datu ocenění. Výsledná reálná výnosnost je proto
+            srovnatelná <strong>v čase</strong> (mezi roky téhož podniku),
+            <strong>mezi odvětvími</strong> (podniky s různou skladbou aktiv) i
+            <strong>mezi zeměmi</strong> s odlišnou inflací. Nominální ukazatel by
+            tyto vlivy míchal dohromady a srovnání by zkresloval.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= 5. ŘEŠENÝ PŘÍKLAD 3.10 ================= -->
+      <h2>Řešený příklad 3.10</h2>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Zadání</p>
+        <div class="callout__telo">
+          <p>Na začátku roku podnik koupil 8 obráběcích strojů celkem za 2,4 mil. Kč
+          a pořídil zásoby (náhradní díly) za 200 tis. Kč. V daném roce vytvořil zisk
+          240 tis. Kč, odpisy činily 400 tis. Kč, inflace 5 %, sazba daně 20 %. Výnosy
+          z držby portfoliových cenných papírů (DFM) byly 8 tis. Kč, nákladové úroky
+          50 tis. Kč. Reálné náklady na kapitál jsou odhadovány na 8 %. Posuďte
+          výkonnost podniku pomocí CFROI.</p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Rozvaha k 1. 1. (Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Aktiva</th><th scope="col" class="cislo">Kč</th>
+              <th scope="col">Pasiva</th><th scope="col" class="cislo">Kč</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">DHM</th><td class="cislo">2 400 000</td><th scope="row">VK</th><td class="cislo">2 000 000</td></tr>
+            <tr><th scope="row">DFM</th><td class="cislo">300 000</td><th scope="row">Úročené cizí zdroje</th><td class="cislo">1 000 000</td></tr>
+            <tr><th scope="row">Zásoby</th><td class="cislo">200 000</td><th scope="row">Neúročené cizí zdroje</th><td class="cislo">500 000</td></tr>
+            <tr><th scope="row">Pohledávky</th><td class="cislo">500 000</td><th scope="row"></th><td class="cislo"></td></tr>
+            <tr><th scope="row">Krátk. finanční majetek</th><td class="cislo">100 000</td><th scope="row"></th><td class="cislo"></td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Celkem</th><td class="cislo">3 500 000</td><th scope="row">Celkem</th><td class="cislo">3 500 000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- KROKOVÁ VIZUALIZACE VÝPOČTU -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Výpočet CFROI příkladu 3.10 krok za krokem</p>
+          <p class="viz__popis">Postupně se sestaví peněžní toky (brutto investice, brutto cash flow, uvolněná neodepisovaná aktiva), z nich se dopočítá CFROI jako vnitřní výnosové procento a nakonec CFROI spread. Klikejte na „Zpět / Další".</p>
+        </figcaption>
+        <div id="viz-cfroi-vypocet"></div>
+      </figure>
+
+      <p>Rozklad jednotlivých kroků řešení:</p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. – Postup výpočtu CFROI (příklad 3.10)</caption>
+          <thead>
+            <tr><th scope="col">Krok</th><th scope="col">Výpočet</th><th scope="col" class="cislo">Výsledek</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Ekonomická životnost</th>
+              <td>DHM brutto / odpisy = 2 400 000 / 400 000</td>
+              <td class="cislo">6 let</td>
+            </tr>
+            <tr>
+              <th scope="row">Odepisovaná aktiva</th>
+              <td>DHM</td>
+              <td class="cislo">2 400 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Neodepisovaná aktiva</th>
+              <td>zásoby + čistá monetární aktiva = 200 000 + (500 000 + 100 000 − 500 000)</td>
+              <td class="cislo">300 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Brutto investice (I)</th>
+              <td>2 400 000 + 300 000</td>
+              <td class="cislo">2 700 000</td>
+            </tr>
+            <tr>
+              <th scope="row">Brutto cash flow (BCF)</th>
+              <td>232 000 × (1 − 0,20) + 400 000 + 50 000 − 100 000 × 0,05</td>
+              <td class="cislo">630 600</td>
+            </tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">CFROI</th>
+              <td>vnitřní výnosové procento rovnice (3.16)</td>
+              <td class="cislo">12,6 %</td>
+            </tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">CFROI spread</th>
+              <td>12,6 − 8,0</td>
+              <td class="cislo hodnota-tvorba">4,6 %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Na co si dát ve výpočtu pozor</p>
+        <div class="callout__telo">
+          <p>Dlouhodobý finanční majetek (DFM 300 000 Kč) je <strong>vyloučen</strong> –
+          jde o portfoliovou investici nesouvisející s hlavní činností. Zisk se proto
+          nejdřív očistí o s ní spojené finanční výnosy: 240 000 − 8 000 = 232 000 Kč,
+          a teprve pak zdaní 20 %. K čistému zisku 185 600 Kč se přičtou odpisy
+          400 000 a úroky 50 000 a odečte inflační ztráta z čistých monetárních aktiv
+          100 000 × 0,05 = 5 000 Kč → BCF = 630 600 Kč.</p>
+        </div>
+      </aside>
+
+      <p>
+        Dosazením do rovnice (3.16):
+      </p>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">2 700 000<span class="op">=</span>
+            <span style="font-size:1.35em">Σ</span><sub style="font-size:.7em">t=1</sub><sup style="font-size:.7em">6</sup>
+            <span class="frac">
+              <span class="frac__cit">630 600</span>
+              <span class="frac__jmen">(1<span class="op">+</span>CFROI)<sup>t</sup></span>
+            </span>
+            <span class="op">+</span>
+            <span class="frac">
+              <span class="frac__cit">300 000</span>
+              <span class="frac__jmen">(1<span class="op">+</span>CFROI)<sup>6</sup></span>
+            </span>
+            <span class="op">⇒</span>CFROI<span class="op">=</span>12,6 %
+          </span>
+        </div>
+      </div>
+      <p>
+        <span class="math">CFROI<sub>spread</sub><span class="op">=</span>12,6<span class="op">−</span>8<span class="op">=</span>4,6 %</span>.
+        Podnik svou činností zhodnotil vložené prostředky více, než představují
+        reálné náklady na kapitál – <strong class="hodnota-tvorba">tvořil hodnotu</strong>.
+      </p>
+
+      <!-- ================= 6. KONKURENČNÍ ŽIVOTNÍ CYKLUS ================= -->
+      <h2>Konkurenční životní cyklus a „CFROI fade"</h2>
+      <p>
+        Koncept CFROI stojí na předpokladu, že v dlouhém období jsou podniky
+        s nadprůměrným výnosem tlačeny konkurencí k průměru: mimořádné zisky přitahují
+        do odvětví další konkurenty. Podniky s podprůměrnou výnosností jsou naopak
+        tlačeny svými investory k nápravným opatřením a mají tendenci se k průměru
+        přiblížit – pokud se jim to nedaří, časem zanikají. Tento pohyb popisuje
+        <a class="pojem" href="#pojem-cfroi-fade">konkurenční životní cyklus</a>.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 3–13: Konkurenční životní cyklus a „CFROI fade"</p>
+          <p class="viz__popis">Křivka CFROI nejprve roste (fáze nové investice), kulminuje v nadprůměru, poté klesá přes průměr k podprůměru a přibližuje se k investory požadované návratnosti.</p>
+        </figcaption>
+        <div id="viz-cfroi-fade"></div>
+      </figure>
+
+      <section class="definice" id="pojem-cfroi-fade">
+        <h3 class="definice__pojem">CFROI fade (konkurenční životní cyklus)</h3>
+        <div class="definice__telo">
+          <p>
+            Empiricky doložená tendence CFROI „vyblednout" (angl. <em>fade</em> =
+            pohasínání, uvadání) k dlouhodobému průměru. Boston Consulting Group
+            spočítala, že v průměru se přibližně během <strong>40letého</strong>
+            horizontu existence podniku CFROI přibližuje dlouhodobé průměrné hodnotě
+            <strong>6,3 %</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik drží čistá monetární aktiva ve výši 100 tis. Kč a inflace je 5 %.
+          Jak se tato pozice promítne do brutto cash flow? A co by se změnilo, kdyby
+          byla čistá monetární aktiva záporná?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Kladná čistá monetární aktiva vlivem inflace <strong>ztrácejí</strong>
+            hodnotu: inflační ztráta = 100 000 × 0,05 = 5 000 Kč, o kterou se BCF
+            <strong>sníží</strong>. Kdyby byla čistá monetární aktiva záporná (podnik
+            by měl více neúročených závazků než peněžních aktiv), inflace by je
+            znehodnotila v jeho prospěch – vznikl by inflační <strong>zisk</strong>,
+            který se k BCF naopak <strong>přičte</strong>.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Čím se CFROI zásadně liší od ukazatele EVA ve formě vyjádření výsledku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, zda je výsledek v korunách, nebo v procentech, a co je vnitřní výnosové procento.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>CFROI je <strong>procentní</strong> míra výnosnosti počítaná jako vnitřní výnosové procento, zatímco EVA je <strong>monetární</strong> (korunová) veličina. Procentní vyjádření usnadňuje srovnání podniků, divizí a investic různé velikosti a je pro mnoho manažerů srozumitelnější.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Jaké čtyři vstupy potřebujeme pro výpočet CFROI podle rovnice (3.16)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o počáteční tok, průběžné toky, zbytkovou hodnotu a délku období.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Brutto investici <span class="math">I</span>, brutto cash flow <span class="math">BCF<sub>t</sub></span> v jednotlivých letech, hodnotu neodepisovaných aktiv <span class="math">NA</span> a dobu ekonomické životnosti <span class="math">n</span>. Všechny hodnoty jsou upraveny o inflaci.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Kdy podnik podle CFROI spreadu tvoří a kdy ničí hodnotu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte CFROI s reálnými náklady na kapitál.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><span class="math">CFROI<sub>spread</sub><span class="op">=</span>CFROI<span class="op">−</span>WACC<sub>reál</sub></span>. Je-li spread kladný, podnik <strong>tvoří hodnotu</strong>; je-li záporný, hodnotu <strong>ničí</strong>. V příkladu 3.10 byl spread 12,6 − 8,0 = 4,6 %, tedy tvorba hodnoty.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč byl v příkladu 3.10 z výpočtu vyloučen dlouhodobý finanční majetek (DFM) a jeho výnos?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Souvisí DFM s hlavní (provozní) činností podniku?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>DFM je <strong>portfoliová investice</strong> nenavazující na hlavní činnost, proto se z brutto investice vyloučí. Aby výpočet zůstal konzistentní, očistí se i zisk o výnosy s tímto majetkem spojené (240 000 − 8 000 = 232 000 Kč) ještě před zdaněním.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Co říká koncept „CFROI fade" o dlouhodobém vývoji výnosnosti podniků?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jak působí konkurence na nadprůměrně a podprůměrně výnosné podniky?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>CFROI má tendenci „vyblednout" k dlouhodobému průměru: nadprůměrné výnosy přitahují konkurenci a klesají, podprůměrné podniky jsou tlačeny investory ke zlepšení (jinak zanikají). BCG doložila, že přibližně za 40 let se CFROI přibližuje průměrné hodnotě kolem 6,3 %.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t6-l1-sva.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">6.1 Shareholder Value Added – SVA</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t6-l3-cfroi-tbr-croga.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">6.3 CFROI – oceňování, zhodnocení, TBR a CROGA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // =========================================================
+      // A) KROKOVÁ VIZUALIZACE: výpočet CFROI (příklad 3.10)
+      //    Hodnoty v tis. Kč: I = 2 700, BCF = 630,6, NA = 300, n = 6
+      // =========================================================
+      Skripta.stepper('viz-cfroi-vypocet', {
+        sirka: 760, vyska: 380,
+        stavy: [
+          { inv: true,  bcf: false, na: false, cfroi: false, spread: false },
+          { inv: true,  bcf: true,  na: false, cfroi: false, spread: false },
+          { inv: true,  bcf: true,  na: true,  cfroi: false, spread: false },
+          { inv: true,  bcf: true,  na: true,  cfroi: true,  spread: false },
+          { inv: true,  bcf: true,  na: true,  cfroi: true,  spread: true  }
+        ],
+        popisky: [
+          'Na počátku stojí brutto investice I = 2 700 tis. Kč (odepisovaná 2 400 + neodepisovaná 300). Záporný tok – šipka dolů.',
+          'Aktiva produkují 6 let konstantní brutto cash flow BCF = 630,6 tis. Kč (kladné toky – šipky nahoru).',
+          'Na konci ekonomické životnosti (n = 6) se uvolní hodnota neodepisovaných aktiv NA = 300 tis. Kč.',
+          'CFROI je vnitřní výnosové procento, které vyrovná investici a všechny toky: CFROI = 12,6 %.',
+          'Porovnání s reálnými náklady kapitálu: CFROI spread = 12,6 − 8,0 = 4,6 % → podnik tvoří hodnotu.'
+        ],
+        render: function (svg, stav, i, u) {
+          var axisY = 250, xL = 60, xR = 700;
+          // Vodorovná osa (čas)
+          u.dej(svg, 'osa', 'line', { x1: xL, y1: axisY, x2: xR, y2: axisY, stroke: u.barvaOsa, 'stroke-width': 2 });
+          u.dej(svg, 'osa-sipka', 'polygon', { points: (xR) + ',' + (axisY - 7) + ' ' + (xR + 14) + ',' + axisY + ' ' + xR + ',' + (axisY + 7), fill: u.barvaOsa });
+          u.dej(svg, 'osa-popis', 'text', { x: 380, y: axisY + 46, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-style': 'italic' }, 'Ekonomická životnost n = 6 let');
+
+          // --- Brutto investice: šipka dolů (červená) ---
+          var invX = 95;
+          u.dej(svg, 'inv-line', 'line', { x1: invX, y1: 170, x2: invX, y2: axisY, stroke: u.barvaNiceni, 'stroke-width': 3, opacity: stav.inv ? 1 : 0 });
+          u.dej(svg, 'inv-head', 'polygon', { points: (invX - 6) + ',' + (axisY - 13) + ' ' + (invX + 6) + ',' + (axisY - 13) + ' ' + invX + ',' + (axisY + 1), fill: u.barvaNiceni, opacity: stav.inv ? 1 : 0 });
+          u.dej(svg, 'inv-val', 'text', { x: invX, y: 162, 'text-anchor': 'middle', fill: u.barvaNiceni, 'font-size': 14, 'font-weight': 700, opacity: stav.inv ? 1 : 0 }, '−2 700');
+          u.dej(svg, 'inv-lbl', 'text', { x: invX, y: axisY + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: stav.inv ? 1 : 0 }, 'Brutto investice');
+
+          // --- Brutto cash flow: 6 šipek nahoru (indigo) ---
+          var bcfX = [200, 285, 370, 455, 540, 625];
+          bcfX.forEach(function (x, k) {
+            u.dej(svg, 'bcf-line-' + k, 'line', { x1: x, y1: axisY, x2: x, y2: 150, stroke: '#4338ca', 'stroke-width': 3, opacity: stav.bcf ? 1 : 0 });
+            u.dej(svg, 'bcf-head-' + k, 'polygon', { points: (x - 6) + ',' + 162 + ' ' + (x + 6) + ',' + 162 + ' ' + x + ',' + 148, fill: '#4338ca', opacity: stav.bcf ? 1 : 0 });
+            u.dej(svg, 'bcf-rok-' + k, 'text', { x: x, y: axisY + 20, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 11, opacity: stav.bcf ? 1 : 0 }, (k + 1));
+          });
+          u.dej(svg, 'bcf-lbl', 'text', { x: 412, y: 138, 'text-anchor': 'middle', fill: '#4338ca', 'font-size': 13, 'font-weight': 700, opacity: stav.bcf ? 1 : 0 }, 'BCF = 630,6 (t = 1…6)');
+
+          // --- Neodepisovaná aktiva: vyšší šipka nahoru (zelená) na konci ---
+          var naX = 668;
+          u.dej(svg, 'na-line', 'line', { x1: naX, y1: axisY, x2: naX, y2: 122, stroke: u.barvaTvorba, 'stroke-width': 3, opacity: stav.na ? 1 : 0 });
+          u.dej(svg, 'na-head', 'polygon', { points: (naX - 6) + ',' + 134 + ' ' + (naX + 6) + ',' + 134 + ' ' + naX + ',' + 120, fill: u.barvaTvorba, opacity: stav.na ? 1 : 0 });
+          u.dej(svg, 'na-val', 'text', { x: naX, y: 112, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 700, opacity: stav.na ? 1 : 0 }, 'NA = 300');
+
+          // --- Výsledek CFROI (horní panel) ---
+          u.dej(svg, 'cfroi-txt', 'text', { x: 380, y: 42, 'text-anchor': 'middle', fill: '#4338ca', 'font-size': 22, 'font-weight': 800, opacity: stav.cfroi ? 1 : 0 }, 'CFROI = 12,6 %');
+
+          // --- CFROI spread (zelený rámeček) ---
+          u.dej(svg, 'spread-box', 'rect', { x: 230, y: 62, width: 300, height: 34, rx: 8, fill: '#dcfce7', stroke: u.barvaTvorba, 'stroke-width': 1.5, opacity: stav.spread ? 1 : 0 });
+          u.dej(svg, 'spread-txt', 'text', { x: 380, y: 84, 'text-anchor': 'middle', fill: '#15803d', 'font-size': 14, 'font-weight': 700, opacity: stav.spread ? 1 : 0 }, 'spread = 12,6 − 8,0 = 4,6 %  →  tvorba hodnoty');
+        }
+      });
+
+      // =========================================================
+      // B) STATICKÝ ČÁROVÝ GRAF: konkurenční životní cyklus / CFROI fade
+      //    Ilustrativní průběh; požadovaná návratnost na úrovni 6,3 %.
+      // =========================================================
+      Skripta.carovyGraf('viz-cfroi-fade', {
+        sirka: 720, vyska: 320, formatDesetin: 1,
+        serie: [
+          {
+            nazev: 'CFROI', barva: '#4338ca',
+            body: [
+              { x: 'Růst + investice', y: 1.5 },
+              { x: '', y: 8 },
+              { x: 'Nadprůměr', y: 18 },
+              { x: '', y: 15.6 },
+              { x: 'Průměr', y: 11 },
+              { x: '', y: 8.5 },
+              { x: 'Podprůměr', y: 6.8 }
+            ]
+          },
+          {
+            nazev: 'Požadovaná návratnost (6,3 %)', barva: '#dc2626',
+            body: [
+              { x: 'Růst + investice', y: 6.3 },
+              { x: '', y: 6.3 },
+              { x: 'Nadprůměr', y: 6.3 },
+              { x: '', y: 6.3 },
+              { x: 'Průměr', y: 6.3 },
+              { x: '', y: 6.3 },
+              { x: 'Podprůměr', y: 6.3 }
+            ]
+          }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

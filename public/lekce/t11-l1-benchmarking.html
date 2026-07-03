@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11.1 Benchmarking v řízení výkonnosti – Výkonnost podniku</title>
+  <meta name="description" content="Benchmarking jako metoda hledání nejlepších praktik, sedm kroků procesu, hodnotová rezerva, typy benchmarkingu, nástroje BenchmarkIndex a INFA a kritika selection bias.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 11 -->
+    <nav class="panel" data-panel data-aktivni-lekce="11.1" aria-label="Lekce tématu 11">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 11</div>
+      <div class="panel__nazev-tema">Nástroje hodnotového řízení</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="11.1" href="t11-l1-benchmarking.html"><span class="panel__odkaz-cislo">11.1</span><span>Benchmarking v řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.2" href="t11-l2-financni-plan-rizika.html"><span class="panel__odkaz-cislo">11.2</span><span>Finanční plán a řízení rizik</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.3" href="t11-l3-abc-abb-beyond-budgeting.html"><span class="panel__odkaz-cislo">11.3</span><span>ABC/ABB a Beyond Budgeting</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.4" href="t11-l4-oceneni-vynosove.html"><span class="panel__odkaz-cislo">11.4</span><span>Oceňování podniku – výnosové metody</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.5" href="t11-l5-trzni-majetkove-metody.html"><span class="panel__odkaz-cislo">11.5</span><span>Tržní a majetkové metody; růstové příležitosti a hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.6" href="t11-l6-is-ict.html"><span class="panel__odkaz-cislo">11.6</span><span>IS/ICT pro řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.7" href="t11-l7-desatero.html"><span class="panel__odkaz-cislo">11.7</span><span>Desatero pro úspěšné zavedení systému řízení výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-11">Téma 11 · Nástroje hodnotového řízení</a></li>
+          <li><span aria-current="page">Lekce 11.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 11.1</span>
+        <h1>Benchmarking v řízení výkonnosti</h1>
+        <p class="lekce-hlavicka__strany">Strany 206–210</p>
+      </header>
+
+      <p>
+        Vypočítat hodnotový ukazatel je jen půl práce. Číslo samo o sobě neřekne, zda je
+        <em>dobré, nebo špatné</em> – to zjistíme až srovnáním s ostatními. Právě k tomu
+        slouží <a class="pojem" href="#pojem-benchmarking">benchmarking</a>: systematické
+        porovnávání vlastní výkonnosti s nejlepšími a hledání odpovědi na otázku, <strong>proč</strong>
+        jsou nejlepší nejlepšími. Tato lekce otevírá téma 11 věnované praktickým nástrojům
+        hodnotového řízení.
+      </p>
+
+      <!-- CALLOUT: info -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Motto benchmarkingu</p>
+        <div class="callout__telo">
+          <p>„<strong>UČTE SE OD OSTATNÍCH.</strong>" Benchmarking staví na jednoduché
+          myšlence, že nejlepší praktiky už někdo objevil – stačí je najít, pochopit a
+          přizpůsobit vlastnímu podniku.</p>
+        </div>
+      </aside>
+
+      <section id="uvod">
+        <h2>Co je benchmarking</h2>
+        <p>
+          Metodu benchmarkingu lze účinně využít k identifikaci silných a slabých stránek
+          hospodaření podniku, které ovlivňují jeho výkonnost a tvorbu hodnoty. Jednu z klasických
+          definic podal <strong>Robert C. Camp</strong>, jedna z vůdčích osobností oboru. Výhodou
+          metody je, že je jednoduchá a široce využitelná napříč celou řadou podnikových činností;
+          manažerům navíc pomáhá stanovit si konkrétní cíle a dílčí úkoly.
+        </p>
+
+        <!-- DEFINICE: benchmarking -->
+        <section class="definice" id="pojem-benchmarking">
+          <h3 class="definice__pojem">Benchmarking</h3>
+          <div class="definice__telo">
+            <p>
+              Podle R. C. Campa „<em>…hledání nejlepších postupů v podnikání, které vedou
+              k vynikajícím výsledkům</em>". Jde o metodu, která propojuje identifikování a
+              pochopení klíčových kritérií úspěšné změny s jejich přizpůsobením realitě
+              konkrétní organizace.
+            </p>
+          </div>
+        </section>
+
+        <p>
+          Příklad: zjistí-li podnik, že jeho <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-bezna-likvidita" target="_blank" rel="noopener">běžná likvidita</a> je dvojnásobná oproti průměru
+          v odvětví, je to pro management signál, aby právě této oblasti věnoval pozornost.
+          Samotné srovnání čísel je ovšem jen začátek.
+        </p>
+      </section>
+
+      <section id="proces">
+        <h2>Sedm kroků procesu benchmarkingu</h2>
+        <p>
+          Benchmarking není jednorázová komparace, ale opakovatelný proces. Kniha ho
+          (obrázek 6–1) člení do sedmi na sebe navazujících kroků – od rozhodnutí, co vlastně
+          srovnávat, až po realizaci opatření a sledování výsledků.
+        </p>
+
+        <!-- ================= KROKOVÁ VIZUALIZACE: sedm kroků ================= -->
+        <figure class="viz">
+          <figcaption>
+            <p class="viz__nadpis">Proces benchmarkingu v sedmi krocích (obr. 6–1)</p>
+            <p class="viz__popis">Tlačítky „Zpět / Další" postupně odkrývejte jednotlivé fáze procesu. Aktuální krok je zvýrazněn.</p>
+          </figcaption>
+          <div id="viz-kroky"></div>
+        </figure>
+
+        <p>
+          Cílem přitom není pouze dostihnout <a class="pojem" href="#pojem-benchmark">benchmark</a>
+          (určitý standard) a vyrovnat se mu. Skutečný cíl je náročnější – <strong>stát se
+          v dané oblasti nejlepším</strong>, tedy novým benchmarkem.
+        </p>
+
+        <!-- DEFINICE: benchmark -->
+        <section class="definice" id="pojem-benchmark">
+          <h3 class="definice__pojem">Benchmark</h3>
+          <div class="definice__telo">
+            <p>
+              Srovnávací standard – hodnota nebo praktika nejlepšího subjektu, vůči níž se
+              podnik poměřuje. Cílem benchmarkingu není jen benchmark dostihnout, ale sám se
+              jím stát (vedoucí tržní postavení).
+            </p>
+          </div>
+        </section>
+
+        <aside class="callout callout--pozor">
+          <span class="callout__ikona" aria-hidden="true">⚠️</span>
+          <p class="callout__nadpis">Nestačí ptát se JAK a O KOLIK</p>
+          <div class="callout__telo">
+            <p>K nejlepšímu postavení se nedopracujeme pouhým porovnáváním čísel a otázkami
+            <em>JAK?</em> nebo <em>O KOLIK ZAOSTÁVÁME?</em> Klíčová otázka benchmarkingu zní
+            <strong>PROČ? Proč je nejlepší nejlepším a jak toho dosáhl?</strong> Právě odpovědi
+            na tuto otázku se od benchmarkingu očekávají.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="rezerva">
+        <h2>Hodnotová rezerva</h2>
+        <p>
+          Rozdíl mezi výkonností nejlepšího (benchmarku) a výkonností našeho podniku v daném
+          čase se nazývá <a class="pojem" href="#pojem-hodnotova-rezerva">hodnotová rezerva</a>.
+          Ukazuje, o kolik za nejlepšími zaostáváme – tedy potenciál ke zlepšení. Ambiciózní
+          podnik se s dorovnáním nespokojí a usiluje o překonání dosavadního benchmarku
+          (obrázek 6–2).
+        </p>
+
+        <!-- DEFINICE: hodnotová rezerva -->
+        <section class="definice" id="pojem-hodnotova-rezerva">
+          <h3 class="definice__pojem">Hodnotová rezerva</h3>
+          <div class="definice__telo">
+            <p>
+              Mezera mezi výkonností benchmarku a výkonností vlastního podniku v daném časovém
+              okamžiku. Vyjadřuje nevyužitý potenciál – prostor, o který lze výkonnost zlepšit,
+              pokud podnik převezme lepší praktiky.
+            </p>
+          </div>
+        </section>
+
+        <!-- ================= KROKOVÁ VIZUALIZACE: hodnotová rezerva ================= -->
+        <figure class="viz">
+          <figcaption>
+            <p class="viz__nadpis">Od hodnotové rezervy k novému benchmarku (obr. 6–2)</p>
+            <p class="viz__popis">Sledujte, jak se z původní mezery za benchmarkem (hodnotové rezervy) stane po zrychlení zlepšování rovnost a nakonec vedoucí tržní postavení.</p>
+          </figcaption>
+          <div id="viz-rezerva"></div>
+        </figure>
+      </section>
+
+      <section id="typy-predmet">
+        <h2>Typy benchmarkingu podle předmětu srovnání</h2>
+        <p>
+          Benchmarking lze zaměřit na cokoli v organizaci, co si podle rozhodnutí vedení
+          zaslouží pozornost – produkty a služby, procesy, způsobilost zaměstnanců či systém
+          managementu. Podle <strong>předmětu srovnávání</strong> rozlišujeme tři základní přístupy.
+        </p>
+
+        <div class="tabulka-obal">
+          <table class="tabulka">
+            <caption>Typy benchmarkingu podle předmětu srovnání</caption>
+            <thead>
+              <tr>
+                <th scope="col">Typ</th>
+                <th scope="col">Co srovnává</th>
+                <th scope="col">Typické ukazatele</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Výkonový</th>
+                <td>Finanční i nefinanční data – identifikuje rozdíl ve výkonnosti mezi subjekty.</td>
+                <td>Tržní pozice, ekonomický růst, konkurenční výhoda.</td>
+              </tr>
+              <tr>
+                <th scope="row">Procesní</th>
+                <td>Výkonnost a funkčnost jednotlivého procesu; hledá „nejlepší praktiky" (best practices).</td>
+                <td>Trvání výrobního cyklu, kapacita výroby, využití zdrojů.</td>
+              </tr>
+              <tr>
+                <th scope="row">Strategický</th>
+                <td>Standardy na úrovni světové třídy; určuje rozdíly v konkurenceschopnosti a rodí strategie.</td>
+                <td>Využití zdrojů a dovedností, nabídka produktů a služeb.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="typy-partner">
+        <h2>Typy benchmarkingu podle partnera srovnání</h2>
+        <p>
+          Jedním z klíčových rozhodnutí před zahájením benchmarkingu je volba vhodného
+          <strong>partnera</strong> pro porovnávání. Podle toho, s kým se srovnáváme,
+          rozlišujeme tři typy – liší se dostupností dat i potenciálem přínosu.
+        </p>
+
+        <div class="tabulka-obal">
+          <table class="tabulka">
+            <caption>Typy benchmarkingu podle partnera srovnání</caption>
+            <thead>
+              <tr>
+                <th scope="col">Typ</th>
+                <th scope="col">Partner</th>
+                <th scope="col">Přínos / slabina</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Interní</th>
+                <td>Vlastní pobočky, oddělení či sesterské firmy s obdobnými aktivitami.</td>
+                <td>Nejsnazší na provedení – nenaráží na dostupnost dat ani na konkurenci.</td>
+              </tr>
+              <tr>
+                <th scope="row">Konkurenční</th>
+                <td>Podobné podniky v témže odvětví (přímá konkurence).</td>
+                <td>Relevantní srovnání, ale konkurence nerada předává data.</td>
+              </tr>
+              <tr>
+                <th scope="row">Funkční (procedurální)</th>
+                <td>Špičkové výkony v jakémkoli oboru, bez ohledu na odvětví.</td>
+                <td>Největší prostor pro zlepšení, a tím i nejvyšší efektivnost.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="callout callout--info">
+          <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+          <p class="callout__nadpis">Podmínka úspěchu: informační provázanost</p>
+          <div class="callout__telo">
+            <p>Úspěšný benchmarking vyžaduje rychlý přístup ke kvalitním informacím. Jeho
+            postupy jsou spojeny s využíváním nejmodernějších informačních technologií,
+            systematickým přístupem a výběrem vhodných benchmarkingových partnerů.</p>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Chcete srovnat a zlepšit svůj <strong>logistický (skladovací a dodací) proces</strong>.
+          Který typ benchmarkingu podle partnera zvolíte a proč?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Nejvhodnější je <strong>funkční (procedurální) benchmarking</strong>. Logistika je
+            proces, který skvěle zvládají firmy napříč obory (např. zásilkové a e-commerce
+            společnosti), takže se lze inspirovat u světové špičky bez ohledu na odvětví. Interní
+            benchmarking by nabídl jen omezené srovnání a konkurenční benchmarking naráží na
+            neochotu konkurentů sdílet data. Funkční přístup navíc nabízí největší prostor pro
+            zlepšení, a tedy nejvyšší efektivnost.</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="financni-rizeni">
+        <h2>Benchmarking ve finančním řízení</h2>
+        <p>
+          Postupy benchmarkingu lze účinně využít ve finančním řízení podniku. Management a
+          vlastníci chtějí znát odpovědi na otázky typu: <em>Je naše výkonnost dostatečná?
+          Není naše zadlužení příliš vysoké? Nakládáme efektivně se svým majetkem?</em>
+        </p>
+        <p>
+          K odpovědím slouží hodnotové ukazatele a analýza <a class="pojem" href="t7-l1-generatory-hodnoty.html?zvyraznit=pojem-generatory-hodnoty" target="_blank" rel="noopener">generátorů hodnoty</a>. Samotný výpočet
+          ukazatele však ještě neřekne, zda je hodnota vysoká, či nízká, dobrá, nebo špatná.
+          Teprve porovnání s podobnými podniky ukáže, zda patříme k lepším, k průměru, nebo
+          jsme podprůměrní – a kde se inspirovat.
+        </p>
+      </section>
+
+      <section id="nastroje">
+        <h2>Konkrétní benchmarkingové nástroje</h2>
+        <p>
+          Většina evropských zemí poskytuje podnikům určitý benchmarkingový nástroj s cílem
+          posílit jejich konkurenceschopnost. Jde zejména o nástroje <strong>výkonového</strong>
+          benchmarkingu, protože databáze lze snadno tvořit ze standardizovaných finančních
+          výkazů dané země.
+        </p>
+
+        <div class="tabulka-obal">
+          <table class="tabulka">
+            <caption>Vybrané benchmarkingové nástroje</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nástroj</th>
+                <th scope="col">Zaměření</th>
+                <th scope="col">Charakteristika</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">BenchmarkIndex</th>
+                <td>Malé a střední podniky (téměř celá Evropa).</td>
+                <td>Firma vyplní dotazník se 47 vstupními údaji (finanční a manažerská data + devět oblastí modelu EFQM). Srovnání probíhá v 66 poměrových ukazatelích lokálně, celostátně i mezinárodně; výstupem je podrobná analýza s vytipovanými rezervami.</td>
+              </tr>
+              <tr>
+                <th scope="row">Český benchmarkingový index</th>
+                <td>České podniky (indikátorový benchmarking).</td>
+                <td>Provozovaný do roku 2007 agenturou CzechInvest; sladěný s českým účetním systémem. Dotazník s více než 70 ukazateli v pojetí Balanced Scorecard, srovnání s anonymní skupinou podniků. Ukončen v květnu 2007.</td>
+              </tr>
+              <tr>
+                <th scope="row">INFA</th>
+                <td>Diagnostický systém finančních indikátorů.</td>
+                <td>Výsledek spolupráce MPO a VŠE (manželé Neumaierovi, autoři metodiky INFA). Vychází ze statistických dat ČSÚ a resortních šetření MPO; bezplatně přístupný všem firmám na webu Ministerstva průmyslu a obchodu ČR.</td>
+              </tr>
+              <tr>
+                <th scope="row">IMP³rove</th>
+                <td>Inovace a konkurenceschopnost MSP v Evropě.</td>
+                <td>Internetová platforma, na níž firmy (od pěti do několika stovek zaměstnanců) hodnotí své inovační procesy webovým dotazníkem a porovnají se s nejlepšími. Cílem je jednotný standard hodnocení inovačních možností.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="callout callout--info">
+          <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+          <p class="callout__nadpis">INFA v českém prostředí</p>
+          <div class="callout__telo">
+            <p>Právě INFA je pro české firmy nejdostupnější: je zdarma, opírá se o oficiální
+            statistická data ČSÚ a MPO a umožní podniku porovnat se s odvětvovým průměrem
+            bez nutnosti získávat data od konkurence.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="kritika">
+        <h2>Kritika: selection bias</h2>
+        <p>
+          Přes všechnu užitečnost není benchmarking bez úskalí. <strong>J. Denrell</strong>
+          upozorňuje na problém „neúplného či nepřesného výběru" – tzv.
+          <a class="pojem" href="#pojem-selection-bias">selection bias</a>. Kdo studuje
+          existující podniky a chce zobecňovat myšlenky o podnikatelském úspěchu, spoléhá na
+          data, která nejsou reprezentativní pro celou škálu podniků.
+        </p>
+
+        <!-- DEFINICE: selection bias -->
+        <section class="definice" id="pojem-selection-bias">
+          <h3 class="definice__pojem">Selection bias (chyba výběru)</h3>
+          <div class="definice__telo">
+            <p>
+              Zkreslení plynoucí z toho, že do vzorku vstupují jen podniky, které přežily.
+              „Dobrý výkon je odměněn přežitím" – neúspěšné firmy již často neexistují, a proto
+              jejich praktiky a výsledky do statistických vzorků nevstupují. Benchmarking tak
+              může např. <strong>přeceňovat riskantní praktiky</strong>.
+            </p>
+          </div>
+        </section>
+
+        <aside class="callout callout--pozor">
+          <span class="callout__ikona" aria-hidden="true">⚠️</span>
+          <p class="callout__nadpis">Přežili jen úspěšní riskéři</p>
+          <div class="callout__telo">
+            <p>Podniky, které riskovaly a uspěly, na trhu zůstávají a vykazují vysokou výnosnost
+            i tvorbu hodnoty. Podniky, které kvůli stejným riskantním praktikám neuspěly, už na
+            trhu nepůsobí a jejich data nejsou dostupná. Vzorek „nejlepších" proto může svádět
+            k závěru, že se riziko vždy vyplácí.</p>
+          </div>
+        </aside>
+
+        <p>
+          I když je benchmarking velmi užitečným prostředkem pro zvyšování výkonnosti, je třeba
+          tyto výhrady mít na paměti. Jeho výsledky berme jako <strong>inspiraci</strong> a
+          uplatňujme je s ohledem na vnější i vnitřní podmínky, za nichž podnik konkrétně podniká.
+        </p>
+      </section>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Provedete benchmarking a zjistíte, že nejúspěšnější firmy v oboru sázely na
+          agresivní, riskantní expanzi. Můžete z toho vyvodit, že riskantní expanze zvyšuje
+          výkonnost? Kde je háček?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Nemůžete – jde přesně o <strong>selection bias</strong>. Ve vzorku vidíte jen ty,
+            kdo riskoval <em>a přežil</em>. Firmy, které stejně riskantní strategii zvolily a
+            zkrachovaly, ze vzorku vypadly, takže riziko systematicky přeceňujete. Ke správnému
+            závěru byste potřebovali i data o neúspěšných riskérech. Závěr benchmarkingu proto
+            berte jako inspiraci a poměřte ho vlastními vnitřními i vnějšími podmínkami.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaká otázka je pro benchmarking nejdůležitější a proč nestačí zjišťovat jen „o kolik zaostáváme"?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Cílem není jen dorovnat standard, ale stát se novým benchmarkem.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Nejdůležitější je otázka <strong>PROČ?</strong> – proč je nejlepší nejlepším a jak toho dosáhl. Pouhé porovnání čísel (JAK, O KOLIK ZAOSTÁVÁME) k vedoucímu postavení nestačí; potřebujeme pochopit příčiny úspěchu a ty přizpůsobit vlastnímu podniku.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co je hodnotová rezerva a jak souvisí s benchmarkem?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Představte si dvě rostoucí křivky výkonnosti v čase.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Hodnotová rezerva je <strong>mezera mezi výkonností benchmarku a výkonností vlastního podniku</strong> v daném čase. Vyjadřuje nevyužitý potenciál – prostor, o který se lze zlepšit převzetím lepších praktik.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Čím se liší konkurenční a funkční benchmarking a jaká je hlavní slabina prvního z nich?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Rozdíl je v tom, s kým se srovnáváme – v rámci odvětví, nebo napříč obory.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Konkurenční</strong> benchmarking srovnává podnik s přímou konkurencí v témže odvětví; jeho hlavní slabinou je, že <strong>konkurence není nakloněna předávání dat</strong>. <strong>Funkční (procedurální)</strong> benchmarking porovnává funkce a postupy napříč obory – ideálem jsou špičkové výkony bez ohledu na obor, což dává největší prostor pro zlepšení a nejvyšší efektivnost.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Který benchmarkingový nástroj je v ČR bezplatně dostupný a z jakých dat vychází?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vznikl spoluprací MPO a VŠE.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Systém <strong>INFA</strong> (autoři metodiky manželé Neumaierovi). Vychází ze statistických dat ČSÚ a resortních šetření MPO a je bezplatně přístupný všem firmám na webu Ministerstva průmyslu a obchodu ČR.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Vysvětlete, proč může benchmarking podle Denrella přeceňovat riskantní praktiky.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kdo se do vzorku „nejlepších" vůbec dostane?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Jde o <strong>selection bias</strong>: do vzorku vstupují jen podniky, které přežily. Firmy, jež kvůli riskantním praktikám zkrachovaly, už neexistují a jejich data chybí. Vidíme tedy pouze úspěšné riskéry a docházíme k mylnému závěru, že riziko výkonnost zvyšuje. Výsledky je proto nutné brát jako inspiraci a poměřovat je konkrétními podmínkami podniku.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t10-l3-vyuziti-bsc.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">10.3 Využití BSC a propojení s dalšími koncepty</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t11-l2-financni-plan-rizika.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">11.2 Finanční plán a řízení rizik</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // =====================================================================
+      // A) KROKOVÁ VIZUALIZACE: sedm kroků procesu benchmarkingu
+      // Postupně odkrývá kroky 1–7; aktuální krok je barevně zvýrazněn.
+      // =====================================================================
+      var KROKY = [
+        'Co chceme porovnávat?',
+        'Výběr podniků pro srovnání',
+        'Sběr dat pro srovnání',
+        'Analýza a interpretace dat',
+        'Odvození cílů specifických pro podnik',
+        'Vytvoření plánů realizace',
+        'Realizace a sledování výsledků'
+      ];
+
+      Skripta.stepper('viz-kroky', {
+        sirka: 720, vyska: 380,
+        stavy: KROKY.map(function (_, i) { return { aktivni: i }; }),
+        popisky: KROKY.map(function (t, i) { return 'Krok ' + (i + 1) + ': ' + t; }),
+        render: function (svg, stav, idx, u) {
+          var akcent = '#4338ca';       // indigo – aktuální krok
+          var hotovoVypln = '#eef2ff';  // světlá – již odkryté kroky
+          var hotovoRam = '#c7d2fe';
+          var boxX = 150, boxW = 420, boxH = 40, rozestup = 50, top0 = 18;
+          var stred = boxX + boxW / 2;  // vodorovný střed sloupce
+
+          for (var j = 0; j < KROKY.length; j++) {
+            var top = top0 + j * rozestup;
+            var odkryto = (j <= stav.aktivni);
+            var jeAktivni = (j === stav.aktivni);
+            var opac = odkryto ? 1 : 0;
+
+            // Spojnice k předchozímu bloku (viditelná, je-li odkryt i tento blok)
+            if (j > 0) {
+              u.dej(svg, 'conn-' + j, 'line', {
+                x1: stred, y1: top - (rozestup - boxH), x2: stred, y2: top,
+                stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: opac
+              });
+            }
+
+            // Blok kroku
+            u.dej(svg, 'box-' + j, 'rect', {
+              x: boxX, y: top, width: boxW, height: boxH, rx: 9,
+              fill: jeAktivni ? akcent : hotovoVypln,
+              stroke: jeAktivni ? akcent : hotovoRam, 'stroke-width': 1.5,
+              opacity: opac
+            });
+
+            // Číslo kroku v kolečku
+            u.dej(svg, 'circ-' + j, 'circle', {
+              cx: boxX + 26, cy: top + boxH / 2, r: 14,
+              fill: jeAktivni ? '#fff' : akcent, opacity: opac
+            });
+            u.dej(svg, 'cnum-' + j, 'text', {
+              x: boxX + 26, y: top + boxH / 2 + 5, 'text-anchor': 'middle',
+              fill: jeAktivni ? akcent : '#fff', 'font-size': 14, 'font-weight': 700,
+              opacity: opac
+            }, String(j + 1));
+
+            // Text kroku
+            u.dej(svg, 'lbl-' + j, 'text', {
+              x: boxX + 52, y: top + boxH / 2 + 5, 'text-anchor': 'start',
+              fill: jeAktivni ? '#fff' : '#1e293b', 'font-size': 14,
+              'font-weight': jeAktivni ? 700 : 500, opacity: opac
+            }, KROKY[j]);
+          }
+        }
+      });
+
+      // =====================================================================
+      // B) KROKOVÁ VIZUALIZACE: hodnotová rezerva → nový benchmark (obr. 6–2)
+      // Stav 0: rovnoběžné přímky + hodnotová rezerva
+      // Stav 1: zrychlení, dosažení rovnosti v čase t+1
+      // Stav 2: překonání – nový benchmark (vedoucí tržní postavení)
+      // =====================================================================
+      Skripta.stepper('viz-rezerva', {
+        sirka: 720, vyska: 400,
+        stavy: [ { faze: 0 }, { faze: 1 }, { faze: 2 } ],
+        popisky: [
+          'Naše výkonnost roste rovnoběžně s benchmarkem. Svislá mezera v čase t je hodnotová rezerva – o tolik za nejlepšími zaostáváme.',
+          'Nespokojíme se s dorovnáním: v bodě t zrychlíme zlepšování a v čase t+1 dosáhneme rovnosti s benchmarkem.',
+          'Pokračujeme dál za rovnost – sami se stáváme novým benchmarkem s vedoucím tržním postavením.'
+        ],
+        render: function (svg, stav, idx, u) {
+          var seda = '#94a3b8', indigo = '#4338ca', tmava = '#0f172a';
+          var f1 = (stav.faze >= 1) ? 1 : 0;
+          var f2 = (stav.faze >= 2) ? 1 : 0;
+
+          // Osy
+          u.dej(svg, 'osaY', 'line', { x1: 70, y1: 340, x2: 70, y2: 40, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osaX', 'line', { x1: 70, y1: 340, x2: 690, y2: 340, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'popisY', 'text', { x: 26, y: 195, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, transform: 'rotate(-90 26 195)' }, 'Výkonnost');
+          u.dej(svg, 'popisX', 'text', { x: 375, y: 372, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, 'Čas');
+
+          // Benchmark (šedá rostoucí přímka) a její popisek
+          u.dej(svg, 'lineBench', 'line', { x1: 70, y1: 250, x2: 680, y2: 120, stroke: seda, 'stroke-width': 3 });
+          u.dej(svg, 'lblBench', 'text', { x: 676, y: 110, 'text-anchor': 'end', fill: '#475569', 'font-size': 13, 'font-weight': 700 }, 'Benchmark');
+
+          // Naše výkonnost (indigo rostoucí přímka) a popisek
+          u.dej(svg, 'lineNase', 'line', { x1: 70, y1: 320, x2: 680, y2: 230, stroke: indigo, 'stroke-width': 3 });
+          u.dej(svg, 'lblNase', 'text', { x: 676, y: 246, 'text-anchor': 'end', fill: indigo, 'font-size': 13, 'font-weight': 700 }, 'Naše výkonnost');
+
+          // Časové značky t a t+1
+          u.dej(svg, 'tickT', 'line', { x1: 400, y1: 340, x2: 400, y2: 347, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'lblT', 'text', { x: 400, y: 360, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, 't');
+          u.dej(svg, 'tickT1', 'line', { x1: 560, y1: 340, x2: 560, y2: 347, stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: f1 });
+          u.dej(svg, 'lblT1', 'text', { x: 560, y: 360, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: f1 }, 't+1');
+
+          // Hodnotová rezerva – svorka mezi oběma přímkami v čase t (y 180 → 271)
+          u.dej(svg, 'rezervaCara', 'line', { x1: 400, y1: 180, x2: 400, y2: 271, stroke: '#b45309', 'stroke-width': 2 });
+          u.dej(svg, 'rezervaCapH', 'line', { x1: 394, y1: 180, x2: 406, y2: 180, stroke: '#b45309', 'stroke-width': 2 });
+          u.dej(svg, 'rezervaCapD', 'line', { x1: 394, y1: 271, x2: 406, y2: 271, stroke: '#b45309', 'stroke-width': 2 });
+          u.dej(svg, 'rezervaLbl', 'text', { x: 414, y: 230, 'text-anchor': 'start', fill: '#b45309', 'font-size': 13, 'font-weight': 700 }, 'Hodnotová rezerva');
+
+          // Zrychlení: strmá tmavá čára z (400,271) k rovnosti v (560,146)
+          u.dej(svg, 'lineRust', 'line', { x1: 400, y1: 271, x2: 560, y2: 146, stroke: tmava, 'stroke-width': 3, opacity: f1 });
+          // Bod rovnosti s benchmarkem
+          u.dej(svg, 'bodRovnost', 'circle', { cx: 560, cy: 146, r: 6, fill: tmava, opacity: f1 });
+          u.dej(svg, 'lblRovnost', 'text', { x: 548, y: 132, 'text-anchor': 'end', fill: tmava, 'font-size': 12, opacity: f1 }, 'rovnost s benchmarkem');
+
+          // Překonání: nový benchmark z (560,146) do (680,70)
+          u.dej(svg, 'lineNovy', 'line', { x1: 560, y1: 146, x2: 680, y2: 70, stroke: tmava, 'stroke-width': 3.5, opacity: f2 });
+          u.dej(svg, 'lblNovy1', 'text', { x: 676, y: 58, 'text-anchor': 'end', fill: tmava, 'font-size': 13, 'font-weight': 700, opacity: f2 }, 'nový benchmark');
+          u.dej(svg, 'lblNovy2', 'text', { x: 676, y: 74, 'text-anchor': 'end', fill: '#475569', 'font-size': 11, opacity: f2 }, 'vedoucí tržní postavení');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

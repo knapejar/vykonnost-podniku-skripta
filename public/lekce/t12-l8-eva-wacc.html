@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.8 EVA v podniku PLAST – WACC a výpočet EVA – Výkonnost podniku</title>
+  <meta name="description" content="Výpočet WACC podniku PLAST: náklady na cizí kapitál, pět metod odhadu nákladů na vlastní kapitál a výpočet EVA ekonomickým i účetním modelem.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12 -->
+    <nav class="panel" data-panel data-aktivni-lekce="12.8" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.8</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.8</span>
+        <h1>EVA v podniku PLAST – WACC a výpočet EVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 277–285</p>
+      </header>
+
+      <p>
+        V předchozí lekci jsme účetní model podniku PLAST převedli na ekonomický –
+        vymezili jsme <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">čistá operativní aktiva (NOA)</a> a k nim symetrický <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">čistý operativní
+        zisk (NOPAT)</a>. K výpočtu <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">ekonomické přidané hodnoty</a> už zbývá poslední, ale
+        nejcitlivější díl skládačky: <strong>průměrné vážené náklady na kapitál</strong>,
+        tedy <a class="pojem" href="#pojem-wacc">WACC</a>. Ty představují onu „laťku",
+        kterou musí podnik svým ziskem překonat, aby vůbec začal tvořit hodnotu pro vlastníky.
+      </p>
+      <p>
+        Tato lekce je nejnáročnější částí celé případové studie. Postupně určíme
+        náklady na cizí kapitál (bankovní úvěr a leasing), projdeme <strong>pět metod</strong>
+        odhadu nákladů na vlastní kapitál včetně modelu CAPM, sestavíme z nich WACC
+        a nakonec vypočteme EVA <strong>dvěma způsoby</strong> – ekonomickým a účetním
+        modelem – a jejich výsledky porovnáme.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde v ročadě stojíme</p>
+        <div class="callout__telo">
+          <p>Základní vztah <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>
+          už máme téměř kompletní: <span class="math">NOPAT</span> a investovaný kapitál
+          <span class="math">C</span> (tj. NOA) jsme určili v lekci 12.7. Zbývá dopočítat
+          <span class="math">WACC</span>. Podrobný teoretický aparát (CAPM, koeficient β,
+          daňový štít, <a class="pojem" href="t9-l3-wacc.html?zvyraznit=pojem-u-krivka-wacc" target="_blank" rel="noopener">U-křivka WACC</a>) je vyložen v Tématu 9; zde jej aplikujeme na reálná data.</p>
+        </div>
+      </aside>
+
+      <!-- ============================================================ -->
+      <h2>Kapitálová struktura jako základ pro WACC</h2>
+      <p>
+        WACC je vážený průměr nákladů jednotlivých druhů kapitálu, kde vahou je podíl
+        daného kapitálu na kapitálu celkovém. Nejprve tedy potřebujeme znát strukturu
+        investovaného kapitálu <span class="math">C</span> z pasivní strany rozvahy.
+        Ta se od účetní rozvahy liší: přibyla vyrovnávací položka <em>ekvivalenty VK</em>,
+        aktivovaný leasing se přesunul do cizích zdrojů a neúročený cizí kapitál byl vyloučen.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–35 – Vymezení C v jednotlivých letech (pasivní část rozvahy, v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">Vlastní kapitál</th><td class="cislo">514 220</td><td class="cislo">550 966</td><td class="cislo">454 462</td><td class="cislo">482 162</td><td class="cislo">580 996</td><td class="cislo">551 158</td></tr>
+            <tr><th scope="row">Základní kapitál</th><td class="cislo">399 770</td><td class="cislo">399 770</td><td class="cislo">399 770</td><td class="cislo">399 870</td><td class="cislo">399 870</td><td class="cislo">399 870</td></tr>
+            <tr><th scope="row">Kapitálové fondy</th><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">0</td><td class="cislo">−7 334</td><td class="cislo">−24 254</td><td class="cislo">−14 369</td></tr>
+            <tr><th scope="row">Rezervní fondy, …</th><td class="cislo">23 200</td><td class="cislo">27 922</td><td class="cislo">31 787</td><td class="cislo">34 774</td><td class="cislo">38 498</td><td class="cislo">42 887</td></tr>
+            <tr><th scope="row">VH minulých let</th><td class="cislo">45</td><td class="cislo">89 869</td><td class="cislo">163 538</td><td class="cislo">220 105</td><td class="cislo">291 429</td><td class="cislo">356 703</td></tr>
+            <tr><th scope="row">VH úč. období</th><td class="cislo">94 843</td><td class="cislo">77 731</td><td class="cislo">59 930</td><td class="cislo">75 550</td><td class="cislo">70 176</td><td class="cislo">72 315</td></tr>
+            <tr><th scope="row">Ekvivalenty VK</th><td class="cislo">−3 638</td><td class="cislo">−44 326</td><td class="cislo">−200 563</td><td class="cislo">−240 803</td><td class="cislo">−194 723</td><td class="cislo">−306 248</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Cizí zdroje</th><td class="cislo">332 141</td><td class="cislo">405 010</td><td class="cislo">385 053</td><td class="cislo">429 041</td><td class="cislo">334 694</td><td class="cislo">377 395</td></tr>
+            <tr><th scope="row">Bankovní úvěry</th><td class="cislo">314 878</td><td class="cislo">402 223</td><td class="cislo">381 318</td><td class="cislo">358 599</td><td class="cislo">281 765</td><td class="cislo">336 514</td></tr>
+            <tr><th scope="row">Leasing</th><td class="cislo">17 263</td><td class="cislo">2 787</td><td class="cislo">3 735</td><td class="cislo">70 442</td><td class="cislo">52 929</td><td class="cislo">40 881</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Kapitál celkem (C)</th><td class="cislo">846 361</td><td class="cislo">955 976</td><td class="cislo">839 515</td><td class="cislo">911 203</td><td class="cislo">915 690</td><td class="cislo">928 553</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Nyní přiřadíme každému druhu kapitálu jeho náklady. Postupujeme ve třech krocích:
+        (1) náklady na cizí kapitál, (2) náklady na vlastní kapitál a (3) jejich vážený
+        průměr – WACC.
+      </p>
+
+      <div class="vzorec" id="vzorec-3-7">
+        <div class="vzorec__telo">
+          <span class="math">WACC<span class="op">=</span>N<sub>CK</sub><span class="op">×</span>
+            <span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">C</span></span>
+            <span class="op">+</span>N<sub>VK</sub><span class="op">×</span>
+            <span class="frac"><span class="frac__cit">VK</span><span class="frac__jmen">C</span></span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(3.7)</div>
+      </div>
+
+      <section class="definice" id="pojem-wacc">
+        <h3 class="definice__pojem">WACC (průměrné vážené náklady na kapitál)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Weighted Average Cost of Capital</em> – vážený aritmetický průměr nákladů
+            na cizí (<span class="math">N<sub>CK</sub></span>) a vlastní
+            (<span class="math">N<sub>VK</sub></span>) kapitál, kde vahami jsou podíly
+            jednotlivých druhů kapitálu na kapitálu celkovém. Vyjadřuje minimální
+            výnosnost, kterou musí podnik dosáhnout, aby uspokojil všechny poskytovatele
+            kapitálu – tedy laťku pro tvorbu hodnoty.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <h2>1. Náklady na cizí kapitál</h2>
+      <p>
+        Náklady dluhu se projevují v podobě úroku, který podnik platí. PLAST financuje
+        dlouhodobě pomocí <strong>bankovních úvěrů</strong> a <strong>leasingu</strong>.
+        U bankovního úvěru existují tři cesty, jak náklady určit.
+      </p>
+
+      <section class="definice" id="pojem-naklady-cizi-kapital">
+        <h3 class="definice__pojem">Náklady na cizí kapitál (N<sub>CK</sub>)</h3>
+        <div class="definice__telo">
+          <p>
+            Cena, kterou podnik platí za užití cizích (dluhových) zdrojů – zpravidla úrok.
+            Do výpočtu WACC vstupují <strong>po zdanění</strong>, protože úrok je daňově
+            uznatelný náklad a snižuje daňový základ (daňový štít).
+          </p>
+        </div>
+      </section>
+
+      <h3>Bankovní úvěr – tři alternativy odhadu</h3>
+      <p>
+        <strong>a) Známe úrokovou sazbu úvěru.</strong> Nejjednodušší a nejpřesnější
+        varianta. Sazba úvěrů PLASTu je odvozena od sazby PRIBOR, ke které se připočítá
+        riziková přirážka. Díky vysoké finanční stabilitě a záruce mateřské společnosti
+        činí přirážka jen 1 %.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–36 – Náklady na bankovní úvěry, 1. alternativa (nominální sazby)</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">1999</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">PRIBOR</th><td class="cislo">6,96 %</td><td class="cislo">5,76 %</td><td class="cislo">5,30 %</td><td class="cislo">3,62 %</td><td class="cislo">2,32 %</td><td class="cislo">1,75 %</td></tr>
+            <tr><th scope="row">Riziková přirážka</th><td class="cislo">1,00 %</td><td class="cislo">1,00 %</td><td class="cislo">1,00 %</td><td class="cislo">1,00 %</td><td class="cislo">1,00 %</td><td class="cislo">1,00 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Nominální úroková sazba z úvěrů</th><td class="cislo">7,96 %</td><td class="cislo">6,76 %</td><td class="cislo">6,30 %</td><td class="cislo">4,62 %</td><td class="cislo">3,32 %</td><td class="cislo">2,75 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>b) Neznáme sazbu – odvodíme ji z účetnictví.</strong> Použijeme poměr
+        nákladových úroků k bankovním úvěrům. Aby výsledek nezkreslilo splacení úvěru
+        během roku, počítá se raději z <em>průměrného</em> stavu úvěru
+        <span class="math">(BÚ<sub>počátek</sub><span class="op">+</span>BÚ<sub>konec</sub>)<span class="op">/</span>2</span>.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–37 – Náklady na bankovní úvěry, 2. alternativa (z účetních dat)</caption>
+          <thead>
+            <tr><th scope="col">(v tis. Kč / %)</th><th scope="col" class="cislo">1999</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Stav BÚ na konci roku</th><td class="cislo">314 878</td><td class="cislo">402 223</td><td class="cislo">381 318</td><td class="cislo">358 599</td><td class="cislo">281 765</td><td class="cislo">336 514</td></tr>
+            <tr><th scope="row">Průměrný stav BÚ</th><td class="cislo">288 204</td><td class="cislo">358 551</td><td class="cislo">391 771</td><td class="cislo">369 959</td><td class="cislo">320 182</td><td class="cislo">309 140</td></tr>
+            <tr><th scope="row">Nákladové úroky</th><td class="cislo">17 898</td><td class="cislo">21 099</td><td class="cislo">23 891</td><td class="cislo">16 548</td><td class="cislo">11 013</td><td class="cislo">10 632</td></tr>
+            <tr><th scope="row">Sazba – stav BÚ na konci roku</th><td class="cislo">5,68 %</td><td class="cislo">5,25 %</td><td class="cislo">6,27 %</td><td class="cislo">4,61 %</td><td class="cislo">3,91 %</td><td class="cislo">3,16 %</td></tr>
+            <tr><th scope="row">Sazba – průměrný stav BÚ</th><td class="cislo">6,21 %</td><td class="cislo">5,88 %</td><td class="cislo">6,10 %</td><td class="cislo">4,47 %</td><td class="cislo">3,44 %</td><td class="cislo">3,44 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>c) Odhad z tržních dat.</strong> Vhodný pro externího analytika bez
+        interních informací. Vychází z bezrizikové sazby a <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-rating" target="_blank" rel="noopener">ratingu</a> odvozeného z <a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-urokove-kryti" target="_blank" rel="noopener">úrokového
+        krytí</a> (EBIT / nákladové úroky), k němuž se přiřadí riziková přirážka.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–38 – Náklady na bankovní úvěry, 3. alternativa (tržní data)</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">1999</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Bezriziková úroková míra (MPO)</th><td class="cislo">7,60 %</td><td class="cislo">6,50 %</td><td class="cislo">6,30 %</td><td class="cislo">5,10 %</td><td class="cislo">4,10 %</td><td class="cislo">4,80 %</td></tr>
+            <tr><th scope="row">EBIT / nákladové úroky</th><td class="cislo">6,7</td><td class="cislo">5,5</td><td class="cislo">4,2</td><td class="cislo">7,5</td><td class="cislo">10,2</td><td class="cislo">10,5</td></tr>
+            <tr><th scope="row">Rating</th><td class="cislo">AA</td><td class="cislo">A</td><td class="cislo">A−</td><td class="cislo">A+</td><td class="cislo">AA</td><td class="cislo">AA</td></tr>
+            <tr><th scope="row">Riziková přirážka</th><td class="cislo">0,50 %</td><td class="cislo">0,85 %</td><td class="cislo">1,00 %</td><td class="cislo">0,70 %</td><td class="cislo">0,50 %</td><td class="cislo">0,50 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Odhadnutá úroková sazba BÚ</th><td class="cislo">8,10 %</td><td class="cislo">7,35 %</td><td class="cislo">7,30 %</td><td class="cislo">5,80 %</td><td class="cislo">4,60 %</td><td class="cislo">5,30 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kterou alternativu použít</p>
+        <div class="callout__telo">
+          <p>Pro případovou studii se pracuje s <strong>1. alternativou</strong> (tab. 8–36) –
+          je nejpřesnější, protože vychází z reálných sazeb úvěrů. Ostatní dvě jsou náhradou
+          pro situaci, kdy analytik nemá přístup k interním úvěrovým podmínkám.</p>
+        </div>
+      </aside>
+
+      <h3>Daňový štít – náklady dluhu po zdanění</h3>
+      <p>
+        Úrok je daňově uznatelný náklad, takže reálná cena dluhu je nižší o ušetřenou daň.
+        Nominální sazbu proto vynásobíme faktorem <span class="math">(1<span class="op">−</span>T)</span>.
+        Sazba daně z příjmů činila v letech 1998–2003 <strong>31 %</strong> a v roce 2004
+        <strong>28 %</strong>.
+      </p>
+
+      <div class="vzorec" id="vzorec-nck-danovy-stit">
+        <div class="vzorec__telo">
+          <span class="math">N<sub>CK</sub><span class="op">=</span>i<span class="op">×</span>(1<span class="op">−</span>T)</span>
+        </div>
+        <div class="vzorec__cislo">(N<sub>CK</sub>)</div>
+      </div>
+
+      <section class="definice" id="pojem-danovy-stit">
+        <h3 class="definice__pojem">Daňový štít</h3>
+        <div class="definice__telo">
+          <p>
+            Úspora na dani z příjmů plynoucí z toho, že úroky z cizího kapitálu jsou
+            daňově uznatelným nákladem. Efektivní náklady dluhu proto klesají v poměru
+            <span class="math">(1<span class="op">−</span>T)</span>, kde
+            <span class="math">T</span> je sazba daně z příjmů.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–39 – Náklady na bankovní úvěr po zohlednění daňového štítu</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">1999</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Nominální úroková sazba z úvěru</th><td class="cislo">7,96 %</td><td class="cislo">6,76 %</td><td class="cislo">6,30 %</td><td class="cislo">4,62 %</td><td class="cislo">3,32 %</td><td class="cislo">2,75 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Náklady na bankovní úvěr (po dani)</th><td class="cislo">5,49 %</td><td class="cislo">4,66 %</td><td class="cislo">4,35 %</td><td class="cislo">3,19 %</td><td class="cislo">2,29 %</td><td class="cislo">1,98 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Leasing a průměrné náklady dluhu</h3>
+      <p>
+        Přesný výpočet nákladů na leasing (dle vztahu 4–28) by byl při velkém počtu smluv
+        příliš náročný. Použije se proto odhad z tržních dat (3. alternativa), opět
+        upravený o daňový štít.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–40 – Náklady na leasing</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">1999</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Odhadnutá úroková sazba leasingu</th><td class="cislo">8,10 %</td><td class="cislo">7,35 %</td><td class="cislo">7,30 %</td><td class="cislo">5,80 %</td><td class="cislo">4,60 %</td><td class="cislo">5,30 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Náklady na leasing (po dani)</th><td class="cislo">5,59 %</td><td class="cislo">5,07 %</td><td class="cislo">5,04 %</td><td class="cislo">4,00 %</td><td class="cislo">3,17 %</td><td class="cislo">3,82 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Průměrné náklady dluhu <span class="math">N<sub>CK</sub></span> získáme jako vážený
+        průměr nákladů na úvěr a leasing (vahou jsou jejich počáteční stavy). Podnik byl
+        v celém období finančně silný a pracoval s velmi nízkými náklady dluhu.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–41 – Průměrné náklady dluhu (N<sub>CK</sub>)</caption>
+          <thead>
+            <tr><th scope="col">(v tis. Kč / %)</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Bankovní úvěry (počátek roku)</th><td class="cislo">314 878</td><td class="cislo">402 223</td><td class="cislo">381 318</td><td class="cislo">358 599</td><td class="cislo">281 765</td></tr>
+            <tr><th scope="row">Leasing (počátek roku)</th><td class="cislo">17 263</td><td class="cislo">2 787</td><td class="cislo">3 735</td><td class="cislo">70 442</td><td class="cislo">52 929</td></tr>
+            <tr><th scope="row">Náklady na bankovní úvěry</th><td class="cislo">4,66 %</td><td class="cislo">4,35 %</td><td class="cislo">3,19 %</td><td class="cislo">2,29 %</td><td class="cislo">1,98 %</td></tr>
+            <tr><th scope="row">Náklady na leasing</th><td class="cislo">5,07 %</td><td class="cislo">5,04 %</td><td class="cislo">4,00 %</td><td class="cislo">3,17 %</td><td class="cislo">3,82 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Průměrné náklady dluhu N<sub>CK</sub></th><td class="cislo">4,68 %</td><td class="cislo">4,35 %</td><td class="cislo">3,20 %</td><td class="cislo">2,43 %</td><td class="cislo">2,27 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ============================================================ -->
+      <h2>2. Náklady na vlastní kapitál – pět metod</h2>
+      <p>
+        Náklady na vlastní kapitál <span class="math">r<sub>e</sub></span> (též
+        <span class="math">N<sub>VK</sub></span>) jsou nejobtížněji odhadnutelnou veličinou
+        celého výpočtu – vlastníci totiž svou požadovanou výnosnost nikde „nefakturují".
+        Proto se používá několik nezávislých metod a jejich výsledky se porovnají. PLAST
+        není obchodován na burze, což některé metody komplikuje.
+      </p>
+
+      <section class="definice" id="pojem-naklady-vlastni-kapital">
+        <h3 class="definice__pojem">Náklady na vlastní kapitál (r<sub>e</sub>)</h3>
+        <div class="definice__telo">
+          <p>
+            Výnosnost, kterou požadují vlastníci (akcionáři) za vložení a ponechání
+            kapitálu v podniku – jejich náklad obětované příležitosti. Jsou vždy vyšší
+            než náklady na cizí kapitál, protože vlastník nese vyšší riziko a jeho nárok
+            je uspokojen až po věřitelích.
+          </p>
+        </div>
+      </section>
+
+      <h3>a) Model CAPM (metoda analogie β)</h3>
+      <p>
+        CAPM je v anglosaských zemích nejběžnější model. Vychází z <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-bezrizikova-urokova-mira" target="_blank" rel="noopener">bezrizikové sazby</a>
+        <span class="math">r<sub>f</sub></span>, koeficientu <span class="math">β</span>
+        (<a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-systematicke-riziko" target="_blank" rel="noopener">systematické riziko</a>) a <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-rizikova-premie-trhu" target="_blank" rel="noopener">rizikové prémie trhu</a> <span class="math">(r<sub>m</sub><span class="op">−</span>r<sub>f</sub>)</span>.
+      </p>
+
+      <div class="vzorec" id="vzorec-4-30">
+        <div class="vzorec__telo">
+          <span class="math">r<sub>e</sub><span class="op">=</span>r<sub>f</sub><span class="op">+</span>β<span class="op">×</span>(r<sub>m</sub><span class="op">−</span>r<sub>f</sub>)</span>
+        </div>
+        <div class="vzorec__cislo">(4.30)</div>
+      </div>
+
+      <section class="definice" id="pojem-capm">
+        <h3 class="definice__pojem">CAPM (model oceňování kapitálových aktiv)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Capital Asset Pricing Model</em> – odvozuje požadovanou výnosnost vlastního
+            kapitálu z bezrizikové sazby zvýšené o rizikovou prémii úměrnou koeficientu
+            <span class="math">β</span>. Koeficient <span class="math">β</span> měří citlivost
+            výnosu podniku na pohyby trhu; u neobchodovaných firem se odhaduje metodou
+            analogie z β podobných podniků.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Protože PLAST není na trhu obchodován, použije se <strong>metoda analogie</strong> –
+        β odvětví ve výši <span class="math">β<sub>N</sub><span class="op">=</span>0,8</span>
+        (nezadlužený podnik, dle databáze Damodaran). Toto β je nutné přepočítat na
+        zadlužené podle <a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-kapitalova-struktura" target="_blank" rel="noopener">kapitálové struktury</a> PLASTu (vztah 4.32). Riziková prémie je
+        rovněž převzata dle Damodarana.
+      </p>
+
+      <div class="vzorec" id="vzorec-4-32">
+        <div class="vzorec__telo">
+          <span class="math">β<sub>z</sub><span class="op">=</span>β<sub>N</sub><span class="op">×</span>
+            <span style="white-space:nowrap">(1<span class="op">+</span>(1<span class="op">−</span>T)<span class="op">×</span>
+            <span class="frac"><span class="frac__cit">CK<sub>0</sub></span><span class="frac__jmen">VK<sub>0</sub></span></span>)</span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.32)</div>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–42 – Náklady na vlastní kapitál pomocí CAPM</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">r<sub>f</sub> (bezriziková míra)</th><td class="cislo">6,50 %</td><td class="cislo">6,30 %</td><td class="cislo">5,10 %</td><td class="cislo">4,10 %</td><td class="cislo">4,80 %</td></tr>
+            <tr><th scope="row">β – nezadlužená</th><td class="cislo">0,8</td><td class="cislo">0,8</td><td class="cislo">0,8</td><td class="cislo">0,8</td><td class="cislo">0,8</td></tr>
+            <tr><th scope="row">β – zadlužená</th><td class="cislo">1,16</td><td class="cislo">1,21</td><td class="cislo">1,27</td><td class="cislo">1,29</td><td class="cislo">1,13</td></tr>
+            <tr><th scope="row">Riziková prémie</th><td class="cislo">7,20 %</td><td class="cislo">7,20 %</td><td class="cislo">7,00 %</td><td class="cislo">6,32 %</td><td class="cislo">6,02 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">r<sub>e</sub></th><td class="cislo">14,85 %</td><td class="cislo">15,01 %</td><td class="cislo">13,99 %</td><td class="cislo">12,25 %</td><td class="cislo">11,60 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad – výpočet r<sub>e</sub> metodou CAPM za rok 2004</p>
+        <div class="callout__telo">
+          <p>Nejprve přepočet β na zadlužené (T = 0,28; CK<sub>0</sub> = 334 694; VK<sub>0</sub> = 580 996):</p>
+          <p><span class="math">β<sub>z</sub><span class="op">=</span>0,8<span class="op">×</span>
+            <span style="white-space:nowrap">(1<span class="op">+</span>(1<span class="op">−</span>0,28)<span class="op">×</span>
+            <span class="frac"><span class="frac__cit">334 694</span><span class="frac__jmen">580 996</span></span>)</span>
+            <span class="op">=</span>1,13</span></p>
+          <p>Poté dosazení do CAPM (r<sub>f</sub> = 4,8 %; riziková prémie 6,02 %):</p>
+          <p><span class="math">r<sub>e</sub><span class="op">=</span>4,8<span class="op">+</span>1,13<span class="op">×</span>6,02<span class="op">=</span><strong>11,60 %</strong></span></p>
+        </div>
+      </aside>
+
+      <h3>b) Průměrná rentabilita vlastního kapitálu v odvětví</h3>
+      <p>
+        Jednoduchá metoda využívající to, že data o rentabilitě bývají snadno dostupná
+        (např. z MPO ČR). Za náklady vlastního kapitálu se dosadí průměrná ROE odvětví.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–43 – Náklady na VK pomocí průměrné rentability v odvětví</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr class="tabulka__soucet"><th scope="row">Rentabilita v odvětví (r<sub>e</sub>)</th><td class="cislo">12,03 %</td><td class="cislo">10,23 %</td><td class="cislo">11,04 %</td><td class="cislo">16,22 %</td><td class="cislo">14,89 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>c) Odvození z nákladů na cizí kapitál</h3>
+      <p>
+        Vychází z pravidla, že vlastní kapitál je dražší než cizí. K nákladům na cizí
+        kapitál (zde sazbě BÚ) se přičte riziková přirážka, obvykle 2–3 %. Pro PLAST byla
+        zvolena <strong>2,5 %</strong>.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–44 – Odvození nákladů na VK z nákladů na cizí kapitál</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Úroková sazba BÚ</th><td class="cislo">6,76 %</td><td class="cislo">6,30 %</td><td class="cislo">4,62 %</td><td class="cislo">3,32 %</td><td class="cislo">2,75 %</td></tr>
+            <tr><th scope="row">Přirážka</th><td class="cislo">2,50 %</td><td class="cislo">2,50 %</td><td class="cislo">2,50 %</td><td class="cislo">2,50 %</td><td class="cislo">2,50 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">r<sub>e</sub></th><td class="cislo">9,26 %</td><td class="cislo">8,80 %</td><td class="cislo">7,12 %</td><td class="cislo">5,82 %</td><td class="cislo">5,25 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Dividendový model zde nelze použít</p>
+        <div class="callout__telo">
+          <p>Šestou možností by byl <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-dividendovy-model" target="_blank" rel="noopener">dividendový model</a>, ten však vyžaduje známou tržní
+          hodnotu akcie a vyplácené podíly na zisku. PLAST není veřejně obchodován
+          a v daném období podíly na zisku nevyplácel – metoda proto <strong>není
+          použitelná</strong>. Zůstává tedy pět použitelných metod.</p>
+        </div>
+      </aside>
+
+      <h3>d) Stavebnicový model MPO ČR</h3>
+      <p>
+        Náklady vlastního kapitálu skládá z bezrizikové sazby a několika rizikových
+        přirážek: za velikost podniku (<span class="math">r<sub>LA</sub></span>),
+        za podnikatelské riziko, za finanční stabilitu a za finanční strukturu
+        (<span class="math">r<sub>finstr</sub></span>).
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–45 – Náklady na VK stavebnicovou metodou MPO ČR</caption>
+          <thead>
+            <tr><th scope="col">Přirážka</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Bezriziková sazba</th><td class="cislo">6,50 %</td><td class="cislo">6,30 %</td><td class="cislo">5,10 %</td><td class="cislo">4,10 %</td><td class="cislo">4,80 %</td></tr>
+            <tr><th scope="row">r<sub>LA</sub> (velikost)</th><td class="cislo">2,48 %</td><td class="cislo">2,78 %</td><td class="cislo">2,59 %</td><td class="cislo">2,58 %</td><td class="cislo">2,55 %</td></tr>
+            <tr><th scope="row">r<sub>podnikatelské</sub></th><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">r<sub>finstab</sub></th><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td><td class="cislo">0,00 %</td></tr>
+            <tr><th scope="row">r<sub>finstr</sub></th><td class="cislo">3,81 %</td><td class="cislo">4,03 %</td><td class="cislo">4,45 %</td><td class="cislo">2,16 %</td><td class="cislo">3,28 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">r<sub>e</sub></th><td class="cislo">12,79 %</td><td class="cislo">13,11 %</td><td class="cislo">12,14 %</td><td class="cislo">8,84 %</td><td class="cislo">10,63 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>e) Komplexní stavebnicová metoda</h3>
+      <p>
+        Metoda Garnetta a Hilla, resp. Maříka a Maříkové, upravená pro české podmínky.
+        Riziková prémie se určuje ze souboru faktorů charakterizujících podnikatelské
+        riziko; výpočet zde proběhl v softwaru EVALENT.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–46 – Náklady na VK podle komplexní stavebnicové metody</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Riziková prémie</th><td class="cislo">4,14 %</td><td class="cislo">4,14 %</td><td class="cislo">4,14 %</td><td class="cislo">4,14 %</td><td class="cislo">4,14 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Náklady na VK (r<sub>e</sub>)</th><td class="cislo">10,64 %</td><td class="cislo">10,44 %</td><td class="cislo">9,24 %</td><td class="cislo">8,24 %</td><td class="cislo">8,94 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Přehled pěti metod</h3>
+      <p>
+        Výsledky se mezi metodami citelně liší – od nejnižších hodnot metody odvození
+        z <span class="math">N<sub>CK</sub></span> po nejvyšší hodnoty CAPM. Pro další
+        výpočty lze zvolit výsledek jedné metody, nebo použít průměr více z nich.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–47 – Přehled nákladů na vlastní kapitál dle různých přístupů</caption>
+          <thead>
+            <tr><th scope="col">Metoda</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">CAPM</th><td class="cislo">14,85 %</td><td class="cislo">15,01 %</td><td class="cislo">13,99 %</td><td class="cislo">12,25 %</td><td class="cislo">11,60 %</td></tr>
+            <tr><th scope="row">Rentabilita v odvětví</th><td class="cislo">12,03 %</td><td class="cislo">10,23 %</td><td class="cislo">11,04 %</td><td class="cislo">16,22 %</td><td class="cislo">14,89 %</td></tr>
+            <tr><th scope="row">Odvození z N<sub>CK</sub></th><td class="cislo">9,26 %</td><td class="cislo">8,80 %</td><td class="cislo">7,12 %</td><td class="cislo">5,82 %</td><td class="cislo">5,25 %</td></tr>
+            <tr><th scope="row">Stavebnicový model</th><td class="cislo">12,79 %</td><td class="cislo">13,11 %</td><td class="cislo">12,14 %</td><td class="cislo">8,84 %</td><td class="cislo">10,63 %</td></tr>
+            <tr><th scope="row">Komplexní stavebnicová metoda</th><td class="cislo">10,64 %</td><td class="cislo">10,44 %</td><td class="cislo">9,24 %</td><td class="cislo">8,24 %</td><td class="cislo">8,94 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Průměr (váha 1 u každé metody)</th><td class="cislo">11,91 %</td><td class="cislo">11,52 %</td><td class="cislo">10,71 %</td><td class="cislo">10,27 %</td><td class="cislo">10,26 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Náklady na vlastní kapitál pěti metodami (rok 2004)</p>
+          <p class="viz__popis">Rozptyl výsledků je značný – od 5,25 % (odvození z N<sub>CK</sub>) po 14,89 % (rentabilita v odvětví). Volba metody proto zásadně ovlivní výsledné WACC i EVA.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-metody-vk"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>V roce 2004 se odhady nákladů na vlastní kapitál pohybují od 5,25 % do 14,89 %.
+          Proč se metody tak liší a jak by se změnila EVA, kdybychom místo CAPM (11,60 %)
+          zvolili metodu odvození z N<sub>CK</sub> (5,25 %)?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Každá metoda pracuje s jinými vstupy a předpoklady: CAPM staví na tržní
+            rizikové prémii a β (a bývá nejvyšší), odvození z N<sub>CK</sub> jen mechanicky
+            přičítá pevnou přirážku k levnému dluhu (a bývá nejnižší). Nižší r<sub>e</sub>
+            snižuje i WACC (protože vlastní kapitál tvoří přes 60 % struktury), a tím
+            <strong>zvyšuje EVA</strong> – laťka je níž. Kdyby PLAST použil 5,25 % místo
+            11,60 %, kapitálový náklad by výrazně klesl a EVA by vyšla podstatně vyšší.
+            Právě proto se v případové studii volí jedna metoda konzistentně (zde CAPM)
+            a je nutné volbu transparentně zdůvodnit.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================ -->
+      <h2>3. Výpočet WACC</h2>
+      <p>
+        Pro determinaci nákladů na vlastní kapitál byl v případové studii zvolen výsledek
+        <strong>metody CAPM</strong>. Protože se EVA počítá z kapitálu k <em>počátku</em>
+        období, počítá se k počátku období i kapitálová struktura (váhy CK/C a VK/C).
+        WACC pak sestavíme podle vztahu (3.7).
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Skládání WACC z příspěvků kapitálu (rok 2004)</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další": nejprve příspěvek levného cizího kapitálu, poté dražšího vlastního kapitálu a nakonec jejich součet – výsledné WACC.</p>
+        </figcaption>
+        <div id="viz-wacc-stepper"></div>
+      </figure>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–48 – Výpočet WACC</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">N<sub>CK</sub></th><td class="cislo">4,68 %</td><td class="cislo">4,35 %</td><td class="cislo">3,20 %</td><td class="cislo">2,43 %</td><td class="cislo">2,27 %</td></tr>
+            <tr><th scope="row">N<sub>VK</sub> (CAPM)</th><td class="cislo">14,85 %</td><td class="cislo">15,01 %</td><td class="cislo">13,99 %</td><td class="cislo">12,25 %</td><td class="cislo">11,60 %</td></tr>
+            <tr><th scope="row">CK / C (počátek roku)</th><td class="cislo">39,24 %</td><td class="cislo">42,37 %</td><td class="cislo">45,87 %</td><td class="cislo">47,09 %</td><td class="cislo">36,55 %</td></tr>
+            <tr><th scope="row">VK / C (počátek roku)</th><td class="cislo">60,76 %</td><td class="cislo">57,63 %</td><td class="cislo">54,13 %</td><td class="cislo">52,91 %</td><td class="cislo">63,45 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">WACC</th><td class="cislo">10,86 %</td><td class="cislo">10,49 %</td><td class="cislo">9,04 %</td><td class="cislo">7,63 %</td><td class="cislo">8,20 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč WACC v roce 2004 vzrostlo, ač náklady kapitálu klesly</p>
+        <div class="callout__telo">
+          <p>Až do roku 2003 WACC pravidelně klesalo (klesaly náklady na cizí i vlastní
+          kapitál). V roce 2004 se přesto zvýšilo z 7,63 % na 8,20 % – kvůli
+          <strong>změně kapitálové struktury</strong>: podíl dražšího vlastního kapitálu
+          vzrostl na 63,45 %, takže i při nižších dílčích nákladech vyšel jejich vážený
+          průměr vyšší.</p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Nediskontujte projekt náklady konkrétního zdroje</p>
+        <div class="callout__telo">
+          <p>Kdyby PLAST hodnotil nový projekt financovaný úvěrem se sazbou ~3 % a použil
+          tyto náklady jako diskontní sazbu, mohl by přijmout i nevýhodný projekt. Získání
+          levného úvěru je zásluhou <em>zdravého financování celého podniku</em>, ne daného
+          projektu. Vždy diskontujeme <strong>WACC celého podniku</strong> – jinak projekt
+          zvýší zadlužení, sníží finanční stabilitu a návrat k původní struktuře pak vyžádá
+          drahý vlastní kapitál.</p>
+        </div>
+      </aside>
+
+      <!-- ============================================================ -->
+      <h2>4. Výpočet EVA – ekonomický model</h2>
+      <p>
+        Máme všechny vstupy: NOA (investovaný kapitál k počátku období), NOPAT a WACC.
+        EVA podle <strong>ekonomického modelu</strong> spočteme přímo dosazením do vztahu (3.5),
+        případně pomocí <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-spread" target="_blank" rel="noopener">spreadu</a> (3.6), kde <span class="math">RONA<span class="op">=</span>NOPAT<span class="op">/</span>C</span>.
+      </p>
+
+      <div class="vzorec" id="vzorec-3-5">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>
+        </div>
+        <div class="vzorec__cislo">(3.5)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-3-6">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>(RONA<span class="op">−</span>WACC)<span class="op">×</span>C</span>
+        </div>
+        <div class="vzorec__cislo">(3.6)</div>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–49 – Výpočet EVA podle ekonomického modelu (v tis. Kč)</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">NOA (počátek období)</th><td class="cislo">846 361</td><td class="cislo">955 976</td><td class="cislo">839 515</td><td class="cislo">911 203</td><td class="cislo">915 690</td></tr>
+            <tr><th scope="row">NOPAT</th><td class="cislo">90 181</td><td class="cislo">73 485</td><td class="cislo">84 697</td><td class="cislo">76 821</td><td class="cislo">76 015</td></tr>
+            <tr><th scope="row">WACC</th><td class="cislo">10,86 %</td><td class="cislo">10,49 %</td><td class="cislo">9,04 %</td><td class="cislo">7,63 %</td><td class="cislo">8,20 %</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">EVA</th><td class="cislo hodnota-niceni">−1 734</td><td class="cislo hodnota-niceni">−26 797</td><td class="cislo hodnota-tvorba">8 805</td><td class="cislo hodnota-tvorba">7 296</td><td class="cislo hodnota-tvorba">928</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 8–10 · Vývoj EVA (ekonomický model, v tis. Kč)</p>
+          <p class="viz__popis">Záporná EVA v letech 2000–2001 (červená) znamená ničení hodnoty, kladná EVA 2002–2004 (zelená) její tvorbu.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-eva-eko"></div>
+      </figure>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 8–10 · RONA versus WACC (ekonomický model)</p>
+          <p class="viz__popis">EVA je kladná právě tehdy, když RONA (výnosnost operativních aktiv) leží nad WACC. V roce 2001 RONA propadá pod WACC – největší ničení hodnoty.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-rona-wacc"></div>
+      </figure>
+
+      <p>
+        Vývoj EVA byl v posledních letech pozitivní. Zajímavé je porovnání s ukazatelem
+        FCF (<a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-volne-cash-flow" target="_blank" rel="noopener">volné cash flow</a>), které podnik běžně používá: v roce 2004 dosáhl PLAST
+        <strong>kladné EVA</strong> (tvořil hodnotu, držel <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-konkurencni-vyhoda" target="_blank" rel="noopener">konkurenční výhodu</a>), zatímco
+        FCF se propadlo hluboko do záporných hodnot. Obě měřítka tedy mohou týž rok
+        hodnotit protichůdně.
+      </p>
+
+      <!-- ============================================================ -->
+      <h2>5. Výpočet EVA – účetní model MPO ČR</h2>
+      <p>
+        Pro srovnání se EVA počítá také <strong>účetním modelem</strong> podle metodiky
+        MPO ČR. Ten nepracuje s upravenými (operativními) veličinami, ale s účetním čistým
+        ziskem (ČZ) a účetním vlastním kapitálem (VK). Náklady vlastního kapitálu
+        <span class="math">r<sub>e</sub></span> se určují stavebnicovou metodou z neupravených
+        dat, takže se liší od hodnot v tab. 8–45.
+      </p>
+
+      <div class="vzorec" id="vzorec-3-8">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>ČZ<span class="op">−</span>r<sub>e</sub><span class="op">×</span>VK</span>
+        </div>
+        <div class="vzorec__cislo">(3.8)</div>
+      </div>
+
+      <div class="vzorec" id="vzorec-3-9">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>(ROE<span class="op">−</span>r<sub>e</sub>)<span class="op">×</span>VK</span>
+        </div>
+        <div class="vzorec__cislo">(3.9)</div>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–50 – Výpočet EVA podle účetního modelu MPO ČR (v tis. Kč)</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">r<sub>e</sub> (stavebnicová metoda MPO)</th><td class="cislo">12,44 %</td><td class="cislo">11,08 %</td><td class="cislo">9,55 %</td><td class="cislo">7,67 %</td><td class="cislo">9,90 %</td></tr>
+            <tr><th scope="row">Čistý zisk (ČZ)</th><td class="cislo">77 733</td><td class="cislo">59 930</td><td class="cislo">75 550</td><td class="cislo">70 176</td><td class="cislo">72 315</td></tr>
+            <tr><th scope="row">Vlastní kapitál (VK)</th><td class="cislo">595 292</td><td class="cislo">655 025</td><td class="cislo">722 965</td><td class="cislo">775 719</td><td class="cislo">857 406</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">EVA</th><td class="cislo hodnota-tvorba">3 679</td><td class="cislo hodnota-niceni">−12 647</td><td class="cislo hodnota-tvorba">6 507</td><td class="cislo hodnota-tvorba">10 678</td><td class="cislo hodnota-niceni">−12 568</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;color:var(--barva-text-tlumene,inherit)">
+        Pozn.: hodnoty <span class="math">r<sub>e</sub></span> jsou zde vypočteny z neupravených
+        účetních dat, proto neodpovídají hodnotám v tab. 8–45.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 8–11 · Vývoj EVA (účetní model MPO ČR, v tis. Kč)</p>
+          <p class="viz__popis">Účetní model dává jiný obraz než ekonomický: rok 2000 kladný, 2001 záporný, 2002–2003 kladný a rok 2004 opět výrazně záporný.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-eva-ucetni"></div>
+      </figure>
+
+      <!-- ============================================================ -->
+      <h2>Srovnání ekonomického a účetního modelu</h2>
+      <p>
+        Nejdůležitější poznatek celé lekce: <strong>oba modely dávají odlišné výsledky</strong>.
+        Nejmarkantnější je to v roce 2004 – podle účetního modelu MPO byl podnik neúspěšný
+        (EVA −12 568 tis. Kč), zatímco podle ekonomického modelu tvořil hodnotu
+        (EVA +928 tis. Kč).
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Srovnání EVA obou modelů (v tis. Kč)</caption>
+          <thead>
+            <tr><th scope="col">Model</th><th scope="col" class="cislo">2000</th><th scope="col" class="cislo">2001</th><th scope="col" class="cislo">2002</th><th scope="col" class="cislo">2003</th><th scope="col" class="cislo">2004</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Ekonomický model</th><td class="cislo hodnota-niceni">−1 734</td><td class="cislo hodnota-niceni">−26 797</td><td class="cislo hodnota-tvorba">8 805</td><td class="cislo hodnota-tvorba">7 296</td><td class="cislo hodnota-tvorba">928</td></tr>
+            <tr><th scope="row">Účetní model MPO</th><td class="cislo hodnota-tvorba">3 679</td><td class="cislo hodnota-niceni">−12 647</td><td class="cislo hodnota-tvorba">6 507</td><td class="cislo hodnota-tvorba">10 678</td><td class="cislo hodnota-niceni">−12 568</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Hodnocení jen podle účetních dat může být zkreslující</p>
+        <div class="callout__telo">
+          <p>Rozdíl plyne z toho, že ekonomický model pracuje s <em>upravenými</em>
+          operativními veličinami (NOA, NOPAT) a s WACC za celý kapitál, kdežto účetní
+          model MPO používá neupravený čistý zisk, účetní vlastní kapitál a jen náklady
+          vlastního kapitálu. Ekonomický model proto věrněji zachycuje skutečnou tvorbu
+          hodnoty – účetní data mohou vést k mylnému závěru.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>V roce 2004 vyšla EVA ekonomickým modelem +928 tis. Kč, ale účetním modelem
+          −12 568 tis. Kč. Čím si vysvětlíte, že tentýž podnik v témže roce jednou hodnotu
+          tvoří a podruhé ničí?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Modely měří jinou veličinu na jiných datech. <strong>Ekonomický model</strong>
+            porovnává operativní zisk NOPAT (očištěný o mimořádné položky, s aktivovaným
+            leasingem, dodatečnými odpisy apod.) s náklady na <em>celý</em> investovaný
+            kapitál přes WACC (8,20 %). <strong>Účetní model MPO</strong> bere neupravený
+            čistý zisk a odečítá jen náklady vlastního kapitálu r<sub>e</sub> (9,90 %) krát
+            účetní VK. V roce 2004 účetní vlastní kapitál narostl na 857 mil. Kč a r<sub>e</sub>
+            skočilo na 9,90 %, takže kapitálový náklad převýšil čistý zisk – účetní EVA
+            zápornou. Ekonomický model, který lépe zachycuje ekonomickou realitu, ukazuje
+            skutečnou (byť malou) tvorbu hodnoty. Proto se pro řízení hodnoty preferuje
+            ekonomický model.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================ -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč do WACC vstupují náklady na cizí kapitál až po zdanění a jak velký je jejich efekt v roce 2004?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Úrok je daňově uznatelný náklad. Vzpomeňte na faktor (1 − T) a sazbu daně 28 % v roce 2004.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Úroky snižují daňový základ, takže část jejich ceny „vrátí" ušetřená daň – to je daňový štít. Náklady dluhu proto násobíme (1 − T). V roce 2004 klesla nominální sazba úvěru 2,75 % na náklady 1,98 % (2,75 % × 0,72), tedy pokles zhruba o 0,77 procentního bodu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč nelze u podniku PLAST použít pro odhad nákladů na vlastní kapitál dividendový model a proč se β musí přepočítávat na zadluženou hodnotu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Uvažte, jaká vstupní data dividendový model potřebuje. U β myslete na vliv kapitálové struktury (finanční páky) na riziko vlastníka.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Dividendový model potřebuje tržní cenu akcie a vyplácené dividendy; PLAST není veřejně obchodován a podíly na zisku nevyplácel, takže vstupy chybí. β odvětví 0,8 platí pro nezadlužený podnik – zadlužení zvyšuje riziko vlastníků, proto se β přepočítává vztahem (4.32) na zadluženou hodnotu podle poměru CK/VK (v roce 2004 na 1,13).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Náklady na cizí i vlastní kapitál v roce 2004 klesly, přesto WACC vzrostlo na 8,20 %. Jak je to možné?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>WACC je vážený průměr. Podívejte se, jak se změnily váhy CK/C a VK/C.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Změnila se kapitálová struktura: podíl dražšího vlastního kapitálu vzrostl z 52,91 % (2003) na 63,45 % (2004). Přesun váhy směrem k dražšímu zdroji převážil pokles dílčích nákladů, takže vážený průměr (WACC) vyšel vyšší.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>V čem se liší vstupní veličiny ekonomického a účetního (MPO) modelu EVA a proč dávají v roce 2004 opačný závěr?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte NOPAT a WACC × C s ČZ a r<sub>e</sub> × VK. Které z nich vychází z upravených dat?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Ekonomický model používá upravené operativní veličiny (NOPAT, NOA) a odečítá náklady na celý kapitál přes WACC. Účetní model MPO bere neupravený čistý zisk a účetní VK a odečítá jen náklady vlastního kapitálu. V roce 2004 ekonomický model ukázal EVA +928 tis. Kč (tvorba hodnoty), účetní model −12 568 tis. Kč (ničení) – účetní data tak dala zkreslený, negativnější obraz.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč by podnik neměl hodnotit investiční projekt diskontní sazbou rovnou nákladům úvěru, kterým jej financuje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kdo vlastně „zaslouží" nízkou úrokovou sazbu – projekt, nebo celý podnik? Co se stane s kapitálovou strukturou?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Levný úvěr podnik získává díky svému zdravému financování jako celku, ne kvůli danému projektu. Použití nízké úrokové sazby jako diskontu by uměle nadhodnotilo NPV a mohlo vést k přijetí nevýhodného projektu. Navíc by projekt zvýšil zadlužení a snížil finanční stabilitu. Správně se diskontuje WACC celého podniku.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l7-eva-noa-nopat.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.7 EVA v podniku PLAST – vymezení NOA a NOPAT</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l9-generatory-citlivost.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.9 Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací lekce 12.8 ----
+    (function () {
+
+      // A) STATICKÝ SLOUPCOVÝ GRAF: náklady na VK pěti metodami (rok 2004)
+      Skripta.sloupcovyGraf('viz-metody-vk', {
+        sirka: 720, vyska: 340, formatDesetin: 2, jednotka: ' %',
+        data: [
+          { popisek: 'Odvození z N_CK', hodnota: 5.25 },
+          { popisek: 'Kompl. staveb.', hodnota: 8.94 },
+          { popisek: 'Stavebnicový', hodnota: 10.63 },
+          { popisek: 'CAPM', hodnota: 11.60 },
+          { popisek: 'Rentab. odvětví', hodnota: 14.89 }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: skládání WACC 2004 z příspěvků kapitálu
+      // Příspěvek CK = 2,27 % × 36,55 % = 0,83 %; příspěvek VK = 11,60 % × 63,45 % = 7,36 %; WACC = 8,20 %.
+      var PRISP_CK = 0.83, PRISP_VK = 7.36, WACC = 8.20;
+
+      Skripta.stepper('viz-wacc-stepper', {
+        sirka: 720, vyska: 380,
+        stavy: [
+          { showVK: false, showTotal: false },
+          { showVK: true,  showTotal: false },
+          { showVK: true,  showTotal: true  }
+        ],
+        popisky: [
+          'Cizí kapitál: N_CK × (CK/C) = 2,27 % × 36,55 % = 0,83 %. Levný dluh přispívá do WACC jen málo.',
+          'Přidáme vlastní kapitál: N_VK × (VK/C) = 11,60 % × 63,45 % = 7,36 %. Dražší VK s vyšší vahou přispívá nejvíce.',
+          'Součet obou příspěvků: WACC = 0,83 % + 7,36 % = 8,20 %.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 320, px = 30; // 30 px na 1 procentní bod
+          var x = 300, sirkaSloupce = 130;
+          var hCK = PRISP_CK * px;
+          var hVK = PRISP_VK * px;
+
+          // Osa (základna)
+          u.dej(svg, 'osa', 'line', { x1: 90, y1: base, x2: 650, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Segment cizího kapitálu (spodní, vždy viditelný) – indigo
+          u.dej(svg, 'bar-ck', 'rect', {
+            x: x, y: base - hCK, width: sirkaSloupce, height: hCK, rx: 4, fill: '#4338ca'
+          });
+          u.dej(svg, 'lbl-ck', 'text', {
+            x: x + sirkaSloupce + 14, y: base - hCK / 2 + 5, fill: u.barvaText, 'font-size': 13
+          }, 'CK: 0,83 %');
+
+          // Segment vlastního kapitálu (stacked na CK) – světlejší akcent
+          u.dej(svg, 'bar-vk', 'rect', {
+            x: x, y: base - hCK - (stav.showVK ? hVK : 0),
+            width: sirkaSloupce, height: stav.showVK ? hVK : 0,
+            rx: 4, fill: '#818cf8', opacity: stav.showVK ? 1 : 0
+          });
+          u.dej(svg, 'lbl-vk', 'text', {
+            x: x + sirkaSloupce + 14, y: base - hCK - hVK / 2 + 5,
+            fill: u.barvaText, 'font-size': 13, opacity: stav.showVK ? 1 : 0
+          }, 'VK: 7,36 %');
+
+          // Popisek pod sloupcem
+          u.dej(svg, 'lbl-osa', 'text', {
+            x: x + sirkaSloupce / 2, y: base + 26, 'text-anchor': 'middle',
+            fill: u.barvaText, 'font-size': 13
+          }, 'Příspěvky do WACC');
+
+          // Celkový popisek WACC nad sloupcem
+          u.dej(svg, 'val-total', 'text', {
+            x: x + sirkaSloupce / 2, y: base - hCK - hVK - 16, 'text-anchor': 'middle',
+            fill: u.barvaTvorba, 'font-size': 20, 'font-weight': 700,
+            opacity: stav.showTotal ? 1 : 0
+          }, 'WACC = 8,20 %');
+
+          // Vodicí čára k hodnotě WACC
+          u.dej(svg, 'cara-total', 'line', {
+            x1: x - 16, y1: base - hCK - hVK, x2: x + sirkaSloupce + 16, y2: base - hCK - hVK,
+            stroke: u.barvaTvorba, 'stroke-width': 1.5, 'stroke-dasharray': '5 4',
+            opacity: stav.showTotal ? 1 : 0
+          });
+        }
+      });
+
+      // C) STATICKÝ SLOUPCOVÝ GRAF: vývoj EVA – ekonomický model (obr. 8-10)
+      Skripta.sloupcovyGraf('viz-eva-eko', {
+        sirka: 700, vyska: 320, formatDesetin: 0,
+        data: [
+          { popisek: '2000', hodnota: -1734 },
+          { popisek: '2001', hodnota: -26797 },
+          { popisek: '2002', hodnota: 8805 },
+          { popisek: '2003', hodnota: 7296 },
+          { popisek: '2004', hodnota: 928 }
+        ]
+      });
+
+      // D) ČÁROVÝ GRAF: RONA vs WACC (ekonomický model, obr. 8-10)
+      Skripta.carovyGraf('viz-rona-wacc', {
+        sirka: 700, vyska: 320, formatDesetin: 1, jednotka: ' %',
+        serie: [
+          { nazev: 'RONA', body: [
+            { x: '2000', y: 10.66 }, { x: '2001', y: 7.69 }, { x: '2002', y: 10.09 },
+            { x: '2003', y: 8.43 }, { x: '2004', y: 8.30 }
+          ] },
+          { nazev: 'WACC', body: [
+            { x: '2000', y: 10.86 }, { x: '2001', y: 10.49 }, { x: '2002', y: 9.04 },
+            { x: '2003', y: 7.63 }, { x: '2004', y: 8.20 }
+          ] }
+        ]
+      });
+
+      // E) STATICKÝ SLOUPCOVÝ GRAF: vývoj EVA – účetní model MPO (obr. 8-11)
+      Skripta.sloupcovyGraf('viz-eva-ucetni', {
+        sirka: 700, vyska: 320, formatDesetin: 0,
+        data: [
+          { popisek: '2000', hodnota: 3679 },
+          { popisek: '2001', hodnota: -12647 },
+          { popisek: '2002', hodnota: 6507 },
+          { popisek: '2003', hodnota: 10678 },
+          { popisek: '2004', hodnota: -12568 }
+        ]
+      });
+
+    })();
+  </script>
+</body>
+</html>

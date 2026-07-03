@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12.4 Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK – Výkonnost podniku</title>
+  <meta name="description" content="Profil podniku PLAST, s.r.o., jeho majetková a finanční struktura, struktura výnosů a nákladů, vývoj kategorií zisku, cash flow podle činností, volné cash flow a čistý pracovní kapitál.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 12, aktivní 12.4 -->
+    <nav class="panel" data-panel data-aktivni-lekce="12.4" aria-label="Lekce tématu 12">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 12</div>
+      <div class="panel__nazev-tema">Případová studie PLAST, s.r.o.</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="12.1" href="t12-l1-makro-odvetvi.html"><span class="panel__odkaz-cislo">12.1</span><span>Makroekonomická a odvětvová analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.2" href="t12-l2-benchmarking-1.html"><span class="panel__odkaz-cislo">12.2</span><span>Benchmarking I – metoda, výběr a benchmark</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.3" href="t12-l3-benchmarking-2.html"><span class="panel__odkaz-cislo">12.3</span><span>Benchmarking II – analýza faktorů a závěry</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.4" href="t12-l4-financni-analyza-1.html"><span class="panel__odkaz-cislo">12.4</span><span>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.5" href="t12-l5-financni-analyza-2.html"><span class="panel__odkaz-cislo">12.5</span><span>Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.6" href="t12-l6-financni-analyza-3.html"><span class="panel__odkaz-cislo">12.6</span><span>Finanční analýza PLAST III – souhrnné ukazatele, SPIDER</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.7" href="t12-l7-eva-noa-nopat.html"><span class="panel__odkaz-cislo">12.7</span><span>EVA v podniku PLAST – vymezení NOA a NOPAT</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.8" href="t12-l8-eva-wacc.html"><span class="panel__odkaz-cislo">12.8</span><span>EVA v podniku PLAST – WACC a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.9" href="t12-l9-generatory-citlivost.html"><span class="panel__odkaz-cislo">12.9</span><span>Generátory hodnoty – pyramidový rozklad a citlivostní analýza</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.10" href="t12-l10-bsc-strategicka-mapa.html"><span class="panel__odkaz-cislo">12.10</span><span>Balanced Scorecard a strategická mapa podniku PLAST</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.11" href="t12-l11-financni-plan.html"><span class="panel__odkaz-cislo">12.11</span><span>Finanční plán 2005–2007 a úprava na vstupy EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="12.12" href="t12-l12-oceneni-eva.html"><span class="panel__odkaz-cislo">12.12</span><span>Ocenění podniku na bázi EVA, simulace generátorů a závěr</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-12">Téma 12 · PLAST</a></li>
+          <li><span aria-current="page">Lekce 12.4</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 12.4</span>
+        <h1>Finanční analýza PLAST I – struktura, zisk, cash flow, ČPK</h1>
+        <p class="lekce-hlavicka__strany">Strany 258–262</p>
+      </header>
+
+      <p>
+        Předchozí lekce sledovaly plastikářské odvětví „z výšky" – makroprostředí,
+        <a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmarking" target="_blank" rel="noopener">benchmarking</a> a pozici jednotlivých firem. Nyní přiblížíme objektiv na jediný
+        podnik a projdeme jeho <strong>klasickou <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzu</a></strong> krok za krokem.
+        Touto lekcí začíná souvislá případová studie podniku
+        <a class="pojem" href="#pojem-podnik-plast">PLAST, s.r.o.</a>, na které si postupně
+        vyzkoušíme všechny nástroje řízení výkonnosti – od <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-pomerove-ukazatele" target="_blank" rel="noopener">poměrových ukazatelů</a> až po
+        model <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a> a <a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard</a>.
+      </p>
+      <p>
+        V této první části poznáme profil podniku, jeho majetkovou a finanční strukturu,
+        strukturu výnosů a nákladů, vývoj jednotlivých kategorií zisku, tvorbu peněžních
+        toků (<a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a>) a čistý pracovní kapitál. Analýza pokrývá období <strong>1999–2004</strong>
+        a vychází ze základních účetních výkazů podniku.
+      </p>
+
+      <!-- ================= 1. PROFIL PODNIKU ================= -->
+      <h2>Základní informace o podniku</h2>
+
+      <section class="definice" id="pojem-podnik-plast">
+        <h3 class="definice__pojem">Podnik PLAST, s.r.o. (skupina PLASTIKO)</h3>
+        <div class="definice__telo">
+          <p>
+            Modelový podnik případové studie. PLAST je <strong>100% dceřiná společnost</strong>
+            zahraničního vlastníka a součást nadnárodní skupiny <strong>PLASTIKO</strong>,
+            která provozuje výrobní závody v <strong>9 evropských zemích</strong>. Těžištěm
+            výroby jsou vstřikované a tvarované plastové obaly; ve sledovaném období
+            zaměstnával přibližně <strong>400 pracovníků</strong>.
+          </p>
+        </div>
+      </section>
+
+      <p>Předmětem podnikání společnosti je zejména:</p>
+      <ul>
+        <li>koupě zboží za účelem dalšího prodeje a prodej (živnost volná),</li>
+        <li>zpracování polymerů a produkce výrobků z plastů,</li>
+        <li>výroba nástrojů,</li>
+        <li>podnikání v oblasti nakládání s odpady,</li>
+        <li>výroba, montáž a opravy strojů s mechanickým pohonem.</li>
+      </ul>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč právě PLAST</p>
+        <div class="callout__telo">
+          <p>PLAST byl v předchozí benchmarkingové studii (subsekce OKEČ 25.220 –
+          výroba plastových obalů) vyhodnocen jako jeden z podniků v „nejlepším"
+          I. kvadrantu: dosahoval kladné hodnoty EVA a zároveň jej rostla. Je proto
+          vděčným objektem, na kterém lze ukázat celý postup řízení výkonnosti.</p>
+        </div>
+      </aside>
+
+      <!-- ================= 2. MAJETKOVÁ A FINANČNÍ STRUKTURA ================= -->
+      <h2>Majetková a finanční struktura</h2>
+
+      <p>
+        Z hlediska <strong>majetkové struktury</strong> byl v celém období patrný relativně
+        stálý poměr dlouhodobého a oběžného majetku zhruba <strong>60 : 40</strong>. Bližší
+        pohled na dlouhodobý majetek (DM) však odhalí důležitý posun: trvale klesal podíl
+        <strong>dlouhodobého hmotného majetku (DHM)</strong> ve prospěch
+        <strong>dlouhodobého finančního majetku (DFM)</strong>. DHM v absolutní hodnotě
+        každoročně klesal – za analyzované roky o více než 20 %.
+      </p>
+      <p>
+        DFM tvořily nakoupené <strong>podíly v ostatních dceřiných společnostech mateřské
+        skupiny</strong>. Z těchto podílů však podniku neplynuly žádné výnosy – jejich nákup
+        si „vynutila" mateřská společnost jako <em>náhradu za výplatu podílů na zisku</em>
+        (PLAST je orientován na rozvoj a preferuje růst společností před vyplácením zisku).
+        Pokud od tohoto DFM odhlédneme, podíl dlouhodobého majetku na aktivech se pohyboval
+        kolem <strong>50 %</strong>, což odpovídá běžnému stavu v odvětví.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pozor na „optický klam" struktury aktiv</p>
+        <div class="callout__telo">
+          <p>Bez korekce o neoperativní DFM by se PLAST jevil jako neobvykle kapitálově
+          náročný (60 % DM). Po abstrahování od podílů, které nesouvisejí s hlavní
+          činností, klesne podíl DM na obvyklých ~50 %. Stejná úvaha se nám bude hodit
+          později při vymezení <em><a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-noa" target="_blank" rel="noopener">čistých operativních aktiv (NOA)</a></em> pro model EVA.</p>
+        </div>
+      </aside>
+
+      <p>
+        Ve <strong>finanční struktuře</strong> byl podstatný růst vlastního kapitálu: při
+        stálé výši základního kapitálu to znamená, že podnik byl <strong>trvale ziskový</strong>
+        a zisk zadržoval. PLAST dával přednost financování z vlastních zdrojů. Absolutní
+        hodnota cizích zdrojů sice za 6 let vzrostla, ale jejich podíl na bilanční sumě
+        klesal – v roce 2004 činil <strong>méně než 37 %</strong>. Z cizích zdrojů využíval
+        podnik vedle krátkodobých závazků i bankovní úvěry, a to více než byl průměr odvětví.
+      </p>
+
+      <!-- ================= 3. VÝNOSY A NÁKLADY ================= -->
+      <h2>Struktura výnosů a nákladů</h2>
+
+      <p>
+        Podnik má jednoznačně <strong>výrobní charakter</strong>: více než <strong>80 %
+        výnosů</strong> tvořily tržby z prodeje vlastních výrobků a služeb, dalších asi 20 %
+        ostatní provozní výnosy. Finanční a mimořádné výnosy byly zanedbatelné. Tržby z
+        prodeje vlastních výrobků a služeb přitom za sledované období vzrostly o více než
+        <strong>26 %</strong>.
+      </p>
+      <p>
+        Na straně nákladů hrály největší roli <strong>spotřeba materiálu a služby</strong>
+        (dohromady zhruba 50 % celkových nákladů); jejich výrazný nárůst v roce 2004
+        naznačuje zdražení vstupního materiálu a energií. Druhou nejvýznamnější položkou
+        (~20 %) byly ostatní provozní náklady. Služby a osobní náklady se podílely takřka
+        rovnocenně (~10 %). Osobní náklady dlouho rostly zhruba o 10 % ročně, tento trend
+        se však v roce 2004 podařilo zastavit – klesl i jejich absolutní objem, což souvisí
+        s převedením takřka 80 zaměstnanců do nově vzniklé společnosti.
+      </p>
+
+      <!-- ================= 4. VÝVOJ ZISKU ================= -->
+      <h2>Vývoj zisku</h2>
+
+      <section class="definice" id="pojem-kategorie-zisku">
+        <h3 class="definice__pojem">Kategorie zisku (ČZ, EBT, EBIT, EBITDA)</h3>
+        <div class="definice__telo">
+          <p>Čtyři „patra" výsledku hospodaření, která se liší tím, co všechno je z výnosů
+          ještě odečteno:</p>
+          <ul>
+            <li><strong>EBITDA</strong> – zisk před úroky, zdaněním a odpisy (nejvyšší patro),</li>
+            <li><strong>EBIT</strong> – zisk před úroky a zdaněním (provozní výsledek),</li>
+            <li><strong>EBT</strong> – zisk před zdaněním (EBIT po odečtení nákladových úroků),</li>
+            <li><strong>ČZ</strong> – čistý zisk, tj. výsledek po zdanění (nejnižší patro).</li>
+          </ul>
+          <p>Platí přibližně <span class="math">EBITDA<span class="op">≥</span>EBIT<span class="op">≥</span>EBT<span class="op">≥</span>ČZ</span>;
+          rozdíly mezi patry tvoří postupně odpisy, nákladové úroky a daň.</p>
+        </div>
+      </section>
+
+      <p>
+        Vývoj všech čtyř kategorií zisku byl v období 1999–2004 <strong>relativně stabilní</strong>
+        s jedinou výjimkou: <strong>EBITDA postupně klesala</strong>. Protože se EBIT držel
+        zhruba na stejné úrovni, znamená klesající EBITDA především <strong>klesající objem
+        odpisů</strong> (rozdíl EBITDA − EBIT) – logický důsledek stárnoucího a postupně
+        neobnovovaného hmotného majetku. Křivky EBIT, EBT a ČZ se pohybovaly blízko u sebe,
+        což svědčí o nízkém zadlužení (malé úroky) a stabilní daňové zátěži.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 8–5 · Vývoj výsledku hospodaření podniku PLAST (mil. Kč)</p>
+          <p class="viz__popis">Orientační průběh čtyř kategorií zisku dle grafu ve zdroji. EBITDA je výrazně nad ostatními a klesá; EBIT, EBT a ČZ se drží těsně u sebe.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-zisk-carovy"></div>
+      </figure>
+
+      <p>
+        Každého manažera zajímá, jak se vytvořený <strong>EBIT rozdělí</strong>: kolik zůstane
+        podniku jako čistý zisk, kolik připadne věřitelům na nákladových úrocích a jakou část
+        si vezme stát na dani. U podniku PLAST zůstával v daném období <strong>relativně vysoký
+        podíl čistého zisku</strong> a postupně klesal podíl určený věřitelům (úroky) – přímý
+        důsledek snižujícího se zadlužení.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obr. 8–6 · Rozdělení EBIT: kolik zbude podniku (krok za krokem, rok 2004)</p>
+          <p class="viz__popis">Tlačítky „Zpět / Další" postupně odečtěte z provozního zisku (EBIT) nákladové úroky pro věřitele a daň pro stát; co zbude, je čistý zisk podniku. Hodnoty jsou orientační, dle grafu 8–6 (mil. Kč).</p>
+        </figcaption>
+        <div id="viz-ebit-rozdeleni"></div>
+      </figure>
+
+      <!-- ================= 5. CASH FLOW ================= -->
+      <h2>Vývoj cash flow</h2>
+
+      <p>
+        Peněžní toky (cash flow, CF) se člení podle činností na <strong>provozní, investiční
+        a finanční</strong>. U podniku PLAST byla hlavním zdrojem peněz <strong>provozní
+        činnost</strong>, která ve firmě významně financovala investice. CF z investiční
+        činnosti bylo <strong>každoročně záporné</strong> – doklad trvalé investiční aktivity.
+        CF z finanční činnosti bylo proměnlivé (v letech 2000 a 2004 podnik navýšil bankovní
+        úvěry). S výjimkou roku 2001 podnik tvořil <strong>kladný peněžní tok převyšující
+        výsledek hospodaření</strong>; pokles hotovosti v roce 2001 způsobily vysoké investice
+        do dlouhodobého majetku a pokles dlouhodobých cizích zdrojů.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–12 – Vývoj toků peněžní hotovosti podniku PLAST (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Počáteční stav pen. prostředků</th><td class="cislo">13 963</td><td class="cislo">16 666</td><td class="cislo">20 655</td><td class="cislo">19 363</td><td class="cislo">38 901</td><td class="cislo">57 048</td></tr>
+            <tr><th scope="row">CF z provozní činnosti</th><td class="cislo">187 346</td><td class="cislo hodnota-niceni">−13 306</td><td class="cislo">255 960</td><td class="cislo">169 649</td><td class="cislo">145 747</td><td class="cislo">147 633</td></tr>
+            <tr><th scope="row">CF z investiční činnosti</th><td class="cislo hodnota-niceni">−113 923</td><td class="cislo hodnota-niceni">−70 050</td><td class="cislo hodnota-niceni">−234 777</td><td class="cislo hodnota-niceni">−128 140</td><td class="cislo hodnota-niceni">−50 245</td><td class="cislo hodnota-niceni">−168 965</td></tr>
+            <tr><th scope="row">CF z finanční činnosti</th><td class="cislo hodnota-niceni">−70 720</td><td class="cislo">87 345</td><td class="cislo hodnota-niceni">−22 475</td><td class="cislo hodnota-niceni">−21 971</td><td class="cislo hodnota-niceni">−77 355</td><td class="cislo">54 237</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Čisté zvýšení/snížení PP</th><td class="cislo">2 703</td><td class="cislo">3 989</td><td class="cislo hodnota-niceni">−1 292</td><td class="cislo">19 538</td><td class="cislo">18 147</td><td class="cislo">32 905</td></tr>
+            <tr class="tabulka__soucet"><th scope="row">Konečný stav PP</th><td class="cislo">16 666</td><td class="cislo">20 655</td><td class="cislo">19 363</td><td class="cislo">38 901</td><td class="cislo">57 048</td><td class="cislo">89 953</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="definice" id="pojem-volne-cash-flow">
+        <h3 class="definice__pojem">Volné cash flow (FCF)</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Free Cash Flow</em> – peněžní tok, který podniku „volně" zbývá po pokrytí
+            provozních potřeb i investic, tedy je k dispozici vlastníkům a věřitelům. Podnik
+            PLAST ho používá jako <strong>vrcholový ukazatel výkonnosti</strong>. Sestavuje se
+            z provozního zisku po zdanění, k němuž se přičtou odpisy (nepeněžní náklad) a
+            zohlední změna čistého pracovního kapitálu a investiční výdaje:
+          </p>
+          <p style="text-align:center">
+            <span class="math">FCF<span class="op">=</span>EBIT<span class="op">·</span>(1<span class="op">−</span>t)<span class="op">+</span>odpisy<span class="op">−</span>Δ ČPK<span class="op">−</span>investice</span>
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–13 – Vývoj volného cash flow podniku PLAST (v tis. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">EBIT · (1 − t)</th><td class="cislo">82 534</td><td class="cislo">80 239</td><td class="cislo">68 663</td><td class="cislo">85 847</td><td class="cislo">77 524</td><td class="cislo">80 654</td></tr>
+            <tr><th scope="row">Odpisy</th><td class="cislo">133 995</td><td class="cislo">124 251</td><td class="cislo">114 678</td><td class="cislo">98 004</td><td class="cislo">91 142</td><td class="cislo">73 547</td></tr>
+            <tr><th scope="row">Změna ČPK</th><td class="cislo">81 070</td><td class="cislo hodnota-niceni">−187 680</td><td class="cislo">170 819</td><td class="cislo">35 154</td><td class="cislo hodnota-niceni">−32 316</td><td class="cislo">29 701</td></tr>
+            <tr><th scope="row">Investice</th><td class="cislo hodnota-niceni">−114 693</td><td class="cislo hodnota-niceni">−79 475</td><td class="cislo hodnota-niceni">−234 935</td><td class="cislo hodnota-niceni">−124 189</td><td class="cislo hodnota-niceni">−39 188</td><td class="cislo hodnota-niceni">−185 845</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">FCF</th>
+              <td class="cislo hodnota-tvorba">182 906</td>
+              <td class="cislo hodnota-niceni">−62 665</td>
+              <td class="cislo hodnota-tvorba">119 225</td>
+              <td class="cislo hodnota-tvorba">94 816</td>
+              <td class="cislo hodnota-tvorba">97 162</td>
+              <td class="cislo hodnota-niceni">−1 943</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Na první pohled působí negativně <strong>záporné FCF v roce 2004</strong>. Při bližším
+        pohledu je však zřejmé, že jej způsobila vysoká hodnota <strong>dlouhodobých finančních
+        investic</strong> (přes 100 mil. Kč) – tedy právě nákup podílů, který si vynutila
+        mateřská společnost a který nesouvisí s hlavním zaměřením podniku. Hodnocení výkonnosti
+        (a případné odměňování managementu) podle FCF v roce 2004 by tak mohlo být zavádějící.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vznik volného cash flow v roce 2004 (mil. Kč)</p>
+          <p class="viz__popis">Postupné skládání FCF z tabulky 8–13. Silná provozní hotovost a odpisy jsou takřka celé pohlceny mimořádně vysokými investicemi, takže výsledné FCF spadne mírně pod nulu.</p>
+        </figcaption>
+        <div id="viz-fcf-vodopad"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik PLAST vykázal v roce 2004 záporné volné cash flow (−1 943 tis. Kč),
+          přestože provozní činnost vygenerovala přes 147 mil. Kč hotovosti. Je to signál,
+          že podnik špatně hospodařil? Jak byste tento výsledek interpretovali?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Nikoli nutně. Záporné FCF způsobily <strong>mimořádně vysoké investice</strong>
+            (185,8 mil. Kč), z nichž velkou část tvořil <strong>nákup dlouhodobých finančních
+            podílů</strong> (přes 100 mil. Kč) vynucený mateřskou společností – tedy položka
+            nesouvisející s hlavní činností. Provozně byl podnik zdravý (silné provozní CF,
+            kladné patra zisku). Pro férové hodnocení výkonnosti a odměňování by se měl vliv
+            této neoperativní investice odfiltrovat – jinak jednorázová investice zkreslí obraz.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= 6. ČPK ================= -->
+      <h2>Čistý pracovní kapitál</h2>
+
+      <section class="definice" id="pojem-cisty-pracovni-kapital">
+        <h3 class="definice__pojem">Čistý pracovní kapitál (ČPK)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi oběžnými aktivy a krátkodobými závazky
+            (<span class="math">ČPK<span class="op">=</span>OA<span class="op">−</span>krátkodobé závazky</span>).
+            Vyjadřuje <strong>„finanční polštář"</strong> – část oběžného majetku financovanou
+            dlouhodobými zdroji, kterou má podnik k dispozici pro krytí neočekávaných závazků.
+            Kladný ČPK znamená, že podnik nefinancuje dlouhodobá aktiva krátkodobými zdroji a
+            má rezervu likvidity.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Podnik PLAST udržoval po celé období <strong>kladný, dostatečně vysoký ČPK</strong>.
+        Podíl ČPK na oběžných aktivech (ČPK/OA) dosahoval každoročně <strong>více než 18 %</strong> –
+        podnik měl tedy trvale komfortní rezervu pro krytí nenadálých závazků. Mimořádná hodnota
+        v roce 2000 (ČPK/OA přes 51 %) souvisí s dočasným výrazným nárůstem oběžného majetku
+        v tomto roce.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8–14 – Vývoj čistého pracovního kapitálu podniku PLAST</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ukazatel</th>
+              <th scope="col" class="cislo">1999</th>
+              <th scope="col" class="cislo">2000</th>
+              <th scope="col" class="cislo">2001</th>
+              <th scope="col" class="cislo">2002</th>
+              <th scope="col" class="cislo">2003</th>
+              <th scope="col" class="cislo">2004</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">ČPK (tis. Kč)</th><td class="cislo">82 399</td><td class="cislo">274 068</td><td class="cislo">101 957</td><td class="cislo">86 341</td><td class="cislo">136 804</td><td class="cislo">136 186</td></tr>
+            <tr><th scope="row">ČPK / OA</th><td class="cislo">22,5 %</td><td class="cislo">51,9 %</td><td class="cislo">22,0 %</td><td class="cislo">18,0 %</td><td class="cislo">26,3 %</td><td class="cislo">24,4 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Vývoj čistého pracovního kapitálu (mil. Kč)</p>
+          <p class="viz__popis">ČPK zůstává po celé období kladný. Výkyv v roce 2000 odráží dočasný nárůst oběžného majetku.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-cpk-sloupce"></div>
+      </figure>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Co si z první části odnést</p>
+        <div class="callout__telo">
+          <p>PLAST je finančně stabilní, trvale ziskový, konzervativně financovaný podnik
+          s výrobním charakterem a silnou provozní tvorbou hotovosti. Některé „nepříznivě"
+          vypadající údaje (60 % DM, záporné FCF 2004) mají svůj původ v neoperativním DFM
+          vynuceném mateřskou společností. V další lekci prověříme poměrové ukazatele
+          zadluženosti, <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidity</a>, <a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-analyza-rentability" target="_blank" rel="noopener">rentability</a> a aktivity a porovnáme je s odvětvím i
+          <a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmark" target="_blank" rel="noopener">benchmarkem</a> ALPLA.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik PLAST vykazuje poměr dlouhodobého a oběžného majetku zhruba 60 : 40.
+          Co tento poměr napovídá a proč se po „očištění" od dlouhodobého finančního majetku
+          podíl DM sníží na zhruba 50 %? Je to pro hodnocení podniku podstatné?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Poměr 60 : 40 naznačuje relativně kapitálově náročný, výrobní podnik s velkým
+            podílem dlouhodobého majetku. Část tohoto DM však tvoří <strong>dlouhodobý finanční
+            majetek (podíly v dceřiných společnostech)</strong>, který nesouvisí s hlavní
+            činností a neplynou z něj výnosy. Po jeho vyloučení klesne podíl provozně
+            potřebného DM na ~50 %, což odpovídá odvětví. Rozlišení je podstatné: neoperativní
+            aktiva zkreslují ukazatele obratovosti i pozdější výpočet investovaného kapitálu
+            (NOA) pro model EVA – proto je později „vyčleníme".</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Proč podnik PLAST nakupoval dlouhodobý finanční majetek, přestože z něj neplynuly žádné výnosy?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se nad vztahem k mateřské společnosti a nad dividendovou politikou skupiny.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Nákup podílů v ostatních dceřiných společnostech si <strong>vynutila mateřská společnost jako náhradu za výplatu podílů na zisku</strong>. Skupina PLASTIKO je orientovaná na rozvoj a preferuje reinvestice do růstu společností před vyplácením podílů na zisku. Šlo tedy o rozhodnutí vlastníka, nikoli o provozně motivovanou investici.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Které kategorie zisku byly u podniku PLAST stabilní a která výrazně klesala? Co pokles znamená?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Který rozdíl mezi dvěma patry zisku tvoří odpisy?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>EBIT, EBT i ČZ byly relativně stabilní a držely se blízko u sebe. Klesala <strong>EBITDA</strong>. Protože EBITDA − EBIT ≈ odpisy, znamená klesající EBITDA při stabilním EBIT především <strong>klesající objem odpisů</strong> (stárnoucí a neobnovovaný hmotný majetek – DHM za období klesl o více než 20 %).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Který zdroj peněžních prostředků byl u podniku hlavní a jak podnik financoval své investice?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na znaménka CF podle jednotlivých činností v tabulce 8–12.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Hlavním zdrojem peněz byla <strong>provozní činnost</strong> (CF z provozní činnosti byl s výjimkou roku 2000 vysoce kladný). Ta ve firmě významně <strong>financovala investice</strong> – CF z investiční činnosti bylo každoročně záporné (trvalá investiční aktivita), zatímco finanční činnost jen občas doplnila zdroje navýšením bankovních úvěrů (2000, 2004).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč mohlo být záporné volné cash flow v roce 2004 zavádějícím signálem výkonnosti?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jaká mimořádná položka investic FCF v roce 2004 stlačila a souvisí s hlavní činností?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Záporné FCF (−1 943 tis. Kč) způsobily <strong>mimořádně vysoké investice (185,8 mil. Kč)</strong>, z nichž velkou část tvořil nákup <strong>dlouhodobých finančních podílů</strong> (přes 100 mil. Kč) vynucený mateřskou společností. Tato investice nesouvisí s hlavním zaměřením podniku, provozně byl podnik zdravý. Hodnocení a odměňování podle FCF by proto nemělo být ovlivněno takovou jednorázovou neoperativní investicí.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Co vypovídá kladný čistý pracovní kapitál a podíl ČPK/OA trvale nad 18 %?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>ČPK je oběžná aktiva minus krátkodobé závazky – čím je krytá jeho kladná část?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Kladný ČPK znamená, že část oběžných aktiv je kryta <strong>dlouhodobými zdroji</strong> – podnik tak má <strong>finanční polštář</strong> pro krytí neočekávaných závazků a nefinancuje dlouhodobá aktiva krátkodobými zdroji. Podíl ČPK/OA trvale nad 18 % svědčí o dostatečné a stabilní rezervě likvidity po celé sledované období.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t12-l3-benchmarking-2.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">12.3 Benchmarking II – analýza faktorů a závěry</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t12-l5-financni-analyza-2.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">12.5 Finanční analýza PLAST II – zadluženost, likvidita, rentabilita, aktivita</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+
+      // A) STATICKÝ ČÁROVÝ GRAF: vývoj kategorií zisku (obr. 8–5), orientačně v mil. Kč
+      Skripta.carovyGraf('viz-zisk-carovy', {
+        sirka: 720, vyska: 360, formatDesetin: 0,
+        serie: [
+          { nazev: 'EBITDA', body: [
+            { x: '1999', y: 255 }, { x: '2000', y: 242 }, { x: '2001', y: 215 },
+            { x: '2002', y: 222 }, { x: '2003', y: 205 }, { x: '2004', y: 185 } ] },
+          { nazev: 'EBIT', body: [
+            { x: '1999', y: 120 }, { x: '2000', y: 116 }, { x: '2001', y: 100 },
+            { x: '2002', y: 125 }, { x: '2003', y: 112 }, { x: '2004', y: 112 } ] },
+          { nazev: 'EBT', body: [
+            { x: '1999', y: 105 }, { x: '2000', y: 100 }, { x: '2001', y: 78 },
+            { x: '2002', y: 108 }, { x: '2003', y: 103 }, { x: '2004', y: 103 } ] },
+          { nazev: 'ČZ', body: [
+            { x: '1999', y: 95 }, { x: '2000', y: 78 }, { x: '2001', y: 60 },
+            { x: '2002', y: 75 }, { x: '2003', y: 70 }, { x: '2004', y: 72 } ] }
+        ]
+      });
+
+      // B) KROKOVÁ VIZUALIZACE: rozdělení EBIT na úroky, daň a čistý zisk (rok 2004, mil. Kč)
+      var EBIT = 112, UROKY = 9, DAN = 31, CZ = 72; // 112 − 9 = 103 (EBT); 103 − 31 = 72 (ČZ)
+      Skripta.stepper('viz-ebit-rozdeleni', {
+        sirka: 720, vyska: 360,
+        stavy: [
+          { showUroky: false, showDan: false, showCz: false },
+          { showUroky: true,  showDan: false, showCz: false },
+          { showUroky: true,  showDan: true,  showCz: false },
+          { showUroky: true,  showDan: true,  showCz: true  }
+        ],
+        popisky: [
+          'Východisko: provozní zisk EBIT ≈ 112 mil. Kč (rok 2004).',
+          'Věřitelům připadnou nákladové úroky ≈ 9 mil. Kč → zbývá EBT ≈ 103 mil. Kč.',
+          'Stát si vezme daň ≈ 31 mil. Kč → zbývá čistý zisk.',
+          'Podniku zůstává čistý zisk ≈ 72 mil. Kč – relativně vysoký podíl EBIT.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 300, px = 1.9;
+          var xBar = 150, w = 150;              // hlavní sloupec EBIT (skládaný)
+          var xOut = 470, wOut = 130;          // odečítané složky vpravo
+          var hEbit = EBIT * px;
+          var hUroky = UROKY * px, hDan = DAN * px, hCz = CZ * px;
+
+          // Osa
+          u.dej(svg, 'osa', 'line', { x1: 60, y1: base, x2: 680, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Skládaný sloupec EBIT: odspodu ČZ (zelená), daň (indigo), úroky (červená)
+          u.dej(svg, 'seg-cz', 'rect', { x: xBar, y: base - hCz, width: w, height: hCz, rx: 4, fill: u.barvaTvorba });
+          u.dej(svg, 'seg-dan', 'rect', { x: xBar, y: base - hCz - hDan, width: w, height: hDan, rx: 4, fill: '#4338ca' });
+          u.dej(svg, 'seg-uroky', 'rect', { x: xBar, y: base - hEbit, width: w, height: hUroky, rx: 4, fill: u.barvaNiceni });
+          u.dej(svg, 'lbl-ebit', 'text', { x: xBar + w / 2, y: base + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700 }, 'EBIT ≈ 112');
+
+          // Popisky uvnitř segmentů
+          u.dej(svg, 'tx-uroky', 'text', { x: xBar + w / 2, y: base - hEbit + hUroky / 2 + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 12, 'font-weight': 700, opacity: stav.showUroky ? 1 : 0 }, 'úroky 9');
+          u.dej(svg, 'tx-dan', 'text', { x: xBar + w / 2, y: base - hCz - hDan / 2 + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 12, 'font-weight': 700, opacity: stav.showDan ? 1 : 0 }, 'daň 31');
+          u.dej(svg, 'tx-cz', 'text', { x: xBar + w / 2, y: base - hCz / 2 + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 13, 'font-weight': 700, opacity: stav.showCz ? 1 : 0 }, 'ČZ 72');
+
+          // Vpravo: „odcházející" složky pro věřitele a stát
+          u.dej(svg, 'out-uroky', 'rect', { x: xOut, y: base - hUroky, width: wOut, height: stav.showUroky ? hUroky : 0, rx: 4, fill: u.barvaNiceni, opacity: stav.showUroky ? 1 : 0 });
+          u.dej(svg, 'out-uroky-l', 'text', { x: xOut + wOut / 2, y: base - hUroky - 8, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: stav.showUroky ? 1 : 0 }, 'věřitelé (úroky)');
+
+          u.dej(svg, 'out-dan', 'rect', { x: xOut, y: base - hUroky - 14 - hDan, width: wOut, height: stav.showDan ? hDan : 0, rx: 4, fill: '#4338ca', opacity: stav.showDan ? 1 : 0 });
+          u.dej(svg, 'out-dan-l', 'text', { x: xOut + wOut / 2, y: base - hUroky - 14 - hDan - 8, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: stav.showDan ? 1 : 0 }, 'stát (daň)');
+        }
+      });
+
+      // C) KROKOVÁ VIZUALIZACE: vodopád vzniku FCF 2004 (mil. Kč), dle tab. 8–13
+      // Kumulativně: 80,7 → +73,5 = 154,2 → +29,7 = 183,9 → −185,8 = −1,9
+      var yZero = 315, pxF = 1.32;
+      function yF(v) { return yZero - v * pxF; }
+      Skripta.stepper('viz-fcf-vodopad', {
+        sirka: 760, vyska: 380,
+        stavy: [
+          { krok: 0 }, { krok: 1 }, { krok: 2 }, { krok: 3 }
+        ],
+        popisky: [
+          'Východisko: provozní zisk po zdanění EBIT·(1−t) ≈ 80,7 mil. Kč.',
+          'Přičteme odpisy ≈ 73,5 mil. Kč (nepeněžní náklad) → 154,2 mil. Kč.',
+          'Přičteme změnu ČPK ≈ +29,7 mil. Kč → 183,9 mil. Kč.',
+          'Odečteme investice ≈ 185,8 mil. Kč → FCF ≈ −1,9 mil. Kč. Provozní hotovost pohltily investice.'
+        ],
+        render: function (svg, stav, i, u) {
+          var k = stav.krok;
+          var cx = [130, 290, 450, 610];   // středy sloupců
+          var w = 90;
+          // úrovně kumulace
+          var v0 = 0, v1 = 80.654, v2 = 154.201, v3 = 183.902, v4 = -1.943;
+
+          // Osa nuly
+          u.dej(svg, 'osa', 'line', { x1: 70, y1: yZero, x2: 700, y2: yZero, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // 1) EBIT(1-t): 0 → 80,7 (vždy)
+          u.dej(svg, 'b-ebit', 'rect', { x: cx[0] - w / 2, y: yF(v1), width: w, height: yF(v0) - yF(v1), rx: 4, fill: '#4338ca' });
+          u.dej(svg, 'v-ebit', 'text', { x: cx[0], y: yF(v1) - 8, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13, 'font-weight': 700 }, '80,7');
+          u.dej(svg, 'l-ebit', 'text', { x: cx[0], y: yZero + 20, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, 'EBIT(1−t)');
+
+          // 2) Odpisy: 80,7 → 154,2 (zelená, plovoucí)
+          var showOdp = k >= 1;
+          u.dej(svg, 'b-odp', 'rect', { x: cx[1] - w / 2, y: yF(v2), width: w, height: showOdp ? (yF(v1) - yF(v2)) : 0, rx: 4, fill: u.barvaTvorba, opacity: showOdp ? 1 : 0 });
+          u.dej(svg, 'v-odp', 'text', { x: cx[1], y: yF(v2) - 8, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 700, opacity: showOdp ? 1 : 0 }, '+73,5');
+          u.dej(svg, 'l-odp', 'text', { x: cx[1], y: yZero + 20, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: showOdp ? 1 : 0 }, 'Odpisy');
+          u.dej(svg, 's1', 'line', { x1: cx[0] + w / 2, y1: yF(v1), x2: cx[1] - w / 2, y2: yF(v1), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: showOdp ? 1 : 0 });
+
+          // 3) Změna ČPK: 154,2 → 183,9 (zelená, plovoucí)
+          var showCpk = k >= 2;
+          u.dej(svg, 'b-cpk', 'rect', { x: cx[2] - w / 2, y: yF(v3), width: w, height: showCpk ? (yF(v2) - yF(v3)) : 0, rx: 4, fill: u.barvaTvorba, opacity: showCpk ? 1 : 0 });
+          u.dej(svg, 'v-cpk', 'text', { x: cx[2], y: yF(v3) - 8, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 700, opacity: showCpk ? 1 : 0 }, '+29,7');
+          u.dej(svg, 'l-cpk', 'text', { x: cx[2], y: yZero + 20, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: showCpk ? 1 : 0 }, 'Δ ČPK');
+          u.dej(svg, 's2', 'line', { x1: cx[1] + w / 2, y1: yF(v2), x2: cx[2] - w / 2, y2: yF(v2), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: showCpk ? 1 : 0 });
+
+          // 4) Investice: 183,9 → −1,9 (červená, velký pokles)
+          var showInv = k >= 3;
+          u.dej(svg, 'b-inv', 'rect', { x: cx[3] - w / 2, y: yF(v3), width: w, height: showInv ? (yF(v4) - yF(v3)) : 0, rx: 4, fill: u.barvaNiceni, opacity: showInv ? 1 : 0 });
+          u.dej(svg, 'v-inv', 'text', { x: cx[3], y: yF(v3) - 8, 'text-anchor': 'middle', fill: u.barvaNiceni, 'font-size': 13, 'font-weight': 700, opacity: showInv ? 1 : 0 }, '−185,8');
+          u.dej(svg, 'l-inv', 'text', { x: cx[3], y: yZero + 20, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12, opacity: showInv ? 1 : 0 }, 'Investice');
+          u.dej(svg, 's3', 'line', { x1: cx[2] + w / 2, y1: yF(v3), x2: cx[3] - w / 2, y2: yF(v3), stroke: u.barvaOsa, 'stroke-width': 1.2, 'stroke-dasharray': '4 4', opacity: showInv ? 1 : 0 });
+
+          // Výsledný popisek FCF pod nulou
+          u.dej(svg, 'v-fcf', 'text', { x: cx[3] + 4, y: yF(v4) + 20, 'text-anchor': 'middle', fill: u.barvaNiceni, 'font-size': 13, 'font-weight': 700, opacity: showInv ? 1 : 0 }, 'FCF ≈ −1,9' );
+        }
+      });
+
+      // D) STATICKÝ SLOUPCOVÝ GRAF: vývoj ČPK (tab. 8–14), mil. Kč
+      Skripta.sloupcovyGraf('viz-cpk-sloupce', {
+        sirka: 680, vyska: 320, formatDesetin: 1,
+        data: [
+          { popisek: '1999', hodnota: 82.4 },
+          { popisek: '2000', hodnota: 274.1 },
+          { popisek: '2001', hodnota: 102.0 },
+          { popisek: '2002', hodnota: 86.3 },
+          { popisek: '2003', hodnota: 136.8 },
+          { popisek: '2004', hodnota: 136.2 }
+        ]
+      });
+    })();
+  </script>
+</body>
+</html>

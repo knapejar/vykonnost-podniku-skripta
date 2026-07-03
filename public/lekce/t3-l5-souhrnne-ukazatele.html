@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.5 Souhrnné ukazatele – bankrotní a bonitní modely – Výkonnost podniku</title>
+  <meta name="description" content="Souhrnné (bankrotní a bonitní) modely finanční analýzy: Altmanovo Z-skóre a české indexy IN95, IN99, IN01 a IN05 včetně interpretačních pásem a šedé zóny.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 3 -->
+    <nav class="panel" data-panel data-aktivni-lekce="3.5" aria-label="Lekce tématu 3">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 3</div>
+      <div class="panel__nazev-tema">Finanční analýza v řízení výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="3.1" href="t3-l1-uvod-financni-analyza.html"><span class="panel__odkaz-cislo">3.1</span><span>Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.2" href="t3-l2-rentabilita-zadluzenost.html"><span class="panel__odkaz-cislo">3.2</span><span>Analýza rentability a zadluženosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.3" href="t3-l3-likvidita-aktivita.html"><span class="panel__odkaz-cislo">3.3</span><span>Analýza likvidity a aktivity</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.4" href="t3-l4-kapitalovy-trh.html"><span class="panel__odkaz-cislo">3.4</span><span>Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.5" href="t3-l5-souhrnne-ukazatele.html"><span class="panel__odkaz-cislo">3.5</span><span>Souhrnné ukazatele – bankrotní a bonitní modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.6" href="t3-l6-dupont-soustavy.html"><span class="panel__odkaz-cislo">3.6</span><span>Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-3">Téma 3 · Finanční analýza</a></li>
+          <li><span aria-current="page">Lekce 3.5</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 3.5</span>
+        <h1>Souhrnné ukazatele – bankrotní a bonitní modely</h1>
+        <p class="lekce-hlavicka__strany">Strany 38–40</p>
+      </header>
+
+      <p>
+        <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-pomerove-ukazatele" target="_blank" rel="noopener">Poměrových ukazatelů</a> finanční analýzy je mnoho – <a class="pojem" href="t3-l2-rentabilita-zadluzenost.html?zvyraznit=pojem-analyza-rentability" target="_blank" rel="noopener">rentabilita</a>, zadluženost,
+        <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidita</a>, aktivita, ukazatele kapitálového trhu. Každý z nich hodnotí podnik
+        jen z jednoho úhlu a sám o sobě nedá jasnou odpověď na otázku, která analytiky
+        i věřitele zajímá nejvíc: <strong>je tento podnik zdravý, nebo mu hrozí
+        bankrot?</strong> Právě tuto mezeru vyplňují <a class="pojem" href="#pojem-souhrnne-ukazatele">souhrnné
+        ukazatele</a>, které více poměrových ukazatelů slučují do jediného čísla.
+      </p>
+      <p>
+        V této lekci se seznámíte s nejznámějším bankrotním modelem – Altmanovým
+        Z-skóre – a s rodinou českých indexů IN, které pro naše podmínky sestavili
+        manželé Neumaierovi. Naučíte se také rozlišovat modely <em>bankrotní</em>
+        a <em>bonitní</em> a chápat pojem <a class="pojem" href="#pojem-seda-zona">šedá zóna</a>.
+      </p>
+
+      <!-- DEFINICE: souhrnné ukazatele -->
+      <section class="definice" id="pojem-souhrnne-ukazatele">
+        <h3 class="definice__pojem">Souhrnné ukazatele</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatele, které slučují několik dílčích poměrových ukazatelů do jediné
+            charakteristiky (jednoho čísla) tak, aby rozlišily podnik „zdravý“
+            a „nemocný“. Za nemocný se přitom obvykle považuje podnik s ohroženou
+            likviditou, tedy se sníženou schopností dostát svým závazkům.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Řada studií finančních analytiků se snaží vyřešit dvojí problém: <em>které</em>
+        ukazatele pro zhodnocení finanční situace vybrat a <em>jakou významnost</em>
+        (váhu) jim přisoudit. Cílem je odlišit podniky s dobrou a s ohroženou schopností
+        splácet závazky. Vybrané ukazatele se pak shrnují do jedné hodnoty ve formě
+        <strong>bankrotních indikátorů</strong>.
+      </p>
+
+      <!-- Statické schéma: mnoho ukazatelů → jedno číslo -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Od mnoha ukazatelů k jedinému číslu</p>
+          <p class="viz__popis">Souhrnný ukazatel váženě spojí dílčí poměrové ukazatele a výsledné číslo zařadí podnik do pásma (zdravý / šedá zóna / ohrožený).</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 720 250" width="100%" role="img" aria-label="Schéma: čtyři oblasti poměrových ukazatelů se slévají do jednoho souhrnného ukazatele a ten do verdiktu.">
+            <defs>
+              <marker id="sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#64748b"></path>
+              </marker>
+            </defs>
+            <!-- vstupní poměrové ukazatele -->
+            <g font-size="13" fill="#1e293b" text-anchor="middle">
+              <rect x="16" y="24" width="150" height="34" rx="8" fill="#eef2ff" stroke="#c7d2fe"></rect>
+              <text x="91" y="45">Rentabilita</text>
+              <rect x="16" y="72" width="150" height="34" rx="8" fill="#eef2ff" stroke="#c7d2fe"></rect>
+              <text x="91" y="93">Zadluženost</text>
+              <rect x="16" y="120" width="150" height="34" rx="8" fill="#eef2ff" stroke="#c7d2fe"></rect>
+              <text x="91" y="141">Likvidita</text>
+              <rect x="16" y="168" width="150" height="34" rx="8" fill="#eef2ff" stroke="#c7d2fe"></rect>
+              <text x="91" y="189">Aktivita</text>
+            </g>
+            <!-- spojnice do centrálního bloku -->
+            <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#sip)">
+              <path d="M166,41 C250,41 250,100 316,110"></path>
+              <path d="M166,89 C250,89 250,105 316,113"></path>
+              <path d="M166,137 C250,137 250,120 316,117"></path>
+              <path d="M166,185 C250,185 250,130 316,120"></path>
+            </g>
+            <!-- centrální souhrnný ukazatel -->
+            <rect x="320" y="86" width="170" height="58" rx="10" fill="#4338ca"></rect>
+            <text x="405" y="110" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Souhrnný ukazatel</text>
+            <text x="405" y="130" text-anchor="middle" fill="#c7d2fe" font-size="12">jediné číslo (skóre)</text>
+            <!-- šipka k verdiktu -->
+            <line x1="490" y1="115" x2="536" y2="115" stroke="#64748b" stroke-width="1.5" marker-end="url(#sip)"></line>
+            <!-- verdikt -->
+            <g font-size="12" text-anchor="middle">
+              <rect x="540" y="70" width="164" height="26" rx="6" fill="#dcfce7" stroke="#86efac"></rect>
+              <text x="622" y="87" fill="#15803d">zdravý podnik</text>
+              <rect x="540" y="102" width="164" height="26" rx="6" fill="#f1f5f9" stroke="#cbd5e1"></rect>
+              <text x="622" y="119" fill="#475569">šedá zóna</text>
+              <rect x="540" y="134" width="164" height="26" rx="6" fill="#fee2e2" stroke="#fca5a5"></rect>
+              <text x="622" y="151" fill="#b91c1c">ohrožený podnik</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <!-- ===================== BANKROTNÍ vs BONITNÍ ===================== -->
+      <h2>Bankrotní a bonitní modely</h2>
+      <p>
+        Souhrnné modely se dělí podle toho, na jakou otázku odpovídají. <strong>Bankrotní
+        modely</strong> se ptají, zda podniku hrozí úpadek; jsou sestaveny z ukazatelů
+        citlivých na blížící se platební neschopnost. <strong>Bonitní modely</strong>
+        naopak hodnotí kvalitu (bonitu) podniku z pohledu vlastníka – zda tvoří
+        <a class="pojem" href="t1-l2-valka-ukazatelu.html?zvyraznit=pojem-ekonomicky-zisk" target="_blank" rel="noopener">ekonomický zisk</a>. Některé novější indexy (IN01, IN05) obě hlediska spojují.
+      </p>
+
+      <section class="definice" id="pojem-bankrotni-model">
+        <h3 class="definice__pojem">Bankrotní model</h3>
+        <div class="definice__telo">
+          <p>
+            Souhrnný model, který signalizuje riziko úpadku (bankrotu) podniku.
+            Vychází zejména z ukazatelů schopnosti splácet závazky. Patří sem Altmanovo
+            Z-skóre a index IN95.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-bonitni-model">
+        <h3 class="definice__pojem">Bonitní model</h3>
+        <div class="definice__telo">
+          <p>
+            Souhrnný model hodnotící bonitu podniku z pohledu vlastníka – zejména to,
+            zda podnik dosahuje ekonomického zisku. Příkladem je index IN99. Nevyžaduje
+            přímý odhad <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-naklady-vlastni-kapital" target="_blank" rel="noopener">alternativního nákladu na vlastní kapitál</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== Z-SKÓRE ===================== -->
+      <h2>Z-skóre (Altmanův model)</h2>
+      <p>
+        Altmanův model bankrotu, označovaný také jako <em>index důvěryhodnosti</em>
+        nebo <em>Z-skóre</em>, patří mezi nejznámější a nejpoužívanější souhrnné modely.
+        Vznikl na základě statistické analýzy skutečně zbankrotovaných i prosperujících
+        podniků a spojuje pět poměrových ukazatelů se stanovenými váhami:
+      </p>
+
+      <section class="definice" id="pojem-z-skore">
+        <h3 class="definice__pojem">Z-skóre (Altmanův model)</h3>
+        <div class="definice__telo">
+          <p>
+            Bankrotní model, který jako vážený součet pěti poměrových ukazatelů
+            (<span class="math">X<sub>1</sub></span> až <span class="math">X<sub>5</sub></span>)
+            přiřadí podniku jediné číslo. Vyšší hodnota znamená finančně zdravější
+            podnik; nízká hodnota signalizuje riziko bankrotu.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-29">
+        <div class="vzorec__telo">
+          <span class="math">Z<span class="op">=</span><span class="num">1,2</span><span class="op">×</span>X<sub>1</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">1,4</span><span class="op">×</span>X<sub>2</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">3,3</span><span class="op">×</span>X<sub>3</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">0,6</span><span class="op">×</span>X<sub>4</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">1,0</span><span class="op">×</span>X<sub>5</sub></span>
+        </div>
+        <div class="vzorec__cislo">(2.29)</div>
+      </div>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3.5 – Složky Altmanova Z-skóre</caption>
+          <thead>
+            <tr><th scope="col">Ukazatel</th><th scope="col">Výpočet</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><span class="math">X<sub>1</sub></span></th><td>Čistý pracovní kapitál / Aktiva</td></tr>
+            <tr><th scope="row"><span class="math">X<sub>2</sub></span></th><td>Nerozdělené zisky / Aktiva</td></tr>
+            <tr><th scope="row"><span class="math">X<sub>3</sub></span></th><td>EBIT / Aktiva</td></tr>
+            <tr><th scope="row"><span class="math">X<sub>4</sub></span></th><td>Tržní hodnota vlastního kapitálu / Cizí zdroje</td></tr>
+            <tr><th scope="row"><span class="math">X<sub>5</sub></span></th><td>Tržby / Aktiva</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Výsledek se interpretuje pomocí tří pásem. Je-li <span class="math">Z</span>
+        vyšší než <span class="num">2,99</span>, má firma uspokojivou finanční situaci.
+        Při hodnotě <span class="math">Z</span> v rozmezí <span class="num">1,81</span>
+        až <span class="num">2,99</span> jde o nevyhraněnou finanční situaci
+        (<a class="pojem" href="#pojem-seda-zona">šedá zóna</a>) a při <span class="math">Z</span>
+        menším než <span class="num">1,81</span> má podnik velmi silné finanční problémy.
+      </p>
+
+      <p>
+        Uvedené váhy odpovídají původnímu modelu z roku <strong>1968</strong>, sestavenému
+        pro podniky obchodované na veřejných trzích. V roce <strong>1983</strong> Altman
+        váhy upravil tak, aby model šel použít i pro společnosti, jejichž akcie se
+        veřejně neobchodují:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-30">
+        <div class="vzorec__telo">
+          <span class="math">Z<span class="op">=</span><span class="num">0,717</span><span class="op">×</span>X<sub>1</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">0,847</span><span class="op">×</span>X<sub>2</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">3,107</span><span class="op">×</span>X<sub>3</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">0,420</span><span class="op">×</span>X<sub>4</sub></span>
+          <span class="math"><span class="op">+</span><span class="num">0,998</span><span class="op">×</span>X<sub>5</sub></span>
+        </div>
+        <div class="vzorec__cislo">(2.30)</div>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč dvě verze vah</p>
+        <div class="callout__telo">
+          <p>
+            U neveřejně obchodovaných podniků nelze do ukazatele <span class="math">X<sub>4</sub></span>
+            dosadit tržní hodnotu vlastního kapitálu z burzy. Verze z roku 1983 proto
+            pracuje s upravenými váhami, aby model zůstal použitelný i mimo kapitálový trh.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== INDEXY IN ===================== -->
+      <h2>České indexy IN</h2>
+      <p>
+        Altmanův model vznikl v amerických podmínkách a jeho přenositelnost do jiných
+        ekonomik je omezená. Na základě matematicko-statistických modelů ratingu
+        a praktických zkušeností z analýzy finančního zdraví českých podniků sestavili
+        <strong>Inka Neumaierová a Ivan Neumaier</strong> souhrnné metodiky přímo pro
+        podmínky ČR – rodinu indexů IN.
+      </p>
+
+      <section class="definice" id="pojem-indexy-in">
+        <h3 class="definice__pojem">Indexy IN</h3>
+        <div class="definice__telo">
+          <p>
+            Rodina souhrnných indexů (IN95, IN99, IN01, IN05) sestavených manžely
+            Neumaierovými pro podmínky české ekonomiky. Zahrnuje bankrotní verzi (IN95),
+            bonitní verzi (IN99) i indexy spojující obě hlediska (IN01, IN05). Číslo
+            v názvu označuje rok vzniku dané verze.
+          </p>
+        </div>
+      </section>
+
+      <h3>IN95 – bankrotní index</h3>
+      <p>
+        IN95 je <strong>bankrotní</strong> index, který stejně jako Z-skóre signalizuje
+        ohrožení podniku možným bankrotem:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-31">
+        <div class="vzorec__telo">
+          <span class="math">IN95<span class="op">=</span>V<sub>1</sub><span class="op">×</span><span class="frac"><span class="frac__cit">aktiva</span><span class="frac__jmen">cizí zdroje</span></span></span>
+          <span class="math"><span class="op">+</span>V<sub>2</sub><span class="op">×</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">nákl. úroky</span></span></span>
+          <span class="math"><span class="op">+</span>V<sub>3</sub><span class="op">×</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span>V<sub>4</sub><span class="op">×</span><span class="frac"><span class="frac__cit">výnosy</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span>V<sub>5</sub><span class="op">×</span><span class="frac"><span class="frac__cit">oběžná aktiva</span><span class="frac__jmen">kr. závazky + kr. bank. úvěry</span></span></span>
+          <span class="math"><span class="op">−</span>V<sub>6</sub><span class="op">×</span><span class="frac"><span class="frac__cit">závazky po splatnosti</span><span class="frac__jmen">tržby</span></span></span>
+        </div>
+        <div class="vzorec__cislo">(2.31)</div>
+      </div>
+
+      <p>
+        <span class="math">V<sub>1</sub></span> až <span class="math">V<sub>6</sub></span>
+        jsou váhy jednotlivých ukazatelů, konstruované jako podíl významnosti ukazatele
+        ke kriteriální hodnotě ukazatele. Váhy <span class="math">V<sub>2</sub><span class="op">=</span><span class="num">0,11</span></span>
+        a <span class="math">V<sub>5</sub><span class="op">=</span><span class="num">0,10</span></span>
+        jsou pevné, u ostatních vah se respektují <strong>odvětvová specifika</strong>
+        (jejich hodnoty podle odvětví lze najít v publikaci autorů). Výsledek se
+        vyhodnocuje takto:
+      </p>
+      <ul>
+        <li><span class="math">IN95<span class="op">&gt;</span><span class="num">2</span></span> – podnik s dobrým finančním zdravím,</li>
+        <li><span class="math"><span class="num">1</span><span class="op">≤</span>IN95<span class="op">≤</span><span class="num">2</span></span> – „ani zdravý, ani nemocný“ (mohl by mít problémy) – šedá zóna,</li>
+        <li><span class="math">IN95<span class="op">&lt;</span><span class="num">1</span></span> – podnik se špatným finančním zdravím.</li>
+      </ul>
+
+      <h3>IN99 – bonitní index</h3>
+      <p>
+        Pro hodnocení výkonnosti podniku z hlediska <strong>vlastníka</strong> sestavili
+        Neumaierovi další index, spíše bonitního charakteru:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-32">
+        <div class="vzorec__telo">
+          <span class="math">IN99<span class="op">=</span><span class="op">−</span><span class="num">0,017</span><span class="op">×</span><span class="frac"><span class="frac__cit">aktiva</span><span class="frac__jmen">cizí zdroje</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">4,573</span><span class="op">×</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,481</span><span class="op">×</span><span class="frac"><span class="frac__cit">výnosy</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,015</span><span class="op">×</span><span class="frac"><span class="frac__cit">oběžná aktiva</span><span class="frac__jmen">kr. závazky + kr. bank. úvěry</span></span></span>
+        </div>
+        <div class="vzorec__cislo">(2.32)</div>
+      </div>
+
+      <p>
+        Je-li hodnota indexu vyšší než <span class="num">2,07</span>, podnik dosahuje
+        <span class="hodnota-tvorba">ekonomického zisku</span>; hodnota pod
+        <span class="num">0,684</span> znamená <span class="hodnota-niceni">záporný
+        ekonomický zisk</span>. Interval mezi nimi (šedá zóna) je signálem o určitých
+        problémech.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kdy sáhnout po IN99 místo EVA</p>
+        <div class="callout__telo">
+          <p>
+            IN99 je výhodné použít tam, kde má podnik problém s odhadem alternativního
+            nákladu na vlastní kapitál. Přiblíží totiž informaci o tvorbě ekonomického
+            zisku, aniž by vyžadoval náročný výpočet <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">nákladů na kapitál</a> jako ukazatel <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>.
+          </p>
+        </div>
+      </aside>
+
+      <h3>IN01 – spojení bonitního a bankrotního pohledu</h3>
+      <p>
+        Index IN01 spojuje východiska obou předchozích indexů – jde tedy o kombinaci
+        bonitního a bankrotního modelu:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-33">
+        <div class="vzorec__telo">
+          <span class="math">IN01<span class="op">=</span><span class="num">0,13</span><span class="op">×</span><span class="frac"><span class="frac__cit">aktiva</span><span class="frac__jmen">cizí zdroje</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,04</span><span class="op">×</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">nákl. úroky</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">3,92</span><span class="op">×</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,21</span><span class="op">×</span><span class="frac"><span class="frac__cit">výnosy</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,09</span><span class="op">×</span><span class="frac"><span class="frac__cit">oběžná aktiva</span><span class="frac__jmen">kr. závazky + kr. bank. úvěry</span></span></span>
+        </div>
+        <div class="vzorec__cislo">(2.33)</div>
+      </div>
+
+      <p>
+        Je-li hodnota indexu větší než <span class="num">1,77</span>, podnik
+        <span class="hodnota-tvorba">tvoří hodnotu</span>; hodnota IN01 menší než
+        <span class="num">0,75</span> znamená, že podnik má <span class="hodnota-niceni">problémy</span>.
+        Mezi hodnotami <span class="num">0,75</span> a <span class="num">1,77</span> leží šedá zóna.
+      </p>
+
+      <h3>IN05 – aktualizace IN01</h3>
+      <p>
+        Index IN05 je aktualizací IN01. Změnila se váha ukazatele
+        <span class="math"><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">aktiva</span></span></span>
+        (z <span class="num">3,92</span> na <span class="num">3,97</span>) i hranice
+        vyhodnocení:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-34">
+        <div class="vzorec__telo">
+          <span class="math">IN05<span class="op">=</span><span class="num">0,13</span><span class="op">×</span><span class="frac"><span class="frac__cit">aktiva</span><span class="frac__jmen">cizí zdroje</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,04</span><span class="op">×</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">nákl. úroky</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">3,97</span><span class="op">×</span><span class="frac"><span class="frac__cit">EBIT</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,21</span><span class="op">×</span><span class="frac"><span class="frac__cit">výnosy</span><span class="frac__jmen">aktiva</span></span></span>
+          <span class="math"><span class="op">+</span><span class="num">0,09</span><span class="op">×</span><span class="frac"><span class="frac__cit">oběžná aktiva</span><span class="frac__jmen">kr. závazky + kr. bank. úvěry</span></span></span>
+        </div>
+        <div class="vzorec__cislo">(2.34)</div>
+      </div>
+
+      <p>
+        Vyhodnocení: pokud je <span class="math">IN05<span class="op">&gt;</span><span class="num">1,6</span></span>,
+        podnik <span class="hodnota-tvorba">tvoří hodnotu</span>; je-li hodnota
+        <span class="math">&lt;<span class="num">0,9</span></span>, podnik hodnotu
+        <span class="hodnota-niceni">netvoří (ničí)</span>. Nachází-li se index IN05
+        mezi hodnotami <span class="num">0,9</span> a <span class="num">1,6</span>,
+        jde o tzv. šedou zónu.
+      </p>
+
+      <section class="definice" id="pojem-seda-zona">
+        <h3 class="definice__pojem">Šedá zóna</h3>
+        <div class="definice__telo">
+          <p>
+            Pásmo hodnot souhrnného ukazatele mezi dolní a horní hranicí, ve kterém
+            model nedokáže podnik jednoznačně zařadit mezi zdravé, ani mezi ohrožené.
+            Je signálem nevyhraněné situace či možných problémů a vyžaduje doplňkovou
+            analýzu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== KROKOVÁ VIZUALIZACE: PÁSMA MODELŮ ===================== -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Interpretační pásma souhrnných modelů</p>
+          <p class="viz__popis">Projděte tlačítky „Zpět / Další“ jednotlivé modely a sledujte, jak se posouvají hranice mezi pásmem ohrožení (červená), šedou zónou (šedá) a pásmem prosperity (zelená).</p>
+        </figcaption>
+        <div id="viz-pasma"></div>
+      </figure>
+
+      <!-- ===================== PŘEHLEDOVÁ TABULKA ===================== -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 3.6 – Přehled souhrnných modelů a jejich interpretačních pásem</caption>
+          <thead>
+            <tr>
+              <th scope="col">Model</th>
+              <th scope="col">Typ</th>
+              <th scope="col" class="cislo">Ohrožení (pod)</th>
+              <th scope="col">Šedá zóna</th>
+              <th scope="col" class="cislo">Prosperita (nad)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Z-skóre (Altman)</th>
+              <td>bankrotní</td>
+              <td class="cislo hodnota-niceni">1,81</td>
+              <td class="cislo">1,81 – 2,99</td>
+              <td class="cislo hodnota-tvorba">2,99</td>
+            </tr>
+            <tr>
+              <th scope="row">IN95</th>
+              <td>bankrotní</td>
+              <td class="cislo hodnota-niceni">1,0</td>
+              <td class="cislo">1,0 – 2,0</td>
+              <td class="cislo hodnota-tvorba">2,0</td>
+            </tr>
+            <tr>
+              <th scope="row">IN99</th>
+              <td>bonitní</td>
+              <td class="cislo hodnota-niceni">0,684</td>
+              <td class="cislo">0,684 – 2,07</td>
+              <td class="cislo hodnota-tvorba">2,07</td>
+            </tr>
+            <tr>
+              <th scope="row">IN01</th>
+              <td>bonitní + bankrotní</td>
+              <td class="cislo hodnota-niceni">0,75</td>
+              <td class="cislo">0,75 – 1,77</td>
+              <td class="cislo hodnota-tvorba">1,77</td>
+            </tr>
+            <tr>
+              <th scope="row">IN05</th>
+              <td>bonitní + bankrotní</td>
+              <td class="cislo hodnota-niceni">0,9</td>
+              <td class="cislo">0,9 – 1,6</td>
+              <td class="cislo hodnota-tvorba">1,6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pozor na porovnávání hodnot napříč modely</p>
+        <div class="callout__telo">
+          <p>
+            Každý model má vlastní stupnici i vlastní hranice pásem. Hodnota
+            „<span class="num">1,5</span>“ znamená u IN05 šedou zónu, ale u IN95 už
+            spadá do šedé zóny s jiným významem. Výsledek proto vždy vyhodnocujte podle
+            pásem <em>toho konkrétního modelu</em>, který jste použili.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== ZKUS SÁM 1 ===================== -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč byly indexy IN sestaveny speciálně pro české podmínky, když už
+          existoval osvědčený Altmanův model?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Altmanovo Z-skóre vzniklo statistickou analýzou amerických podniků a jeho
+              váhy i hranice odrážejí tamní ekonomické prostředí a účetní zvyklosti.
+              V odlišné ekonomice ztrácí přesnost. Manželé Neumaierovi proto váhy
+              a kriteriální hodnoty odvodili z dat o finančním zdraví <strong>českých</strong>
+              podniků a zohlednili <strong>odvětvová specifika</strong> (u IN95 se část
+              vah liší podle odvětví). Model tak lépe rozlišuje zdravé a ohrožené
+              podniky v podmínkách ČR.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== ZKUS SÁM 2 ===================== -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Kdy je vhodnější sáhnout po bonitním indexu IN99 než po složitém výpočtu
+          ekonomické přidané hodnoty (EVA)?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Tehdy, když má podnik <strong>problém s odhadem alternativního nákladu na
+              vlastní kapitál</strong>. EVA tento náklad potřebuje jako klíčový vstup
+              (a jeho odhad bývá u nekótovaných firem obtížný a nejistý). IN99 dokáže
+              přiblížit informaci o tvorbě ekonomického zisku z běžně dostupných účetních
+              dat, aniž by tento náklad vyžadoval – je proto rychlejší a méně náročnou
+              alternativou pro orientační posouzení výkonnosti.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== ZÁVĚREČNÉ OTÁZKY ===================== -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaký je rozdíl mezi bankrotním a bonitním modelem?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, na jakou otázku každý typ modelu odpovídá a z čí perspektivy.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Bankrotní model</strong> (Z-skóre, IN95) signalizuje riziko úpadku – ptá se, zda podnik dokáže dostát závazkům. <strong>Bonitní model</strong> (IN99) hodnotí kvalitu podniku z pohledu vlastníka, tedy zda tvoří ekonomický zisk. Indexy IN01 a IN05 obě hlediska spojují.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co znamená, když výsledek modelu padne do „šedé zóny“?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o pásmo mezi dolní a horní hranicí modelu.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Model nedokáže podnik jednoznačně zařadit mezi zdravé ani mezi ohrožené. Jde o nevyhraněnou situaci a signál možných problémů, který vyžaduje doplňkovou analýzu. Například u IN05 leží šedá zóna mezi hodnotami 0,9 a 1,6.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč existují dvě verze vah Altmanova Z-skóre (1968 a 1983)?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podívejte se na ukazatel <span class="math">X<sub>4</sub></span> a na to, odkud se bere jeho hodnota.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Původní model z roku 1968 počítá v ukazateli <span class="math">X<sub>4</sub></span> s <strong>tržní</strong> hodnotou vlastního kapitálu, kterou lze zjistit jen u veřejně obchodovaných firem. Verze z roku 1983 má upravené váhy, aby byla použitelná i pro <strong>neobchodované</strong> společnosti.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Které váhy indexu IN95 jsou pevné a čím se řídí ostatní?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Dvě váhy mají v knize konkrétní číslo, zbytek závisí na typu podnikání.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Pevné jsou váhy <span class="math">V<sub>2</sub><span class="op">=</span><span class="num">0,11</span></span> a <span class="math">V<sub>5</sub><span class="op">=</span><span class="num">0,10</span></span>. U ostatních vah se respektují <strong>odvětvová specifika</strong> – jejich hodnoty se liší podle odvětví a autoři je uvádějí ve své publikaci.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Podle indexu IN05 vyšla hodnota 0,7. Jak podnik interpretujete?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte 0,7 s hranicemi IN05: 0,9 a 1,6.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Hodnota 0,7 je nižší než dolní hranice 0,9, podnik tedy podle IN05 <strong>hodnotu netvoří (ničí)</strong>. Nespadá ani do šedé zóny (0,9–1,6), ani do pásma tvorby hodnoty (nad 1,6).</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PREV / NEXT NAVIGACE ===================== -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t3-l4-kapitalovy-trh.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">3.4 Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t3-l6-dupont-soustavy.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">3.6 Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace krokové vizualizace: interpretační pásma modelů ----
+    (function () {
+      Skripta.stepper('viz-pasma', {
+        sirka: 720, vyska: 300,
+        stavy: [
+          { nazev: 'Z-skóre (Altmanův model, 1968)', t1: 1.81, t2: 2.99, t1txt: '1,81', t2txt: '2,99', cerv: 'silné fin. problémy', seda: 'nevyhraněná zóna', zel: 'uspokojivá situace' },
+          { nazev: 'IN95 (bankrotní index)',          t1: 1.0,  t2: 2.0,  t1txt: '1,0',  t2txt: '2,0',  cerv: 'špatné fin. zdraví', seda: 'šedá zóna', zel: 'dobré fin. zdraví' },
+          { nazev: 'IN99 (bonitní index)',            t1: 0.684, t2: 2.07, t1txt: '0,684', t2txt: '2,07', cerv: 'záporný ek. zisk', seda: 'šedá zóna', zel: 'ekonomický zisk' },
+          { nazev: 'IN01 (bonitní + bankrotní)',      t1: 0.75, t2: 1.77, t1txt: '0,75', t2txt: '1,77', cerv: 'problémy', seda: 'šedá zóna', zel: 'tvoří hodnotu' },
+          { nazev: 'IN05 (aktualizace IN01)',         t1: 0.9,  t2: 1.6,  t1txt: '0,9',  t2txt: '1,6',  cerv: 'ničí hodnotu', seda: 'šedá zóna', zel: 'tvoří hodnotu' }
+        ],
+        popisky: [
+          'Altmanovo Z-skóre (verze 1968) rozlišuje tři pásma. Pod 1,81 hrozí bankrot, nad 2,99 je situace uspokojivá, mezi tím leží šedá zóna.',
+          'Český bankrotní index IN95 používá jednodušší hranice: pod 1 špatné finanční zdraví, nad 2 dobré, mezi 1 a 2 šedá zóna.',
+          'Bonitní index IN99 hodnotí tvorbu ekonomického zisku z pohledu vlastníka. Nad 2,07 podnik tvoří ekonomický zisk, pod 0,684 je záporný.',
+          'IN01 spojuje bonitní i bankrotní pohled. Nad 1,77 podnik tvoří hodnotu, pod 0,75 má problémy.',
+          'Aktualizovaný IN05 posouvá hranice na 0,9 a 1,6. Nad 1,6 podnik tvoří hodnotu, pod 0,9 ji ničí.'
+        ],
+        render: function (svg, stav, i, u) {
+          // Škála hodnot 0–4 na vodorovnou osu 60–680
+          var sc = u.skala(0, 4, 60, 680);
+          var yTop = 150, yBot = 210, axisY = 210;
+          var xLeft = 60, xRight = 680;
+          var x1 = sc(stav.t1), x2 = sc(stav.t2);
+
+          // Barevná pásma (červené / šedé / zelené) – animují se změnou šířky
+          u.dej(svg, 'zone-red', 'rect', { x: xLeft, y: yTop, width: Math.max(0, x1 - xLeft), height: yBot - yTop, fill: '#fee2e2' });
+          u.dej(svg, 'zone-gray', 'rect', { x: x1, y: yTop, width: Math.max(0, x2 - x1), height: yBot - yTop, fill: '#f1f5f9' });
+          u.dej(svg, 'zone-green', 'rect', { x: x2, y: yTop, width: Math.max(0, xRight - x2), height: yBot - yTop, fill: '#dcfce7' });
+
+          // Hraniční svislé čáry
+          u.dej(svg, 'bl1', 'line', { x1: x1, y1: yTop - 14, x2: x1, y2: yBot + 6, stroke: u.barvaNiceni, 'stroke-width': 2 });
+          u.dej(svg, 'bl2', 'line', { x1: x2, y1: yTop - 14, x2: x2, y2: yBot + 6, stroke: u.barvaTvorba, 'stroke-width': 2 });
+
+          // Hodnoty hranic nad pásmy
+          u.dej(svg, 'tv1', 'text', { x: x1, y: yTop - 20, 'text-anchor': 'middle', fill: '#b91c1c', 'font-size': 14, 'font-weight': 700 }, stav.t1txt);
+          u.dej(svg, 'tv2', 'text', { x: x2, y: yTop - 20, 'text-anchor': 'middle', fill: '#15803d', 'font-size': 14, 'font-weight': 700 }, stav.t2txt);
+
+          // Popisky pásem uvnitř barevných ploch
+          u.dej(svg, 'zl-red', 'text', { x: (xLeft + x1) / 2, y: yTop + (yBot - yTop) / 2 + 4, 'text-anchor': 'middle', fill: '#b91c1c', 'font-size': 11 }, stav.cerv);
+          u.dej(svg, 'zl-gray', 'text', { x: (x1 + x2) / 2, y: yTop + (yBot - yTop) / 2 + 4, 'text-anchor': 'middle', fill: '#475569', 'font-size': 11 }, stav.seda);
+          u.dej(svg, 'zl-green', 'text', { x: (x2 + xRight) / 2, y: yTop + (yBot - yTop) / 2 + 4, 'text-anchor': 'middle', fill: '#15803d', 'font-size': 11 }, stav.zel);
+
+          // Název modelu
+          u.dej(svg, 'nadpis', 'text', { x: 370, y: 46, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 17, 'font-weight': 700 }, stav.nazev);
+
+          // Osa a stupnice hodnot 0–4
+          u.dej(svg, 'osa', 'line', { x1: xLeft, y1: axisY, x2: xRight, y2: axisY, stroke: u.barvaOsa, 'stroke-width': 1 });
+          for (var k = 0; k <= 4; k++) {
+            u.dej(svg, 'tick' + k, 'text', { x: sc(k), y: axisY + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 11 }, String(k));
+          }
+          u.dej(svg, 'osa-popis', 'text', { x: 370, y: axisY + 48, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 11 }, 'hodnota souhrnného ukazatele');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

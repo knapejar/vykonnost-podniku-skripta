@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8.1 Strategické investiční rozhodování – Výkonnost podniku</title>
+  <meta name="description" content="Metody hodnocení investic – NPV, index ziskovosti, IRR a doba návratnosti – přírůstkové peněžní toky, reálné opce a dopad investic na výkonnost podniku.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="8.1" aria-label="Lekce tématu 8">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 8</div>
+      <div class="panel__nazev-tema">Investice a čistý pracovní kapitál</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="8.1" href="t8-l1-investicni-rozhodovani.html"><span class="panel__odkaz-cislo">8.1</span><span>Strategické investiční rozhodování</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="8.2" href="t8-l2-cpk-zasoby.html"><span class="panel__odkaz-cislo">8.2</span><span>ČPK – hotovostní cyklus a řízení zásob</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="8.3" href="t8-l3-pohledavky-penize.html"><span class="panel__odkaz-cislo">8.3</span><span>Řízení pohledávek a peněžních prostředků</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="8.4" href="t8-l4-kratkodobe-zdroje.html"><span class="panel__odkaz-cislo">8.4</span><span>Krátkodobé finanční zdroje a vliv ČPK na výkonnost</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-8">Téma 8 · Investice a ČPK</a></li>
+          <li><span aria-current="page">Lekce 8.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 8.1</span>
+        <h1>Strategické investiční rozhodování</h1>
+        <p class="lekce-hlavicka__strany">Strany 135–144</p>
+      </header>
+
+      <p>
+        Strategické investiční rozhodování patří k nejdůležitějším činnostem
+        v podniku. Rozhodnutí o pořízení nové technologie, výzkumu a vývoji nebo
+        lidském kapitálu mají přímý vliv na budoucí prosperitu, a tím i na
+        <strong>tvorbu hodnoty</strong>. Chybné rozhodnutí naopak může výrazně
+        ohrozit budoucí výkonnost a stabilitu podniku.
+      </p>
+      <p>
+        Investice jsou zvlášť náročné proto, že jde o rozhodnutí s dlouhým
+        časovým horizontem, s vyšším rizikem a obvykle i s velkými peněžními
+        částkami. Úlohou finančního manažera je vyhodnotit efektivnost
+        zamýšlených investic – proces náročný na čas, informace i na kompetentní
+        odhad budoucího vývoje vnějších a vnitřních podmínek.
+      </p>
+
+      <!-- NÁVĚŠTÍ: kde se s NPV/IRR student už setkal -->
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kde už jste NPV a IRR potkali</p>
+        <div class="callout__telo">
+          <p>
+            <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-npv" target="_blank" rel="noopener">Čistá současná hodnota (NPV)</a> a vnitřní výnosové procento (IRR) nejsou
+            v této lekci nové – jako obecné nástroje <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-diskontovani" target="_blank" rel="noopener">diskontování</a> peněžních toků
+            byly zavedeny v lekcích <strong>1.1</strong> a <strong>4.1</strong>.
+            Zde jde o <strong>třetí, aplikační setkání</strong>: prohloubíme je
+            o index ziskovosti, dobu návratnosti a reálné opce a ukážeme si je na
+            řešených příkladech přímo v kontextu investičního rozhodování.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ============================================================ -->
+      <h2>Hodnocení efektivnosti investičních projektů</h2>
+
+      <p>
+        Projekt, který má přispět k tvorbě hodnoty, musí nevyhnutelně splňovat
+        podmínku <strong>kladné čisté současné hodnoty</strong>. Peněžní toky,
+        které investice v budoucnu přinese, převedené na jejich <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-soucasna-hodnota" target="_blank" rel="noopener">současnou hodnotu</a>
+        musí být vyšší než kapitálový výdaj s investicí spojený. Převod budoucích
+        toků na současnou hodnotu je klíčový: vyjadřuje, že při hodnocení byla
+        vzata v úvahu <strong><a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-casova-hodnota-penez" target="_blank" rel="noopener">časová hodnota peněz</a></strong> i riziko spojené
+        s investicí v konkrétním podniku.
+      </p>
+
+      <div class="vzorec" id="vzorec-npv">
+        <div class="vzorec__telo">
+          <span class="math">NPV<span class="op">=</span><span style="font-size:1.3em">Σ</span><span class="frac"><span class="frac__cit">CF<sub>t</sub></span><span class="frac__jmen">(1<span class="op">+</span>i)<sup>t</sup></span></span><span class="op">−</span>K</span>
+        </div>
+        <div class="vzorec__cislo">(3.1)</div>
+      </div>
+
+      <p>
+        Kde <span class="math">CF<sub>t</sub></span> je peněžní tok v roce
+        <span class="math">t</span>, <span class="math">i</span> diskontní sazba,
+        <span class="math">n</span> délka ekonomické životnosti a
+        <span class="math">K</span> kapitálový výdaj. Zatímco NPV je
+        <em>absolutně</em> vyjádřený rozdíl mezi diskontovanými příjmy a
+        kapitálovým výdajem, <a class="pojem" href="#pojem-index-ziskovosti">index
+        ziskovosti</a> vyjadřuje jejich <em>podíl</em>.
+      </p>
+
+      <!-- DEFINICE: index ziskovosti -->
+      <section class="definice" id="pojem-index-ziskovosti">
+        <h3 class="definice__pojem">Index ziskovosti (I<sub>Z</sub>)</h3>
+        <div class="definice__telo">
+          <p>
+            Podíl diskontovaných peněžních příjmů z investice a kapitálového
+            výdaje. Projekt zvyšuje tržní hodnotu podniku a lze jej přijmout,
+            pokud je index ziskovosti <strong>vyšší než 1</strong> (tehdy je
+            zároveň NPV kladná).
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-4-9">
+        <div class="vzorec__telo">
+          <span class="math">I<sub>Z</sub><span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit"><span style="font-size:1.2em">Σ</span><span class="frac"><span class="frac__cit">CF<sub>t</sub></span><span class="frac__jmen">(1<span class="op">+</span>i)<sup>t</sup></span></span></span>
+              <span class="frac__jmen">K</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.9)</div>
+      </div>
+
+      <p>
+        Metoda čisté současné hodnoty je ve finanční teorii považována za
+        <strong>nejvhodnější</strong> způsob ekonomického vyhodnocování investic.
+        Respektuje faktor času, za efekt investice považuje celý peněžní příjem
+        (nikoli účetní zisk) a bere v úvahu toky po celou dobu životnosti. Klíčové
+        pro rozhodnutí „přijmout, či odmítnout" je proto správné stanovení
+        <strong>peněžních toků</strong>, <strong>diskontní sazby</strong> a
+        <strong>kapitálového výdaje</strong>.
+      </p>
+
+      <!-- Přírůstkové peněžní toky -->
+      <h3>Přírůstkové peněžní toky</h3>
+      <p>
+        Peněžní toky projektu se zpracovávají na <strong>přírůstkové bázi</strong>.
+        Nezajímá nás účetní zisk, ale skutečná změna, kterou projekt do podniku
+        vnese.
+      </p>
+
+      <section class="definice" id="pojem-pristkove-penezni-toky">
+        <h3 class="definice__pojem">Přírůstkový peněžní tok</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl peněžních toků podniku <em>se</em> začleněným projektem a
+            peněžních toků podniku <em>bez</em> projektu. Do hodnocení tedy vstupuje
+            jen to, co realizace projektu skutečně změní.
+          </p>
+        </div>
+      </section>
+
+      <p>Za roční peněžní toky z projektu během jeho životnosti se považují:</p>
+      <ul>
+        <li><strong>zisk po zdanění</strong>, který investice přináší (odvozený od
+          přírůstku tržeb sníženého o přírůstek nákladů),</li>
+        <li>roční <strong>odpisy</strong>,</li>
+        <li>změny <strong><a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistého pracovního kapitálu</a></strong> (ČPK) spojené
+          s projektem v průběhu životnosti,</li>
+        <li><strong>příjem z prodeje</strong> dlouhodobého majetku na konci
+          životnosti, upravený o daň.</li>
+      </ul>
+
+      <!-- POZOR: úroky -->
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Pozor: úroky do peněžních toků nepatří</p>
+        <div class="callout__telo">
+          <p>
+            Při kvantifikaci hotovostních toků se <strong>nezahrnují úroky</strong>
+            z případného cizího financování. Důvody jsou dva:
+          </p>
+          <ul>
+            <li>Zahrnutí úroků do výdajů by znamenalo jejich <strong>dvojí
+              zohlednění</strong> – úrok už je obsažen v procesu diskontování
+              (odúročení toků na současnou hodnotu).</li>
+            <li>Investiční a finanční rozhodnutí podniku by měla být
+              <strong>vzájemně nezávislá</strong>.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <p>
+        Toky lze určovat v <strong>běžných cenách</strong> (nominální toky) nebo
+        ve <strong>stálých cenách</strong> (reálné toky). Volba musí korespondovat
+        s diskontní sazbou: nominální toky diskontujeme nominální sazbou, reálné
+        toky sazbou upravenou o odhadnuté tempo inflace. Při velmi nízké inflaci
+        se obě ceny liší jen málo.
+      </p>
+
+      <!-- Životnost -->
+      <section class="definice" id="pojem-ekonomicka-zivotnost">
+        <h3 class="definice__pojem">Technická vs. ekonomická životnost</h3>
+        <div class="definice__telo">
+          <p>
+            <strong>Technická životnost</strong> je dána životností výrobního
+            zařízení. <strong>Ekonomická životnost</strong> je období, po které je
+            projekt ekonomicky výhodné provozovat. Peněžní tok projektu se určuje
+            vždy pro jeho <strong>ekonomickou</strong> životnost.
+          </p>
+        </div>
+      </section>
+
+      <!-- Kapitálový výdaj -->
+      <section class="definice" id="pojem-kapitalovy-vydaj">
+        <h3 class="definice__pojem">Kapitálový výdaj</h3>
+        <div class="definice__telo">
+          <p>
+            Výdaj na pořízení nového majetku (včetně dopravy, instalace a
+            projekční dokumentace) plus výdaj na trvalý <strong>přírůstek ČPK</strong>
+            vyvolaný investicí, upravený o (zdaněné) příjmy z prodeje nahrazovaného
+            majetku. Přírůstek ČPK bývá v praxi podceňován, přitom u některých
+            projektů může mít větší váhu než samotné pořízení. Na konci životnosti
+            se ČPK uvolní a stává se součástí příjmů z investice.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        <strong><a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">Náklady na kapitál</a></strong> se v rozhodování projeví jako diskontní
+        míra (nebo jako základ pro její určení). Použít současné průměrné náklady na
+        kapitál lze jen tehdy, má-li investice přibližně stejnou strukturu zdrojů i
+        podnikatelské riziko jako podnik. Riziko se do NPV zahrnuje buď převodem
+        toků na jistotní ekvivalenty (diskontované bezrizikovou sazbou), nebo –
+        v praxi častěji – <strong>přirážkou v diskontní sazbě</strong>. Vyšší
+        náklady na kapitál znamenají nižší současnou hodnotu, a podniky s vyššími
+        náklady tak mají při výběru investic horší pozici.
+      </p>
+
+      <!-- ============================================================ -->
+      <h2>Příklad 4.4 – hodnocení investice pomocí NPV</h2>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Zadání</p>
+        <div class="callout__telo">
+          <p>
+            Podnik kupuje novou technologickou linku za <strong>19 mil. Kč</strong>.
+            Zavedení linky zvýší zásoby o 1,8 mil. Kč, pohledávky o 0,8 mil. Kč a
+            závazky o 0,5 mil. Kč. Starou linku lze prodat za 0,8 mil. Kč
+            (zůstatková cena 0,4 mil. Kč). Přírůstky tržeb a provozních nákladů
+            (bez úroků a odpisů) v jednotlivých letech viz tabulka. V 1. a 2. roce
+            se ČPK dále zvýší vždy o 1 mil. Kč. Na konci životnosti se celý ČPK
+            přemění na příjem a linku lze prodat za 2 mil. Kč. Linka se odepisuje
+            lineárně 5 let. Sazba daně z příjmů je 20 %, diskontní sazba 10 %.
+            Určete, zda projekt přijmout.
+          </p>
+        </div>
+      </aside>
+
+      <h3>Krok 1 – kapitálový výdaj</h3>
+      <p>Kapitálový výdaj složíme z pořizovacího výdaje, přírůstku ČPK, příjmu
+        z prodeje staré linky a daňového efektu tohoto prodeje:</p>
+      <ul>
+        <li>Výdaj na pořízení nového majetku = <strong>19</strong> mil. Kč</li>
+        <li>Změna ČPK = 1,8 + 0,8 − 0,5 = <strong>2,1</strong> mil. Kč</li>
+        <li>− Příjem z prodeje staré linky = <strong>0,8</strong> mil. Kč</li>
+        <li>+ Daňový efekt prodeje = 0,2 × (0,8 − 0,4) = <strong>0,08</strong> mil. Kč</li>
+      </ul>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">K<span class="op">=</span>19<span class="op">+</span>2,1<span class="op">−</span>0,8<span class="op">+</span>0,08<span class="op">=</span><strong>20,4</strong> mil. Kč</span>
+        </div>
+      </div>
+
+      <h3>Krok 2 – roční peněžní toky z provozu</h3>
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8.1 – Přírůstkové peněžní toky projektu (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Položka</th>
+              <th scope="col" class="cislo">1. rok</th>
+              <th scope="col" class="cislo">2. rok</th>
+              <th scope="col" class="cislo">3. rok</th>
+              <th scope="col" class="cislo">4. rok</th>
+              <th scope="col" class="cislo">5. rok</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Přírůstek tržeb</th><td class="cislo">8</td><td class="cislo">9</td><td class="cislo">10</td><td class="cislo">10</td><td class="cislo">8</td></tr>
+            <tr><th scope="row">− Přírůstek nákladů (bez úroků a odpisů)</th><td class="cislo">1</td><td class="cislo">3</td><td class="cislo">2</td><td class="cislo">2</td><td class="cislo">1</td></tr>
+            <tr><th scope="row">− Odpisy</th><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">4</td></tr>
+            <tr><th scope="row">= Zisk před zdaněním</th><td class="cislo">3</td><td class="cislo">2</td><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">3</td></tr>
+            <tr><th scope="row">Zisk po zdanění (× 0,8)</th><td class="cislo">2,4</td><td class="cislo">1,6</td><td class="cislo">3,2</td><td class="cislo">3,2</td><td class="cislo">2,4</td></tr>
+            <tr><th scope="row">+ Odpisy</th><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">4</td><td class="cislo">4</td></tr>
+            <tr><th scope="row">− Změna ČPK</th><td class="cislo">−1</td><td class="cislo">−1</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td></tr>
+            <tr><th scope="row">+ Přeměna ČPK na příjem</th><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">4,1</td></tr>
+            <tr><th scope="row">+ Prodej linky</th><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">2</td></tr>
+            <tr><th scope="row">− Daň z prodeje linky</th><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">–</td><td class="cislo">−0,4</td></tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">= Peněžní tok (CF)</th>
+              <td class="cislo">5,4</td>
+              <td class="cislo">4,6</td>
+              <td class="cislo">7,2</td>
+              <td class="cislo">7,2</td>
+              <td class="cislo">12,1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabulka-popis" style="margin-top:.4rem">
+        Přeměna ČPK na příjem v 5. roce = 2,1 (počáteční) + 1 + 1 (přírůstky v 1. a
+        2. roce) = <strong>4,1 mil. Kč</strong>.
+      </p>
+
+      <h3>Krok 3 – diskontování a NPV</h3>
+      <p>Peněžní toky převedeme na současnou hodnotu diskontní sazbou 10 %:</p>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math"><span style="font-size:1.2em">Σ</span> PV<span class="op">=</span>
+            <span class="frac"><span class="frac__cit">5,4</span><span class="frac__jmen">1,10<sup>1</sup></span></span><span class="op">+</span>
+            <span class="frac"><span class="frac__cit">4,6</span><span class="frac__jmen">1,10<sup>2</sup></span></span><span class="op">+</span>
+            <span class="frac"><span class="frac__cit">7,2</span><span class="frac__jmen">1,10<sup>3</sup></span></span><span class="op">+</span>
+            <span class="frac"><span class="frac__cit">7,2</span><span class="frac__jmen">1,10<sup>4</sup></span></span><span class="op">+</span>
+            <span class="frac"><span class="frac__cit">12,1</span><span class="frac__jmen">1,10<sup>5</sup></span></span>
+            <span class="op">=</span>26,6</span>
+        </div>
+      </div>
+      <div class="vzorec">
+        <div class="vzorec__telo">
+          <span class="math">NPV<span class="op">=</span>26,6<span class="op">−</span>20,4<span class="op">=</span><strong>6,2</strong> mil. Kč</span>
+        </div>
+      </div>
+      <p>Protože je NPV kladná, investici <strong>přijmeme</strong>.</p>
+
+      <!-- STEPPER: diskontování -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Časová hodnota peněz: diskontování toků projektu</p>
+          <p class="viz__popis">Klikejte „Další ▶" a sledujte, jak se každý budoucí příjem převede na svou (nižší) současnou hodnotu. Čím vzdálenější rok, tím výraznější je pokles.</p>
+        </figcaption>
+        <div id="viz-diskont"></div>
+      </figure>
+
+      <!-- ============================================================ -->
+      <h2>Vnitřní výnosové procento (IRR)</h2>
+      <p>
+        Další metodou je <strong>vnitřní výnosové procento</strong>. Ukazuje
+        výnosnost investice přímo v procentech.
+      </p>
+
+      <section class="definice" id="pojem-vnitrni-vynosove-procento">
+        <h3 class="definice__pojem">Vnitřní výnosové procento (IRR)</h3>
+        <div class="definice__telo">
+          <p>
+            Taková diskontní sazba, při níž je čistá současná hodnota projektu
+            rovna nule (diskontované příjmy se právě rovnají kapitálovému výdaji).
+            Vyjadřuje výnosnost projektu <em>relativně</em>; projekt je přijatelný,
+            pokud IRR převyšuje požadovanou výnosnost (náklady na kapitál).
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 4.5 – IRR téhož projektu</p>
+        <div class="callout__telo">
+          <p>
+            Při 10 % je NPV kladná (6,2 mil. Kč). Zkusme vyšší sazbu 20 %:
+          </p>
+          <div class="vzorec">
+            <div class="vzorec__telo">
+              <span class="math">NPV<sub>20&nbsp;%</sub><span class="op">=</span>
+                <span class="frac"><span class="frac__cit">5,4</span><span class="frac__jmen">1,20<sup>1</sup></span></span><span class="op">+</span>…<span class="op">+</span>
+                <span class="frac"><span class="frac__cit">12,1</span><span class="frac__jmen">1,20<sup>5</sup></span></span>
+                <span class="op">−</span>20,4<span class="op">=</span>−0,2</span>
+            </div>
+          </div>
+          <p>
+            NPV je nyní záporná, IRR tedy leží mezi 10 % a 20 %. Přesnou hodnotu
+            získáme <strong>lineární interpolací</strong>:
+          </p>
+        </div>
+      </aside>
+
+      <div class="vzorec" id="vzorec-irr-interpolace">
+        <div class="vzorec__telo">
+          <span class="math">IRR<span class="op">=</span>10<span class="op">+</span>
+            <span class="frac"><span class="frac__cit">6,15</span><span class="frac__jmen">6,15<span class="op">+</span>0,2</span></span>
+            <span class="op">×</span>(20<span class="op">−</span>10)<span class="op">=</span><strong>19,7&nbsp;%</strong></span>
+        </div>
+        <div class="vzorec__cislo">(interpolace)</div>
+      </div>
+      <p>
+        Obecně interpolujeme mezi nižší sazbou <span class="math">i<sub>n</sub></span>
+        (kladná NPV) a vyšší sazbou <span class="math">i<sub>v</sub></span> (záporná
+        NPV) v poměru jejich NPV. Vnitřní výnosové procento projektu činí
+        <strong>19,7 %</strong> – výrazně nad 10% náklady na kapitál, projekt je
+        tedy výhodný.
+      </p>
+
+      <h3>Úskalí metody IRR</h3>
+      <p>
+        Výsledky IRR se ve většině případů shodují s NPV, ve dvou situacích však
+        metoda selhává:
+      </p>
+      <ul>
+        <li><strong>Nekonvenční (nestandardní) peněžní toky</strong> – dochází-li
+          k více než jedné změně znaménka toku (ze záporného na kladný a zpět),
+          existuje více různých hodnot IRR (tolik, kolik je změn znaménka).
+          V takové situaci IRR použít nelze a projekt se posuzuje podle NPV.</li>
+        <li><strong>Vzájemně se vylučující projekty</strong> – při výběru z projektů,
+          z nichž lze realizovat jen jeden, mohou NPV a IRR doporučit odlišnou
+          variantu.</li>
+      </ul>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč se výsledky rozcházejí: reinvestiční předpoklad</p>
+        <div class="callout__telo">
+          <p>
+            Každá metoda počítá s jiným <strong>reinvestováním</strong> uvolněných
+            příjmů. NPV předpokládá reinvestici za <em>diskontní sazbu</em> (sazbu
+            použitou pro odúročení). IRR předpokládá reinvestici za <em>sazbu ve výši
+            IRR</em>, což bývá ekonomicky nereálné – takové výnosné projekty nemusí
+            být v okamžiku reinvestice k dispozici. Proto je <strong>preferovanou
+            metodou NPV</strong>. Výhodou IRR je, že pro její výpočet není nutné
+            předem určovat diskontní míru (což patří k nejsložitějším úkolům).
+          </p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Dva vzájemně se vylučující projekty: projekt X má vyšší IRR, projekt
+            Y má vyšší NPV. Který zvolíte a proč? Jakou roli hraje reinvestiční
+            předpoklad?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Zvolíme <strong>projekt Y s vyšší NPV</strong>. Cílem podniku je
+              maximalizovat absolutní přírůstek hodnoty, který NPV měří přímo
+              v korunách. Vyšší IRR projektu X je zavádějící, protože předpokládá
+              reinvestování příjmů za nereálně vysokou sazbu ve výši IRR; NPV
+              naopak pracuje s realističtějším reinvestováním za diskontní sazbu.
+              U vzájemně se vylučujících projektů má proto přednost NPV.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================ -->
+      <h2>Doba návratnosti</h2>
+      <p>
+        Z dalších metod (průměrných ročních nákladů, diskontovaných nákladů,
+        průměrné výnosnosti) je v praxi českých podniků nejrozšířenější
+        <strong>doba návratnosti</strong>.
+      </p>
+
+      <section class="definice" id="pojem-doba-navratnosti">
+        <h3 class="definice__pojem">Doba návratnosti</h3>
+        <div class="definice__telo">
+          <p>
+            Doba, za kterou se v podobě budoucích peněžních toků vrátí počáteční
+            kapitálový výdaj. <strong>Statická</strong> varianta sčítá nediskontované
+            toky; <strong>dynamickou</strong> získáme použitím diskontovaných toků.
+            Ukazuje jednoduše, kdy bude investice zaplacena – to je cenné zejména
+            u rizikových projektů v rychle se měnícím prostředí.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 4.6 – statická doba návratnosti</p>
+        <div class="callout__telo">
+          <p>Kdy se z peněžních příjmů vrátí kapitálový výdaj 20,4 mil. Kč?</p>
+        </div>
+      </aside>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 8.2 – Kumulované peněžní toky projektu (mil. Kč)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Rok</th>
+              <th scope="col" class="cislo">CF</th>
+              <th scope="col" class="cislo">Kumulovaný CF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1</th><td class="cislo">5,4</td><td class="cislo">5,4</td></tr>
+            <tr><th scope="row">2</th><td class="cislo">4,6</td><td class="cislo">10,0</td></tr>
+            <tr><th scope="row">3</th><td class="cislo">7,2</td><td class="cislo">17,2</td></tr>
+            <tr><th scope="row">4</th><td class="cislo">7,2</td><td class="cislo">24,4</td></tr>
+            <tr><th scope="row">5</th><td class="cislo">12,1</td><td class="cislo">36,5</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Po 3 letech je kumulováno 17,2 mil. Kč; do 20,4 chybí 3,2 mil. Kč. Ve 4.
+        roce činí příjem 7,2 mil. Kč, tj. 7,2 / 360 = 0,02 mil. Kč za den. Zbylých
+        3,2 mil. Kč se vrátí za 3,2 / 0,02 = 160 dnů. Doba návratnosti je tedy
+        <strong>3 roky a 160 dnů</strong>.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Statická vs. dynamická doba návratnosti</p>
+          <p class="viz__popis">Investici (20,4 mil. Kč, čárkovaně) splatí kumulovaný nominální CF mezi 3. a 4. rokem. Kumulovaný <em>diskontovaný</em> CF roste pomaleji – dynamická návratnost proto nastává později, až v 5. roce.</p>
+        </figcaption>
+        <div class="viz__platno" id="viz-navratnost"></div>
+      </figure>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Slabina doby návratnosti</p>
+        <div class="callout__telo">
+          <p>
+            Metoda <strong>ignoruje toky po době splacení</strong> a neříká nic
+            o výnosnosti. Podnik tak může upřednostnit projekt rychle splacený, ale
+            bez dalších efektů, a odmítnout dlouhodobější projekt s významnými
+            přínosy po době splacení. Používejte ji proto jen jako
+            <strong>doplněk</strong> k NPV, případně IRR.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Utopené náklady -->
+      <section class="definice" id="pojem-utopene-naklady">
+        <h3 class="definice__pojem">Utopené náklady</h3>
+        <div class="definice__telo">
+          <p>
+            Náklady, které již byly na projekt nenávratně vynaloženy. Rozhodnutí
+            o pokračování či zastavení projektu jimi <strong>nesmí být ovlivněno</strong>
+            – tyto peníze jsou pryč. Rozhodujeme se pouze podle budoucích peněžních
+            toků z dokončeného projektu a podle výdajů nutných na jeho dokončení.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <h2>Reálné opce a upravená NPV</h2>
+      <p>
+        Všechny předchozí metody počítají s tím, že se projektované toky prostě
+        zrealizují, a neberou v úvahu možnost budoucích změn. V době rychlých změn
+        a nejistého vývoje se proto dostávají do popředí postupy, které zahrnují
+        i <strong>flexibilitu</strong> – tzv. <a class="pojem" href="#pojem-realne-opce">reálné
+        opce</a> (možnost rozšíření, odložení nebo opuštění projektu).
+      </p>
+
+      <section class="definice" id="pojem-realne-opce">
+        <h3 class="definice__pojem">Reálné opce</h3>
+        <div class="definice__telo">
+          <p>
+            Obdoba finančních opcí aplikovaná na investiční projekty.
+            <strong>Kupní opce</strong> je právo (nikoli povinnost) koupit v daném
+            termínu za předem stanovenou cenu určité aktivum; <strong>prodejní
+            opce</strong> je právo prodat. U projektů představují reálné opce
+            hodnotu možnosti reagovat na změnu podmínek – projekt rozšířit, odložit
+            nebo opustit.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Hodnotu flexibility zachycuje <strong>upravená čistá současná hodnota</strong>
+        (NPV<sup>*</sup>): ke klasické NPV přičteme <strong>opční prémii</strong>.
+      </p>
+
+      <div class="vzorec" id="vzorec-4-10">
+        <div class="vzorec__telo">
+          <span class="math">NPV<sup>*</sup><span class="op">=</span>NPV<span class="op">+</span>opční prémie</span>
+        </div>
+        <div class="vzorec__cislo">(4.10)</div>
+      </div>
+
+      <section class="definice" id="pojem-upravena-npv">
+        <h3 class="definice__pojem">Upravená NPV (NPV<sup>*</sup>)</h3>
+        <div class="definice__telo">
+          <p>
+            Součet klasické NPV a opční prémie oceňující zabudovanou flexibilitu.
+            Projekt s klasicky zápornou NPV, který by byl odmítnut, může po
+            započtení opční prémie dosáhnout <strong>kladné NPV<sup>*</sup></strong>
+            a být přijat. Bez ocenění opce je takový projekt podhodnocen.
+          </p>
+        </div>
+      </section>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Reálná opce mění verdikt: od NPV k NPV*</p>
+          <p class="viz__popis">Schéma ukazuje princip (bez konkrétních čísel): záporná NPV → přičtení opční prémie → kladná upravená NPV*, tedy jiné rozhodnutí o projektu.</p>
+        </figcaption>
+        <div id="viz-opce"></div>
+      </figure>
+
+      <!-- ZKUS SÁM 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik zvažuje výstavbu menší továrny s možností ji později rozšířit,
+            pokud poroste poptávka. Klasická NPV základního projektu vyšla mírně
+            záporná. Jak reálná opce (možnost rozšíření) ovlivní rozhodnutí?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Možnost rozšíření je <strong>kupní reálná opce</strong> – podnik má
+              právo, nikoli povinnost, v budoucnu investovat víc, pokud se poptávka
+              vyvine příznivě. Tato flexibilita má hodnotu (opční prémii), kterou
+              klasická NPV nezachycuje. Po jejím připočtení může být
+              NPV<sup>*</sup> = NPV + opční prémie <strong>kladná</strong>, a projekt,
+              který by byl podle samotné NPV odmítnut, se stává přijatelným.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================ -->
+      <h2>Vliv investičního rozhodování na výkonnost</h2>
+      <p>
+        Přijímány by měly být pouze projekty s <strong>kladnou NPV</strong> – jen
+        ty přispívají k tvorbě hodnoty a růstu výkonnosti. Jde o strategická,
+        dlouhodobá rozhodnutí přijímaná vlastníky. Doporučuje se doplnit hodnocení
+        o <strong><a class="pojem" href="t12-l9-generatory-citlivost.html?zvyraznit=pojem-citlivostni-analyza" target="_blank" rel="noopener">analýzu citlivosti</a></strong> NPV na změny klíčových faktorů (ceny
+        vstupů, poptávka, prodejní cena, devizové kurzy) a o varianty vývoje – to
+        pomáhá odhalovat rizika. Kromě kvantitativních dopadů je třeba zvažovat i
+        obtížně měřitelná <strong>kvalitativní kritéria</strong>; u velkých investic
+        lze kalkulaci NPV propojit s metodou <a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard</a>.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Odpisy vs. výkonnostní měřítka: past poddimenzování investic</p>
+        <div class="callout__telo">
+          <p>
+            Investice do odepisovaného majetku zvyšuje odpisy, které snižují zisk,
+            a zároveň zvyšuje hodnotu aktiv. Jsou-li manažeři hodnoceni podle
+            <strong>čistého zisku, <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-ebit" target="_blank" rel="noopener">EBIT</a>, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-nopat" target="_blank" rel="noopener">NOPAT</a></strong> nebo rentabilit
+            (<strong><a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roa" target="_blank" rel="noopener">ROA</a>, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-rona" target="_blank" rel="noopener">RONA</a>, <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roi" target="_blank" rel="noopener">ROI</a></strong>), případně i podle <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a></strong>,
+            mohou potřebné investice odsouvat. Řešením je nastavit odměňování na
+            <strong>dlouhodobé hledisko</strong>, nebo použít měřítka odolná vůči
+            odpisům – <strong><a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-ebitda" target="_blank" rel="noopener">EBITDA</a></strong> či ukazatele založené na cash flow
+            (součet zisku a odpisů).
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Pozornost patří i dalšímu dlouhodobému majetku. Nevyužité kapacity je
+        vhodné odprodat (s rozvahou – podnik musí umět reagovat na růst poptávky,
+        např. pronájmem, <a class="pojem" href="t9-l5-zdroje-financovani.html?zvyraznit=pojem-operativni-leasing" target="_blank" rel="noopener">operativním leasingem</a> či <a class="pojem" href="t7-l5-dividendova-politika.html?zvyraznit=pojem-outsourcing" target="_blank" rel="noopener">outsourcingem</a>). Řadu
+        <strong>nehmotných aktiv</strong> rozvaha nezachycuje, přestože mají
+        významný vliv na výkonnost; odpisování naopak ekonomický pohled zkresluje –
+        těchto skutečností si všímá ukazatel EVA při úpravě vstupů.
+        <strong>Dlouhodobý finanční majetek</strong> má dvojí roli: strategické
+        podíly ovládané a propojené s hlavní činností (nutno posuzovat pečlivě) a
+        portfoliové investice jako zúročení přebytků likvidity (ty se při výpočtu
+        výkonnostních ukazatelů obvykle vydělují, aby byl pohled soustředěn na
+        hlavní činnost).
+      </p>
+
+      <!-- ============================================================ -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Čím se liší index ziskovosti od NPV a kdy podle něj projekt přijmout?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jeden ukazatel je rozdíl, druhý podíl. Jaká je hraniční hodnota indexu?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>NPV je <strong>absolutní rozdíl</strong> diskontovaných příjmů a kapitálového výdaje (v Kč), index ziskovosti je jejich <strong>podíl</strong> (bezrozměrný). Projekt přijmeme, je-li index ziskovosti <strong>vyšší než 1</strong> – tehdy je současně NPV kladná.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč se do peněžních toků projektu nezahrnují úroky z úvěru?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Kde je vliv nákladů na kapitál už jednou obsažen?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Úrok by se zohlednil <strong>dvakrát</strong> – jednou jako snížení toků, podruhé v procesu diskontování, které náklady na kapitál již obsahuje. Navíc mají být <strong>investiční a finanční rozhodnutí nezávislá</strong>: způsob financování se promítá do diskontní sazby, ne do peněžních toků projektu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč je doba návratnosti nedostatečným kritériem a jak ji používat?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Co se stane s peněžními toky, které přijdou až po splacení investice?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Doba návratnosti <strong>ignoruje toky po době splacení</strong> a neříká nic o výnosnosti. Může vést k volbě rychle splaceného, ale málo přínosného projektu. Používá se proto jen jako <strong>doplněk</strong> k NPV (příp. IRR), zejména u rizikových projektů jako informace o rychlosti návratu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co jsou utopené náklady a jak s nimi při rozhodování naložit?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Lze již vynaložené peníze získat zpět rozhodnutím projekt zastavit?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Utopené náklady jsou již <strong>nenávratně vynaložené</strong> peníze. Rozhodnutí o pokračování či zastavení projektu jimi <strong>nesmí být ovlivněno</strong> – rozhodujeme se pouze podle budoucích peněžních toků z dokončeného projektu a výdajů nutných na jeho dokončení.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč mohou NPV a IRR u vzájemně se vylučujících projektů doporučit odlišnou variantu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Za jakou sazbu každá metoda předpokládá reinvestování příjmů?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Obě metody stojí na jiném <strong>reinvestičním předpokladu</strong>: NPV reinvestuje příjmy za diskontní sazbu, IRR za (často nereálně vysokou) sazbu ve výši IRR. Proto mohou dát jiné pořadí projektů. Preferuje se <strong>NPV</strong>, protože měří absolutní přírůstek hodnoty a její reinvestiční předpoklad je realističtější.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t7-l6-vyuziti-majetku.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">7.6 Analýza využití majetku</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t8-l2-cpk-zasoby.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">8.2 ČPK – hotovostní cyklus a řízení zásob</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    (function () {
+
+      // ---- A) KROKOVÁ VIZUALIZACE: diskontování peněžních toků (příklad 4.4) ----
+      var NOM  = [5.4, 4.6, 7.2, 7.2, 12.1];          // nominální CF
+      var DISC = [4.91, 3.80, 5.41, 4.92, 7.51];      // diskontované (10 %)
+      var CUM  = [4.91, 8.71, 14.12, 19.04, 26.55];   // kumulovaný diskontovaný příjem
+      var CENTERS = [130, 250, 370, 490, 610];
+
+      Skripta.stepper('viz-diskont', {
+        sirka: 760, vyska: 400,
+        stavy: [
+          { disk: 0 }, { disk: 1 }, { disk: 2 }, { disk: 3 },
+          { disk: 4 }, { disk: 5 }, { disk: 5, npv: true }
+        ],
+        popisky: [
+          'Nominální peněžní toky projektu v letech 1 až 5 (mil. Kč).',
+          '1. rok: 5,4 / 1,10 = 4,91 mil. Kč. Blízký příjem ztrácí diskontováním jen málo.',
+          '2. rok: 4,6 / 1,10² = 3,80 mil. Kč.',
+          '3. rok: 7,2 / 1,10³ = 5,41 mil. Kč.',
+          '4. rok: 7,2 / 1,10⁴ = 4,92 mil. Kč.',
+          '5. rok: 12,1 / 1,10⁵ = 7,51 mil. Kč. Součet diskontovaných příjmů = 26,6 mil. Kč.',
+          'NPV = 26,6 − 20,4 = 6,2 mil. Kč. Kladná hodnota → projekt přijmout.'
+        ],
+        render: function (svg, stav, i, u) {
+          var base = 330, px = 19, bw = 78;
+          var step = stav.disk;
+
+          u.dej(svg, 'osa', 'line', { x1: 60, y1: base, x2: 700, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          for (var j = 0; j < 5; j++) {
+            var discounted = j < step;
+            var val = discounted ? DISC[j] : NOM[j];
+            var h = val * px;
+            var x = CENTERS[j] - bw / 2;
+            u.dej(svg, 'bar' + j, 'rect', {
+              x: x, y: base - h, width: bw, height: h, rx: 5,
+              fill: discounted ? '#4338ca' : '#94a3b8'
+            });
+            u.dej(svg, 'val' + j, 'text', {
+              x: CENTERS[j], y: base - h - 10, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 14, 'font-weight': 700
+            }, u.formatCislo(val, discounted ? 2 : 1));
+            u.dej(svg, 'lbl' + j, 'text', {
+              x: CENTERS[j], y: base + 24, 'text-anchor': 'middle',
+              fill: u.barvaText, 'font-size': 13
+            }, (discounted ? 'PV ' : '') + (j + 1) + '. rok');
+          }
+
+          var topText, topBarva = u.barvaText;
+          if (stav.npv) { topText = 'NPV = 26,6 − 20,4 = 6,2 mil. Kč'; topBarva = u.barvaTvorba; }
+          else if (step === 0) { topText = 'Nominální peněžní toky (mil. Kč)'; }
+          else { topText = 'Kumulovaný diskontovaný příjem: ' + u.formatCislo(CUM[step - 1], 1) + ' mil. Kč'; }
+          u.dej(svg, 'top', 'text', {
+            x: 380, y: 40, 'text-anchor': 'middle', fill: topBarva,
+            'font-size': 16, 'font-weight': 700
+          }, topText);
+        }
+      });
+
+      // ---- B) STATICKÝ ČÁROVÝ GRAF: statická vs. dynamická doba návratnosti ----
+      Skripta.carovyGraf('viz-navratnost', {
+        sirka: 680, vyska: 340, formatDesetin: 1,
+        serie: [
+          { nazev: 'Kumulovaný CF', barva: '#4338ca', body: [
+            { x: '0', y: 0 }, { x: '1', y: 5.4 }, { x: '2', y: 10.0 },
+            { x: '3', y: 17.2 }, { x: '4', y: 24.4 }, { x: '5', y: 36.5 } ] },
+          { nazev: 'Kumulovaný diskont. CF', barva: '#0891b2', body: [
+            { x: '0', y: 0 }, { x: '1', y: 4.9 }, { x: '2', y: 8.7 },
+            { x: '3', y: 14.1 }, { x: '4', y: 19.0 }, { x: '5', y: 26.6 } ] },
+          { nazev: 'Investice (K = 20,4)', barva: '#dc2626', body: [
+            { x: '0', y: 20.4 }, { x: '1', y: 20.4 }, { x: '2', y: 20.4 },
+            { x: '3', y: 20.4 }, { x: '4', y: 20.4 }, { x: '5', y: 20.4 } ] }
+        ]
+      });
+
+      // ---- C) KROKOVÁ VIZUALIZACE: reálná opce (NPV → NPV*) ----
+      Skripta.stepper('viz-opce', {
+        sirka: 640, vyska: 360,
+        stavy: [ { krok: 0 }, { krok: 1 }, { krok: 2 } ],
+        popisky: [
+          'Klasická NPV projektu vyšla záporná – podle samotné NPV bychom projekt zamítli.',
+          'Projekt však nabízí flexibilitu (např. možnost pozdějšího rozšíření). Její hodnotu vyjadřuje opční prémie, kterou k NPV přičteme.',
+          'Upravená hodnota NPV* = NPV + opční prémie je kladná – projekt lze přijmout.'
+        ],
+        render: function (svg, stav, i, u) {
+          var y0 = 200, hN = 70, hP = 120, hStar = hP - hN;
+          var showP = stav.krok >= 1, showS = stav.krok >= 2;
+
+          u.dej(svg, 'zero', 'line', { x1: 60, y1: y0, x2: 600, y2: y0, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'zlbl', 'text', { x: 46, y: y0 + 4, 'text-anchor': 'end', fill: u.barvaText, 'font-size': 12 }, '0');
+
+          // NPV (červená, pod nulou)
+          u.dej(svg, 'bar-npv', 'rect', { x: 90, y: y0, width: 100, height: hN, rx: 5, fill: u.barvaNiceni });
+          u.dej(svg, 'txt-npv', 'text', { x: 140, y: y0 + hN / 2 + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 12, 'font-weight': 700 }, 'NPV < 0');
+          u.dej(svg, 'lbl-npv', 'text', { x: 140, y: y0 + hN + 24, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, 'zamítnout');
+
+          // Opční prémie (zelená, přírůstek)
+          u.dej(svg, 'bar-opce', 'rect', { x: 270, y: y0 + hN - hP, width: 100, height: showP ? hP : 0, rx: 5, fill: u.barvaTvorba, opacity: showP ? 1 : 0 });
+          u.dej(svg, 'lbl-opce', 'text', { x: 320, y: y0 + hN - hP - 12, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 600, opacity: showP ? 1 : 0 }, '+ opční prémie');
+          u.dej(svg, 'sp1', 'line', { x1: 190, y1: y0 + hN, x2: 270, y2: y0 + hN, stroke: u.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '4 4', opacity: showP ? 1 : 0 });
+
+          // NPV* (zelená, nad nulou)
+          u.dej(svg, 'bar-star', 'rect', { x: 450, y: y0 - hStar, width: 100, height: showS ? hStar : 0, rx: 5, fill: u.barvaTvorba, opacity: showS ? 1 : 0 });
+          u.dej(svg, 'txt-star', 'text', { x: 500, y: y0 - hStar / 2 + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 12, 'font-weight': 700, opacity: showS ? 1 : 0 }, 'NPV* > 0');
+          u.dej(svg, 'lbl-star', 'text', { x: 500, y: y0 - hStar - 14, 'text-anchor': 'middle', fill: u.barvaTvorba, 'font-size': 13, 'font-weight': 600, opacity: showS ? 1 : 0 }, 'přijmout');
+          u.dej(svg, 'sp2', 'line', { x1: 370, y1: y0 + hN - hP, x2: 450, y2: y0 - hStar, stroke: u.barvaOsa, 'stroke-width': 1.5, 'stroke-dasharray': '4 4', opacity: showS ? 1 : 0 });
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

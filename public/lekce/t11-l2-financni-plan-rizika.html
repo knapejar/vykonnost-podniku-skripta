@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11.2 Finanční plán a řízení rizik – Výkonnost podniku</title>
+  <meta name="description" content="Postup tvorby finančního plánu (obr. 6–3), analýza potenciálu (SWOT, Porter, PEST), tři provázané plánové výkazy, klouzavý princip a řízení rizik.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 11 -->
+    <nav class="panel" data-panel data-aktivni-lekce="11.2" aria-label="Lekce tématu 11">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 11</div>
+      <div class="panel__nazev-tema">Nástroje hodnotového řízení</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="11.1" href="t11-l1-benchmarking.html"><span class="panel__odkaz-cislo">11.1</span><span>Benchmarking v řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.2" href="t11-l2-financni-plan-rizika.html"><span class="panel__odkaz-cislo">11.2</span><span>Finanční plán a řízení rizik</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.3" href="t11-l3-abc-abb-beyond-budgeting.html"><span class="panel__odkaz-cislo">11.3</span><span>ABC/ABB a Beyond Budgeting</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.4" href="t11-l4-oceneni-vynosove.html"><span class="panel__odkaz-cislo">11.4</span><span>Oceňování podniku – výnosové metody</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.5" href="t11-l5-trzni-majetkove-metody.html"><span class="panel__odkaz-cislo">11.5</span><span>Tržní a majetkové metody; růstové příležitosti a hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.6" href="t11-l6-is-ict.html"><span class="panel__odkaz-cislo">11.6</span><span>IS/ICT pro řízení výkonnosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="11.7" href="t11-l7-desatero.html"><span class="panel__odkaz-cislo">11.7</span><span>Desatero pro úspěšné zavedení systému řízení výkonnosti</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-11">Téma 11 · Nástroje řízení</a></li>
+          <li><span aria-current="page">Lekce 11.2</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 11.2</span>
+        <h1>Finanční plán a řízení rizik</h1>
+        <p class="lekce-hlavicka__strany">Strany 210–214</p>
+      </header>
+
+      <p>
+        Chce-li podnik systematicky řídit tvorbu hodnoty, potřebuje se dívat
+        dopředu. Nástrojem tohoto pohledu je <a class="pojem" href="#pojem-financni-plan">finanční
+        plán</a>. Do něj se promítají vize podniku, cíle, kterých chce dosáhnout,
+        a strategie k jejich dosažení. Plánování pomáhá především odhadnout budoucí
+        vývoj podniku – ten je dán rozhodnutími managementu, vnějšími podmínkami
+        makroekonomického prostředí, konkurencí a dalšími faktory, které hospodaření
+        ovlivňují.
+      </p>
+      <p>
+        Plánování budoucích aktivit vyžaduje nejen znalost výchozí finanční situace
+        podniku, ale i znalost finančních důsledků všech možných rozhodnutí. A právě
+        proto je plán zároveň <strong>nástrojem řízení rizik</strong>: promítáním
+        zvažovaných rozhodnutí do čísel odhalí, co podnik ohrožuje, dřív než k tomu
+        skutečně dojde.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Plán riziko neminimalizuje – řídí je</p>
+        <div class="callout__telo">
+          <p>Finanční plánování se nesnaží riziko za každou cenu odstranit. Součástí
+          plánovacího procesu je <em>odhalení</em> rizik a přijetí opatření k jejich
+          řízení. Je to proces rozhodování o tom, která rizika se vyplatí podstoupit,
+          která nejsou nezbytná a která za to nestojí.</p>
+        </div>
+      </aside>
+
+      <section class="definice" id="pojem-financni-plan">
+        <h3 class="definice__pojem">Finanční plán</h3>
+        <div class="definice__telo">
+          <p>
+            Nástroj finančního řízení, do něhož se promítají cíle a strategie podniku
+            a jejich předpokládané finanční důsledky. Má charakter
+            <strong>strategických</strong> (dlouhodobých) a <strong>operativních</strong>
+            (krátkodobých) plánů; slouží k odhadu budoucího vývoje, zajištění potřebných
+            zdrojů, udržení finanční stability a k řízení rizik.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== 1. POSTUP TVORBY ===================== -->
+      <h2>Postup tvorby finančního plánu</h2>
+      <p>
+        Tvorba a realizace finančního plánu tvoří posloupnost kroků, kterou zachycuje
+        <strong>obrázek 6–3</strong>. Celý proces se dělí do dvou fází: horní tři kroky
+        představují <strong>proces dlouhodobého plánování</strong>, spodní tři kroky
+        <strong>proces krátkodobého rozpočtování</strong>. Klíčové je, že proces není
+        jednosměrný – z reakce na odchylky se lze vracet zpět k volbě strategie i k tvorbě
+        rozpočtů (zpětné vazby).
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: obr. 6-3 ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 6–3: Postup tvorby finančního plánu</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Nejprve se odkryje fáze dlouhodobého plánování (kroky 1–3), pak fáze krátkodobého rozpočtování (kroky 4–6) a nakonec zpětné vazby, díky nimž je plánování kontinuální proces.</p>
+        </figcaption>
+        <div id="viz-postup-planu"></div>
+      </figure>
+
+      <!-- ===================== 2. ANALÝZA POTENCIÁLU ===================== -->
+      <h2>Cíle, strategie a analýza potenciálu</h2>
+      <p>
+        Rozhodne-li se podnik orientovat řízení na tvorbu hodnoty, musí tuto
+        hodnotovou orientaci promítnout do formulace cílů a zvolených strategií.
+        <strong>Cíle a strategie</strong> vycházejí z analýzy současného stavu podniku
+        a jeho růstového potenciálu i z analýzy vnějšího prostředí – souhrnně z
+        <a class="pojem" href="#pojem-analyza-potencialu">analýzy vnitřního a vnějšího
+        potenciálu vývoje</a>. K té lze využít několik osvědčených nástrojů.
+      </p>
+
+      <section class="definice" id="pojem-analyza-potencialu">
+        <h3 class="definice__pojem">Analýza vnitřního a vnějšího potenciálu vývoje</h3>
+        <div class="definice__telo">
+          <p>
+            Souhrnné posouzení současného stavu podniku a jeho růstových možností
+            (vnitřní potenciál) společně s rozborem prostředí, v němž podnik působí
+            (vnější potenciál). Je východiskem pro formulaci cílů a strategií; opírá se
+            o nástroje jako SWOT analýza, model Porterových pěti sil, PEST analýza,
+            <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýza</a> a <a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmarking" target="_blank" rel="noopener">benchmarking</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-swot-analyza">
+        <h3 class="definice__pojem">SWOT analýza</h3>
+        <div class="definice__telo">
+          <p>
+            Nástroj pro identifikaci <strong>silných</strong> a <strong>slabých</strong>
+            stránek podniku (vnitřní pohled) a <strong>příležitostí</strong> a
+            <strong>hrozeb</strong> jeho okolí (vnější pohled). Propojuje vnitřní a vnější
+            potenciál do jednoho přehledu, z něhož vychází volba strategie.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-porterovych-pet-sil">
+        <h3 class="definice__pojem">Model Porterových pěti sil</h3>
+        <div class="definice__telo">
+          <p>
+            Rámec pro analýzu konkurenčního prostředí odvětví. Posuzuje pět sil:
+            vyjednávací sílu <strong>dodavatelů</strong> a <strong>odběratelů</strong>,
+            stávající <strong>konkurenci</strong>, hrozbu <strong>vstupu nových
+            konkurentů</strong> do odvětví a hrozbu <strong>substitutů</strong>.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-pest-analyza">
+        <h3 class="definice__pojem">PEST analýza</h3>
+        <div class="definice__telo">
+          <p>
+            Analýza makroekonomického prostředí zaměřená na čtyři oblasti vnějších
+            vlivů: <strong>politické</strong>, <strong>ekonomické</strong>,
+            <strong>sociální</strong> a <strong>technologické</strong> prostředí.
+          </p>
+        </div>
+      </section>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 11.2 – Nástroje analýzy vnitřního a vnějšího potenciálu</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nástroj</th>
+              <th scope="col">Zaměření</th>
+              <th scope="col">K čemu slouží</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">SWOT analýza</th>
+              <td>vnitřní i vnější</td>
+              <td>silné a slabé stránky, příležitosti a hrozby</td>
+            </tr>
+            <tr>
+              <th scope="row">Porterových pět sil</th>
+              <td>vnější (odvětví)</td>
+              <td>dodavatelé, odběratelé, konkurence, noví konkurenti, substituty</td>
+            </tr>
+            <tr>
+              <th scope="row">PEST analýza</th>
+              <td>vnější (makro)</td>
+              <td>politické, ekonomické, sociální a technologické prostředí</td>
+            </tr>
+            <tr>
+              <th scope="row">Finanční analýza</th>
+              <td>vnitřní</td>
+              <td>rentabilita, zadluženost, likvidita, využití majetku</td>
+            </tr>
+            <tr>
+              <th scope="row">Benchmarking</th>
+              <td>vnější (srovnání)</td>
+              <td>porovnání s nejlepšími, prognózy vývoje odvětví a segmentů</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Hodnocení strategií</h3>
+      <p>
+        Z analýzy potenciálu vyplyne několik možných strategií. Ty je třeba posoudit
+        podle tří hledisek:
+      </p>
+      <ul>
+        <li><strong>Vhodnost</strong> vzhledem k výsledkům analýzy potenciálu –
+          neohrozí strategie <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likviditu</a>? Využije příležitostí? Zlepší konkurenční
+          postavení ve vybraném segmentu?</li>
+        <li><strong>Realizovatelnost</strong> z hlediska dostupných zdrojů – lze na
+          investiční záměr získat externí financování? Lze využít <a class="pojem" href="t7-l5-dividendova-politika.html?zvyraznit=pojem-outsourcing" target="_blank" rel="noopener">outsourcing</a>, pokud
+          podnik nemá dostatečné kapacity?</li>
+        <li><strong>Akceptovatelnost</strong> z hlediska dosaženého zisku a rizika –
+          a zejména, zda bude splněn základní cíl: <strong>tvorba hodnoty</strong>.</li>
+      </ul>
+
+      <p>
+        Zvolená strategie se pak promítá do <strong>strategického (dlouhodobého)
+        plánu</strong>, jehož složkami jsou jednotlivé <strong>dílčí plány</strong>
+        odpovídající funkčním strategiím: plán prodeje a marketingu, plán výroby, plán
+        investic, plán výzkumu a vývoje, plán zásobování, personální plán a finanční
+        plán. Mezi dílčími plány existují úzké vazby.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Plán nevzniká v pevném sledu kroků</p>
+        <div class="callout__telo">
+          <p>Ke strategickému plánu nelze dospět v jednom pevném sledu (prodej → výroba
+          → zdroje → finance). Vzájemné vazby a možné změny podmínek okolí činí z tvorby
+          plánu <strong>iterační proces se zpětnými vazbami</strong>: východiskem je sice
+          plán prodejů a marketingu, ale v každém dalším kroku může vzniknout nutnost
+          vrátit se k některému z předchozích.</p>
+        </div>
+      </aside>
+
+      <!-- ===================== 3. STRATEGICKÝ FINANČNÍ PLÁN A TŘI VÝKAZY ===================== -->
+      <h2>Strategický finanční plán a jeho tři výkazy</h2>
+      <p>
+        Strategický (dlouhodobý) finanční plán je jedním ze základních kamenů celého
+        strategického plánu podniku. Jeho základem jsou zásadní <strong>investiční
+        rozhodnutí</strong> (o realizaci investičních projektů) a <strong>finanční
+        rozhodnutí</strong> (o výši a struktuře finančních zdrojů). Úkolem je zabezpečit
+        realizaci strategického plánu potřebnými zdroji – vytvořenými buď vlastní
+        činností (interní zdroje), nebo získanými z vnějšku (externí zdroje) – při
+        udržení finanční stability.
+      </p>
+      <p>
+        Každý dílčí plán ovlivňuje finanční plán prostřednictvím výnosů a nákladů,
+        resp. příjmů a výdajů. Těsné vazby však nejsou jen mezi finančním plánem a
+        ostatními plány, ale i <strong>uvnitř</strong> finančního plánu – mezi jeho
+        třemi výkazy.
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 11.3 – Tři základní složky finančního plánu</caption>
+          <thead>
+            <tr>
+              <th scope="col">Výkaz</th>
+              <th scope="col">Co zobrazuje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Plánovaný výkaz zisku a ztráty</th>
+              <td>plánované výnosy, náklady a výsledek hospodaření v jednotlivých letech</td>
+            </tr>
+            <tr>
+              <th scope="row">Plánová rozvaha</th>
+              <td>vývoj majetku (dlouhodobá a oběžná aktiva) a zdrojů jeho financování (vlastní a cizí kapitál)</td>
+            </tr>
+            <tr>
+              <th scope="row">Plán peněžních toků</th>
+              <td>předpokládané příjmy a výdaje v jednotlivých letech plánovacího období</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- STATICKÉ SCHÉMA: tři provázané výkazy -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Provázanost tří plánových výkazů</p>
+          <p class="viz__popis">Výkaz zisku a ztráty, rozvaha a plán peněžních toků na sebe navzájem navazují – změna v jednom výkazu se promítá do zbývajících dvou. Proto se plán sestavuje iterativně.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 720 400" width="100%" role="img" aria-label="Schéma tří vzájemně provázaných plánových výkazů propojených obousměrnými šipkami do trojúhelníku">
+            <defs>
+              <marker id="sipka" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#4338ca"></path>
+              </marker>
+            </defs>
+            <!-- Výkaz zisku a ztráty (vlevo nahoře) -->
+            <g>
+              <rect x="40" y="40" width="240" height="86" rx="12" fill="#eef2ff" stroke="#4338ca" stroke-width="2"></rect>
+              <text x="160" y="72" text-anchor="middle" fill="#312e81" font-size="17" font-weight="700">Výkaz zisku a ztráty</text>
+              <text x="160" y="98" text-anchor="middle" fill="#4b5563" font-size="13">výnosy − náklady = VH</text>
+            </g>
+            <!-- Plánová rozvaha (vpravo nahoře) -->
+            <g>
+              <rect x="440" y="40" width="240" height="86" rx="12" fill="#eef2ff" stroke="#4338ca" stroke-width="2"></rect>
+              <text x="560" y="72" text-anchor="middle" fill="#312e81" font-size="17" font-weight="700">Plánová rozvaha</text>
+              <text x="560" y="98" text-anchor="middle" fill="#4b5563" font-size="13">majetek a zdroje financování</text>
+            </g>
+            <!-- Plán peněžních toků (dole uprostřed) -->
+            <g>
+              <rect x="240" y="280" width="240" height="86" rx="12" fill="#eef2ff" stroke="#4338ca" stroke-width="2"></rect>
+              <text x="360" y="312" text-anchor="middle" fill="#312e81" font-size="17" font-weight="700">Plán peněžních toků</text>
+              <text x="360" y="338" text-anchor="middle" fill="#4b5563" font-size="13">příjmy a výdaje</text>
+            </g>
+            <!-- Šipky mezi výkazy (obousměrné) -->
+            <line x1="285" y1="83" x2="435" y2="83" stroke="#4338ca" stroke-width="2" marker-start="url(#sipka)" marker-end="url(#sipka)"></line>
+            <line x1="240" y1="140" x2="330" y2="272" stroke="#4338ca" stroke-width="2" marker-start="url(#sipka)" marker-end="url(#sipka)"></line>
+            <line x1="480" y1="140" x2="390" y2="272" stroke="#4338ca" stroke-width="2" marker-start="url(#sipka)" marker-end="url(#sipka)"></line>
+          </svg>
+        </div>
+      </figure>
+
+      <p>
+        Východiskem sestavení finančního plánu je <strong>plán prodeje a marketingu</strong>
+        (objemy prodejů, ceny, distribuční cesty, podpora prodeje). Tržby z prodeje jsou
+        základní složkou výnosů, tedy přímo vstupují do finančního plánu; naopak finanční
+        plán musí zajistit krytí marketingových nákladů a plánované prodeje musí být
+        výrobně zabezpečeny. Plán prodejů proto poskytuje vstupy pro <strong>plán
+        výroby</strong>, který má spolu s finančním plánem klíčový význam, a ten je dále
+        vybaven zdroji přes plány zásobování, investic, výzkumu a vývoje a personální plán.
+      </p>
+
+      <!-- ===================== 4. OPERATIVNÍ FINANČNÍ PLÁN ===================== -->
+      <h2>Operativní finanční plán a kontrola</h2>
+      <p>
+        <strong>Operativní (krátkodobý) finanční plán</strong> vychází ze strategického
+        finančního plánu a vyjadřuje krátkodobá finanční rozhodnutí. Ta jsou přijímána
+        v souvislosti s vizí a strategiemi z dlouhodobého plánu, reagují však na aktuální
+        změny vnějších a vnitřních podmínek. Podle tradičního postupu se sestavuje
+        <strong>roční plán zisku</strong> v členění: tržby, přímý materiál, přímé mzdy,
+        ostatní přímé náklady, režie, zisk před zdaněním, daň z příjmů, zisk po zdanění.
+        Celoroční údaje se pak rozčleňují na kratší období.
+      </p>
+      <p>
+        Souběžně s ročním plánem zisku slouží jako nástroje operativního řízení
+        <strong>rozpočty a kalkulace</strong>; důležitým zdrojem informací je <a class="pojem" href="t7-l3-bod-zvratu-provozni-paka.html?zvyraznit=pojem-manazerske-ucetnictvi" target="_blank" rel="noopener">manažerské
+        účetnictví</a>. Postupuje se od jednotlivých krátkodobých rozpočtů (prodeje,
+        zásobování, pracovníků) a teprve následně se prověřuje, jak vypadají peněžní toky
+        – sestavuje se rozpočet příjmů a výdajů.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Vazba rozpočtu zisku a likvidity</p>
+        <div class="callout__telo">
+          <p>Krátkodobé rozpočty postavené z hlediska <strong>rentability</strong>
+          (dosažení určité míry zisku) ovlivňují <strong>likviditu</strong> – a naopak
+          proces zajišťování likvidity vede ke korekcím rozpočtů nákladů a výnosů, a tím
+          zpravidla i ke změně rentability. Manažer proto rozhoduje o využití volných
+          finančních přebytků i o optimálním krytí kapitálové potřeby.</p>
+        </div>
+      </aside>
+
+      <p>
+        Na finanční plánování navazuje <strong>kontrola</strong>: porovnáváním plánu
+        s účetními výkazy se zjišťují odchylky skutečnosti od plánu. Kontinuální měření
+        a analýza výsledků mají odchylky indikovat a vést buď k nápravným opatřením
+        k zajištění plánových cílů, nebo k úpravě samotného plánu vzhledem ke změněným
+        skutečnostem – jak zachycuje zpětná vazba na obrázku 6–3.
+      </p>
+
+      <section class="definice" id="pojem-klouzavy-princip">
+        <h3 class="definice__pojem">Klouzavý princip plánování</h3>
+        <div class="definice__telo">
+          <p>
+            Zásada, podle níž je plánování <strong>kontinuální proces</strong> pracující
+            s variantními řešeními: plán se průběžně posouvá v čase a aktualizuje o nové
+            skutečnosti, místo aby platil jednorázově pro pevně dané období. Umožňuje
+            plánu neustále „klouzat" vpřed a reagovat na měnící se podmínky.
+          </p>
+        </div>
+      </section>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik zpřísní řízení pohledávek a zásob, aby zlepšil likviditu. Jak se to
+          promítne do všech tří plánových výkazů a proč nelze upravit jen jeden z nich?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Zásah se projeví ve všech třech výkazech, protože jsou provázané.
+            V <a class="pojem" href="t12-l11-financni-plan.html?zvyraznit=pojem-planova-rozvaha" target="_blank" rel="noopener"><strong>rozvaze</strong></a> klesnou oběžná aktiva (nižší zásoby a pohledávky).
+            V <a class="pojem" href="t12-l11-financni-plan.html?zvyraznit=pojem-plan-cash-flow" target="_blank" rel="noopener"><strong>plánu peněžních toků</strong></a> se dřívější inkaso projeví vyššími
+            příjmy a lepší likviditou. Ve <a class="pojem" href="t12-l11-financni-plan.html?zvyraznit=pojem-planovy-vykaz-zisku-ztraty" target="_blank" rel="noopener"><strong>výkazu zisku a ztráty</strong></a> se může
+            změnit výsledek hospodaření (např. přes náklady na skladování nebo ztrátu
+            tržeb z kratších dob splatnosti). Upravit jen jeden výkaz nelze – změna v něm
+            si vynutí přepočet ostatních, což je právě důvod, proč je sestavení plánu
+            iterační proces se zpětnými vazbami.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== 5. ŘÍZENÍ RIZIK ===================== -->
+      <h2>Řízení rizik</h2>
+      <p>
+        Plánovací proces je jednou z klíčových možností řízení rizik podniku. Postupuje
+        se ve třech krocích: nejprve <strong>identifikace</strong> rizik ohrožujících
+        úspěch či existenci podniku a rizik přinášejících ztráty, poté
+        <strong>hodnocení</strong> těchto rizik z hlediska potenciálních ztrát a
+        pravděpodobnosti jejich vzniku, a nakonec samotné <strong>řízení</strong>
+        soustředěné na přijetí opatření k omezení hrozících ztrát – a to jak v procesu
+        plánování, tak při operativních rozhodnutích.
+      </p>
+
+      <section class="definice" id="pojem-rizeni-rizik">
+        <h3 class="definice__pojem">Řízení rizik</h3>
+        <div class="definice__telo">
+          <p>
+            Proces identifikace rizik, jejich hodnocení podle potenciální ztráty a
+            pravděpodobnosti a přijetí opatření k omezení hrozících ztrát. Cílem není
+            riziko zcela odstranit, ale vědomě rozhodnout, která rizika podstoupit a jak
+            s nimi naložit. Významnou součástí je <strong>kontrola</strong>, např. formou
+            interního auditu.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        U jednotlivých rizik lze přijmout jedno ze čtyř základních opatření:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 11.4 – Čtyři opatření řízení rizik</caption>
+          <thead>
+            <tr>
+              <th scope="col">Opatření</th>
+              <th scope="col">Podstata</th>
+              <th scope="col">Kdy je vhodné</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Neplánovat</th>
+              <td>vyhnout se akcím, z nichž riziko plyne</td>
+              <td>zejména u rizik ohrožujících podnik jako celek</td>
+            </tr>
+            <tr>
+              <th scope="row">Kompenzovat</th>
+              <td>vedle rizikového obchodu uzavřít další, který vykompenzuje ztrátu</td>
+              <td>lze-li potenciální ztrátu vyvážit protipozicí</td>
+            </tr>
+            <tr>
+              <th scope="row">Snížit</th>
+              <td>omezit riziko konkrétními opatřeními u rizikových obchodů</td>
+              <td>u rizik, která neohrožují samotnou existenci podniku</td>
+            </tr>
+            <tr>
+              <th scope="row">Akceptovat</th>
+              <td>ponechat možné následky v plném rozsahu bez nákladných opatření</td>
+              <td>je-li riziko malé nebo obrana dražší než možná ztráta</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Zpět k tvorbě hodnoty</p>
+        <div class="callout__telo">
+          <p>Implementace hodnotového řízení předpokládá, že se v celém plánovacím
+          procesu, při realizaci aktivit i při kontrole plánů posuzuje, zda plněním
+          plánu je dosahováno základního cíle – <strong>tvorby hodnoty</strong>.
+          Výsledky plnění plánu se pak propojují se systémem odměňování.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Které ze čtyř opatření (neplánovat, kompenzovat, snížit, akceptovat) byste
+          zvolili pro: (a) měnové riziko velké exportní zakázky, (b) záměr vstoupit na
+          nestabilní trh, který by při neúspěchu ohrozil celý podnik, (c) drobné riziko
+          krátkého zpoždění dodávky od spolehlivého dodavatele?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>(a) <strong>Kompenzovat</strong> – k exportní zakázce uzavřít protiobchod
+            (např. zajištění kurzu), který vyváží potenciální kurzovou ztrátu.
+            (b) <strong>Neplánovat</strong> – jde o riziko ohrožující podnik jako celek,
+            proto se akce raději nerealizuje. (c) <strong>Akceptovat</strong> – riziko je
+            malé a nákladná obrana by se nevyplatila; případně <strong>snížit</strong>
+            drobným opatřením. Volba vždy vychází z hodnocení potenciální ztráty a
+            pravděpodobnosti jejího vzniku.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Na jaké dvě fáze se dělí postup tvorby finančního plánu podle obrázku 6–3 a čím se liší?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jedna fáze zahrnuje kroky 1–3, druhá kroky 4–6.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na <strong>proces dlouhodobého plánování</strong> (stanovení cílů, určení strategií, tvorba dlouhodobého plánu) a <strong>proces krátkodobého rozpočtování</strong> (implementace plánu v podobě krátkodobých rozpočtů, kontrola průběžných výsledků, reakce na odchylky). Fáze propojují zpětné vazby – od reakce na odchylky zpět k volbě strategie i k tvorbě rozpočtů.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Které tři výkazy tvoří finanční plán a proč je nelze sestavovat nezávisle na sobě?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jeden zachycuje výnosy a náklady, druhý majetek a zdroje, třetí příjmy a výdaje.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Plánovaný <strong>výkaz zisku a ztráty</strong>, plánová <strong>rozvaha</strong> a <strong>plán peněžních toků</strong>. Existují mezi nimi těsné vzájemné vazby: změna v jednom výkazu (např. vyšší tržby nebo nižší zásoby) se promítá do zbývajících dvou. Proto se plán sestavuje jako iterační proces se zpětnými vazbami.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>K čemu slouží SWOT analýza, model Porterových pěti sil a PEST analýza při tvorbě plánu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Všechny patří do analýzy vnitřního a vnějšího potenciálu, ale míří na různé oblasti.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Slouží k analýze vnitřního a vnějšího potenciálu jako podkladu pro cíle a strategie. <strong>SWOT</strong> identifikuje silné a slabé stránky, příležitosti a hrozby; <strong>Porterových pět sil</strong> analyzuje konkurenční prostředí odvětví (dodavatelé, odběratelé, konkurence, noví konkurenti, substituty); <strong>PEST</strong> zkoumá makroprostředí – politické, ekonomické, sociální a technologické vlivy.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co znamená, že plánování má probíhat na klouzavém principu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, zda plán platí jednorázově, nebo se průběžně aktualizuje.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Plánování je <strong>kontinuální proces</strong> pracující s variantními řešeními: plán se průběžně posouvá v čase a aktualizuje o nové skutečnosti, místo aby platil jen pro pevně dané období. Díky tomu podnik trvale reaguje na měnící se vnitřní i vnější podmínky.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jaká čtyři opatření lze přijmout u konkrétního rizika a znamená řízení rizik jejich úplné odstranění?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jedno z opatření spočívá v tom, že se riziko vědomě ponechá.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Neplánovat</strong> rizikovou akci, <strong>kompenzovat</strong> ji dalším obchodem, <strong>snížit</strong> riziko konkrétními opatřeními, nebo je <strong>akceptovat</strong>. Řízení rizik <em>neznamená</em> jejich minimalizaci či úplné odstranění – jde o vědomé rozhodnutí, která rizika se vyplatí podstoupit a jak s nimi naložit.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t11-l1-benchmarking.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">11.1 Benchmarking v řízení výkonnosti</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t11-l3-abc-abb-beyond-budgeting.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">11.3 ABC/ABB a Beyond Budgeting</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: obrázek 6–3 – postup tvorby finančního plánu.
+      // Šest bloků ve svislé posloupnosti, dvě fáze, zpětné vazby.
+      var kroky = [
+        { text: '1. Stanovení cílů', faze: 'dlouhodobe' },
+        { text: '2. Určení možných průběhů činností (strategie)', faze: 'dlouhodobe' },
+        { text: '3. Tvorba dlouhodobého plánu', faze: 'dlouhodobe' },
+        { text: '4. Implementace v podobě krátkodobých rozpočtů', faze: 'kratkodobe' },
+        { text: '5. Kontrola průběžných výsledků', faze: 'kratkodobe' },
+        { text: '6. Reakce na odchylky od plánu', faze: 'kratkodobe' }
+      ];
+
+      Skripta.stepper('viz-postup-planu', {
+        sirka: 720, vyska: 560,
+        stavy: [
+          { odkryto: 1, vazby: false },
+          { odkryto: 3, vazby: false },
+          { odkryto: 6, vazby: false },
+          { odkryto: 6, vazby: true }
+        ],
+        popisky: [
+          'Fáze dlouhodobého plánování začíná stanovením cílů (krok 1).',
+          'Následuje volba strategií a tvorba dlouhodobého plánu (kroky 2–3).',
+          'Fáze krátkodobého rozpočtování: implementace, kontrola a reakce na odchylky (kroky 4–6).',
+          'Proces není jednosměrný – zpětné vazby vedou od reakce na odchylky zpět ke strategii (krok 2) i k tvorbě rozpočtů (krok 4). Plánování je kontinuální.'
+        ],
+        render: function (svg, stav, i, u) {
+          var x = 130, w = 460, h = 56, mezera = 26;
+          var y0 = 40, krok = h + mezera;
+
+          // Popisky fází vlevo
+          u.dej(svg, 'faze-dl', 'text', {
+            x: 40, y: y0 + krok * 1.5, 'text-anchor': 'middle', fill: '#4338ca',
+            'font-size': 13, 'font-weight': 700, transform: 'rotate(-90 40 ' + (y0 + krok * 1.5) + ')'
+          }, 'Dlouhodobé plánování');
+          u.dej(svg, 'faze-kr', 'text', {
+            x: 40, y: y0 + krok * 4.5, 'text-anchor': 'middle', fill: '#0e7490',
+            'font-size': 13, 'font-weight': 700, transform: 'rotate(-90 40 ' + (y0 + krok * 4.5) + ')'
+          }, 'Krátkodobé rozpočtování');
+
+          // Dělicí přerušovaná čára mezi fázemi (mezi krokem 3 a 4)
+          var yDel = y0 + krok * 3 - mezera / 2;
+          u.dej(svg, 'delici', 'line', {
+            x1: 70, y1: yDel, x2: 700, y2: yDel, stroke: u.barvaOsa,
+            'stroke-width': 1.5, 'stroke-dasharray': '6 5'
+          });
+
+          // Bloky kroků
+          for (var k = 0; k < 6; k++) {
+            var y = y0 + krok * k;
+            var viditelny = k < stav.odkryto;
+            var barvaFaze = kroky[k].faze === 'dlouhodobe' ? '#4338ca' : '#0e7490';
+            var vypln = kroky[k].faze === 'dlouhodobe' ? '#eef2ff' : '#ecfeff';
+            u.dej(svg, 'box-' + k, 'rect', {
+              x: x, y: y, width: w, height: h, rx: 10,
+              fill: vypln, stroke: barvaFaze, 'stroke-width': 2,
+              opacity: viditelny ? 1 : 0.12
+            });
+            u.dej(svg, 'txt-' + k, 'text', {
+              x: x + w / 2, y: y + h / 2 + 5, 'text-anchor': 'middle',
+              fill: viditelny ? '#1f2937' : '#9ca3af', 'font-size': 14, 'font-weight': 600,
+              opacity: viditelny ? 1 : 0.4
+            }, kroky[k].text);
+
+            // Šipka dolů k dalšímu bloku
+            if (k < 5) {
+              u.dej(svg, 'sip-' + k, 'line', {
+                x1: x + w / 2, y1: y + h, x2: x + w / 2, y2: y + krok,
+                stroke: u.barvaOsa, 'stroke-width': 2,
+                opacity: (k + 1 < stav.odkryto) ? 1 : 0.12
+              });
+              u.dej(svg, 'sipH-' + k, 'path', {
+                d: 'M' + (x + w / 2 - 5) + ',' + (y + krok - 6) + ' L' + (x + w / 2) + ',' + (y + krok) + ' L' + (x + w / 2 + 5) + ',' + (y + krok - 6) + ' Z',
+                fill: u.barvaOsa, opacity: (k + 1 < stav.odkryto) ? 1 : 0.12
+              });
+            }
+          }
+
+          // Zpětná vazba: od bloku 6 zpět k bloku 2 (levá strana)
+          var y6 = y0 + krok * 5 + h / 2;
+          var y2 = y0 + krok * 1 + h / 2;
+          u.dej(svg, 'vazba1', 'path', {
+            d: 'M' + x + ',' + y6 + ' H90 V' + y2 + ' H' + x,
+            fill: 'none', stroke: u.barvaTvorba, 'stroke-width': 2,
+            opacity: stav.vazby ? 1 : 0
+          });
+          u.dej(svg, 'vazba1-hrot', 'path', {
+            d: 'M' + (x - 6) + ',' + (y2 - 5) + ' L' + x + ',' + y2 + ' L' + (x - 6) + ',' + (y2 + 5) + ' Z',
+            fill: u.barvaTvorba, opacity: stav.vazby ? 1 : 0
+          });
+
+          // Zpětná vazba: od bloku 6 zpět k bloku 4 (pravá strana, přerušovaná)
+          var y4 = y0 + krok * 3 + h / 2;
+          u.dej(svg, 'vazba2', 'path', {
+            d: 'M' + (x + w) + ',' + y6 + ' H640 V' + y4 + ' H' + (x + w),
+            fill: 'none', stroke: u.barvaTvorba, 'stroke-width': 2, 'stroke-dasharray': '6 5',
+            opacity: stav.vazby ? 1 : 0
+          });
+          u.dej(svg, 'vazba2-hrot', 'path', {
+            d: 'M' + (x + w + 6) + ',' + (y4 - 5) + ' L' + (x + w) + ',' + y4 + ' L' + (x + w + 6) + ',' + (y4 + 5) + ' Z',
+            fill: u.barvaTvorba, opacity: stav.vazby ? 1 : 0
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

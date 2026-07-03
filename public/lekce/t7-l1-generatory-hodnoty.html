@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7.1 Generátory hodnoty – Výkonnost podniku</title>
+  <meta name="description" content="Generátory hodnoty (value drivers) v konceptech CFROI/TBR, Shareholder Value a EVA/MVA, čtyři cesty zvýšení EVA a rozklad na kritické faktory a činnosti podniku.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 7 -->
+    <nav class="panel" data-panel data-aktivni-lekce="7.1" aria-label="Lekce tématu 7">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 7</div>
+      <div class="panel__nazev-tema">Generátory hodnoty a řízení výnosů, nákladů a zisku</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="7.1" href="t7-l1-generatory-hodnoty.html"><span class="panel__odkaz-cislo">7.1</span><span>Generátory hodnoty</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.2" href="t7-l2-pyramidovy-rozklad-eva.html"><span class="panel__odkaz-cislo">7.2</span><span>Pyramidové soustavy ukazatelů – rozklad EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.3" href="t7-l3-bod-zvratu-provozni-paka.html"><span class="panel__odkaz-cislo">7.3</span><span>Tržby a řízení nákladů – bod zvratu a provozní páka</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.4" href="t7-l4-kryci-prispevek-abc.html"><span class="panel__odkaz-cislo">7.4</span><span>Krycí příspěvek a moderní kalkulace nákladů ABC</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.5" href="t7-l5-dividendova-politika.html"><span class="panel__odkaz-cislo">7.5</span><span>Konkurenceschopnost, rozdělování zisku a dividendová politika</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="7.6" href="t7-l6-vyuziti-majetku.html"><span class="panel__odkaz-cislo">7.6</span><span>Analýza využití majetku</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-7">Téma 7 · Generátory hodnoty</a></li>
+          <li><span aria-current="page">Lekce 7.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 7.1</span>
+        <h1>Generátory hodnoty</h1>
+        <p class="lekce-hlavicka__strany">Strany 106–113</p>
+      </header>
+
+      <p>
+        Předchozí témata odpověděla na otázku, <em>jak</em> hodnotu podniku měřit
+        (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>, MVA, CFROI, SVA…). Tímto tématem přecházíme od <strong>měření</strong>
+        k <strong>řízení</strong>. Na růstu výkonnosti je zainteresován především
+        vrcholový management, ale skutečně ovlivnit ji dokáží až konkrétní rozhodnutí
+        manažerů na nižších úrovních – a to jen tam, kam vlastním výkonem dosáhnou.
+        Chceme-li hodnotu cíleně zvyšovat, musíme znát <strong>faktory, které ji
+        ovlivňují</strong>, a jejich dopady umět kvantifikovat.
+      </p>
+      <p>
+        Právě tyto faktory se nazývají <a class="pojem" href="#pojem-generatory-hodnoty">generátory
+        hodnoty</a>. V této lekci si ukážeme, jak je definují tři hlavní koncepty
+        hodnotového řízení – CFROI/TBR, Shareholder Value a EVA/MVA – a jak se
+        vrcholový hodnotový ukazatel postupně rozpadá až na konkrétní činnosti podniku.
+      </p>
+
+      <!-- DEFINICE: generátory hodnoty -->
+      <section class="definice" id="pojem-generatory-hodnoty">
+        <h3 class="definice__pojem">Generátory hodnoty (Value Drivers, KPI)</h3>
+        <div class="definice__telo">
+          <p>
+            Faktory, které <strong>významně ovlivňují tvorbu hodnoty</strong> podniku.
+            Anglicky <em>Value Drivers</em> nebo <em>Key Performance Indicators (KPI)</em>.
+            Každý koncept hodnotového řízení definuje své vlastní generátory, mnoho
+            z nich je však <strong>společných napříč přístupy</strong> (tržby, náklady,
+            výše a struktura majetku, náklady na kapitál). Identifikace podstatných
+            generátorů a jejich dopadu na hodnotu patří ke klíčovým nástrojům řízení
+            orientovaného na růst hodnoty.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč generátory rozlišovat podle konceptu</p>
+        <div class="callout__telo">
+          <p>Různé koncepty měří hodnotu odlišně, a proto zdůrazňují odlišné páky.
+          V dalším textu si projdeme generátory hodnoty ve třech konceptech –
+          <strong>CFROI a TBR</strong>, <strong>Shareholder Value</strong> a
+          <strong>EVA a MVA</strong> – a všimneme si, co mají společné.</p>
+        </div>
+      </aside>
+
+      <h2>Generátory hodnoty v konceptu CFROI a TBR</h2>
+      <p>
+        U metody <strong><a class="pojem" href="t6-l2-cfroi.html?zvyraznit=pojem-cfroi" target="_blank" rel="noopener">CFROI</a></strong> je růst hodnoty vyjádřen mírou zhodnocení
+        <em>hrubé (brutto) investiční základny</em> podniku prostřednictvím dosažených
+        peněžních toků. CFROI je ukazatel použitelný na podnikové úrovni; pro nižší
+        úrovně řízení a pro hodnocení strategií na něj navazuje ukazatel
+        <strong><a class="pojem" href="t6-l3-cfroi-tbr-croga.html?zvyraznit=pojem-tbr" target="_blank" rel="noopener">Total Business Return (TBR)</a></strong>.
+      </p>
+      <p>
+        Klíčovou roli hraje <a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-cash-flow" target="_blank" rel="noopener">cash flow</a> vyprodukované z aktiv podniku. Předpokládá se,
+        že aktiva budou tyto hotovostní toky produkovat po celou dobu ekonomické
+        životnosti – jde tedy o pohled zaměřený do budoucna. Cash flow tvořené
+        <strong>ziskem a odpisy</strong> ukazuje zdroje své tvorby: zvýšení tržeb,
+        snížení nákladů, a tím růst zisku. Na rozdíl od ukazatele EVA se použitím cash
+        flow <strong>nevytváří tlak na snižování investic</strong> (odpisy se zpět
+        přičítají k zisku). Vyloučením nákladových úroků se uvažují <em>volné peněžní
+        toky</em> dostupné všem investorům. U brutto investiční základny i cash flow je
+        navíc zohledněna <strong>inflace</strong>.
+      </p>
+      <p>
+        Úspěch se hodnotí porovnáním dosaženého CFROI s reálnou hodnotou <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">nákladů na
+        kapitál</a> (<span class="math">WACC<sub>reál</sub></span>) – tím se náklady na
+        kapitál stávají generátorem hodnoty. Jejich výše je u konceptu CFROI ovlivněna
+        velikostí podniku, jeho zadlužením a výší tržní diskontní míry odvozené z odhadu
+        budoucích výnosů souboru podobných podniků.
+      </p>
+
+      <!-- STATICKÁ VIZUALIZACE: Obrázek 4-1 CFROI/TBR -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 4–1: Generátory hodnoty v konceptu CFROI a TBR</p>
+          <p class="viz__popis">Zjednodušené schéma: ukazatel CFROI se rozkládá doprava na složky svého výpočtu a doleva se pojí s CFROI spreadem (srovnání s WACC reál) a s ukazatelem TBR.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 780 340" role="img" aria-label="Schéma rozkladu ukazatelů CFROI a TBR na dílčí faktory" style="width:100%;height:auto;font-family:inherit">
+            <!-- spojnice -->
+            <g stroke="#94a3b8" stroke-width="1.4" fill="none">
+              <line x1="450" y1="176" x2="580" y2="48"></line>
+              <line x1="450" y1="176" x2="580" y2="124"></line>
+              <line x1="450" y1="176" x2="580" y2="200"></line>
+              <line x1="450" y1="176" x2="580" y2="276"></line>
+              <line x1="310" y1="176" x2="210" y2="120"></line>
+              <line x1="310" y1="176" x2="210" y2="228"></line>
+            </g>
+            <!-- levá větev -->
+            <g>
+              <rect x="40" y="96" width="170" height="48" rx="8" fill="#e0e7ff"></rect>
+              <text x="125" y="116" text-anchor="middle" fill="#312e81" font-size="13" font-weight="700">CFROI spread</text>
+              <text x="125" y="133" text-anchor="middle" fill="#4f46e5" font-size="10.5">= CFROI − WACC reál</text>
+              <rect x="40" y="204" width="170" height="48" rx="8" fill="#e0e7ff"></rect>
+              <text x="125" y="224" text-anchor="middle" fill="#312e81" font-size="13" font-weight="700">TBR</text>
+              <text x="125" y="241" text-anchor="middle" fill="#4f46e5" font-size="10.5">brutto invest., CF, zbytk. hodnota</text>
+            </g>
+            <!-- střed -->
+            <rect x="310" y="150" width="140" height="52" rx="9" fill="#4338ca"></rect>
+            <text x="380" y="181" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">CFROI</text>
+            <!-- pravé složky -->
+            <g font-size="11.5" fill="#1e293b">
+              <rect x="580" y="24" width="180" height="48" rx="8" fill="#eef2ff"></rect>
+              <text x="670" y="52" text-anchor="middle">Brutto investiční báze</text>
+              <rect x="580" y="100" width="180" height="48" rx="8" fill="#eef2ff"></rect>
+              <text x="670" y="119" text-anchor="middle">Brutto cash flow</text>
+              <text x="670" y="135" text-anchor="middle" font-size="10.5" fill="#475569">očištěné o inflaci</text>
+              <rect x="580" y="176" width="180" height="48" rx="8" fill="#eef2ff"></rect>
+              <text x="670" y="204" text-anchor="middle">Hodnota neodepis. aktiv</text>
+              <rect x="580" y="252" width="180" height="48" rx="8" fill="#eef2ff"></rect>
+              <text x="670" y="280" text-anchor="middle">Doba životnosti aktiv</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <h2>Generátory hodnoty v konceptu Shareholder Value</h2>
+      <p>
+        Klíčové faktory tvorby hodnoty měřené ukazatelem <strong><a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-shareholder-value" target="_blank" rel="noopener">Shareholder Value (SV)</a></strong>
+        a jeho přírůstkem <strong><a class="pojem" href="t6-l1-sva.html?zvyraznit=pojem-sva" target="_blank" rel="noopener">SVA</a></strong> jsou dosažené tržby a míra jejich růstu,
+        provozní zisková marže a výše zdanění. Hodnota podniku se odvíjí od cash flow
+        vyprodukovaného z <em>operativních</em> aktiv a od jejich <strong><a class="pojem" href="t6-l1-sva.html?zvyraznit=pojem-rezidualni-hodnota" target="_blank" rel="noopener">reziduální
+        hodnoty</a></strong>, kterou aktiva dosahují po vyčerpání konkurenční výhody. Cash
+        flow z <a class="pojem" href="t5-l2-noa.html?zvyraznit=pojem-neoperativni-aktiva" target="_blank" rel="noopener">neoperativních aktiv</a> se nepočítá – neoperativní aktiva jsou z hodnoty
+        majetku vyloučena.
+      </p>
+      <p>
+        Budoucí peněžní toky se převádějí na současnou hodnotu diskontní mírou ve výši
+        průměrných nákladů na kapitál (<span class="math">WACC</span>); tím náklady na
+        kapitál hodnotu SV a SVA ovlivňují. Generátorem hodnoty se proto stává i
+        <strong>využití cizího kapitálu</strong> jako možnosti zvýšit výnosnost vlastního
+        kapitálu. Podnik generuje hodnotu pouze tehdy, realizuje-li <strong>efektivní
+        investice</strong> – tedy investice s kladnou <a class="pojem" href="t4-l1-dcf-npv-irr.html?zvyraznit=pojem-npv" target="_blank" rel="noopener">čistou současnou hodnotou (NPV)</a>.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🧭</span>
+        <p class="callout__nadpis">Obrázek 4–2: Jak vzniká Shareholder Value</p>
+        <div class="callout__telo">
+          <p>Generátory se v tomto konceptu sdružují do tří rozhodovacích oblastí, jejichž toky ústí až do hodnoty pro vlastníky:</p>
+          <ul>
+            <li><strong>Provozní rozhodování</strong> – tržby v uplynulém roce, míra
+              růstu tržeb, provozní zisková marže, daňová sazba, dodatečné investice do ČPK.</li>
+            <li><strong>Investiční rozhodování</strong> – dodatečné investice do dlouhodobého
+              majetku.</li>
+            <li>Provozní a investiční faktory se sbíhají do <strong>provozního cash flow</strong>.</li>
+            <li><strong>Finanční rozhodování</strong> – náklady na vlastní a na cizí kapitál
+              se sbíhají do <strong><a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a></strong>.</li>
+            <li>Provozní cash flow a WACC spolu s neoperativními aktivy, současnou
+              hodnotou budoucích CF a reziduální hodnotou tvoří <strong>hodnotu podniku</strong>;
+              po odečtení <strong>cizích zdrojů</strong> zbývá cílová
+              <strong>Shareholder Value</strong>.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <h2>Generátory hodnoty v konceptu EVA a MVA</h2>
+      <p>
+        Výhodou konceptu <span class="math">EVA</span> je možnost jeho využití na
+        <strong>všech úrovních řízení</strong>. Samotná konstrukce ukazatele EVA však
+        pro měření výkonnosti nižších úrovní příliš vhodná není – těžko se vyjádří, jak
+        konkrétně se tyto složky podílejí na jejím zlepšení. Aby i nižší manažeři mohli
+        být motivováni na růstu EVA, je třeba hledat <strong>generátory EVA</strong>:
+        jednoduchá měřítka, kterým manažeři rozumějí, mohou je průběžně kontrolovat a
+        přímo je ovlivňují svým výkonem.
+      </p>
+
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">📊</span>
+        <p class="callout__nadpis">Příklad kaskády odpovědnosti</p>
+        <div class="callout__telo">
+          <p>Je-li ředitel výrobního úseku odměňován na základě EVA, jeho podřízení
+          budou odměňováni na základě veličin, které EVA ovlivňují a které dokáží ovlivnit –
+          například <strong><a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-doba-obratu-zasob" target="_blank" rel="noopener">doby obratu zásob</a></strong> nebo plynulosti provozu.
+          U technologicky intenzivní výroby, kde je k udržení tržního podílu nutná řada
+          inovací, může být <strong>měřítko vývoje nových výrobků</strong> významnějším
+          generátorem budoucí EVA než EVA vykázaná za poslední rok.</p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE: kritické faktory úspěchu -->
+      <section class="definice" id="pojem-kriticke-faktory-uspechu">
+        <h3 class="definice__pojem">Kritické faktory úspěchu</h3>
+        <div class="definice__telo">
+          <p>
+            Mezistupeň mezi generátory hodnoty a konkrétní činností podniku – tedy
+            <strong>na co se v řízení prakticky zaměřit</strong>, aby se generátor
+            promítl do růstu hodnoty. Například generátor „výnosy" ústí do kritického
+            faktoru <em>růst výnosů</em>, generátor „dlouhodobý majetek" do faktorů
+            <em>redukce nepotřebného majetku</em> a <em>investovat jen do projektů
+            s kladnou NPV</em>. Kritické faktory se pak přiřazují k činnostem v oblasti
+            provozu, investic a financování.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Následující schéma (obrázek 4–3) ukazuje, jak se vrcholové ukazatele EVA a <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">MVA</a>
+        postupně rozkládají zleva doprava v <strong>pěti krocích</strong>: cíl →
+        složky → generátory hodnoty → kritické faktory úspěchu → činnost podniku.
+        Projděte je tlačítky „Zpět / Další" a sledujte, jak z abstraktního ukazatele
+        vznikají konkrétní úkoly pro provoz, investice a financování.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: Obrázek 4-3 EVA/MVA rozklad ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 4–3: Generátory hodnoty v konceptu EVA a MVA</p>
+          <p class="viz__popis">Pětisloupcový rozklad hodnotového ukazatele až na konkrétní činnosti podniku. Každý krok odkryje jeden sloupec.</p>
+        </figcaption>
+        <div id="viz-eva-rozklad"></div>
+      </figure>
+
+      <h2>Čtyři cesty, jak zvýšit EVA</h2>
+      <p>
+        Rozbor způsobu výpočtu ekonomické přidané hodnoty
+        (<span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>)
+        odhalí základní faktory, kterými lze pozitivně ovlivnit výkonnost podniku a růst
+        jeho tržní hodnoty. Zjednodušeně lze vytipovat <strong>čtyři základní cesty</strong>:
+      </p>
+
+      <!-- STATICKÁ VIZUALIZACE: čtyři cesty zvýšení EVA -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Čtyři cesty ke zvýšení EVA</p>
+          <p class="viz__popis">Čtyři páky provozního, investičního a finančního řízení, které vedou k růstu ekonomické přidané hodnoty.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 780 320" role="img" aria-label="Čtyři cesty ke zvýšení EVA směřující do jednoho výsledku" style="width:100%;height:auto;font-family:inherit">
+            <defs>
+              <marker id="sipka-eva" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#4338ca"></path>
+              </marker>
+            </defs>
+            <g stroke="#4338ca" stroke-width="1.6" marker-end="url(#sipka-eva)">
+              <line x1="460" y1="45" x2="576" y2="150"></line>
+              <line x1="460" y1="122" x2="576" y2="156"></line>
+              <line x1="460" y1="199" x2="576" y2="166"></line>
+              <line x1="460" y1="276" x2="576" y2="172"></line>
+            </g>
+            <g font-size="12.5" fill="#166534">
+              <rect x="30" y="18" width="430" height="54" rx="9" fill="#dcfce7"></rect>
+              <text x="245" y="50" text-anchor="middle">Zvýšit efektivnost – snížit náklady, a tím zvýšit zisk</text>
+              <rect x="30" y="95" width="430" height="54" rx="9" fill="#dcfce7"></rect>
+              <text x="245" y="127" text-anchor="middle">Zvýšit tržby – investovat jen nad náklady kapitálu</text>
+              <rect x="30" y="172" width="430" height="54" rx="9" fill="#dcfce7"></rect>
+              <text x="245" y="204" text-anchor="middle">Snížit kapitál – odprodat nepotřebný majetek</text>
+              <rect x="30" y="249" width="430" height="54" rx="9" fill="#dcfce7"></rect>
+              <text x="245" y="281" text-anchor="middle">Řídit riziko – a tím náklady na kapitál</text>
+            </g>
+            <rect x="580" y="125" width="160" height="72" rx="12" fill="#4338ca"></rect>
+            <text x="660" y="156" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">EVA</text>
+            <text x="660" y="180" text-anchor="middle" fill="#c7d2fe" font-size="13">roste ▲</text>
+          </svg>
+        </div>
+      </figure>
+
+      <p>
+        Pokud tytéž faktory uspořádáme podle výpočtu EVA, dostaneme <strong>tři skupiny
+        generátorů</strong>, na které se řízení soustředí:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tři základní faktory ovlivňující EVA (rozbor výpočtu EVA)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Faktor</th>
+              <th scope="col">Co jej určuje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">A. Výše operativního zisku a míra jeho zdanění</th>
+              <td>Výše tržeb (objem realizované produkce × cena) a výše provozních
+                nákladů (typ a úroveň výrobního procesu, schopnost efektivně využít
+                výrobní faktory).</td>
+            </tr>
+            <tr>
+              <th scope="row">B. Výše a struktura použitého majetku a investovaného kapitálu</th>
+              <td>Poměr vytvořených tržeb a majetku; struktura a rychlost obratu složek
+                majetku (dlouhodobá aktiva, zásoby, pohledávky, finanční majetek).
+                Dlouhé doby obratu přinášejí vysoké náklady a ušlé zisky.</td>
+            </tr>
+            <tr>
+              <th scope="row">C. Výše nákladů na podnikový kapitál</th>
+              <td>Struktura kapitálu (podíl vlastního kapitálu a cizích zdrojů nesoucích
+                náklad), typ a rizikovost podnikání; od toho se odvíjejí i možnosti
+                kapitál získat.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Neefektivně využitý majetek působí na EVA dvakrát</p>
+        <div class="callout__telo">
+          <p>Nevytváří-li majetek dostatečný objem tržeb, snižuje se provozní zisk –
+          a tím i EVA. Současně takový majetek vyžaduje <strong>vysoký kapitál na své
+          pokrytí</strong>, což EVA snižuje podruhé. Proto je důležitá <em>alokace
+          kapitálu</em>: dlouhodobě vázaný kapitál by měl krýt dlouhodobá aktiva a trvale
+          přítomnou část oběžného majetku (tím vzniká <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistý pracovní kapitál</a>), zatímco
+          krátkodobý kapitál by měl financovat jen majetek přítomný přechodně.</p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Vyjmenujte čtyři základní cesty, kterými lze zvýšit EVA, a přiřaďte
+          každou z nich k oblasti řízení (provoz / investice / financování).</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <ul>
+              <li><strong>Zvýšit efektivnost</strong> (snížit náklady, a tím zvýšit
+                zisk) → <em>provoz</em>.</li>
+              <li><strong>Zvýšit tržby</strong> (růst firmy), ale investovat jen tehdy,
+                když nová investice vydělá více než náklady na použitý kapitál →
+                <em>provoz + investice</em>.</li>
+              <li><strong>Snížit kapitál</strong> odprodejem nepotřebného majetku
+                z neefektivních činností → <em>investice</em>.</li>
+              <li><strong>Řídit riziko</strong>, a tím náklady na kapitál →
+                <em>financování</em>.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <h2>Růstové příležitosti a proč na nich záleží</h2>
+      <p>
+        Hodnotu podniku lze rozdělit na dvě části: <strong>současnou hodnotu</strong> a
+        <strong>budoucí růstové příležitosti</strong>. U růstově orientovaných podniků
+        mohou růstové příležitosti tvořit až <strong>90 % hodnoty</strong>. Proto je pro
+        manažery tak důležité znát faktory ovlivňující budoucí výkonnost – růst může být
+        pro tržní cenu podniku důležitější než současná výkonnost. To také vysvětluje,
+        proč řada společností zahrnuje tržby nebo růst tržeb mezi faktory určující
+        manažerské bonusy.
+      </p>
+
+      <!-- DEFINICE: růstové příležitosti -->
+      <section class="definice" id="pojem-rustove-prilezitosti">
+        <h3 class="definice__pojem">Růstové příležitosti</h3>
+        <div class="definice__telo">
+          <p>
+            Ta část hodnoty podniku, která nepramení ze současné výkonnosti, ale
+            z <strong>očekávaného budoucího růstu</strong>. U růstových podniků může
+            představovat převažující díl tržní hodnoty (až 90 %), a je proto významnějším
+            faktorem tržní ceny než dosahované výsledky za minulé období.
+          </p>
+        </div>
+      </section>
+
+      <h2>Finanční a nefinanční generátory hodnoty</h2>
+      <p>
+        Finanční poměrové ukazatele, jako je <strong><a class="pojem" href="t7-l2-pyramidovy-rozklad-eva.html?zvyraznit=pojem-ziskova-marze" target="_blank" rel="noopener">zisková marže</a></strong> nebo
+        <strong><a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-obrat-aktiv" target="_blank" rel="noopener">obrat aktiv</a></strong>, pomáhají porozumět tomu, co je EVA a jak ji zvýšit;
+        generátory hodnoty tak lze vyjádřit pomocí finančních ukazatelů. EVA, <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-rona" target="_blank" rel="noopener">RONA</a> a další
+        finanční ukazatele jsou však <strong>krátkodobé a historické</strong>. Manažer
+        proto může podniknout kroky, které EVA v krátkém období vylepší, ale v dlouhém
+        horizontu hodnotu ničí.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Krátkodobé zlepšení, dlouhodobé ničení hodnoty</p>
+        <div class="callout__telo">
+          <p>Manažer může zkrátit dobu splatnosti pohledávek, čímž zvýší současnou
+          hodnotu EVA. Zároveň tím ale sníží spokojenost zákazníků, což se může projevit
+          poklesem tržeb, a tedy <strong>snížením EVA v dalších obdobích</strong>.
+          Je-li manažer hodnocen jen podle současné EVA, není jisté, že bude jednat
+          v zájmu jejího dlouhodobého růstu.</p>
+        </div>
+      </aside>
+
+      <!-- DEFINICE: finanční a nefinanční generátory -->
+      <section class="definice" id="pojem-financni-nefinancni-generatory">
+        <h3 class="definice__pojem">Finanční a nefinanční generátory</h3>
+        <div class="definice__telo">
+          <p>
+            <strong>Finanční generátory</strong> jsou vyjádřitelné finančními ukazateli
+            (tržby, zisková marže, obrat aktiv). <strong>Nefinanční generátory</strong>
+            (např. spokojenost zákazníků, inovace, kvalifikace zaměstnanců) se v číslech
+            přímo neprojeví, mohou však být <em>lepší předpovědí budoucí EVA</em> než
+            historické finanční ukazatele. Spokojení zákazníci znamenají vyšší budoucí
+            tržby; inovace a investice do výzkumu a vývoje mohou zvýšit tržby nebo snížit
+            náklady. Proto musí být nefinanční generátory brány v úvahu.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🔗</span>
+        <p class="callout__nadpis">Vazba na Balanced Scorecard</p>
+        <div class="callout__telo">
+          <p>Protože nefinanční faktory mohou být významnějšími hybateli budoucí EVA a
+          růstových příležitostí, lze koncept EVA výhodně spojit s
+          <strong><a class="pojem" href="t10-l1-bsc-perspektivy.html?zvyraznit=pojem-balanced-scorecard" target="_blank" rel="noopener">Balanced Scorecard (BSC)</a></strong>, který finanční měřítka doplňuje
+          o nefinanční a ukazuje jejich provázanost (podrobněji v Tématu 10).</p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Které generátory hodnoty jsou <strong>společné</strong> napříč koncepty
+          CFROI/TBR, Shareholder Value a EVA? Zamyslete se nad tím, co všechny tři
+          koncepty potřebují ke svému výpočtu.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Ačkoli každý koncept měří hodnotu jinak, opírají se o stejné základní páky:
+            <strong>tržby a jejich růst</strong>, <strong>provozní náklady / zisková
+            marže</strong>, <strong>výše a struktura majetku (a jeho obratovost)</strong>
+            a <strong>náklady na kapitál</strong> (WACC, resp. WACC reál). Tyto faktory se
+            objevují ve všech třech schématech (obrázky 4–1 až 4–3), i když pod různými
+            názvy a v jiných kombinacích.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Co jsou generátory hodnoty a proč je nutné je znát na různých úrovních řízení?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, kdo výkonnost fakticky ovlivňuje a jaká měřítka potřebuje nižší management.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Generátory hodnoty (Value Drivers, KPI) jsou faktory významně ovlivňující tvorbu hodnoty. Znát je je nutné proto, že hodnotu fakticky ovlivňují až konkrétní rozhodnutí manažerů na nižších úrovních. Ti potřebují <strong>jednoduchá měřítka</strong>, kterým rozumějí, mohou je průběžně kontrolovat a svým výkonem přímo ovlivnit (např. doba obratu zásob místo samotné EVA).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Vyjmenujte čtyři cesty ke zvýšení EVA.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte z výpočtu EVA = NOPAT − WACC × C: co ovlivňuje zisk, kapitál a náklady na kapitál?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>(1) Zvýšit efektivnost – snížit náklady, a tím zisk; (2) zvýšit tržby (růst), ale investovat jen tehdy, když investice vydělá více než náklady kapitálu; (3) snížit kapitál odprodejem nepotřebného majetku z neefektivních činností; (4) řídit riziko, a tím náklady na kapitál.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Do jakých pěti fází se v obrázku 4–3 rozkládá hodnotový ukazatel EVA/MVA?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Schéma se čte zleva doprava od cíle až ke konkrétní činnosti.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Cíl (hodnotový ukazatel EVA/MVA) → složky hodnotového ukazatele (NOPAT, investovaný kapitál, náklady kapitálu) → generátory hodnoty (výnosy, náklady, daňová sazba, dlouhodobý majetek, ČPK, náklady CK a VK) → kritické faktory úspěchu (růst výnosů, snižování nákladů, redukce majetku, investice jen s kladnou NPV, řízení ČPK, optimalizace zadlužení) → činnost podniku (provoz, investice, financování).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Proč mohou být nefinanční generátory důležitější než současná EVA? Uveďte příklad.</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>EVA a RONA jsou historické a krátkodobé. Co lépe předpovídá budoucí tržby?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Protože EVA a RONA jsou krátkodobé historické ukazatele, nemusí předpovídat budoucí vývoj. Nefinanční generátor, například <strong>spokojenost zákazníků</strong>, může být lepší predikcí budoucí EVA – spokojení zákazníci znamenají vyšší budoucí tržby. Podobně inovace a investice do výzkumu a vývoje mohou v budoucnu zvýšit tržby nebo snížit náklady.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Čím se generátory hodnoty v konceptu CFROI liší od konceptu EVA ve vztahu k investicím?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jak se v CFROI zachází s odpisy a co to znamená pro tlak na snižování investic?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>CFROI pracuje s cash flow (zisk + odpisy), přičemž odpisy se zpět přičítají k zisku – nevytváří se proto <strong>tlak na snižování investic</strong>, na rozdíl od EVA. CFROI navíc zohledňuje inflaci a vylučuje nákladové úroky (uvažuje volné toky pro všechny investory) a je orientován na budoucí potenciál aktiv.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t6-l4-souhrnne-srovnani.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">6.4 Souhrnné srovnání ukazatelů výkonnosti</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t7-l2-pyramidovy-rozklad-eva.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">7.2 Pyramidové soustavy ukazatelů – rozklad EVA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace krokové vizualizace TÉTO lekce ----
+    (function () {
+      // Definice bloků pětisloupcového rozkladu EVA/MVA (obrázek 4-3).
+      // col = číslo sloupce (1..5); cx,cy = střed bloku; w,h = rozměry.
+      var B = {
+        // Sloupec 1 – Cíl: hodnotový ukazatel
+        eva:  { col:1, cx:170, cy:250, w:130, h:46, t:'EVA',              fill:'#4338ca', tc:'#fff', bold:true, fs:16 },
+        mva:  { col:1, cx:170, cy:340, w:130, h:46, t:'MVA',              fill:'#6d28d9', tc:'#fff', bold:true, fs:16 },
+        disk: { col:1, cx:170, cy:470, w:130, h:44, t:'Diskontní faktor', fill:'#ede9fe', tc:'#4338ca', fs:11.5 },
+        // Sloupec 2 – Složky hodnotového ukazatele
+        nopat:{ col:2, cx:360, cy:160, w:130, h:44, t:'NOPAT',              fill:'#6366f1', tc:'#fff', fs:12.5 },
+        invk: { col:2, cx:360, cy:347, w:130, h:44, t:'Investovaný kapitál',fill:'#6366f1', tc:'#fff', fs:11 },
+        nkap: { col:2, cx:360, cy:497, w:130, h:44, t:'Náklady kapitálu',   fill:'#6366f1', tc:'#fff', fs:11.5 },
+        // Sloupec 3 – Generátory hodnoty
+        vyn:  { col:3, cx:545, cy:85,  w:140, h:40, t:'Výnosy',              fill:'#eef2ff', tc:'#1e293b', fs:11.5 },
+        nakl: { col:3, cx:545, cy:160, w:140, h:40, t:'Náklady',             fill:'#eef2ff', tc:'#1e293b', fs:11.5 },
+        dan:  { col:3, cx:545, cy:235, w:140, h:40, t:'Daňová sazba',        fill:'#eef2ff', tc:'#1e293b', fs:11.5 },
+        dm:   { col:3, cx:545, cy:310, w:140, h:40, t:'Dlouhodobý majetek',  fill:'#eef2ff', tc:'#1e293b', fs:11 },
+        cpk:  { col:3, cx:545, cy:385, w:140, h:40, t:'Čistý prac. kapitál', fill:'#eef2ff', tc:'#1e293b', fs:11 },
+        nck:  { col:3, cx:545, cy:460, w:140, h:40, t:'Náklady cizího kap.', fill:'#eef2ff', tc:'#1e293b', fs:11 },
+        nvk:  { col:3, cx:545, cy:535, w:140, h:40, t:'Náklady vlast. kap.', fill:'#eef2ff', tc:'#1e293b', fs:11 },
+        // Sloupec 4 – Kritické faktory úspěchu
+        rvyn: { col:4, cx:735, cy:85,  w:152, h:42, t:'Růst výnosů',       fill:'#e0e7ff', tc:'#312e81', fs:11.5 },
+        snakl:{ col:4, cx:735, cy:160, w:152, h:42, t:'Snižování nákladů', fill:'#e0e7ff', tc:'#312e81', fs:11.5 },
+        redm: { col:4, cx:735, cy:290, w:152, h:42, t:'Redukce majetku',   fill:'#e0e7ff', tc:'#312e81', fs:11.5 },
+        npv:  { col:4, cx:735, cy:360, w:152, h:42, t:'Investice s NPV > 0',fill:'#e0e7ff', tc:'#312e81', fs:11 },
+        rcpk: { col:4, cx:735, cy:435, w:152, h:42, t:'Řízení ČPK',        fill:'#e0e7ff', tc:'#312e81', fs:11.5 },
+        optz: { col:4, cx:735, cy:500, w:152, h:42, t:'Optim. zadlužení',  fill:'#e0e7ff', tc:'#312e81', fs:11.5 },
+        // Sloupec 5 – Činnost podniku
+        prov: { col:5, cx:895, cy:120, w:120, h:48, t:'PROVOZ',      fill:'#334155', tc:'#fff', bold:true, fs:12.5 },
+        inv:  { col:5, cx:895, cy:325, w:120, h:48, t:'INVESTICE',   fill:'#334155', tc:'#fff', bold:true, fs:12.5 },
+        fin:  { col:5, cx:895, cy:500, w:120, h:48, t:'FINANCOVÁNÍ', fill:'#334155', tc:'#fff', bold:true, fs:11.5 }
+      };
+
+      // Spojnice [rodič, dítě, (typ)]. 'dash' = přerušovaná vazba.
+      var C = [
+        ['eva','nopat'], ['eva','invk'], ['eva','nkap'],
+        ['eva','mva'],   ['disk','mva'], ['disk','nkap','dash'],
+        ['nopat','vyn'], ['nopat','nakl'], ['nopat','dan'],
+        ['invk','dm'],   ['invk','cpk'],
+        ['nkap','nck'],  ['nkap','nvk'],
+        ['vyn','rvyn'],  ['nakl','snakl'], ['dm','redm'], ['dm','npv'], ['cpk','rcpk'], ['nck','optz'], ['nvk','optz'],
+        ['rvyn','prov'], ['snakl','prov'], ['redm','inv'], ['npv','inv'], ['optz','fin']
+      ];
+
+      var HDX = [170, 360, 545, 735, 895];
+      var HDT = ['Cíl', 'Složky', 'Generátory', 'Kritické faktory', 'Činnost'];
+
+      Skripta.stepper('viz-eva-rozklad', {
+        sirka: 960, vyska: 590,
+        stavy: [ {col:1}, {col:2}, {col:3}, {col:4}, {col:5} ],
+        popisky: [
+          'Cíl řízení: vrcholové hodnotové ukazatele EVA a MVA. MVA je současná hodnota budoucích EVA (přes diskontní faktor).',
+          'Složky EVA: provozní zisk po zdanění (NOPAT), investovaný kapitál a náklady kapitálu.',
+          'Generátory hodnoty: měřitelné faktory, jimiž lze složky ovlivnit – výnosy, náklady, daň, dlouhodobý majetek, ČPK a náklady cizího i vlastního kapitálu.',
+          'Kritické faktory úspěchu: na co se v řízení zaměřit – růst výnosů, snižování nákladů, redukce majetku, investice jen s kladnou NPV, řízení ČPK a optimalizace zadlužení.',
+          'Činnost podniku: konkrétní oblasti – PROVOZ, INVESTICE a FINANCOVÁNÍ, jejichž řízením se generátory promítnou do EVA a MVA.'
+        ],
+        render: function (svg, stav, i, u) {
+          var n = stav.col;
+
+          // --- Záhlaví sloupců (objeví se s daným sloupcem) ---
+          HDT.forEach(function (t, k) {
+            u.dej(svg, 'h-' + k, 'text', {
+              x: HDX[k], y: 24, 'text-anchor': 'middle',
+              fill: '#4338ca', 'font-size': 13, 'font-weight': 700,
+              opacity: (k + 1) <= n ? 1 : 0
+            }, t);
+          });
+
+          // --- Spojnice (kreslíme první, aby je bloky překryly) ---
+          C.forEach(function (c, idx) {
+            var a = B[c[0]], b = B[c[1]];
+            var vis = b.col <= n;
+            var x1, y1, x2, y2;
+            if (a.col === b.col) { // svislé propojení uvnitř sloupce
+              if (a.cy < b.cy) { x1 = a.cx; y1 = a.cy + a.h / 2; x2 = b.cx; y2 = b.cy - b.h / 2; }
+              else { x1 = a.cx; y1 = a.cy - a.h / 2; x2 = b.cx; y2 = b.cy + b.h / 2; }
+            } else { // vodorovné propojení mezi sloupci
+              x1 = a.cx + a.w / 2; y1 = a.cy; x2 = b.cx - b.w / 2; y2 = b.cy;
+            }
+            u.dej(svg, 'c-' + idx, 'line', {
+              x1: x1, y1: y1, x2: x2, y2: y2,
+              stroke: '#94a3b8', 'stroke-width': 1.4,
+              'stroke-dasharray': c[2] === 'dash' ? '5 4' : '0',
+              opacity: vis ? 1 : 0
+            });
+          });
+
+          // --- Zvláštní vazba: Řízení ČPK vedené přes horní okraj do PROVOZ ---
+          u.dej(svg, 'arc', 'polyline', {
+            points: '811,435 811,72 836,110',
+            fill: 'none', stroke: '#94a3b8', 'stroke-width': 1.4,
+            'stroke-dasharray': '5 4', opacity: 5 <= n ? 1 : 0
+          });
+
+          // --- Bloky ---
+          Object.keys(B).forEach(function (key) {
+            var b = B[key];
+            var vis = b.col <= n;
+            u.dej(svg, 'r-' + key, 'rect', {
+              x: b.cx - b.w / 2, y: b.cy - b.h / 2, width: b.w, height: b.h,
+              rx: 8, fill: b.fill, opacity: vis ? 1 : 0
+            });
+            u.dej(svg, 't-' + key, 'text', {
+              x: b.cx, y: b.cy + 4, 'text-anchor': 'middle',
+              fill: b.tc, 'font-size': b.fs || 12, 'font-weight': b.bold ? 700 : 600,
+              opacity: vis ? 1 : 0
+            }, b.t);
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

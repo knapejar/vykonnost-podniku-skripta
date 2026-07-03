@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3.6 Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy – Výkonnost podniku</title>
+  <meta name="description" content="Soustavy poměrových ukazatelů, pyramidový DuPontův rozklad ROE a ROA, benchmarking a slabé stránky finanční analýzy.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 3, aktivní 3.6 -->
+    <nav class="panel" data-panel data-aktivni-lekce="3.6" aria-label="Lekce tématu 3">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 3</div>
+      <div class="panel__nazev-tema">Finanční analýza v řízení výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="3.1" href="t3-l1-uvod-financni-analyza.html"><span class="panel__odkaz-cislo">3.1</span><span>Úvod do finanční analýzy, absolutní a rozdílové ukazatele, ČPK</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.2" href="t3-l2-rentabilita-zadluzenost.html"><span class="panel__odkaz-cislo">3.2</span><span>Analýza rentability a zadluženosti</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.3" href="t3-l3-likvidita-aktivita.html"><span class="panel__odkaz-cislo">3.3</span><span>Analýza likvidity a aktivity</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.4" href="t3-l4-kapitalovy-trh.html"><span class="panel__odkaz-cislo">3.4</span><span>Ukazatele kapitálového trhu, cash flow a přidaná hodnota</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.5" href="t3-l5-souhrnne-ukazatele.html"><span class="panel__odkaz-cislo">3.5</span><span>Souhrnné ukazatele – bankrotní a bonitní modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="3.6" href="t3-l6-dupont-soustavy.html"><span class="panel__odkaz-cislo">3.6</span><span>Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-3">Téma 3 · Finanční analýza</a></li>
+          <li><span aria-current="page">Lekce 3.6</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 3.6</span>
+        <h1>Soustavy ukazatelů, DuPontův rozklad a slabé stránky finanční analýzy</h1>
+        <p class="lekce-hlavicka__strany">Strany 40–42</p>
+      </header>
+
+      <p>
+        V předchozích lekcích jsme poznali desítky jednotlivých <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-pomerove-ukazatele" target="_blank" rel="noopener">poměrových ukazatelů</a> –
+        <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-rentabilita" target="_blank" rel="noopener">rentability</a>, zadluženosti, <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-likvidita" target="_blank" rel="noopener">likvidity</a>, <a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-ukazatele-aktivity" target="_blank" rel="noopener">aktivity</a> i <a class="pojem" href="t3-l4-kapitalovy-trh.html?zvyraznit=pojem-ukazatele-kapitaloveho-trhu" target="_blank" rel="noopener">kapitálového trhu</a>. Každý z nich
+        hodnotí podnik jedním číslem. Ekonomický proces je ale složitý a ukazatelů je
+        mnoho. Aby se v nich analytik neztratil, sdružují se do <strong>soustav</strong>,
+        v nichž jsou ukazatele vzájemně provázané. V této lekci si ukážeme
+        nejznámější takovou soustavu – <a class="pojem" href="#pojem-dupontuv-rozklad">DuPontův rozklad</a>
+        <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">rentability vlastního kapitálu</a> – a uzavřeme celé téma <a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-financni-analyza" target="_blank" rel="noopener">finanční analýzy</a> střízlivým
+        pohledem na její slabé stránky.
+      </p>
+
+      <!-- ================= 1. SOUSTAVY UKAZATELŮ ================= -->
+      <h2>Kdy se ze souboru ukazatelů stává soustava</h2>
+
+      <p>
+        Ne každý soubor ukazatelů lze označit za soustavu. Prostý seznam čísel vedle
+        sebe zůstává jen seznamem. Soustavou se ukazatele stávají teprve tehdy, když mezi
+        nimi existují <strong>vzájemné souvislosti a závislosti</strong>. Právě tyto vazby
+        dovolují vysvětlit, proč se vrcholový ukazatel změnil a který dílčí faktor za tím stojí.
+      </p>
+
+      <section class="definice" id="pojem-soustavy-pomerovych-ukazatelu">
+        <h3 class="definice__pojem">Soustavy poměrových ukazatelů</h3>
+        <div class="definice__telo">
+          <p>
+            Uspořádaný soubor poměrových ukazatelů, mezi nimiž existují vzájemné
+            souvislosti a závislosti. Slouží k usnadnění analýzy tím, že zpřehledňuje
+            vztahy mezi jednotlivými ukazateli a umožňuje dohledat příčiny změn.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        V podnikové praxi jsou oblíbené <strong>pyramidové soustavy</strong>. U nich se
+        postupně rozkládá jeden vrcholový (syntetický) ukazatel na dílčí analytické
+        ukazatele a mezi členy pyramidy platí <em>pevné, matematicky definované vztahy</em>.
+        Díky tomu lze změnu na vrcholu jednoznačně přiřadit změnám v jednotlivých patrech.
+      </p>
+
+      <section class="definice" id="pojem-pyramidova-soustava">
+        <h3 class="definice__pojem">Pyramidová soustava ukazatelů</h3>
+        <div class="definice__telo">
+          <p>
+            Soustava, v níž se vrcholový syntetický ukazatel postupně rozkládá na dílčí
+            analytické ukazatele. Mezi ukazateli tvořícími pyramidu existují pevné
+            matematicky definované vztahy, takže rozklad ukazuje, jak dílčí faktory
+            ovlivňují vrchol.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Při rozkládání ukazatelů se používají dva základní postupy:
+      </p>
+
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Aditivní a multiplikativní rozklad</p>
+        <div class="callout__telo">
+          <ul>
+            <li><strong>Aditivní</strong> rozklad – vrcholový ukazatel je <em>součtem</em>
+              nebo <em>rozdílem</em> dvou (či více) ukazatelů.</li>
+            <li><strong>Multiplikativní</strong> rozklad – vrcholový ukazatel je
+              <em>součinem</em> nebo <em>podílem</em> dvou (či více) ukazatelů.</li>
+          </ul>
+          <p>DuPontův rozklad je klasickou ukázkou rozkladu multiplikativního.</p>
+        </div>
+      </aside>
+
+      <!-- ================= 2. DUPONTŮV ROZKLAD ================= -->
+      <h2>DuPontův rozklad rentability vlastního kapitálu</h2>
+
+      <p>
+        Klíčovým vrcholovým ukazatelem finanční analýzy z pohledu vlastníka je
+        rentabilita vlastního kapitálu <span class="math">ROE</span>. Právě ji je vhodné
+        rozložit, abychom viděli, z čeho se skládá. DuPontův rozklad ji vyjádří jako
+        <strong>součin tří činitelů</strong>:
+      </p>
+
+      <section class="definice" id="pojem-dupontuv-rozklad">
+        <h3 class="definice__pojem">DuPontův rozklad</h3>
+        <div class="definice__telo">
+          <p>
+            Multiplikativní pyramidový rozklad rentability vlastního kapitálu
+            (<span class="math">ROE</span>) na součin ziskové marže, obratu aktiv a
+            finanční páky. Ukazuje, kterými dílčími cestami lze rentabilitu vlastního
+            kapitálu ovlivnit.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-2-35">
+        <div class="vzorec__telo">
+          <span class="math">
+            ROE<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Zisk</span>
+              <span class="frac__jmen">Vlastní kapitál</span>
+            </span>
+            <span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Zisk</span>
+              <span class="frac__jmen">Tržby</span>
+            </span>
+            <span class="op">×</span>
+            <span class="frac">
+              <span class="frac__cit">Tržby</span>
+              <span class="frac__jmen">Aktiva</span>
+            </span>
+            <span class="op">×</span>
+            <span class="frac">
+              <span class="frac__cit">Aktiva</span>
+              <span class="frac__jmen">Vlastní kapitál</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.35)</div>
+      </div>
+
+      <p>
+        Jednotlivé činitele mají srozumitelný ekonomický obsah: první je
+        <strong><a class="pojem" href="t7-l2-pyramidovy-rozklad-eva.html?zvyraznit=pojem-ziskova-marze" target="_blank" rel="noopener">zisková marže</a></strong> (Zisk / Tržby), druhý <strong><a class="pojem" href="t3-l3-likvidita-aktivita.html?zvyraznit=pojem-obrat-aktiv" target="_blank" rel="noopener">obrat aktiv</a></strong>
+        (Tržby / Aktiva) a třetí <strong><a class="pojem" href="t9-l4-kapitalova-struktura.html?zvyraznit=pojem-financni-paka" target="_blank" rel="noopener">finanční páka</a></strong> (Aktiva / Vlastní kapitál).
+        První dva činitelé přitom současně tvoří rozklad rentability celkového vloženého
+        kapitálu <span class="math">ROA</span>:
+      </p>
+
+      <div class="vzorec" id="vzorec-2-36">
+        <div class="vzorec__telo">
+          <span class="math">
+            ROA<span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Zisk</span>
+              <span class="frac__jmen">Aktiva</span>
+            </span>
+            <span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">Zisk</span>
+              <span class="frac__jmen">Tržby</span>
+            </span>
+            <span class="op">×</span>
+            <span class="frac">
+              <span class="frac__cit">Tržby</span>
+              <span class="frac__jmen">Aktiva</span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(2.36)</div>
+      </div>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: DUPONT PYRAMIDA ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">DuPontova pyramida: rozklad ROE krok za krokem</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se vrcholový ukazatel ROE rozpadá na tři činitele a jak z prvních dvou vzniká ROA.</p>
+        </figcaption>
+        <div id="viz-dupont"></div>
+      </figure>
+
+      <!-- ================= 3. FINANČNÍ PÁKA A KAM ZAMĚŘIT ÚSILÍ ================= -->
+      <h2>Role finanční páky – dvojí působení zadluženosti</h2>
+
+      <p>
+        Třetí činitel ve vztahu (2.35), tedy Aktiva / Vlastní kapitál, představuje
+        <strong>finanční páku</strong>. Na první pohled se zdá, že stačí zvýšit podíl
+        cizího kapitálu a ROE poroste, protože se zvětší tento třetí zlomek. Skutečnost
+        je ale složitější: zadluženost se promítá i do prvních dvou činitelů na pravé straně.
+      </p>
+
+      <ul>
+        <li>Vyšší dluh znamená vyšší nákladové úroky, takže <strong>zisk klesne</strong> –
+          a s ním i první činitel (zisková marže).</li>
+        <li>Vyšší objem cizího kapitálu zvětšuje jmenovatele druhého činitele, takže
+          i <strong>obrat aktiv</strong> se sníží.</li>
+      </ul>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Kdy zadluženost pomáhá a kdy škodí</p>
+        <div class="callout__telo">
+          <p>
+            Zvýšení zadluženosti působí na ROE pozitivně jen tehdy, když jím podnik
+            vyprodukuje natolik více zisku, aby vykompenzoval pokles prvních dvou činitelů.
+            Jinak řečeno: zadlužení pomáhá pouze tehdy, dokáže-li podnik každou korunu
+            zhodnotit více, než činí úroková sazba dluhu.
+          </p>
+        </div>
+      </aside>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Kam zaměřit úsilí o vyšší rentabilitu</p>
+        <div class="callout__telo">
+          <p>
+            Z DuPontova rozkladu je zřejmé, kudy lze ROE systematicky zvyšovat:
+            zvýšením <strong>míry zisku</strong> (ziskové marže), urychlením
+            <strong>obratu kapitálu</strong>, případně změnou <strong>struktury zdrojů</strong>
+            ve prospěch vyššího (avšak návratného) zadlužení. Vždy je ovšem nutné zvážit
+            i další vlivy – likviditu, strukturu aktiv ve vztahu k likviditě a podmínky úvěru.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Chcete zvýšit ROE svého podniku. Které tři „páky" vám DuPontův rozklad
+          nabízí a na kterou z nich byste sáhli jako první, kdyby marže i obrat byly
+          už na maximu odvětví?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Rozklad (2.35) nabízí tři cesty: (1) vyšší <strong>zisková marže</strong>
+            (Zisk / Tržby), (2) rychlejší <strong>obrat aktiv</strong> (Tržby / Aktiva)
+            a (3) vyšší <strong>finanční páka</strong> (Aktiva / Vlastní kapitál).
+            Jsou-li marže i obrat vyčerpány, zbývá zvýšit zadlužení. To ale ROE zvedne
+            jen tehdy, když podnik zhodnotí každou dodatečnou korunu cizího kapitálu nad
+            úrokovou sazbu dluhu – jinak vyšší úroky srazí zisk i obrat a efekt se otočí.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= 4. ZPŮSOBY VYHODNOCENÍ + BENCHMARKING ================= -->
+      <h2>Jak ukazatele vyhodnocovat</h2>
+
+      <p>
+        Samotné číslo ukazatele nemá velkou vypovídací hodnotu, dokud jej s něčím
+        neporovnáme. Pro hodnocení hospodaření a výkonnosti podniku je nezbytné výsledky:
+      </p>
+
+      <ul>
+        <li>srovnávat s <strong>plánovanými veličinami</strong>,</li>
+        <li>porovnávat s <strong>jinými podniky v odvětví</strong>,</li>
+        <li>sledovat jejich <strong>vývoj v čase</strong>.</li>
+      </ul>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Benchmarking – „učte se od ostatních"</p>
+        <div class="callout__telo">
+          <p>
+            Se srovnáváním s ostatními úzce souvisí ve světě stále populárnější metoda
+            <strong><a class="pojem" href="t11-l1-benchmarking.html?zvyraznit=pojem-benchmarking" target="_blank" rel="noopener">benchmarkingu</a></strong>. Jejím cílem je poznat vlastní pozici na základě
+            srovnání a následně ji posílit. Jejím heslem je „<em>učte se od ostatních</em>".
+            Podrobněji se benchmarkingu věnuje kapitola 6.1.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= 5. SLABÉ STRÁNKY FINANČNÍ ANALÝZY ================= -->
+      <h2>Slabé stránky finanční analýzy</h2>
+
+      <p>
+        Finanční analýza poskytuje důležitou a užitečnou informaci o hospodaření podniku.
+        Jako každá analytická metoda má ovšem svá omezení, která vyžadují zvýšenou
+        pozornost a zdravý úsudek toho, kdo s ní pracuje. Jádrem problému je
+        <strong>vypovídací schopnost účetních výkazů</strong>. Celosvětově uznávanou
+        zásadou je sice <em>věrné zobrazení skutečnosti</em>, jíž jsou podřízeny všechny
+        ostatní účetní principy, přesto existují okolnosti, které získání věrného obrazu
+        znesnadňují.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Kontrolní seznam hlavních omezení</p>
+        <div class="callout__telo">
+          <ul>
+            <li><strong>Historické účetnictví</strong> – nebere v úvahu změny tržních cen
+              majetku, a proto zkresluje skutečnou hodnotu aktiv i výsledek hospodaření.</li>
+            <li><strong>Vliv inflace</strong> – ignoruje změny kupní síly peněžní jednotky;
+              inflace se v různé míře dotýká všech aktiv i pasiv a ovlivňuje i výsledek
+              hospodaření běžného roku.</li>
+            <li><strong>Rozdílné účetní praktiky</strong> – různé metody účtování ztěžují
+              porovnatelnost mezi podniky.</li>
+            <li><strong>Problémy se získáváním dat</strong> podobných a srovnatelných
+              podniků pro benchmarking – další významná překážka objektivních výsledků analýzy.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <p>
+        Tato omezení nesnižují užitečnost finanční analýzy, ale připomínají, že její
+        závěry je vždy třeba interpretovat obezřetně a v souvislostech. Praktické
+        uplatnění celého aparátu finanční analýzy je předvedeno v komplexní případové
+        studii (kapitola 8).
+      </p>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik vykázal za poslední tři roky rostoucí zisk a analytik z toho usuzuje
+          na zlepšení výkonnosti. Jmenujte alespoň dvě okolnosti, kvůli kterým by tento
+          závěr mohl být zkreslený.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Nabízí se hned několik: <strong>vliv inflace</strong> (nominální růst zisku
+            může být jen důsledkem znehodnocení peněžní jednotky), <strong>historické
+            účetnictví</strong> (majetek je oceněn v pořizovacích, nikoli tržních cenách),
+            <strong>rozdílné účetní praktiky</strong> (změna metody odpisování, tvorby
+            rezerv či časového rozlišení) a obecně omezená <strong>vypovídací schopnost
+            účetních výkazů</strong>. Bez srovnání s plánem, odvětvím a delší časovou řadou
+            proto samotný růst zisku nestačí.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Za jakých podmínek lze soubor ukazatelů označit za soustavu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Nejde o počet ukazatelů, ale o vztahy mezi nimi.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Soustavou se ukazatele stávají teprve tehdy, existují-li mezi nimi <strong>vzájemné souvislosti a závislosti</strong>. Prostý seznam ukazatelů bez vazeb soustavu netvoří. U pyramidových soustav jsou navíc vztahy pevně matematicky definované.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Na které tři činitele rozkládá DuPontův rozklad ukazatel ROE a co který znamená?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte ze vztahu (2.35): Zisk / Tržby × Tržby / Aktiva × Aktiva / Vlastní kapitál.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Na <strong>ziskovou marži</strong> (Zisk / Tržby), <strong>obrat aktiv</strong> (Tržby / Aktiva) a <strong>finanční páku</strong> (Aktiva / Vlastní kapitál). První dva činitelé zároveň tvoří rozklad ROA.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč zvýšení zadluženosti nemusí vždy vést k růstu ROE, přestože se zvětší třetí činitel rozkladu?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Sledujte, co se současně stane s prvními dvěma činiteli na pravé straně rovnice.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Vyšší dluh znamená vyšší úroky, které <strong>snižují zisk</strong> (a tím ziskovou marži), a zároveň zvětšuje jmenovatele u <strong>obratu aktiv</strong>. Zadluženost proto pomůže jen tehdy, dokáže-li podnik každou korunu cizího kapitálu zhodnotit více, než činí úroková sazba dluhu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Se kterými třemi typy srovnání by měl analytik ukazatele vyhodnocovat?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Plán, odvětví, čas.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>S <strong>plánovanými veličinami</strong>, s <strong>jinými podniky v odvětví</strong> (k tomu slouží benchmarking) a sledováním <strong>vývoje v čase</strong>. Samotné izolované číslo má malou vypovídací hodnotu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Které dvě okolnosti patří mezi nejzávažnější příčiny zkreslení věrného obrazu účetních výkazů?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Souvisí s cenami majetku a s kupní silou peněz.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Orientace na historické účetnictví</strong> (majetek oceněný v pořizovacích cenách, bez ohledu na změny tržních cen) a <strong>vliv inflace</strong> (změny kupní síly peněžní jednotky). K nim se přidávají rozdílné účetní praktiky a obtížné získávání srovnatelných dat.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t3-l5-souhrnne-ukazatele.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">3.5 Souhrnné ukazatele – bankrotní a bonitní modely</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t4-l1-dcf-npv-irr.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">4.1 Proč moderní ukazatele; DCF, NPV a IRR</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: DuPontova pyramida rozkladu ROE
+      // Symbolický rozklad (bez konkrétních čísel – zdroj žádná nemá).
+      var INDIGO = '#4338ca';
+
+      Skripta.stepper('viz-dupont', {
+        sirka: 760, vyska: 430,
+        stavy: [
+          { deti: false, roa: false, paka: false },
+          { deti: true,  roa: false, paka: false },
+          { deti: true,  roa: true,  paka: false },
+          { deti: true,  roa: true,  paka: true  }
+        ],
+        popisky: [
+          'Začínáme vrcholovým ukazatelem: ROE = Zisk ÷ Vlastní kapitál.',
+          'Multiplikativní rozklad ROE na tři činitele: zisková marže × obrat aktiv × finanční páka.',
+          'První dva činitelé zároveň tvoří rozklad ROA (rentabilita aktiv) = zisková marže × obrat aktiv.',
+          'Třetí činitel je finanční páka: vyšší zadlužení může ROE zvýšit, ale jen když podnik zhodnotí kapitál nad úrokovou sazbu dluhu.'
+        ],
+        render: function (svg, stav, i, u) {
+          var boxW = 200, boxTop = 250, boxH = 64;
+          var deti = [
+            { x: 15,  name: 'Zisková marže',  vzorec: 'Zisk ÷ Tržby' },
+            { x: 280, name: 'Obrat aktiv',    vzorec: 'Tržby ÷ Aktiva' },
+            { x: 545, name: 'Finanční páka',  vzorec: 'Aktiva ÷ Vlastní kapitál' }
+          ];
+          var opDeti = stav.deti ? 1 : 0;
+
+          // --- Vrcholový box ROE (indigo) – vždy viditelný ---
+          u.dej(svg, 'roe-box', 'rect', { x: 280, y: 30, width: 200, height: 58, rx: 8, fill: INDIGO });
+          u.dej(svg, 'roe-name', 'text', { x: 380, y: 56, 'text-anchor': 'middle', fill: '#fff', 'font-size': 17, 'font-weight': 700 }, 'ROE');
+          u.dej(svg, 'roe-vzorec', 'text', { x: 380, y: 77, 'text-anchor': 'middle', fill: '#e0e7ff', 'font-size': 13 }, 'Zisk ÷ Vlastní kapitál');
+
+          // --- Spojnice: vrchol → sběrnice → tři děti ---
+          u.dej(svg, 'con-v', 'line', { x1: 380, y1: 88, x2: 380, y2: 140, stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: opDeti });
+          u.dej(svg, 'con-bus', 'line', { x1: 115, y1: 140, x2: 645, y2: 140, stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: opDeti });
+          u.dej(svg, 'con-a', 'line', { x1: 115, y1: 140, x2: 115, y2: boxTop, stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: opDeti });
+          u.dej(svg, 'con-b', 'line', { x1: 380, y1: 140, x2: 380, y2: boxTop, stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: opDeti });
+          u.dej(svg, 'con-c', 'line', { x1: 645, y1: 140, x2: 645, y2: boxTop, stroke: u.barvaOsa, 'stroke-width': 1.5, opacity: opDeti });
+
+          // --- Znaménka × mezi dětmi ---
+          u.dej(svg, 'krat-1', 'text', { x: 247, y: boxTop + 40, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 22, 'font-weight': 700, opacity: opDeti }, '×');
+          u.dej(svg, 'krat-2', 'text', { x: 512, y: boxTop + 40, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 22, 'font-weight': 700, opacity: opDeti }, '×');
+
+          // --- Tři dětské boxy (činitelé) ---
+          deti.forEach(function (d, k) {
+            var cx = d.x + boxW / 2;
+            u.dej(svg, 'box-' + k, 'rect', {
+              x: d.x, y: boxTop, width: boxW, height: boxH, rx: 8,
+              fill: '#eef2ff', stroke: '#c7d2fe', 'stroke-width': 1.5, opacity: opDeti
+            });
+            u.dej(svg, 'name-' + k, 'text', {
+              x: cx, y: boxTop + 27, 'text-anchor': 'middle', fill: INDIGO,
+              'font-size': 15, 'font-weight': 700, opacity: opDeti
+            }, d.name);
+            u.dej(svg, 'vz-' + k, 'text', {
+              x: cx, y: boxTop + 48, 'text-anchor': 'middle', fill: u.barvaText,
+              'font-size': 12.5, opacity: opDeti
+            }, d.vzorec);
+          });
+
+          // --- Zvýraznění ROA (obklopuje první dva boxy) ---
+          var opRoa = stav.roa ? 1 : 0;
+          u.dej(svg, 'roa-ramec', 'rect', {
+            x: 6, y: 240, width: 480, height: 84, rx: 12,
+            fill: 'none', stroke: u.barvaTvorba, 'stroke-width': 2.5,
+            'stroke-dasharray': '7 5', opacity: opRoa
+          });
+          u.dej(svg, 'roa-label', 'text', {
+            x: 247, y: 232, 'text-anchor': 'middle', fill: u.barvaTvorba,
+            'font-size': 14, 'font-weight': 700, opacity: opRoa
+          }, 'ROA = Zisk ÷ Aktiva');
+
+          // --- Zvýraznění finanční páky (třetí box) ---
+          var opPaka = stav.paka ? 1 : 0;
+          u.dej(svg, 'paka-ramec', 'rect', {
+            x: 539, y: 244, width: 212, height: 76, rx: 10,
+            fill: 'none', stroke: '#b45309', 'stroke-width': 2.5,
+            'stroke-dasharray': '7 5', opacity: opPaka
+          });
+          u.dej(svg, 'paka-label', 'text', {
+            x: 645, y: 232, 'text-anchor': 'middle', fill: '#b45309',
+            'font-size': 14, 'font-weight': 700, opacity: opPaka
+          }, 'Finanční páka');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

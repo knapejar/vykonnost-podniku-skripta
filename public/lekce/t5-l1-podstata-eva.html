@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5.1 Podstata a výpočet EVA – Výkonnost podniku</title>
+  <meta name="description" content="Podstata ekonomické přidané hodnoty (EVA), její základní výpočet přes NOPAT a WACC, pojem spreadu a role EVA jako systému řízení podniku.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 5 (aktuální 5.1 zvýrazní JS) -->
+    <nav class="panel" data-panel data-aktivni-lekce="5.1" aria-label="Lekce tématu 5">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 5</div>
+      <div class="panel__nazev-tema">Ekonomická přidaná hodnota (EVA)</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="5.1" href="t5-l1-podstata-eva.html"><span class="panel__odkaz-cislo">5.1</span><span>Podstata a výpočet EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.2" href="t5-l2-noa.html"><span class="panel__odkaz-cislo">5.2</span><span>Účetní úpravy rozvahy – vymezení NOA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.3" href="t5-l3-nopat-naklady-kapital.html"><span class="panel__odkaz-cislo">5.3</span><span>NOPAT, náklady na kapitál a zjednodušené verze EVA</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.4" href="t5-l4-eva-v-praxi.html"><span class="panel__odkaz-cislo">5.4</span><span>EVA v praxi – případové studie a srovnání s tržními měřítky</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.5" href="t5-l5-eva-investice-oceneni.html"><span class="panel__odkaz-cislo">5.5</span><span>EVA pro investiční rozhodování a ocenění podniku</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.6" href="t5-l6-eva-odmenovani.html"><span class="panel__odkaz-cislo">5.6</span><span>EVA a odměňování – bonusové systémy</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="5.7" href="t5-l7-zhodnoceni-eva.html"><span class="panel__odkaz-cislo">5.7</span><span>Zhodnocení EVA, empirické studie a zavedení do praxe</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-5">Téma 5 · EVA</a></li>
+          <li><span aria-current="page">Lekce 5.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 5.1</span>
+        <h1>Podstata a výpočet EVA</h1>
+        <p class="lekce-hlavicka__strany">Strany 52–56</p>
+      </header>
+
+      <p>
+        Tržní měřítka z předchozí lekce (<a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-mva" target="_blank" rel="noopener">MVA</a>, <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-excess-return" target="_blank" rel="noopener">Excess Return</a>, <a class="pojem" href="t4-l2-trzni-meritka.html?zvyraznit=pojem-tsr" target="_blank" rel="noopener">TSR</a>) mají jedno společné
+        omezení – dají se spočítat jen pro veřejně obchodované podniky. Nyní přichází
+        na řadu vlajkový moderní ukazatel, který tímto omezením netrpí a stal se
+        symbolem hodnotového řízení: <a class="pojem" href="#pojem-eva">ekonomická
+        přidaná hodnota</a>, zkráceně <strong>EVA</strong> (Economic Value Added).
+      </p>
+      <p>
+        EVA odstraňuje hlavní slabinu klasického účetního zisku: účetnictví sice
+        odečte úroky z cizího kapitálu, ale <em>mlčky předpokládá, že vlastní kapitál
+        je zadarmo</em>. EVA to napravuje – měří ekonomický zisk až po úhradě
+        <strong>všech</strong> <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">nákladů na kapitál</a>, tedy včetně nákladu obětované
+        příležitosti vlastníků.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Odkud pojem pochází</p>
+        <div class="callout__telo">
+          <p>V inzerátu společnosti Stern Stewart &amp; Co. v <em>Harvard Business
+          Review</em> (1995) stálo provokativní heslo: <em>„Forget EPS, ROE and ROI.
+          EVA is what drives stock prices."</em> – tedy <em>„Zapomeňte na EPS, ROE
+          a ROI. EVA je tím, co pohání ceny akcií."</em> Firma Stern Stewart &amp; Co.
+          uvedla EVA v roce 1989 a zaregistrovala ji jako ochrannou známku.</p>
+        </div>
+      </aside>
+
+      <!-- ================= DEFINICE ZÁKLADNÍCH POJMŮ ================= -->
+      <section class="definice" id="pojem-eva">
+        <h3 class="definice__pojem">Ekonomická přidaná hodnota (EVA)</h3>
+        <div class="definice__telo">
+          <p>
+            Ekonomický (mimořádný) zisk, který podnik vytvoří po úhradě
+            <strong>všech</strong> nákladů včetně nákladů na kapitál – jak cizího,
+            tak vlastního (v podobě <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-naklad-obetovane-prilezitosti" target="_blank" rel="noopener">nákladu obětované příležitosti</a>). EVA měří, jak
+            podnik za dané období svými aktivitami přispěl ke <strong>zvýšení</strong>,
+            nebo <strong>snížení</strong> hodnoty pro své vlastníky.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-ekonomicky-zisk">
+        <h3 class="definice__pojem">Ekonomický (mimořádný, reziduální) zisk</h3>
+        <div class="definice__telo">
+          <p>
+            Celkový čistý zisk snížený o náklady veškerého kapitálu. Na rozdíl od
+            účetního zisku ukazuje, kolik podnik vydělal <em>navíc</em> nad rámec
+            výnosu, který by vložený kapitál přinesl v jiné investiční příležitosti
+            se stejným rizikem. EVA je jeho moderní, systematicky měřitelnou podobou.
+          </p>
+        </div>
+      </section>
+
+      <h2>Základní výpočet EVA</h2>
+      <p>
+        Nejčastější tvar výpočtu vychází z provozního zisku po zdanění a odečítá od
+        něj náklad kapitálu vázaného v hlavní činnosti:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-5">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>NOPAT<span class="op">−</span>WACC<span class="op">×</span>C</span>
+        </div>
+        <div class="vzorec__cislo">(3.5)</div>
+      </div>
+
+      <p>
+        Součin <span class="math">WACC<span class="op">×</span>C</span> se nazývá
+        <strong>kapitálový náklad</strong> – je to minimum, které podnik musí vydělat,
+        aby „zaplatil" investorům za použití jejich peněz. Teprve co zbude nad touto
+        laťkou, je skutečně vytvořená hodnota. Rozeberme si jednotlivé vstupy.
+      </p>
+
+      <section class="definice" id="pojem-nopat">
+        <h3 class="definice__pojem">NOPAT</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Net Operating Profit After Taxes</em> – zisk z hlavní (operativní)
+            činnosti podniku po zdanění. Jde o výsledek očištěný o daň a o položky,
+            které s hlavní činností nesouvisejí; jeho přesné vymezení je předmětem
+            lekce 5.3.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-investovany-kapital">
+        <h3 class="definice__pojem">Investovaný kapitál C (NOA)</h3>
+        <div class="definice__telo">
+          <p>
+            Kapitál vázaný v aktivech, která jsou využívána v hlavní (operativní)
+            činnosti – tzv. <strong>čistá operativní aktiva</strong>, NOA (Net
+            Operating Assets). Do výpočtu EVA se bere hodnota k <em>začátku</em>
+            hodnoceného období. Přechod od účetní rozvahy k NOA vyžaduje řadu úprav,
+            kterým se věnuje lekce 5.2.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-wacc">
+        <h3 class="definice__pojem">WACC</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Weighted Average Cost of Capital</em> – průměrné vážené náklady na
+            kapitál. Vyjadřuje minimální výnosnost, kterou od podniku požadují jeho
+            investoři (věřitelé i vlastníci) jako celek. V této lekci s ním pracujeme
+            jako s danou „laťkou".
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">🎯</span>
+        <p class="callout__nadpis">Box – Co teď potřebujete vědět o WACC</p>
+        <div class="callout__telo">
+          <p>
+            <strong>WACC = vážený průměr nákladů na cizí a vlastní kapitál</strong>,
+            tedy minimální požadovaná výnosnost pro investory. Pro tuto lekci vám
+            stačí chápat WACC jako <em>danou „laťku"</em> – hranici, kterou musí
+            výnosnost podniku překonat, aby vznikala hodnota. Nebudeme jej zatím
+            počítat, jen dosazovat.
+          </p>
+          <p>
+            <strong>Dopředná reference:</strong> plný výklad nákladů na kapitál –
+            tedy odhad nákladů na cizí i vlastní kapitál, model <a class="pojem" href="t9-l2-capm.html?zvyraznit=pojem-capm" target="_blank" rel="noopener">CAPM</a>, koeficient
+            <span class="math">β</span>, <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-danovy-stit" target="_blank" rel="noopener">daňový štít</a> i tvar U-křivky WACC – najdete
+            v <strong>Tématu 9 (kap. 4.7, str. 161–182)</strong>. Tam se z „laťky"
+            stane veličina, kterou umíte sami vyčíslit.
+          </p>
+        </div>
+      </aside>
+
+      <h2>Druhý tvar: EVA přes spread</h2>
+      <p>
+        Vzorec (3.5) lze přepsat do relativní podoby, která hezky ukáže, <em>proč</em>
+        hodnota vzniká nebo mizí. Vytkneme-li investovaný kapitál, dostaneme:
+      </p>
+
+      <div class="vzorec" id="vzorec-3-6">
+        <div class="vzorec__telo">
+          <span class="math">EVA<span class="op">=</span>(RONA<span class="op">−</span>WACC)<span class="op">×</span>C</span>
+        </div>
+        <div class="vzorec__cislo">(3.6)</div>
+      </div>
+
+      <section class="definice" id="pojem-rona">
+        <h3 class="definice__pojem">RONA</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Return On Net Assets</em> – rentabilita čistých operativních aktiv,
+            tedy
+            <span class="math">RONA<span class="op">=</span>
+              <span class="frac">
+                <span class="frac__cit">NOPAT</span>
+                <span class="frac__jmen">C</span>
+              </span>
+            </span>.
+            Říká, jaký operativní výnos podnik vytěží z jedné koruny investovaného
+            kapitálu.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-spread">
+        <h3 class="definice__pojem">Spread (RONA − WACC)</h3>
+        <div class="definice__telo">
+          <p>
+            Rozdíl mezi výnosností investovaného kapitálu a náklady na tento kapitál.
+            Je-li <span class="math">RONA<span class="op">&gt;</span>WACC</span>,
+            je spread <strong>kladný</strong> a EVA je kladná – podnik přispívá ke
+            zvýšení hodnoty vlastnických vkladů. Je-li spread záporný, podnik hodnotu
+            <strong>ničí</strong>. Spread (nebo EVA vztažená k tržbám) se používá i pro
+            srovnávání výkonnosti mezi obdobími či mezi podniky.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Právě tento zápis odhaluje jádro věci: nezáleží jen na tom, <em>kolik</em>
+        kapitálu podnik má, ale zda z něj vytěží víc, než sám stojí. Následující
+        kroková vizualizace ukazuje tři situace podle znaménka spreadu.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: spread → EVA ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Spread rozhoduje: kdy EVA tvoří a kdy ničí hodnotu</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další". Modrý sloupec je RONA, čárkovaná linka je laťka WACC. Barevný pruh mezi nimi je spread (RONA − WACC); vpravo se z něj počítá EVA = (RONA − WACC) × C. Čísla jsou ilustrativní (C = 700 mil. Kč, WACC = 10 %).</p>
+        </figcaption>
+        <div id="viz-eva-spread"></div>
+      </figure>
+
+      <!-- ZKUS SÁM 1 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik vykázal kladný účetní zisk, přesto má zápornou EVA. Jak je to
+          možné? Vysvětlete pomocí spreadu.</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              Účetní zisk odečítá jen úroky z cizího kapitálu, nikoli náklad
+              vlastního kapitálu. Podnik tak může být „papírově" ziskový, a přesto
+              nevydělat ani na požadovanou výnosnost vlastníků. V řeči spreadu:
+              jeho <span class="math">RONA</span> je nižší než
+              <span class="math">WACC</span>, spread je záporný, a tedy
+              <span class="math">EVA<span class="op">=</span>(RONA<span class="op">−</span>WACC)<span class="op">×</span>C<span class="op">&lt;</span>0</span>
+              – podnik ničí hodnotu, i když vykazuje účetní zisk.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <h2>EVA jako systém řízení podniku</h2>
+      <p>
+        Největší výhodou konceptu není samotné číslo, ale to, že spojuje veškeré
+        plánování, rozhodování a činnosti všech lidí v podniku do jediné otázky:
+        <strong>Jak zlepšit EVA?</strong> Podniky totiž běžně sledují množství
+        vzájemně neslučitelných cílů (tržní podíl, obrat, zisk, ROE, likvidita…),
+        což vede k rozporuplnému rozhodování. EVA vnáší do řízení společnou řeč na
+        všech úrovních. Lze ji přitom využít ve čtyřech hlavních směrech (obrázek 3–5).
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Obrázek 3–5: EVA jako systém řízení podniku</p>
+          <p class="viz__popis">Ústřední ukazatel EVA propojuje čtyři oblasti rozhodování managementu.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 720 420" role="img" width="100%" style="height:auto"
+               aria-label="Schéma: uprostřed blok EVA, ze kterého vedou čtyři šipky – nahoru k hodnocení investičních projektů, doprava k měření výkonnosti, dolů k odměňování manažerů a doleva k oceňování podniků a akvizic.">
+            <defs>
+              <marker id="sipka-schema" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#4338ca"></path>
+              </marker>
+            </defs>
+            <!-- spojnice -->
+            <line x1="360" y1="175" x2="360" y2="92"  stroke="#4338ca" stroke-width="2.5" marker-end="url(#sipka-schema)"></line>
+            <line x1="360" y1="245" x2="360" y2="328" stroke="#4338ca" stroke-width="2.5" marker-end="url(#sipka-schema)"></line>
+            <line x1="300" y1="210" x2="226" y2="210" stroke="#4338ca" stroke-width="2.5" marker-end="url(#sipka-schema)"></line>
+            <line x1="420" y1="210" x2="494" y2="210" stroke="#4338ca" stroke-width="2.5" marker-end="url(#sipka-schema)"></line>
+            <!-- centrální blok EVA -->
+            <rect x="300" y="175" width="120" height="70" rx="12" fill="#4338ca"></rect>
+            <text x="360" y="219" text-anchor="middle" fill="#ffffff" font-size="28" font-weight="800" font-family="system-ui,Segoe UI,Arial,sans-serif">EVA</text>
+            <!-- horní box -->
+            <rect x="248" y="34" width="224" height="58" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+            <text x="360" y="58" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">Hodnocení</text>
+            <text x="360" y="77" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">investičních projektů</text>
+            <!-- dolní box -->
+            <rect x="248" y="328" width="224" height="58" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+            <text x="360" y="352" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">Odměňování</text>
+            <text x="360" y="371" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">manažerů</text>
+            <!-- levý box -->
+            <rect x="18" y="181" width="208" height="58" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+            <text x="122" y="205" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">Oceňování podniků</text>
+            <text x="122" y="224" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">a akvizic</text>
+            <!-- pravý box -->
+            <rect x="494" y="181" width="208" height="58" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"></rect>
+            <text x="598" y="205" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">Měření výkonnosti</text>
+            <text x="598" y="224" text-anchor="middle" fill="#1e293b" font-size="14" font-family="system-ui,Segoe UI,Arial,sans-serif">podniku</text>
+          </svg>
+        </div>
+      </figure>
+
+      <p>
+        EVA je tak zároveň měřítkem výkonnosti i nástrojem strategického řízení
+        hodnoty. Podnikové rozpočty i motivace zaměstnanců mohou být navázány přímo
+        na EVA nebo na její generátory. Řada světových firem – AT&amp;T, Coca-Cola,
+        Siemens AG, Quaker Oats či Whole Foods – i českých podniků (Škoda Auto, Model
+        Obaly) s konceptem pracuje právě proto, že umožňuje manažerům chovat se
+        a rozhodovat jako vlastníci.
+      </p>
+
+      <h2>Krátká historie konceptu</h2>
+      <p>
+        Ačkoli EVA působí jako novinka 90. let, myšlenka ekonomického zisku je
+        mnohem starší. Nové na EVA nebyla idea, ale <em>způsob měření</em> a jeho
+        navázání na odměňování manažerů.
+      </p>
+
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Od ekonomického zisku k EVA</p>
+          <p class="viz__popis">Klíčové milníky vývoje konceptu ekonomického (reziduálního) zisku.</p>
+        </figcaption>
+        <div class="tabulka-obal">
+          <svg viewBox="0 0 720 240" role="img" width="100%" style="height:auto"
+               aria-label="Časová osa: 1896 Alfred Marshall vymezil ekonomický reziduální zisk; 1954 Peter Drucker zdůraznil, že bez úhrady nákladů na kapitál není zisk; 1958 až 1961 Miller a Modigliani položili teoretické základy; 1989 Stern Stewart a Co. uvedla a zaregistrovala EVA.">
+            <line x1="60" y1="96" x2="660" y2="96" stroke="#94a3b8" stroke-width="3"></line>
+            <!-- uzel 1 -->
+            <circle cx="100" cy="96" r="9" fill="#4338ca"></circle>
+            <text x="100" y="66" text-anchor="middle" fill="#4338ca" font-size="16" font-weight="800" font-family="system-ui,Segoe UI,Arial,sans-serif">1896</text>
+            <text x="100" y="132" text-anchor="middle" fill="#1e293b" font-size="12" font-family="system-ui,Segoe UI,Arial,sans-serif">A. Marshall</text>
+            <text x="100" y="150" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">vymezil ekonomický</text>
+            <text x="100" y="166" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">(reziduální) zisk</text>
+            <!-- uzel 2 -->
+            <circle cx="287" cy="96" r="9" fill="#4338ca"></circle>
+            <text x="287" y="66" text-anchor="middle" fill="#4338ca" font-size="16" font-weight="800" font-family="system-ui,Segoe UI,Arial,sans-serif">1954</text>
+            <text x="287" y="132" text-anchor="middle" fill="#1e293b" font-size="12" font-family="system-ui,Segoe UI,Arial,sans-serif">P. Drucker</text>
+            <text x="287" y="150" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">„žádný zisk bez úhrady</text>
+            <text x="287" y="166" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">nákladů na kapitál"</text>
+            <!-- uzel 3 -->
+            <circle cx="473" cy="96" r="9" fill="#4338ca"></circle>
+            <text x="473" y="66" text-anchor="middle" fill="#4338ca" font-size="16" font-weight="800" font-family="system-ui,Segoe UI,Arial,sans-serif">1958–61</text>
+            <text x="473" y="132" text-anchor="middle" fill="#1e293b" font-size="12" font-family="system-ui,Segoe UI,Arial,sans-serif">Miller &amp; Modigliani</text>
+            <text x="473" y="150" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">teoretické základy</text>
+            <text x="473" y="166" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">ekonomického zisku</text>
+            <!-- uzel 4 -->
+            <circle cx="632" cy="96" r="10" fill="#16a34a"></circle>
+            <text x="632" y="66" text-anchor="middle" fill="#16a34a" font-size="16" font-weight="800" font-family="system-ui,Segoe UI,Arial,sans-serif">1989</text>
+            <text x="632" y="132" text-anchor="middle" fill="#1e293b" font-size="12" font-family="system-ui,Segoe UI,Arial,sans-serif">Stern Stewart &amp; Co.</text>
+            <text x="632" y="150" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">uvedení a registrace</text>
+            <text x="632" y="166" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,Segoe UI,Arial,sans-serif">EVA®</text>
+          </svg>
+        </div>
+      </figure>
+
+      <p>
+        Peter Drucker to shrnul výstižně: <em>„Není žádného zisku, dokud nevyděláš
+        náklady na kapitál. Alfred Marshall to řekl v roce 1896 … a nyní EVA tuto
+        myšlenku díkybohu systematizuje."</em> Koncept se často označuje i jako
+        <em>ekonomický</em> nebo <em>reziduální zisk</em> – jednak kvůli vyhnutí se
+        ochranné známce, jednak proto, že řada obdobných výpočtů nezahrnuje kompletní
+        sadu účetních úprav definovaných Stern Stewart &amp; Co. (jejich úplný seznam
+        je obchodním tajemstvím).
+      </p>
+
+      <h2>EVA jako výkonnostní měřítko</h2>
+      <p>
+        EVA se prosadila zejména díky své jednoduchosti oproti ostatním moderním
+        měřítkům. Ve své podstatě ukazuje, <strong>jakou hodnotu podnik vytvořil
+        navíc</strong>, než by vložený kapitál vydělal v jiné investiční příležitosti
+        se stejným rizikem. Oproti měřítkům založeným na rentabilitě kapitálu má čtyři
+        zásadní odlišnosti:
+      </p>
+      <ul>
+        <li>EVA vychází ze zisku v <strong>ekonomickém pojetí</strong> – zahrnuje
+          i <a class="pojem" href="t1-l2-valka-ukazatelu.html?zvyraznit=pojem-alternativni-naklady-kapitalu" target="_blank" rel="noopener">alternativní náklady</a> investovaného vlastního kapitálu.</li>
+        <li>Zahrnuje pouze výnosy a náklady spojené s <strong>hlavní podnikatelskou
+          činností</strong>; vylučuje mimořádné a nestandardní položky.</li>
+        <li>Do nákladů kapitálu počítá jen kapitál vázaný v aktivech hlavní činnosti,
+          a to pouze <strong>kapitál investorů</strong>, kteří očekávají výnos.</li>
+        <li>EVA je <strong>absolutní ukazatel</strong> – je samostatně použitelným
+          kritériem hodnocení výkonnosti a nepotřebuje srovnávací standard.</li>
+      </ul>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Výpočet je snadný – když máme vstupy</p>
+        <div class="callout__telo">
+          <p>
+            Samotný vzorec (3.5) je triviální; potíž je získat věrné vstupy.
+            Účetnictví je postaveno na zásadě opatrnosti a míří spíše na věřitele
+            a daňové úřady než na vlastníky, takže účetní data neodrážejí ekonomickou
+            realitu. Proto je nutné je upravit – převést účetní model na ekonomický.
+            Právě těmto úpravám (vymezení NOA a NOPAT) se věnují následující lekce
+            <strong>5.2</strong> a <strong>5.3</strong>.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ZKUS SÁM 2 -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Proč je EVA označována za <em>absolutní</em> ukazatel a proč to znamená,
+          že nepotřebuje srovnávací standard (na rozdíl třeba od RONA nebo ROE)?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>
+              EVA je vyjádřena v <strong>peněžních jednotkách</strong> (např. mil. Kč)
+              a už v sobě má zabudovanou laťku – náklad kapitálu
+              <span class="math">WACC<span class="op">×</span>C</span>. Kladná EVA
+              proto sama o sobě znamená tvorbu hodnoty a záporná její ničení; nemusíme
+              ji s ničím porovnávat. Naproti tomu rentabilitní ukazatele (RONA, ROE)
+              jsou <em>relativní</em> – hodnota např. 8 % sama nic neříká, dokud ji
+              neporovnáme s požadovanou výnosností (WACC). Právě to porovnání dělá EVA
+              „uvnitř sebe" prostřednictvím spreadu.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Čím se ekonomický zisk (EVA) zásadně liší od účetního zisku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Který druh nákladů kapitálu účetní zisk nezohledňuje?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>EVA odečítá náklady na <strong>veškerý</strong> kapitál, tedy i na vlastní kapitál (náklad obětované příležitosti vlastníků). Účetní zisk počítá jen s náklady na cizí kapitál (úroky), a proto může být kladný i tehdy, když podnik ve skutečnosti ničí hodnotu.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co vyjadřuje spread (RONA − WACC) a jak jeho znaménko souvisí s tvorbou hodnoty?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Vyjděte ze vzorce (3.6): EVA = (RONA − WACC) × C. Kapitál C je vždy kladný.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Spread je rozdíl mezi výnosností investovaného kapitálu (RONA) a jeho náklady (WACC). Je-li <strong>kladný</strong> (RONA &gt; WACC), je kladná i EVA a podnik tvoří hodnotu; je-li <strong>záporný</strong>, EVA je záporná a podnik hodnotu ničí. Při nulovém spreadu je podnik přesně na hranici.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Proč je EVA absolutní ukazatel a co to znamená pro její použití?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>V jakých jednotkách EVA vychází a má už v sobě zahrnutou požadovanou laťku?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>EVA je vyjádřena v peněžních jednotkách a náklad kapitálu (laťku WACC) má už zabudovaný ve výpočtu. Je proto samostatně použitelným kritériem – kladná znamená tvorbu, záporná ničení hodnoty – a nepotřebuje žádný vnější srovnávací standard.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Vyjmenujte čtyři oblasti, ve kterých lze EVA využít jako systém řízení podniku (obrázek 3–5).</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Čtyři šipky z centrálního bloku EVA míří do čtyř směrů.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Hodnocení investičních projektů, měření výkonnosti podniku, odměňování manažerů a oceňování podniků a akvizic.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Kdo je považován za autora myšlenky ekonomického (reziduálního) zisku a kdy byla EVA uvedena a zaregistrována jako ochranná známka?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jméno pochází z konce 19. století; registrace je z konce 80. let 20. století.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Za jednoho z prvních autorů myšlenky ekonomického zisku je považován <strong>Alfred Marshall (1896)</strong>. Samotný ukazatel EVA uvedla a jako ochrannou známku zaregistrovala firma <strong>Stern Stewart &amp; Co. v roce 1989</strong>.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t4-l2-trzni-meritka.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">4.2 Tržní měřítka – MVA, Excess Return a TSR</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t5-l2-noa.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">5.2 Účetní úpravy rozvahy – vymezení NOA</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: spread (RONA − WACC) → EVA
+      // Ilustrativní čísla: WACC = 10 %, C = 700 mil. Kč.
+      var WACC = 10, C = 700;
+      var base = 340, pxPerPct = 14;           // 0 % je na y=340; 1 % = 14 px
+      function yOf(p) { return base - p * pxPerPct; }
+      var waccY = yOf(WACC);                    // linka WACC
+
+      Skripta.stepper('viz-eva-spread', {
+        sirka: 720, vyska: 420,
+        stavy: [
+          { rona: 14 },   // RONA > WACC → tvorba
+          { rona: 10 },   // RONA = WACC → hranice
+          { rona: 7 }     // RONA < WACC → ničení
+        ],
+        popisky: [
+          'RONA = 14 % > WACC = 10 %. Spread = +4 p. b. je kladný → EVA = +28 mil. Kč. Podnik tvoří hodnotu.',
+          'RONA = 10 % = WACC = 10 %. Spread = 0 → EVA = 0. Podnik je přesně na hranici.',
+          'RONA = 7 % < WACC = 10 %. Spread = −3 p. b. je záporný → EVA = −21 mil. Kč. Podnik ničí hodnotu.'
+        ],
+        render: function (svg, stav, i, u) {
+          var ronaY = yOf(stav.rona);
+          var spreadPP = stav.rona - WACC;                 // spread v procentních bodech
+          var eva = (spreadPP / 100) * C;                  // EVA v mil. Kč
+          var kladny = spreadPP > 0, zaporny = spreadPP < 0;
+          var barvaSpread = kladny ? u.barvaTvorba : (zaporny ? u.barvaNiceni : u.barvaText);
+          var barvaEva = barvaSpread;
+
+          // Osy
+          u.dej(svg, 'osa-y', 'line', { x1: 90, y1: 56, x2: 90, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-x', 'line', { x1: 90, y1: base, x2: 440, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+          u.dej(svg, 'osa-y-lbl', 'text', { x: 90, y: 44, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, 'výnosnost (%)');
+
+          // Sloupec RONA (indigo)
+          u.dej(svg, 'bar-rona', 'rect', { x: 140, y: ronaY, width: 110, height: base - ronaY, rx: 5, fill: '#4338ca' });
+          u.dej(svg, 'val-rona', 'text', { x: 195, y: ronaY - 10, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14, 'font-weight': 700 }, u.formatCislo(stav.rona) + ' %');
+          u.dej(svg, 'lbl-rona', 'text', { x: 195, y: base + 22, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, 'RONA');
+
+          // Linka WACC (laťka)
+          u.dej(svg, 'wacc-line', 'line', { x1: 90, y1: waccY, x2: 300, y2: waccY, stroke: '#475569', 'stroke-width': 2, 'stroke-dasharray': '6 4' });
+          u.dej(svg, 'wacc-lbl', 'text', { x: 304, y: waccY - 8, 'text-anchor': 'start', fill: '#475569', 'font-size': 13, 'font-weight': 700 }, 'WACC = 10 %');
+
+          // Pruh spreadu (mezi linkou WACC a vrcholem RONA), vpravo od sloupce
+          var ySpread = Math.min(ronaY, waccY);
+          var hSpread = Math.abs(waccY - ronaY);
+          u.dej(svg, 'bar-spread', 'rect', { x: 255, y: ySpread, width: 26, height: hSpread, rx: 3, fill: barvaSpread, opacity: spreadPP === 0 ? 0 : 0.9 });
+          u.dej(svg, 'val-spread', 'text', {
+            x: 288, y: ySpread + hSpread / 2 + 4, 'text-anchor': 'start',
+            fill: barvaSpread, 'font-size': 13, 'font-weight': 700, opacity: spreadPP === 0 ? 0 : 1
+          }, (spreadPP > 0 ? '+' : '') + u.formatCislo(spreadPP) + ' p. b.');
+
+          // Šipka „vede k" EVA
+          u.dej(svg, 'sipka', 'text', { x: 418, y: 214, 'text-anchor': 'middle', fill: '#64748b', 'font-size': 30 }, '→');
+
+          // Výsledkový box EVA (vpravo)
+          u.dej(svg, 'eva-box', 'rect', { x: 470, y: 150, width: 210, height: 112, rx: 12, fill: '#ffffff', stroke: barvaEva, 'stroke-width': 2.5 });
+          u.dej(svg, 'eva-cap', 'text', { x: 575, y: 180, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 12 }, 'EVA = (RONA − WACC) × C');
+          u.dej(svg, 'eva-val', 'text', { x: 575, y: 224, 'text-anchor': 'middle', fill: barvaEva, 'font-size': 32, 'font-weight': 800 },
+            (eva > 0 ? '+' : '') + u.formatCislo(eva));
+          u.dej(svg, 'eva-unit', 'text', { x: 575, y: 248, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 11 }, 'mil. Kč · C = 700 (ilustrativně)');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

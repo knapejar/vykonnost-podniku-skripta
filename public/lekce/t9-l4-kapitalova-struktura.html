@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9.4 Kapitálová struktura – teorie a bod indiference – Výkonnost podniku</title>
+  <meta name="description" content="Finanční a kapitálová struktura podniku, teorie optimalizace (klasická, Modigliani–Miller, kompromisní, hierarchického pořádku), působení finanční páky a bod indiference kapitálové struktury.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <nav class="panel" data-panel data-aktivni-lekce="9.4" aria-label="Lekce tématu 9">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 9</div>
+      <div class="panel__nazev-tema">Náklady na kapitál a kapitálová struktura</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="9.1" href="t9-l1-naklady-cizi-kapital.html"><span class="panel__odkaz-cislo">9.1</span><span>Náklady na kapitál – podstata, riziko a cizí kapitál</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.2" href="t9-l2-capm.html"><span class="panel__odkaz-cislo">9.2</span><span>Náklady na vlastní kapitál – CAPM a další modely</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.3" href="t9-l3-wacc.html"><span class="panel__odkaz-cislo">9.3</span><span>WACC, mezinárodní kontext a vliv na výkonnost</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.4" href="t9-l4-kapitalova-struktura.html"><span class="panel__odkaz-cislo">9.4</span><span>Kapitálová struktura – teorie a bod indiference</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="9.5" href="t9-l5-zdroje-financovani.html"><span class="panel__odkaz-cislo">9.5</span><span>Zdroje financování a jejich vliv na výkonnost</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-9">Téma 9 · Kapitál</a></li>
+          <li><span aria-current="page">Lekce 9.4</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 9.4</span>
+        <h1>Kapitálová struktura – teorie a bod indiference</h1>
+        <p class="lekce-hlavicka__strany">Strany 182–188</p>
+      </header>
+
+      <p>
+        V předchozích lekcích jsme zjistili, <em>kolik</em> stojí cizí a vlastní
+        kapitál a jak z nich sestavit vážené průměrné náklady kapitálu (<a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-wacc" target="_blank" rel="noopener">WACC</a>).
+        Teď se ptáme jinak: v <strong>jakém poměru</strong> má podnik oba druhy
+        kapitálu kombinovat? Právě volba mezi vlastním a cizím financováním –
+        <strong>kapitálová struktura</strong> – rozhoduje o výši <a class="pojem" href="t9-l1-naklady-cizi-kapital.html?zvyraznit=pojem-naklady-na-kapital" target="_blank" rel="noopener">nákladů na kapitál</a>,
+        o rentabilitě pro vlastníky i o riziku, které podnik nese. V této lekci
+        rozlišíme finanční a kapitálovou strukturu, projdeme hlavní teorie její
+        optimalizace, ukážeme dvojí působení finanční páky a naučíme se určit
+        <strong>bod indiference</strong> – hranici, za níž se vyplatí financovat dluhem.
+      </p>
+
+      <!-- ===================== 1. FINANČNÍ vs KAPITÁLOVÁ STRUKTURA ===================== -->
+      <h2>Finanční a kapitálová struktura</h2>
+
+      <p>
+        V teorii i praxi podnikových financí se setkáme se dvěma blízkými pojmy.
+        Oba popisují strukturu kapitálu, kterým je financován majetek podniku,
+        liší se však tím, jak širokou část pasiv zahrnují.
+      </p>
+
+      <section class="definice" id="pojem-financni-struktura">
+        <h3 class="definice__pojem">Finanční struktura</h3>
+        <div class="definice__telo">
+          <p>
+            Struktura veškerého kapitálu, kterým je financován majetek podniku –
+            odpovídá <strong>celé straně pasiv</strong> v rozvaze. Zahrnuje tedy
+            vlastní kapitál a dlouhodobý i <em>krátkodobý</em> cizí kapitál.
+          </p>
+        </div>
+      </section>
+
+      <section class="definice" id="pojem-kapitalova-struktura">
+        <h3 class="definice__pojem">Kapitálová struktura</h3>
+        <div class="definice__telo">
+          <p>
+            Pojem používaný spíše pro kapitál <strong>dlouhodobě</strong> v podniku
+            vázaný, tj. vlastní kapitál a dlouhodobý cizí kapitál. Je to tedy
+            užší výřez finanční struktury bez krátkodobých zdrojů.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Úplatný versus bezúplatný kapitál</p>
+        <div class="callout__telo">
+          <p>
+            Kapitál je užitečné členit ještě podle toho, zda byl nabyt
+            <strong>úplatně</strong> (vlastní kapitál a úročený cizí kapitál –
+            nese náklad), nebo <strong>bezúplatně</strong> (neúročené závazky,
+            např. závazky z obchodního styku). Právě <a class="pojem" href="t7-l2-pyramidovy-rozklad-eva.html?zvyraznit=pojem-uplatny-kapital" target="_blank" rel="noopener">úplatný kapitál</a> je tím, za
+            který podnik platí náklady na kapitál, a který vstupuje do výpočtu WACC i <a class="pojem" href="t5-l1-podstata-eva.html?zvyraznit=pojem-eva" target="_blank" rel="noopener">EVA</a>.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ===================== 2. VZTAH MAJETKOVÉ A FINANČNÍ STRUKTURY ===================== -->
+      <h2>Vztah majetkové a finanční struktury</h2>
+
+      <p>
+        Pro udržení finanční stability je nutné dát do souladu <strong>majetkovou</strong>
+        (aktiva) a <strong>finanční</strong> (pasiva) strukturu. Použitý kapitál by
+        měl odpovídat stupni likvidity financovaného majetku: rychle zpeněžitelná
+        krátkodobá aktiva lze krýt krátkodobými zdroji, kdežto dlouhodobý majetek
+        je účelné financovat dlouhodobým kapitálem, protože jeho návratnost je
+        postupná (prostřednictvím odpisů). Dlouhodobým kapitálem by měla být kryta
+        i ta část oběžného majetku, která je v podniku <strong>trvale přítomna</strong>
+        (<a class="pojem" href="t3-l1-uvod-financni-analyza.html?zvyraznit=pojem-cisty-pracovni-kapital" target="_blank" rel="noopener">čistý pracovní kapitál</a>).
+      </p>
+
+      <section class="definice" id="pojem-zlate-pravidlo-financovani">
+        <h3 class="definice__pojem">Zlaté pravidlo financování</h3>
+        <div class="definice__telo">
+          <p>
+            Zásada souladu časové vázanosti majetku a zdrojů: <strong>dlouhodobý
+            majetek</strong> (a trvale přítomnou část oběžného majetku) financuj
+            <strong>dlouhodobým kapitálem</strong>, pohyblivou část oběžného majetku
+            krátkodobými zdroji. Vlastní kapitál by měl krýt dlouhodobá aktiva
+            typická pro hlavní činnost podniku; ostatní dlouhodobá aktiva lze krýt
+            i cizím kapitálem (včetně leasingu), protože je podnik může v nouzi
+            odprodat, aniž ohrozí podstatu své činnosti.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Podle toho, jak striktně se podnik pravidla drží, rozlišujeme v praxi tři
+        přístupy k financování. Projděte si je v následující krokové vizualizaci –
+        sledujte, kam se posouvá hranice mezi dlouhodobými a krátkodobými zdroji.
+      </p>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE: přístupy k financování (obr. 4–15) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Tři přístupy k financování majetku (obr. 4–15)</p>
+          <p class="viz__popis">Vlevo majetek podle likvidity, vpravo zdroje podle splatnosti. Tlačítky „Zpět / Další“ posouvejte dělicí čáru mezi dlouhodobými a krátkodobými zdroji a sledujte, jak se mění poměr jistoty a nákladů.</p>
+        </figcaption>
+        <div id="viz-pristupy-financovani"></div>
+      </figure>
+
+      <ul>
+        <li><strong>Neutrální financování:</strong> dlouhodobý majetek a trvale
+          přítomný oběžný majetek jsou kryty dlouhodobým kapitálem; pohyblivý
+          objem oběžného majetku krátkodobým cizím kapitálem. Přesně dle zlatého pravidla.</li>
+        <li><strong>Konzervativní financování:</strong> vyšší využití dlouhodobých
+          zdrojů – financují i část pohyblivého oběžného majetku. Vyšší jistota,
+          ale <strong>vyšší náklady</strong> na financování.</li>
+        <li><strong>Agresivní financování:</strong> krátkodobě je financována i část
+          trvale přítomného oběžného majetku, případně dlouhodobého majetku. Nižší
+          náklady, ale <strong>vyšší riziko insolventnosti</strong>.</li>
+      </ul>
+
+      <!-- ===================== 3. OPTIMALIZACE KAPITÁLOVÉ STRUKTURY – TEORIE ===================== -->
+      <h2>Optimalizace kapitálové struktury: přehled teorií</h2>
+
+      <p>
+        Existuje řada teorií, jak najít nejlepší poměr cizího a vlastního kapitálu.
+        Prošly zajímavým vývojem – od jednoznačného doporučení „minimalizuj náklady“
+        přes provokativní tvrzení „na struktuře nezáleží“ až po dnešní kompromisní
+        pohledy.
+      </p>
+
+      <p>
+        <strong>Klasická teorie</strong> považuje za optimální takové zadlužení,
+        při kterém jsou <strong>náklady na kapitál minimální</strong>. Do diskuse
+        pak zásadně zasáhli <strong>Modigliani a Miller</strong> (1958): dokázali,
+        že za zjednodušujících předpokladů (dokonalý trh, bez daní) jsou celkové
+        náklady kapitálu i tržní hodnota podniku <strong>nezávislé</strong> na
+        kapitálové struktuře.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Modigliani–Miller: dvě verze</p>
+        <div class="callout__telo">
+          <p>
+            <strong>MM I (bez daní):</strong> hodnota podniku nezávisí na tom, zda
+            se financuje dluhem nebo vlastním kapitálem – „koláč se nezvětší tím,
+            jak ho rozkrojíte“. Finanční praxe toto tvrzení nepřijala, protože
+            pomíjelo dva podstatné faktory: <strong>daně ze zisku</strong> a
+            <strong>náklady finanční tísně</strong>.
+          </p>
+          <p>
+            <strong>MM II (s daněmi, 1963):</strong> sami autoři uznali, že daně
+            vliv mají. Úroky z cizích zdrojů totiž nepůsobí v plné výši, ale
+            snížené o daň (úrokový <a class="pojem" href="t5-l3-nopat-naklady-kapital.html?zvyraznit=pojem-danovy-stit" target="_blank" rel="noopener">daňový štít</a>). Průměrné náklady kapitálu proto
+            se zadlužením klesají a hodnota podniku roste – podle tohoto přístupu
+            by bylo nejvýhodnější <strong>co nejvyšší zadlužení</strong>.
+          </p>
+        </div>
+      </aside>
+
+      <p>
+        Neomezené zadlužení ovšem není reálné. Další ekonomové argumentovali, že
+        vyšší zadluženost zvyšuje <strong>náklady finanční tísně</strong>, což růst
+        hodnoty zastaví. Finanční manažer tak musí o poměru cizího a vlastního
+        kapitálu uvažovat jako o <strong>kompromisu</strong> mezi daňovým štítem
+        a náklady finanční tísně.
+      </p>
+
+      <section class="definice" id="pojem-naklady-financni-tisne">
+        <h3 class="definice__pojem">Náklady finanční tísně</h3>
+        <div class="definice__telo">
+          <p>
+            Náklady spojené s vysokým zadlužením a hrozbou platební neschopnosti –
+            od dražších úvěrů přes ztrátu důvěry dodavatelů a zákazníků až po
+            náklady případného úpadku. S rostoucím zadlužením přibývají a v určitém
+            bodě převáží nad přínosem úrokového daňového štítu.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        <strong>Kompromisní teorie</strong> z toho vyvozuje: podniky s bezpečnými
+        hmotnými aktivy a velkým zdanitelným ziskem si mohou dovolit vysokou
+        zadluženost; podniky s nízkým ziskem a rizikovými, nehmotnými aktivy by
+        se měly spoléhat hlavně na vlastní zdroje. Studie však ukazují paradox:
+        <strong>nejziskovější podniky si obvykle půjčují nejméně</strong> – zde
+        kompromisní teorie selhává.
+      </p>
+
+      <p>
+        Tento rozpor vysvětluje <strong>teorie hierarchického pořádku</strong>
+        (vychází z asymetrie informací): podniky preferují financování v určitém
+        pořadí – nejprve interní zdroje (<a class="pojem" href="t9-l5-zdroje-financovani.html?zvyraznit=pojem-nerozdeleny-zisk" target="_blank" rel="noopener">nerozdělený zisk</a>), poté dluh a až nakonec
+        emisi akcií. Méně ziskové podniky se zadlužují proto, že nemají dost
+        interních zdrojů na své investice. Brealey a Myers doporučují při volbě
+        struktury zvažovat daňové aspekty, podnikatelské riziko, typ aktiv i
+        <strong>finanční volnost</strong>, kterou by si podnik měl zachovat.
+      </p>
+
+      <section class="definice" id="pojem-optimalni-kapitalova-struktura">
+        <h3 class="definice__pojem">Optimální kapitálová struktura</h3>
+        <div class="definice__telo">
+          <p>
+            Takové složení kapitálu, při kterém jsou <strong>průměrné náklady
+            kapitálu minimální</strong>. Předpokládá se, že náklady kapitálu se
+            s rostoucí zadlužeností vyvíjejí jako tzv. <strong>„U-křivka“</strong>
+            (nejprve klesají díky daňovému štítu, po překročení určité meze rostou
+            kvůli nákladům finanční tísně). Právě při minimu této křivky – tj. při
+            optimální struktuře – dosahuje podnik <strong>maximální tržní hodnoty</strong>.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">V praxi žádný jednoduchý vzorec</p>
+        <div class="callout__telo">
+          <p>
+            Pro rozhodnutí o kapitálové struktuře neexistuje jednoznačná odpověď.
+            Vyjádřit funkční matematický vztah mezi složením kapitálu a vývojem
+            průměrných nákladů kapitálu je pro konkrétní podnik velmi obtížné –
+            náklady cizího i vlastního kapitálu se totiž pro různou strukturu ve
+            stejném čase určují jen těžko. Podniky proto často cílí svou strukturu
+            na <strong>odvětvové standardy</strong> (firmy v jednom oboru mají
+            podobnou majetkovou, a tedy i kapitálovou strukturu).
+          </p>
+        </div>
+      </aside>
+
+      <p>Kromě průměrných nákladů kapitálu ovlivňují volbu struktury i další faktory:</p>
+      <ul>
+        <li><strong>majetková struktura</strong> podniku a odvětvové standardy,</li>
+        <li><strong>rovnoměrnost a výše zisků</strong> a politika jejich rozdělování
+          (při dostatečných ziscích a averzi k riziku lze více spoléhat na
+          nerozdělený zisk),</li>
+        <li>přístup podniku k jednotlivým <strong>zdrojům financování</strong>,</li>
+        <li>snaha o udržení <strong>kontroly</strong> nad činností podniku.</li>
+      </ul>
+
+      <!-- ===================== 4. FINANČNÍ PÁKA A ROE ===================== -->
+      <h2>Působení finanční páky na rentabilitu vlastního kapitálu</h2>
+
+      <p>
+        Modigliani a Miller odvodili, že <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-roe" target="_blank" rel="noopener">rentabilita vlastního kapitálu</a> (<span class="math">ROE</span>)
+        je přímo úměrná poměru úročeného cizího kapitálu k vlastnímu kapitálu –
+        tzv. <strong>finanční páce</strong>. Vztah lze zapsat rovnicí:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-36">
+        <div class="vzorec__telo">
+          <span class="math">
+            ROE<span class="op">=</span>
+            [<span aria-hidden="true"> </span>ROCE<span class="op">+</span>
+            <span class="frac"><span class="frac__cit">CK</span><span class="frac__jmen">VK</span></span>
+            <span class="op">×</span>(ROCE<span class="op">−</span>i)<span aria-hidden="true"> </span>]
+            <span class="op">×</span>(1<span class="op">−</span>T)
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.36)</div>
+      </div>
+
+      <p>kde:</p>
+      <ul>
+        <li><span class="math">i</span> = úroková míra úročených cizích zdrojů,</li>
+        <li><span class="math">ROCE</span> = rentabilita vloženého (úplatného)
+          kapitálu ve tvaru <span class="math">EBIT<span class="op">/</span>úplatný kapitál</span>,</li>
+        <li><span class="math">CK<span class="op">/</span>VK</span> = poměr cizího
+          a vlastního kapitálu (míra zadlužení, finanční páka),</li>
+        <li><span class="math">T</span> = daňová sazba.</li>
+      </ul>
+
+      <section class="definice" id="pojem-financni-paka">
+        <h3 class="definice__pojem">Finanční páka</h3>
+        <div class="definice__telo">
+          <p>
+            Efekt, jímž zapojení úročeného cizího kapitálu zvyšuje (nebo snižuje)
+            rentabilitu vlastního kapitálu. <strong>Pozitivně</strong> působí,
+            je-li výnosnost vloženého kapitálu vyšší než cena cizích zdrojů
+            (<span class="math">ROCE<span class="op">&gt;</span>i</span>) – dluh
+            pak „páčí“ ROE nahoru. <strong>Negativně</strong> působí, když je úroková
+            míra vyšší než výnosnost kapitálu
+            (<span class="math">ROCE<span class="op">&lt;</span>i</span>) – dluh ROE snižuje.
+          </p>
+        </div>
+      </section>
+
+      <p>
+        Z rovnice (4.36) plyne, že ROE závisí na třech věcech: na
+        <strong>výnosnosti vloženého kapitálu</strong> (ROCE), na
+        <strong>zadluženosti a ceně cizích zdrojů</strong>
+        (<span class="math">CK<span class="op">/</span>VK</span> a <span class="math">i</span>)
+        a na <strong>zdanění</strong>. Klíčový je znaménko rozdílu
+        <span class="math">(ROCE<span class="op">−</span>i)</span>: rozhoduje o tom,
+        zda další dluh ROE zvyšuje, nebo sráží (obr. 4–16).
+      </p>
+
+      <!-- ================= STATICKÝ GRAF (obr. 4–16) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Závislost ROE na zadlužení podle vztahu ROCE a úroku (obr. 4–16)</p>
+          <p class="viz__popis">Ze stejného výchozího bodu vycházejí tři přímky. Je-li výnosnost kapitálu vyšší než úrok, roste ROE se zadlužením (zelená); jsou-li si rovny, ROE se nemění (šedá); je-li nižší, ROE klesá (červená).</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 640 360" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Graf tří přímek závislosti ROE na zadlužení: rostoucí pro ROCE větší než úrok, vodorovná pro ROCE rovné úroku, klesající pro ROCE menší než úrok.">
+            <!-- osy -->
+            <line x1="90" y1="40" x2="90" y2="310" stroke="#94a3b8" stroke-width="1.5"/>
+            <line x1="90" y1="200" x2="605" y2="200" stroke="#94a3b8" stroke-width="1.5"/>
+            <!-- výchozí bod na ose Y -->
+            <circle cx="90" cy="200" r="4" fill="#475569"/>
+            <!-- ROCE > i (rostoucí, zelená) -->
+            <line x1="90" y1="200" x2="590" y2="70" stroke="#16a34a" stroke-width="3"/>
+            <!-- ROCE = i (vodorovná, šedá) -->
+            <line x1="90" y1="200" x2="590" y2="200" stroke="#64748b" stroke-width="2.5" stroke-dasharray="7 5"/>
+            <!-- ROCE < i (klesající, červená) -->
+            <line x1="90" y1="200" x2="590" y2="300" stroke="#dc2626" stroke-width="3"/>
+            <!-- popisky přímek -->
+            <text x="596" y="70" fill="#16a34a" font-size="14" font-weight="700">ROCE &gt; i</text>
+            <text x="596" y="196" fill="#64748b" font-size="14" font-weight="700">ROCE = i</text>
+            <text x="596" y="304" fill="#dc2626" font-size="14" font-weight="700">ROCE &lt; i</text>
+            <!-- popisky os -->
+            <text x="78" y="46" fill="#475569" font-size="14" font-weight="600" text-anchor="end">ROE</text>
+            <text x="360" y="238" fill="#475569" font-size="14" text-anchor="middle">Zadlužení (CK / VK)</text>
+          </svg>
+        </div>
+      </figure>
+
+      <p>
+        Rozhodnutí o dalším zadlužení proto musí vycházet z analýzy, zda podnik
+        dokáže nakoupenými aktivy vydělat víc, než platí na úrocích. Průměrné
+        náklady kapitálu jsou přitom výchozím, nikoli však jediným kritériem –
+        vstupují do něj i faktory zmíněné výše.
+      </p>
+
+      <!-- ================= ZKUS SÁM 1 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik dosahuje rentability vloženého kapitálu ROCE = 12 % a úvěry
+          si půjčuje za úrok <span class="math">i</span> = 9 %. Za jakých podmínek
+          mu zvýšení dluhu <strong>zvýší</strong> ROE a kdy by ho naopak snížilo?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Rozhoduje znaménko rozdílu <span class="math">(ROCE<span class="op">−</span>i)</span>.
+            Zde je <span class="math">12&nbsp;%<span class="op">&gt;</span>9&nbsp;%</span>,
+            takže <span class="math">(ROCE<span class="op">−</span>i)<span class="op">=</span>3&nbsp;%<span class="op">&gt;</span>0</span> –
+            finanční páka působí <strong>pozitivně</strong> a každá další koruna
+            dluhu ROE zvyšuje (rostoucí zelená přímka na obr. 4–16). ROE by naopak
+            <strong>klesalo</strong>, kdyby úrok vzrostl nad 12 % (nebo kdyby
+            výnosnost aktiv klesla pod cenu úvěru) – pak by
+            <span class="math">(ROCE<span class="op">−</span>i)<span class="op">&lt;</span>0</span>
+            a páka by působila negativně.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================== 5. BOD INDIFERENCE ===================== -->
+      <h2>Bod indiference kapitálové struktury</h2>
+
+      <p>
+        Chce-li podnik získat nový kapitál, stojí často před volbou: vydat další
+        akcie (vlastní kapitál), nebo si půjčit (cizí kapitál)? Užitečným vodítkem
+        je <strong>bod indiference</strong>, který obě varianty porovnává přes zisk
+        připadající na jednu akcii.
+      </p>
+
+      <section class="definice" id="pojem-bod-indiference">
+        <h3 class="definice__pojem">Bod indiference kapitálové struktury</h3>
+        <div class="definice__telo">
+          <p>
+            Taková výše zisku před úroky a zdaněním (<a class="pojem" href="t2-l1-zisk-cash-flow.html?zvyraznit=pojem-ebit" target="_blank" rel="noopener">EBIT</a>), při níž je
+            <strong>zisk na jednu akcii stejný</strong> při financování cizími
+            zdroji i při financování vlastním kapitálem. V bodě indiference je
+            tedy financování dluhem právě tak výhodné jako financování emisí akcií.
+          </p>
+        </div>
+      </section>
+
+      <p>Bod indiference určíme z rovnosti zisku na akcii pro obě alternativy:</p>
+
+      <div class="vzorec" id="vzorec-4-37">
+        <div class="vzorec__telo">
+          <span class="math">
+            <span class="frac">
+              <span class="frac__cit">EBIT<span class="op">×</span>(1<span class="op">−</span>T)</span>
+              <span class="frac__jmen">A<sub>VK</sub></span>
+            </span>
+            <span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">(EBIT<span class="op">−</span>ú)<span class="op">×</span>(1<span class="op">−</span>T)</span>
+              <span class="frac__jmen">A<sub>CK</sub></span>
+            </span>
+          </span>
+        </div>
+        <div class="vzorec__cislo">(4.37)</div>
+      </div>
+
+      <p>kde:</p>
+      <ul>
+        <li><span class="math">EBIT</span> = zisk před úroky a zdaněním,</li>
+        <li><span class="math">ú</span> = úrok v Kč při financování cizím kapitálem,</li>
+        <li><span class="math">T</span> = daňová sazba,</li>
+        <li><span class="math">A<sub>VK</sub></span> = akciový kapitál (počet akcií)
+          při financování vlastním kapitálem,</li>
+        <li><span class="math">A<sub>CK</sub></span> = akciový kapitál (počet akcií)
+          při financování cizím kapitálem.</li>
+      </ul>
+
+      <p>
+        Levá strana je zisk na akcii při emisi akcií (více akcií, žádný úrok),
+        pravá strana zisk na akcii při úvěru (méně akcií, ale zisk snížený o úrok).
+        Graficky jde o dvě rostoucí přímky, které se protínají právě v bodě
+        indiference (obr. 4–17).
+      </p>
+
+      <!-- ================= STATICKÝ GRAF (obr. 4–17) ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Bod indiference kapitálové struktury (obr. 4–17)</p>
+          <p class="viz__popis">Zisk na akcii roste s EBIT pro obě varianty. Vlevo od bodu indiference (nižší EBIT) je výhodnější financování vlastním kapitálem, vpravo (vyšší EBIT) financování dluhem. Křivky odpovídají příkladu 4.15.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 640 360" role="img" preserveAspectRatio="xMidYMid meet" aria-label="Graf bodu indiference: dvě rostoucí přímky zisku na akcii v závislosti na EBIT se protínají v bodě indiference při EBIT 2 miliony korun a zisku 64 korun na akcii.">
+            <!-- oblasti (výhodnost) -->
+            <rect x="90" y="40" width="340" height="290" fill="#4338ca" opacity="0.06"/>
+            <rect x="430" y="40" width="170" height="290" fill="#d97706" opacity="0.10"/>
+            <!-- osy -->
+            <line x1="90" y1="40" x2="90" y2="330" stroke="#94a3b8" stroke-width="1.5"/>
+            <line x1="90" y1="277" x2="605" y2="277" stroke="#94a3b8" stroke-width="1.5"/>
+            <!-- přímka VK (financování vlastním kapitálem) -->
+            <line x1="90" y1="277" x2="600" y2="70" stroke="#4338ca" stroke-width="3"/>
+            <!-- přímka dluh (financování cizím kapitálem) -->
+            <line x1="90" y1="311" x2="600" y2="53" stroke="#d97706" stroke-width="3" stroke-dasharray="8 5"/>
+            <!-- svislice bodu indiference -->
+            <line x1="430" y1="40" x2="430" y2="277" stroke="#334155" stroke-width="1.4" stroke-dasharray="4 4"/>
+            <!-- bod indiference -->
+            <circle cx="430" cy="139" r="5.5" fill="#334155"/>
+            <text x="430" y="126" fill="#334155" font-size="13" font-weight="700" text-anchor="middle">Bod indiference</text>
+            <text x="438" y="156" fill="#334155" font-size="12" text-anchor="start">EBIT = 2 mil. Kč; 64 Kč/akcii</text>
+            <!-- popisky přímek -->
+            <text x="596" y="66" fill="#4338ca" font-size="14" font-weight="700" text-anchor="end">VK (akcie)</text>
+            <text x="596" y="46" fill="#d97706" font-size="14" font-weight="700" text-anchor="end">Dluh (úvěr)</text>
+            <!-- popisky oblastí -->
+            <text x="255" y="60" fill="#4338ca" font-size="13" font-weight="600" text-anchor="middle">výhodné financování VK</text>
+            <text x="515" y="305" fill="#b45309" font-size="13" font-weight="600" text-anchor="middle">výhodné financování dluhem</text>
+            <!-- popisky os -->
+            <text x="78" y="46" fill="#475569" font-size="13" font-weight="600" text-anchor="end">Zisk na akcii</text>
+            <text x="360" y="300" fill="#475569" font-size="14" text-anchor="middle">EBIT</text>
+          </svg>
+        </div>
+      </figure>
+
+      <!-- ================= ŘEŠENÝ PŘÍKLAD 4.15 ================= -->
+      <aside class="callout callout--priklad">
+        <span class="callout__ikona" aria-hidden="true">🧮</span>
+        <p class="callout__nadpis">Příklad 4.15 – emise akcií versus úvěr</p>
+        <div class="callout__telo">
+          <p>
+            Společnost <strong>RENA, a. s.</strong> má vlastní kapitál 20 mil. Kč
+            tvořený 20 000 ks akcií. Na příští rok plánuje investici s kapitálovými
+            výdaji 5 mil. Kč a zvažuje dvě alternativy financování:
+          </p>
+          <ul>
+            <li><strong>1. alternativa (vlastní kapitál):</strong> emise 5 000 ks
+              nových kmenových akcií (nominální cena 1 000 Kč) → celkem
+              <strong>25 000</strong> akcií, bez úroku.</li>
+            <li><strong>2. alternativa (cizí zdroje):</strong> bankovní úvěr 5 mil. Kč
+              s úrokem 8 % p.a. → úrok <span class="math">ú<span class="op">=</span>400&nbsp;000</span> Kč,
+              počet akcií zůstává <strong>20 000</strong>.</li>
+          </ul>
+          <p>Daň ze zisku <span class="math">T<span class="op">=</span>20&nbsp;%</span>. Kterou variantu zvolit?</p>
+        </div>
+      </aside>
+
+      <p>
+        Dosazením do vztahu (4.37) hledáme EBIT, při němž se zisk na akcii vyrovná:
+      </p>
+
+      <div class="vzorec" id="vzorec-4-37-reseni">
+        <div class="vzorec__telo">
+          <span class="math">
+            <span class="frac">
+              <span class="frac__cit">EBIT<span class="op">×</span>0,8</span>
+              <span class="frac__jmen">25&nbsp;000</span>
+            </span>
+            <span class="op">=</span>
+            <span class="frac">
+              <span class="frac__cit">(EBIT<span class="op">−</span>400&nbsp;000)<span class="op">×</span>0,8</span>
+              <span class="frac__jmen">20&nbsp;000</span>
+            </span>
+            <span class="op">⇒</span>
+            EBIT<span class="op">=</span>2&nbsp;000&nbsp;000<span aria-hidden="true"> </span>Kč
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Při <strong>EBIT = 2 mil. Kč</strong> dosáhne zisk na akcii u obou
+        alternativ shodně <strong>64 Kč</strong> – to je bod indiference. Tabulka
+        ukazuje, jak se výhodnost obou variant obrací kolem této hranice:
+      </p>
+
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Zisk na akcii při obou alternativách financování (Kč/akcii), příklad 4.15</caption>
+          <thead>
+            <tr>
+              <th scope="col">EBIT (mil. Kč)</th>
+              <th scope="col" class="cislo">1,5</th>
+              <th scope="col" class="cislo">2,0</th>
+              <th scope="col" class="cislo">2,5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Vlastní kapitál – 25 000 akcií</th>
+              <td class="cislo hodnota-tvorba">48</td>
+              <td class="cislo">64</td>
+              <td class="cislo">80</td>
+            </tr>
+            <tr>
+              <th scope="row">Cizí kapitál – 20 000 akcií, úrok 400 000</th>
+              <td class="cislo">44</td>
+              <td class="cislo">64</td>
+              <td class="cislo hodnota-tvorba">84</td>
+            </tr>
+            <tr class="tabulka__soucet">
+              <th scope="row">Výhodnější varianta</th>
+              <td class="cislo">VK</td>
+              <td class="cislo">shodně</td>
+              <td class="cislo">dluh</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>Závěr:</strong> očekává-li RENA zisk pod 2 mil. Kč, je výhodnější
+        emise akcií; nad 2 mil. Kč se vyplatí bankovní úvěr, protože finanční páka
+        pak zvyšuje zisk na akcii rychleji, než ho ředí případná emise. Rozhodnutí
+        tedy závisí na tom, jak vysoký EBIT podnik reálně očekává – a jak velké
+        riziko je ochoten nést.
+      </p>
+
+      <!-- ================= ZKUS SÁM 2 ================= -->
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Management RENA, a. s. realisticky očekává příští rok EBIT kolem
+          <strong>1,6 mil. Kč</strong>. Kterou z obou alternativ financování
+          by měl podle bodu indiference zvolit a proč?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Očekávaný EBIT 1,6 mil. Kč leží <strong>pod</strong> bodem indiference
+            (2 mil. Kč), tedy vlevo na obr. 4–17. V této oblasti dává vyšší zisk na
+            akcii <strong>financování vlastním kapitálem</strong> (emise akcií).
+            Úvěr by se vyplatil až tehdy, kdyby podnik čekal EBIT nad 2 mil. Kč.
+            Kontrolně: při EBIT 1,6 mil. Kč vyjde u akcií
+            <span class="math">1,6<span class="op">×</span>0,8<span class="op">/</span>25&nbsp;000<span class="op">=</span>51,2</span> Kč,
+            u úvěru <span class="math">(1,6<span class="op">−</span>0,4)<span class="op">×</span>0,8<span class="op">/</span>20&nbsp;000<span class="op">=</span>48</span> Kč –
+            emise akcií je výhodnější.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Jaký je rozdíl mezi finanční a kapitálovou strukturou podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, která z nich zahrnuje i krátkodobé cizí zdroje.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Finanční struktura odpovídá <strong>celé straně pasiv</strong> – vlastní kapitál plus dlouhodobý i krátkodobý cizí kapitál. Kapitálová struktura je užší pojem pro kapitál <strong>dlouhodobě</strong> vázaný (vlastní kapitál a dlouhodobý cizí kapitál), tedy bez krátkodobých zdrojů.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Co tvrdí Modigliani a Miller o kapitálové struktuře bez daní a co se změní, zohledníme-li daně?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Klíčem je úrokový daňový štít – jak působí úroky na zdanění.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Bez daní (MM I) jsou celkové náklady kapitálu i tržní hodnota podniku <strong>nezávislé</strong> na kapitálové struktuře. Se zavedením daní (MM II) působí <strong>úrokový daňový štít</strong> – úroky snižují základ daně, průměrné náklady kapitálu se zadlužením klesají a hodnota podniku roste, takže by teoreticky bylo výhodné co nejvyšší zadlužení. Reálně tomu brání náklady finanční tísně.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>Kdy působí finanční páka pozitivně a kdy negativně na ROE?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnejte rentabilitu vloženého kapitálu (ROCE) s úrokovou mírou <span class="math">i</span> – viz vztah (4.36) a obr. 4–16.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Pozitivně, je-li <span class="math">ROCE<span class="op">&gt;</span>i</span> – výnosnost aktiv převyšuje cenu dluhu, takže zapojení cizího kapitálu zvyšuje ROE. Negativně, je-li <span class="math">ROCE<span class="op">&lt;</span>i</span> – dluh je dražší, než kolik aktiva vydělají, a ROE klesá. Při <span class="math">ROCE<span class="op">=</span>i</span> se ROE se zadlužením nemění.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Co znamená bod indiference a jak podle něj rozhodnout mezi financováním akciemi a úvěrem?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Porovnává se zisk na akcii při dané výši EBIT.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Bod indiference je úroveň EBIT, při níž je zisk na akcii <strong>stejný</strong> u obou variant. Pod ním (nižší očekávaný EBIT) je výhodnější financování <strong>vlastním kapitálem</strong> (emise akcií), nad ním (vyšší EBIT) financování <strong>dluhem</strong>, protože finanční páka zvyšuje zisk na akcii. V příkladu 4.15 leží bod indiference při EBIT 2 mil. Kč a zisku 64 Kč na akcii.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Proč si nejziskovější podniky často půjčují nejméně a která teorie to vysvětluje?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Jde o pořadí, v jakém podniky preferují jednotlivé zdroje financování.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Vysvětluje to <strong>teorie hierarchického pořádku</strong> (na základě asymetrie informací). Podniky preferují financování v pořadí: nejprve interní zdroje (nerozdělený zisk), pak dluh a až nakonec emise akcií. Ziskové podniky mají dost vlastních interních zdrojů, a proto se zadlužují málo; méně ziskové se musí zadlužovat, protože jim interní zdroje na investice nestačí. Kompromisní teorie tento jev naopak nedokáže vysvětlit.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t9-l3-wacc.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">9.3 WACC, mezinárodní kontext a vliv na výkonnost</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t9-l5-zdroje-financovani.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">9.5 Zdroje financování a jejich vliv na výkonnost</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: tři přístupy k financování (obr. 4–15)
+      // Levý sloupec (majetek) je pevný; mění se pouze poloha dělicí čáry mezi
+      // dlouhodobými a krátkodobými zdroji v pravém sloupci a její protažení
+      // napříč celým grafem.
+      Skripta.stepper('viz-pristupy-financovani', {
+        sirka: 720, vyska: 400,
+        // lineY = svislá poloha hranice dlouhodobých/krátkodobých zdrojů
+        stavy: [
+          { lineY: 270 }, // neutrální – přesně na rozhraní trvalého a pohyblivého OM
+          { lineY: 315 }, // konzervativní – dlouhodobé zdroje zasahují do pohyblivého OM
+          { lineY: 150 }  // agresivní – krátkodobé zdroje zasahují do dlouhodobého majetku
+        ],
+        popisky: [
+          'Neutrální financování: dlouhodobé zdroje kryjí přesně dlouhodobý majetek a trvale přítomný oběžný majetek; pohyblivý oběžný majetek kryjí krátkodobé zdroje.',
+          'Konzervativní financování: dělicí čára klesá – dlouhodobé zdroje kryjí i část pohyblivého oběžného majetku. Vyšší jistota, ale vyšší náklady.',
+          'Agresivní financování: dělicí čára stoupá do dlouhodobého majetku – krátkodobé zdroje kryjí celý oběžný majetek i část dlouhodobého majetku. Nižší náklady, vyšší riziko insolvence.'
+        ],
+        render: function (svg, stav, i, u) {
+          var lx = 110, lw = 190; // levý sloupec (majetek)
+          var rx = 430, rw = 190; // pravý sloupec (zdroje)
+          var top = 60, bot = 360;
+          var lineY = stav.lineY;
+
+          // --- záhlaví sloupců ---
+          u.dej(svg, 'h-maj', 'text', { x: lx + lw / 2, y: 44, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14, 'font-weight': 700 }, 'MAJETEK');
+          u.dej(svg, 'h-zdr', 'text', { x: rx + rw / 2, y: 44, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 14, 'font-weight': 700 }, 'ZDROJE');
+
+          // --- levý sloupec: pevné bloky majetku ---
+          u.dej(svg, 'maj-dm',  'rect', { x: lx, y: 60,  width: lw, height: 120, fill: '#c7d2fe', stroke: '#a5b4fc', 'stroke-width': 1 });
+          u.dej(svg, 'maj-omt', 'rect', { x: lx, y: 180, width: lw, height: 90,  fill: '#bae6fd', stroke: '#7dd3fc', 'stroke-width': 1 });
+          u.dej(svg, 'maj-omp', 'rect', { x: lx, y: 270, width: lw, height: 90,  fill: '#bbf7d0', stroke: '#86efac', 'stroke-width': 1 });
+
+          // --- pravý sloupec: zdroje rozdělené pohyblivou dělicí čárou ---
+          u.dej(svg, 'zdr-dlouhodobe', 'rect', { x: rx, y: top, width: rw, height: Math.max(0, lineY - top), fill: '#4338ca', opacity: 0.88 });
+          u.dej(svg, 'zdr-kratkodobe', 'rect', { x: rx, y: lineY, width: rw, height: Math.max(0, bot - lineY), fill: '#d97706', opacity: 0.9 });
+
+          // --- dělicí čára napříč celým grafem (spojuje majetek a zdroje) ---
+          u.dej(svg, 'delici-cara', 'line', { x1: lx - 12, y1: lineY, x2: rx + rw + 12, y2: lineY, stroke: '#334155', 'stroke-width': 2, 'stroke-dasharray': '7 5' });
+
+          // --- popisky bloků majetku (kreslíme jako poslední → leží navrchu) ---
+          u.dej(svg, 't-dm',  'text', { x: lx + lw / 2, y: 124, 'text-anchor': 'middle', fill: '#3730a3', 'font-size': 13, 'font-weight': 600 }, 'Dlouhodobý majetek');
+          u.dej(svg, 't-omt', 'text', { x: lx + lw / 2, y: 229, 'text-anchor': 'middle', fill: '#075985', 'font-size': 13, 'font-weight': 600 }, 'OM – trvalá část');
+          u.dej(svg, 't-omp', 'text', { x: lx + lw / 2, y: 319, 'text-anchor': 'middle', fill: '#166534', 'font-size': 13, 'font-weight': 600 }, 'OM – pohyblivá část');
+
+          // --- popisky zdrojů (uprostřed každé části, dvouřádkově) ---
+          var dlStred = (top + lineY) / 2;
+          var krStred = (lineY + bot) / 2;
+          u.dej(svg, 't-dl1', 'text', { x: rx + rw / 2, y: dlStred - 6, 'text-anchor': 'middle', fill: '#fff', 'font-size': 13, 'font-weight': 700 }, 'Dlouhodobé zdroje');
+          u.dej(svg, 't-dl2', 'text', { x: rx + rw / 2, y: dlStred + 12, 'text-anchor': 'middle', fill: '#e0e7ff', 'font-size': 12 }, '(VK + dlouhodobé cizí)');
+          u.dej(svg, 't-kr1', 'text', { x: rx + rw / 2, y: krStred + 4, 'text-anchor': 'middle', fill: '#fff', 'font-size': 13, 'font-weight': 700 }, 'Krátkodobé zdroje');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

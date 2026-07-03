@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2.1 Ukazatele zisku a cash flow – Výkonnost podniku</title>
+  <meta name="description" content="Klasické ukazatele výkonnosti podniku: kategorie zisku (EAT, EBT, EBIT, EBITDA) a ukazatele cash flow – přímá a nepřímá metoda, provozní a volné cash flow.">
+  <link rel="stylesheet" href="../assets/css/skripta.css">
+</head>
+<body>
+  <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+  <!-- ===================== HORNÍ LIŠTA (stejná na všech stránkách) ===================== -->
+  <header class="horni-lista">
+    <div class="horni-lista__vnitrek">
+      <a class="horni-lista__znacka" href="../index.html">
+        <span class="horni-lista__logo">VP</span>
+        <span class="horni-lista__nazev">
+          Výkonnost podniku
+          <small>z pohledu finančního manažera</small>
+        </span>
+      </a>
+      <nav class="horni-lista__odkazy" aria-label="Hlavní navigace">
+        <a href="../index.html">Rozcestník</a>
+        <a href="../rejstrik.html">Rejstřík</a>
+        <a href="../vzorce.html">Vzorce</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== DVOUSLOUPCOVÉ ROZVRŽENÍ LEKCE ===================== -->
+  <div class="lekce-rozvrzeni">
+
+    <button class="panel-prepinac" type="button" data-panel-prepinac aria-expanded="true">Obsah tématu</button>
+
+    <!-- POSTRANNÍ PANEL: lekce tématu 2 -->
+    <nav class="panel" data-panel data-aktivni-lekce="2.1" aria-label="Lekce tématu 2">
+      <a class="panel__zpet" href="../index.html">← Rozcestník</a>
+      <div class="panel__tema">Téma 2</div>
+      <div class="panel__nazev-tema">Klasické ukazatele finanční výkonnosti</div>
+      <ul class="panel__seznam">
+        <li><a class="panel__odkaz" data-lekce-id="2.1" href="t2-l1-zisk-cash-flow.html"><span class="panel__odkaz-cislo">2.1</span><span>Ukazatele zisku a cash flow</span></a></li>
+        <li><a class="panel__odkaz" data-lekce-id="2.2" href="t2-l2-rentabilita-kritika.html"><span class="panel__odkaz-cislo">2.2</span><span>Ukazatele rentability a kritika klasických ukazatelů</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main id="obsah" class="obsah">
+
+      <!-- HLAVIČKA LEKCE + DROBEČKY -->
+      <header class="lekce-hlavicka">
+        <ol class="drobecky">
+          <li><a href="../index.html">Rozcestník</a></li>
+          <li><a href="../index.html#tema-2">Téma 2 · Klasické ukazatele</a></li>
+          <li><span aria-current="page">Lekce 2.1</span></li>
+        </ol>
+        <span class="lekce-hlavicka__stitek">Lekce 2.1</span>
+        <h1>Ukazatele zisku a cash flow</h1>
+        <p class="lekce-hlavicka__strany">Strany 20–23</p>
+      </header>
+
+      <p>
+        Mezi tradiční (klasické) ukazatele finanční výkonnosti podniku patří
+        především ukazatele <strong>absolutní hodnoty zisku</strong> (obecněji
+        výsledku hospodaření), <strong>hotovostních toků</strong> (cash flow)
+        a ukazatele <strong>rentability</strong>. V této lekci se zaměříme na
+        první dvě skupiny – na jednotlivé kategorie zisku a na peněžní toky.
+        <a class="pojem" href="t2-l2-rentabilita-kritika.html?zvyraznit=pojem-rentabilita" target="_blank" rel="noopener">Ukazatelům rentability</a> a shrnující kritice tradičních měřítek se věnuje
+        následující lekce&nbsp;2.2.
+      </p>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">Proč vůbec rozlišovat kategorie zisku</p>
+        <div class="callout__telo">
+          <p>Slovo „zisk" může znamenat mnoho různých čísel. Podle toho, které
+          náklady od výnosů odečteme (daně, úroky, odpisy), dostaneme jinou
+          kategorii zisku vhodnou pro jiný účel – od pohledu vlastníka až po
+          srovnávání divizí či podniků z různých zemí.</p>
+        </div>
+      </aside>
+
+      <!-- ============================================================= -->
+      <h2>Ukazatele zisku</h2>
+
+      <p>
+        Ukazatele zisku jsou nejpoužívanějšími měřítky výkonnosti podniku. Zisk
+        lze vyjádřit několika způsoby, které se liší tím, jaké položky jsou v něm
+        již zohledněny.
+      </p>
+
+      <!-- DEFINICE: EAT -->
+      <section class="definice" id="pojem-eat">
+        <h3 class="definice__pojem">Čistý zisk – EAT (Earnings After Taxes)</h3>
+        <div class="definice__telo">
+          <p>
+            Z pohledu vlastníka nejdůležitější kategorie zisku – jde o
+            <strong>zisk po zdanění</strong>, který je určen k rozdělení. Způsob
+            rozdělení tohoto zisku může významně ovlivnit budoucí vývoj <a class="pojem" href="t1-l1-co-je-vykonnost.html?zvyraznit=pojem-hodnota-podniku" target="_blank" rel="noopener">hodnoty
+            podniku</a> i míru uspokojení vlastníků.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: EBT -->
+      <section class="definice" id="pojem-ebt">
+        <h3 class="definice__pojem">Zisk před zdaněním – EBT (Earnings Before Taxes)</h3>
+        <div class="definice__telo">
+          <p>
+            Kategorie zisku zahrnující daň z příjmu za běžnou i mimořádnou
+            činnost. Hodí se pro <strong>porovnávání výkonnosti mezi obdobími
+            i mezi podniky ze zemí s různým zdaněním</strong>, protože umožňuje
+            abstrahovat od odlišné míry zdanění.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: EBIT -->
+      <section class="definice" id="pojem-ebit">
+        <h3 class="definice__pojem">Zisk před úroky a zdaněním – EBIT (Earnings Before Interest and Taxes)</h3>
+        <div class="definice__telo">
+          <p>
+            Oblíbený ukazatel <strong>na úrovni divizí</strong>, protože
+            soustřeďuje pozornost na růst tržeb a řízení nákladů. Měří pouze
+            provozní výkonnost – neovlivňuje jej způsob financování (výběr zdrojů
+            není na úrovni divizí ovlivnitelný) ani daně.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: EBITDA -->
+      <section class="definice" id="pojem-ebitda">
+        <h3 class="definice__pojem">Zisk před úroky, zdaněním a odpisy – EBITDA</h3>
+        <div class="definice__telo">
+          <p>
+            <em>Earnings Before Interest, Taxes, Depreciation and Amortization</em>.
+            Ukazatel hojně využívaný u amerických podniků (americké účetnictví
+            rozlišuje odpisy hmotného majetku – „depreciation" – a nehmotného
+            majetku – „amortization"). Umožňuje <strong>srovnání výkonnosti
+            nezávisle na politice odpisování</strong> a nezávisle na výši investic
+            a souvisejících odpisů. To je výhodné při navázání odměňování na tento
+            ukazatel – manažeři pak nemají tendenci omezovat investiční aktivitu.
+            EBITDA představuje ve zjednodušené podobě úpravu pro měření cash flow.
+          </p>
+        </div>
+      </section>
+
+      <!-- STUPŇOVITÉ ODVOZENÍ (schéma z knihy) -->
+      <aside class="callout callout--definice">
+        <span class="callout__ikona" aria-hidden="true">§</span>
+        <p class="callout__nadpis">Stupňovité odvození kategorií zisku</p>
+        <div class="callout__telo">
+          <p style="line-height:1.9">
+            <strong>Čistý zisk (EAT)</strong> = výsledek hospodaření za účetní období<br>
+            <span class="op">+</span> daň z příjmu za běžnou činnost<br>
+            <span class="op">+</span> daň z příjmu za mimořádnou činnost<br>
+            <span class="op">=</span> <strong>Zisk před zdaněním (EBT)</strong><br>
+            <span class="op">+</span> nákladové úroky<br>
+            <span class="op">=</span> <strong>Zisk před úroky a zdaněním (EBIT)</strong><br>
+            <span class="op">+</span> odpisy<br>
+            <span class="op">=</span> <strong>Zisk před úroky, zdaněním a odpisy (EBITDA)</strong>
+          </p>
+        </div>
+      </aside>
+
+      <!-- ================= KROKOVÁ VIZUALIZACE (stepper): stavba zisku ================= -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Od EAT k EBITDA: postupné přičítání položek</p>
+          <p class="viz__popis">Projděte kroky tlačítky „Zpět / Další" a sledujte, jak se z čistého zisku postupným přičítáním daní, úroků a odpisů stává EBT, EBIT a nakonec EBITDA. Výšky jsou schematické (ilustrují princip, nikoli konkrétní částky).</p>
+        </figcaption>
+        <div id="viz-zisk-vodopad"></div>
+      </figure>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Chcete porovnat provozní výkonnost dvou divizí téhož podniku, z nichž
+          každá má jinak nastavené vnitropodnikové úročení a odlišné odpisy. Kterou
+          kategorii zisku zvolíte a proč?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Vhodný je <strong>EBIT</strong> (případně EBITDA). EBIT měří pouze
+            provozní výkonnost a neovlivňuje jej způsob financování ani daně, které
+            divize stejně nemůže ovlivnit. Chcete-li navíc odhlédnout i od rozdílné
+            odpisové politiky, sáhnete po <strong>EBITDA</strong>, která je od
+            odpisů (a tedy i od výše dřívějších investic) očištěná.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ============================================================= -->
+      <h2>Ukazatele cash flow</h2>
+
+      <p>
+        Ukazatele cash flow dokumentují <strong>peněžní toky</strong> podniku.
+        Praktické finanční řízení si ve vyspělých tržních ekonomikách vynutilo –
+        vedle informací o zisku – také informace o peněžních příjmech a výdajích.
+      </p>
+      <p>
+        Rozvaha zachycuje stav majetku a kapitálu k určitému okamžiku. Výkaz zisku
+        a ztráty zaznamenává výnosy, náklady a zisk v období jejich vzniku, bez
+        ohledu na to, zda vznikají skutečné peněžní příjmy či výdaje. Proto nastává
+        <strong>obsahový nesoulad</strong> mezi náklady a výdaji, výnosy a příjmy,
+        ziskem a stavem peněžních prostředků.
+      </p>
+
+      <!-- DEFINICE: cash flow -->
+      <section class="definice" id="pojem-cash-flow">
+        <h3 class="definice__pojem">Cash flow</h3>
+        <div class="definice__telo">
+          <p>
+            Peněžní tok podniku. <strong>Podstatou sledování cash flow je změna
+            stavu peněžních prostředků</strong> za sledované období. Na rozdíl od
+            zisku pracuje se skutečnými příjmy a výdaji, nikoli s výnosy a náklady.
+          </p>
+        </div>
+      </section>
+
+      <aside class="callout callout--info">
+        <span class="callout__ikona" aria-hidden="true">ℹ️</span>
+        <p class="callout__nadpis">K čemu se cash flow ve finančním řízení používá</p>
+        <div class="callout__telo">
+          <ul>
+            <li>k hodnocení finanční stability podniku (schopnost tvořit přebytky, splácet závazky a vyplácet podíly na zisku),</li>
+            <li>při krátkodobém plánování peněžních příjmů a výdajů,</li>
+            <li>při střednědobém a dlouhodobém sestavování finančních výhledů,</li>
+            <li>při hodnocení efektivnosti investičních variant,</li>
+            <li>při posouzení, zda podnik zvládne financovat investice vlastními zdroji,</li>
+            <li>při hodnocení výkonnosti a oceňování podniku.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <p>
+        Existují v podstatě jen <strong>dva základní způsoby</strong> zjišťování
+        cash flow: metoda přímá a metoda nepřímá.
+      </p>
+
+      <!-- DEFINICE: přímá metoda -->
+      <section class="definice" id="pojem-prima-metoda">
+        <h3 class="definice__pojem">Přímá metoda</h3>
+        <div class="definice__telo">
+          <p>
+            Cash flow se zjišťuje přímo jako rozdíl skutečných peněžních příjmů
+            a výdajů za období. Schematicky:
+          </p>
+          <div class="vzorec" id="vzorec-prima-metoda">
+            <div class="vzorec__telo">
+              <span class="math">Konečný stav PP<span class="op">=</span>Počáteční stav PP<span class="op">+</span>Příjmy<span class="op">−</span>Výdaje</span>
+            </div>
+          </div>
+          <p>Rozdíl příjmů a výdajů za období tvoří cash flow; „PP" značí peněžní prostředky.</p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: nepřímá metoda -->
+      <section class="definice" id="pojem-neprima-metoda">
+        <h3 class="definice__pojem">Nepřímá metoda</h3>
+        <div class="definice__telo">
+          <p>
+            Vychází z výsledku hospodaření zjištěného v podvojném účetnictví (tj.
+            z rozdílu výnosů a nákladů), který se <strong>transformuje na tok
+            peněz</strong> (na rozdíl příjmů a výdajů). Výsledek hospodaření se
+            proto upravuje podle čtyř pravidel v tabulce níže.
+          </p>
+        </div>
+      </section>
+
+      <!-- TABULKA: úpravy nepřímé metody -->
+      <div class="tabulka-obal">
+        <table class="tabulka">
+          <caption>Tab. 2.1 – Úpravy výsledku hospodaření na peněžní tok (nepřímá metoda)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Situace</th>
+              <th scope="col">Úprava výsledku hospodaření</th>
+              <th scope="col">Příklad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Náklad, který není výdajem</th>
+              <td><strong>+</strong> přičíst</td>
+              <td>odpisy, tvorba rezerv, výdaje příštích období</td>
+            </tr>
+            <tr>
+              <th scope="row">Výdaj, který není nákladem</th>
+              <td><strong>−</strong> odečíst</td>
+              <td>splátka úvěru, nákup materiálu, výplata dividend</td>
+            </tr>
+            <tr>
+              <th scope="row">Výnos, který není příjmem</th>
+              <td><strong>−</strong> odečíst</td>
+              <td>prodej na fakturu (vzniká pohledávka), příjmy příštích období</td>
+            </tr>
+            <tr>
+              <th scope="row">Příjem, který není výnosem</th>
+              <td><strong>+</strong> přičíst</td>
+              <td>půjčka od jiného subjektu, výnosy příštích období</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Logika je jednoduchá: co <em>snížilo zisk, ale neodčerpalo peníze</em>
+        (náklad bez výdaje), se zpět <strong>přičte</strong>; co <em>odčerpalo
+        peníze, ale nebylo nákladem</em> (výdaj bez nákladu), se <strong>odečte</strong>.
+        Symetricky se řeší výnosy a příjmy.
+      </p>
+
+      <h3>Celkové cash flow a jeho tři složky</h3>
+      <p>
+        Celkové cash flow podniku lze zjistit jako <strong>součet peněžních toků
+        z provozní, investiční a finanční činnosti</strong>. Jednotlivé položky
+        (s příslušným znaménkem) se svorkami přiřazují k jednomu ze tří druhů toku:
+      </p>
+
+      <!-- STATICKÉ SCHÉMA: tři druhy cash flow -->
+      <figure class="viz">
+        <figcaption>
+          <p class="viz__nadpis">Tři druhy cash flow tvoří celkový peněžní tok</p>
+          <p class="viz__popis">Peněžní toky z provozní, investiční a finanční činnosti se sčítají do celkového cash flow, které mění stav peněžních prostředků.</p>
+        </figcaption>
+        <div class="viz__platno">
+          <svg viewBox="0 0 760 360" role="img" aria-label="Schéma: provozní, investiční a finanční cash flow se sčítají do celkového cash flow" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto">
+            <!-- Provozní -->
+            <rect x="18" y="24" width="272" height="80" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"></rect>
+            <text x="34" y="52" fill="#3730a3" font-size="16" font-weight="700">CF z provozní činnosti</text>
+            <text x="34" y="74" fill="#475569" font-size="12">odpisy, rezervy, změny zásob,</text>
+            <text x="34" y="90" fill="#475569" font-size="12">pohledávek a krátkodobých závazků</text>
+            <!-- Investiční -->
+            <rect x="18" y="140" width="272" height="80" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"></rect>
+            <text x="34" y="168" fill="#3730a3" font-size="16" font-weight="700">CF z investiční činnosti</text>
+            <text x="34" y="190" fill="#475569" font-size="12">výdaje na pořízení a příjmy</text>
+            <text x="34" y="206" fill="#475569" font-size="12">z prodeje dlouhodobého majetku</text>
+            <!-- Finanční -->
+            <rect x="18" y="256" width="272" height="80" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"></rect>
+            <text x="34" y="284" fill="#3730a3" font-size="16" font-weight="700">CF z finanční činnosti</text>
+            <text x="34" y="306" fill="#475569" font-size="12">změny dlouhodobých závazků</text>
+            <text x="34" y="322" fill="#475569" font-size="12">a vlastního kapitálu</text>
+            <!-- Spojnice do součtu -->
+            <line x1="290" y1="64"  x2="486" y2="168" stroke="#94a3b8" stroke-width="2"></line>
+            <line x1="290" y1="180" x2="486" y2="184" stroke="#94a3b8" stroke-width="2"></line>
+            <line x1="290" y1="296" x2="486" y2="200" stroke="#94a3b8" stroke-width="2"></line>
+            <!-- Šipky (trojúhelníčky u cíle) -->
+            <polygon points="486,168 474,164 476,175" fill="#94a3b8"></polygon>
+            <polygon points="486,184 474,180 474,191" fill="#94a3b8"></polygon>
+            <polygon points="486,200 474,193 476,204" fill="#94a3b8"></polygon>
+            <!-- Součet -->
+            <rect x="488" y="140" width="254" height="80" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"></rect>
+            <text x="615" y="176" fill="#14532d" font-size="17" font-weight="700" text-anchor="middle">Cash flow celkem</text>
+            <text x="615" y="200" fill="#166534" font-size="12" text-anchor="middle">= změna stavu peněžních prostředků</text>
+          </svg>
+        </div>
+      </figure>
+
+      <!-- DEFINICE: provozní cash flow -->
+      <section class="definice" id="pojem-provozni-cash-flow">
+        <h3 class="definice__pojem">Provozní cash flow</h3>
+        <div class="definice__telo">
+          <p>
+            Oblíbený ukazatel výkonnosti na bázi hotovostních toků. Sleduje
+            <strong>peníze produkované a spotřebovávané provozní činností</strong>
+            podniku – tedy jeho hlavní, opakující se činností.
+          </p>
+        </div>
+      </section>
+
+      <!-- DEFINICE: volné cash flow -->
+      <section class="definice" id="pojem-volne-cash-flow">
+        <h3 class="definice__pojem">Volné cash flow – FCF (Free Cash Flow)</h3>
+        <div class="definice__telo">
+          <p>
+            Ukazatel využitelný ve finančních analýzách i jako vstup pro některé
+            postupy <a class="pojem" href="t11-l4-oceneni-vynosove.html?zvyraznit=pojem-ocenovani-podniku" target="_blank" rel="noopener">oceňování podniku</a>. Odpovídá na otázku, jak velké peněžní toky
+            (kladné či záporné) vytváří podnik za období svou <strong>provozní
+            a investiční činností</strong>. Jde o volnou hotovost, která je
+            k dispozici těm, kdo podniku poskytli kapitál – <strong>vlastníkům
+            i věřitelům</strong>.
+          </p>
+        </div>
+      </section>
+
+      <div class="vzorec" id="vzorec-fcf">
+        <div class="vzorec__telo">
+          <span class="math">Volné CF<span class="op">=</span>Provozní CF<span class="op">−</span>Investice do dlouhodobého majetku</span>
+        </div>
+      </div>
+      <p>
+        Odečítají se přitom investice do pořízení <em>provozně nutného</em>
+        dlouhodobého majetku.
+      </p>
+
+      <aside class="callout callout--pozor">
+        <span class="callout__ikona" aria-hidden="true">⚠️</span>
+        <p class="callout__nadpis">Volné cash flow může být při měření výkonnosti zavádějící</p>
+        <div class="callout__telo">
+          <p>Nízké (nebo záporné) volné cash flow nemusí být špatnou zprávou –
+          může být způsobeno <strong>vysokými investicemi, které teprve zakládají
+          možnost budoucího růstu</strong>. Samotná výše FCF proto o výkonnosti
+          mnoho neřekne, dokud nevíme, kam peníze mířily.</p>
+        </div>
+      </aside>
+
+      <section class="zkus-sam">
+        <div class="zkus-sam__zadani">
+          <p class="zkus-sam__stitek">Zkus sám 💡</p>
+          <p>Podnik vykázal za rok slušný účetní zisk, přesto nemá dost peněz na
+          úhradu splatných závazků. Jak je to možné?</p>
+        </div>
+        <details>
+          <summary>Zobrazit řešení</summary>
+          <div class="zkus-sam__odpoved">
+            <p>Zisk vzniká z <strong>výnosů a nákladů</strong>, kdežto platební
+            schopnost závisí na <strong>příjmech a výdajích</strong>. Mezi oběma
+            je obsahový nesoulad: podnik může mít vysoké výnosy z prodeje na
+            fakturu (výnos, který zatím <em>není příjmem</em> – vznikla jen
+            pohledávka) a zároveň vydávat peníze na splátky úvěrů či nákup zásob
+            (výdaje, které <em>nejsou nákladem</em>). Zisk je pak kladný, ale
+            stav peněžních prostředků klesá. Právě proto se vedle zisku sleduje
+            i cash flow.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ================= ZÁVĚREČNÉ OTÁZKY ================= -->
+      <section class="otazky">
+        <h2 class="otazky__nadpis">Otázky k procvičení</h2>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">1</span>Kterou kategorii zisku upřednostníte pro srovnání provozní výkonnosti divizí a proč?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Divize obvykle neovlivňuje výběr zdrojů financování ani daně.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>EBIT</strong> – měří pouze provozní výkonnost, nezávisí na způsobu financování (úrocích) ani na daních, které divize stejně nemůže ovlivnit. Soustřeďuje pozornost na růst tržeb a řízení nákladů.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">2</span>Proč se pro srovnávání podniků z různých zemí často používá EBT, a proč EBITDA při srovnávání napříč různou odpisovou politikou?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Zamyslete se, které rušivé vlivy každý z ukazatelů „vypíná".</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>EBT</strong> zahrnuje daň z příjmu, a proto umožňuje abstrahovat od různé míry zdanění v jednotlivých zemích. <strong>EBITDA</strong> je navíc očištěná o odpisy, takže srovnává výkonnost nezávisle na politice odpisování (a nepřímo i na výši dřívějších investic).</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">3</span>V čem se liší přímá a nepřímá metoda zjišťování cash flow?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Z čeho každá metoda vychází – z peněžních toků, nebo z výsledku hospodaření?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p><strong>Přímá metoda</strong> počítá cash flow přímo jako rozdíl skutečných příjmů a výdajů za období (počáteční stav + příjmy − výdaje = konečný stav). <strong>Nepřímá metoda</strong> vychází z výsledku hospodaření (rozdílu výnosů a nákladů) a transformuje jej na peněžní tok pomocí úprav – přičítá náklady bez výdaje, odečítá výdaje bez nákladu atd.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">4</span>Ze kterých tří toků se skládá celkové cash flow podniku?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Podle druhu činnosti, ke které peněžní toky patří.</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>Z cash flow z <strong>provozní</strong>, <strong>investiční</strong> a <strong>finanční</strong> činnosti. Jejich součet dává celkové cash flow, tedy změnu stavu peněžních prostředků.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="otazka">
+          <p class="otazka__text"><span class="otazka__cislo">5</span>Jak se vypočte volné cash flow (FCF) a proč jeho nízká hodnota nemusí znamenat špatnou výkonnost?</p>
+          <div class="otazka__nastroje">
+            <details class="rozbal rozbal--napoveda">
+              <summary>Nápověda</summary>
+              <div class="rozbal__telo"><p>Od kterého toku se odečítají investice a co takové investice do budoucna zakládají?</p></div>
+            </details>
+            <details class="rozbal rozbal--odpoved">
+              <summary>Správná odpověď</summary>
+              <div class="rozbal__telo"><p>FCF = <strong>provozní cash flow − investice do (provozně nutného) dlouhodobého majetku</strong>. Nízké nebo záporné FCF může být způsobeno vysokými investicemi, které zakládají možnost budoucího růstu – proto samotná výše FCF o výkonnosti nevypovídá bez znalosti účelu investic.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PREV / NEXT NAVIGACE ================= -->
+      <nav class="lekce-navigace" aria-label="Navigace mezi lekcemi">
+        <a class="lekce-navigace__odkaz" href="t1-l2-valka-ukazatelu.html">
+          <span class="lekce-navigace__smer">← Předchozí lekce</span>
+          <span class="lekce-navigace__nazev">1.2 Válka ukazatelů – klasické versus moderní přístupy</span>
+        </a>
+        <a class="lekce-navigace__odkaz lekce-navigace__odkaz--dalsi" href="t2-l2-rentabilita-kritika.html">
+          <span class="lekce-navigace__smer">Další lekce →</span>
+          <span class="lekce-navigace__nazev">2.2 Ukazatele rentability a kritika klasických ukazatelů</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="paticka">
+    <div class="paticka__vnitrek">
+      <span>Výkonnost podniku z pohledu finančního manažera · interaktivní skripta</span>
+      <span>Podle Pavelková, Knápková</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/skripta.js"></script>
+  <script src="../assets/js/viz.js"></script>
+  <script>
+    // ---- Inicializace vizualizací TÉTO lekce ----
+    (function () {
+      // KROKOVÁ VIZUALIZACE: postupná stavba zisku EAT → EBT → EBIT → EBITDA.
+      // Segmenty se stohují nad sebe a rostou; výšky jsou schematické.
+      var eatH = 100, daneH = 48, urokyH = 34, odpisyH = 78; // schematické „px" výšky
+      var barX = 210, barW = 150, base = 340;
+      var nazvy = ['EAT', 'EBT', 'EBIT', 'EBITDA'];
+
+      Skripta.stepper('viz-zisk-vodopad', {
+        sirka: 720, vyska: 400,
+        stavy: [
+          { dane: false, uroky: false, odpisy: false },
+          { dane: true,  uroky: false, odpisy: false },
+          { dane: true,  uroky: true,  odpisy: false },
+          { dane: true,  uroky: true,  odpisy: true  }
+        ],
+        popisky: [
+          'Vycházíme z čistého zisku EAT – zisku po zdanění, který připadá vlastníkům.',
+          'Přičteme daň z příjmu (za běžnou i mimořádnou činnost) → zisk před zdaněním EBT.',
+          'Přičteme nákladové úroky → zisk před úroky a zdaněním EBIT (provozní výkonnost nezávislá na financování a daních).',
+          'Přičteme odpisy → EBITDA, vhodná pro srovnání nezávisle na odpisové politice.'
+        ],
+        render: function (svg, stav, i, u) {
+          // Aktuální výšky segmentů (0, pokud ještě nejsou odhalené)
+          var dh  = stav.dane   ? daneH   : 0;
+          var uh  = stav.uroky  ? urokyH  : 0;
+          var oh  = stav.odpisy ? odpisyH : 0;
+
+          // Svislé pozice (spodky) jednotlivých segmentů
+          var eatTop   = base - eatH;
+          var daneTop  = eatTop - dh;
+          var urokyTop = daneTop - uh;
+          var odpTop   = urokyTop - oh;
+
+          // Základna (osa)
+          u.dej(svg, 'osa', 'line', { x1: 60, y1: base, x2: 700, y2: base, stroke: u.barvaOsa, 'stroke-width': 1.5 });
+
+          // Segment EAT (vždy)
+          u.dej(svg, 'seg-eat', 'rect', { x: barX, y: eatTop, width: barW, height: eatH, rx: 5, fill: '#4338ca' });
+          // Segment daně
+          u.dej(svg, 'seg-dane', 'rect', { x: barX, y: daneTop, width: barW, height: dh, rx: dh ? 5 : 0, fill: '#5b52c9', opacity: stav.dane ? 1 : 0 });
+          // Segment úroky
+          u.dej(svg, 'seg-uroky', 'rect', { x: barX, y: urokyTop, width: barW, height: uh, rx: uh ? 5 : 0, fill: '#7c73d6', opacity: stav.uroky ? 1 : 0 });
+          // Segment odpisy
+          u.dej(svg, 'seg-odpisy', 'rect', { x: barX, y: odpTop, width: barW, height: oh, rx: oh ? 5 : 0, fill: '#a99ee6', opacity: stav.odpisy ? 1 : 0 });
+
+          // Popisky segmentů vpravo + spojnice
+          var lblX = 386, lineX0 = barX + barW, lineX1 = 378;
+          function popisek(id, cy, text, vidno) {
+            u.dej(svg, 'line-' + id, 'line', { x1: lineX0, y1: cy, x2: lineX1, y2: cy, stroke: u.barvaMrizka, 'stroke-width': 1.2, opacity: vidno ? 1 : 0 });
+            u.dej(svg, 'txt-' + id, 'text', { x: lblX, y: cy + 4, fill: u.barvaText, 'font-size': 14, opacity: vidno ? 1 : 0 }, text);
+          }
+          popisek('eat', base - eatH / 2, 'Čistý zisk (EAT)', true);
+          popisek('dane', base - eatH - dh / 2, '+ daň z příjmu', stav.dane);
+          popisek('uroky', daneTop - uh / 2, '+ nákladové úroky', stav.uroky);
+          popisek('odpisy', urokyTop - oh / 2, '+ odpisy', stav.odpisy);
+
+          // Aktuální vrchol stohu a název výsledné kategorie
+          var top = odpTop;
+          u.dej(svg, 'kat-nazev', 'text', {
+            x: barX + barW / 2, y: top - 16, 'text-anchor': 'middle',
+            fill: '#4338ca', 'font-size': 20, 'font-weight': 700
+          }, nazvy[i]);
+          // Popisek pod osou
+          u.dej(svg, 'lbl-osa', 'text', { x: barX + barW / 2, y: base + 26, 'text-anchor': 'middle', fill: u.barvaText, 'font-size': 13 }, 'kategorie zisku');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
